@@ -1,0 +1,25 @@
+{
+  "id": "smawfield2026jwst",
+  "type": "article",
+  "title": "Temporal Shear: Reconciling JWST's Impossible Galaxies",
+  "author": [
+    {
+      "family": "Smawfield",
+      "given": "Matthew Lukin"
+    }
+  ],
+  "issued": {
+    "date-parts": [[2026, 1, 19]]
+  },
+  "doi": "10.5281/zenodo.18204192",
+  "URL": "https://matthewsmawfield.github.io/TEP-JWST/",
+  "publisher": "Zenodo",
+  "keywords": [
+    "JWST",
+    "High-Redshift",
+    "Cosmology",
+    "Scalar-Tensor Gravity",
+    "Chameleon Screening"
+  ],
+  "note": "Preprint, Version 0.1 (Kos)"
+}

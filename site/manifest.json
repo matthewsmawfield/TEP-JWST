@@ -1,0 +1,59 @@
+{
+  "title": "Temporal Shear: Reconciling JWST's Impossible Galaxies",
+  "sections": [
+    {
+      "id": "section-abstract",
+      "title": "Abstract",
+      "file": "1_abstract.html",
+      "order": 1
+    },
+    {
+      "id": "section-intro",
+      "title": "1. Introduction",
+      "file": "2_introduction.html",
+      "order": 2
+    },
+    {
+      "id": "section-methodology",
+      "title": "2. Methodology",
+      "file": "3_methodology.html",
+      "order": 3
+    },
+    {
+      "id": "section-results",
+      "title": "3. Results",
+      "file": "4_results.html",
+      "order": 4
+    },
+    {
+      "id": "section-discussion",
+      "title": "4. Discussion",
+      "file": "5_discussion.html",
+      "order": 5
+    },
+    {
+      "id": "section-conclusion",
+      "title": "5. Conclusion",
+      "file": "6_conclusion.html",
+      "order": 6
+    },
+    {
+      "id": "section-references",
+      "title": "References",
+      "file": "7_references.html",
+      "order": 7
+    },
+    {
+      "id": "section-appendix",
+      "title": "Appendix A",
+      "file": "8_appendix.html",
+      "order": 8
+    },
+    {
+      "id": "section-supplementary",
+      "title": "Supplementary Material",
+      "file": "9_supplementary.html",
+      "order": 9
+    }
+  ]
+}

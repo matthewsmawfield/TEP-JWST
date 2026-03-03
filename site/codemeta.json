@@ -1,0 +1,31 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "ScholarlyArticle",
+  "identifier": "https://doi.org/10.5281/zenodo.18204192",
+  "name": "Temporal Shear: Reconciling JWST's Impossible Galaxies",
+  "description": "Resolving the JWST 'Impossible Galaxy' paradox by abandoning the assumption of a global cosmological clock. Demonstrates that high-redshift galaxies formed in deep potentials experienced accelerated proper time evolution.",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Matthew Lukin",
+      "familyName": "Smawfield",
+      "@id": "https://orcid.org/0009-0003-8219-3159"
+    }
+  ],
+  "datePublished": "2026-01-19",
+  "dateModified": "2026-01-19",
+  "version": "0.1",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "codeRepository": "https://github.com/matthewsmawfield/TEP-JWST",
+  "url": "https://matthewsmawfield.github.io/TEP-JWST/",
+  "keywords": [
+    "JWST",
+    "High-Redshift Galaxies",
+    "TEP",
+    "Structure Formation",
+    "Temporal Shear",
+    "Cosmology",
+    "Scalar-Tensor Gravity",
+    "Chameleon Screening"
+  ]
+}
