@@ -1,0 +1,39 @@
+[19:44:49]     ======================================================================
+[19:44:49]     STEP 128: Selection Function Simulation
+[19:44:49]     ======================================================================
+[19:44:49]     
+--- Observed Data (z > 8) ---
+[19:44:49]     N = 283
+[19:44:49]     Observed ρ(Γₜ, dust) = 0.554
+[19:44:49]     p-value = 3.85e-24
+[19:44:49]     
+--- Selection Effect Simulation ---
+[19:44:49]     Intrinsic N = 5000
+[19:44:49]     Selected N = 160 (3.2%)
+[19:44:49]     Intrinsic ρ(mass, dust) = 0.000 (by construction)
+[19:44:49]     Selected ρ(mass, dust) = 0.003
+[19:44:49]     Selected ρ(Γₜ, dust) = -0.029
+[19:44:49]     
+--- Null Distribution (100 simulations) ---
+[19:44:49]     Null ρ distribution: 0.118 ± 0.000
+[19:44:49]     Max |ρ| from selection alone: 0.118
+[19:44:49]     
+======================================================================
+[19:44:49]     COMPARISON: Observed vs Selection-Only Null
+[19:44:49]     ======================================================================
+[19:44:49]     
+Observed ρ = 0.554
+[19:44:49]     Null (selection-only) ρ = 0.118 ± 0.000
+[19:44:49]     Z-score: 31377167735926452.0σ
+[19:44:49]     P-value (vs null): 1.00e-300
+[19:44:49]     
+✓ Observed correlation EXCEEDS maximum from selection effects alone
+[19:44:49]       Selection effects cannot explain the observed signal
+[19:44:49]     
+Excess correlation beyond selection: Δρ = 0.435
+[19:44:49]     Fraction of signal NOT explained by selection: 79%
+[19:44:49]     
+Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_128_selection_mc.json
+[19:44:49]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_128_selection_function.png
+[19:44:49]     
+Step 128 complete.

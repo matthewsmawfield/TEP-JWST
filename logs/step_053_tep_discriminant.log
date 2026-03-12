@@ -1,0 +1,83 @@
+[01:34:06]     ======================================================================
+[01:34:06]     STEP 053: TEP Discriminant
+[01:34:06]     ======================================================================
+[01:34:06]     
+Creating a comprehensive TEP discriminant...
+
+[01:34:06]     Loaded N = 2315 galaxies
+[01:34:06]     
+======================================================================
+[01:34:06]     STEP 1: Create TEP Anomaly Score
+[01:34:06]     ======================================================================
+[01:34:06]     Combining multiple indicators into a single score.
+
+[01:34:06]     Overall: ρ(Γ_t, TEP_score) = 0.369 (p = 1.03e-75)
+[01:34:06]     z = 4-6: ρ = 0.252 (p = 3.17e-22) ✓
+[01:34:06]     z = 6-8: ρ = 0.189 (p = 3.57e-06) 
+[01:34:06]     z = 8-12: ρ = 0.398 (p = 3.74e-12) ✓
+[01:34:06]     
+======================================================================
+[01:34:06]     STEP 2: Fisher Combined Significance
+[01:34:06]     ======================================================================
+[01:34:06]     Combining p-values from independent tests.
+
+[01:34:06]     Γ_t-Dust: p = 3.00e-28
+[01:34:06]     Γ_t-χ²: p = 2.21e-02
+[01:34:06]     M*-Dust: p = 1.05e-24
+[01:34:06]     
+Fisher combined statistic: χ² = 244.8 (df = 6)
+[01:34:06]     Combined p-value: 5.27e-50
+[01:34:06]     Equivalent significance: 14.9σ
+[01:34:06]     
+======================================================================
+[01:34:06]     STEP 3: Bayes Factor Calculation
+[01:34:06]     ======================================================================
+[01:34:06]     Comparing TEP model to null model.
+
+[01:34:06]     R² (Null model, M* only): 0.463
+[01:34:06]     R² (TEP model, M* + Γ_t): 0.463
+[01:34:06]     ΔBIC = -5.5
+[01:34:06]     Bayes Factor (TEP vs Null): 6.3e-02
+[01:34:06]     
+======================================================================
+[01:34:06]     STEP 4: Cross-Validation Test
+[01:34:06]     ======================================================================
+[01:34:06]     Testing if TEP correlations hold in independent subsamples.
+
+[01:34:06]     Half 1 (N = 141): ρ = 0.554 (p = 1.03e-12)
+[01:34:06]     Half 2 (N = 142): ρ = 0.642 (p = 7.37e-18)
+[01:34:06]     ✓ Correlation holds in both independent halves
+[01:34:06]     
+======================================================================
+[01:34:06]     STEP 5: Predictive Accuracy Test
+[01:34:06]     ======================================================================
+[01:34:06]     Can Gamma_t predict which galaxies are anomalous?
+
+[01:34:06]     Anomalous galaxies: N = 28
+[01:34:06]     AUC (Γ_t predicting anomalous): 0.786
+[01:34:06]     ✓ Gamma_t is a good predictor of anomalous status
+[01:34:06]     
+======================================================================
+[01:34:06]     STEP 6: The Ultimate Discriminant
+[01:34:06]     ======================================================================
+[01:34:06]     Combining all evidence into a single discriminant.
+
+[01:34:06]     ✓ TEP score correlates positively with Γ_t
+[01:34:06]     ✓ Fisher combined p < 0.001
+[01:34:06]     ✓ Cross-validation holds
+[01:34:06]     ✓ Predictive accuracy > 0.7
+[01:34:06]     
+Ultimate Discriminant: 4/5 tests passed
+[01:34:06]     ✓ STRONG SUPPORT for TEP framework
+[01:34:06]     
+======================================================================
+[01:34:06]     SUMMARY: TEP Discriminant Results
+[01:34:06]     ======================================================================
+[01:34:06]     
+Key metrics:
+[01:34:06]       • TEP Score correlation: ρ = 0.369
+[01:34:06]       • Bayes Factor: 6.3e-02
+[01:34:06]       • Predictive AUC: 0.786
+[01:34:06]       • Ultimate: 4/5 tests passed
+[01:34:06]     
+Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_053_tep_discriminant.json

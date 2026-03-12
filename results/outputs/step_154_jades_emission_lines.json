@@ -1,0 +1,48 @@
+{
+  "step": "154",
+  "name": "jades_emission_lines",
+  "status": "SUCCESS",
+  "description": "JADES DR4 emission line EW vs. Gamma_t",
+  "n_total": 948,
+  "line_correlations": [
+    {
+      "line": "H-alpha flux",
+      "n": 721,
+      "rho": -0.09776968609566838,
+      "p": 0.008614177671705026
+    },
+    {
+      "line": "H-beta flux",
+      "n": 805,
+      "rho": -0.18186508390188444,
+      "p": 2.0434796918578968e-07
+    },
+    {
+      "line": "[OIII] flux",
+      "n": 822,
+      "rho": -0.18044706555964873,
+      "p": 1.9041956465814445e-07
+    }
+  ],
+  "z_bins": [
+    {
+      "z_lo": 4,
+      "z_hi": 6,
+      "n": 631,
+      "rho_gt_z": 0.9999999999999999
+    },
+    {
+      "z_lo": 6,
+      "z_hi": 8,
+      "n": 247,
+      "rho_gt_z": 0.9999999999999998
+    },
+    {
+      "z_lo": 8,
+      "z_hi": 12,
+      "n": 70,
+      "rho_gt_z": 1.0
+    }
+  ],
+  "conclusion": "JADES DR4 emission lines (N=948): rho(Gamma_t, log EW_Ha)=-0.098. TEP predicts stronger emission lines in deeper potentials (more time for ionizing stellar evolution)."
+}

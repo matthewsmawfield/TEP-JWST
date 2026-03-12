@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): 5.2s.
 """
 Step 085: Time-Lens Map (Effective Redshift) Analysis
 
@@ -11,7 +12,7 @@ cosmic time / observed redshift across UNCOVER, CEERS, and COSMOS-Web.
 
 Outputs:
 - results/outputs/step_085_time_lens_map.json
-- results/figures/figure_109_time_lens_map.png (if matplotlib is available)
+- results/figures/figure_085_time_lens_map.png (if matplotlib is available)
 """
 
 import json
@@ -33,7 +34,7 @@ from scripts.utils.tep_model import compute_gamma_t as tep_gamma, stellar_to_hal
 from scripts.utils.p_value_utils import format_p_value, safe_json_default
 
 
-STEP_NUM = "109"
+STEP_NUM = "085"
 STEP_NAME = "time_lens_map"
 
 LOGS_PATH = PROJECT_ROOT / "logs"
@@ -477,7 +478,7 @@ def main():
             'all_dust': summarize_subset(df_all, age_to_z, z_min=8.0, dust_positive_only=False),
         }
 
-        fig_path = FIGURES_PATH / 'figure_109_time_lens_map.png'
+        fig_path = FIGURES_PATH / 'figure_085_time_lens_map.png'
         wrote_fig = make_figure(df_all, fig_path)
         results['figure'] = {
             'path': str(fig_path),

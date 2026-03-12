@@ -1,0 +1,17 @@
+[01:35:20]     STEP 102: Literature anomaly resolution table
+[01:35:20]   Total JWST anomalies: 11
+[01:35:20]   Resolved by TEP: 11/11 (100%)
+[01:35:20]   Mean resolution fraction: 0.91
+[01:35:20]     [RESOLVED] Anomalous Galaxies (Labbe+2023)
+[01:35:20]     [RESOLVED] Dust Anomaly at z>4 (UNCOVER)
+[01:35:20]     [RESOLVED] sSFR Inversion at z>7 (UNCOVER)
+[01:35:20]     [RESOLVED] Red Monster / Dust Saturation Crisis
+[01:35:20]     [RESOLVED] Little Red Dots (Matthee+2024)
+[01:35:20]     [RESOLVED] Blue Core / Positive Color Gradient (Jin+2025)
+[01:35:20]     [RESOLVED] M* > M_dyn Crisis (de Graaff+2024)
+[01:35:20]     [RESOLVED] Environmental Reversal (EPOCHS+2025)
+[01:35:20]     [RESOLVED] Metallicity Gradient Flip (Ju+2025)
+[01:35:20]     [RESOLVED] Rapid Quenching at z~4 (multiple)
+[01:35:20]     [RESOLVED] Spin Asymmetry (Shamir+2025)
+[01:35:20] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_102_literature_anomaly_resolution.json
+[01:35:20]     Step 102 complete. 11/11 anomalies resolved.

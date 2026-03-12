@@ -1,0 +1,42 @@
+[21:42:44]     ======================================================================
+[21:42:44]     STEP 041: Forward-Modeling SED Validation
+[21:42:44]     ======================================================================
+[21:42:44]     Loaded N = 2315 galaxies
+[21:42:44]     
+--- Test 1: M/L Power-Law Index ---
+[21:42:44]     Testing M/L ~ t^n for n = 0.5, 0.6, 0.7, 0.8, 0.9
+[21:42:44]       Best M/L power: 0.5
+[21:42:44]       (Minimizes mass-age correlation after TEP correction)
+[21:42:44]         n=0.5: rho=0.002
+[21:42:44]         n=0.6: rho=-0.028
+[21:42:44]         n=0.7: rho=-0.060
+[21:42:44]         n=0.8: rho=-0.092
+[21:42:44]         n=0.9: rho=-0.125
+[21:42:44]     
+--- Test 2: alternative models ---
+[21:42:44]       Testing if dust/metallicity explain mass-age correlation:
+[21:42:44]         burstiness_mass: data not available
+[21:42:44]         age_mass_controlling_met: rho=0.129 ***
+[21:42:44]         age_mass_controlling_dust: rho=0.165 ***
+[21:42:44]         age_mass_controlling_all: rho=0.168 ***
+[21:42:44]       -> Mass-age correlation PERSISTS after controlling for dust+metallicity
+[21:42:44]       -> Supports TEP interpretation (not explained by standard astrophysics)
+[21:42:44]     
+--- Test 3: Forward-Model Chi2 Comparison ---
+[21:42:44] ⚠     Insufficient data for forward modeling test
+[21:42:44]     
+--- Test 4: Redshift-Dependent M/L Test ---
+[21:42:44]       Testing if M/L power varies with redshift (TEP prediction)
+[21:42:44]         z=4-6 (N=1439): best n=0.9
+[21:42:44]         z=6-8 (N=593): best n=0.5
+[21:42:44]         z=8-10 (N=283): best n=0.5
+[21:42:44]     
+======================================================================
+[21:42:44]     FORWARD MODELING SUMMARY
+[21:42:44]     ======================================================================
+[21:42:44]       Best M/L power: 0.5
+[21:42:44]       Standard assumption (n=0.7) validated: False
+[21:42:44]       alternative models rejected: True
+[21:42:44]       TEP preferred by forward modeling: None
+[21:42:44]     
+Saved results to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_041_forward_modeling.json

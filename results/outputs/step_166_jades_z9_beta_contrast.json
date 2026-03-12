@@ -1,0 +1,98 @@
+{
+  "step": "166",
+  "name": "jades_z9_beta_contrast",
+  "status": "SUCCESS",
+  "description": "JADES photometric z=9-12 UV-slope companion analysis split by predicted Gamma_t",
+  "input_catalog": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/JADES_z_gt_8_Candidates_Hainline_et_al.fits",
+  "selection": {
+    "base_highz_count": 527,
+    "n_with_beta": 90,
+    "z_window": [
+      9.0,
+      12.0
+    ],
+    "beta_err_max": 2.5,
+    "MUV_window": [
+      -22.0,
+      -16.0
+    ],
+    "n_final": 28,
+    "median_z": 9.46
+  },
+  "raw_correlation": {
+    "rho_gamma_t_vs_beta": 0.25889436234263824,
+    "p": 0.18342097585586292
+  },
+  "contrasts": {
+    "q33_q67": {
+      "gamma_t_quantiles": [
+        0.3333333333333333,
+        0.6666666666666666
+      ],
+      "gamma_t_threshold_low": 276.3179995634058,
+      "gamma_t_threshold_high": 618.45196390245,
+      "n_low": 10,
+      "n_high": 10,
+      "median_gamma_t_low": 201.1161119652203,
+      "median_gamma_t_high": 799.555298815461,
+      "median_beta_low": -2.272116598750064,
+      "median_beta_high": -1.9606160157799586,
+      "weighted_beta_low": -2.3477659985326684,
+      "weighted_beta_high": -1.5696127827393238,
+      "delta_weighted_beta_high_minus_low": 0.7781532157933446,
+      "bootstrap_ci_95": [
+        -0.3307191191566516,
+        2.632146815106989
+      ],
+      "bootstrap_supportive_p_one_sided": 0.1279680079980005,
+      "mean_MUV_high_minus_low": -0.6663148283795408
+    },
+    "q25_q75": {
+      "gamma_t_quantiles": [
+        0.25,
+        0.75
+      ],
+      "gamma_t_threshold_low": 253.8889022885391,
+      "gamma_t_threshold_high": 682.0234507563068,
+      "n_low": 7,
+      "n_high": 7,
+      "median_gamma_t_low": 161.10233005495655,
+      "median_gamma_t_high": 1268.2317070349688,
+      "median_beta_low": -2.313918531870911,
+      "median_beta_high": -1.92850595659879,
+      "weighted_beta_low": -2.3938516401728034,
+      "weighted_beta_high": -1.453135735363793,
+      "delta_weighted_beta_high_minus_low": 0.9407159048090104,
+      "bootstrap_ci_95": [
+        -0.3840608663151717,
+        3.298987791294346
+      ],
+      "bootstrap_supportive_p_one_sided": 0.1277180704823794,
+      "mean_MUV_high_minus_low": -1.0568651365419157
+    }
+  },
+  "primary_contrast": {
+    "gamma_t_quantiles": [
+      0.25,
+      0.75
+    ],
+    "gamma_t_threshold_low": 253.8889022885391,
+    "gamma_t_threshold_high": 682.0234507563068,
+    "n_low": 7,
+    "n_high": 7,
+    "median_gamma_t_low": 161.10233005495655,
+    "median_gamma_t_high": 1268.2317070349688,
+    "median_beta_low": -2.313918531870911,
+    "median_beta_high": -1.92850595659879,
+    "weighted_beta_low": -2.3938516401728034,
+    "weighted_beta_high": -1.453135735363793,
+    "delta_weighted_beta_high_minus_low": 0.9407159048090104,
+    "bootstrap_ci_95": [
+      -0.3840608663151717,
+      3.298987791294346
+    ],
+    "bootstrap_supportive_p_one_sided": 0.1277180704823794,
+    "mean_MUV_high_minus_low": -1.0568651365419157
+  },
+  "assessment": "The JADES z=9-12 beta sample is directionally supportive but remains a lower-power photometric companion rather than a decisive standalone test."
+}

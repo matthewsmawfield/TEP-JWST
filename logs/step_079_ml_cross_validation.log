@@ -1,0 +1,34 @@
+[01:34:38]     ======================================================================
+[01:34:38]     STEP 079: M/L Scaling Cross-Validation
+[01:34:38]     ======================================================================
+[01:34:38]     Loaded N = 2315 galaxies
+[01:34:38]     z > 8 sample: N = 283
+[01:34:38]     
+--- 1. K-Fold Cross-Validation (k=5) ---
+[01:34:38]       Optimal n across folds: 0.31 ± 0.01
+[01:34:38]       Test ρ across folds: 0.570 ± 0.093
+[01:34:38]     
+--- 2. Redshift-Blind Validation ---
+[01:34:38]       n calibrated at z<6: 1.00
+[01:34:38]       n optimal at z>6: 0.99
+[01:34:38]       ρ at z>6 with low-z n: 0.218
+[01:34:38]       Generalization success: False
+[01:34:38]     
+--- 3. Sensitivity Analysis ---
+[01:34:38]       Significant across n values: 100%
+[01:34:38]       ρ range: [0.216, 0.583]
+[01:34:38]       Robust to n choice: True
+[01:34:38]     
+--- 4. Theoretical Consistency ---
+[01:34:38]       Optimal n (data): 0.32
+[01:34:38]       Consistent with low-Z SSP (n~0.5): True
+[01:34:38]     
+======================================================================
+[01:34:38]     M/L CROSS-VALIDATION SUMMARY
+[01:34:38]     ======================================================================
+[01:34:38]       K-fold stable: True
+[01:34:38]       Robust to n choice: True
+[01:34:38]       Theoretically consistent: True
+[01:34:38]       ALL TESTS PASS: True
+[01:34:38]     
+Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_079_ml_cross_validation.json

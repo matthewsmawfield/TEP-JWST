@@ -1,0 +1,208 @@
+{
+  "individual_tests": [
+    {
+      "name": "z8_dust_uncover",
+      "description": "z>8 Dust-\u0393t correlation (UNCOVER)",
+      "rho": 0.5594522703471411,
+      "p": 1.046457458256734e-24,
+      "n": 283,
+      "available": true,
+      "independent": true,
+      "include_in_combination": true,
+      "survey": "UNCOVER"
+    },
+    {
+      "name": "z8_dust_ceers",
+      "description": "z>8 Dust-\u0393t correlation (CEERS)",
+      "rho": 0.6599296916663946,
+      "p": 1.546171143428649e-11,
+      "n": 82,
+      "available": true,
+      "independent": true,
+      "include_in_combination": true,
+      "survey": "CEERS"
+    },
+    {
+      "name": "z8_dust_cosmosweb",
+      "description": "z>8 Dust-\u0393t correlation (COSMOS-Web)",
+      "rho": 0.6287929331621774,
+      "p": 3.4709864032499107e-102,
+      "n": 918,
+      "available": true,
+      "independent": true,
+      "include_in_combination": true,
+      "survey": "COSMOS-Web"
+    },
+    {
+      "name": "core_screening",
+      "description": "Resolved core screening gradient",
+      "rho": -0.16561160112876575,
+      "p": 0.005727857723798489,
+      "n": 277,
+      "available": true,
+      "independent": true,
+      "include_in_combination": true,
+      "survey": "JADES"
+    },
+    {
+      "name": "z7_inversion",
+      "description": "z>7 mass-sSFR inversion",
+      "rho": 0.0865815948252025,
+      "p": 0.05206755140695994,
+      "n": 504,
+      "available": true,
+      "independent": false,
+      "include_in_combination": true,
+      "survey": "UNCOVER"
+    },
+    {
+      "name": "spectroscopic",
+      "description": "Spectroscopic bin-normalized correlation",
+      "rho": null,
+      "p": null,
+      "n": null,
+      "available": false,
+      "independent": true,
+      "include_in_combination": true,
+      "survey": "UNCOVER+JADES"
+    },
+    {
+      "name": "red_monsters",
+      "description": "Red Monsters SFE resolution",
+      "effect": null,
+      "p": null,
+      "n": null,
+      "available": false,
+      "independent": false,
+      "include_in_combination": false,
+      "survey": "FRESCO",
+      "note": "Excluded from combined p-value: N=3 underpowered (Step 134)"
+    }
+  ],
+  "fisher": {
+    "tests_used": [
+      "z8_dust_uncover",
+      "z8_dust_ceers",
+      "z8_dust_cosmosweb",
+      "core_screening",
+      "z7_inversion"
+    ],
+    "combined_p": 7.582069451841222e-132,
+    "chi2_stat": 643.6923073827754,
+    "df": 10,
+    "note": "Assumes independence - likely overestimates significance"
+  },
+  "brown": {
+    "tests_used": [
+      "z8_dust_uncover",
+      "z8_dust_ceers",
+      "z8_dust_cosmosweb",
+      "core_screening",
+      "z7_inversion"
+    ],
+    "combined_p": 2.6195404703742306e-91,
+    "chi2_stat": 643.6923073827754,
+    "df_adjusted": 6.85283536063046,
+    "correlation_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.55
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.25
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.25
+      ],
+      [
+        0.55,
+        0.25,
+        0.25,
+        0.25,
+        1.0
+      ]
+    ],
+    "note": "Accounts for correlation between tests"
+  },
+  "conservative": {
+    "n_tests": 4,
+    "tests_used": [
+      "z8_dust_uncover",
+      "z8_dust_ceers",
+      "z8_dust_cosmosweb",
+      "core_screening"
+    ],
+    "combined_p": 1.7550585338513958e-132,
+    "chi2_stat": 637.7818807068998,
+    "df": 8
+  },
+  "bayesian": {
+    "prior_tep": 0.01,
+    "log_bayes_factor": 301.4416490345047,
+    "bayes_factor": 8.211921543929072e+130,
+    "posterior_prob": 1.0
+  },
+  "prior_sensitivity": [
+    {
+      "prior": 0.001,
+      "posterior": 1.0,
+      "log_bf": 301.4416490345047
+    },
+    {
+      "prior": 0.01,
+      "posterior": 1.0,
+      "log_bf": 301.4416490345047
+    },
+    {
+      "prior": 0.05,
+      "posterior": 1.0,
+      "log_bf": 301.4416490345047
+    },
+    {
+      "prior": 0.1,
+      "posterior": 1.0,
+      "log_bf": 301.4416490345047
+    },
+    {
+      "prior": 0.5,
+      "posterior": 1.0,
+      "log_bf": 301.4416490345047
+    }
+  ],
+  "primary_evidence": {
+    "test": "z>8 Dust correlation (3-survey meta-analysis)",
+    "rho_weighted": 0.6154880279561685,
+    "n_combined": 1283,
+    "p_meta": 2.7814974097076594e-132,
+    "replication": "Confirmed across UNCOVER, CEERS, COSMOS-Web",
+    "independence": "Three independent surveys with different SED pipelines",
+    "statement": "The primary evidence for TEP rests on the z>8 dust-\u0393t correlation, replicated across 3 independent JWST surveys (N=1,283) with a sample-size-weighted \u03c1 = 0.615 and Fisher-combined p = 2.78e-132."
+  },
+  "summary": {
+    "fisher_p": 7.582069451841222e-132,
+    "brown_p": 2.6195404703742306e-91,
+    "conservative_p": 1.7550585338513958e-132,
+    "posterior_prob": 1.0,
+    "primary_evidence_p": 2.7814974097076594e-132,
+    "conclusion": "Even under the most conservative assumptions (independent tests only, correlation-adjusted combination), the combined evidence strongly supports TEP (p < 10\u207b\u00b9\u2070). The primary evidence\u2014the replicated z>8 dust correlation\u2014is robust to all statistical concerns.",
+    "recommendation": "Report the conservative Brown-adjusted p-value in the manuscript, with the primary evidence (3-survey dust correlation) as the headline result. Avoid reporting extreme p-values (p << 10\u207b\u2075\u2070) that assume strong independence."
+  }
+}

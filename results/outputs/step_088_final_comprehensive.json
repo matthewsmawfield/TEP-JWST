@@ -1,0 +1,82 @@
+{
+  "n_total": 2315,
+  "final_summary": {
+    "evidence": [
+      {
+        "category": "CRITICAL SIGNAL",
+        "name": "t_eff vs t_cosmic",
+        "metric": "\u0394\u03c1 = +0.605",
+        "significance": "\u2605\u2605\u2605\u2605\u2605"
+      },
+      {
+        "category": "EXTREME ELEVATION",
+        "name": "Massive z>8",
+        "metric": "60.0\u00d7 \u0393_t elevation",
+        "significance": "\u2605\u2605\u2605\u2605"
+      },
+      {
+        "category": "EXTREME ELEVATION",
+        "name": "Age paradox (>60%)",
+        "metric": "29.9\u00d7 \u0393_t elevation",
+        "significance": "\u2605\u2605\u2605\u2605"
+      },
+      {
+        "category": "EXTREME ELEVATION",
+        "name": "Dusty z>9",
+        "metric": "19.3\u00d7 \u0393_t elevation",
+        "significance": "\u2605\u2605\u2605\u2605"
+      },
+      {
+        "category": "CORRELATION",
+        "name": "\u0393_t-Dust (z>8)",
+        "metric": "\u03c1 = +0.593",
+        "significance": "\u2605\u2605\u2605\u2605"
+      },
+      {
+        "category": "ROBUSTNESS",
+        "name": "z>8 Dust (Mass Control)",
+        "metric": "\u03c1_part = 0.268",
+        "significance": "\u2605\u2605\u2605\u2605\u2605"
+      },
+      {
+        "category": "CORRELATION",
+        "name": "Mass-\u0393_t (z>9)",
+        "metric": "\u03c1 = +0.995",
+        "significance": "\u2605\u2605\u2605\u2605"
+      },
+      {
+        "category": "CORRELATION",
+        "name": "Metallicity",
+        "metric": "\u03c1 = +0.302",
+        "significance": "\u2605\u2605\u2605"
+      },
+      {
+        "category": "UNIQUE PREDICTION",
+        "name": "Null zone (z=4-5)",
+        "metric": "\u03c1 = 0.027",
+        "significance": "\u2605\u2605\u2605\u2605"
+      },
+      {
+        "category": "FALSIFICATION TEST",
+        "name": "Compactness Verification (LRDs)",
+        "metric": "1.97\u00d7 stronger signal vs Mass-only",
+        "significance": "\u2605\u2605\u2605\u2605\u2605"
+      },
+      {
+        "category": "GR COMPATIBILITY",
+        "name": "Binary Pulsar Screening",
+        "metric": "Suppression factor ~ 3.0e-14",
+        "significance": "\u2605\u2605\u2605\u2605\u2605"
+      },
+      {
+        "category": "EARLY UNIVERSE",
+        "name": "BBN Yield Preservation",
+        "metric": "Max shift = 0.000%",
+        "significance": "\u2605\u2605\u2605\u2605\u2605"
+      }
+    ],
+    "verdict": "TEP VALIDATED",
+    "total_scripts": 163,
+    "total_tests": 163
+  }
+}

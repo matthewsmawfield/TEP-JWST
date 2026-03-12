@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): 0.7s.
 """
 TEP-JWST Step 030: z>8 Dust Anomaly - Quantitative Prediction Test
 
@@ -30,8 +31,9 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status
 from scripts.utils.p_value_utils import format_p_value, safe_json_default
+from scripts.utils.rank_stats import partial_rank_correlation
 
-STEP_NUM = "32"
+STEP_NUM = "030"
 STEP_NAME = "z8_dust_prediction"
 
 INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
@@ -149,20 +151,13 @@ def test_cosmic_time_control():
     df = load_z8_data()
     if df is None:
         return None
-    
+
     # Partial correlation: t_eff vs dust, controlling for t_cosmic
-    from scipy.stats import linregress
-    
-    # Residualize t_eff against t_cosmic
-    slope_t, int_t, _, _, _ = linregress(df['t_cosmic_Myr'], df['t_eff_Myr'])
-    t_eff_resid = df['t_eff_Myr'] - (slope_t * df['t_cosmic_Myr'] + int_t)
-    
-    # Residualize dust against t_cosmic
-    slope_d, int_d, _, _, _ = linregress(df['t_cosmic_Myr'], df['dust'])
-    dust_resid = df['dust'] - (slope_d * df['t_cosmic_Myr'] + int_d)
-    
-    # Partial correlation
-    rho_partial, p_partial = stats.spearmanr(t_eff_resid, dust_resid)
+    rho_partial, p_partial, _ = partial_rank_correlation(
+        df['t_eff_Myr'].values,
+        df['dust'].values,
+        df['t_cosmic_Myr'].values,
+    )
     
     # Raw correlation for comparison
     rho_raw, p_raw = stats.spearmanr(df['t_eff_Myr'], df['dust'])

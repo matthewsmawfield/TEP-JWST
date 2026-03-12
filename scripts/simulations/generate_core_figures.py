@@ -19,12 +19,12 @@ OUTPUT_PATH = PROJECT_ROOT / "site" / "public" / "figures"
 OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
 
 def load_uncover_data():
-    return pd.read_csv(DATA_PATH / "step_02_uncover_full_sample_tep.csv")
+    return pd.read_csv(DATA_PATH / "step_002_uncover_full_sample_tep.csv")
 
 def plot_figure_1_tep_model():
     """Figure 1: The TEP Metric Coupling Gamma_t(M_h, z)."""
     set_pub_style(scale=1.0)
-    fig, ax = plt.subplots(figsize=FIG_SIZE['web_standard'])
+    fig, ax = plt.subplots(figsize=FIG_SIZE['full_width'])
     
     z_range = np.linspace(0, 12, 100)
     masses = [10, 11, 12, 13] # log Mh
@@ -32,7 +32,7 @@ def plot_figure_1_tep_model():
     for log_mh in masses:
         gamma = tep_gamma(log_mh, z_range)
         
-        label = f"$\log M_h = {log_mh}$"
+        label = rf"$\log M_h = {log_mh}$"
         if log_mh == 12:
             ax.plot(z_range, gamma, '--', color=COLORS['text'], label=label, alpha=0.5)
         elif log_mh > 12:
@@ -53,7 +53,7 @@ def plot_figure_1_tep_model():
 def plot_figure_2_red_monsters():
     """Figure 2: Red Monsters SFE - Standard vs TEP."""
     set_pub_style(scale=1.0)
-    fig, ax = plt.subplots(figsize=FIG_SIZE['web_standard'])
+    fig, ax = plt.subplots(figsize=FIG_SIZE['full_width'])
     
     # Data from Table 3
     monsters = ['S1', 'S2', 'S3']
@@ -70,7 +70,7 @@ def plot_figure_2_red_monsters():
     # Theoretical Max line
     ax.axhline(0.20, color=COLORS['accent'], linestyle='--', linewidth=1.0, label='LambdaCDM Limit (~0.20)')
     
-    ax.set_ylabel('Star Formation Efficiency ($\epsilon$)')
+    ax.set_ylabel(r'Star Formation Efficiency ($\epsilon$)')
     ax.set_title('Figure 2: Red Monsters Efficiency Crisis')
     ax.set_xticks(x)
     ax.set_xticklabels(monsters)
@@ -78,7 +78,7 @@ def plot_figure_2_red_monsters():
     
     # Annotate Gamma
     for i, g in enumerate(gamma):
-        ax.text(x[i] + width/2, sfe_true[i] + 0.01, f"$\Gamma_t={g:.1f}$", ha='center', fontsize=9)
+        ax.text(x[i] + width/2, sfe_true[i] + 0.01, rf"$\Gamma_t={g:.1f}$", ha='center', fontsize=9)
         
     plt.tight_layout()
     plt.savefig(OUTPUT_PATH / "figure_2_red_monsters.png")
@@ -87,7 +87,7 @@ def plot_figure_2_red_monsters():
 def plot_figure_3_inversion(df):
     """Figure 3: Mass-sSFR Inversion (Low-z vs High-z)."""
     set_pub_style(scale=1.0)
-    fig, ax = plt.subplots(figsize=FIG_SIZE['web_standard'])
+    fig, ax = plt.subplots(figsize=FIG_SIZE['full_width'])
     
     # Low z bin (4-6)
     mask_low = (df['z_phot'] >= 4) & (df['z_phot'] < 6)
@@ -136,7 +136,7 @@ def plot_figure_3_inversion(df):
 def plot_figure_4_gamma_age(df):
     """Figure 4: Gamma_t vs Age Ratio (Partial Correlation Visualization)."""
     set_pub_style(scale=1.0)
-    fig, ax = plt.subplots(figsize=FIG_SIZE['web_standard'])
+    fig, ax = plt.subplots(figsize=FIG_SIZE['full_width'])
     
     # Filter valid
     mask = (df['z_phot'] > 4) & (df['age_ratio'] > 0) & (df['age_ratio'] < 1.0)
@@ -170,8 +170,8 @@ def plot_figure_4_gamma_age(df):
 
 def plot_figure_5_dust_anomaly(df):
     """Figure 5: The z > 8 Dust Anomaly (The Mass-Dust Inversion)."""
-    set_pub_style(scale=1.4)  # Increased from 1.0 to 1.4 for better text readability
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=FIG_SIZE['web_two_panel'])
+    set_pub_style(scale=1.0)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=FIG_SIZE['full_width'])
     
     # Left: Low z (4-6)
     mask_low = (df['z_phot'] >= 4) & (df['z_phot'] < 6)
@@ -220,7 +220,7 @@ def plot_figure_5_dust_anomaly(df):
 def plot_figure_6_replication():
     """Figure 6: Cross-Survey Replication (Summary Plot)."""
     set_pub_style(scale=1.0)
-    fig, ax = plt.subplots(figsize=FIG_SIZE['web_standard'])
+    fig, ax = plt.subplots(figsize=FIG_SIZE['full_width'])
     
     surveys = ['UNCOVER', 'CEERS', 'COSMOS-Web']
     rhos = [0.56, 0.68, 0.63]
@@ -253,7 +253,7 @@ def plot_figure_6_replication():
 def plot_figure_7_regimes(df):
     """Figure 7: Regime Separation (Gamma < 1 vs Gamma > 1)."""
     set_pub_style(scale=1.0)
-    fig, ax = plt.subplots(figsize=FIG_SIZE['web_standard'])
+    fig, ax = plt.subplots(figsize=FIG_SIZE['full_width'])
     
     mask = (df['z_phot'] > 8)
     sub = df[mask]

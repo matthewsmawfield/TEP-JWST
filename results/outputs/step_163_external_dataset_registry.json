@@ -1,0 +1,172 @@
+{
+  "step": "163",
+  "name": "external_dataset_registry",
+  "status": "SUCCESS",
+  "description": "External dataset registry for TEP-JWST pipeline",
+  "n_datasets_total": 10,
+  "n_datasets_available": 10,
+  "n_datasets_missing": 0,
+  "datasets": [
+    {
+      "name": "UNCOVER DR4 Full SPS Catalog",
+      "file": "uncover/UNCOVER_DR4_SPS_catalog.fits",
+      "url": "https://jwst-uncover.github.io/DR4.html",
+      "ref": "Weibel et al. (2024), Wang et al. (2024)",
+      "n_sources": 74020,
+      "used_in": [
+        "step_001",
+        "step_020",
+        "step_152",
+        "step_162"
+      ],
+      "pipeline_step": "step_001",
+      "local_available": true,
+      "local_size_mb": 65.9,
+      "local_file_detected": "uncover/UNCOVER_DR4_SPS_catalog.fits"
+    },
+    {
+      "name": "UNCOVER DR4 Spec-z SPS Catalog",
+      "file": "uncover/UNCOVER_DR4_SPS_zspec_catalog.fits",
+      "url": "https://drive.google.com/file/d/1j32n3e7hX0iw5ZyGlVAbyIf4MmjM4RfS/view?usp=drive_link",
+      "ref": "Price et al. (2025), Wang et al. (2024)",
+      "n_sources": 668,
+      "used_in": [
+        "step_152"
+      ],
+      "pipeline_step": "step_152",
+      "local_available": true,
+      "local_size_mb": 0.7,
+      "local_file_detected": "uncover/UNCOVER_DR4_SPS_zspec_catalog.fits"
+    },
+    {
+      "name": "CEERS NIRCam Photometric Catalog v1.0",
+      "file": "ceers_cat_v1.0.fits.gz",
+      "url": "https://ceers.github.io/releases.html",
+      "ref": "Finkelstein et al. (2023), Bagley et al. (2023)",
+      "n_sources": null,
+      "used_in": [
+        "step_031",
+        "step_032"
+      ],
+      "pipeline_step": "step_031",
+      "local_available": true,
+      "local_size_mb": 204.0,
+      "local_file_detected": "ceers_cat_v1.0.fits.gz"
+    },
+    {
+      "name": "COSMOS-Web LePHARE Catalog v1 (COSMOS2025)",
+      "file": "COSMOSWeb_mastercatalog_v1_lephare.fits",
+      "url": "https://cosmos2025.iap.fr/",
+      "ref": "Shuntov et al. (2025)",
+      "n_sources": 784016,
+      "used_in": [
+        "step_033",
+        "step_034",
+        "step_153",
+        "step_157"
+      ],
+      "pipeline_step": "step_033",
+      "requires_auth": true,
+      "local_available": true,
+      "local_size_mb": 269.7,
+      "local_file_detected": "COSMOSWeb_mastercatalog_v1_lephare.fits"
+    },
+    {
+      "name": "JADES GOODS-S Deep Photometry v2.0",
+      "file": "hlsp_jades_jwst_nircam_goods-s-deep_photometry_v2.0_catalog.fits",
+      "url": "https://archive.stsci.edu/hlsp/jades",
+      "ref": "Rieke et al. (2023), Eisenstein et al. (2023)",
+      "n_sources": null,
+      "used_in": [
+        "step_149",
+        "step_156"
+      ],
+      "pipeline_step": "step_149",
+      "local_available": true,
+      "local_size_mb": 257.7,
+      "local_file_detected": "hlsp_jades_jwst_nircam_goods-s-deep_photometry_v2.0_catalog.fits"
+    },
+    {
+      "name": "JADES DR4 Spectroscopic Catalog",
+      "file": "jades_hainline/JADES_DR4_spectroscopic_catalog.fits",
+      "url": "https://jades-survey.github.io/",
+      "ref": "D'Eugenio et al. (2025), Hainline et al. (2024)",
+      "n_sources": 5190,
+      "used_in": [
+        "step_149",
+        "step_154",
+        "step_158"
+      ],
+      "pipeline_step": "step_149",
+      "local_available": true,
+      "local_size_mb": 17.3,
+      "local_file_detected": "jades_hainline/JADES_DR4_spectroscopic_catalog.fits"
+    },
+    {
+      "name": "JADES DR5 GOODS-S Photometric Catalog v5.0",
+      "file": "jades_hainline/hlsp_jades_jwst_nircam_goods-s_photometry_v5.0_catalog.fits",
+      "file_candidates": [
+        "jades_hainline/hlsp_jades_jwst_nircam_goods-s_photometry_v5.0_catalog.fits",
+        "JADES_z_gt_8_Candidates_Hainline_et_al.fits"
+      ],
+      "url": "https://slate.ucsc.edu/~brant/jades-dr5/GOODS-S/hlsp/catalogs/hlsp_jades_jwst_nircam_goods-s_photometry_v5.0_catalog.fits",
+      "ref": "Robertson et al. (2026)",
+      "n_sources": 94000,
+      "used_in": [
+        "step_155"
+      ],
+      "pipeline_step": "step_155",
+      "local_available": true,
+      "local_size_mb": 673.5,
+      "local_file_detected": "JADES_z_gt_8_Candidates_Hainline_et_al.fits"
+    },
+    {
+      "name": "Kokorev LRD Catalog v1.1",
+      "file": "kokorev_lrd_catalog_v1.1.fits",
+      "url": "https://arxiv.org/abs/2401.09981",
+      "ref": "Kokorev et al. (2024)",
+      "n_sources": null,
+      "used_in": [
+        "step_042"
+      ],
+      "pipeline_step": "step_042",
+      "local_available": true,
+      "local_size_mb": 0.2,
+      "local_file_detected": "kokorev_lrd_catalog_v1.1.fits"
+    },
+    {
+      "name": "Labbe et al. (2023) Massive Galaxy Sample",
+      "file": "labbe_2023_github.tar.gz",
+      "url": "https://github.com/ivelascog/labbe2023",
+      "ref": "Labbe et al. (2023), Nature",
+      "n_sources": 6,
+      "used_in": [
+        "step_050"
+      ],
+      "pipeline_step": "step_050",
+      "local_available": true,
+      "local_size_mb": 0.0,
+      "local_file_detected": "labbe_2023_github.tar.gz"
+    },
+    {
+      "name": "DJA NIRSpec Merged v4.4",
+      "file": "dja_msaexp_emission_lines_v4.4.csv.gz",
+      "file_candidates": [
+        "dja_msaexp_emission_lines_v4.4.csv.gz",
+        "dja_nirspec_merged_v4.4.fits"
+      ],
+      "url": "https://zenodo.org/records/15472354/files/dja_msaexp_emission_lines_v4.4.csv.gz?download=1",
+      "ref": "Brammer et al. (2024), de Graaff et al. (2024)",
+      "n_sources": 80367,
+      "used_in": [
+        "step_150",
+        "step_158"
+      ],
+      "pipeline_step": "step_150",
+      "note": "Public merged table hosted on Zenodo; spectra bundles remain available via the DJA archive",
+      "local_available": true,
+      "local_size_mb": 133.0,
+      "local_file_detected": "dja_msaexp_emission_lines_v4.4.csv.gz"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+[01:34:16]     ======================================================================
+[01:34:16]     STEP 064: Web-Inspired Tests
+[01:34:16]     ======================================================================
+[01:34:16]     
+Testing ideas from recent JWST literature...
+
+[01:34:16]     Loaded N = 2315 galaxies
+[01:34:16]     
+======================================================================
+[01:34:16]     TEST 1: Quiescent Galaxy Fraction
+[01:34:16]     ======================================================================
+[01:34:16]     Recent papers: High quiescent fractions at z > 5 are unexpected.
+[01:34:16]     TEP predicts: High-Gamma_t → faster effective quenching.
+
+[01:34:16]     High Γ_t (> 1): Quiescent fraction = 2.6%
+[01:34:16]     Low Γ_t (< 0.5): Quiescent fraction = 0.0%
+[01:34:16]     ✓ High-Γ_t galaxies have higher quiescent fraction
+[01:34:16]     
+======================================================================
+[01:34:16]     TEST 2: Galaxy Compactness
+[01:34:16]     ======================================================================
+[01:34:16]     Recent papers: High-z galaxies are unexpectedly compact.
+[01:34:16]     TEP predicts: High-Gamma_t → more evolved → more compact.
+
+[01:34:16]     Size columns found: []
+[01:34:16]     ρ(Γ_t, Dust) = 0.593 (p = 3.00e-28)
+[01:34:16]     (High dust indicates evolved, compact state)
+[01:34:16]     
+======================================================================
+[01:34:16]     TEST 3: Stellar Mass Density Excess
+[01:34:16]     ======================================================================
+[01:34:16]     Recent papers: Stellar mass density at z > 10 exceeds predictions.
+[01:34:16]     TEP naturally explains this: Masses are inflated by Gamma_t.
+
+[01:34:16]     z = 8-9:
+[01:34:16]       Observed <M*> = 2.78e+08 M_sun
+[01:34:16]       <Γ_t> = 0.96
+[01:34:16]       TEP-corrected <M*> = 2.89e+08 M_sun
+[01:34:16]       Inflation factor: 0.96×
+[01:34:16]     z = 9-10:
+[01:34:16]       Observed <M*> = 4.25e+08 M_sun
+[01:34:16]       <Γ_t> = 3.13
+[01:34:16]       TEP-corrected <M*> = 1.36e+08 M_sun
+[01:34:16]       Inflation factor: 3.13×
+[01:34:16]     
+======================================================================
+[01:34:16]     TEST 4: Rapid Quenching Timescale
+[01:34:16]     ======================================================================
+[01:34:16]     Recent papers: Galaxies quench faster than expected at high-z.
+[01:34:16]     TEP predicts: Effective quenching time is Gamma_t × cosmic time.
+
+[01:34:16]     Quenching galaxies (SFR declining): N = 15
+[01:34:16]     <Γ_t> quenching: 9.67
+[01:34:16]     <Γ_t> all: 1.20
+[01:34:16]     ✓ Quenching galaxies have higher Γ_t (more effective time)
+[01:34:16]     
+======================================================================
+[01:34:16]     TEST 5: Little Red Dots Analog
+[01:34:16]     ======================================================================
+[01:34:16]     Recent papers: 'Little red dots' are compact, red, with overmassive BHs.
+[01:34:16]     TEP predicts: High dust + high mass + high Gamma_t.
+
+[01:34:16]     'Red dot' analogs (high dust + high mass): N = 75
+[01:34:16]     <Γ_t> red dots: 6.09
+[01:34:16]     <Γ_t> normal: 0.34
+[01:34:16]     Ratio: 18.0×
+[01:34:16]     ✓ 'Red dot' analogs have elevated Γ_t
+[01:34:16]     
+======================================================================
+[01:34:16]     TEST 6: Balmer Break Proxy
+[01:34:16]     ======================================================================
+[01:34:16]     Recent papers: Strong Balmer breaks at z > 7 indicate old populations.
+[01:34:16]     TEP predicts: High-Gamma_t → older effective age → stronger break.
+
+[01:34:16]     ρ(Γ_t, MWA) = -0.034 (p = 4.45e-01)
+[01:34:16]     ρ(t_eff, MWA) = -0.034 (p = 4.45e-01)
+[01:34:16]     
+======================================================================
+[01:34:16]     SUMMARY: Web-Inspired Tests
+[01:34:16]     ======================================================================
+[01:34:16]     
+Key findings from literature-inspired tests:
+[01:34:16]       • Quiescent fraction: 2.6% (high Γ_t) vs 0.0% (low Γ_t)
+[01:34:16]       • 'Red dot' analogs: 18.0× Γ_t elevation
+[01:34:16]       • Quenching galaxies: <Γ_t> = 9.67 vs 1.20
+[01:34:16]     
+Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_064_web_inspired_tests.json

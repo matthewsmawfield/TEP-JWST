@@ -1,0 +1,41 @@
+{
+  "step": 89,
+  "name": "BBN Compatibility Analysis",
+  "timestamp": "2026-03-12T01:34:22.991854",
+  "parameters": {
+    "alpha_0": 0.58,
+    "H0": 67.4,
+    "Omega_r": 9.24e-05,
+    "Omega_m": 0.315,
+    "T_BBN_start_MeV": 1.0,
+    "T_BBN_end_MeV": 0.01
+  },
+  "expansion_deviation": {
+    "z_range": [
+      42587034.590254165,
+      4258703459.025417
+    ],
+    "max_deviation": 1.725411854410212e-13,
+    "mean_deviation": 1.2565716423553642e-14,
+    "rms_deviation": 3.3032957195862743e-14,
+    "deviation_at_freeze_out": 0.0
+  },
+  "helium_4": {
+    "Y_p_standard": 0.247,
+    "Y_p_tep": 0.24700000000000125,
+    "delta_Y_p": 1.2414927826470998e-15,
+    "fractional_shift": 5.026286569421456e-15
+  },
+  "deuterium": {
+    "DH_standard": 2.5e-05,
+    "DH_tep": 2.49999999999995e-05,
+    "delta_DH": -5.026286569421458e-19,
+    "fractional_shift": -2.0105146277685828e-14
+  },
+  "summary": {
+    "max_yield_shift_percent": 2.0105146277685827e-12,
+    "within_1_percent": true,
+    "mechanism": "Scalar field frozen during radiation domination (T^\u03bc_\u03bc = 0)",
+    "conclusion": "TEP preserves BBN yields within 1%"
+  }
+}

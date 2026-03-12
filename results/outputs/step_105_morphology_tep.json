@@ -1,0 +1,19 @@
+{
+  "step": "Step 105: Morphology-TEP Correlation",
+  "n_highz": 876,
+  "sersic": {
+    "note": "No S\u00e9rsic data available"
+  },
+  "effective_radius": {
+    "note": "No r_e data available"
+  },
+  "dust_proxy": {
+    "n": 876,
+    "rho": 0.10347322641900983,
+    "p_value": 0.0021666108261942634,
+    "note": "Dust used as indirect compactness proxy"
+  },
+  "conclusion": "Insufficient morphology data for testing",
+  "n_tests": 0,
+  "n_consistent": 0
+}

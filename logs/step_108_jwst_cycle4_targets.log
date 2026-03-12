@@ -1,0 +1,59 @@
+[19:44:38]     ======================================================================
+[19:44:38]     STEP 108: JWST Cycle 4 Observing Proposal Targets
+[19:44:38]     ======================================================================
+[19:44:38]     Loaded 2315 galaxies
+[19:44:38]     
+--- NIRSpec Balmer Targets ---
+[19:44:38]     Generated 20 priority targets
+[19:44:38]       1. z=9.69, log M*=11.14, Γₜ=263.42
+[19:44:38]       2. z=9.59, log M*=10.83, Γₜ=127.29
+[19:44:38]       3. z=8.88, log M*=10.92, Γₜ=86.47
+[19:44:38]       4. z=9.84, log M*=10.38, Γₜ=60.42
+[19:44:38]       5. z=8.86, log M*=10.65, Γₜ=51.75
+[19:44:38]     
+--- Recommended Observing Programs ---
+[19:44:38]     
+TEP-BALMER: Balmer Absorption Ages in High-Γₜ Galaxies
+[19:44:38]       Instrument: NIRSpec MSA
+[19:44:38]       Time: 100-200 hours
+[19:44:38]       Priority: HIGH
+[19:44:38]     
+TEP-MORPH: Morphology-TEP Correlation at z > 5
+[19:44:38]       Instrument: NIRCam imaging
+[19:44:38]       Time: 50-75 hours
+[19:44:38]       Priority: MEDIUM
+[19:44:38]     
+TEP-IFU: Resolved Screening in Massive z > 4 Galaxies
+[19:44:38]       Instrument: NIRSpec IFU
+[19:44:38]       Time: 75-100 hours
+[19:44:38]       Priority: HIGH
+[19:44:38]     
+TEP-MIRI: MIRI Confirmation of Dust-Γₜ Correlation
+[19:44:38]       Instrument: MIRI imaging
+[19:44:38]       Time: 90-150 hours
+[19:44:38]       Priority: MEDIUM
+[19:44:38]     
+TEP-CLUSTER: Environmental Screening in z > 4 Protoclusters
+[19:44:38]       Instrument: NIRSpec MSA
+[19:44:38]       Time: 50-75 hours
+[19:44:38]       Priority: HIGH
+[19:44:38]     
+======================================================================
+[19:44:38]     SUMMARY
+[19:44:38]     ======================================================================
+[19:44:38]     
+Total programs: 5
+[19:44:38]     Total time requested: 365-600 hours
+[19:44:38]     High priority programs: 3
+[19:44:38]     
+Key science goals:
+[19:44:38]       1. Balmer absorption ages (direct age measurement)
+[19:44:38]       2. Morphology-TEP correlation (compactness test)
+[19:44:38]       3. Resolved screening (IFU radial gradients)
+[19:44:38]       4. MIRI dust confirmation (rest-frame MIR)
+[19:44:38]       5. Environmental screening (cluster vs field)
+[19:44:38]     
+Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_108_jwst_cycle4_targets.json
+[19:44:39]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_108_jwst_cycle4.png
+[19:44:39]     
+Step 108 complete.

@@ -1,0 +1,38 @@
+[01:35:16]     ======================================================================
+[01:35:16]     STEP 101: Multi-Observable α₀ Recovery Test
+[01:35:16]     ======================================================================
+[01:35:16]     Loaded 2315 galaxies
+[01:35:16]     High-z sample (z > 6): 876 galaxies
+[01:35:16]       Added: dust (N=876)
+[01:35:16]       Added: age_ratio (N=876)
+[01:35:16]       Added: metallicity (N=876)
+[01:35:16]       Added: log_ssfr (N=876)
+[01:35:16]     
+Fitting α₀ to 4 observables:
+[01:35:17]       dust: α₀ = 0.55 ± 0.32, ρ = 0.49 ✓
+[01:35:17]       age_ratio: α₀ = 1.07 ± 0.34, ρ = 0.33 ✓
+[01:35:18]       metallicity: α₀ = 1.26 ± 0.35, ρ = 0.05 ✓
+[01:35:18]       ssfr: α₀ = 1.32 ± 0.37, ρ = -0.40 ✓
+[01:35:18]     
+Joint fit across all observables:
+[01:35:19]       Joint α₀ = 0.75 ± 0.29
+[01:35:19]       Nominal α₀ = 0.58 ± 0.16
+[01:35:19]       Tension: 0.5σ ✓
+[01:35:19]     
+Weighted mean of individual fits:
+[01:35:19]       α₀ = 1.02 ± 0.18
+[01:35:19]       Tension with nominal: 1.8σ
+[01:35:19]     
+======================================================================
+[01:35:19]     SUMMARY
+[01:35:19]     ======================================================================
+[01:35:19]     
+✗ Joint fit does not improve agreement
+[01:35:19]       This may indicate systematic effects in the data
+[01:35:19]     
+Joint α₀ is CONSISTENT with Cepheid calibration within 2σ
+[01:35:19]     
+Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_101_alpha_recovery_multi_observable.json
+[01:35:20]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_101_alpha_recovery.png
+[01:35:20]     
+Step 101 complete.

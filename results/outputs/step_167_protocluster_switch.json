@@ -1,0 +1,145 @@
+{
+  "step": "167",
+  "name": "protocluster_switch",
+  "status": "SUCCESS",
+  "description": "Protocluster-switch sign-reversal test using existing DJA and JADES spectroscopic-era data products",
+  "prediction_table": {
+    "standard_physics": "At fixed stellar mass and redshift, overdense galaxies should appear older or at least not younger than field galaxies.",
+    "tep": "At fixed stellar mass and redshift, screened overdense galaxies should appear younger than unscreened field galaxies.",
+    "supportive_sign_for_beta_dense_minus_field": "negative",
+    "supportive_sign_for_mwa_dense_minus_field": "negative"
+  },
+  "data_limits": {
+    "dja": {
+      "status": "success",
+      "n_final": 1238,
+      "n_footprints": 52,
+      "footprint_sizes": {
+        "0": 27,
+        "4": 16,
+        "9": 31,
+        "10": 23,
+        "11": 25,
+        "12": 31,
+        "13": 18,
+        "14": 22,
+        "17": 18,
+        "18": 28,
+        "19": 29,
+        "20": 37,
+        "21": 19,
+        "22": 29,
+        "23": 13,
+        "24": 11,
+        "28": 92,
+        "29": 22,
+        "30": 5,
+        "31": 27,
+        "40": 43,
+        "44": 19,
+        "69": 25,
+        "70": 19,
+        "71": 8,
+        "73": 53,
+        "79": 43,
+        "80": 73,
+        "81": 10,
+        "90": 6,
+        "92": 33,
+        "93": 29,
+        "95": 27,
+        "100": 4,
+        "101": 19,
+        "102": 23,
+        "103": 24,
+        "104": 15,
+        "105": 25,
+        "106": 11,
+        "109": 15,
+        "110": 13,
+        "111": 15,
+        "112": 7,
+        "113": 15,
+        "115": 13,
+        "116": 16,
+        "117": 12,
+        "118": 6,
+        "122": 18,
+        "123": 8,
+        "124": 68
+      },
+      "footprint_method": "dja_root",
+      "density_n_neighbor": 3,
+      "min_footprint_size": 20,
+      "observables_available": [
+        "beta"
+      ],
+      "observables_missing": [
+        "balmer_absorption_eqw",
+        "Dn4000"
+      ]
+    },
+    "jades_companion": {
+      "status": "success",
+      "n_final": 11,
+      "observables_available": [
+        "mwa"
+      ],
+      "source_catalogs": [
+        "JADES_DR4_x_PHYS"
+      ]
+    },
+    "note": "Balmer absorption equivalent widths and Dn4000 are not present in the currently reproducible local DJA ingestion, so the live primary age proxy is UV slope beta."
+  },
+  "primary_test": {
+    "label": "dja_beta_residual",
+    "n_total": 1238,
+    "n_field": 329,
+    "n_dense": 329,
+    "density_threshold_field_q25": null,
+    "density_threshold_dense_q75": null,
+    "density_split_method": "within_footprint_q25_q75",
+    "field_median": -0.09741578076486945,
+    "dense_median": -0.0061987889357419945,
+    "field_mean": -0.016973792581293796,
+    "dense_mean": 0.06880921593587691,
+    "delta_dense_minus_field": 0.0857830085171707,
+    "bootstrap_ci_95": [
+      -0.01915895868879288,
+      0.1878999903706879
+    ],
+    "bootstrap_one_sided_p_dense_less_than_field": 0.9482629342664334,
+    "mannwhitney_p_two_sided": 0.0639860463075327,
+    "matched_cell_median_deltas_dense_minus_field": [],
+    "n_matched_cells": 0,
+    "n_matched_cells_supporting_tep": 0
+  },
+  "secondary_tests": {
+    "dja_beta_raw": {
+      "label": "dja_beta_raw",
+      "n_total": 1238,
+      "n_field": 329,
+      "n_dense": 329,
+      "density_threshold_field_q25": null,
+      "density_threshold_dense_q75": null,
+      "density_split_method": "within_footprint_q25_q75",
+      "field_median": -2.1174400480608555,
+      "dense_median": -2.0242562318529296,
+      "field_mean": -2.011899700302023,
+      "dense_mean": -1.9219570662811565,
+      "delta_dense_minus_field": 0.08994263402086666,
+      "bootstrap_ci_95": [
+        -0.019289805477117724,
+        0.20272118531519298
+      ],
+      "bootstrap_one_sided_p_dense_less_than_field": 0.944513871532117,
+      "mannwhitney_p_two_sided": 0.05242334741429383,
+      "matched_cell_median_deltas_dense_minus_field": [],
+      "n_matched_cells": 0,
+      "n_matched_cells_supporting_tep": 0
+    },
+    "jades_mwa_residual": null,
+    "jades_mwa_raw": null
+  },
+  "assessment": "The current protocluster-switch implementation is mixed or null with existing local data: no clean dense-younger-than-field reversal emerges after matched controls."
+}

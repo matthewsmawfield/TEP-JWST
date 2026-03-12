@@ -1,0 +1,112 @@
+{
+  "step": "Step 137: Cross-Survey Generalization Test",
+  "description": "Tests whether t_eff (0 parameters) generalizes better across surveys than a fitted polynomial (M*, z, M*\u00d7z; 4 parameters). Uses continuous dust prediction (Spearman \u03c1 and OLS R\u00b2) for leave-one-survey-out.",
+  "surveys": {
+    "UNCOVER": {
+      "n": 283
+    },
+    "CEERS": {
+      "n": 71
+    },
+    "COSMOS-Web": {
+      "n": 2340
+    }
+  },
+  "within_survey": [
+    {
+      "survey": "UNCOVER",
+      "n": 283,
+      "rho_teff": 0.5987630920475109,
+      "p_teff": 6.408145622649582e-29,
+      "rho_mstar": 0.5594522703471411,
+      "p_mstar": 1.046457458256734e-24,
+      "poly_cv_r2": 0.47292457771092045,
+      "teff_cv_r2": -0.14353229348705332
+    },
+    {
+      "survey": "CEERS",
+      "n": 71,
+      "rho_teff": 0.7949027498323273,
+      "p_teff": 1.2710386126235556e-16,
+      "rho_mstar": 0.7948692152917504,
+      "p_mstar": 1.277456067602502e-16,
+      "poly_cv_r2": 0.5567474188396808,
+      "teff_cv_r2": -517.5123293737463
+    },
+    {
+      "survey": "COSMOS-Web",
+      "n": 2340,
+      "rho_teff": 0.722268538393437,
+      "p_teff": 1e-300,
+      "rho_mstar": 0.7062116183488133,
+      "p_mstar": 1e-300,
+      "poly_cv_r2": 0.5083586758881822,
+      "teff_cv_r2": 0.030378504538530082
+    }
+  ],
+  "leave_one_out": [
+    {
+      "test_survey": "UNCOVER",
+      "train_surveys": [
+        "CEERS",
+        "COSMOS-Web"
+      ],
+      "n_train": 2411,
+      "n_test": 283,
+      "poly_r2_cross": -1.3876998564611052,
+      "poly_r2_within": 0.47292457771092045,
+      "poly_r2_drop": 1.8606244341720255,
+      "rho_poly_cross": 0.5423006424381943,
+      "p_poly_cross": 4.882405868766994e-23,
+      "rho_teff_cross": 0.5987630920475109,
+      "p_teff_cross": 6.408145622649582e-29,
+      "teff_rho_advantage": 0.05646244960931657
+    },
+    {
+      "test_survey": "CEERS",
+      "train_surveys": [
+        "UNCOVER",
+        "COSMOS-Web"
+      ],
+      "n_train": 2623,
+      "n_test": 71,
+      "poly_r2_cross": 0.1701749413471565,
+      "poly_r2_within": 0.5567474188396808,
+      "poly_r2_drop": 0.3865724774925243,
+      "rho_poly_cross": 0.788262910798122,
+      "p_poly_cross": 3.3845001674988913e-16,
+      "rho_teff_cross": 0.7949027498323273,
+      "p_teff_cross": 1.2710386126235556e-16,
+      "teff_rho_advantage": 0.006639839034205286
+    },
+    {
+      "test_survey": "COSMOS-Web",
+      "train_surveys": [
+        "UNCOVER",
+        "CEERS"
+      ],
+      "n_train": 354,
+      "n_test": 2340,
+      "poly_r2_cross": -6.43307677307481,
+      "poly_r2_within": 0.5083586758881822,
+      "poly_r2_drop": 6.941435448962992,
+      "rho_poly_cross": 0.7236493183486864,
+      "p_poly_cross": 1e-300,
+      "rho_teff_cross": 0.722268538393437,
+      "p_teff_cross": 1e-300,
+      "teff_rho_advantage": -0.0013807799552494338
+    }
+  ],
+  "summary": {
+    "n_tests": 3,
+    "mean_teff_rho_advantage": 0.02057383622942414,
+    "teff_rho_wins": 2,
+    "mean_poly_r2_drop": 3.062877453542514,
+    "individual_advantages": {
+      "UNCOVER": 0.05646244960931657,
+      "CEERS": 0.006639839034205286,
+      "COSMOS-Web": -0.0013807799552494338
+    },
+    "interpretation": "t_eff generalizes better cross-survey than polynomial (positive mean \u03c1 advantage = t_eff wins)."
+  }
+}

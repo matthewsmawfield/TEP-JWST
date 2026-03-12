@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): 0.7s.
 """
 TEP-JWST Step 2: TEP Model and Gamma_t Calculation
 
@@ -176,7 +177,7 @@ def main():
         },
     }
     
-    with open(OUTPUT_PATH / f"step_{STEP_NUM}_tep_model_summary.json", "w") as f:
+    with open(OUTPUT_PATH / f"step_{STEP_NUM}_tep_model.json", "w") as f:
         json.dump(summary, f, indent=2, default=safe_json_default)
     
     print_status("", "INFO")

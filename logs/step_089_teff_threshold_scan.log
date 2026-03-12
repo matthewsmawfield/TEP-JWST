@@ -1,0 +1,6 @@
+[01:34:49] ═══ STEP 089: t_eff Threshold Scan
+[01:34:49]     Surveys loaded: ['UNCOVER', 'CEERS', 'COSMOS-Web']
+[01:34:50]     UNCOVER: best t_eff≈0.07 Gyr, Δf_det=+0.00
+[01:34:51]     CEERS: best t_eff≈0.12 Gyr, Δf_det=+0.00
+[01:34:52]     COSMOS-Web: best t_eff≈1.93 Gyr, Δf_det=+0.71
+[01:34:54] ✓   Saved: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_089_teff_threshold_scan.json

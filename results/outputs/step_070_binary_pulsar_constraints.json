@@ -1,0 +1,10 @@
+{
+  "step": "070",
+  "name": "Binary Pulsar Constraints",
+  "object": "Neutron Star (Canonical)",
+  "density_g_cm3": 664577045610053.8,
+  "rho_crit_g_cm3": 20.0,
+  "is_screened": true,
+  "suppression_factor": 3.0094328614135085e-14,
+  "conclusion": "Fully Screened"
+}

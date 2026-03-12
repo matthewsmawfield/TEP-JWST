@@ -1,0 +1,30 @@
+[01:37:04] ======================================================================
+[01:37:04] Step 145: Phase Boundary + Activation Curve + Spec-z Sharpening
+[01:37:04] ======================================================================
+[01:37:05] UNCOVER: 2315 galaxies
+[01:37:05] Spec-z: 10483 galaxies
+[01:37:05]     TEST 1: AGB Dust Phase Boundary Map
+[01:37:06]       N = 2315 galaxies
+[01:37:06]       TEP boundary: F1 = 0.742 (precision=0.759, recall=0.725)
+[01:37:06]       Mass-only:    F1 = 0.408
+[01:37:06]       TEP advantage: ΔF1 = +0.334
+[01:37:06]       z>8: dust frac above AGB = 1.000 (62), below = 0.882 (221)
+[01:37:06]     TEST 2: Activation Curve Fit
+[01:37:07]       tep_sqrt    : χ²=7.76, AIC=11.76, ΔAIC=+3.35
+[01:37:07]       linear      : χ²=73.32, AIC=77.32, ΔAIC=+68.91
+[01:37:07]       step        : χ²=10.16, AIC=14.16, ΔAIC=+5.75
+[01:37:07]       constant    : χ²=224.97, AIC=226.97, ΔAIC=+218.56
+[01:37:07]       quadratic   : χ²=2.41, AIC=8.41, ΔAIC=+0.00
+[01:37:07]       Winner: quadratic
+[01:37:07]     TEST 3: Spectroscopic Sharpening
+[01:37:08]       Spec-z: ρ = 0.738 (N = 10156, p = 1.00e-300)
+[01:37:08]       Photo-z: ρ = -0.118 (N = 2315)
+[01:37:08]       Δρ = +0.855 → SHARPENED
+[01:37:08] Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_145_phase_boundary_activation.json
+[01:37:09] Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_145_phase_boundary_activation.png
+[01:37:09]     ============================================================
+[01:37:09]     RESULTS
+[01:37:09]     ============================================================
+[01:37:09]       PHASE BOUNDARY: TEP ΔF1=+0.334 vs mass-only
+[01:37:09]       ACTIVATION: quadratic wins by AIC (TEP ΔAIC=+3.4)
+[01:37:09]       SPEC-Z: SHARPENED (Δρ=+0.855)

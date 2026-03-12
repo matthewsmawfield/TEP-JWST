@@ -1,0 +1,319 @@
+{
+  "title": "TEP-JWST: The Seven Threads of Evidence",
+  "generated": "2026-03-12T01:33:20.124371",
+  "threads": {
+    "thread_1": {
+      "name": "z > 7 Mass-sSFR Inversion",
+      "significant": true,
+      "details": {
+        "test": "Thread 1: z > 7 Mass-sSFR Inversion",
+        "tep_prediction": "Correlation should invert from negative to positive at z > 7",
+        "low_z": {
+          "z_range": [
+            4,
+            6
+          ],
+          "n": 1439,
+          "rho": -0.16305129025430076,
+          "ci_95": [
+            -0.21179354457812696,
+            -0.11204171386151605
+          ],
+          "p_value": 4.923731097687585e-10
+        },
+        "high_z": {
+          "z_range": [
+            7,
+            10
+          ],
+          "n": 504,
+          "rho": 0.0865815948252025,
+          "ci_95": [
+            -0.010170019265068114,
+            0.1811252776592254
+          ],
+          "p_value": 0.05206755140695994
+        },
+        "delta_rho": 0.24963288507950326,
+        "delta_ci_95": [
+          0.1435856506451414,
+          0.3509816320141474
+        ],
+        "significant": true,
+        "conclusion": "TEP prediction CONFIRMED"
+      }
+    },
+    "thread_2": {
+      "name": "\u0393_t vs Age Ratio",
+      "significant": true,
+      "details": {
+        "test": "Thread 2: \u0393_t vs Age Ratio",
+        "n": 2315,
+        "raw_rho": 0.04789577527211646,
+        "raw_p": 0.021191412985561757,
+        "partial_rho": 0.08443251213838716,
+        "partial_p": 4.752141681372902e-05,
+        "ci_95": [
+          0.03698874423110844,
+          0.12652463383754903
+        ],
+        "partial_rho_double": -0.08011081324038496,
+        "partial_p_double": 0.0001140344702207694,
+        "ci_95_double": [
+          -0.12235496793240981,
+          -0.03820085384279384
+        ],
+        "significant": true,
+        "significant_double": true,
+        "interpretation": "Enhanced time \u2192 older appearance"
+      }
+    },
+    "thread_3": {
+      "name": "\u0393_t vs Metallicity",
+      "significant": true,
+      "details": {
+        "test": "Thread 3: \u0393_t vs Metallicity",
+        "n": 1108,
+        "raw_rho": 0.22491646693655873,
+        "raw_p": 3.5766812937548035e-14,
+        "partial_rho": 0.17735703141197998,
+        "partial_p": 2.7791425206596067e-09,
+        "ci_95": [
+          0.11873261027356044,
+          0.24107091067936148
+        ],
+        "partial_rho_double": 0.004761796430977782,
+        "partial_p_double": 0.8741997941838326,
+        "ci_95_double": [
+          -0.05766833552087721,
+          0.06918800830548676
+        ],
+        "significant": true,
+        "significant_double": false,
+        "interpretation": "Enhanced time \u2192 more enrichment"
+      }
+    },
+    "thread_4": {
+      "name": "\u0393_t vs Dust",
+      "significant": true,
+      "details": {
+        "test": "Thread 4: \u0393_t vs Dust",
+        "n": 1108,
+        "raw_rho": 0.315078899975993,
+        "raw_p": 5.856403969099883e-27,
+        "partial_rho": 0.3285336913247389,
+        "partial_p": 2.6892607822152093e-29,
+        "ci_95": [
+          0.26905221381301886,
+          0.38243117656802567
+        ],
+        "partial_rho_double": 0.04301480788005846,
+        "partial_p_double": 0.15246911403247754,
+        "ci_95_double": [
+          -0.021460183448170404,
+          0.10447051865639358
+        ],
+        "significant": true,
+        "significant_double": false,
+        "interpretation": "Enhanced time \u2192 more dust processing"
+      }
+    },
+    "thread_5": {
+      "name": "z > 8 Dust Anomaly",
+      "significant": true,
+      "details": {
+        "test": "Thread 5: z > 8 Dust Anomaly",
+        "tep_prediction": "Strong mass-dust correlation at z > 8 due to enhanced proper time",
+        "by_redshift": [
+          {
+            "z_range": [
+              4,
+              5
+            ],
+            "n": 942,
+            "rho": 0.037013403579780016,
+            "p": 0.25641865141430426,
+            "ci_95": [
+              -0.02720770363633666,
+              0.10529982008935294
+            ],
+            "significant": false
+          },
+          {
+            "z_range": [
+              5,
+              6
+            ],
+            "n": 497,
+            "rho": -0.026322431284168286,
+            "p": 0.5582499699079295,
+            "ci_95": [
+              -0.11561786508274657,
+              0.06135204911503113
+            ],
+            "significant": false
+          },
+          {
+            "z_range": [
+              6,
+              7
+            ],
+            "n": 372,
+            "rho": -0.11842891386295118,
+            "p": 0.022340274709165116,
+            "ci_95": [
+              -0.21839764516045265,
+              -0.01343358131490995
+            ],
+            "significant": true
+          },
+          {
+            "z_range": [
+              7,
+              8
+            ],
+            "n": 221,
+            "rho": 0.09878150466385761,
+            "p": 0.14326300988764012,
+            "ci_95": [
+              -0.037777074974399534,
+              0.239282257821166
+            ],
+            "significant": false
+          },
+          {
+            "z_range": [
+              8,
+              10
+            ],
+            "n": 283,
+            "rho": 0.5594522703471411,
+            "p": 1.046457458256734e-24,
+            "ci_95": [
+              0.45908281533529466,
+              0.6406739498782913
+            ],
+            "significant": true
+          }
+        ],
+        "z8_result": {
+          "z_range": [
+            8,
+            10
+          ],
+          "n": 283,
+          "rho": 0.5594522703471411,
+          "p": 1.046457458256734e-24,
+          "ci_95": [
+            0.45908281533529466,
+            0.6406739498782913
+          ],
+          "significant": true
+        },
+        "partial_correlations": {
+          "rho_gamma_dust_given_mass": 0.26761038598290093,
+          "p_gamma_dust_given_mass": 4.982591950513189e-06,
+          "rho_gamma_dust_given_z": 0.5931150216770826,
+          "p_gamma_dust_given_z": 2.803935403120563e-28,
+          "rho_gamma_dust_given_mass_z": 0.2617505389865665,
+          "p_gamma_dust_given_mass_z": 8.124749057016333e-06
+        },
+        "dust_by_mass": [
+          {
+            "mass_range": [
+              8,
+              8.5
+            ],
+            "n": 180,
+            "mean_dust": 0.6002924632951716,
+            "std_dust": 0.36716424799224967
+          },
+          {
+            "mass_range": [
+              8.5,
+              9
+            ],
+            "n": 70,
+            "mean_dust": 0.8877533166190935,
+            "std_dust": 0.278255174085409
+          },
+          {
+            "mass_range": [
+              9,
+              10
+            ],
+            "n": 24,
+            "mean_dust": 1.246086495436233,
+            "std_dust": 0.5198717125924123
+          },
+          {
+            "mass_range": [
+              10,
+              12
+            ],
+            "n": 9,
+            "mean_dust": 2.7018996612304567,
+            "std_dust": 1.1333080120560248
+          }
+        ],
+        "significant": true,
+        "conclusion": "TEP prediction consistent with data - inconsistent with standard timescales"
+      }
+    },
+    "thread_6": {
+      "name": "Age-Metallicity Coherence",
+      "significant": true,
+      "details": {
+        "test": "Thread 6: Age-Metallicity Coherence",
+        "n": 1108,
+        "rho": 0.3308190995664502,
+        "p": 1.0486667323447951e-29,
+        "ci_95": [
+          0.2667979298867693,
+          0.38753421311259173
+        ],
+        "significant": true,
+        "interpretation": "Older \u2192 more enriched (TEP consistent)"
+      }
+    },
+    "thread_7": {
+      "name": "Multi-Property Split",
+      "significant": true,
+      "details": {
+        "test": "Thread 7: Multi-Property Split Test",
+        "n": 1108,
+        "gamma_median": 0.5323782802833196,
+        "properties": {
+          "age_ratio": {
+            "mean_low_gamma": 0.13302305023106567,
+            "mean_high_gamma": 0.16739260132405823,
+            "diff": 0.034369551092992556,
+            "p": 3.049282490499384e-13,
+            "significant": true
+          },
+          "metallicity": {
+            "mean_low_gamma": -1.2425063298746255,
+            "mean_high_gamma": -1.0784583463594293,
+            "diff": 0.16404798351519623,
+            "p": 1.7259140282439792e-08,
+            "significant": true
+          },
+          "dust": {
+            "mean_low_gamma": 0.19372435343449426,
+            "mean_high_gamma": 0.3624431722971727,
+            "diff": 0.16871881886267845,
+            "p": 6.784527471512407e-16,
+            "significant": true
+          }
+        },
+        "all_significant": true,
+        "interpretation": "TEP signature confirmed"
+      }
+    }
+  },
+  "overall": {
+    "threads_significant": 7,
+    "threads_total": 7,
+    "all_significant": true
+  }
+}

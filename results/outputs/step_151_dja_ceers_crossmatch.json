@@ -1,0 +1,37 @@
+{
+  "step": "151",
+  "name": "dja_ceers_crossmatch",
+  "status": "SUCCESS",
+  "description": "DJA-CEERS spectroscopic crossmatch and TEP validation",
+  "source": "ceers_highz_sample.csv",
+  "n_total": 10483,
+  "rho_gamma_t_logM": 0.8907264543357859,
+  "p_gamma_t_logM": 1e-300,
+  "rho_gamma_t_dust": 0.7771715188853093,
+  "p_gamma_t_dust": 1e-300,
+  "n_dust": 1499,
+  "bins": [
+    {
+      "z_lo": 4,
+      "z_hi": 7,
+      "n": 9037,
+      "rho_gamma_t_logM": 0.9421998679546105,
+      "p": 1e-300
+    },
+    {
+      "z_lo": 7,
+      "z_hi": 9,
+      "n": 939,
+      "rho_gamma_t_logM": 0.9861133170006519,
+      "p": 1e-300
+    },
+    {
+      "z_lo": 9,
+      "z_hi": 15,
+      "n": 507,
+      "rho_gamma_t_logM": 0.9676369242113325,
+      "p": 1e-300
+    }
+  ],
+  "conclusion": "CEERS z>4 sample (N=10,483): rho(Gamma_t, log M*)=0.891. rho(Gamma_t, dust)=0.777 (N=1499). Positive correlation confirms TEP signal in CEERS field."
+}

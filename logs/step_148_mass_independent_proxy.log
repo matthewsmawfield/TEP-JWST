@@ -1,0 +1,53 @@
+[01:37:12] ======================================================================
+[01:37:12] Step 148: Mass-Independent Potential-Depth Proxy Tests
+[01:37:12] ======================================================================
+[01:37:12]     Loaded UNCOVER: N = 2315
+[01:37:12]     
+==================================================
+[01:37:12]     Sample: full_z4_10 (N = 2315)
+[01:37:12]     ==================================================
+[01:37:12]     Test 1: SFR Surface Density Proxy...
+[01:37:12]       Raw: ρ=-0.094, p=5.91e-06
+[01:37:12]       Partial (M*,z): ρ=-0.261, p=1.91e-37
+[01:37:12]       Proxy→Γt (partial M*,z): ρ=0.007, p=7.26e-01
+[01:37:12]       After Γt control: ρ=-0.261, p=1.80e-37
+[01:37:12]     Test 2: sSFR Residual Proxy...
+[01:37:12]       sSFR_resid → dust: ρ=-0.092, p=9.89e-06
+[01:37:12]       sSFR_resid → Γt: ρ=-0.032, p=1.22e-01
+[01:37:12]     Test 3: χ² SED Tension Proxy...
+[01:37:12]       χ²→dust (partial M*,z): ρ=-0.261, p=3.03e-37
+[01:37:12]       χ²→Γt (partial M*,z): ρ=0.105, p=4.66e-07
+[01:37:12]     Test 4: Photo-z Uncertainty Proxy...
+[01:37:12]       Δz→dust (partial M*,z): ρ=0.518, p=3.23e-159
+[01:37:12]       Δz→Γt (partial M*,z): ρ=-0.086, p=3.62e-05
+[01:37:12]     Test 5: Age-Ratio Residual...
+[01:37:12]       age_resid → dust: ρ=0.117, p=1.78e-08
+[01:37:12]       age_resid → Γt: ρ=-0.018, p=3.94e-01
+[01:37:12]     
+==================================================
+[01:37:12]     Sample: z_gt_8 (N = 283)
+[01:37:12]     ==================================================
+[01:37:12]     Test 1: SFR Surface Density Proxy...
+[01:37:12]       Raw: ρ=-0.166, p=5.24e-03
+[01:37:12]       Partial (M*,z): ρ=-0.568, p=1.34e-25
+[01:37:12]       Proxy→Γt (partial M*,z): ρ=-0.287, p=9.14e-07
+[01:37:12]       After Γt control: ρ=-0.533, p=3.33e-22
+[01:37:12]     Test 2: sSFR Residual Proxy...
+[01:37:12]       sSFR_resid → dust: ρ=-0.211, p=3.46e-04
+[01:37:12]       sSFR_resid → Γt: ρ=-0.016, p=7.83e-01
+[01:37:12]     Test 3: χ² SED Tension Proxy...
+[01:37:12]       χ²→dust (partial M*,z): ρ=0.121, p=4.13e-02
+[01:37:12]       χ²→Γt (partial M*,z): ρ=0.018, p=7.66e-01
+[01:37:12]     Test 4: Photo-z Uncertainty Proxy...
+[01:37:12]       Δz→dust (partial M*,z): ρ=0.004, p=9.45e-01
+[01:37:12]       Δz→Γt (partial M*,z): ρ=-0.093, p=1.17e-01
+[01:37:12]     Test 5: Age-Ratio Residual...
+[01:37:12]       age_resid → dust: ρ=0.191, p=1.27e-03
+[01:37:12]       age_resid → Γt: ρ=0.009, p=8.80e-01
+[01:37:12] Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_148_mass_independent_proxy.json
+[01:37:13] Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_148_mass_independent_proxy.png
+[01:37:13]     ============================================================
+[01:37:13]     MASS-INDEPENDENT PROXY TEST RESULTS
+[01:37:13]     ============================================================
+[01:37:13]       full_z4_10: 5/5 dust-associated proxies; 0/5 jointly Γt-linked
+[01:37:13]       z_gt_8: 4/5 dust-associated proxies; 1/5 jointly Γt-linked

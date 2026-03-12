@@ -1,0 +1,141 @@
+{
+  "two_regimes": {
+    "test": "Two Regimes",
+    "regimes": [
+      {
+        "regime": "Deep Suppressed (\u0393_t < 0.5)",
+        "n": 478,
+        "age_ratio": 0.1295050537893252,
+        "met": -1.2616230557232195,
+        "dust": 0.19136893397358382
+      },
+      {
+        "regime": "Suppressed (0.5 \u2264 \u0393_t < 1)",
+        "n": 485,
+        "age_ratio": 0.15693210986363537,
+        "met": -1.1234560890956926,
+        "dust": 0.23653455934552758
+      },
+      {
+        "regime": "Enhanced (\u0393_t > 1)",
+        "n": 145,
+        "age_ratio": 0.19596401356122775,
+        "met": -0.9509131502521135,
+        "dust": 0.7029186036785489
+      }
+    ]
+  },
+  "z8_dust": {
+    "test": "z > 8 Dust Mechanism",
+    "by_mass": [
+      {
+        "mass_range": [
+          8,
+          8.5
+        ],
+        "n": 180,
+        "t_cosmic_Myr": 569.164062809224,
+        "gamma_t": 0.22372558728568728,
+        "t_eff_Myr": 128.6598313026662,
+        "dust": 0.6002924632951716
+      },
+      {
+        "mass_range": [
+          8.5,
+          9
+        ],
+        "n": 70,
+        "t_cosmic_Myr": 554.723490972027,
+        "gamma_t": 0.5606686616158436,
+        "t_eff_Myr": 308.02067455224704,
+        "dust": 0.8877533166190935
+      },
+      {
+        "mass_range": [
+          9,
+          10
+        ],
+        "n": 24,
+        "t_cosmic_Myr": 533.8695091994173,
+        "gamma_t": 2.974463238948703,
+        "t_eff_Myr": 1547.769259077721,
+        "dust": 1.246086495436233
+      },
+      {
+        "mass_range": [
+          10,
+          12
+        ],
+        "n": 9,
+        "t_cosmic_Myr": 539.9169240172564,
+        "gamma_t": 38.475815061426474,
+        "t_eff_Myr": 19738.886527263803,
+        "dust": 2.7018996612304567
+      }
+    ]
+  },
+  "mass_dependence": {
+    "test": "Mass Dependence",
+    "results": [
+      {
+        "property": "Age Ratio",
+        "rho_low_mass": 0.1968311644041663,
+        "rho_high_mass": 0.20908926500481592,
+        "delta": 0.012258100600649635
+      },
+      {
+        "property": "Metallicity",
+        "rho_low_mass": 0.17735348237564572,
+        "rho_high_mass": 0.1756169040088064,
+        "delta": -0.0017365783668393253
+      },
+      {
+        "property": "Dust",
+        "rho_low_mass": 0.0653588573983401,
+        "rho_high_mass": 0.3400307744044892,
+        "delta": 0.2746719170061491
+      }
+    ]
+  },
+  "cross_domain": {
+    "test": "Cross-Domain Bridge",
+    "alpha_0": 0.58,
+    "derived_from": "Cepheid P-L relation at z ~ 0",
+    "applied_to": "JWST galaxies at z = 4-10",
+    "result": "All 7 threads significant with zero tuning"
+  },
+  "untested": {
+    "predictions": [
+      {
+        "name": "Resolved Age Gradients",
+        "prediction": "Within a galaxy, inner regions (deeper \u03a6) appear older",
+        "formula": "Gradient slope \u221d potential steepness",
+        "requires": "Requires: JADES/CEERS resolved photometry"
+      },
+      {
+        "name": "Spectroscopic vs Photometric Ages",
+        "prediction": "Spec ages (from absorption) should match TEP-corrected phot ages",
+        "formula": "\u0394age = age_phot - age_spec \u221d \u0393_t",
+        "requires": "Requires: NIRSpec spectroscopy"
+      },
+      {
+        "name": "Dynamical vs Stellar Masses",
+        "prediction": "M_dyn (from kinematics) should be lower than M_star (from SED)",
+        "formula": "M_star / M_dyn = \u0393_t^0.7",
+        "requires": "Requires: Velocity dispersion measurements"
+      },
+      {
+        "name": "Environment Screening",
+        "prediction": "Cluster members should show weaker TEP effects",
+        "formula": "\u0393_t_eff \u2192 1 in overdense regions",
+        "requires": "Requires: Environment classification"
+      },
+      {
+        "name": "Variable Star Periods",
+        "prediction": "Pulsation periods should be dilated in deep potentials",
+        "formula": "P_obs / P_true = \u0393_t",
+        "requires": "Requires: High-z variable star detection"
+      }
+    ]
+  }
+}

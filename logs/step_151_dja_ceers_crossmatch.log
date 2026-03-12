@@ -1,0 +1,10 @@
+[01:37:20]     STEP 151: DJA-CEERS spectroscopic crossmatch
+[01:37:21]   Loaded CEERS: N=10,483 from ceers_highz_sample.csv
+[01:37:21]   z>4 sample: N=10,483
+[01:37:21]   Overall rho(Gamma_t, log M*) = 0.891, p=0.00e+00
+[01:37:21]   rho(Gamma_t, dust) = 0.777, p=2.00e-303 (N=1499)
+[01:37:21]   z=4-7: N=9037, rho=0.942, p=0.00e+00
+[01:37:21]   z=7-9: N=939, rho=0.986, p=0.00e+00
+[01:37:21]   z=9-15: N=507, rho=0.968, p=3.74e-304
+[01:37:21] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_151_dja_ceers_crossmatch.json
+[01:37:21]     Step 151 complete. rho=0.891

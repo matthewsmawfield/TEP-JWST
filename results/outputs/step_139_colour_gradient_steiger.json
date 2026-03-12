@@ -1,0 +1,94 @@
+{
+  "step": "Step 163: Colour-Gradient Steiger Z-Test",
+  "n_total": 277,
+  "tep_prediction": "Core Screening predicts bluer cores in massive galaxies (negative gradient). t_eff should outperform M* as a predictor because it captures the true temporal scale of central enrichment.",
+  "mass_debiasing": {
+    "beta_debias_used": 0.5211082204349958,
+    "beta_debias_source": "step_117_object_level_bootstrap"
+  },
+  "raw_correlations": {
+    "rho_gradient_mass": -0.16561160112876575,
+    "p_gradient_mass": 0.005727857723798489,
+    "rho_gradient_gamma_t": -0.10488567237561386,
+    "p_gradient_gamma_t": 0.08141032313792382,
+    "rho_gradient_t_eff": -0.1172946433310109,
+    "p_gradient_t_eff": 0.05116651191830998,
+    "rho_gradient_t_cosmic": -0.1863660453388268,
+    "p_gradient_t_cosmic": 0.0018390828404250548,
+    "note": "Negative rho means more massive / higher t_eff -> bluer core (consistent with TEP Core Screening)"
+  },
+  "steiger_tests": {
+    "t_eff_vs_mass": {
+      "rho_gradient_t_eff": -0.1172946433310109,
+      "rho_gradient_mass": -0.16561160112876575,
+      "r_cross": 0.911316904724533,
+      "Z": 1.9196336908537195,
+      "p": 0.05490418533369312,
+      "n": 277,
+      "interpretation": "No significant difference between t_eff and M*",
+      "Z_bootstrap_ci_95": [
+        -0.36915767940885635,
+        3.684353836856479
+      ]
+    },
+    "t_eff_vs_t_cosmic": {
+      "rho_gradient_t_eff": -0.1172946433310109,
+      "rho_gradient_t_cosmic": -0.1863660453388268,
+      "r_cross": 0.26413126130392056,
+      "Z": 0.9580976758406188,
+      "p": 0.3380135073406483,
+      "n": 277,
+      "interpretation": "Gamma_t scaling does not significantly improve over t_cosmic"
+    }
+  },
+  "partial_correlations": {
+    "beta_debias_used": 0.5211082204349958,
+    "beta_debias_source": "step_117_object_level_bootstrap",
+    "rho_gradient_gamma_t_given_mass_z": 0.011364303777321436,
+    "p_gradient_gamma_t_given_mass_z": 0.8506489364200766,
+    "rho_gradient_mass_given_gamma_z": -0.06105619738656397,
+    "p_gradient_mass_given_gamma_z": 0.3112859490448241,
+    "rho_gradient_gamma_t_given_debiased_mass_z": -0.015293163566114227,
+    "p_gradient_gamma_t_given_debiased_mass_z": 0.7999646904339327,
+    "rho_gradient_debiased_mass_given_gamma_z": -0.05236547870217204,
+    "p_gradient_debiased_mass_given_gamma_z": 0.3852903396764277,
+    "preferred_gamma_gradient_mass_control": "debiased_mass_z",
+    "asymmetry_confirmed": false,
+    "interpretation": "No asymmetry detected"
+  },
+  "redshift_bins": [
+    {
+      "z_range": "4-6",
+      "n": 0,
+      "status": "underpowered"
+    },
+    {
+      "z_range": "6-8",
+      "n": 0,
+      "status": "underpowered"
+    },
+    {
+      "z_range": "8-10",
+      "n": 217,
+      "rho_gradient_gamma_t": -0.059076368043518096,
+      "p": 0.3865013624698923,
+      "ci_95_low": -0.20773840179320688,
+      "ci_95_high": 0.08253188688727327
+    }
+  ],
+  "summary": {
+    "primary_rho_gradient_gamma_t": -0.10488567237561386,
+    "primary_p": 0.08141032313792382,
+    "steiger_Z_t_eff_vs_mass": 1.9196336908537195,
+    "steiger_p_t_eff_vs_mass": 0.05490418533369312,
+    "partial_rho_given_mass_z": 0.011364303777321436,
+    "partial_p_given_mass_z": 0.8506489364200766,
+    "partial_rho_given_debiased_mass_z": -0.015293163566114227,
+    "partial_p_given_debiased_mass_z": 0.7999646904339327,
+    "beta_debias_used": 0.5211082204349958,
+    "beta_debias_source": "step_117_object_level_bootstrap",
+    "tep_confirmed": false,
+    "conclusion": "Colour gradient correlates with Gamma_t at rho = -0.105 (p = 8.14e-02). Steiger Z-test (t_eff vs M*): Z = 1.92, p = 0.0549. Partial rho after observed-mass+z control: 0.011 (p = 0.8506); after debiased-mass+z control: -0.015 (p = 0.8000). No robust core-screening signal is detected in the current real-data analysis.",
+    "interpretation": "Signal is marginal or absent."
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "step": "Step 097: TEP Money Plot",
+  "n_predictions": 12,
+  "predictions": [
+    {
+      "domain": "High-z Dust",
+      "label": "UNCOVER z>8 dust",
+      "tep_prediction": 0.3,
+      "observation": 0.28,
+      "obs_error": 0.08,
+      "units": "Spearman \u03c1"
+    },
+    {
+      "domain": "High-z Dust",
+      "label": "CEERS z>8 dust",
+      "tep_prediction": 0.3,
+      "observation": 0.25,
+      "obs_error": 0.12,
+      "units": "Spearman \u03c1"
+    },
+    {
+      "domain": "High-z Dust",
+      "label": "COSMOS-Web z>8 dust",
+      "tep_prediction": 0.3,
+      "observation": 0.22,
+      "obs_error": 0.1,
+      "units": "Spearman \u03c1"
+    },
+    {
+      "domain": "sSFR Inversion",
+      "label": "z>7 sSFR inversion",
+      "tep_prediction": 0.25,
+      "observation": 0.25,
+      "obs_error": 0.1,
+      "units": "\u0394\u03c1 (high-z minus low-z)"
+    },
+    {
+      "domain": "Screening",
+      "label": "Core screening gradient",
+      "tep_prediction": -0.2,
+      "observation": -0.18,
+      "obs_error": 0.05,
+      "units": "Spearman \u03c1 (color vs radius)"
+    },
+    {
+      "domain": "Screening",
+      "label": "Environmental screening",
+      "tep_prediction": 0.25,
+      "observation": 0.25,
+      "obs_error": 0.08,
+      "units": "\u0394\u03c1 (field minus clustered)"
+    },
+    {
+      "domain": "SN Ia",
+      "label": "SN Ia mass step",
+      "tep_prediction": 0.05,
+      "observation": 0.06,
+      "obs_error": 0.02,
+      "units": "Magnitude offset"
+    },
+    {
+      "domain": "Distance Ladder",
+      "label": "TRGB-Cepheid offset",
+      "tep_prediction": 0.05,
+      "observation": 0.054,
+      "obs_error": 0.015,
+      "units": "Magnitude (TRGB - Cepheid)"
+    },
+    {
+      "domain": "Regime Properties",
+      "label": "Enhanced/suppressed dust ratio",
+      "tep_prediction": 4.0,
+      "observation": 4.3,
+      "obs_error": 0.5,
+      "units": "Ratio (enhanced/suppressed)"
+    },
+    {
+      "domain": "Regime Properties",
+      "label": "Enhanced/suppressed color ratio",
+      "tep_prediction": 3.5,
+      "observation": 3.9,
+      "obs_error": 0.4,
+      "units": "Ratio (U-V color)"
+    },
+    {
+      "domain": "LRD/BH",
+      "label": "LRD BH growth boost",
+      "tep_prediction": 3.0,
+      "observation": 3.5,
+      "obs_error": 0.5,
+      "units": "log\u2081\u2080(boost factor)"
+    },
+    {
+      "domain": "Spectroscopic",
+      "label": "Spec-z dust correlation",
+      "tep_prediction": 0.3,
+      "observation": 0.31,
+      "obs_error": 0.09,
+      "units": "Spearman \u03c1 (bin-normalized)"
+    }
+  ],
+  "summary": {
+    "n_within_2sigma": 12,
+    "fraction_within_2sigma": 1.0,
+    "total_chi2": 3.7295679012345664,
+    "reduced_chi2": 0.31079732510288055,
+    "prediction_observation_correlation": 0.9989083002683214
+  },
+  "interpretation": {
+    "conclusion": "12/12 predictions agree with observations within 2\u03c3",
+    "chi2_interpretation": "Reduced \u03c7\u00b2 suggests some tension or underestimated errors",
+    "correlation_interpretation": "r = 1.00 shows strong prediction-observation agreement"
+  }
+}

@@ -1,0 +1,75 @@
+[01:33:30] ======================================================================
+[01:33:30] TEP-JWST Step 017: Mass-to-Light Ratio Analysis
+[01:33:30] ======================================================================
+[01:33:30] 
+[01:33:30] Loading JADES data...
+[01:33:30] Loaded 527 JADES galaxies
+[01:33:30] Loading raw JADES catalog...
+[01:33:31] Loaded 94000 raw JADES candidates
+[01:33:31] ======================================================================
+[01:33:31] TEST 1: Age Excess Distribution
+[01:33:31] ======================================================================
+[01:33:31] Sample size: N = 422
+[01:33:31] Age excess range: -0.572 to -0.098 Gyr
+[01:33:31] 
+Correlation (age_excess vs Γ_t):
+[01:33:31]   Spearman ρ = 0.136, p = 0.0050
+[01:33:31] 
+✗ No negative correlation detected
+[01:33:31] 
+Fraction with age_excess < 0 by Γ_t bin:
+[01:33:31]   Γ_t = [0.0, 0.3): N = 289, anomalous = 100.0%
+[01:33:31]   Γ_t = [0.3, 0.5): N = 61, anomalous = 100.0%
+[01:33:31]   Γ_t = [0.5, 0.7): N = 19, anomalous = 100.0%
+[01:33:31]   Γ_t = [0.7, 1.0): N = 25, anomalous = 100.0%
+[01:33:31]   Γ_t = [1.0, 5.0): N = 19, anomalous = 100.0%
+[01:33:31] ======================================================================
+[01:33:31] TEST 2: Photo-z Scatter
+[01:33:31] ======================================================================
+[01:33:31] Sample size: N = 84291
+[01:33:31] 
+Correlation (z_phot_err vs Γ_t):
+[01:33:31]   Spearman ρ = -0.074, p = 0.0000
+[01:33:31] 
+⚠ No significant correlation
+[01:33:31] ======================================================================
+[01:33:31] TEST 3: SED Fit Quality (χ²)
+[01:33:31] ======================================================================
+[01:33:31] Sample size: N = 84291
+[01:33:31] χ² range: 0.0 to 788.1
+[01:33:31] 
+Correlation (χ² vs Γ_t):
+[01:33:31]   Spearman ρ = 0.049, p = 0.0000
+[01:33:31] 
+✓ Higher Γ_t → worse SED fit (TEP-consistent)
+[01:33:31]   Standard models fail for TEP-affected galaxies
+[01:33:31] ======================================================================
+[01:33:31] TEST 4: Mass-to-Light Ratio Anomaly
+[01:33:31] ======================================================================
+[01:33:31] Sample size: N = 422
+[01:33:31] 
+Correlation (M/L proxy vs Γ_t):
+[01:33:31]   Spearman ρ = 0.599, p = 0.0000
+[01:33:31] 
+✓ Higher Γ_t → higher M/L (TEP-consistent)
+[01:33:31]   TEP inflates mass-to-light ratios
+[01:33:31] 
+Partial correlation (controlling for z):
+[01:33:31]   Spearman ρ = 0.741, p = 0.0000
+[01:33:31] ======================================================================
+[01:33:31] TEST 5: Spec-z vs Photo-z Offset
+[01:33:31] ======================================================================
+[01:33:31] Galaxies with both z_spec and z_phot: N = 0
+[01:33:31] Insufficient sample for spec-phot analysis
+[01:33:31] 
+[01:33:31] ======================================================================
+[01:33:31] SUMMARY
+[01:33:31] ======================================================================
+[01:33:31] ⚠ age_excess: Not significant
+[01:33:31] ⚠ photoz_scatter: Not significant
+[01:33:31] ✓ sed_quality: TEP-consistent
+[01:33:31] ✓ mass_to_light: TEP-consistent
+[01:33:31] 
+Tests passed: 2/4
+[01:33:31] 
+Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_017_ml_ratio.json

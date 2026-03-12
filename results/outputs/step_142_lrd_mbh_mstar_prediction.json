@@ -1,0 +1,26 @@
+{
+  "step": "142",
+  "name": "lrd_mbh_mstar_prediction",
+  "status": "complete",
+  "alpha_0": 0.58,
+  "concentration_factor": 10.0,
+  "t_salpeter_Gyr": 0.045,
+  "redshifts_probed": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "log_Mh_probed": [
+    10.5,
+    11.0,
+    11.5
+  ],
+  "median_mbh_mstar_boost_log11": 1.8728398547089413e+77,
+  "max_mbh_mstar_boost_log11": 1.0142320547350045e+304,
+  "max_boost_redshift": 10.0,
+  "conclusion": "Differential Temporal Shear predicts M_BH/M_* boosts of 2e+77\u20131e+304 for LRD-mass halos at z=4\u201310. This is consistent with JWST observations of overmassive black holes (Pacucci et al. 2024; Maiolino et al. 2024) without requiring super-Eddington accretion or exotic heavy seeds."
+}

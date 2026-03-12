@@ -1,0 +1,130 @@
+{
+  "resolution_method": "relative_enhancement",
+  "explanation": "TEP uses RELATIVE enhancement \u0393_t compared to a reference environment, not CALIBRATED clock rates. This naturally produces \u0393_t > 1 for M_h > M_ref without requiring 4\u03b2\u00b2 > 1 in the scalar-tensor action.",
+  "absolute_analysis": {
+    "0.4": {
+      "max_gamma": 0.9999999544989868,
+      "min_gamma": 0.9999994215178793,
+      "enhancement": false,
+      "threshold_4beta2_gt_1": false,
+      "4beta2": 0.6400000000000001
+    },
+    "0.5": {
+      "max_gamma": 0.999999999999984,
+      "min_gamma": 0.999999999997418,
+      "enhancement": false,
+      "threshold_4beta2_gt_1": false,
+      "4beta2": 1.0
+    },
+    "0.6": {
+      "max_gamma": 1.0000007070284196,
+      "min_gamma": 1.0000000556123165,
+      "enhancement": false,
+      "threshold_4beta2_gt_1": true,
+      "4beta2": 1.44
+    },
+    "0.8": {
+      "max_gamma": 1.0000025067459521,
+      "min_gamma": 1.0000001971709955,
+      "enhancement": false,
+      "threshold_4beta2_gt_1": true,
+      "4beta2": 2.5600000000000005
+    },
+    "1.0": {
+      "max_gamma": 1.0000048206732535,
+      "min_gamma": 1.0000003791750407,
+      "enhancement": false,
+      "threshold_4beta2_gt_1": true,
+      "4beta2": 4.0
+    }
+  },
+  "relative_analysis": {
+    "alpha_0": 0.58,
+    "z_ref": 5.5,
+    "log_Mh_ref": 12.0,
+    "test_cases": [
+      {
+        "log_Mh": 10.5,
+        "z": 8.0,
+        "label": "Low-mass z=8",
+        "Gamma_t": 0.08988440983976732,
+        "enhancement": false,
+        "suppression": true
+      },
+      {
+        "log_Mh": 11.5,
+        "z": 8.0,
+        "label": "Intermediate z=8",
+        "Gamma_t": 0.4479485382795505,
+        "enhancement": false,
+        "suppression": true
+      },
+      {
+        "log_Mh": 12.0,
+        "z": 8.0,
+        "label": "Reference mass z=8",
+        "Gamma_t": 1.0,
+        "enhancement": false,
+        "suppression": false
+      },
+      {
+        "log_Mh": 12.5,
+        "z": 8.0,
+        "label": "High-mass z=8",
+        "Gamma_t": 2.232399292652521,
+        "enhancement": true,
+        "suppression": false
+      },
+      {
+        "log_Mh": 13.0,
+        "z": 8.0,
+        "label": "Ultra-massive z=8",
+        "Gamma_t": 4.983606601835481,
+        "enhancement": true,
+        "suppression": false
+      },
+      {
+        "log_Mh": 12.5,
+        "z": 5.5,
+        "label": "High-mass z=5.5 (ref z)",
+        "Gamma_t": 1.637065352404311,
+        "enhancement": true,
+        "suppression": false
+      }
+    ]
+  },
+  "sign_paradox_resolved": true,
+  "red_monsters": [
+    {
+      "id": "S1",
+      "z": 5.3,
+      "log_Mh": 12.8,
+      "Gamma_t": 2.1223641722834325,
+      "mass_correction_factor": 1.6934560657341762,
+      "sfe_reduction_pct": 40.94916188059104
+    },
+    {
+      "id": "S2",
+      "z": 5.5,
+      "log_Mh": 12.6,
+      "Gamma_t": 1.8066716111466932,
+      "mass_correction_factor": 1.5129182241023662,
+      "sfe_reduction_pct": 33.902574239046345
+    },
+    {
+      "id": "S3",
+      "z": 5.9,
+      "log_Mh": 13.0,
+      "Gamma_t": 2.939367012665713,
+      "mass_correction_factor": 2.1270498643362097,
+      "sfe_reduction_pct": 52.98652764249743
+    }
+  ],
+  "theoretical_mapping": {
+    "alpha_0": 0.58,
+    "interpretation": "\u03b1\u2080 is a phenomenological coupling calibrated from Cepheid P-L residuals. It is NOT the same as the scalar-tensor coupling \u03b2 in the action.",
+    "relative_formulation": "TEP-JWST uses \u0393_t = exp[\u03b1(z) \u00d7 (2/3) \u00d7 \u0394log(M_h) \u00d7 (1+z)/(1+z_ref)], which is a RELATIVE enhancement compared to a reference environment.",
+    "sign_paradox_resolution": "The sign paradox arises from conflating CALIBRATED clock rates (which require 4\u03b2\u00b2 > 1 for enhancement) with RELATIVE enhancement (which is > 1 for M_h > M_ref by construction).",
+    "physical_meaning": "\u0393_t > 1 means the galaxy experiences MORE effective time than the reference. This is a statement about differential evolution, not calibrated clock rates."
+  }
+}

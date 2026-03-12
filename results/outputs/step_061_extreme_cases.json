@@ -1,0 +1,37 @@
+{
+  "n_total": 2315,
+  "extreme_cases": {
+    "oldest": {
+      "n_extreme": 9,
+      "mean_gamma_extreme": 14.359553773893074
+    },
+    "dusty_z9": {
+      "n_dusty": 60,
+      "mean_gamma_dusty": 5.21871897402529,
+      "mean_gamma_not": 0.2703231890277078,
+      "ratio": 19.305480202404603
+    },
+    "massive_z8": {
+      "n_massive": 16,
+      "mean_gamma_massive": 24.314496953355768,
+      "mean_gamma_not": 0.4050745844885679,
+      "ratio": 60.02474083644212
+    },
+    "worst_fits": {
+      "n_worst": 29,
+      "mean_gamma_worst": 8.017987199205502,
+      "mean_gamma_good": 1.0419891202172455,
+      "ratio": 7.6948857177451355
+    },
+    "multi_extreme": {
+      "rho": 0.5463726833935963,
+      "p": 2.0001157506421563e-23
+    },
+    "anomalous": {
+      "n_impossible": 10,
+      "mean_gamma_impossible": 13.488727121881496,
+      "mean_gamma_possible": 2.0226605057438465,
+      "ratio": 6.66880432162338
+    }
+  }
+}

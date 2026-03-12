@@ -1,0 +1,48 @@
+[01:33:47]     ======================================================================
+[01:33:47]     STEP 36: COSMOS-Web Independent Replication
+[01:33:47]     ======================================================================
+[01:33:47] 
+[01:33:47]     Third independent validation of the z>8 dust anomaly
+[01:33:47]     using COSMOS-Web DR1 (Shuntov et al. 2025)
+[01:33:47] 
+[01:33:47]     Loaded COSMOS-Web z>8 sample: N = 2606
+[01:33:48]     
+============================================================
+[01:33:48]     MASS-DUST CORRELATION: COSMOS-Web z>8
+[01:33:48]     ============================================================
+[01:33:48]     Sample size (dust > 0): N = 918
+[01:33:48]     Redshift range: z = 8.0 - 12.0
+[01:33:48]     
+Mass-Dust Correlation:
+[01:33:48]       ρ = 0.631 [0.585, 0.672]
+[01:33:48]       p = 3.19e-103
+[01:33:48]       Significance: 21.6σ
+[01:33:48]     
+Γ_t-DUST CORRELATION: COSMOS-Web z>8
+[01:33:48]       Raw: ρ(Γ_t, dust) = 0.629, p = 3.47e-102
+[01:33:48]       Partial (|M*): ρ = 0.012, p = 7.07e-01
+[01:33:48]     
+t_eff-DUST CORRELATION: COSMOS-Web z>8
+[01:33:48]       ρ(t_eff, dust) = 0.632, p = 2.38e-103
+[01:33:48]     
+============================================================
+[01:33:48]     CROSS-SURVEY COMPARISON (3 INDEPENDENT SURVEYS)
+[01:33:48]     ============================================================
+[01:33:48]     
+UNCOVER z>8 (N=283): ρ = 0.559, p = 1.05e-24
+[01:33:48]     CEERS z>8 (N=82): ρ = 0.680, p = 2.03e-12
+[01:33:48]     
+======================================================================
+[01:33:48]     THREE-SURVEY REPLICATION SUMMARY
+[01:33:48]     ======================================================================
+[01:33:48]     
+Mass-Dust Correlation at z>8:
+[01:33:48]       UNCOVER:    ρ = 0.559 (N = 283)
+[01:33:48]       CEERS:      ρ = 0.680 (N = 82)
+[01:33:48]       COSMOS-Web: ρ = 0.631 (N = 918)
+[01:33:48]     
+✓ THIRD INDEPENDENT REPLICATION SUCCESSFUL
+[01:33:48]       The z>8 dust anomaly is confirmed in COSMOS-Web.
+[01:33:48]     
+Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_034_cosmosweb_replication.json
+[01:33:48]     Step 034 complete.

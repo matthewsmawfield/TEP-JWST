@@ -1,0 +1,22 @@
+{
+  "beta_mass": {
+    "n_galaxies": 81,
+    "spearman_rho": 0.1197831978319783,
+    "spearman_p": 0.2868155576736439,
+    "tep_consistent": false
+  },
+  "z_evolution": {
+    "rho_low_z": 0.20578917050691245,
+    "p_low_z": 0.1056490824340641,
+    "rho_high_z": -0.1001031991744066,
+    "p_high_z": 0.6926899392518374,
+    "delta_rho": -0.30589236968131905,
+    "tep_consistent": true
+  },
+  "beta_gamma": {
+    "n_galaxies": 81,
+    "spearman_rho": 0.017795844625112918,
+    "spearman_p": 0.8747044826837812,
+    "tep_consistent": false
+  }
+}

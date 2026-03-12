@@ -1,0 +1,38 @@
+{
+  "step": "Step 128: Selection Effect Monte Carlo",
+  "is_model_prediction": true,
+  "parameters": {
+    "n_sim": 5000,
+    "n_null": 100
+  },
+  "observed": {
+    "n_observed": 283,
+    "rho_observed": 0.5537437087754706,
+    "p_observed": 3.853830054047858e-24
+  },
+  "simulation": {
+    "n_intrinsic": 5000,
+    "n_selected": 160,
+    "selection_fraction": 0.032,
+    "rho_mass_dust_intrinsic": 0.0,
+    "rho_mass_dust_selected": 0.002518357102020161,
+    "p_mass_dust_selected": 0.9747868481647224,
+    "rho_gamma_dust_selected": -0.029382983710301184,
+    "p_gamma_dust_selected": 0.7122513713570202,
+    "spurious_correlation_detected": false
+  },
+  "null_distribution": {
+    "n_simulations": 100,
+    "rho_mean": 0.11829803292608139,
+    "rho_std": 1.3877787807814457e-17,
+    "rho_max_abs": 0.1182980329260814
+  },
+  "comparison": {
+    "z_score": 3.1377167735926452e+16,
+    "p_value_vs_null": 1e-300,
+    "excess_rho": 0.43544567584938926,
+    "excess_fraction_pct": 78.63668136516053,
+    "selection_explains_signal": false
+  },
+  "conclusion": "Observed correlation EXCEEDS maximum from selection effects alone"
+}

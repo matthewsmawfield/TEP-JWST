@@ -1,0 +1,6 @@
+{
+  "status": "skipped",
+  "reason": "Legacy step_042 population values were assumption-heavy and are quarantined to avoid non-empirical claims; use step_132_lrd_validation for the real Kokorev-catalog analysis.",
+  "superseded_by": "step_132_lrd_validation",
+  "data_source": "Kokorev et al. 2024 (catalog)"
+}

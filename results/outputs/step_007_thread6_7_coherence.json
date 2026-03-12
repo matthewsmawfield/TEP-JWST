@@ -1,0 +1,46 @@
+{
+  "step": "007",
+  "name": "thread6_7_coherence",
+  "thread6_age_metallicity": {
+    "test": "Thread 6: Age-Metallicity Coherence",
+    "n": 1108,
+    "rho": 0.3308190995664502,
+    "p": 1.0486667323447951e-29,
+    "ci_95": [
+      0.2667979298867693,
+      0.38753421311259173
+    ],
+    "significant": true,
+    "interpretation": "Older \u2192 more enriched (TEP consistent)"
+  },
+  "thread7_multi_property": {
+    "test": "Thread 7: Multi-Property Split Test",
+    "n": 1108,
+    "gamma_median": 0.5323782802833196,
+    "properties": {
+      "age_ratio": {
+        "mean_low_gamma": 0.13302305023106567,
+        "mean_high_gamma": 0.16739260132405823,
+        "diff": 0.034369551092992556,
+        "p": 3.049282490499384e-13,
+        "significant": true
+      },
+      "metallicity": {
+        "mean_low_gamma": -1.2425063298746255,
+        "mean_high_gamma": -1.0784583463594293,
+        "diff": 0.16404798351519623,
+        "p": 1.7259140282439792e-08,
+        "significant": true
+      },
+      "dust": {
+        "mean_low_gamma": 0.19372435343449426,
+        "mean_high_gamma": 0.3624431722971727,
+        "diff": 0.16871881886267845,
+        "p": 6.784527471512407e-16,
+        "significant": true
+      }
+    },
+    "all_significant": true,
+    "interpretation": "TEP signature confirmed"
+  }
+}

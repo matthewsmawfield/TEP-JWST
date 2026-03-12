@@ -1,0 +1,71 @@
+{
+  "step": "158",
+  "name": "dja_balmer_decrement",
+  "status": "SUCCESS",
+  "description": "DJA NIRSpec Ha/Hb Balmer decrement \u2014 Table B5",
+  "catalog_used": "DJA NIRSpec v4.4 (dja_msaexp_emission_lines_v4.4.csv.gz)",
+  "predictor_used": "gamma_t",
+  "reproducible_dja_available": true,
+  "manuscript_table_reproduced": true,
+  "n_total_z2": 3259,
+  "rho_full": 0.4933036369030256,
+  "p_full": 1.713797143144009e-199,
+  "partial_rho_full": -0.0018243635417706933,
+  "partial_p_full": 0.917083036104385,
+  "redshift_bins": [
+    {
+      "label": "z=2-4",
+      "z_lo": 2.0,
+      "z_hi": 4.0,
+      "n": 1603,
+      "rho": 0.5558816515455388,
+      "p": 1.1325265807267694e-130,
+      "median_ratio": 3.518479127859511,
+      "partial_rho": 0.07259249304961665,
+      "partial_p": 0.0036375926815746355,
+      "ci_lo": 0.513686478975189,
+      "ci_hi": 0.590937295542968
+    },
+    {
+      "label": "z=4-5",
+      "z_lo": 4.0,
+      "z_hi": 5.0,
+      "n": 712,
+      "rho": 0.4529298520297709,
+      "p": 2.6297572020835307e-37,
+      "median_ratio": 3.0800160491571997,
+      "partial_rho": 0.026607348915419833,
+      "partial_p": 0.4784171491400979,
+      "ci_lo": 0.4004261274036376,
+      "ci_hi": 0.5185258422858816
+    },
+    {
+      "label": "z=5-6",
+      "z_lo": 5.0,
+      "z_hi": 6.0,
+      "n": 584,
+      "rho": 0.3801142426110118,
+      "p": 1.6332367107988173e-21,
+      "median_ratio": 3.030440088076279,
+      "partial_rho": -0.014679277358894058,
+      "partial_p": 0.7233390327901805,
+      "ci_lo": 0.2892305022952341,
+      "ci_hi": 0.4546091871795655
+    },
+    {
+      "label": "z=6-7",
+      "z_lo": 6.0,
+      "z_hi": 7.0,
+      "n": 286,
+      "rho": 0.4404040119059374,
+      "p": 5.344600792600256e-15,
+      "median_ratio": 3.2740213257538135,
+      "partial_rho": 0.009529926689299265,
+      "partial_p": 0.8725159624119125,
+      "ci_lo": 0.3382884959168944,
+      "ci_hi": 0.5449407178419398
+    }
+  ],
+  "note": null,
+  "caveat": "Ha flux uses Blnd_HBaA_N2 (Halpha+[NII] blend). [NII] contamination significant at z<6; interpret cautiously. JADES DR4 catalog (D'Eugenio et al. 2025, msaexp pipeline)."
+}

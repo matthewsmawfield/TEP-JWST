@@ -1,0 +1,66 @@
+{
+  "step": "Step 107: Time-Domain SN Rate Prediction",
+  "is_model_prediction": true,
+  "predictions": {
+    "type_ia": {
+      "name": "Type Ia Supernovae",
+      "delay_time": "~1 Gyr (peak of DTD)",
+      "tep_prediction": "Enhanced rate in high-Gamma_t galaxies",
+      "mechanism": "More effective time for WD binary evolution",
+      "expected_enhancement": "Rate ~ Gamma_t for t_eff > 1 Gyr",
+      "observable": "SN Ia rate per unit stellar mass",
+      "falsification": "No rate difference between high/low Gamma_t at fixed mass"
+    },
+    "core_collapse": {
+      "name": "Core-Collapse Supernovae",
+      "delay_time": "< 50 Myr",
+      "tep_prediction": "Weak or no enhancement",
+      "mechanism": "CC SNe track recent SFR, not integrated history",
+      "expected_enhancement": "Rate ~ SFR (minimal Gamma_t dependence)",
+      "observable": "CC SN rate per unit SFR",
+      "falsification": "Strong Gamma_t dependence would contradict TEP"
+    },
+    "ratio_ia_cc": {
+      "name": "Type Ia / Core-Collapse Ratio",
+      "tep_prediction": "Higher ratio in high-Gamma_t galaxies",
+      "mechanism": "Ia rate enhanced, CC rate unchanged",
+      "expected_enhancement": "Ratio ~ Gamma_t^0.5 for enhanced regime",
+      "observable": "N(Ia) / N(CC) per galaxy",
+      "falsification": "Constant ratio across Gamma_t would contradict TEP"
+    }
+  },
+  "simulation": {
+    "n_galaxies": 1000,
+    "type_ia": {
+      "rho_vs_gamma_t": 0.802850170850171,
+      "p_value": 2.111818163702126e-226,
+      "enhancement_high_vs_low": 4.447145645283561
+    },
+    "core_collapse": {
+      "rho_vs_gamma_t": -0.0011417651417651418,
+      "p_value": 0.9712340085804729,
+      "enhancement_high_vs_low": 1.0141449958894089
+    },
+    "ratio_ia_cc": {
+      "rho_vs_gamma_t": 0.5530274170274171,
+      "p_value": 3.524380805583698e-81
+    },
+    "interpretation": {
+      "ia_enhanced": true,
+      "cc_not_enhanced": true,
+      "consistent_with_tep": true
+    }
+  },
+  "key_discriminant": {
+    "type_ia": "Enhanced rate in high-Gamma_t galaxies",
+    "core_collapse": "No enhancement (tracks SFR)",
+    "ratio": "Ia/CC ratio increases with Gamma_t",
+    "falsification": "No differential response would falsify TEP"
+  },
+  "observing_requirements": {
+    "survey": "Roman High-Latitude Time Domain Survey",
+    "sample_size": "~1000 SNe at z < 2",
+    "key_measurement": "SN rate per unit mass vs host Gamma_t",
+    "timeline": "First results ~2029"
+  }
+}

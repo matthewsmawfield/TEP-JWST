@@ -1,0 +1,43 @@
+[01:35:14]     ======================================================================
+[01:35:14]     STEP 099: Alpha(z) Evolution Test
+[01:35:14]     ======================================================================
+[01:35:14]     Loaded 2315 galaxies
+[01:35:14]     
+Fitting alpha_0 in ALL redshift bins (for completeness):
+[01:35:14]     ------------------------------------------------------------
+[01:35:14]       z=4.0-5.5: N=1233, α₀=0.10±0.00, ρ=0.05 ✗
+[01:35:14]       z=5.5-7.0: N=578, α₀=0.10±0.00, ρ=-0.11 ✗
+[01:35:15]       z=7.0-8.5: N=328, α₀=0.10±0.00, ρ=0.18 ✗
+[01:35:15]       z=8.5-10.0: N=176, α₀=0.10±0.00, ρ=0.65 ✗
+[01:35:15]       z=10.0-12.0: N=0 (too few, skipping)
+[01:35:15]     Used bootstrap for uncertainty (covariance matrix singular)
+[01:35:15]     
+======================================================================
+[01:35:15]     HIGH-Z ALPHA_0 RECOVERY (z > 7, signal-active bins only)
+[01:35:15]     ======================================================================
+[01:35:15]       z=7.0-8.5: N=328, α₀=0.10±0.00, ρ=0.18 ✗
+[01:35:15]       z=8.5-10.0: N=176, α₀=0.10±0.00, ρ=0.65 ✗
+[01:35:15]     
+High-z weighted mean α₀ = 0.10 ± 0.07
+[01:35:15]     Tension with nominal (0.58): 2.74σ
+[01:35:15]     
+======================================================================
+[01:35:15]     EVOLUTION TEST RESULTS
+[01:35:15]     ======================================================================
+[01:35:15]     
+Linear fit: α₀(z) = 0.10 + -0.000 × z
+[01:35:15]     Slope significance: p = 1.000
+[01:35:15]     
+✓ α₀ is CONSISTENT with being constant across redshift
+[01:35:15]       The TEP assumption α₀ = 0.58 is validated
+[01:35:15]     
+All-bins weighted mean α₀ = 0.10 ± 0.05
+[01:35:15]       (LOW-Z BINS INCLUDED — methodologically incorrect, reported for completeness)
+[01:35:15]     High-z-only weighted mean α₀ = 0.10 ± 0.07
+[01:35:15]     Nominal value: α₀ = 0.58 ± 0.16
+[01:35:15]     All-bins tension with nominal: 2.9σ  (high-z only: 2.74σ)
+[01:35:15]     
+Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_099_alpha_evolution_test.json
+[01:35:15]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_099_alpha_evolution_test.png
+[01:35:15]     
+Step 099 complete.

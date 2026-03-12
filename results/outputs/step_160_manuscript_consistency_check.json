@@ -1,0 +1,224 @@
+{
+  "step": "step_160",
+  "description": "Automated manuscript-to-JSON consistency checks for defensibility",
+  "summary": {
+    "checks_total": 16,
+    "checks_passed": 15,
+    "checks_skipped": 1,
+    "checks_failed": 0,
+    "status": "PASS"
+  },
+  "checks": [
+    {
+      "name": "conclusion_reproducibility_wording_is_reader_facing",
+      "expected": {
+        "stale_step_phrases_absent": true,
+        "required_tokens_present": true
+      },
+      "found": {
+        "stale_step_phrases": [],
+        "required_tokens_present": {
+          "end-to-end analysis code": true,
+          "archived outputs": true,
+          "Analysis repository:": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "new_results_heading_and_list_count",
+      "expected": [
+        6,
+        7,
+        8
+      ],
+      "found": 8,
+      "pass": true
+    },
+    {
+      "name": "canonical_registry_includes_late_audit_before_final_synthesis",
+      "expected": {
+        "step_164_present": true,
+        "step_140_present": true,
+        "step_164_before_step_140": true
+      },
+      "found": {
+        "step_164_present": true,
+        "step_140_present": true,
+        "step_164_before_step_140": true,
+        "registered_steps": 153
+      },
+      "pass": true
+    },
+    {
+      "name": "table13_n_range_math_delimiter_regression",
+      "expected": "bad token absent",
+      "found": false,
+      "pass": true
+    },
+    {
+      "name": "l2_skipped_state_matches_manuscript_wording",
+      "expected": {
+        "step_037_status": [
+          "skipped",
+          null,
+          "SUCCESS"
+        ],
+        "step_140_L2_status": [
+          "skipped",
+          "live"
+        ],
+        "live_primary_lines": 2,
+        "skipped_primary_lines": 0,
+        "stale_four_line_and_workflow_phrases_absent": true,
+        "ancillary_l2_language_present": true
+      },
+      "found": {
+        "step_037_status": null,
+        "step_140_L2_status": "live",
+        "live_primary_lines": 2,
+        "skipped_primary_lines": 0,
+        "stale_four_line_or_workflow_phrase_hits": {},
+        "ancillary_l2_language_present": true
+      },
+      "pass": true
+    },
+    {
+      "name": "alpha0_external_prior_and_jwst_recovery_are_distinguished",
+      "expected": {
+        "stale_alpha0_phrases_absent": true,
+        "external_prior_tokens_present": true,
+        "jwst_recovery_tokens_present": true
+      },
+      "found": {
+        "stale_alpha0_phrase_hits": {},
+        "external_prior_tokens_present": true,
+        "jwst_recovery_tokens_present": true
+      },
+      "pass": true
+    },
+    {
+      "name": "environmental_screening_is_supplementary_and_mixed",
+      "expected": {
+        "step_140_marks_environmental_screening_supplementary": true,
+        "stale_environmental_screening_phrases_absent": true,
+        "supplementary_and_mixed_language_present": true
+      },
+      "found": {
+        "step_140_supplementary_or_mixed_branches": [
+          "environmental_screening"
+        ],
+        "stale_environmental_screening_phrase_hits": {},
+        "supplementary_and_mixed_language_present": {
+          "supplementary": true,
+          "mixed": true,
+          "z_gt_8_null_value": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "mass_proxy_breaker_language_is_non_overclaiming",
+      "expected": {
+        "degeneracy_state": [
+          "narrowed_not_closed",
+          "partially_narrowed",
+          "unbroken"
+        ],
+        "broken_absent": true
+      },
+      "found": {
+        "degeneracy_state": "narrowed_not_closed",
+        "broken_in_conclusion": false
+      },
+      "pass": true
+    },
+    {
+      "name": "l4_status_matches_direct_kinematic_availability",
+      "expected": "derived_from_real_data",
+      "found": {
+        "step_117_direct_kinematic_measurements_used": false,
+        "step_140_l4_status": "derived_from_real_data"
+      },
+      "pass": true
+    },
+    {
+      "name": "cross_domain_consistency_keeps_programme_level_caveat",
+      "expected": {
+        "stale_independence_phrases_absent": true,
+        "programme_level_caveat_present": true
+      },
+      "found": {
+        "stale_independence_phrase_hits": {},
+        "programme_level_caveat_present": {
+          "single_theoretical_programme": true,
+          "not_independent_verification": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "stale_omnibus_6p4sigma_claim_absent",
+      "expected": {
+        "stale_omnibus_sigma_phrases_absent": true
+      },
+      "found": {
+        "stale_omnibus_sigma_phrase_hits": {}
+      },
+      "pass": true
+    },
+    {
+      "name": "supplementary_discussion_matches_live_canonical_supporting_outputs",
+      "expected": {
+        "stale_forward_modeling_and_selection_mc_absent": true,
+        "ancillary_l2_language_present": true,
+        "ml_live_validation_present": true,
+        "mass_proxy_breaker_present": true
+      },
+      "found": {
+        "stale_supplementary_phrase_hits": {},
+        "supporting_tokens_present": {
+          "l2_ancillary_language": true,
+          "ml_live_validation": true,
+          "mass_proxy_breaker": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "step157_z9_13_partial_rho_present",
+      "expected": "-0.106",
+      "found": true,
+      "pass": true
+    },
+    {
+      "name": "step158_z_gt_2_partial_rho_present",
+      "pass": null,
+      "note": "step_158 output does not expose a live reproducible z>2 partial-rho token; check skipped"
+    },
+    {
+      "name": "step159_suppression_values_present_in_discussion",
+      "expected": {
+        "rho_true": "0.697",
+        "rho_obs_beta07": "0.372"
+      },
+      "found": {
+        "rho_true": true,
+        "rho_obs_beta07": true
+      },
+      "pass": true
+    },
+    {
+      "name": "step159_bootstrap_beta_ci_present_in_discussion",
+      "expected": {
+        "beta_ci_low": "0.299",
+        "beta_ci_high": "1.005"
+      },
+      "found": {
+        "beta_ci_low": true,
+        "beta_ci_high": true
+      },
+      "pass": true
+    }
+  ]
+}

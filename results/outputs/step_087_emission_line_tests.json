@@ -1,0 +1,30 @@
+{
+  "n_total": 2315,
+  "emission_sed": {
+    "sfr_discrepancy": {
+      "rho": -0.2285182412420542,
+      "p": 0.00010501483094252018
+    },
+    "sed_quality": {
+      "rho": 0.1360286370504812,
+      "p": 0.022086512574295447
+    },
+    "age_paradox": {
+      "n_impossible": 6,
+      "mean_gamma_impossible": 20.723641510600928,
+      "mean_gamma_possible": 1.3460108889838787,
+      "ratio": 15.39634016352236,
+      "n_resolved": 6
+    },
+    "complex_pop": {
+      "n_complex": 24,
+      "mean_gamma_complex": 5.870443810716849,
+      "mean_gamma_simple": 1.3756610573549637,
+      "ratio": 4.267362065190809
+    },
+    "age_indicators": {
+      "rho_mwa": -0.0029585830145144225,
+      "p_mwa": 0.9604802800188397
+    }
+  }
+}

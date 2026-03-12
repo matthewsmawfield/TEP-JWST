@@ -1,0 +1,32 @@
+{
+  "identification": {
+    "n_gt_0.3": 50,
+    "frac_gt_0.3": 2.159827213822894,
+    "n_gt_0.5": 9,
+    "frac_gt_0.5": 0.38876889848812096,
+    "n_gt_0.7": 1,
+    "frac_gt_0.7": 0.04319654427645788,
+    "n_gt_0.9": 1,
+    "frac_gt_0.9": 0.04319654427645788,
+    "n_impossible": 9,
+    "n_normal": 2306
+  },
+  "correlation": {
+    "spearman_rho": 0.04789577527211646,
+    "spearman_p": 0.021191412985561757,
+    "pearson_r": 0.14565637325490471,
+    "pearson_p": 1.8953224303345874e-12,
+    "slope": 0.002736571244623914,
+    "slope_err": 0.0003864852557173715,
+    "intercept": 0.15921987446042157,
+    "tep_consistent": true
+  },
+  "resolution": {
+    "n_impossible_raw": 9,
+    "n_resolved": 8,
+    "n_still_impossible": 1,
+    "reduction_pct": 88.88888888888889,
+    "mean_age_ratio_raw": 0.6415049439240004,
+    "mean_age_ratio_corrected": 0.2505064049216832
+  }
+}

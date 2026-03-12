@@ -1,0 +1,101 @@
+[01:33:32] ======================================================================
+[01:33:32] TEP-JWST Step 018: Assembly Time Analysis
+[01:33:32] ======================================================================
+[01:33:32] 
+[01:33:32] This analysis examines assembly time correlations with the chronological enhancement factor.
+[01:33:32] 
+[01:33:32] Loading data...
+[01:33:32] UNCOVER: N = 2315
+[01:33:32] JADES: N = 527
+[01:33:32] ======================================================================
+[01:33:32] TEST 1: Assembly Time Scaling
+[01:33:32] ======================================================================
+[01:33:32] t_assembly_Myr not available in UNCOVER data — skipping Test 1.
+[01:33:32] ======================================================================
+[01:33:32] TEST 2: Effective Time Threshold Tests
+[01:33:32] ======================================================================
+[01:33:32] 
+chemical_enrichment (threshold = 100 Myr):
+[01:33:32]   N above: 2261, N below: 54
+[01:33:32]   Mean age_ratio above: 0.161
+[01:33:32]   Mean age_ratio below: 0.185
+[01:33:32]   Ratio: 0.87×
+[01:33:32]   p-value: 6.64e-03
+[01:33:32] 
+agb_dust (threshold = 300 Myr):
+[01:33:32]   N above: 1721, N below: 594
+[01:33:32]   Mean age_ratio above: 0.160
+[01:33:32]   Mean age_ratio below: 0.164
+[01:33:32]   Ratio: 0.98×
+[01:33:32]   p-value: 2.25e-01
+[01:33:32] 
+quenching (threshold = 500 Myr):
+[01:33:32]   N above: 1228, N below: 1087
+[01:33:32]   Mean age_ratio above: 0.165
+[01:33:32]   Mean age_ratio below: 0.156
+[01:33:32]   Ratio: 1.06×
+[01:33:32]   p-value: 7.32e-04
+[01:33:32]   ✓ Significant enhancement above threshold
+[01:33:32] 
+full_evolution (threshold = 1000 Myr):
+[01:33:32]   N above: 287, N below: 2028
+[01:33:32]   Mean age_ratio above: 0.196
+[01:33:32]   Mean age_ratio below: 0.156
+[01:33:32]   Ratio: 1.25×
+[01:33:32]   p-value: 5.60e-23
+[01:33:32]   ✓ Significant enhancement above threshold
+[01:33:32] ======================================================================
+[01:33:32] TEST 3: Redshift Scaling Verification
+[01:33:32] ======================================================================
+[01:33:32] 
+z = [7, 9): N = 400
+[01:33:32]   Slope (age_ratio vs Γ_t): -0.0041 ± 0.0007
+[01:33:32]   Expected α(z) scaling: (1+8.0)^0.5 = 3.00
+[01:33:32] 
+z = [9, 11): N = 104
+[01:33:32]   Slope (age_ratio vs Γ_t): 0.0026 ± 0.0009
+[01:33:32]   Expected α(z) scaling: (1+10.0)^0.5 = 3.32
+[01:33:32] 
+Slope vs z correlation: ρ = 1.000, p = 1.0000
+[01:33:32] ✓ Slope increases with z (TEP-consistent)
+[01:33:32] ======================================================================
+[01:33:32] TEST 4: Cross-Sample Consistency
+[01:33:32] ======================================================================
+[01:33:32] 
+UNCOVER (N = 2315):
+[01:33:32]   age_ratio vs Γ_t: ρ = 0.048, p = 0.0212
+[01:33:32] 
+JADES (N = 422):
+[01:33:32]   age_ratio vs Γ_t: ρ = 0.873, p = 0.0000
+[01:33:32] 
+Consistency test:
+[01:33:32]   Δρ = -0.825
+[01:33:32]   z-test: p = 0.0000
+[01:33:32] ⚠ Correlations differ between samples
+[01:33:32] ======================================================================
+[01:33:32] TEST 5: Formation Epoch Test
+[01:33:32] ======================================================================
+[01:33:32] 
+Apparent age = [0, 0.1) Gyr (N = 415):
+[01:33:32]   Γ_t vs t_form: ρ = 0.347, p = 0.0000
+[01:33:32]   ✓ High-Γ_t galaxies formed more recently (TEP-consistent)
+[01:33:32] 
+Apparent age = [0.1, 0.2) Gyr (N = 1230):
+[01:33:32]   Γ_t vs t_form: ρ = 0.512, p = 0.0000
+[01:33:32]   ✓ High-Γ_t galaxies formed more recently (TEP-consistent)
+[01:33:32] 
+Apparent age = [0.2, 0.5) Gyr (N = 660):
+[01:33:32]   Γ_t vs t_form: ρ = -0.068, p = 0.0792
+[01:33:32] 
+[01:33:32] ======================================================================
+[01:33:32] SUMMARY
+[01:33:32] ======================================================================
+[01:33:32] ⚠ Assembly time: Needs interpretation
+[01:33:32] ✓ Time thresholds: 3/4 significant
+[01:33:32] ✓ Redshift scaling: TEP-consistent
+[01:33:32] ⚠ Cross-sample: Samples differ
+[01:33:32] ✓ Formation epoch: 2 bins TEP-consistent
+[01:33:32] 
+Tests passed: 3/5
+[01:33:32] 
+Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_018_assembly_time.json

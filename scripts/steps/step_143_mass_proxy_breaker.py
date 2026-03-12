@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): 2.7s.
 """
 Step 143: Mass-Proxy Degeneracy Breaker
 
@@ -28,7 +29,7 @@ TEST 3 — Shuffled-Mass Null Test:
 
 Outputs:
 - results/outputs/step_143_mass_proxy_breaker.json
-- results/figures/figure_167_mass_proxy_breaker.png
+- results/figures/figure_143_mass_proxy_breaker.png
 """
 
 import json
@@ -48,7 +49,7 @@ from scripts.utils.logger import TEPLogger, set_step_logger, print_status
 from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like
 from scripts.utils.p_value_utils import format_p_value, safe_json_default
 
-STEP_NUM = "167"
+STEP_NUM = "143"
 STEP_NAME = "mass_proxy_breaker"
 
 LOGS_PATH = PROJECT_ROOT / "logs"
@@ -72,8 +73,18 @@ warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 def partial_spearman(x, y, controls):
     """
-    Partial Spearman correlation of x and y controlling for controls
-    (list of arrays). Uses residuals from OLS on ranks.
+    Partial Spearman rank correlation of x and y controlling for controls
+    (list of arrays). 
+    
+    Mathematical formulation:
+    1. Convert all inputs to ranks to isolate monotonic associations.
+    2. Fit OLS regressions:
+         rank(x) ~ beta_x * rank(controls)
+         rank(y) ~ beta_y * rank(controls)
+    3. Compute Pearson correlation between the residuals of these two regressions.
+    
+    This rigorous non-parametric approach removes the linear effect of the control 
+    variables in rank-space, isolating the independent covariance between x and y.
     """
     rx = rankdata(x).astype(float)
     ry = rankdata(y).astype(float)
@@ -90,7 +101,18 @@ def partial_spearman(x, y, controls):
 
 
 def lowess_residuals(x, y, frac=0.3):
-    """Non-parametric LOWESS residuals: y - lowess(y|x)."""
+    """
+    Non-parametric LOWESS (Locally Weighted Scatterplot Smoothing) residuals.
+    
+    Mathematical formulation:
+    Fits a smooth non-parametric trend line (lowess(y|x)) by applying weighted 
+    linear regressions to localized subsets of the data. 
+    Returns: y_observed - y_predicted_lowess
+    
+    This technique safely removes the macro-scale trend of x on y without 
+    assuming any specific functional form (e.g., linear, exponential), preventing
+    model mis-specification artifacts.
+    """
     try:
         from statsmodels.nonparametric.smoothers_lowess import lowess
         fitted = lowess(y, x, frac=frac, return_sorted=False)
@@ -434,7 +456,7 @@ def test2_double_residual(df):
 
 def test3_shuffled_mass(df, n_shuffles=2000):
     """
-    Within narrow z-bins, shuffle stellar masses to destroy the mass-gamma_t
+    Within narrow z-bins, shuffle stellar masses to disrupt the mass-gamma_t
     mapping while preserving the z-distribution. Recompute gamma_t from 
     shuffled masses and test the dust correlation.
     
@@ -645,19 +667,36 @@ def main():
     # Test 1 verdict
     t1_rho = test1.get("partial_density_dust_given_mass_z", {}).get("rho", np.nan)
     t1_p = test1.get("partial_density_dust_given_mass_z", {}).get("p", np.nan)
-    if not np.isnan(t1_p) and t1_p < 0.05:
-        verdicts.append(f"Test 1 PASS: environment density predicts dust at fixed mass/z (ρ={t1_rho:.3f}, p={t1_p:.2e})")
+    if not np.isnan(t1_p) and t1_p < 0.05 and not np.isnan(t1_rho) and t1_rho < 0:
+        verdicts.append(f"Test 1 PASS: environment density predicts the TEP sign at fixed mass/z (ρ={t1_rho:.3f}, p={t1_p:.2e})")
+    elif not np.isnan(t1_p) and t1_p < 0.05:
+        verdicts.append(f"Test 1 INCONCLUSIVE: environment density predicts dust at fixed mass/z but with the opposite sign to the field-dustier formulation (ρ={t1_rho:.3f}, p={t1_p:.2e})")
     else:
         verdicts.append(f"Test 1 INCONCLUSIVE: partial ρ={t1_rho:.3f}, p={t1_p:.2e}")
 
     # Test 2 verdict (z > 8)
     t2_z8 = test2.get("z_gt_8", {})
-    t2_rho = t2_z8.get("polynomial_double_residual", {}).get("rho", np.nan)
-    t2_p = t2_z8.get("polynomial_double_residual", {}).get("p", np.nan)
-    if not np.isnan(t2_p) and t2_p < 0.05:
-        verdicts.append(f"Test 2 PASS: Γ_t residuals predict dust residuals at z>8 after cubic mass+z removal (ρ={t2_rho:.3f}, p={t2_p:.2e})")
+    t2_poly_rho = t2_z8.get("polynomial_double_residual", {}).get("rho", np.nan)
+    t2_poly_p = t2_z8.get("polynomial_double_residual", {}).get("p", np.nan)
+    t2_lowess_rho = t2_z8.get("lowess_double_residual", {}).get("rho", np.nan)
+    t2_lowess_p = t2_z8.get("lowess_double_residual", {}).get("p", np.nan)
+    t2_partial_rho = t2_z8.get("partial_spearman_mass_z", {}).get("rho", np.nan)
+    t2_partial_p = t2_z8.get("partial_spearman_mass_z", {}).get("p", np.nan)
+    t2_partial_int_rho = t2_z8.get("partial_spearman_mass_z_interaction", {}).get("rho", np.nan)
+    t2_partial_int_p = t2_z8.get("partial_spearman_mass_z_interaction", {}).get("p", np.nan)
+    t2_positive_hits = []
+    if not np.isnan(t2_lowess_p) and t2_lowess_p < 0.05 and not np.isnan(t2_lowess_rho) and t2_lowess_rho > 0:
+        t2_positive_hits.append(f"LOWESS ρ={t2_lowess_rho:.3f}")
+    if not np.isnan(t2_partial_p) and t2_partial_p < 0.05 and not np.isnan(t2_partial_rho) and t2_partial_rho > 0:
+        t2_positive_hits.append(f"partial-rank ρ={t2_partial_rho:.3f}")
+    if not np.isnan(t2_partial_int_p) and t2_partial_int_p < 0.05 and not np.isnan(t2_partial_int_rho) and t2_partial_int_rho > 0:
+        t2_positive_hits.append(f"partial-rank+interaction ρ={t2_partial_int_rho:.3f}")
+    if len(t2_positive_hits) >= 2:
+        verdicts.append(f"Test 2 PASS: nonparametric residual tests retain the z>8 signal after mass+z removal ({'; '.join(t2_positive_hits)})")
+    elif len(t2_positive_hits) == 1:
+        verdicts.append(f"Test 2 INCONCLUSIVE: only one nonparametric residual method retains the z>8 signal ({t2_positive_hits[0]}); polynomial residual gives ρ={t2_poly_rho:.3f}, p={t2_poly_p:.2e}")
     else:
-        verdicts.append(f"Test 2 FAIL: no residual signal at z>8 (ρ={t2_rho:.3f}, p={t2_p:.2e})")
+        verdicts.append(f"Test 2 FAIL: no robust nonparametric residual signal at z>8; polynomial ρ={t2_poly_rho:.3f}, p={t2_poly_p:.2e}")
 
     # Test 3 verdict (z > 8)
     t3_z8 = test3.get("z_gt_8", {})
@@ -674,15 +713,31 @@ def main():
     results["overall_verdict"] = {
         "tests_passed": n_pass,
         "tests_total": n_total,
+        "degeneracy_state": (
+            "narrowed_not_closed"
+            if n_pass >= 2 else
+            "partially_narrowed"
+            if n_pass == 1 else
+            "unbroken"
+        ),
         "verdicts": verdicts,
+        "limitations": [
+            "The environment-density branch remains inconclusive and sign-mixed.",
+            "The strongest supportive tests are residualization and shuffled-null checks rather than direct mass-independent kinematics.",
+            "A definitive closure still requires an object-level dynamical calibration."
+        ],
         "conclusion": (
             f"{n_pass}/{n_total} mass-proxy breaking tests passed. "
-            + ("The mass-proxy degeneracy is BROKEN: Γ_t encodes information "
-               "about dust that no function of mass and z can replicate."
-               if n_pass >= 2 else
-               "The mass-proxy degeneracy is PARTIALLY broken."
-               if n_pass == 1 else
-               "The mass-proxy degeneracy is NOT broken by these tests.")
+            + (
+                "The current test set substantially narrows the mass-proxy degeneracy, "
+                "especially in the z>8 residual and shuffled-null branches, but it does "
+                "not close the case without direct mass-independent kinematic calibration."
+                if n_pass >= 2 else
+                "The current test set provides partial narrowing of the mass-proxy degeneracy "
+                "but remains insufficient for a unique-Γ_t claim."
+                if n_pass == 1 else
+                "The mass-proxy degeneracy is not narrowed by the current test set."
+            )
         ),
     }
 

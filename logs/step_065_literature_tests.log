@@ -1,0 +1,79 @@
+[01:34:17]     ======================================================================
+[01:34:17]     STEP 065: Additional Literature-Inspired Tests
+[01:34:17]     ======================================================================
+[01:34:17]     
+Loaded N = 2315 galaxies
+[01:34:17]     
+======================================================================
+[01:34:17]     TEST 1: UV Slope Proxy
+[01:34:17]     ======================================================================
+[01:34:17]     Literature: Blue UV slopes indicate young, dust-free populations.
+[01:34:17]     TEP predicts: High-Gamma_t → more dust → redder UV slopes.
+
+[01:34:17]     ρ(Γ_t, Dust) = 0.593 (p = 3.00e-28)
+[01:34:17]     (Dust is proxy for UV reddening)
+[01:34:17]     ✓ High-Γ_t galaxies have more dust (redder UV)
+[01:34:17]     
+======================================================================
+[01:34:17]     TEST 2: Star Formation Efficiency
+[01:34:17]     ======================================================================
+[01:34:17]     Literature: SFE appears elevated at high-z.
+[01:34:17]     TEP predicts: SFE is not actually higher - masses are inflated.
+
+[01:34:17]     ρ(Γ_t, log SFE) = -0.590 (p = 5.93e-28)
+[01:34:17]     <log SFE> high Γ_t: -10.171
+[01:34:17]     <log SFE> low Γ_t: -9.606
+[01:34:17]     
+======================================================================
+[01:34:17]     TEST 3: Mass-to-Light Ratio Proxy
+[01:34:17]     ======================================================================
+[01:34:17]     TEP predicts: High-Gamma_t galaxies have inflated M/L.
+
+[01:34:17]     ρ(Γ_t, log M/L) = 0.320 (p = 3.66e-08)
+[01:34:17]     ✓ High-Γ_t galaxies have higher M/L (more evolved)
+[01:34:17]     
+======================================================================
+[01:34:17]     TEST 4: Stellar Mass Function Shape
+[01:34:17]     ======================================================================
+[01:34:17]     Literature: SMF at z > 10 shows excess at high-mass end.
+[01:34:17]     TEP predicts: This excess is due to mass inflation.
+
+[01:34:17]     Mass distribution at z > 9:
+[01:34:17]       log M* = 8-8.5: N = 56, <Γ_t> = 0.18
+[01:34:17]       log M* = 8.5-9: N = 29, <Γ_t> = 0.63
+[01:34:17]       log M* = 9-9.5: N = 10, <Γ_t> = 1.88
+[01:34:17]       log M* = 9.5-10: N = 5, <Γ_t> = 6.87
+[01:34:17]       log M* = 10-11: N = 3, <Γ_t> = 36.08
+[01:34:17]     
+ρ(log M*, Γ_t) at z > 9 = 0.995 (p = 3.12e-102)
+[01:34:17]     
+======================================================================
+[01:34:17]     TEST 5: Formation Epoch
+[01:34:17]     ======================================================================
+[01:34:17]     TEP predicts: Formation epoch correlates with Gamma_t.
+
+[01:34:17]     ρ(Γ_t, z_form) = -0.041 (p = 4.90e-01)
+[01:34:17]     
+======================================================================
+[01:34:17]     TEST 6: The 'Anomalous' Triangle Revisited
+[01:34:17]     ======================================================================
+[01:34:17]     Galaxies that are simultaneously: old, dusty, and massive.
+
+[01:34:17]     'Anomalous triangle' galaxies: N = 17
+[01:34:17]     <Γ_t> anomalous: 9.21
+[01:34:17]     <Γ_t> all: 1.76
+[01:34:17]     Ratio: 5.2×
+[01:34:17]     ✓ 'Anomalous triangle' galaxies have extreme Γ_t
+[01:34:17]     
+======================================================================
+[01:34:17]     SUMMARY: Literature-Inspired Tests
+[01:34:17]     ======================================================================
+[01:34:17]     
+Key findings:
+[01:34:17]       • uv_slope: ρ = 0.593
+[01:34:17]       • sfe: ρ = -0.590
+[01:34:17]       • ml_ratio: ρ = 0.320
+[01:34:17]       • formation_epoch: ρ = -0.041
+[01:34:17]       • impossible_triangle: 5.2× elevation
+[01:34:17]     
+Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_065_literature_tests.json

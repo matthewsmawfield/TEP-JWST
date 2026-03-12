@@ -1,0 +1,293 @@
+{
+  "step": 144,
+  "description": "Extended Modified Gravity Comparison",
+  "theories": {
+    "TEP": {
+      "full_name": "Temporal Equivalence Principle",
+      "mechanism": "Scalar-tensor with chameleon screening",
+      "key_parameter": "\u03b1\u2080 = 0.58 \u00b1 0.16",
+      "screening": "Chameleon (density-dependent)",
+      "predictions": {
+        "high_z_dust_correlation": "Strong positive (\u03c1 > 0.5)",
+        "mass_ssfr_inversion": "Yes, at z > 7",
+        "core_screening": "Bluer cores in massive galaxies",
+        "lrd_overmassive_bh": "Explained by differential shear",
+        "hubble_tension": "Reduced by ~5 km/s/Mpc",
+        "sn_ia_mass_step": "0.05 mag predicted",
+        "bbn_constraints": "Satisfied (\u0394Y_p ~ 10^-11)",
+        "gw_speed": "c_g = c_\u03b3 (satisfied)",
+        "solar_system": "Screened (satisfied)"
+      },
+      "unique_signatures": [
+        "Environment-dependent clock rates",
+        "Redshift-dependent coupling \u03b1(z) \u221d \u221a(1+z)",
+        "Differential temporal shear in compact objects"
+      ],
+      "falsification": "\u03c1(dust, \u0393_t) < 0.1 at z > 8"
+    },
+    "f(R)": {
+      "full_name": "f(R) Gravity",
+      "mechanism": "Modified Einstein-Hilbert action: R \u2192 f(R)",
+      "key_parameter": "f_R0 ~ 10^-6 (Hu-Sawicki)",
+      "screening": "Chameleon-like",
+      "predictions": {
+        "high_z_dust_correlation": "No specific prediction",
+        "mass_ssfr_inversion": "No prediction",
+        "core_screening": "Similar to TEP",
+        "lrd_overmassive_bh": "No mechanism",
+        "hubble_tension": "Marginal effect",
+        "sn_ia_mass_step": "No prediction",
+        "bbn_constraints": "Satisfied if f_R0 < 10^-4",
+        "gw_speed": "c_g = c_\u03b3 (satisfied)",
+        "solar_system": "Screened (satisfied)"
+      },
+      "unique_signatures": [
+        "Scale-dependent growth factor",
+        "Modified ISW effect",
+        "Cluster abundance enhancement"
+      ],
+      "falsification": "f_R0 > 10^-4 from solar system"
+    },
+    "MOND": {
+      "full_name": "Modified Newtonian Dynamics",
+      "mechanism": "Acceleration-dependent modification",
+      "key_parameter": "a\u2080 ~ 1.2 \u00d7 10^-10 m/s\u00b2",
+      "screening": "None (acceleration threshold)",
+      "predictions": {
+        "high_z_dust_correlation": "No prediction",
+        "mass_ssfr_inversion": "No prediction",
+        "core_screening": "No prediction",
+        "lrd_overmassive_bh": "No mechanism",
+        "hubble_tension": "No effect",
+        "sn_ia_mass_step": "No prediction",
+        "bbn_constraints": "N/A (non-relativistic)",
+        "gw_speed": "Problematic in relativistic extensions",
+        "solar_system": "Marginal (high acceleration)"
+      },
+      "unique_signatures": [
+        "Flat rotation curves without DM",
+        "Tully-Fisher relation",
+        "External field effect"
+      ],
+      "falsification": "Cluster dynamics, CMB, GW170817"
+    },
+    "Galileon": {
+      "full_name": "Galileon Gravity",
+      "mechanism": "Scalar field with Galilean symmetry",
+      "key_parameter": "c_i coefficients",
+      "screening": "Vainshtein",
+      "predictions": {
+        "high_z_dust_correlation": "No specific prediction",
+        "mass_ssfr_inversion": "No prediction",
+        "core_screening": "Possible (Vainshtein)",
+        "lrd_overmassive_bh": "No mechanism",
+        "hubble_tension": "Can accommodate",
+        "sn_ia_mass_step": "No prediction",
+        "bbn_constraints": "Model-dependent",
+        "gw_speed": "Ruled out by GW170817",
+        "solar_system": "Vainshtein screened"
+      },
+      "unique_signatures": [
+        "Self-accelerating cosmology",
+        "Vainshtein screening",
+        "Modified growth"
+      ],
+      "falsification": "GW170817 (c_g \u2260 c_\u03b3)"
+    },
+    "Symmetron": {
+      "full_name": "Symmetron Gravity",
+      "mechanism": "Scalar with Z2 symmetry breaking",
+      "key_parameter": "\u03bc, \u03bb, M parameters",
+      "screening": "Symmetry restoration in high density",
+      "predictions": {
+        "high_z_dust_correlation": "No specific prediction",
+        "mass_ssfr_inversion": "No prediction",
+        "core_screening": "Sharp transition",
+        "lrd_overmassive_bh": "No mechanism",
+        "hubble_tension": "Marginal",
+        "sn_ia_mass_step": "Possible",
+        "bbn_constraints": "Satisfied",
+        "gw_speed": "c_g = c_\u03b3 (satisfied)",
+        "solar_system": "Screened (satisfied)"
+      },
+      "unique_signatures": [
+        "Domain walls",
+        "Sharp screening transition",
+        "Oscillating scalar"
+      ],
+      "falsification": "Atom interferometry"
+    },
+    "DGP": {
+      "full_name": "Dvali-Gabadadze-Porrati",
+      "mechanism": "5D brane-world gravity",
+      "key_parameter": "r_c ~ H_0^-1",
+      "screening": "Vainshtein",
+      "predictions": {
+        "high_z_dust_correlation": "No prediction",
+        "mass_ssfr_inversion": "No prediction",
+        "core_screening": "Vainshtein",
+        "lrd_overmassive_bh": "No mechanism",
+        "hubble_tension": "Self-accelerating branch ruled out",
+        "sn_ia_mass_step": "No prediction",
+        "bbn_constraints": "Satisfied",
+        "gw_speed": "Normal branch: c_g = c_\u03b3",
+        "solar_system": "Vainshtein screened"
+      },
+      "unique_signatures": [
+        "Leakage to extra dimension",
+        "Modified Friedmann equation",
+        "ISW-galaxy correlation"
+      ],
+      "falsification": "Self-accelerating branch: ghost instability"
+    },
+    "Horndeski": {
+      "full_name": "Horndeski/Generalized Galileon",
+      "mechanism": "Most general scalar-tensor with 2nd order EOM",
+      "key_parameter": "G_i(\u03c6, X) functions",
+      "screening": "Model-dependent",
+      "predictions": {
+        "high_z_dust_correlation": "Model-dependent",
+        "mass_ssfr_inversion": "Model-dependent",
+        "core_screening": "Model-dependent",
+        "lrd_overmassive_bh": "Model-dependent",
+        "hubble_tension": "Can accommodate",
+        "sn_ia_mass_step": "Model-dependent",
+        "bbn_constraints": "Model-dependent",
+        "gw_speed": "Constrained by GW170817",
+        "solar_system": "Model-dependent"
+      },
+      "unique_signatures": [
+        "Encompasses many scalar-tensor theories",
+        "Flexible phenomenology",
+        "Braiding effects"
+      ],
+      "falsification": "GW170817 constrains G_4, G_5"
+    }
+  },
+  "comparison_matrix": {
+    "high_z_dust_correlation": {
+      "TEP": "Strong positive (\u03c1 > 0.5)",
+      "f(R)": "No specific prediction",
+      "MOND": "No prediction",
+      "Galileon": "No specific prediction",
+      "Symmetron": "No specific prediction",
+      "DGP": "No prediction",
+      "Horndeski": "Model-dependent"
+    },
+    "mass_ssfr_inversion": {
+      "TEP": "Yes, at z > 7",
+      "f(R)": "No prediction",
+      "MOND": "No prediction",
+      "Galileon": "No prediction",
+      "Symmetron": "No prediction",
+      "DGP": "No prediction",
+      "Horndeski": "Model-dependent"
+    },
+    "core_screening": {
+      "TEP": "Bluer cores in massive galaxies",
+      "f(R)": "Similar to TEP",
+      "MOND": "No prediction",
+      "Galileon": "Possible (Vainshtein)",
+      "Symmetron": "Sharp transition",
+      "DGP": "Vainshtein",
+      "Horndeski": "Model-dependent"
+    },
+    "lrd_overmassive_bh": {
+      "TEP": "Explained by differential shear",
+      "f(R)": "No mechanism",
+      "MOND": "No mechanism",
+      "Galileon": "No mechanism",
+      "Symmetron": "No mechanism",
+      "DGP": "No mechanism",
+      "Horndeski": "Model-dependent"
+    },
+    "hubble_tension": {
+      "TEP": "Reduced by ~5 km/s/Mpc",
+      "f(R)": "Marginal effect",
+      "MOND": "No effect",
+      "Galileon": "Can accommodate",
+      "Symmetron": "Marginal",
+      "DGP": "Self-accelerating branch ruled out",
+      "Horndeski": "Can accommodate"
+    },
+    "sn_ia_mass_step": {
+      "TEP": "0.05 mag predicted",
+      "f(R)": "No prediction",
+      "MOND": "No prediction",
+      "Galileon": "No prediction",
+      "Symmetron": "Possible",
+      "DGP": "No prediction",
+      "Horndeski": "Model-dependent"
+    },
+    "bbn_constraints": {
+      "TEP": "Satisfied (\u0394Y_p ~ 10^-11)",
+      "f(R)": "Satisfied if f_R0 < 10^-4",
+      "MOND": "N/A (non-relativistic)",
+      "Galileon": "Model-dependent",
+      "Symmetron": "Satisfied",
+      "DGP": "Satisfied",
+      "Horndeski": "Model-dependent"
+    },
+    "gw_speed": {
+      "TEP": "c_g = c_\u03b3 (satisfied)",
+      "f(R)": "c_g = c_\u03b3 (satisfied)",
+      "MOND": "Problematic in relativistic extensions",
+      "Galileon": "Ruled out by GW170817",
+      "Symmetron": "c_g = c_\u03b3 (satisfied)",
+      "DGP": "Normal branch: c_g = c_\u03b3",
+      "Horndeski": "Constrained by GW170817"
+    },
+    "solar_system": {
+      "TEP": "Screened (satisfied)",
+      "f(R)": "Screened (satisfied)",
+      "MOND": "Marginal (high acceleration)",
+      "Galileon": "Vainshtein screened",
+      "Symmetron": "Screened (satisfied)",
+      "DGP": "Vainshtein screened",
+      "Horndeski": "Model-dependent"
+    }
+  },
+  "summary": {
+    "theories_analyzed": 7,
+    "jwst_anomaly_scores": {
+      "TEP": 8,
+      "f(R)": 1,
+      "MOND": 0,
+      "Galileon": 1,
+      "Symmetron": 0,
+      "DGP": 0,
+      "Horndeski": 0
+    },
+    "constraint_satisfaction": {
+      "TEP": 3,
+      "f(R)": 3,
+      "MOND": -1,
+      "Galileon": -1,
+      "Symmetron": 3,
+      "DGP": 1,
+      "Horndeski": 0
+    },
+    "best_jwst_fit": "TEP",
+    "best_jwst_score": 8,
+    "tep_unique_predictions": [
+      "Environment-dependent clock rates",
+      "Redshift-dependent coupling \u03b1(z) \u221d \u221a(1+z)",
+      "Differential temporal shear in compact objects"
+    ],
+    "interpretation": "TEP scores 8/8 on JWST anomaly predictions, compared to 1/8 for the next best theory. TEP is unique in predicting: (1) environment-dependent clock rates, (2) redshift-dependent coupling strength, and (3) differential temporal shear explaining overmassive black holes. Other modified gravity theories (f(R), MOND, Galileon, etc.) do not make specific predictions for the high-z dust anomaly or mass-sSFR inversion. TEP satisfies all current observational constraints (BBN, GW speed, solar system) through chameleon screening."
+  },
+  "methodology": {
+    "jwst_observables": [
+      "high_z_dust_correlation",
+      "mass_ssfr_inversion",
+      "core_screening",
+      "lrd_overmassive_bh"
+    ],
+    "constraint_observables": [
+      "bbn_constraints",
+      "gw_speed",
+      "solar_system"
+    ],
+    "scoring": "2 points for specific prediction, 1 for possible, 0 for no prediction"
+  }
+}

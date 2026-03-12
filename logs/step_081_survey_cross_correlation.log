@@ -1,0 +1,51 @@
+[01:34:39]     ======================================================================
+[01:34:39]     STEP 081: Survey Cross-Correlation Analysis
+[01:34:39]     ======================================================================
+[01:34:39]     
+--- 1. Loading Survey Data ---
+[01:34:39]       UNCOVER: N = 2315
+[01:34:39]       CEERS: N = 82
+[01:34:39]       COSMOS-Web: N = 2606
+[01:34:39]     
+--- 2. Standardizing Γt Calculation ---
+[01:34:39]       UNCOVER: Γt computed, mean = 0.719
+[01:34:39]       CEERS: Γt computed, mean = 107.427
+[01:34:39]       COSMOS-Web: Γt computed, mean = 4.388
+[01:34:39]     
+--- 3. Survey-Specific Correlations (z > 8) ---
+[01:34:39]       UNCOVER: ρ = 0.593 [0.512, 0.664], N = 283
+[01:34:39]       CEERS: ρ = 0.660 [0.517, 0.767], N = 82
+[01:34:39]       COSMOS-Web: ρ = 0.629 [0.588, 0.666], N = 918
+[01:34:39]     
+--- 4. Meta-Analysis ---
+[01:34:39]       Combined ρ = 0.623 [0.588, 0.656]
+[01:34:39]       Combined p = 1.03e-149
+[01:34:39]       Total N = 1283
+[01:34:39]     
+--- 5. Heterogeneity Test ---
+[01:34:39]       Cochran's Q = 1.04, p = 0.596
+[01:34:39]       I² = 0.0% (Low heterogeneity)
+[01:34:39]       Surveys consistent: True
+[01:34:39]     
+--- 6. Systematic Error Analysis ---
+[01:34:39]       UNCOVER mass: 8.46 ± 0.43
+[01:34:39]       CEERS mass: 9.03 ± 0.90
+[01:34:39]       COSMOS-Web mass: 8.75 ± 0.73
+[01:34:39]     
+--- 7. Temporal Inversion and Dust Timescale Tests ---
+[01:34:39]       UNCOVER (dust>0): Δρ = +0.605, ratio = 2.04× (p=4.78e-15)
+[01:34:39]       CEERS (dust>0): Δρ = +0.711, ratio = 3.48× (p=1.16e-07)
+[01:34:39]       COSMOS-Web (dust>0): Δρ = +0.862, ratio = 2.15× (p=1.47e-11)
+[01:34:39]       COSMOS-Web (all dust): det frac 0.73 vs 0.09 (p=8.66e-258)
+[01:34:39]     
+--- 8. Replication Assessment ---
+[01:34:39]       Significant in 3/3 surveys
+[01:34:39]       All same sign: True
+[01:34:39]       Status: FULLY REPLICATED
+[01:34:39]     
+======================================================================
+[01:34:39]     CROSS-CORRELATION SUMMARY
+[01:34:39]     ======================================================================
+[01:34:39]       The z>8 dust-Γt correlation is replicated across 3 independent JWST surveys with combined ρ = 0.62 (N = 1283). Heterogeneity is low heterogeneity, indicating consistent effect sizes across surveys.
+[01:34:39]     
+Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_081_survey_cross_correlation.json

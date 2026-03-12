@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): 1.9s.
 """
 Step 136: Functional Form Discrimination Test
 
@@ -27,7 +28,7 @@ the TEP combination provides unique information.
 
 Outputs:
 - results/outputs/step_136_functional_form_test.json
-- results/figures/figure_160_functional_form_test.png
+- results/figures/figure_136_functional_form_test.png
 """
 
 import json
@@ -47,7 +48,7 @@ from scripts.utils.logger import TEPLogger, set_step_logger, print_status
 from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like
 from scripts.utils.p_value_utils import format_p_value, safe_json_default
 
-STEP_NUM = "160"
+STEP_NUM = "136"
 STEP_NAME = "functional_form_test"
 
 LOGS_PATH = PROJECT_ROOT / "logs"
@@ -632,7 +633,9 @@ def make_figure(results, output_path):
 # ── Main ─────────────────────────────────────────────────────────────────────
 
 def main():
-    logger.section("Step 136: Functional Form Discrimination Test")
+    logger.info("=" * 60)
+    logger.info("Step 136: Functional Form Discrimination Test")
+    logger.info("=" * 60)
 
     # Load data
     logger.info("Loading surveys...")
@@ -676,7 +679,9 @@ def main():
     results["subsamples"] = subsample_results
 
     # ── Redshift evolution ───────────────────────────────────────────────
-    logger.section("Redshift Evolution Analysis")
+    logger.info("=" * 60)
+    logger.info("Redshift Evolution Analysis")
+    logger.info("=" * 60)
     # Use only UNCOVER for evolution (it spans z=4-10)
     uncover = df[df["survey"] == "UNCOVER"]
     results["redshift_evolution"] = analyze_redshift_evolution(uncover)
@@ -687,7 +692,9 @@ def main():
         logger.info(f"  p = {evo['p_value']:.4f}")
 
     # ── AGB threshold test ───────────────────────────────────────────────
-    logger.section("AGB Threshold Discrimination")
+    logger.info("=" * 60)
+    logger.info("AGB Threshold Discrimination")
+    logger.info("=" * 60)
     results["agb_threshold"] = analyze_agb_threshold(df, threshold_gyr=0.3)
 
     agb = results["agb_threshold"]
@@ -700,7 +707,9 @@ def main():
         logger.info(f"  M* dust ratio:   {mstar_d['dust_ratio']:.1f}x")
 
     # ── Summary ──────────────────────────────────────────────────────────
-    logger.section("Summary")
+    logger.info("=" * 60)
+    logger.info("Summary")
+    logger.info("=" * 60)
 
     # Extract the key z>8 (all) result
     z8_all = next((s for s in subsample_results if s["label"] == "z > 8 (all)"), None)

@@ -1,0 +1,152 @@
+{
+  "step": 142,
+  "description": "Blind Validation Protocol (Real Survey Data)",
+  "results": {
+    "time_split": [
+      {
+        "survey": "UNCOVER",
+        "train_n": 1389,
+        "train_n_z8": 0,
+        "train_rho": null,
+        "train_p": null,
+        "test_n": 926,
+        "test_n_z8": 283,
+        "test_rho": 0.5928581034360436,
+        "test_p": 2.9965940211265736e-28,
+        "generalization": "success"
+      },
+      {
+        "survey": "CEERS",
+        "train_n": 49,
+        "train_n_z8": 49,
+        "train_rho": 0.7560204081632652,
+        "train_p": 3.371963083886403e-10,
+        "test_n": 33,
+        "test_n_z8": 33,
+        "test_rho": 0.5865641711229947,
+        "test_p": 0.0003338162295983939,
+        "generalization": "success"
+      },
+      {
+        "survey": "COSMOS-Web",
+        "train_n": 1563,
+        "train_n_z8": 1563,
+        "train_rho": 0.6670016792417484,
+        "train_p": 9.285133626132176e-202,
+        "test_n": 1043,
+        "test_n_z8": 1043,
+        "test_rho": 0.5737840970806439,
+        "test_p": 2.3211453926831536e-92,
+        "generalization": "success"
+      }
+    ],
+    "field_split": [
+      {
+        "survey": "UNCOVER",
+        "east_n": 1157,
+        "east_n_z8": 192,
+        "east_rho": 0.573669736592247,
+        "east_p": 3.400247366688837e-18,
+        "west_n": 1158,
+        "west_n_z8": 91,
+        "west_rho": 0.6910176779741997,
+        "west_p": 3.436354986936328e-14,
+        "consistency": "consistent"
+      },
+      {
+        "survey": "CEERS",
+        "east_n": 41,
+        "east_n_z8": 41,
+        "east_rho": 0.6904181184668992,
+        "east_p": 5.882352594850621e-07,
+        "west_n": 41,
+        "west_n_z8": 41,
+        "west_rho": 0.6719512195121953,
+        "west_p": 1.506183030129553e-06,
+        "consistency": "consistent"
+      },
+      {
+        "survey": "COSMOS-Web",
+        "east_n": 1303,
+        "east_n_z8": 1303,
+        "east_rho": 0.6158205245923282,
+        "east_p": 7.143569278913424e-137,
+        "west_n": 1303,
+        "west_n_z8": 1303,
+        "west_rho": 0.6844165276197328,
+        "west_p": 9.732756673461312e-181,
+        "consistency": "consistent"
+      }
+    ],
+    "cross_survey": [
+      {
+        "train_survey": "UNCOVER",
+        "test_surveys": [
+          "CEERS",
+          "COSMOS-Web"
+        ],
+        "train_n_z8": 283,
+        "train_rho": 0.5928581034360436,
+        "train_p": 2.9965940211265736e-28,
+        "test_n_z8": 2688,
+        "test_rho": 0.6486115965259623,
+        "test_p": 1e-300,
+        "generalization": "success"
+      },
+      {
+        "train_survey": "CEERS",
+        "test_surveys": [
+          "UNCOVER",
+          "COSMOS-Web"
+        ],
+        "train_n_z8": 82,
+        "train_rho": 0.6774088222809939,
+        "train_p": 2.778450927883577e-12,
+        "test_n_z8": 2889,
+        "test_rho": 0.3584675431253262,
+        "test_p": 2.4713215000413114e-88,
+        "generalization": "success"
+      },
+      {
+        "train_survey": "COSMOS-Web",
+        "test_surveys": [
+          "UNCOVER",
+          "CEERS"
+        ],
+        "train_n_z8": 2606,
+        "train_rho": 0.6520922401294298,
+        "train_p": 1e-300,
+        "test_n_z8": 365,
+        "test_rho": 0.3412669073571836,
+        "test_p": 2.0882035525622183e-11,
+        "generalization": "success"
+      }
+    ]
+  },
+  "summary": {
+    "time_split": {
+      "n_tests": 3,
+      "n_success": 3,
+      "success_rate": 1.0
+    },
+    "field_split": {
+      "n_tests": 3,
+      "n_consistent": 3,
+      "consistency_rate": 1.0
+    },
+    "cross_survey": {
+      "n_tests": 3,
+      "n_success": 3,
+      "success_rate": 1.0
+    },
+    "overall_validation": "STRONG",
+    "interpretation": "TEP signatures generalize: 9/9 validation tests passed. Time-split (3/3), field-split (3/3), cross-survey (3/3)."
+  },
+  "methodology": {
+    "data": "Real JWST survey data (UNCOVER DR4, CEERS, COSMOS-Web)",
+    "time_split": "Train on low-z (60%), test on high-z (40%)",
+    "field_split": "Split by RA median into two sky halves",
+    "cross_survey": "Train on one survey, test on remaining surveys",
+    "success_criterion": "p < 0.05 on held-out data"
+  }
+}

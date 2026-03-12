@@ -1,0 +1,16 @@
+{
+  "step": "103",
+  "name": "zphot_error_propagation",
+  "status": "SUCCESS",
+  "description": "z_phot error propagation through Gamma_t \u2014 sensitivity analysis",
+  "survey": "COSMOS-Web",
+  "n": 50143,
+  "zphot_err_frac": 0.05,
+  "n_simulations": 200,
+  "rho_baseline": 0.43827168970605085,
+  "rho_mean_perturbed": 0.4370264387201121,
+  "rho_std_perturbed": 0.0002873792182984439,
+  "rho_bias": -0.0012452509859387506,
+  "rho_bias_pct": -0.2841276347951978,
+  "conclusion": "z_phot errors sigma=0.05(1+z) shift rho by -0.0012 (-0.3% of baseline); signal is robust to photometric redshift uncertainties."
+}

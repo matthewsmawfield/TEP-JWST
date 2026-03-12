@@ -1,0 +1,29 @@
+{
+  "step": "130",
+  "name": "cross_survey_systematics",
+  "status": "SUCCESS",
+  "description": "Cross-survey systematic error budget",
+  "surveys": [
+    {
+      "survey": "CEERS",
+      "rho": 0.680499776885319,
+      "p": 2.026059724327422e-12,
+      "n": 82
+    },
+    {
+      "survey": "COSMOS-Web",
+      "rho": 0.6312839008933939,
+      "p": 3.187527498546598e-103,
+      "n": 2606
+    }
+  ],
+  "rho_mean": 0.6558918388893564,
+  "rho_std": 0.02460793799596256,
+  "rho_min": 0.6312839008933939,
+  "rho_max": 0.680499776885319,
+  "rho_range": 0.04921587599192512,
+  "systematic_frac": 0.03751828660901164,
+  "cochran_Q": 0.1925614902794468,
+  "cochran_p": 0.6607932076140409,
+  "conclusion": "Cross-survey rho scatter: 0.025 (3.8% of signal). Cochran Q-test: p=0.661 (consistent=yes). Systematic floor < 0.025 dex."
+}

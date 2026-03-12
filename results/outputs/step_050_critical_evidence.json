@@ -1,0 +1,144 @@
+{
+  "n_total": 2315,
+  "critical_evidence": {
+    "sign_consistency": {
+      "results": [
+        {
+          "observable": "Dust (z>8)",
+          "predicted_sign": "positive",
+          "observed_rho": 0.5928581034360436,
+          "correct": true
+        },
+        {
+          "observable": "Chi2 (z>7)",
+          "predicted_sign": "positive",
+          "observed_rho": 0.14879998650248444,
+          "correct": true
+        },
+        {
+          "observable": "Burstiness",
+          "predicted_sign": "negative",
+          "observed_rho": -0.260171053293493,
+          "correct": true
+        },
+        {
+          "observable": "sSFR",
+          "predicted_sign": "negative",
+          "observed_rho": -0.3183906780688655,
+          "correct": true
+        }
+      ],
+      "n_correct": 4,
+      "n_total": 4,
+      "all_correct": true
+    },
+    "predictive_power": {
+      "results": [
+        {
+          "observable": "Dust",
+          "rho": 0.3938274173909866,
+          "p": 3.798571631273549e-20,
+          "significant": true
+        },
+        {
+          "observable": "Chi2",
+          "rho": 0.14879998650248444,
+          "p": 0.0008054072608500435,
+          "significant": true
+        },
+        {
+          "observable": "Age",
+          "rho": -0.034112908592762156,
+          "p": 0.44477561723517467,
+          "significant": false
+        }
+      ],
+      "n_predicted": 2,
+      "n_total": 3
+    },
+    "quantitative_match": [
+      {
+        "t_eff_range": "0-0.2",
+        "n": 274,
+        "mean_dust": 0.6116542261306519
+      },
+      {
+        "t_eff_range": "0.2-0.3",
+        "n": 117,
+        "mean_dust": 0.7238833862595316
+      },
+      {
+        "t_eff_range": "0.3-0.5",
+        "n": 56,
+        "mean_dust": 0.8245959830100709
+      },
+      {
+        "t_eff_range": "0.5-1.0",
+        "n": 29,
+        "mean_dust": 0.906602956939321
+      },
+      {
+        "t_eff_range": "1.0-2.0",
+        "n": 7,
+        "mean_dust": 1.3889659778684085
+      },
+      {
+        "t_eff_range": "2.0-10.0",
+        "n": 16,
+        "mean_dust": 2.31253986729691
+      }
+    ],
+    "null_zone": {
+      "rho_low_z": 0.026652941800485778,
+      "rho_high_z": 0.5928581034360436,
+      "difference": 0.5662051616355578
+    },
+    "scaling_relation": {
+      "slope": 0.5006461023907725,
+      "intercept": -5.358552217002205,
+      "r_squared": 0.8614079458925981,
+      "p": 1e-300,
+      "expected_alpha": 0.58
+    },
+    "cross_domain": {
+      "alpha_tep_h0": 0.58,
+      "alpha_jwst": 0.58,
+      "consistent": true
+    }
+  },
+  "summary": {
+    "n_signatures": 6,
+    "signatures": [
+      {
+        "name": "sign_consistency",
+        "stat": 1.0,
+        "p": null
+      },
+      {
+        "name": "predictive_power",
+        "stat": 2.0,
+        "p": null
+      },
+      {
+        "name": "quantitative_match",
+        "stat": 1.0,
+        "p": 1e-300
+      },
+      {
+        "name": "null_zone",
+        "stat": 0.5662051616355578,
+        "p": null
+      },
+      {
+        "name": "scaling_relation",
+        "stat": 0.5006461023907725,
+        "p": 1e-300
+      },
+      {
+        "name": "cross_domain",
+        "stat": 0.58,
+        "p": null
+      }
+    ]
+  }
+}

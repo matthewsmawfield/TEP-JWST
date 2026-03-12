@@ -1,0 +1,66 @@
+{
+  "step": "146",
+  "name": "stellar_mass_function_resolution",
+  "status": "SUCCESS",
+  "description": "Stellar mass function resolution via TEP mass bias correction",
+  "smf_by_z": [
+    {
+      "z": 6,
+      "smf_excess_dex": 0.3,
+      "gamma_t_typical": 5.624347577837322,
+      "mass_correction_dex": 0.5250505061981858,
+      "delta_log_N": 0.7875757592972787,
+      "resolution_frac": 1.0,
+      "resolved": true,
+      "ref": "Harikane+2022"
+    },
+    {
+      "z": 7,
+      "smf_excess_dex": 0.5,
+      "gamma_t_typical": 8.670312386110231,
+      "mass_correction_dex": 0.6566243215878913,
+      "delta_log_N": 0.984936482381837,
+      "resolution_frac": 1.0,
+      "resolved": true,
+      "ref": "Labbe+2023"
+    },
+    {
+      "z": 8,
+      "smf_excess_dex": 0.8,
+      "gamma_t_typical": 13.738762047226636,
+      "mass_correction_dex": 0.7965633211891561,
+      "delta_log_N": 1.194844981783734,
+      "resolution_frac": 1.0,
+      "resolved": true,
+      "ref": "Labbe+2023"
+    },
+    {
+      "z": 9,
+      "smf_excess_dex": 1.1,
+      "gamma_t_typical": 22.28462880453403,
+      "mass_correction_dex": 0.9436037831019704,
+      "delta_log_N": 1.4154056746529555,
+      "resolution_frac": 1.0,
+      "resolved": true,
+      "ref": "Boylan-Kolchin+2023"
+    },
+    {
+      "z": 10,
+      "smf_excess_dex": 1.4,
+      "gamma_t_typical": 36.86161057325506,
+      "mass_correction_dex": 1.0966020146745024,
+      "delta_log_N": 1.6449030220117535,
+      "resolution_frac": 1.0,
+      "resolved": true,
+      "ref": "estimate (Finkelstein+2023)"
+    }
+  ],
+  "mean_resolution": 1.0,
+  "labbe_resolution": {
+    "n_impossible": 9,
+    "n_resolved_tep": 8,
+    "resolution_frac": 0.8888888888888888,
+    "method": "z-dependent Gamma_t mass bias correction"
+  },
+  "conclusion": "TEP mass correction resolves 100% of the SMF excess on average. At z=9, correction of 0.94 dex resolves 100% of the 1.1 dex excess. Labbe+2023 anomalous galaxies: 8/9 resolved (89%)."
+}

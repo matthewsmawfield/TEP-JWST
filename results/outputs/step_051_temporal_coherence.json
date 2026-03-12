@@ -1,0 +1,95 @@
+{
+  "n_total": 2315,
+  "tests": {
+    "t_eff_correlations": {
+      "n": 504,
+      "correlations": [
+        {
+          "indicator": "log_mwa",
+          "rho": 0.019714058881037215,
+          "p": 0.6588340432897903
+        },
+        {
+          "indicator": "dust",
+          "rho": 0.3643001022624274,
+          "p": 2.904878280888942e-17
+        },
+        {
+          "indicator": "burstiness",
+          "rho": -0.17654591076829926,
+          "p": 6.749487064854538e-05
+        },
+        {
+          "indicator": "met",
+          "rho": 0.12773233301745401,
+          "p": 0.00407576786870141
+        },
+        {
+          "indicator": "chi2",
+          "rho": 0.13501330536348155,
+          "p": 0.002386018088294611
+        }
+      ],
+      "n_significant": 4
+    },
+    "pca": {
+      "n": 504,
+      "variance_explained": [
+        0.45374722099944725,
+        0.2417190987498474,
+        0.1787680965020614,
+        0.08290765012485812,
+        0.042857933623785725
+      ],
+      "pc1_gamma_rho": 0.06885298299781697,
+      "pc1_gamma_p": 0.12265132875243791
+    },
+    "dust_prediction": {
+      "rho_cosmic": -0.14875461985278338,
+      "rho_eff": 0.3643001022624274,
+      "improvement": 0.5130547221152109
+    },
+    "age_ratio": {
+      "rho": -0.08083146570834307,
+      "p": 0.06981271680334288,
+      "std_apparent": 0.07796697707908386,
+      "std_corrected": 0.3847327369763164,
+      "reduction": -3.9345601354541726
+    },
+    "multi_indicator": {
+      "rho": 0.16384500558990397,
+      "p": 0.000220604600501559,
+      "n_all_old": 122,
+      "n_none_old": 116
+    },
+    "ultimate_coherence": {
+      "rho": 0.28383323777774705,
+      "p": 8.574168759336488e-11
+    }
+  },
+  "summary": {
+    "n_coherence_evidence": 4,
+    "coherence_evidence": [
+      {
+        "name": "t_eff_correlations",
+        "stat": 4.0,
+        "p": null
+      },
+      {
+        "name": "pca_coherence",
+        "stat": 0.45374722099944725,
+        "p": null
+      },
+      {
+        "name": "dust_prediction",
+        "stat": 0.5130547221152109,
+        "p": null
+      },
+      {
+        "name": "multi_indicator",
+        "stat": 4.444546631525123,
+        "p": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,323 @@
+{
+  "step": "Step 096: Balmer Absorption Target List",
+  "purpose": "Actionable observing proposal for JWST NIRSpec to test TEP predictions",
+  "summary": {
+    "n_targets": 20,
+    "z_range": [
+      7.71,
+      9.87
+    ],
+    "gamma_t_range": [
+      0.13,
+      5.188
+    ],
+    "mean_predicted_delta_ew": 1.06,
+    "total_integration_time_hours": 100.0,
+    "mean_discriminating_power": 1.0
+  },
+  "target_list": [
+    {
+      "rank": 1,
+      "id": "60084",
+      "ra": 3.48223,
+      "dec": -30.33961,
+      "z": 8.53,
+      "log_mass": 9.0,
+      "gamma_t": 0.174,
+      "predicted_delta_ew_angstrom": 1.24,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 2,
+      "id": "18316",
+      "ra": 3.61812,
+      "dec": -30.41191,
+      "z": 7.71,
+      "log_mass": 9.0,
+      "gamma_t": 0.18,
+      "predicted_delta_ew_angstrom": 1.06,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 3,
+      "id": "63217",
+      "ra": 3.46156,
+      "dec": -30.33222,
+      "z": 8.19,
+      "log_mass": 9.0,
+      "gamma_t": 0.206,
+      "predicted_delta_ew_angstrom": 1.06,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 4,
+      "id": "27652",
+      "ra": 3.53824,
+      "dec": -30.39474,
+      "z": 9.05,
+      "log_mass": 9.0,
+      "gamma_t": 0.326,
+      "predicted_delta_ew_angstrom": 0.86,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 5,
+      "id": "28480",
+      "ra": 3.63467,
+      "dec": -30.39322,
+      "z": 8.42,
+      "log_mass": 9.0,
+      "gamma_t": 0.154,
+      "predicted_delta_ew_angstrom": 1.3,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 6,
+      "id": "70189",
+      "ra": 3.47954,
+      "dec": -30.31467,
+      "z": 8.78,
+      "log_mass": 9.0,
+      "gamma_t": 0.289,
+      "predicted_delta_ew_angstrom": 0.91,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 7,
+      "id": "62855",
+      "ra": 3.46942,
+      "dec": -30.33302,
+      "z": 8.99,
+      "log_mass": 9.0,
+      "gamma_t": 0.153,
+      "predicted_delta_ew_angstrom": 1.42,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 8,
+      "id": "70190",
+      "ra": 3.47952,
+      "dec": -30.31462,
+      "z": 8.08,
+      "log_mass": 9.0,
+      "gamma_t": 0.219,
+      "predicted_delta_ew_angstrom": 1.0,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 9,
+      "id": "30673",
+      "ra": 3.57987,
+      "dec": -30.38925,
+      "z": 9.55,
+      "log_mass": 9.0,
+      "gamma_t": 0.13,
+      "predicted_delta_ew_angstrom": 1.67,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 10,
+      "id": "30886",
+      "ra": 3.55769,
+      "dec": -30.38882,
+      "z": 9.21,
+      "log_mass": 9.0,
+      "gamma_t": 0.343,
+      "predicted_delta_ew_angstrom": 0.84,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 11,
+      "id": "70203",
+      "ra": 3.4692,
+      "dec": -30.31454,
+      "z": 7.71,
+      "log_mass": 9.0,
+      "gamma_t": 0.192,
+      "predicted_delta_ew_angstrom": 1.02,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 12,
+      "id": "31350",
+      "ra": 3.53269,
+      "dec": -30.38801,
+      "z": 9.75,
+      "log_mass": 9.0,
+      "gamma_t": 0.153,
+      "predicted_delta_ew_angstrom": 1.58,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 13,
+      "id": "31454",
+      "ra": 3.52347,
+      "dec": -30.38788,
+      "z": 9.23,
+      "log_mass": 9.0,
+      "gamma_t": 0.343,
+      "predicted_delta_ew_angstrom": 0.84,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 14,
+      "id": "31994",
+      "ra": 3.54173,
+      "dec": -30.38689,
+      "z": 8.22,
+      "log_mass": 9.0,
+      "gamma_t": 0.158,
+      "predicted_delta_ew_angstrom": 1.25,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 15,
+      "id": "62381",
+      "ra": 3.54831,
+      "dec": -30.33429,
+      "z": 9.33,
+      "log_mass": 9.0,
+      "gamma_t": 0.135,
+      "predicted_delta_ew_angstrom": 1.59,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 16,
+      "id": "62292",
+      "ra": 3.45225,
+      "dec": -30.33443,
+      "z": 8.54,
+      "log_mass": 9.0,
+      "gamma_t": 0.15,
+      "predicted_delta_ew_angstrom": 1.35,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 17,
+      "id": "62188",
+      "ra": 3.4903,
+      "dec": -30.33478,
+      "z": 7.99,
+      "log_mass": 9.0,
+      "gamma_t": 0.218,
+      "predicted_delta_ew_angstrom": 0.99,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 18,
+      "id": "32630",
+      "ra": 3.56316,
+      "dec": -30.38575,
+      "z": 9.87,
+      "log_mass": 9.0,
+      "gamma_t": 5.188,
+      "predicted_delta_ew_angstrom": -1.41,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 19,
+      "id": "62029",
+      "ra": 3.48714,
+      "dec": -30.33517,
+      "z": 8.65,
+      "log_mass": 9.0,
+      "gamma_t": 0.149,
+      "predicted_delta_ew_angstrom": 1.37,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    },
+    {
+      "rank": 20,
+      "id": "61975",
+      "ra": 3.48737,
+      "dec": -30.33534,
+      "z": 8.17,
+      "log_mass": 9.0,
+      "gamma_t": 0.167,
+      "predicted_delta_ew_angstrom": 1.2,
+      "mag_f444w": 26.0,
+      "integration_time_hours": 5.0,
+      "discriminating_power": 1.0
+    }
+  ],
+  "falsification_thresholds": {
+    "tep_prediction": {
+      "correlation_gamma_ew": ">0.5",
+      "mean_delta_ew_enhanced": "<-1.0 \u00c5",
+      "effect_size_cohens_d": ">1.0"
+    },
+    "standard_physics_prediction": {
+      "correlation_gamma_ew": "~0 (\u00b10.2)",
+      "mean_delta_ew_enhanced": "~0 \u00c5",
+      "effect_size_cohens_d": "~0"
+    },
+    "falsification_criteria": {
+      "tep_falsified_if": "rho(Gamma_t, EW) < 0.2 with N > 15",
+      "standard_falsified_if": "rho(Gamma_t, EW) > 0.4 with N > 15",
+      "minimum_sample_size": 15,
+      "required_snr_per_target": 10
+    }
+  },
+  "observing_strategy": {
+    "instrument": "NIRSpec",
+    "grating": "G395M",
+    "filter": "F290LP",
+    "spectral_range_um": [
+      2.87,
+      5.1
+    ],
+    "resolving_power": 1000,
+    "target_lines": [
+      "H-delta (4102 \u00c5)",
+      "H-gamma (4341 \u00c5)",
+      "H-beta (4861 \u00c5)"
+    ],
+    "redshift_coverage": "H-delta visible at z > 6, H-gamma at z > 5.6",
+    "recommended_dither": "3-point",
+    "background_subtraction": "nodding"
+  },
+  "proposal_justification": {
+    "scientific_motivation": "Test the Temporal Equivalence Principle prediction that stellar population ages correlate with gravitational potential",
+    "unique_capability": "Balmer absorption provides age estimates independent of SED fitting",
+    "expected_outcome_tep": "Strong correlation between Gamma_t and Balmer EW",
+    "expected_outcome_standard": "No correlation between Gamma_t and Balmer EW",
+    "discriminating_power": "Cohen's d > 1.0 expected, detectable with N=15 at 80% power"
+  }
+}

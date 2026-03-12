@@ -372,9 +372,12 @@ async function buildStaticSite() {
         // Copy figures from results/figures/ to dist/figures/ (main figure source)
         const resultsFiguresPath = path.join(__dirname, '..', 'results', 'figures');
         const distFiguresPath = path.join(distDir, 'figures');
+        const distPublicFiguresPath = path.join(distDir, 'public', 'figures');
         if (fs.existsSync(resultsFiguresPath)) {
             console.log('📁 Copying results/figures/ → dist/figures/');
             copyRecursiveSync(resultsFiguresPath, distFiguresPath);
+            console.log('📁 Copying results/figures/ → dist/public/figures/');
+            copyRecursiveSync(resultsFiguresPath, distPublicFiguresPath);
         }
         
         // Copy manifest.json for reference
@@ -393,7 +396,7 @@ async function buildStaticSite() {
         }
 
         // Copy robots.txt and sitemap.xml to dist root
-        const rootFiles = ['404.html', 'robots.txt', 'sitemap.xml', 'CNAME', '29c6507763d2303d801cc8ed89d39f88.txt'];
+        const rootFiles = ['404.html', 'robots.txt', 'sitemap.xml', 'CNAME', '29c6507763d2303d801cc8ed89d39f88.txt', 'favicon.ico'];
         for (const file of rootFiles) {
             const src = path.join(__dirname, 'public', file);
             const dest = path.join(distDir, file);
@@ -404,16 +407,21 @@ async function buildStaticSite() {
         }
         
         // Copy citation files to dist root
-        const citationFiles = ['CITATION.cff', 'CITATION.bib', 'citation.json', 'codemeta.json', 'LICENSE', 'README.md'];
+        const citationFiles = ['CITATION.cff', 'CITATION.bib', 'citation.json', 'codemeta.json', 'README.md'];
+        const optionalCitationFiles = new Set(['LICENSE']);
         const projectRoot = path.join(__dirname, '..');
         
-        for (const file of citationFiles) {
-            const src = path.join(projectRoot, file);
+        for (const file of [...citationFiles, ...optionalCitationFiles]) {
+            const candidates = [
+                path.join(projectRoot, file),
+                path.join(__dirname, file),
+            ];
+            const src = candidates.find(candidate => fs.existsSync(candidate));
             const dest = path.join(distDir, file);
-            if (fs.existsSync(src)) {
+            if (src) {
                 fs.copyFileSync(src, dest);
                 console.log(`📁 Copied ${file} to dist root`);
-            } else {
+            } else if (!optionalCitationFiles.has(file)) {
                 console.warn(`⚠️  Missing citation file: ${file}`);
             }
         }

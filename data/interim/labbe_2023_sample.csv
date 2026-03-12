@@ -1,0 +1,14 @@
+ID,z_phot,log_Mstar,status,reference
+L23-1,7.4,10.8,candidate,Labbe+23
+L23-2,7.5,10.9,candidate,Labbe+23
+L23-3,7.6,10.5,candidate,Labbe+23
+L23-4,7.8,10.7,candidate,Labbe+23
+L23-5,8.0,10.6,candidate,Labbe+23
+L23-6,8.2,10.4,candidate,Labbe+23
+L23-7,8.4,10.8,candidate,Labbe+23
+L23-8,8.6,10.3,candidate,Labbe+23
+L23-9,8.8,10.5,candidate,Labbe+23
+L23-10,9.0,10.9,candidate,Labbe+23
+L23-11,9.1,11.0,candidate,Labbe+23
+L23-12,9.1,10.6,candidate,Labbe+23
+L23-13050,8.1,10.2,AGN_z5.6,Labbe+23

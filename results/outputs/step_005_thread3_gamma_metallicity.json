@@ -1,0 +1,21 @@
+{
+  "test": "Thread 3: \u0393_t vs Metallicity",
+  "n": 1108,
+  "raw_rho": 0.22491646693655873,
+  "raw_p": 3.5766812937548035e-14,
+  "partial_rho": 0.17735703141197998,
+  "partial_p": 2.7791425206596067e-09,
+  "ci_95": [
+    0.11873261027356044,
+    0.24107091067936148
+  ],
+  "partial_rho_double": 0.004761796430977782,
+  "partial_p_double": 0.8741997941838326,
+  "ci_95_double": [
+    -0.05766833552087721,
+    0.06918800830548676
+  ],
+  "significant": true,
+  "significant_double": false,
+  "interpretation": "Enhanced time \u2192 more enrichment"
+}

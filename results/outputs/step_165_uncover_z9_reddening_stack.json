@@ -1,0 +1,382 @@
+{
+  "step": "165",
+  "name": "uncover_z9_reddening_stack",
+  "status": "SUCCESS",
+  "description": "Catalog-level stacked reddening surrogate for the UNCOVER z=9-12 null branch",
+  "input_catalog": "/Users/matthewsmawfield/www/TEP-JWST/results/interim/step_152_uncover_dr4_full_sps.csv",
+  "rationale": "No local extracted spectra are available in the canonical workspace, so the analysis uses broad-posterior z=9-12 catalog objects as a surrogate for faint or weakly constrained targets.",
+  "selection": {
+    "z_window": [
+      9.0,
+      12.0
+    ],
+    "required_columns": [
+      "gamma_t",
+      "dust2",
+      "dust2_16",
+      "dust2_84",
+      "UV",
+      "VJ"
+    ],
+    "n_total_after_selection": 122,
+    "n_posterior_broad": 61,
+    "median_sigma_dust2": 0.49281593790919365
+  },
+  "contrasts": {
+    "all_objects_q33_q67": {
+      "subset_label": "all_objects_q33_q67",
+      "gamma_t_quantiles": [
+        0.3333333333333333,
+        0.6666666666666666
+      ],
+      "gamma_t_threshold_low": 0.5439678908836288,
+      "gamma_t_threshold_high": 0.9312369922621218,
+      "n_total": 122,
+      "n_low": 41,
+      "n_high": 41,
+      "median_gamma_t_low": 0.4584872683009303,
+      "median_gamma_t_high": 2.093307612921745,
+      "raw_spearman_gamma_t_vs_dust2": {
+        "rho": -0.0013449165788230162,
+        "p": 0.9882697893013033
+      },
+      "metrics": {
+        "dust2": {
+          "metric": "dust2",
+          "n_low": 41,
+          "n_high": 41,
+          "low_median": 0.4813715352107536,
+          "high_median": 0.4822948538650591,
+          "low_weighted_mean": 0.13712828992673715,
+          "high_weighted_mean": 0.06474718245117334,
+          "delta_weighted_high_minus_low": -0.07238110747556381,
+          "bootstrap_ci_95": [
+            -0.4035602215342169,
+            0.07462821071423568
+          ],
+          "bootstrap_supportive_p_one_sided": 0.8565358660334916,
+          "mannwhitney_p_two_sided": 0.8820395569640831
+        },
+        "UV": {
+          "metric": "UV",
+          "n_low": 41,
+          "n_high": 41,
+          "low_median": 0.6768136155793734,
+          "high_median": 0.6107666629119528,
+          "low_weighted_mean": 0.16470359369843127,
+          "high_weighted_mean": 0.01718969778833727,
+          "delta_weighted_high_minus_low": -0.147513895910094,
+          "bootstrap_ci_95": [
+            -0.6739954700200956,
+            0.18140836925346995
+          ],
+          "bootstrap_supportive_p_one_sided": 0.8267933016745813,
+          "mannwhitney_p_two_sided": 0.7245289213657882
+        },
+        "VJ": {
+          "metric": "VJ",
+          "n_low": 41,
+          "n_high": 41,
+          "low_median": 0.3876065230340231,
+          "high_median": 0.3231095648251951,
+          "low_weighted_mean": -0.3222725337366628,
+          "high_weighted_mean": -0.5265420888514463,
+          "delta_weighted_high_minus_low": -0.20426955511478345,
+          "bootstrap_ci_95": [
+            -0.8654830422154144,
+            0.09284935126802679
+          ],
+          "bootstrap_supportive_p_one_sided": 0.9322669332666833,
+          "mannwhitney_p_two_sided": 0.7879709381906489
+        }
+      }
+    },
+    "all_objects_q25_q75": {
+      "subset_label": "all_objects_q25_q75",
+      "gamma_t_quantiles": [
+        0.25,
+        0.75
+      ],
+      "gamma_t_threshold_low": 0.4934612834026456,
+      "gamma_t_threshold_high": 1.1878731952958286,
+      "n_total": 122,
+      "n_low": 31,
+      "n_high": 31,
+      "median_gamma_t_low": 0.4373446322920102,
+      "median_gamma_t_high": 2.80480239289489,
+      "raw_spearman_gamma_t_vs_dust2": {
+        "rho": -0.0013449165788230162,
+        "p": 0.9882697893013033
+      },
+      "metrics": {
+        "dust2": {
+          "metric": "dust2",
+          "n_low": 31,
+          "n_high": 31,
+          "low_median": 0.4290181998146755,
+          "high_median": 0.3636989664347484,
+          "low_weighted_mean": 0.11269838918264788,
+          "high_weighted_mean": 0.06331822593170087,
+          "delta_weighted_high_minus_low": -0.049380163250947004,
+          "bootstrap_ci_95": [
+            -0.37363844934658696,
+            0.11401182544211962
+          ],
+          "bootstrap_supportive_p_one_sided": 0.794301424643839,
+          "mannwhitney_p_two_sided": 1.0
+        },
+        "UV": {
+          "metric": "UV",
+          "n_low": 31,
+          "n_high": 31,
+          "low_median": 0.6412102203303398,
+          "high_median": 0.4010357258207158,
+          "low_weighted_mean": 0.12750040517017605,
+          "high_weighted_mean": 0.003571138630518368,
+          "delta_weighted_high_minus_low": -0.12392926653965769,
+          "bootstrap_ci_95": [
+            -0.6371435432695438,
+            0.20731148296631285
+          ],
+          "bootstrap_supportive_p_one_sided": 0.8012996750812297,
+          "mannwhitney_p_two_sided": 0.854781183252115
+        },
+        "VJ": {
+          "metric": "VJ",
+          "n_low": 31,
+          "n_high": 31,
+          "low_median": 0.2980447716728918,
+          "high_median": 0.0065081775177837,
+          "low_weighted_mean": -0.36817799386732153,
+          "high_weighted_mean": -0.5176841429353566,
+          "delta_weighted_high_minus_low": -0.14950614906803505,
+          "bootstrap_ci_95": [
+            -0.8094415062166933,
+            0.19172648745002682
+          ],
+          "bootstrap_supportive_p_one_sided": 0.8717820544863784,
+          "mannwhitney_p_two_sided": 0.854781183252115
+        }
+      }
+    },
+    "posterior_broad_q33_q67": {
+      "subset_label": "posterior_broad_q33_q67",
+      "gamma_t_quantiles": [
+        0.3333333333333333,
+        0.6666666666666666
+      ],
+      "gamma_t_threshold_low": 0.4980627589090104,
+      "gamma_t_threshold_high": 0.7156557891902567,
+      "n_total": 61,
+      "n_low": 21,
+      "n_high": 21,
+      "median_gamma_t_low": 0.4458153275943958,
+      "median_gamma_t_high": 1.11865219913968,
+      "raw_spearman_gamma_t_vs_dust2": {
+        "rho": 0.2683765203595981,
+        "p": 0.03650502406987176
+      },
+      "metrics": {
+        "dust2": {
+          "metric": "dust2",
+          "n_low": 21,
+          "n_high": 21,
+          "low_median": 0.6232545135985226,
+          "high_median": 0.6990635505273736,
+          "low_weighted_mean": 0.5995269899958559,
+          "high_weighted_mean": 0.7809532627210758,
+          "delta_weighted_high_minus_low": 0.18142627272521994,
+          "bootstrap_ci_95": [
+            -0.007380871435393465,
+            0.37223223779127573
+          ],
+          "bootstrap_supportive_p_one_sided": 0.030992251937015745,
+          "mannwhitney_p_two_sided": 0.12490665613221592
+        },
+        "UV": {
+          "metric": "UV",
+          "n_low": 21,
+          "n_high": 21,
+          "low_median": 0.7448709562962677,
+          "high_median": 0.921467341658829,
+          "low_weighted_mean": 0.7582087157608662,
+          "high_weighted_mean": 1.027280055652873,
+          "delta_weighted_high_minus_low": 0.2690713398920067,
+          "bootstrap_ci_95": [
+            0.05368595114129764,
+            0.4932875289147241
+          ],
+          "bootstrap_supportive_p_one_sided": 0.005998500374906273,
+          "mannwhitney_p_two_sided": 0.03913441955853052
+        },
+        "VJ": {
+          "metric": "VJ",
+          "n_low": 21,
+          "n_high": 21,
+          "low_median": 0.4917925955156477,
+          "high_median": 0.6726223175527437,
+          "low_weighted_mean": 0.48297519552798773,
+          "high_weighted_mean": 0.7355747783291205,
+          "delta_weighted_high_minus_low": 0.2525995828011328,
+          "bootstrap_ci_95": [
+            0.039578267120706674,
+            0.4886666409691147
+          ],
+          "bootstrap_supportive_p_one_sided": 0.009747563109222694,
+          "mannwhitney_p_two_sided": 0.05274632203096377
+        }
+      }
+    },
+    "posterior_broad_q25_q75": {
+      "subset_label": "posterior_broad_q25_q75",
+      "gamma_t_quantiles": [
+        0.25,
+        0.75
+      ],
+      "gamma_t_threshold_low": 0.4693783073875288,
+      "gamma_t_threshold_high": 0.9166124141350585,
+      "n_total": 61,
+      "n_low": 16,
+      "n_high": 16,
+      "median_gamma_t_low": 0.43100413338434873,
+      "median_gamma_t_high": 1.2064753317705108,
+      "raw_spearman_gamma_t_vs_dust2": {
+        "rho": 0.2683765203595981,
+        "p": 0.03650502406987176
+      },
+      "metrics": {
+        "dust2": {
+          "metric": "dust2",
+          "n_low": 16,
+          "n_high": 16,
+          "low_median": 0.6196011185686061,
+          "high_median": 0.7715345773094113,
+          "low_weighted_mean": 0.5927778851373443,
+          "high_weighted_mean": 0.8413169792471268,
+          "delta_weighted_high_minus_low": 0.24853909410978248,
+          "bootstrap_ci_95": [
+            0.032401043120301745,
+            0.4771640883081132
+          ],
+          "bootstrap_supportive_p_one_sided": 0.011497125718570358,
+          "mannwhitney_p_two_sided": 0.05226079056168542
+        },
+        "UV": {
+          "metric": "UV",
+          "n_low": 16,
+          "n_high": 16,
+          "low_median": 0.7427536354170172,
+          "high_median": 0.9227219587690332,
+          "low_weighted_mean": 0.7558855928218063,
+          "high_weighted_mean": 1.0971293647390277,
+          "delta_weighted_high_minus_low": 0.34124377191722133,
+          "bootstrap_ci_95": [
+            0.08831962409102256,
+            0.6113330445407971
+          ],
+          "bootstrap_supportive_p_one_sided": 0.002749312671832042,
+          "mannwhitney_p_two_sided": 0.018494940419589954
+        },
+        "VJ": {
+          "metric": "VJ",
+          "n_low": 16,
+          "n_high": 16,
+          "low_median": 0.4481333860530441,
+          "high_median": 0.7197856224240997,
+          "low_weighted_mean": 0.47293881452351305,
+          "high_weighted_mean": 0.8076788052001194,
+          "delta_weighted_high_minus_low": 0.3347399906766063,
+          "bootstrap_ci_95": [
+            0.07191884504619368,
+            0.5969832853791642
+          ],
+          "bootstrap_supportive_p_one_sided": 0.006248437890527368,
+          "mannwhitney_p_two_sided": 0.01670002633652596
+        }
+      }
+    }
+  },
+  "primary_contrast": {
+    "subset_label": "posterior_broad_q25_q75",
+    "gamma_t_quantiles": [
+      0.25,
+      0.75
+    ],
+    "gamma_t_threshold_low": 0.4693783073875288,
+    "gamma_t_threshold_high": 0.9166124141350585,
+    "n_total": 61,
+    "n_low": 16,
+    "n_high": 16,
+    "median_gamma_t_low": 0.43100413338434873,
+    "median_gamma_t_high": 1.2064753317705108,
+    "raw_spearman_gamma_t_vs_dust2": {
+      "rho": 0.2683765203595981,
+      "p": 0.03650502406987176
+    },
+    "metrics": {
+      "dust2": {
+        "metric": "dust2",
+        "n_low": 16,
+        "n_high": 16,
+        "low_median": 0.6196011185686061,
+        "high_median": 0.7715345773094113,
+        "low_weighted_mean": 0.5927778851373443,
+        "high_weighted_mean": 0.8413169792471268,
+        "delta_weighted_high_minus_low": 0.24853909410978248,
+        "bootstrap_ci_95": [
+          0.032401043120301745,
+          0.4771640883081132
+        ],
+        "bootstrap_supportive_p_one_sided": 0.011497125718570358,
+        "mannwhitney_p_two_sided": 0.05226079056168542
+      },
+      "UV": {
+        "metric": "UV",
+        "n_low": 16,
+        "n_high": 16,
+        "low_median": 0.7427536354170172,
+        "high_median": 0.9227219587690332,
+        "low_weighted_mean": 0.7558855928218063,
+        "high_weighted_mean": 1.0971293647390277,
+        "delta_weighted_high_minus_low": 0.34124377191722133,
+        "bootstrap_ci_95": [
+          0.08831962409102256,
+          0.6113330445407971
+        ],
+        "bootstrap_supportive_p_one_sided": 0.002749312671832042,
+        "mannwhitney_p_two_sided": 0.018494940419589954
+      },
+      "VJ": {
+        "metric": "VJ",
+        "n_low": 16,
+        "n_high": 16,
+        "low_median": 0.4481333860530441,
+        "high_median": 0.7197856224240997,
+        "low_weighted_mean": 0.47293881452351305,
+        "high_weighted_mean": 0.8076788052001194,
+        "delta_weighted_high_minus_low": 0.3347399906766063,
+        "bootstrap_ci_95": [
+          0.07191884504619368,
+          0.5969832853791642
+        ],
+        "bootstrap_supportive_p_one_sided": 0.006248437890527368,
+        "mannwhitney_p_two_sided": 0.01670002633652596
+      }
+    }
+  },
+  "null_audit_context": {
+    "status": "success",
+    "n_ratio_z9_12_vs_z8_9": 1.8484848484848484,
+    "dust_dynamic_range_ratio_z9_12_vs_z8_9": 0.6572225204763541,
+    "dust_uncertainty_ratio_z9_12_vs_z8_9": 1.3190803554984978,
+    "z_uncertainty_ratio_z9_12_vs_z8_9": 3.9673687621851332,
+    "flags": {
+      "sample_size_collapse": false,
+      "dust_posterior_compression": true,
+      "uncertainty_inflation": true,
+      "high_quality_subset_recovers_signal": false
+    },
+    "assessment": "The z=9-12 null is likely sensitivity-limited: the tail sample is smaller and/or the dust posteriors are more compressed or uncertain than in z=8-9."
+  },
+  "assessment": "The posterior-broad z=9-12 tail shows a supportive stacked reddening contrast: high-Gamma_t objects are redder on average in dust2 and rest-frame colours even where individual posteriors are broad."
+}

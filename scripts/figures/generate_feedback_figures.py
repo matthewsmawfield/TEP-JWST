@@ -14,7 +14,7 @@ from scripts.utils.style import set_pub_style, COLORS, FIG_SIZE
 def plot_z67_split():
     set_pub_style(scale=1.0)
     # Load data
-    df = pd.read_csv(PROJECT_ROOT / 'results/interim/step_01_uncover_full_sample.csv')
+    df = pd.read_csv(PROJECT_ROOT / 'results/interim/step_001_uncover_full_sample.csv')
     
     # Filter for z=6-7
     z_min, z_max = 6.0, 7.0

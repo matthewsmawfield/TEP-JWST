@@ -1,0 +1,48 @@
+{
+  "validated_parameter": {
+    "alpha_0": 0.58
+  },
+  "evidence": [
+    {
+      "test": "Chi2 anomaly",
+      "rho": 0.15881146507755423,
+      "p": 1.5201627688146416e-14,
+      "passed": true
+    },
+    {
+      "test": "Regime separation",
+      "ks": 0.17020440816482954,
+      "p": 1.3279079393786829e-09,
+      "passed": true
+    },
+    {
+      "test": "t_eff threshold",
+      "ratio": 1.7412904864203707,
+      "p": 2.699906700951074e-10,
+      "passed": true
+    }
+  ],
+  "anomalies_resolved": [
+    {
+      "anomaly": "'Anomalous' massive galaxies at z > 8",
+      "resolution": "\u0393_t ~ 2 gives t_eff ~ 1000 Myr"
+    },
+    {
+      "anomaly": "Elevated \u03c7\u00b2 in SED fitting",
+      "resolution": "Isochrony assumption fails for high \u0393_t"
+    },
+    {
+      "anomaly": "Unexplained scatter in scaling relations",
+      "resolution": "\u0393_t is the hidden variable"
+    },
+    {
+      "anomaly": "Mass-dependent dust at high z",
+      "resolution": "t_eff scales with mass via \u0393_t"
+    },
+    {
+      "anomaly": "Bimodality in galaxy properties",
+      "resolution": "Enhanced vs suppressed regimes"
+    }
+  ],
+  "evidence_count": 3
+}

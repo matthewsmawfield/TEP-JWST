@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
+# Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): 1.4s.
 """
-TEP-JWST Step 9: Thread 5 - z > 8 Dust Anomaly
+TEP-JWST Step 6: Thread 5 - z > 8 Dust Anomaly
 
 This step tests the fifth thread of TEP evidence: the anomalously strong
 mass-dust correlation at z > 8.
@@ -42,8 +43,9 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status
 from scripts.utils.p_value_utils import format_p_value, safe_json_default
+from scripts.utils.rank_stats import partial_rank_correlation
 
-STEP_NUM = "05"
+STEP_NUM = "006"
 STEP_NAME = "thread5_z8_dust"
 
 DATA_PATH = PROJECT_ROOT / "data"
@@ -73,17 +75,8 @@ def bootstrap_correlation(x, y, n_boot=1000):
     return np.percentile(rhos, [2.5, 97.5])
 
 def partial_correlation(x, y, control):
-    """
-    Compute partial correlation between x and y, controlling for 'control'.
-    Residualizes both x and y against control using linear regression.
-    """
-    slope_x, int_x, _, _, _ = linregress(control, x)
-    x_resid = x - (slope_x * control + int_x)
-    
-    slope_y, int_y, _, _, _ = linregress(control, y)
-    y_resid = y - (slope_y * control + int_y)
-    
-    return spearmanr(x_resid, y_resid)
+    rho, p, _ = partial_rank_correlation(x, y, control)
+    return rho, p
 
 # =============================================================================
 # MAIN ANALYSIS
@@ -158,36 +151,18 @@ def main():
     mass = df_z8['log_Mstar'].values
     z = df_z8['z_phot'].values
     
-    # Use log(gamma) for residualization as gamma is exponential
-    log_gamma = np.log(gamma)
-    
     # 1. rho(Gamma, Dust | Mass)
     # Checking if TEP signal persists after controlling for mass
-    rho_part, p_part = partial_correlation(log_gamma, dust, mass)
+    rho_part, p_part = partial_correlation(gamma, dust, mass)
     print_status(f"rho(Γ_t, dust | M*) = {rho_part:.3f}, p = {p_part:.2e}", "INFO")
     
     # 2. rho(Gamma, Dust | z)
     # Checking if TEP signal persists after controlling for redshift
-    rho_part_z, p_part_z = partial_correlation(log_gamma, dust, z)
+    rho_part_z, p_part_z = partial_correlation(gamma, dust, z)
     print_status(f"rho(Γ_t, dust | z)  = {rho_part_z:.3f}, p = {p_part_z:.2e}", "INFO")
     
     # 3. rho(Gamma, Dust | M*, z)
-    # Double control (very strict)
-    # Note: Gamma is defined by M* and z, so partialling both should remove almost everything
-    # except the specific functional form difference (linear vs exponential)
-    # We use a simplified double partial here (residualize against both)
-    # (Implementation inline for simplicity)
-    X = np.column_stack([mass, z, np.ones(len(mass))])
-    
-    # Resid log_gamma
-    coeffs_g = np.linalg.lstsq(X, log_gamma, rcond=None)[0]
-    resid_g = log_gamma - X @ coeffs_g
-    
-    # Resid dust
-    coeffs_d = np.linalg.lstsq(X, dust, rcond=None)[0]
-    resid_d = dust - X @ coeffs_d
-    
-    rho_double, p_double = spearmanr(resid_g, resid_d)
+    rho_double, p_double, _ = partial_rank_correlation(gamma, dust, np.column_stack([mass, z]))
     print_status(f"rho(Γ_t, dust | M*, z) = {rho_double:.3f}, p = {p_double:.2e}", "INFO")
     
     partial_results = {

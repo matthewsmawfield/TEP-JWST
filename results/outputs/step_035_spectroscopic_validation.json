@@ -1,0 +1,40 @@
+{
+  "total_spec": 34,
+  "full_sample": {
+    "sample_name": "Full Sample (z > 4)",
+    "n": 34,
+    "rho_gamma_age": 0.9098548510313217,
+    "rho_gamma_age_ci": [
+      0.7722395300326369,
+      0.9646983410592823
+    ],
+    "p_gamma_age": 9.108872518691259e-14
+  },
+  "z8_sample": {
+    "sample_name": "z > 8 Sample",
+    "n": 21,
+    "rho_gamma_age": 0.9649350649350649,
+    "rho_gamma_age_ci": [
+      0.8690177848594073,
+      0.9948095408907633
+    ],
+    "p_gamma_age": 1.7137077303369096e-12
+  },
+  "redshift_bins": [
+    {
+      "z_lo": 6,
+      "z_hi": 8,
+      "n": 13,
+      "rho": 0.9615384615384615,
+      "p": 1.631768081069998e-07
+    },
+    {
+      "z_lo": 8,
+      "z_hi": 12,
+      "n": 21,
+      "rho": 0.9649350649350649,
+      "p": 1.7137077303369096e-12
+    }
+  ],
+  "validation_status": "confirmed"
+}

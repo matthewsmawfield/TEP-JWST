@@ -1,0 +1,87 @@
+{
+  "step": "Step 095: LRD Core-Halo Mass from Resolved Photometry",
+  "alpha_0": 0.58,
+  "t_salpeter_gyr": 0.045,
+  "lrd_parameters": {
+    "r_e_kpc_median": 0.15,
+    "r_e_kpc_scatter": 0.1,
+    "n_sersic_median": 2.5,
+    "n_sersic_scatter": 1.0,
+    "log_mh_median": 11.0,
+    "log_mh_scatter": 0.3,
+    "z_range": [
+      4,
+      10
+    ]
+  },
+  "delta_log_mh_distribution": {
+    "median": 0.45154499349597177,
+    "mean": 0.4515449934959717,
+    "std": 5.551115123125783e-17,
+    "percentile_16": 0.45154499349597177,
+    "percentile_84": 0.45154499349597177,
+    "percentile_2.5": 0.45154499349597177,
+    "percentile_97.5": 0.45154499349597177
+  },
+  "boost_distribution": {
+    "median_log10": 9.31444181063194,
+    "mean_log10": 13.152399632510217,
+    "std_log10": 11.53533933995154,
+    "percentile_16_log10": 5.641384237446413,
+    "percentile_84_log10": 20.068680636682686,
+    "fraction_gt_1e3": 0.999,
+    "fraction_gt_1e5": 0.9082,
+    "fraction_gt_1e6": 0.8001
+  },
+  "step41_comparison": {
+    "step41_assumed": 1.5,
+    "this_analysis_median": 0.45154499349597177,
+    "this_analysis_std": 5.551115123125783e-17,
+    "consistent_1sigma": false
+  },
+  "sensitivity_r_e": [
+    {
+      "r_e_range": "0.05-0.10",
+      "r_e_center": 0.07500000000000001,
+      "n_samples": 2212,
+      "median_log10_boost": 9.418581289070504,
+      "fraction_runaway": 0.9986437613019892
+    },
+    {
+      "r_e_range": "0.10-0.15",
+      "r_e_center": 0.125,
+      "n_samples": 2294,
+      "median_log10_boost": 9.387876634297946,
+      "fraction_runaway": 1.0
+    },
+    {
+      "r_e_range": "0.15-0.20",
+      "r_e_center": 0.175,
+      "n_samples": 1681,
+      "median_log10_boost": 9.364175631943453,
+      "fraction_runaway": 0.998810232004759
+    },
+    {
+      "r_e_range": "0.20-0.30",
+      "r_e_center": 0.25,
+      "n_samples": 1805,
+      "median_log10_boost": 9.165267909122711,
+      "fraction_runaway": 0.9994459833795014
+    },
+    {
+      "r_e_range": "0.30-0.50",
+      "r_e_center": 0.4,
+      "n_samples": 1153,
+      "median_log10_boost": 9.484123247986927,
+      "fraction_runaway": 0.9991326973113617
+    },
+    {
+      "r_e_range": "0.50-0.80",
+      "r_e_center": 0.65,
+      "n_samples": 287,
+      "median_log10_boost": 9.13009397273857,
+      "fraction_runaway": 1.0
+    }
+  ],
+  "critical_radius_kpc": 0.05
+}

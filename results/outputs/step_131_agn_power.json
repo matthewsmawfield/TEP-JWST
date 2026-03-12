@@ -1,0 +1,67 @@
+{
+  "step": "131",
+  "name": "agn_power",
+  "status": "SUCCESS",
+  "description": "AGN contamination analysis \u2014 TEP vs AGN signal discrimination",
+  "n_lrd_kokorev": 260,
+  "agn_dust_bias_per10pct": 0.05,
+  "contamination_by_z": [
+    {
+      "z_lo": 4,
+      "z_hi": 5,
+      "f_agn": 0.05,
+      "n": 31799,
+      "rho_obs": 0.35544686715311613,
+      "rho_agn_corrected": 0.3465606954742882,
+      "delta_rho_agn": 0.02511009804759127,
+      "rho_change_pct": -2.5000000000000093,
+      "ref": "Harikane+2022"
+    },
+    {
+      "z_lo": 5,
+      "z_hi": 6,
+      "f_agn": 0.08,
+      "n": 5499,
+      "rho_obs": 0.38370848776370375,
+      "rho_agn_corrected": 0.3683601482531556,
+      "delta_rho_agn": 0.04789131426105757,
+      "rho_change_pct": -3.9999999999999996,
+      "ref": "Ouchi+2023"
+    },
+    {
+      "z_lo": 6,
+      "z_hi": 7,
+      "f_agn": 0.12,
+      "n": 4754,
+      "rho_obs": 0.5447625406665296,
+      "rho_agn_corrected": 0.5120767882265378,
+      "delta_rho_agn": 0.0419960525565808,
+      "rho_change_pct": -6.00000000000001,
+      "ref": "Kokorev+2024"
+    },
+    {
+      "z_lo": 7,
+      "z_hi": 9,
+      "f_agn": 0.15,
+      "n": 5894,
+      "rho_obs": 0.5982392223763696,
+      "rho_agn_corrected": 0.5533712806981419,
+      "delta_rho_agn": 0.03369085602646046,
+      "rho_change_pct": -7.5,
+      "ref": "Matthee+2024 (LRDs)"
+    },
+    {
+      "z_lo": 9,
+      "z_hi": 12,
+      "f_agn": 0.2,
+      "n": 1451,
+      "rho_obs": 0.5792439096501045,
+      "rho_agn_corrected": 0.5213195186850941,
+      "delta_rho_agn": 0.059028133610095526,
+      "rho_change_pct": -10.0,
+      "ref": "estimate"
+    }
+  ],
+  "max_rho_shift_pct": 10.0,
+  "conclusion": "Maximum AGN contamination shift: 10.0% of rho signal. AGN fraction (f_AGN=20% at z>9) shifts rho by <10%. Signal is robust to AGN contamination."
+}

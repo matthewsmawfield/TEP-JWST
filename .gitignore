@@ -50,6 +50,9 @@ tmp/
 results/**/*.fits
 results/**/*.hdf5
 
+# Development scratch scripts (one-off exploration/fix scripts)
+_scratch/
+
 # Private research notes (should never be committed)
 research
 .windsurf

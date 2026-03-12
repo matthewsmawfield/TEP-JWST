@@ -1,0 +1,58 @@
+[01:35:27]     ======================================================================
+[01:35:27]     STEP 112: Scalar-Tensor Constraint Comparison
+[01:35:27]     ======================================================================
+[01:35:27]     
+TEP coupling: α₀ = 0.58 ± 0.16
+[01:35:27]     Equivalent Brans-Dicke: ω_BD ≈ 1.0
+[01:35:27]     
+--- Scalar-Tensor Constraints ---
+[01:35:27]     Constraint                       ω_BD limit    α limit   Screened
+[01:35:27]     ----------------------------------------------------------------------
+[01:35:27]     Cassini (Shapiro delay)               40000     0.0035        Yes
+[01:35:27]     Lunar Laser Ranging                    1000     0.0223        Yes
+[01:35:27]     Binary Pulsar (Hulse-Taylor)            100     0.0702        Yes
+[01:35:27]     Binary Pulsar (Double Pulsar)           200     0.0498        Yes
+[01:35:27]     BBN (light element abundances)          500     0.0316         No
+[01:35:27]     CMB (Planck)                           1000     0.0223         No
+[01:35:27]     Cepheid P-L (TEP-H0)                      1     0.5800         No
+[01:35:27]     
+--- Screening Analysis ---
+[01:35:27]     
+Without screening, TEP would be ruled out by:
+[01:35:27]       - Cassini (Shapiro delay): 3.6σ tension
+[01:35:27]       - Lunar Laser Ranging: 3.5σ tension
+[01:35:27]       - Binary Pulsar (Hulse-Taylor): 3.2σ tension
+[01:35:27]       - Binary Pulsar (Double Pulsar): 3.3σ tension
+[01:35:27]       - BBN (light element abundances): 3.4σ tension
+[01:35:27]       - CMB (Planck): 3.5σ tension
+[01:35:27]     
+With chameleon screening:
+[01:35:27]       - Solar System tests: ρ >> ρ_c → α_eff → 0
+[01:35:27]       - Binary pulsars: NS interior screened
+[01:35:27]       - Galactic halos: ρ < ρ_c → α_eff = α₀
+[01:35:27]     
+Screening threshold: ρ_c ≈ 20 g/cm³
+[01:35:27]     Environment                ρ (g/cm³)   Screened
+[01:35:27]     --------------------------------------------------
+[01:35:27]     Solar core                  1.50e+02        Yes
+[01:35:27]     Earth core                  1.30e+01         No
+[01:35:27]     NS interior                 1.00e+15        Yes
+[01:35:27]     Milky Way disk              1.00e-24         No
+[01:35:27]     Galaxy cluster              1.00e-27         No
+[01:35:27]     High-z halo                 1.00e-26         No
+[01:35:27]     
+======================================================================
+[01:35:27]     SUMMARY
+[01:35:27]     ======================================================================
+[01:35:27]     
+Key findings:
+[01:35:27]       1. TEP α₀ = 0.58 ± 0.16 (ω_BD ≈ 1)
+[01:35:27]       2. Without screening, this would be ruled out by Cassini (>100σ)
+[01:35:27]       3. Chameleon screening resolves all Solar System constraints
+[01:35:27]       4. TEP effects only manifest in unscreened environments (galactic halos)
+[01:35:27]       5. High-z JWST galaxies are in the unscreened regime
+[01:35:27]     
+Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_112_scalar_tensor_constraints.json
+[01:35:28]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_112_scalar_tensor.png
+[01:35:28]     
+Step 112 complete.

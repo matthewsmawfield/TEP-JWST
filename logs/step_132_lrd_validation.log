@@ -1,0 +1,32 @@
+[01:35:35]     ======================================================================
+[01:35:35]     STEP 132: LRD Population Differential Temporal Shear Analysis
+[01:35:35]     ======================================================================
+[01:35:35]     LRD catalog already exists: /Users/matthewsmawfield/www/TEP-JWST/data/raw/kokorev_lrd_catalog_v1.1.fits
+[01:35:35]     Loaded 260 LRDs from catalog
+[01:35:35]     Redshift range: 4.02 - 8.93
+[01:35:35]     Median z: 5.57
+[01:35:35]     
+Analyzing 260 LRDs...
+[01:35:35]     
+==================================================
+[01:35:35]     POPULATION SUMMARY
+[01:35:35]     ==================================================
+[01:35:35]     Total LRDs analyzed: 260
+[01:35:35]     Redshift range: 4.02 - 8.93
+[01:35:35]     Median z: 5.57
+[01:35:35]     
+Temporal Enhancement:
+[01:35:35]       Median Gamma_halo: 0.14
+[01:35:35]       Median Gamma_cen: 0.47
+[01:35:35]       Median Delta_Gamma: 0.33
+[01:35:35]     
+BH Growth Boost:
+[01:35:35]       Median log(Boost): 3.2
+[01:35:35]       Mean log(Boost): 3.2
+[01:35:35]       LRDs with >1000x boost: 182/260 (70.0%)
+[01:35:35]     
+Saved CSV to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_132_lrd_population.csv
+[01:35:35]     Saved figure to /Users/matthewsmawfield/www/TEP-JWST/results/figures/lrd_population_time_bubble.png
+[01:35:35]     Saved JSON to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_132_lrd_validation.json
+[01:35:35]     
+Step 132 complete.

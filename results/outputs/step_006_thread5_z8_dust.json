@@ -1,0 +1,138 @@
+{
+  "test": "Thread 5: z > 8 Dust Anomaly",
+  "tep_prediction": "Strong mass-dust correlation at z > 8 due to enhanced proper time",
+  "by_redshift": [
+    {
+      "z_range": [
+        4,
+        5
+      ],
+      "n": 942,
+      "rho": 0.037013403579780016,
+      "p": 0.25641865141430426,
+      "ci_95": [
+        -0.02720770363633666,
+        0.10529982008935294
+      ],
+      "significant": false
+    },
+    {
+      "z_range": [
+        5,
+        6
+      ],
+      "n": 497,
+      "rho": -0.026322431284168286,
+      "p": 0.5582499699079295,
+      "ci_95": [
+        -0.11561786508274657,
+        0.06135204911503113
+      ],
+      "significant": false
+    },
+    {
+      "z_range": [
+        6,
+        7
+      ],
+      "n": 372,
+      "rho": -0.11842891386295118,
+      "p": 0.022340274709165116,
+      "ci_95": [
+        -0.21839764516045265,
+        -0.01343358131490995
+      ],
+      "significant": true
+    },
+    {
+      "z_range": [
+        7,
+        8
+      ],
+      "n": 221,
+      "rho": 0.09878150466385761,
+      "p": 0.14326300988764012,
+      "ci_95": [
+        -0.037777074974399534,
+        0.239282257821166
+      ],
+      "significant": false
+    },
+    {
+      "z_range": [
+        8,
+        10
+      ],
+      "n": 283,
+      "rho": 0.5594522703471411,
+      "p": 1.046457458256734e-24,
+      "ci_95": [
+        0.45908281533529466,
+        0.6406739498782913
+      ],
+      "significant": true
+    }
+  ],
+  "z8_result": {
+    "z_range": [
+      8,
+      10
+    ],
+    "n": 283,
+    "rho": 0.5594522703471411,
+    "p": 1.046457458256734e-24,
+    "ci_95": [
+      0.45908281533529466,
+      0.6406739498782913
+    ],
+    "significant": true
+  },
+  "partial_correlations": {
+    "rho_gamma_dust_given_mass": 0.26761038598290093,
+    "p_gamma_dust_given_mass": 4.982591950513189e-06,
+    "rho_gamma_dust_given_z": 0.5931150216770826,
+    "p_gamma_dust_given_z": 2.803935403120563e-28,
+    "rho_gamma_dust_given_mass_z": 0.2617505389865665,
+    "p_gamma_dust_given_mass_z": 8.124749057016333e-06
+  },
+  "dust_by_mass": [
+    {
+      "mass_range": [
+        8,
+        8.5
+      ],
+      "n": 180,
+      "mean_dust": 0.6002924632951716,
+      "std_dust": 0.36716424799224967
+    },
+    {
+      "mass_range": [
+        8.5,
+        9
+      ],
+      "n": 70,
+      "mean_dust": 0.8877533166190935,
+      "std_dust": 0.278255174085409
+    },
+    {
+      "mass_range": [
+        9,
+        10
+      ],
+      "n": 24,
+      "mean_dust": 1.246086495436233,
+      "std_dust": 0.5198717125924123
+    },
+    {
+      "mass_range": [
+        10,
+        12
+      ],
+      "n": 9,
+      "mean_dust": 2.7018996612304567,
+      "std_dust": 1.1333080120560248
+    }
+  ],
+  "significant": true,
+  "conclusion": "TEP prediction consistent with data - inconsistent with standard timescales"
+}

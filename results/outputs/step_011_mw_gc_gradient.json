@@ -1,0 +1,39 @@
+{
+  "correlation": {
+    "n_gc": 57,
+    "spearman_rho": 0.05343130544098231,
+    "spearman_p": 0.6930328692641015,
+    "pearson_r": 0.015822752060359026,
+    "pearson_p": 0.9070028149119836,
+    "slope": 0.00127138963824845,
+    "slope_err": 0.010833303951792255,
+    "intercept": 12.558960443682258,
+    "tep_consistent": false
+  },
+  "tep_correction": {
+    "rho_raw": 0.05343130544098231,
+    "p_raw": 0.6930328692641015,
+    "rho_corrected": 0.6267626231818504,
+    "p_corrected": 1.8306102857630223e-07,
+    "std_raw": 0.5545155260871234,
+    "std_corrected": 0.6350209924938557,
+    "scatter_reduction_pct": -14.51816272392048,
+    "correlation_reduced": false
+  },
+  "inner_outer": {
+    "n_inner": 22,
+    "n_outer": 20,
+    "age_inner": 12.545454545454545,
+    "age_inner_err": 0.11819846702576665,
+    "age_outer": 12.575,
+    "age_outer_err": 0.13943023156290105,
+    "delta_age": -0.02954545454545432,
+    "delta_age_err": 0.18278858575120455,
+    "t_statistic": -0.16256319602585065,
+    "p_value": 0.8716808421688016,
+    "significance_sigma": 0.16163730587460723,
+    "predicted_delta": 0.7205568314359097,
+    "tep_consistent": false
+  },
+  "interpretation": "screened"
+}

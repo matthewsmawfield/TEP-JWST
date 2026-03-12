@@ -1,0 +1,31 @@
+{
+  "n_total": 2315,
+  "tests": {
+    "overall": {
+      "rho": -0.9531736429563162,
+      "p": 1e-300
+    },
+    "regime_comparison": {
+      "n_enhanced": 202,
+      "n_suppressed": 1383,
+      "rho_enhanced": -0.9237097446969902,
+      "p_enhanced": 2.791508559137084e-85,
+      "rho_suppressed": -0.9464002760476663,
+      "p_suppressed": 1e-300,
+      "regime_decoupling": true
+    },
+    "old_but_sf": null,
+    "age_resid_ssfr": {
+      "slope": -0.7981981618321432,
+      "intercept": -7.372468505371895,
+      "rho": 0.27980120547996296,
+      "p": 6.680086483219356e-43,
+      "age_resid_positive": true
+    }
+  },
+  "summary": {
+    "tests_passed": 2,
+    "tests_total": 3,
+    "overall": "CONFIRMED"
+  }
+}

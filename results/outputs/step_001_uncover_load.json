@@ -1,0 +1,15 @@
+{
+  "step": "001",
+  "name": "UNCOVER DR4 Data Loading",
+  "full_sample_n": 2315,
+  "multi_property_n": 1108,
+  "z8_sample_n": 283,
+  "z_range": [
+    4.002411898151671,
+    9.985523401104329
+  ],
+  "log_Mstar_range": [
+    8.00060190406349,
+    11.136567502108383
+  ]
+}

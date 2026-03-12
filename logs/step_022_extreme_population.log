@@ -1,0 +1,105 @@
+[01:33:38] ======================================================================
+[01:33:38] TEP-JWST Step 22: Extreme Population Analysis
+[01:33:38] ======================================================================
+[01:33:38] 
+[01:33:38] Analyzing galaxies with extreme TEP enhancement factors.
+[01:33:38] 
+[01:33:38] Loading UNCOVER data...
+[01:33:38] Loaded 2315 galaxies
+[01:33:38] ======================================================================
+[01:33:38] TEST 1: The Extreme Population
+[01:33:38] ======================================================================
+[01:33:38] Extreme galaxies (Γ_t > 2): N = 44 (1.9%)
+[01:33:38] Normal galaxies: N = 2271
+[01:33:38] 
+Age Ratio:
+[01:33:38]   Extreme: 0.2694
+[01:33:38]   Normal: 0.1591
+[01:33:38]   Ratio: 1.69×
+[01:33:38]   p-value: 2.25e-30
+[01:33:38] 
+Stellar Age (Gyr):
+[01:33:38]   Extreme: 0.1952
+[01:33:38]   Normal: 0.1670
+[01:33:38]   Ratio: 1.17×
+[01:33:38]   p-value: 2.35e-02
+[01:33:38] 
+Effective Time (Gyr):
+[01:33:38]   Extreme: 6.4420
+[01:33:38]   Normal: 0.5754
+[01:33:38]   Ratio: 11.20×
+[01:33:38]   p-value: 2.79e-120
+[01:33:38] 
+Most extreme galaxy:
+[01:33:38]   Γ_t = 135.14
+[01:33:38]   z = 9.7
+[01:33:38]   log(M*) = 11.14
+[01:33:38]   Age ratio = 0.203
+[01:33:38] 
+Extreme galaxies after TEP correction:
+[01:33:38]   Mean age_ratio (raw): 0.269
+[01:33:38]   Mean age_ratio (corrected): 0.065
+[01:33:38]   Reduction: 76.0%
+[01:33:38] ======================================================================
+[01:33:38] TEST 2: The Bimodality Test
+[01:33:38] ======================================================================
+[01:33:38] Suppressed regime (Γ_t < 1): N = 2113 (91.3%)
+[01:33:38] Enhanced regime (Γ_t ≥ 1): N = 202 (8.7%)
+[01:33:38] 
+Age ratio comparison:
+[01:33:38]   Suppressed: 0.1571
+[01:33:38]   Enhanced: 0.2044
+[01:33:38]   Ratio: 1.30×
+[01:33:38]   p-value: 3.90e-24
+[01:33:38]   Cohen's d: 0.48
+[01:33:38] 
+⚠ Small effect size - weak bimodality
+[01:33:38] ======================================================================
+[01:33:38] TEST 3: Prediction Precision
+[01:33:38] ======================================================================
+[01:33:38] TEP model: age_ratio = 0.1317 + 0.0025×Γ_t + 0.0047×z
+[01:33:38] RMSE: 0.0631
+[01:33:38] R²: 0.0340
+[01:33:38] 
+Residual-Γ_t correlation: ρ = 0.101, p = 0.0000
+[01:33:38] ⚠ Residuals show systematic pattern
+[01:33:38] ======================================================================
+[01:33:38] TEST 4: Emergent Correlations
+[01:33:38] ======================================================================
+[01:33:38] Mass-Age correlation:
+[01:33:38]   Raw: ρ = 0.135, p = 0.0000
+[01:33:38]   TEP-corrected: ρ = -0.671, p = 0.0000
+[01:33:38]   ✓ Correlation STRENGTHENED after TEP correction
+[01:33:38] 
+log(M*) = [8, 9): N = 2054
+[01:33:38]   z-Age (raw): ρ = -0.671
+[01:33:38]   z-Age (corrected): ρ = -0.111
+[01:33:38] 
+log(M*) = [9, 10): N = 238
+[01:33:38]   z-Age (raw): ρ = -0.516
+[01:33:38]   z-Age (corrected): ρ = -0.649
+[01:33:38]   ✓ Correlation detected
+[01:33:38] 
+Emergent correlations found: 1/3
+[01:33:38] ======================================================================
+[01:33:38] TEST 5: Parameter Recovery
+[01:33:38] ======================================================================
+[01:33:38] Scatter minimization:
+[01:33:38]   No TEP (α → 0): σ = 0.0642
+[01:33:38]   Calibrated (α = 0.58): σ = 0.2539
+[01:33:38]   Optimal: α = 0.10, σ = 0.0654
+[01:33:38] 
+Optimal / Calibrated ratio: 0.17
+[01:33:38] ⚠ Optimal α differs significantly from calibrated
+[01:33:38] 
+Scatter reduction (no TEP → optimal): -1.9%
+[01:33:38] 
+[01:33:38] ======================================================================
+[01:33:38] SUMMARY: Extreme Population Results
+[01:33:38] ======================================================================
+[01:33:38] ✓ Extreme population: Detected
+[01:33:38] ✓ Emergent correlations: Found
+[01:33:38] 
+Tests passed: 2/5
+[01:33:38] 
+Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_022_extreme_population.json

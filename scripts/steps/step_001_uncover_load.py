@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): 2.9s.
 """
 TEP-JWST Step 001: Load UNCOVER DR4 Data and Apply Quality Cuts
 
@@ -15,13 +16,13 @@ Author: Matthew L. Smawfield
 Date: January 2026
 """
 
+import json
 import sys
 import numpy as np
 import pandas as pd
 from astropy.io import fits
 from astropy.cosmology import Planck18 as cosmo
 from pathlib import Path
-import json
 
 # =============================================================================
 # PATHS AND LOGGER
@@ -32,11 +33,21 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status
 from scripts.utils.p_value_utils import format_p_value, safe_json_default
+from scripts.utils.downloader import smart_download
 
 STEP_NUM = "001"
 STEP_NAME = "uncover_load"
 
 DATA_PATH = PROJECT_ROOT / "data" / "raw" / "uncover"
+
+# Zenodo record for UNCOVER DR4 SPS catalog (Wang et al. 2024, ApJS 270, 12)
+# DOI: 10.5281/zenodo.14281664
+UNCOVER_DR4_URL = (
+    "https://zenodo.org/api/records/14281664/files/"
+    "UNCOVER_DR4_SPS_catalog.fits/content"
+)
+UNCOVER_DR4_FILE = DATA_PATH / "UNCOVER_DR4_SPS_catalog.fits"
+UNCOVER_DR4_SIZE_MB_MIN = 60  # valid file is ~62.8 MB
 INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
 OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
 LOGS_PATH = PROJECT_ROOT / "logs"
@@ -53,19 +64,29 @@ set_step_logger(logger)
 # LOAD DATA
 # =============================================================================
 
+def download_uncover_catalog():
+    """Download UNCOVER DR4 SPS catalog from Zenodo if not already present."""
+    return smart_download(
+        url=UNCOVER_DR4_URL,
+        dest=UNCOVER_DR4_FILE,
+        min_size_mb=UNCOVER_DR4_SIZE_MB_MIN,
+        logger=logger,
+    )
+
+
 def load_uncover_catalog():
-    """Load UNCOVER DR4 SPS catalog."""
-    catalog_file = DATA_PATH / "UNCOVER_DR4_SPS_catalog.fits"
-    
-    if not catalog_file.exists():
-        print_status(f"ERROR: Catalog not found at {catalog_file}", "ERROR")
-        return None
-        
-    print_status(f"Loading: {catalog_file}", "PROCESS")
-    
-    with fits.open(catalog_file) as hdul:
+    """Download (if needed) and load UNCOVER DR4 SPS catalog."""
+    if not UNCOVER_DR4_FILE.exists() or UNCOVER_DR4_FILE.stat().st_size / 1e6 < UNCOVER_DR4_SIZE_MB_MIN:
+        success = download_uncover_catalog()
+        if not success:
+            print_status("ERROR: Could not obtain UNCOVER DR4 catalog. Aborting.", "ERROR")
+            return None
+
+    print_status(f"Loading: {UNCOVER_DR4_FILE}", "PROCESS")
+
+    with fits.open(UNCOVER_DR4_FILE) as hdul:
         data = hdul[1].data
-    
+
     print_status(f"Total sources: {len(data)}", "INFO")
     return data
 
@@ -255,7 +276,7 @@ def main():
     
     data = load_uncover_catalog()
     if data is None:
-        print_status("Aborting step 01 due to missing data.", "ERROR")
+        print_status("Aborting step 001 due to missing data.", "ERROR")
         return
 
     df = extract_columns(data)
@@ -291,7 +312,7 @@ def main():
         "log_Mstar_range": [float(df_full['log_Mstar'].min()), float(df_full['log_Mstar'].max())],
     }
     
-    with open(OUTPUT_PATH / f"step_{STEP_NUM}_summary.json", "w") as f:
+    with open(OUTPUT_PATH / f"step_{STEP_NUM}_uncover_load.json", "w") as f:
         json.dump(summary, f, indent=2, default=safe_json_default)
     
     print_status(f"Full sample: N = {summary['full_sample_n']}", "SUCCESS")

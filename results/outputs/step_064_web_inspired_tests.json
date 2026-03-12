@@ -1,0 +1,28 @@
+{
+  "n_total": 2315,
+  "web_inspired": {
+    "quiescent_fraction": {
+      "frac_high_gamma": 0.02586206896551724,
+      "frac_low_gamma": 0.0
+    },
+    "compactness": {
+      "rho_gamma_dust": 0.5928581034360436,
+      "p": 2.9965940211265736e-28
+    },
+    "quenching_timescale": {
+      "n_quenching": 15,
+      "mean_gamma_quenching": 9.66859011776745,
+      "mean_gamma_all": 1.1954033953789698
+    },
+    "red_dots": {
+      "n_red_dots": 75,
+      "mean_gamma_rd": 6.093199276837459,
+      "mean_gamma_normal": 0.33914537414496804,
+      "ratio": 17.96633462036523
+    },
+    "balmer_break": {
+      "rho_gamma_mwa": -0.034112908592762156,
+      "rho_teff_mwa": -0.034112908592762156
+    }
+  }
+}

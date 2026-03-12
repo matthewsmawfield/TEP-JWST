@@ -1,0 +1,10 @@
+[19:43:55]     Running Posterior Predictive Checks...
+[19:43:55]       Loaded obs_rho=0.559 from step_05
+[19:43:55]     Observed Correlation: rho = 0.559
+[19:43:55]     Simulating 1000 mock surveys...
+[19:43:55]     
+--- Results ---
+[19:43:55]     Prior-Induced Correlation: rho = 0.375 +/- 0.044
+[19:43:55]     95th Percentile of Prior:  rho = 0.444
+[19:43:55]     Z-Score of Observation: 4.2 sigma
+[19:43:55]     The observed correlation (+0.56) is significantly stronger than selection effects alone (+0.38). Data drives the signal.

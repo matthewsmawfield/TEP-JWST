@@ -1,0 +1,24 @@
+[01:35:46] ======================================================================
+[01:35:46] Step 137: Cross-Survey Generalization Test
+[01:35:46] ======================================================================
+[01:35:46]   UNCOVER z>8: loaded 283 galaxies
+[01:35:46]   CEERS: loaded 71 galaxies (z>=8.0)
+[01:35:47]   COSMOS-Web: loaded 2340 galaxies (z>=8.0)
+[01:35:47] Loaded 3 surveys: ['UNCOVER', 'CEERS', 'COSMOS-Web']
+[01:35:47] 
+--- Within-Survey Statistics ---
+[01:35:47]   UNCOVER (N=283): ρ(dust,t_eff)=0.599, ρ(dust,M*)=0.559, poly_CV_R²=0.473
+[01:35:47]   CEERS (N=71): ρ(dust,t_eff)=0.795, ρ(dust,M*)=0.795, poly_CV_R²=0.557
+[01:35:47]   COSMOS-Web (N=2340): ρ(dust,t_eff)=0.722, ρ(dust,M*)=0.706, poly_CV_R²=0.508
+[01:35:47] 
+--- Leave-One-Survey-Out (Continuous Dust Prediction) ---
+[01:35:47]   Test=UNCOVER (N=283): poly cross-ρ=0.542, t_eff ρ=0.599, Δρ(t_eff-poly)=+0.056, poly R²_cross=-1.388
+[01:35:47]   Test=CEERS (N=71): poly cross-ρ=0.788, t_eff ρ=0.795, Δρ(t_eff-poly)=+0.007, poly R²_cross=0.170
+[01:35:47]   Test=COSMOS-Web (N=2340): poly cross-ρ=0.724, t_eff ρ=0.722, Δρ(t_eff-poly)=-0.001, poly R²_cross=-6.433
+[01:35:47] 
+--- Summary ---
+[01:35:47]   Mean t_eff ρ advantage: +0.021
+[01:35:47]   t_eff wins: 2/3
+[01:35:47]   Mean poly R² drop (within→cross): +3.063
+[01:35:47] 
+Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_137_cross_survey_generalization.json

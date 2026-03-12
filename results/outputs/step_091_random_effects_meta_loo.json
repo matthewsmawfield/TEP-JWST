@@ -1,0 +1,302 @@
+{
+  "config": {
+    "z_min": 8.0,
+    "dust_positive_only": true
+  },
+  "sources": {
+    "UNCOVER": "/Users/matthewsmawfield/www/TEP-JWST/results/interim/step_002_uncover_full_sample_tep.csv",
+    "CEERS": "/Users/matthewsmawfield/www/TEP-JWST/data/interim/ceers_z8_sample.csv",
+    "COSMOS-Web": "/Users/matthewsmawfield/www/TEP-JWST/data/interim/cosmosweb_z8_sample.csv"
+  },
+  "survey_effects": {
+    "UNCOVER": {
+      "rho": 0.5928581034360436,
+      "n": 283,
+      "fisher_z": 0.6820617329993933,
+      "var_z": 0.0035714285714285713,
+      "se_z": 0.05976143046671968,
+      "ci_rho_lower": 0.5116256281824335,
+      "ci_rho_upper": 0.6635860071173307
+    },
+    "CEERS": {
+      "rho": 0.6599296916663946,
+      "n": 82,
+      "fisher_z": 0.792689070293515,
+      "var_z": 0.012658227848101266,
+      "se_z": 0.1125087900926024,
+      "ci_rho_lower": 0.5169525032489759,
+      "ci_rho_upper": 0.7670849182182098
+    },
+    "COSMOS-Web": {
+      "rho": 0.6287929331621774,
+      "n": 918,
+      "fisher_z": 0.739417224560554,
+      "var_z": 0.001092896174863388,
+      "se_z": 0.033058980245364314,
+      "ci_rho_lower": 0.5880117614690633,
+      "ci_rho_upper": 0.6663853882396574
+    }
+  },
+  "fixed_effects": {
+    "k": 3,
+    "n_total": 1283,
+    "z_fixed": 0.7301149782307101,
+    "rho_fixed": 0.6231356870154946,
+    "se_z_fixed": 0.028016590734026292,
+    "ci_rho_lower": 0.5883916398149271,
+    "ci_rho_upper": 0.6555828953779463,
+    "z_stat": 26.060093648153334,
+    "p": 1.033834565933536e-149,
+    "log10_p": -148.98554895142615,
+    "weights": {
+      "UNCOVER": 280.0,
+      "CEERS": 79.0,
+      "COSMOS-Web": 915.0
+    },
+    "weight_share": {
+      "UNCOVER": 0.21978021978021978,
+      "CEERS": 0.06200941915227629,
+      "COSMOS-Web": 0.7182103610675039
+    }
+  },
+  "heterogeneity": {
+    "Q": 1.035054453339067,
+    "df": 2,
+    "p_Q": 0.5959924816547845,
+    "I2": 0.0,
+    "I2_pct": 0.0,
+    "tau2": 0.0
+  },
+  "random_effects": {
+    "k": 3,
+    "n_total": 1283,
+    "z_random": 0.7301149782307101,
+    "rho_random": 0.6231356870154946,
+    "se_z_random": 0.028016590734026292,
+    "ci_rho_lower": 0.5883916398149271,
+    "ci_rho_upper": 0.6555828953779463,
+    "z_stat": 26.060093648153334,
+    "p": 1.033834565933536e-149,
+    "log10_p": -148.98554895142615,
+    "weights": {
+      "UNCOVER": 280.0,
+      "CEERS": 79.0,
+      "COSMOS-Web": 915.0
+    },
+    "weight_share": {
+      "UNCOVER": 0.21978021978021978,
+      "CEERS": 0.06200941915227629,
+      "COSMOS-Web": 0.7182103610675039
+    },
+    "prediction_interval_rho_95": [
+      0.5883916398149271,
+      0.6555828953779463
+    ]
+  },
+  "leave_one_out": {
+    "UNCOVER": {
+      "fixed_effects": {
+        "k": 2,
+        "n_total": 1000,
+        "z_fixed": 0.7436511036479825,
+        "rho_fixed": 0.6313460066631694,
+        "se_z_fixed": 0.03171807398477756,
+        "ci_rho_lower": 0.5924830955689162,
+        "ci_rho_upper": 0.667277092527404,
+        "z_stat": 23.445657640021984,
+        "p": 1.4638610984838662e-121,
+        "log10_p": -120.83450013026115,
+        "weights": {
+          "CEERS": 79.0,
+          "COSMOS-Web": 915.0
+        },
+        "weight_share": {
+          "CEERS": 0.079476861167002,
+          "COSMOS-Web": 0.920523138832998
+        }
+      },
+      "heterogeneity": {
+        "Q": 0.20637509654171232,
+        "df": 1,
+        "p_Q": 0.6496235245186521,
+        "I2": 0.0,
+        "I2_pct": 0.0,
+        "tau2": 0.0
+      },
+      "random_effects": {
+        "k": 2,
+        "n_total": 1000,
+        "z_random": 0.7436511036479825,
+        "rho_random": 0.6313460066631694,
+        "se_z_random": 0.03171807398477756,
+        "ci_rho_lower": 0.5924830955689162,
+        "ci_rho_upper": 0.667277092527404,
+        "z_stat": 23.445657640021984,
+        "p": 1.4638610984838662e-121,
+        "log10_p": -120.83450013026115,
+        "weights": {
+          "CEERS": 79.0,
+          "COSMOS-Web": 915.0
+        },
+        "weight_share": {
+          "CEERS": 0.079476861167002,
+          "COSMOS-Web": 0.920523138832998
+        },
+        "prediction_interval_rho_95": [
+          0.5924830955689162,
+          0.667277092527404
+        ]
+      }
+    },
+    "CEERS": {
+      "fixed_effects": {
+        "k": 2,
+        "n_total": 1201,
+        "z_fixed": 0.7259782809311608,
+        "rho_fixed": 0.6205987362661034,
+        "se_z_fixed": 0.028927842707018585,
+        "ci_rho_lower": 0.5845058770201998,
+        "ci_rho_upper": 0.6542404662108086,
+        "z_stat": 25.0961776957886,
+        "p": 5.4748892458546074e-139,
+        "log10_p": -138.26162466194916,
+        "weights": {
+          "UNCOVER": 280.0,
+          "COSMOS-Web": 915.0
+        },
+        "weight_share": {
+          "UNCOVER": 0.23430962343096234,
+          "COSMOS-Web": 0.7656903765690377
+        }
+      },
+      "heterogeneity": {
+        "Q": 0.7052794544028227,
+        "df": 1,
+        "p_Q": 0.40101538697955086,
+        "I2": 0.0,
+        "I2_pct": 0.0,
+        "tau2": 0.0
+      },
+      "random_effects": {
+        "k": 2,
+        "n_total": 1201,
+        "z_random": 0.7259782809311608,
+        "rho_random": 0.6205987362661034,
+        "se_z_random": 0.028927842707018585,
+        "ci_rho_lower": 0.5845058770201998,
+        "ci_rho_upper": 0.6542404662108086,
+        "z_stat": 25.0961776957886,
+        "p": 5.4748892458546074e-139,
+        "log10_p": -138.26162466194916,
+        "weights": {
+          "UNCOVER": 280.0,
+          "COSMOS-Web": 915.0
+        },
+        "weight_share": {
+          "UNCOVER": 0.23430962343096234,
+          "COSMOS-Web": 0.7656903765690377
+        },
+        "prediction_interval_rho_95": [
+          0.5845058770201998,
+          0.6542404662108086
+        ]
+      }
+    },
+    "COSMOS-Web": {
+      "fixed_effects": {
+        "k": 2,
+        "n_total": 365,
+        "z_fixed": 0.7064059102869577,
+        "rho_fixed": 0.6084181255550634,
+        "se_z_fixed": 0.05277798139692595,
+        "ci_rho_lower": 0.5391532447501618,
+        "ci_rho_upper": 0.6695079199049122,
+        "z_stat": 13.38448139905749,
+        "p": 7.451565262951526e-41,
+        "log10_p": -40.12775249051877,
+        "weights": {
+          "UNCOVER": 280.0,
+          "CEERS": 79.0
+        },
+        "weight_share": {
+          "UNCOVER": 0.7799442896935933,
+          "CEERS": 0.2200557103064067
+        }
+      },
+      "heterogeneity": {
+        "Q": 0.7540768233429984,
+        "df": 1,
+        "p_Q": 0.385188546013863,
+        "I2": 0.0,
+        "I2_pct": 0.0,
+        "tau2": 0.0
+      },
+      "random_effects": {
+        "k": 2,
+        "n_total": 365,
+        "z_random": 0.7064059102869577,
+        "rho_random": 0.6084181255550634,
+        "se_z_random": 0.05277798139692595,
+        "ci_rho_lower": 0.5391532447501618,
+        "ci_rho_upper": 0.6695079199049122,
+        "z_stat": 13.38448139905749,
+        "p": 7.451565262951526e-41,
+        "log10_p": -40.12775249051877,
+        "weights": {
+          "UNCOVER": 280.0,
+          "CEERS": 79.0
+        },
+        "weight_share": {
+          "UNCOVER": 0.7799442896935933,
+          "CEERS": 0.2200557103064067
+        },
+        "prediction_interval_rho_95": [
+          0.5391532447501618,
+          0.6695079199049122
+        ]
+      }
+    }
+  },
+  "influence": {
+    "UNCOVER": {
+      "n": 283,
+      "rho": 0.5928581034360436,
+      "rho_fixed": 0.6231356870154946,
+      "rho_random": 0.6231356870154946,
+      "delta_rho_fixed_minus_study": 0.030277583579450984,
+      "delta_rho_random_minus_study": 0.030277583579450984,
+      "weight_share_fixed": 0.21978021978021978,
+      "weight_share_random": 0.21978021978021978,
+      "loo_rho_random": 0.6313460066631694,
+      "loo_delta_rho_random": 0.008210319647674824
+    },
+    "CEERS": {
+      "n": 82,
+      "rho": 0.6599296916663946,
+      "rho_fixed": 0.6231356870154946,
+      "rho_random": 0.6231356870154946,
+      "delta_rho_fixed_minus_study": -0.03679400465089999,
+      "delta_rho_random_minus_study": -0.03679400465089999,
+      "weight_share_fixed": 0.06200941915227629,
+      "weight_share_random": 0.06200941915227629,
+      "loo_rho_random": 0.6205987362661034,
+      "loo_delta_rho_random": -0.002536950749391198
+    },
+    "COSMOS-Web": {
+      "n": 918,
+      "rho": 0.6287929331621774,
+      "rho_fixed": 0.6231356870154946,
+      "rho_random": 0.6231356870154946,
+      "delta_rho_fixed_minus_study": -0.005657246146682837,
+      "delta_rho_random_minus_study": -0.005657246146682837,
+      "weight_share_fixed": 0.7182103610675039,
+      "weight_share_random": 0.7182103610675039,
+      "loo_rho_random": 0.6084181255550634,
+      "loo_delta_rho_random": -0.014717561460431239
+    }
+  },
+  "figure": {
+    "path": "/Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_091_random_effects_meta_loo.png",
+    "written": false
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "step": "150",
+  "name": "dja_nirspec_merged",
+  "status": "SUCCESS",
+  "description": "DJA NIRSpec rho(Gamma_t, log M*) \u2014 Table B2",
+  "catalog_used": "DJA NIRSpec v4.4 merged table (dja_msaexp_emission_lines_v4.4.csv.gz)",
+  "reproducible_dja_available": true,
+  "manuscript_table_reproduced": true,
+  "n_total": 2653,
+  "rho_full": 0.9820431551492441,
+  "p_full": 1e-300,
+  "redshift_bins": [
+    {
+      "z_lo": 5,
+      "z_hi": 7,
+      "n": 2088,
+      "rho": 0.9946609554579329,
+      "p": 1e-300
+    },
+    {
+      "z_lo": 7,
+      "z_hi": 9,
+      "n": 498,
+      "rho": 0.9941777812734389,
+      "p": 1e-300
+    },
+    {
+      "z_lo": 9,
+      "z_hi": 99,
+      "n": 67,
+      "rho": 0.9819618485114535,
+      "p": 9.623130367230388e-49
+    }
+  ],
+  "note": null
+}

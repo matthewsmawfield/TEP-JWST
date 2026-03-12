@@ -1,0 +1,54 @@
+[01:34:23]     ============================================================
+[01:34:23]     Step 90: Sign Paradox Resolution
+[01:34:23]     ============================================================
+[01:34:23]     
+--- Part 1: Calibrated Clock Rate Analysis ---
+[01:34:23]     This shows the 'naive' sign paradox when β < 0.5
+[01:34:23] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.4
+[01:34:23]   Deepest potential Φ/c²: -1.61e-06
+[01:34:23]     β = 0.4: 4β² = 0.64, Threshold met: False, Enhancement: False
+[01:34:23] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.5
+[01:34:23]   Deepest potential Φ/c²: -1.61e-06
+[01:34:23]     β = 0.5: 4β² = 1.00, Threshold met: False, Enhancement: False
+[01:34:23] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.6
+[01:34:23]   Deepest potential Φ/c²: -1.61e-06
+[01:34:23]     β = 0.6: 4β² = 1.44, Threshold met: True, Enhancement: False
+[01:34:23] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.8
+[01:34:23]   Deepest potential Φ/c²: -1.61e-06
+[01:34:23]     β = 0.8: 4β² = 2.56, Threshold met: True, Enhancement: False
+[01:34:23] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=1.0
+[01:34:23]   Deepest potential Φ/c²: -1.61e-06
+[01:34:23]     β = 1.0: 4β² = 4.00, Threshold met: True, Enhancement: False
+[01:34:23]     
+--- Part 2: Relative Enhancement (TEP-JWST Method) ---
+[01:34:23]     This is the correct formulation used in the manuscript
+[01:34:23]     Low-mass z=8: Γ_t = 0.0899 (SUPPRESSED)
+[01:34:23]     Intermediate z=8: Γ_t = 0.4479 (SUPPRESSED)
+[01:34:23]     Reference mass z=8: Γ_t = 1.0000 (REFERENCE)
+[01:34:23]     High-mass z=8: Γ_t = 2.2324 (ENHANCED)
+[01:34:23]     Ultra-massive z=8: Γ_t = 4.9836 (ENHANCED)
+[01:34:23]     High-mass z=5.5 (ref z): Γ_t = 1.6371 (ENHANCED)
+[01:34:23]     
+--- Part 3: Red Monsters Validation ---
+[01:34:23]     S1 (z=5.3): Γ_t = 2.12, Mass correction = 1.69×
+[01:34:23]     S2 (z=5.5): Γ_t = 1.81, Mass correction = 1.51×
+[01:34:23]     S3 (z=5.9): Γ_t = 2.94, Mass correction = 2.13×
+[01:34:23]     
+--- Part 4: Theoretical Mapping ---
+[01:34:23]     
+Sign Paradox Resolution:
+[01:34:23]       The TEP-JWST formulation uses RELATIVE enhancement Γ_t
+[01:34:23]       Γ_t > 1 for M_h > M_ref (by construction)
+[01:34:23]       This does NOT require 4β² > 1 in the scalar-tensor action
+[01:34:23]       The phenomenological α₀ = 0.58 is an effective coupling, not β
+[01:34:23]     
+Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_072_sign_paradox.json
+[01:34:23] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.4
+[01:34:23]   Deepest potential Φ/c²: -1.61e-06
+[01:34:23] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.5
+[01:34:23]   Deepest potential Φ/c²: -1.61e-06
+[01:34:23] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.6
+[01:34:23]   Deepest potential Φ/c²: -1.61e-06
+[01:34:23] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.8
+[01:34:23]   Deepest potential Φ/c²: -1.61e-06
+[01:34:23]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/step_072_sign_paradox_resolution.png

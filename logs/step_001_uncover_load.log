@@ -1,0 +1,15 @@
+[01:33:09] ═══ STEP 01: Load UNCOVER DR4 Data
+[01:33:09] >>> Loading: /Users/matthewsmawfield/www/TEP-JWST/data/raw/uncover/UNCOVER_DR4_SPS_catalog.fits
+[01:33:09]     Total sources: 74020
+[01:33:09]     Extracted 25 columns
+[01:33:09]     Full sample after cuts: N = 2315
+[01:33:09]     Multi-property sample after cuts: N = 1108
+[01:33:09]     z > 8 sample after cuts: N = 283
+[01:33:09] >>> Saving outputs...
+[01:33:09]     Saved: step_001_uncover_full_sample.csv
+[01:33:09]     Saved: step_001_uncover_multi_property_sample.csv
+[01:33:09]     Saved: step_001_uncover_z8_sample.csv
+[01:33:09] ✓   Full sample: N = 2315
+[01:33:09] ✓   Multi-property: N = 1108
+[01:33:09] ✓   z > 8: N = 283
+[01:33:09] ✓   Step 001 complete.

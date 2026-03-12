@@ -1,0 +1,83 @@
+{
+  "step": "Step 106: Emission Line Diagnostic Predictions",
+  "is_model_prediction": true,
+  "predictions": {
+    "oiii_hbeta_vs_gamma_t": {
+      "observable": "[OIII]5007/H\u03b2 ratio",
+      "tep_prediction": "Weak or no correlation",
+      "physical_reason": "Gas-phase metallicity reflects recent enrichment, not integrated history",
+      "expected_rho": 0.0,
+      "expected_rho_range": [
+        -0.1,
+        0.1
+      ],
+      "falsification": "Strong positive correlation (\u03c1 > 0.3) would contradict TEP"
+    },
+    "stellar_met_vs_gamma_t": {
+      "observable": "Stellar metallicity [Z/H]",
+      "tep_prediction": "Positive correlation",
+      "physical_reason": "Stellar metallicity integrates over effective time, enhanced by Gamma_t",
+      "expected_rho": 0.3,
+      "expected_rho_range": [
+        0.2,
+        0.5
+      ],
+      "falsification": "No correlation (\u03c1 < 0.1) would contradict TEP"
+    },
+    "gas_stellar_offset": {
+      "observable": "Gas metallicity - Stellar metallicity",
+      "tep_prediction": "Negative offset in high-Gamma_t systems",
+      "physical_reason": "High-Gamma_t systems have older stellar populations but similar gas",
+      "expected_offset": -0.2,
+      "expected_offset_range": [
+        -0.4,
+        0.0
+      ],
+      "falsification": "Positive offset in high-Gamma_t systems would contradict TEP"
+    },
+    "nii_ha_vs_gamma_t": {
+      "observable": "[NII]6583/H\u03b1 ratio",
+      "tep_prediction": "Weak correlation (similar to [OIII]/H\u03b2)",
+      "physical_reason": "Nitrogen abundance is gas-phase, not integrated",
+      "expected_rho": 0.05,
+      "expected_rho_range": [
+        -0.1,
+        0.15
+      ],
+      "falsification": "Strong correlation (\u03c1 > 0.3) would contradict TEP"
+    }
+  },
+  "simulation": {
+    "n_sim": 500,
+    "stellar_metallicity": {
+      "rho_vs_gamma_t": 0.6710989222432504,
+      "p_value": 1.0047630548073968e-66,
+      "interpretation": "Strong correlation as predicted by TEP"
+    },
+    "gas_metallicity": {
+      "rho_vs_gamma_t": 0.029949885442883864,
+      "p_value": 0.5040228360640939,
+      "interpretation": "Weak correlation as predicted by TEP"
+    },
+    "oiii_hbeta": {
+      "rho_vs_gamma_t": 0.0030481081924327693,
+      "p_value": 0.9457957134815901,
+      "interpretation": "Weak correlation (traces gas, not stellar)"
+    },
+    "stellar_gas_difference": {
+      "mean_offset": 0.06882456711150711,
+      "interpretation": "Stellar > Gas in high-Gamma_t systems"
+    }
+  },
+  "key_discriminant": {
+    "stellar_vs_gas": "Stellar metallicity should correlate more strongly with Gamma_t than gas metallicity",
+    "expected_ratio": "\u03c1(stellar)/\u03c1(gas) > 3",
+    "falsification": "[OIII]/H\u03b2 showing \u03c1 > 0.3 with Gamma_t would falsify TEP"
+  },
+  "observing_requirements": {
+    "instrument": "JWST NIRSpec",
+    "resolution": "R ~ 1000-2700",
+    "sample_size": "N \u2265 30 at z > 6",
+    "integration_time": "5-10 hours per target"
+  }
+}

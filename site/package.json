@@ -1,7 +1,7 @@
 {
   "name": "tep-jwst-site",
   "version": "0.1.0",
-  "description": "Temporal Shear: Reconciling JWST's Impossible Galaxies",
+  "description": "Temporal Shear: Resolving the High-Redshift Efficiency Crisis",
   "main": "index.html",
   "scripts": {
     "dev": "node dev-server.js",

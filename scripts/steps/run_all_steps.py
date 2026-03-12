@@ -4,16 +4,20 @@ TEP-JWST: Run All Analysis Steps
 
 This script runs the complete reproducible analysis pipeline for the
 manuscript build. The authoritative step registry is the STEPS list
-defined below.
+defined below. Runtime estimates shown at startup and before each step
+are loaded from `results/outputs/pipeline_summary.json`, i.e. the most
+recent successful full canonical run.
 
 Usage:
     python scripts/steps/run_all_steps.py
 """
 
+import datetime
 import json
 import math
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -21,7 +25,7 @@ STEPS_DIR = PROJECT_ROOT / "scripts" / "steps"
 OUTPUTS_DIR = PROJECT_ROOT / "results" / "outputs"
 
 # =============================================================================
-# FULL PIPELINE: 163 analysis steps
+# FULL PIPELINE: 168 analysis steps
 # Includes core analysis, replication, robustness, falsification, and
 # advanced discriminating tests used by the current manuscript build.
 # =============================================================================
@@ -54,7 +58,7 @@ STEPS = [
     # Deep analysis of JWST high-z galaxy properties
     # =========================================================================
     "step_014_jwst_uv_slope.py",                    # UV slope analysis
-    "step_015_jwst_impossible_galaxies.py",         # Impossible galaxies resolution
+    "step_015_jwst_impossible_galaxies.py",         # Anomalous galaxies resolution
     "step_016_robustness_tests.py",                 # Robustness and systematics
     "step_017_ml_ratio.py",                         # Mass-to-light ratio
     "step_018_assembly_time.py",                    # Assembly time
@@ -105,7 +109,6 @@ STEPS = [
     # =========================================================================
     "step_039_overmassive_bh.py",                   # Overmassive Black Hole / LRD
     "step_040_mass_sensitivity.py",                 # Mass reduction sensitivity
-    "step_041_forward_modeling.py",                 # Forward-modeling SED validation
     "step_042_lrd_population.py",                   # LRD population analysis
     "step_043_blue_monsters.py",                    # Blue Monster TEP analysis
 
@@ -136,10 +139,10 @@ STEPS = [
 
     # =========================================================================
     # PHASE XI: ADVANCED PHYSICS (steps 059-065)
-    # Killer tests and extreme case analysis
+    # Functional form tests and extreme case analysis
     # =========================================================================
     "step_059_ultimate_missing_piece.py",           # Ultimate missing piece
-    "step_060_the_killer_test.py",                  # The killer test (t_eff vs t_cosmic)
+    "step_060_functional_form_discrimination.py",   # The functional form discrimination test (t_eff vs t_cosmic)
     "step_061_extreme_cases.py",                    # Extreme cases
     "step_062_predictive_power.py",                 # Predictive power
     "step_063_correlation_deep_dive.py",            # Correlation deep dive
@@ -163,19 +166,15 @@ STEPS = [
     # =========================================================================
     "step_072_sign_paradox_check.py",               # Theoretical scalar proper-time sign check
     "step_073_growth_factor.py",                    # Linear growth and σ₈ constraint
-    "step_074_z67_tep_prediction.py",               # z=6-7 dip dust physics prediction
     "step_075_bayesian_model_comparison.py",        # Bayesian model comparison (Savage-Dickey)
     "step_076_ml_scaling_justification.py",         # M/L scaling theoretical justification
     "step_077_bootstrap_validation.py",             # Bootstrap CIs and permutation tests
     "step_078_independent_age_validation.py",       # Balmer absorption age validation
     "step_079_ml_cross_validation.py",              # K-fold cross-validation of M/L index
-    "step_080_balmer_simulation.py",                # Balmer absorption line simulation
     "step_081_survey_cross_correlation.py",         # Multi-survey meta-analysis
-    "step_082_evidence_strengthening.py",           # Monte Carlo evidence strengthening
     "step_083_falsification_battery.py",            # Comprehensive falsification battery
     "step_084_effect_size_meta.py",                 # Effect size meta-analysis
     "step_085_time_lens_map.py",                    # Time-lens map
-    "step_086_posterior_predictive.py",             # Posterior predictive checks
     "step_087_emission_line_tests.py",              # Emission line tests
     "step_088_final_comprehensive.py",              # FINAL COMPREHENSIVE SUMMARY
 
@@ -190,13 +189,11 @@ STEPS = [
     "step_093_teff_threshold_holdout.py",           # Holdout (leave-one-survey-out) threshold validation
     "step_094_environmental_screening_enhanced.py", # Enhanced environmental screening (multiple density estimators)
     "step_095_lrd_core_halo_mass.py",               # LRD core-halo mass derivation from resolved photometry
-    "step_096_balmer_target_list.py",               # Balmer absorption target list for JWST proposals
 
     # =========================================================================
     # PHASE XV: MODEL COMPARISON & PREDICTIONS (steps 097-118)
     # Alternative models, alpha recovery, predictions, significance
     # =========================================================================
-    "step_097_money_plot.py",                       # TEP predictions vs observations summary figure
     "step_098_alternative_model_comparison.py",     # Alternative model comparison (AIC/BIC)
     "step_099_alpha_evolution_test.py",             # Alpha(z) evolution test
     "step_100_multi_domain_model_comparison.py",    # Multi-domain model comparison
@@ -205,17 +202,10 @@ STEPS = [
     "step_103_zphot_error_propagation.py",          # Photometric redshift error propagation
     "step_104_cosmic_variance.py",                  # Cosmic variance quantification
     "step_105_morphology_tep.py",                   # Morphology-TEP correlation
-    "step_106_emission_line_diagnostic.py",         # Emission line diagnostic predictions
-    "step_107_sn_rate_prediction.py",               # Time-domain SN rate prediction
-    "step_108_jwst_cycle4_targets.py",              # JWST Cycle 4 observing proposal targets
     "step_109_lcdm_tension_quantification.py",      # ΛCDM tension quantification
-    "step_110_gw_timing_prediction.py",             # Gravitational wave timing prediction
     "step_111_power_analysis.py",                   # Power analysis for key tests
     "step_112_scalar_tensor_constraints.py",        # Scalar-tensor constraint comparison
-    "step_113_agn_feedback_discriminant.py",        # AGN feedback discriminant
     "step_114_imf_constraint.py",                   # IMF constraint from TEP
-    "step_115_euclid_roman_predictions.py",         # Euclid and Roman predictions
-    "step_116_literature_spectroscopic_ages.py",    # Literature spectroscopic age compilation
     "step_117_dynamical_mass_comparison.py",        # Quantitative M*/M_dyn analysis
     "step_118_neff_corrected_significance.py",      # N_eff-corrected combined significance
 
@@ -237,7 +227,6 @@ STEPS = [
     # IMF, selection MC, dust models, AGN, LRD, Hubble connection
     # =========================================================================
     "step_127_imf_discrimination.py",               # IMF vs TEP discrimination power
-    "step_128_selection_mc.py",                     # Selection function Monte Carlo
     "step_129_dust_models.py",                      # Dust physics alternative models
     "step_130_cross_survey_systematics.py",         # Cross-survey systematic budget
     "step_131_agn_power.py",                        # AGN feedback discrimination power
@@ -254,18 +243,16 @@ STEPS = [
     "step_137_cross_survey_generalization.py",      # Cross-survey generalization test
     "step_138_environmental_screening_steiger.py",  # Environmental screening Steiger Z-test
     "step_139_colour_gradient_steiger.py",          # Colour-gradient Steiger Z-test (t_eff vs M*)
-    "step_140_evidence_tier_summary.py",            # Evidence tier summary (Tier 1/2/3 hierarchy)
-    "step_141_nonlinear_aic.py",                    # Non-linear AIC: step-function t_eff vs M* (ΔAIC=-23)
-    "step_142_lrd_mbh_mstar_prediction.py",         # LRD M_BH/M_* quantitative prediction vs observation
+    "step_141_nonlinear_aic.py",                    # Non-linear AIC: step-function t_eff vs M* (ΔAIC≈-5)
     "step_143_mass_proxy_breaker.py",               # Mass-proxy degeneracy breaker (3 independent tests)
     "step_144_adversarial_ml_attack.py",            # Adversarial ML attack: GBR/RF vs Gamma_t + cross-survey + CMI
     "step_145_phase_boundary_activation.py",        # AGB dust phase boundary + activation curve fit
-    "step_146_stellar_mass_function_resolution.py", # SMF crisis resolution: TEP corrects impossible masses at z>7
+    "step_146_stellar_mass_function_resolution.py", # SMF crisis resolution: TEP corrects anomalous masses at z>7
     "step_147_cosmic_sfrd_correction.py",           # Cosmic SFRD correction: reduces z>8 excess from 11× to 2.6× ΛCDM
     "step_148_mass_independent_proxy.py",           # Mass-independent potential-depth proxy tests (5 tests)
 
     # =========================================================================
-    # PHASE XIX: MULTI-DATASET INGESTION (steps 149-163)
+    # PHASE XIX: MULTI-DATASET INGESTION, LATE AUDITS, AND FINAL SYNTHESIS
     # JADES, DJA, UNCOVER DR4, COSMOS2025, manuscript QA
     # =========================================================================
     "step_149_jades_dr4_ingestion.py",              # JADES DR4 spectroscopic catalog (2,858 spec-z)
@@ -279,10 +266,17 @@ STEPS = [
     "step_157_cosmos2025_ssfr_inversion.py",        # COSMOS2025 sSFR inversion (Steiger Z=6.37)
     "step_158_dja_balmer_decrement.py",             # DJA NIRSpec Balmer decrement (N=2925)
     "step_159_mass_measurement_bias.py",            # TEP mass bias analysis
-    "step_160_manuscript_consistency_check.py",     # Automated manuscript↔JSON consistency checks
     "step_161_multi_dataset_l1_combination.py",     # Multi-dataset L1 Fisher combination (5 fields)
     "step_162_l1_l3_independence.py",               # L1-L3 independence test
     "step_163_external_dataset_registry.py",        # External-dataset shortlist + ingestion registry
+    "step_164_uncover_z9_null_audit.py",            # UNCOVER z=9-12 null branch audit
+    "step_165_uncover_z9_reddening_stack.py",       # UNCOVER z=9-12 stacked reddening surrogate
+    "step_166_jades_z9_beta_contrast.py",           # JADES z=9-12 UV-slope contrast companion
+    "step_167_protocluster_switch.py",              # Protocluster switch sign-reversal test
+    "step_168_gradient_sign_reversal.py",           # Resolved gradient sign-reversal test
+    "step_169_dja_sigma_pilot.py",                  # DJA pilot sigma extraction from public spec.fits URLs
+    "step_140_evidence_tier_summary.py",            # Final evidence synthesis after late-ingestion outputs
+    "step_160_manuscript_consistency_check.py",     # Automated manuscript↔JSON consistency checks
 ]
 
 def _json_output_state():
@@ -338,80 +332,346 @@ def _validate_json_file(json_path: Path):
     _validate_json_obj(data, problems)
     return problems
 
-def run_step(script_name):
-    """Run a single step script."""
+
+def _safe_read_json(json_path: Path):
+    try:
+        return json.loads(json_path.read_text())
+    except Exception:
+        return None
+
+
+def _format_run_at_label(run_at: str | None) -> str | None:
+    if not run_at:
+        return None
+    try:
+        dt = datetime.datetime.fromisoformat(run_at.replace("Z", "+00:00"))
+    except ValueError:
+        return run_at
+    return dt.astimezone(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+
+
+def _load_last_run_estimates():
+    summary = _safe_read_json(OUTPUTS_DIR / "pipeline_summary.json")
+    if not summary or summary.get("status") != "PASS":
+        return None
+
+    total_elapsed_s = summary.get("total_elapsed_s")
+    if not isinstance(total_elapsed_s, (int, float)):
+        return None
+
+    step_elapsed_s = {}
+    for step in summary.get("steps", []):
+        name = step.get("name")
+        elapsed_s = step.get("elapsed_s")
+        if isinstance(name, str) and isinstance(elapsed_s, (int, float)):
+            step_elapsed_s[name] = float(elapsed_s)
+
+    if not step_elapsed_s:
+        return None
+
+    total_steps = summary.get("total_steps")
+    return {
+        "run_at": summary.get("run_at"),
+        "status": summary.get("status"),
+        "total_steps": total_steps if isinstance(total_steps, int) else len(step_elapsed_s),
+        "total_elapsed_s": float(total_elapsed_s),
+        "step_elapsed_s": step_elapsed_s,
+    }
+
+
+def _scientific_reproducibility_snapshot():
+    snapshot = {
+        "execution_status_note": (
+            "PASS means the step executed successfully and JSON guardrails passed; "
+            "scientific branches may still be live, skipped, missing, or reference-only."
+        )
+    }
+
+    evidence = _safe_read_json(OUTPUTS_DIR / "step_140_evidence_tier_summary.json")
+    if evidence:
+        final = evidence.get("final_synthesis", {})
+        availability = final.get("availability", {})
+        lines = final.get("lines_of_evidence", {})
+        snapshot["primary_lines"] = {
+            "live": availability.get("live_primary_lines"),
+            "skipped": availability.get("skipped_primary_lines"),
+            "missing": availability.get("missing_primary_lines"),
+        }
+        snapshot["line_statuses"] = {
+            "L1": lines.get("L1_dust_replication", {}).get("status"),
+            "L2": lines.get("L2_core_screening", {}).get("status"),
+            "L3": lines.get("L3_ssfr_inversion", {}).get("status"),
+            "L4": lines.get("L4_dynamical_mass", {}).get("status"),
+        }
+        snapshot["claim_hierarchy"] = final.get("claim_hierarchy")
+        verdict = final.get("verdict", {})
+        snapshot["headline_primary_result"] = verdict.get("headline_primary_result")
+        snapshot["supplementary_mixed_branches"] = verdict.get("supplementary_mixed_branches", [])
+
+    external_catalog_branches = {}
+    for key, filename in {
+        "step_150_dja_nirspec_merged": "step_150_dja_nirspec_merged.json",
+        "step_158_dja_balmer_decrement": "step_158_dja_balmer_decrement.json",
+    }.items():
+        data = _safe_read_json(OUTPUTS_DIR / filename)
+        if not data:
+            continue
+        external_catalog_branches[key] = {
+            "status": data.get("status"),
+            "reproducible_dja_available": data.get("reproducible_dja_available"),
+            "manuscript_table_reproduced": data.get("manuscript_table_reproduced"),
+        }
+
+    if external_catalog_branches:
+        snapshot["external_catalog_branches"] = external_catalog_branches
+        snapshot["reference_only_branches"] = sum(
+            1
+            for branch in external_catalog_branches.values()
+            if branch.get("status") == "SUCCESS_REFERENCE_ONLY"
+        )
+
+    return snapshot
+
+# ---------------------------------------------------------------------------
+# Step result record
+# ---------------------------------------------------------------------------
+
+class StepResult:
+    def __init__(self, name, status, elapsed_s, returncode=0, problems=None):
+        self.name       = name
+        self.status     = status          # "PASS" | "FAIL" | "GUARDRAIL"
+        self.elapsed_s  = elapsed_s
+        self.returncode = returncode
+        self.problems   = problems or []
+
+
+def _fmt_elapsed(seconds: float) -> str:
+    if seconds < 0.1:
+        return "<0.1s"
+    if seconds < 60:
+        return f"{seconds:.1f}s"
+    total_seconds = int(round(seconds))
+    m, s = divmod(total_seconds, 60)
+    if m < 60:
+        return f"{m}m{s:02d}s"
+    h, m = divmod(m, 60)
+    return f"{h}h{m:02d}m{s:02d}s"
+
+
+def _boxed_line(text: str) -> str:
+    return f"║  {text:<66}║"
+
+
+# ---------------------------------------------------------------------------
+# Run a single step
+# ---------------------------------------------------------------------------
+
+def run_step(script_name: str, step_idx: int, total: int, estimated_s: float | None = None) -> StepResult:
+    """Run a single step script and return a StepResult."""
     before_state = _json_output_state()
-    script_path = STEPS_DIR / script_name
-    print(f"\n{'='*70}")
-    print(f"RUNNING: {script_name}")
-    print(f"{'='*70}\n")
-    
+    script_path  = STEPS_DIR / script_name
+    phase_label  = f"[{step_idx:>3}/{total}]"
+
+    bar_width = 50
+    progress  = int(bar_width * step_idx / total)
+    bar       = "█" * progress + "░" * (bar_width - progress)
+
+    print(f"\n{'═'*70}")
+    print(f" {phase_label}  {script_name}")
+    print(f" Progress: [{bar}] {100*step_idx//total:3d}%")
+    if estimated_s is not None:
+        print(f" Estimated time from last full run: {_fmt_elapsed(estimated_s)}")
+    print(f"{'═'*70}\n")
+
+    t0 = time.perf_counter()
     result = subprocess.run(
         [sys.executable, str(script_path)],
         cwd=str(PROJECT_ROOT),
         capture_output=False,
     )
-    
-    if result.returncode != 0:
-        print(f"\nERROR: {script_name} failed with return code {result.returncode}")
-        return False
+    elapsed = time.perf_counter() - t0
+    estimate_suffix = f"; est {_fmt_elapsed(estimated_s)}" if estimated_s is not None else ""
 
-    after_state = _json_output_state()
-    changed_json = [
-        p for p, sig in after_state.items()
-        if sig != before_state.get(p)
-    ]
+    if result.returncode != 0:
+        print(f"\n✗  FAILED  {script_name}  (rc={result.returncode}, {_fmt_elapsed(elapsed)}{estimate_suffix})")
+        return StepResult(script_name, "FAIL", elapsed, result.returncode)
+
+    # --- JSON guardrail check ---
+    after_state  = _json_output_state()
+    changed_json = [p for p, sig in after_state.items() if sig != before_state.get(p)]
+    all_problems = []
     for json_path in sorted(changed_json):
         problems = _validate_json_file(json_path)
         if problems:
-            print(f"\nERROR: Output guardrail failed for {json_path.relative_to(PROJECT_ROOT)}")
-            for kind, loc, val in problems[:20]:
-                print(f"  - {kind}: {loc} = {val}")
-            if len(problems) > 20:
-                print(f"  - truncated: {len(problems) - 20} more")
-            return False
-    
-    return True
+            rel = json_path.relative_to(PROJECT_ROOT)
+            print(f"\n✗  GUARDRAIL  {rel}")
+            for kind, loc, val in problems[:10]:
+                print(f"     {kind}: {loc} = {val}")
+            if len(problems) > 10:
+                print(f"     … {len(problems) - 10} more")
+            all_problems.extend(problems)
+
+    if all_problems:
+        return StepResult(script_name, "GUARDRAIL", elapsed, result.returncode, all_problems)
+
+    print(f"\n✓  PASS  {script_name}  ({_fmt_elapsed(elapsed)}{estimate_suffix})")
+    return StepResult(script_name, "PASS", elapsed)
+
+
+# ---------------------------------------------------------------------------
+# Pipeline summary helpers
+# ---------------------------------------------------------------------------
+
+def _print_summary_table(results: list[StepResult], total_elapsed: float, scientific_state: dict | None = None):
+    """Print a formatted summary table of all step results."""
+    n_pass      = sum(1 for r in results if r.status == "PASS")
+    n_fail      = sum(1 for r in results if r.status == "FAIL")
+    n_guardrail = sum(1 for r in results if r.status == "GUARDRAIL")
+    n_total     = len(results)
+
+    col_w = 50
+    print()
+    print("╔" + "═" * 68 + "╗")
+    print("║  TEP-JWST PIPELINE SUMMARY" + " " * 41 + "║")
+    print("╠" + "═" * 68 + "╣")
+    print(f"║  {'Step':<{col_w}}  {'Status':<10}  {'Time':>6}  ║")
+    print("╠" + "═" * 68 + "╣")
+
+    for r in results:
+        icon = "✓" if r.status == "PASS" else "✗"
+        stat = r.status
+        name = r.name[:col_w]
+        t    = _fmt_elapsed(r.elapsed_s)
+        print(f"║  {icon} {name:<{col_w-2}}  {stat:<10}  {t:>6}  ║")
+
+    print("╠" + "═" * 68 + "╣")
+    pct = 100 * n_pass // n_total if n_total else 0
+    print(f"║  PASS: {n_pass}/{n_total} ({pct}%)   FAIL: {n_fail}   GUARDRAIL: {n_guardrail}" + " " * (30 - len(str(n_pass)) - len(str(n_total))) + "  ║")
+    print(f"║  Total elapsed: {_fmt_elapsed(total_elapsed):<52}  ║")
+    print("╚" + "═" * 68 + "╝")
+
+    if scientific_state:
+        print("  Note: PASS means execution + JSON guardrails, not necessarily live scientific reproduction.")
+        primary = scientific_state.get("primary_lines")
+        if primary:
+            print(
+                "  Scientific state: "
+                f"live primary lines={primary.get('live')}  "
+                f"skipped={primary.get('skipped')}  "
+                f"missing={primary.get('missing')}"
+            )
+        line_statuses = scientific_state.get("line_statuses")
+        if line_statuses:
+            print(
+                "  Line statuses: "
+                f"L1={line_statuses.get('L1')}  "
+                f"L2={line_statuses.get('L2')}  "
+                f"L3={line_statuses.get('L3')}  "
+                f"L4={line_statuses.get('L4')}"
+            )
+        headline_primary_result = scientific_state.get("headline_primary_result")
+        if headline_primary_result:
+            print(f"  Headline primary result: {headline_primary_result}")
+        supplementary_mixed_branches = scientific_state.get("supplementary_mixed_branches")
+        if supplementary_mixed_branches:
+            print(
+                "  Supplementary or mixed branches: "
+                + ", ".join(supplementary_mixed_branches)
+            )
+        if "reference_only_branches" in scientific_state:
+            print(
+                "  External catalog branches marked reference-only: "
+                f"{scientific_state['reference_only_branches']}"
+            )
+
+
+def _write_pipeline_summary(results: list[StepResult], total_elapsed: float, scientific_state: dict | None = None):
+    """Write a machine-readable pipeline summary JSON."""
+    OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
+    n_pass      = sum(1 for r in results if r.status == "PASS")
+    n_fail      = sum(1 for r in results if r.status == "FAIL")
+    n_guardrail = sum(1 for r in results if r.status == "GUARDRAIL")
+
+    payload = {
+        "pipeline":       "TEP-JWST reproducible analysis",
+        "run_at":         datetime.datetime.now(datetime.timezone.utc).isoformat().replace("+00:00", "Z"),
+        "total_steps":    len(results),
+        "n_pass":         n_pass,
+        "n_fail":         n_fail,
+        "n_guardrail":    n_guardrail,
+        "total_elapsed_s": round(total_elapsed, 1),
+        "status":         "PASS" if n_fail == 0 and n_guardrail == 0 else "FAIL",
+        "execution_status_note": (
+            "PASS means the step executed successfully and JSON guardrails passed; "
+            "scientific branches may still be live, skipped, missing, or reference-only."
+        ),
+        "scientific_reproducibility": scientific_state,
+        "steps": [
+            {
+                "name":      r.name,
+                "status":    r.status,
+                "elapsed_s": round(r.elapsed_s, 2),
+                "returncode": r.returncode,
+            }
+            for r in results
+        ],
+    }
+
+    out = OUTPUTS_DIR / "pipeline_summary.json"
+    with open(out, "w") as f:
+        json.dump(payload, f, indent=2)
+    print(f"\n  Pipeline summary written to: {out.relative_to(PROJECT_ROOT)}")
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
 
 def main():
-    print("="*70)
-    print("TEP-JWST: REPRODUCIBLE ANALYSIS PIPELINE")
-    print("="*70)
-    print()
-    print("This pipeline tests the seven threads of TEP evidence:")
-    print("  1. z > 7 Mass-sSFR Inversion")
-    print("  2. Γ_t vs Age Ratio (partial)")
-    print("  3. Γ_t vs Metallicity (partial)")
-    print("  4. Γ_t vs Dust (partial)")
-    print("  5. z > 8 Dust Anomaly")
-    print("  6. Age-Metallicity Coherence")
-    print("  7. Multi-Property Split")
-    print()
-    print("Plus holographic synthesis (cross-paper consistency):")
-    print("  - Proto-GC ages (Sparkler system)")
-    print("  - Spectroscopic confirmations")
-    print("  - TEP-H0/TEP-COS consistency check")
-    print()
-    
-    success_count = 0
-    for step in STEPS:
-        if run_step(step):
-            success_count += 1
-        else:
-            print(f"\nPipeline stopped at {step}")
-            break
-    
-    print()
-    print("="*70)
-    print("PIPELINE COMPLETE")
-    print("="*70)
-    print(f"Steps completed: {success_count}/{len(STEPS)}")
-    print()
-    print("Results saved to: results/outputs/")
-    print(f"  - step_XX_*.json ({len(STEPS)} output files)")
-    print()
-    print("Logs saved to: logs/")
-    print(f"  - step_XX_*.log ({len(STEPS)} log files)")
+    wall_start = time.perf_counter()
+    runtime_estimates = _load_last_run_estimates()
+    step_estimates = runtime_estimates.get("step_elapsed_s", {}) if runtime_estimates else {}
+    estimated_total = runtime_estimates.get("total_elapsed_s") if runtime_estimates else None
+    estimate_source = _format_run_at_label(runtime_estimates.get("run_at")) if runtime_estimates else None
+
+    print("╔" + "═" * 68 + "╗")
+    print(_boxed_line("TEP-JWST: REPRODUCIBLE ANALYSIS PIPELINE"))
+    print(_boxed_line("Temporal Equivalence Principle — JWST High-z Galaxy Analysis"))
+    print("╠" + "═" * 68 + "╣")
+    print(_boxed_line("Evidence lanes surfaced by the pipeline:"))
+    print(_boxed_line("  L1. Dust–Γ_t correlation (live photometric line)"))
+    print(_boxed_line("  L2. Resolved core screening (needs CIRC_CONV inputs)"))
+    print(_boxed_line("  L3. Mass–sSFR inversion at z > 7"))
+    print(_boxed_line("  L4. Dynamical mass consistency (regime-level live test)"))
+    print("╠" + "═" * 68 + "╣")
+    print(_boxed_line(f"Steps to run: {len(STEPS)}"))
+    if estimated_total is not None:
+        print(_boxed_line(f"Est. full runtime from last full run: {_fmt_elapsed(estimated_total)}"))
+    if estimate_source:
+        print(_boxed_line(f"Estimate source: {estimate_source}"))
+    print(_boxed_line(f"Started: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"))
+    print("╚" + "═" * 68 + "╝\n")
+
+    results: list[StepResult] = []
+    failures = []
+
+    for i, step in enumerate(STEPS, start=1):
+        r = run_step(step, i, len(STEPS), step_estimates.get(step))
+        results.append(r)
+        if r.status != "PASS":
+            failures.append(r)
+
+    total_elapsed = time.perf_counter() - wall_start
+    scientific_state = _scientific_reproducibility_snapshot()
+    _print_summary_table(results, total_elapsed, scientific_state)
+    _write_pipeline_summary(results, total_elapsed, scientific_state)
+
+    if failures:
+        print(f"\n  ⚠  {len(failures)} step(s) did not PASS:")
+        for r in failures:
+            print(f"       ✗  {r.name}  [{r.status}]")
+        sys.exit(1)
+
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "sample_name": "Esdaile et al. 2021 massive quiescent kinematics (z=3.2-3.7)",
+    "analysis_role": "supplementary_object_level_direct_kinematics",
+    "authoritative_for_l4_regime": false,
+    "authoritative_for_beta_propagation": true,
+    "selection_notes": "Curated object-level direct kinematic table for step_117. This sample is used to activate reproducible object-level ingestion, quantify direct M*/Mdyn resolution, and provide the provisional downstream beta propagation anchor, while the matched regime-level RUBIES-like fallback remains the authoritative L4 regime summary because this object-level anchor is at z=3.2-3.7 rather than the higher-z live L4 regime.",
+    "excluded_candidates": []
+  },
+  "objects": [
+    {
+      "object_id": "ZF-COS-20115",
+      "z": 3.715,
+      "log_Mstar_obs": 11.060698,
+      "log_Mdyn": 10.857332,
+      "sigma_kms": 283.0,
+      "re_kpc": 0.66,
+      "source": "Esdaile et al. 2021"
+    },
+    {
+      "object_id": "3D-EGS-40032",
+      "z": 3.219,
+      "log_Mstar_obs": 11.307496,
+      "log_Mdyn": 11.413300,
+      "sigma_kms": 275.0,
+      "re_kpc": 2.40,
+      "source": "Esdaile et al. 2021"
+    },
+    {
+      "object_id": "3D-EGS-18996",
+      "z": 3.239,
+      "log_Mstar_obs": 10.991226,
+      "log_Mdyn": 10.556303,
+      "sigma_kms": 196.0,
+      "re_kpc": 0.63,
+      "source": "Esdaile et al. 2021"
+    },
+    {
+      "object_id": "3D-EGS-31322",
+      "z": 3.434,
+      "log_Mstar_obs": 10.991226,
+      "log_Mdyn": 10.851258,
+      "sigma_kms": 301.0,
+      "re_kpc": 0.61,
+      "source": "Esdaile et al. 2021"
+    },
+    {
+      "object_id": "SXDS-27434",
+      "z": 4.01,
+      "log_Mstar_obs": 11.060698,
+      "log_Mdyn_upper": 11.079181,
+      "sigma_kms": 268.0,
+      "re_kpc": 1.3,
+      "source": "Tanaka et al. 2019"
+    }
+  ]
+}

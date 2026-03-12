@@ -1,0 +1,54 @@
+[19:44:42]     ======================================================================
+[19:44:42]     STEP 113: AGN Feedback Discriminant
+[19:44:42]     ======================================================================
+[19:44:42]     
+Simulating AGN and TEP model predictions...
+[19:44:42]     Generated 500 simulated galaxies
+[19:44:42]     
+--- Discriminant Analysis ---
+[19:44:42]     
+Sign of dust-BH correlation:
+[19:44:42]       AGN model: ρ = -0.375 (p = 3.55e-18)
+[19:44:42]       TEP model: ρ = 0.513 (p = 6.97e-35)
+[19:44:42]       Prediction: AGN: negative; TEP: weak/positive
+[19:44:42]     
+Partial correlation dust vs Mh | Mbh:
+[19:44:42]       AGN model: ρ = -0.009 (p = 8.46e-01)
+[19:44:42]       TEP model: ρ = 0.568 (p = 5.10e-44)
+[19:44:42]       Prediction: AGN: ~0; TEP: positive
+[19:44:42]     
+Dust-Γₜ correlation strength:
+[19:44:42]       AGN model: ρ = -0.282 (p = 1.38e-10)
+[19:44:42]       TEP model: ρ = 0.721 (p = 1.64e-81)
+[19:44:42]       Prediction: AGN: weak; TEP: strong positive
+[19:44:42]     
+--- Observational Test ---
+[19:44:42]     To distinguish AGN feedback from TEP, measure:
+[19:44:42]       1. Dust-BH mass correlation at z > 8
+[19:44:42]          - AGN predicts: ρ < 0 (dust rejection)
+[19:44:42]          - TEP predicts: ρ ≈ 0 or weak positive
+[19:44:42]       2. Dust-halo mass partial correlation (controlling for BH)
+[19:44:42]          - AGN predicts: ρ ≈ 0
+[19:44:42]          - TEP predicts: ρ > 0.3
+[19:44:42]       3. Spatial dust distribution
+[19:44:42]          - AGN predicts: central depletion (outflows)
+[19:44:42]          - TEP predicts: radial gradient (screening)
+[19:44:42]     
+======================================================================
+[19:44:42]     SUMMARY
+[19:44:42]     ======================================================================
+[19:44:42]     
+Key discriminants between AGN feedback and TEP:
+[19:44:42]       1. Sign of dust-BH correlation (AGN: negative; TEP: neutral)
+[19:44:42]       2. Partial correlation with halo mass (AGN: zero; TEP: positive)
+[19:44:42]       3. Spatial dust profile (AGN: central hole; TEP: radial gradient)
+[19:44:42]     
+Current evidence favors TEP:
+[19:44:42]       - Observed dust-Γₜ correlation is strong (ρ = 0.62)
+[19:44:42]       - Correlation persists after controlling for mass
+[19:44:42]       - Inside-out screening observed (bluer cores)
+[19:44:42]     
+Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_113_agn_feedback_discriminant.json
+[19:44:43]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_113_agn_discriminant.png
+[19:44:43]     
+Step 113 complete.

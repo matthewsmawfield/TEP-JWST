@@ -1,0 +1,77 @@
+[01:34:19]     ======================================================================
+[01:34:19]     STEP 067: Cutting-Edge Tests from Latest Literature
+[01:34:19]     ======================================================================
+[01:34:19]     
+Loaded N = 2315 galaxies
+[01:34:19]     
+======================================================================
+[01:34:19]     TEST 1: Overmassive Black Hole Analog
+[01:34:19]     ======================================================================
+[01:34:19]     Literature: BH-to-stellar mass ratios are 10-100x higher than local.
+[01:34:19]     TEP predicts: High-Gamma_t galaxies have inflated stellar masses.
+
+[01:34:19]     ρ(Γ_t, SMHM) = -0.711 (p = 6.09e-79)
+[01:34:19]     High SMHM (top 10%): <Γ_t> = 0.16
+[01:34:19]     Low SMHM (bottom 50%): <Γ_t> = 2.11
+[01:34:19]     Ratio: 0.1×
+[01:34:19]     
+======================================================================
+[01:34:19]     TEST 2: Disk Morphology Proxy
+[01:34:19]     ======================================================================
+[01:34:19]     Literature: Unexpectedly high fraction of disk galaxies at high-z.
+[01:34:19]     TEP predicts: More effective time allows disk settling.
+
+[01:34:19]     'Disk-like' (smooth SFH): <Γ_t> = 2.54 (N = 80)
+[01:34:19]     'Irregular' (bursty SFH): <Γ_t> = 1.30 (N = 127)
+[01:34:19]     ✓ 'Disk-like' galaxies have higher Γ_t
+[01:34:19]     
+======================================================================
+[01:34:19]     TEST 3: Photon Budget Proxy
+[01:34:19]     ======================================================================
+[01:34:19]     Literature: Too many ionizing photons for reionization timeline.
+[01:34:19]     TEP predicts: Effective time is longer, so more photon production.
+
+[01:34:19]     Mean photon production ratio (TEP/cosmic): 1.76×
+[01:34:19]     High Γ_t galaxies: photon ratio = 12.66×
+[01:34:19]     
+======================================================================
+[01:34:19]     TEST 4: Nitrogen Enrichment Proxy
+[01:34:19]     ======================================================================
+[01:34:19]     Literature: Anomalous N/O ratios at high-z.
+[01:34:19]     TEP predicts: More effective time for chemical enrichment.
+
+[01:34:19]     ρ(t_cosmic, Metallicity) = -0.053 (p = 2.33e-01)
+[01:34:19]     ρ(t_eff, Metallicity) = 0.128 (p = 4.08e-03)
+[01:34:19]     Improvement: Δρ = +0.181
+[01:34:19]     ✓ t_eff predicts metallicity better than t_cosmic
+[01:34:19]     
+======================================================================
+[01:34:19]     TEST 5: Proto-Globular Cluster Proxy
+[01:34:19]     ======================================================================
+[01:34:19]     Literature: Massive star clusters at high-z.
+[01:34:19]     TEP predicts: More effective time for cluster formation.
+
+[01:34:19]     Proto-GC hosts (high mass + high dust): N = 87
+[01:34:19]     <Γ_t> proto-GC: 5.48
+[01:34:19]     <Γ_t> normal: 0.40
+[01:34:19]     Ratio: 13.8×
+[01:34:19]     ✓ Proto-GC hosts have elevated Γ_t
+[01:34:19]     
+======================================================================
+[01:34:19]     TEST 6: The 'Anomalous' Reionization Test
+[01:34:19]     ======================================================================
+[01:34:19]     At z > 10, galaxies should be too young to produce enough photons.
+[01:34:19]     TEP predicts: Effective time allows sufficient photon production.
+
+[01:34:19]     
+======================================================================
+[01:34:19]     SUMMARY: Cutting-Edge Tests
+[01:34:19]     ======================================================================
+[01:34:19]     
+Key findings from cutting-edge literature:
+[01:34:19]       • overmassive_bh: 0.1× elevation
+[01:34:19]       • photon_budget: 1.76× ratio
+[01:34:19]       • nitrogen_enrichment: Δρ = +0.181
+[01:34:19]       • proto_gc: 13.8× elevation
+[01:34:19]     
+Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_067_cutting_edge_tests.json

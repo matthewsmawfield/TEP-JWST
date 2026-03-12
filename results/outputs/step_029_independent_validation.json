@@ -1,0 +1,22 @@
+{
+  "single_split": {
+    "alpha_calibrated": 0.58,
+    "alpha_reference": 0.58,
+    "rho_tep": 0.3101831661078565,
+    "rho_mass": 0.31376952578798767,
+    "rho_partial": 0.6183280087132392,
+    "p_partial": 9.709250910734964e-60,
+    "partial_significant": true
+  },
+  "cross_validation": {
+    "n_folds": 5,
+    "alpha_mean": 0.58,
+    "alpha_std": 0.0,
+    "rho_partial_mean": 0.42540773550085076,
+    "rho_partial_std": 0.19472917710164406,
+    "significant_folds": 5,
+    "combined_chi2": 317.6864497956295,
+    "combined_p": 2.8179446706206155e-62
+  },
+  "validation_status": "strong"
+}

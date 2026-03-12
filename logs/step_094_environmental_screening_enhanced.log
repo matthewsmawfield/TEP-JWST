@@ -1,0 +1,53 @@
+[01:35:05]     ======================================================================
+[01:35:05]     STEP 094: Enhanced Environmental Screening Analysis
+[01:35:05]     ======================================================================
+[01:35:05]     Loaded 2315 galaxies from UNCOVER
+[01:35:05]     Using real sky coordinates for density estimation
+[01:35:05]     Computing density estimators...
+[01:35:06]     
+Testing screening hypothesis with multiple density estimators:
+[01:35:06]     
+  density_5nn:
+[01:35:06]         rho(high density) = -0.239
+[01:35:06]         rho(low density)  = 0.011
+[01:35:06]         delta_rho = 0.250 [0.166, 0.328]
+[01:35:06]         Result: SUPPORTS TEP
+[01:35:06]     
+  density_1arcmin:
+[01:35:07]         rho(high density) = -0.248
+[01:35:07]         rho(low density)  = 0.040
+[01:35:07]         delta_rho = 0.288 [0.200, 0.375]
+[01:35:07]         Result: SUPPORTS TEP
+[01:35:07]     
+  density_2arcmin:
+[01:35:08]         rho(high density) = -0.177
+[01:35:08]         rho(low density)  = 0.025
+[01:35:08]         delta_rho = 0.202 [0.116, 0.292]
+[01:35:08]         Result: SUPPORTS TEP
+[01:35:08]     
+  overdensity:
+[01:35:08]         rho(high density) = -0.177
+[01:35:08]         rho(low density)  = 0.025
+[01:35:08]         delta_rho = 0.202 [0.116, 0.287]
+[01:35:08]         Result: SUPPORTS TEP
+[01:35:08]     
+Testing by redshift bins:
+[01:35:09]       z=4-6: delta_rho=-0.103, TEP: INCONCLUSIVE or CONTRADICTS
+[01:35:09]       z=6-8: delta_rho=0.349, TEP: SUPPORTS TEP
+[01:35:09]       z=8-10: delta_rho=0.032, TEP: INCONCLUSIVE or CONTRADICTS
+[01:35:09]     
+Testing with isolation index (field vs clustered):
+[01:35:09]       Field galaxies: rho = 0.044 (n=1147)
+[01:35:09]       Clustered galaxies: rho = -0.204 (n=1168)
+[01:35:09]       Delta: 0.248
+[01:35:09]     
+======================================================================
+[01:35:09]     SUMMARY
+[01:35:09]     ======================================================================
+[01:35:09]     Tests supporting TEP screening: 5/5
+[01:35:09]     RESULT: Evidence SUPPORTS environmental screening hypothesis
+[01:35:09]     
+Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_094_environmental_screening_enhanced.json
+[01:35:10]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_094_environmental_screening_enhanced.png
+[01:35:10]     
+Step 094 complete.

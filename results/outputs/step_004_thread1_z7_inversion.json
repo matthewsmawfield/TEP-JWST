@@ -1,0 +1,37 @@
+{
+  "test": "Thread 1: z > 7 Mass-sSFR Inversion",
+  "tep_prediction": "Correlation should invert from negative to positive at z > 7",
+  "low_z": {
+    "z_range": [
+      4,
+      6
+    ],
+    "n": 1439,
+    "rho": -0.16305129025430076,
+    "ci_95": [
+      -0.21179354457812696,
+      -0.11204171386151605
+    ],
+    "p_value": 4.923731097687585e-10
+  },
+  "high_z": {
+    "z_range": [
+      7,
+      10
+    ],
+    "n": 504,
+    "rho": 0.0865815948252025,
+    "ci_95": [
+      -0.010170019265068114,
+      0.1811252776592254
+    ],
+    "p_value": 0.05206755140695994
+  },
+  "delta_rho": 0.24963288507950326,
+  "delta_ci_95": [
+    0.1435856506451414,
+    0.3509816320141474
+  ],
+  "significant": true,
+  "conclusion": "TEP prediction CONFIRMED"
+}

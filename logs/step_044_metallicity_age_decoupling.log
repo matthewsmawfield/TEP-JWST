@@ -1,0 +1,63 @@
+[01:33:58]     ======================================================================
+[01:33:58]     STEP 044: Metallicity-Age Decoupling Test
+[01:33:58]     ======================================================================
+[01:33:58] 
+[01:33:58]     TEP Prediction: High-Gamma_t galaxies are OLD but not METAL-RICH
+[01:33:58]     Standard Physics: Age and metallicity should track together
+[01:33:58]     
+Loaded N = 2315 galaxies
+[01:33:58]     Valid sample: N = 2315
+[01:33:58]     
+==================================================
+[01:33:58]     TEST 1: Raw Correlations
+[01:33:58]     ==================================================
+[01:33:58]     
+ρ(Γ_t, Age) = 0.383 (p = 1.21e-81)
+[01:33:58]     ρ(Γ_t, Met) = -0.075 (p = 3.08e-04)
+[01:33:58]     ρ(Age, Met) = 0.116 (p = 2.17e-08)
+[01:33:58]     
+==================================================
+[01:33:58]     TEST 2: Decoupling at Fixed Mass
+[01:33:58]     ==================================================
+[01:33:58]     
+At fixed mass:
+[01:33:58]       ρ(Γ_t, Age_resid) = 0.306 (p = 2.97e-51)
+[01:33:58]       ρ(Γ_t, Met_resid) = -0.119 (p = 1.04e-08)
+[01:33:58]     
+  Decoupling Ratio: |ρ_age| / |ρ_met| = 2.58
+[01:33:58]       → DECOUPLING DETECTED: Age responds to Γ_t more than metallicity
+[01:33:58]     
+==================================================
+[01:33:58]     TEST 3: High-z Regime (z > 7)
+[01:33:58]     ==================================================
+[01:33:58]     High-z sample: N = 504
+[01:33:58]     
+High Γ_t vs Low Γ_t at z > 7:
+[01:33:58]       Age difference: 0.000 Gyr (high - low)
+[01:33:58]       Met difference: 0.012 dex (high - low)
+[01:33:58]     
+  Normalized differences:
+[01:33:58]         Age: 0.01σ
+[01:33:58]         Met: 0.03σ
+[01:33:58]       → No high-z decoupling
+[01:33:58]     
+==================================================
+[01:33:58]     TEST 4: Age-Met Relation by Γ_t Regime
+[01:33:58]     ==================================================
+[01:33:58]     Enhanced (Γ_t > 1): N = 202
+[01:33:58]     Suppressed (Γ_t < 1): N = 2113
+[01:33:58]     
+Age-Met correlation:
+[01:33:58]       Enhanced: ρ = 0.262 (p = 1.70e-04)
+[01:33:58]       Suppressed: ρ = 0.097 (p = 8.68e-06)
+[01:33:58]       → No regime difference
+[01:33:58]     
+======================================================================
+[01:33:58]     SUMMARY: Metallicity-Age Decoupling
+[01:33:58]     ======================================================================
+[01:33:58]     
+Tests passed: 1/3
+[01:33:58]     
+⚠ PARTIAL EVIDENCE for decoupling
+[01:33:58]     
+Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_044_metallicity_age_decoupling.json

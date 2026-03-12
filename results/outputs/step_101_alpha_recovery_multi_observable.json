@@ -1,0 +1,49 @@
+{
+  "step": "Step 101: Multi-Observable \u03b1\u2080 Recovery Test",
+  "nominal_alpha_0": 0.58,
+  "nominal_alpha_0_uncertainty": 0.16,
+  "n_observables": 4,
+  "individual_fits": {
+    "dust": {
+      "alpha_best": 0.5470537926706995,
+      "alpha_err": 0.32192180502263834,
+      "rho_best": 0.4855626952878356,
+      "expected_sign": 1,
+      "weight": 1.0
+    },
+    "age_ratio": {
+      "alpha_best": 1.0712153420322268,
+      "alpha_err": 0.3390773786228035,
+      "rho_best": 0.3261957626148341,
+      "expected_sign": 1,
+      "weight": 1.0
+    },
+    "metallicity": {
+      "alpha_best": 1.2636805314412862,
+      "alpha_err": 0.3509595288206327,
+      "rho_best": 0.05303852057832884,
+      "expected_sign": 1,
+      "weight": 0.5
+    },
+    "ssfr": {
+      "alpha_best": 1.316425993965525,
+      "alpha_err": 0.3747917058470957,
+      "rho_best": -0.40085655539167775,
+      "expected_sign": -1,
+      "weight": 0.5
+    }
+  },
+  "joint_fit": {
+    "alpha_0": 0.7478849957250335,
+    "alpha_0_err": 0.29190243953117023,
+    "tension_sigma": 0.5043455792801231,
+    "consistent_2sigma": true
+  },
+  "weighted_mean": {
+    "alpha_0": 1.0215379351015257,
+    "alpha_0_err": 0.17973041381263777,
+    "tension_sigma": 1.8349211577565814
+  },
+  "improvement_over_dust_only": -0.13493878839573314,
+  "conclusion": "Joint \u03b1\u2080 is CONSISTENT with Cepheid calibration within 2\u03c3"
+}

@@ -1,0 +1,67 @@
+[01:34:14]     ======================================================================
+[01:34:14]     STEP 062: Predictive Power Analysis
+[01:34:14]     ======================================================================
+[01:34:14]     
+Loaded N = 2315 galaxies
+[01:34:14]     
+======================================================================
+[01:34:14]     TEST 1: Dust Prediction via Linear Models
+[01:34:14]     ======================================================================
+[01:34:14]     Evaluating the linear correlation between mass, Gamma_t, t_eff and dust content.
+
+[01:34:14]     Variance explained by Mass alone: R² = 0.4625
+[01:34:14]     Variance explained by Gamma_t alone: R² = 0.1611
+[01:34:14]     Variance explained by t_eff alone: R² = 0.1776
+[01:34:14]     Variance explained by joint Mass + Gamma_t model: R² = 0.4628
+[01:34:14]     
+Marginal predictive power: Gamma_t adds 0.0% explained variance over mass alone.
+[01:34:14]     
+======================================================================
+[01:34:14]     TEST 2: Cross-Validated Prediction robustness
+[01:34:14]     ======================================================================
+[01:34:14]     Testing if the joint model's predictive power is robust to data partitioning (K-Fold CV).
+
+[01:34:14]     5-fold CV R² scores: [ 0.4764  0.0027 -0.0729 -0.0126  0.0575]
+[01:34:14]     Mean CV R²: 0.0902 ± 0.1975
+[01:34:14]     
+======================================================================
+[01:34:14]     TEST 3: Out-of-Sample Generalization
+[01:34:14]     ======================================================================
+[01:34:14]     Training the joint model on z = 8-9, and evaluating its performance on an unseen higher-z (9-10) epoch.
+
+[01:34:14]     Training set (z = 8-9): N = 179
+[01:34:14]     Test set (z = 9-10): N = 104
+[01:34:14]     Out-of-sample R²: -1.1081
+[01:34:14]     Out-of-sample RMSE: 0.7911
+[01:34:14]     
+-> The linear model fails to generalize to the higher redshift bin.
+[01:34:14]     
+======================================================================
+[01:34:14]     TEST 4: Non-linear Feature Importance
+[01:34:14]     ======================================================================
+[01:34:14]     Using a non-linear ensemble tree model to evaluate relative feature information content.
+
+[01:34:14]     Feature importances (Random Forest Impurity reduction):
+[01:34:14]       log_Mstar: 0.343
+[01:34:14]       gamma_t: 0.332
+[01:34:14]       t_eff: 0.325
+[01:34:14]     
+======================================================================
+[01:34:14]     TEST 5: Baseline Null Model Comparison
+[01:34:14]     ======================================================================
+[01:34:14]     Comparing the TEP parameterization against a purely random, mean-predictive null distribution.
+
+[01:34:14]     R² (Null model - mean predictor): 0.0000
+[01:34:14]     R² (TEP Gamma_t model): 0.1611
+[01:34:14]     Calibrated predictive gain over baseline: 16.1%
+[01:34:14]     
+======================================================================
+[01:34:14]     SUMMARY: Predictive Power Analysis
+[01:34:14]     ======================================================================
+[01:34:14]     
+Key findings:
+[01:34:14]       • Gamma_t adds 0.0% explained variance
+[01:34:14]       • Cross-validated R²: 0.090
+[01:34:14]       • Out-of-sample R²: -1.108
+[01:34:14]     
+Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_062_predictive_power.json

@@ -1,0 +1,10 @@
+[01:35:31]     STEP 122: Causality constraint verification for TEP
+[01:35:31]   PPN gamma = 0.99999933 (deviation 6.73e-07)
+[01:35:31]   Cassini limit: 2.30e-05 -> SATISFIED
+[01:35:31]   GW speed: c_T/c = 1.0 -> OK
+[01:35:31]   Milky Way halo: R_vir=0.163 Mpc, Gamma_t=1.000
+[01:35:31]   Group halo: R_vir=0.350 Mpc, Gamma_t=1.061
+[01:35:31]   Cluster halo: R_vir=1.108 Mpc, Gamma_t=1.161
+[01:35:31]   Typical z=7 halo: R_vir=0.020 Mpc, Gamma_t=3.159
+[01:35:31] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_122_causality_verification.json
+[01:35:31]     Step 122 complete. Causally consistent: True

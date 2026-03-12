@@ -1,0 +1,22 @@
+{
+  "convergence": {
+    "alpha_1": 0.10000563884233099,
+    "alpha_2": 2.999631767896649,
+    "cv": 1.0345983610052527,
+    "converged": false
+  },
+  "null_rejection": {
+    "chi2": 1541.9615119325547,
+    "combined_p": 1e-300,
+    "sigma": 37.06578788077213,
+    "disrupted": true
+  },
+  "totality": {
+    "rho_raw": 0.11419831843164013,
+    "rho_corrected": -0.6431647331528019,
+    "improvement": -0.5289664147211617,
+    "scatter_reduction_pct": -295.6566605561171,
+    "flattening_pct": 0.0,
+    "success": false
+  }
+}

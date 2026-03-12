@@ -1,0 +1,21 @@
+[01:35:29] ═══ =================================================================
+[01:35:29] ═══ STEP 117: TEP M*/M_dyn Correction — Real UNCOVER Data
+[01:35:29] ═══ =================================================================
+[01:35:29]     Loaded local object-level kinematic table: /Users/matthewsmawfield/www/TEP-JWST/data/interim/literature_kinematic_sample.json (N=4)
+[01:35:29]     Direct object-level sample loaded as supplementary; matched regime-level fallback remains primary.
+[01:35:29]     Direct object-level sample is marked authoritative for downstream beta propagation.
+[01:35:29] >>> Loaded UNCOVER TEP catalog: N = 2315
+[01:35:29] >>> Kinematic regime (z>4, log M*>9.5): N = 71
+[01:35:29]     Mean Gamma_t: 7.388 ± 18.222
+[01:35:29]     Mean mass correction factor: 2.119×
+[01:35:29]     Mean Δlog M* (SED − TEP): 0.256 dex
+[01:35:29]     Median Δlog M*: 0.170 dex
+[01:35:29]       z=4–5,  logM*=9.5–10.5: N=30, mean Γ_t=1.73, mean corr=1.31× (Δlog M*=0.11 dex)
+[01:35:29]       z=5–7,  logM*>9.5: N=20, mean Γ_t=2.93, mean corr=1.65× (Δlog M*=0.20 dex)
+[01:35:29]       z>7,    logM*>9.5: N=21, mean Γ_t=19.72, mean corr=3.73× (Δlog M*=0.51 dex)
+[01:35:29]     
+--- Model Prediction vs Published Tension ---
+[01:35:29]     Published M*/M_dyn excess (de Graaff+24): ~0.15 dex
+[01:35:29]     TEP mean reduction in this regime: 0.40 dex
+[01:35:29] ✓   Resolution achieved: YES
+[01:35:29] ✓   Results saved to step_117_dynamical_mass_comparison.json

@@ -1,0 +1,77 @@
+{
+  "step": "149",
+  "name": "jades_dr4_ingestion",
+  "description": "JADES DR4 spectroscopic catalog ingestion and TEP analysis",
+  "reference": "D'Eugenio et al. 2025; Curtis-Lake et al. 2025; Scholtz et al. 2025",
+  "catalog_file": "JADES_DR4_spectroscopic_catalog.fits",
+  "n_total_targets": 5190,
+  "n_good_specz": 2858,
+  "n_with_gamma_t": 1345,
+  "tep_signal": {
+    "full_sample": {
+      "N": 1345,
+      "spearman_rho_gamma_t_vs_MUV": -0.8773516601578683,
+      "spearman_p": 1e-300,
+      "p_formatted": 1e-300,
+      "median_gamma_t": 0.4536973198312847,
+      "median_MUV": -18.58910535961203
+    },
+    "z_gt_7": {
+      "N": 114,
+      "spearman_rho_gamma_t_vs_MUV": -0.9982908406067112,
+      "spearman_p": 5.6208538547660865e-140,
+      "p_formatted": 5.6208538547660865e-140,
+      "median_gamma_t": 0.4431280209853396,
+      "z_range": [
+        7.001304483424567,
+        10.603
+      ]
+    },
+    "z_gt_8": {
+      "N": 40,
+      "spearman_rho_gamma_t_vs_MUV": -0.9969981238273923,
+      "spearman_p": 7.72804734200351e-44,
+      "p_formatted": 7.72804734200351e-44,
+      "median_gamma_t": 0.5354936279336056,
+      "z_range": [
+        8.063322460563588,
+        10.603
+      ]
+    },
+    "photoz_vs_specz": {
+      "N": 2751,
+      "sigma_MAD": 0.04179850608090236,
+      "eta_outlier_15pct": 0.0970556161395856,
+      "median_dz": -0.0033092102035472905
+    },
+    "redshift_distribution": {
+      "N_total": 2858,
+      "N_z_gt_5": 495,
+      "N_z_gt_7": 118,
+      "N_z_gt_8": 41,
+      "N_z_gt_10": 2,
+      "z_max": 10.603,
+      "z_median": 2.9833295236315083
+    }
+  },
+  "cross_survey": {
+    "jades_gamma_t_vs_MUV": {
+      "rho": -0.8773516601578683,
+      "p": 1e-300,
+      "N": 1345
+    },
+    "uncover_gamma_t_vs_dust": {
+      "rho": -0.1177923670191006,
+      "p": 1.3138640429987352e-08,
+      "N": 2315
+    },
+    "sign_consistent": true
+  },
+  "upgrade_vs_prior": {
+    "prior_combined_specz": 147,
+    "new_good_specz": 2858,
+    "factor_increase": 19.4,
+    "prior_z_gt_7": 32,
+    "new_z_gt_7": 118
+  }
+}

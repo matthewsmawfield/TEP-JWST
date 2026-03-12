@@ -1,0 +1,253 @@
+{
+  "prediction_summary": {
+    "n_galaxies": 2315,
+    "mean_age_sed": 1.6752786195573305e-10,
+    "mean_age_tep": 3.648451522937134e-10,
+    "mean_gamma_t": 0.7185328616707178,
+    "mean_delta_ew": 0.0
+  },
+  "spectroscopic_predictions": {
+    "high_mass_correlation": {
+      "rho": null,
+      "p": null,
+      "n": 23,
+      "interpretation": "TEP predicts negative correlation (higher \u0393t -> older -> weaker Balmer)"
+    },
+    "mass_balmer_by_z": [
+      {
+        "z_range": "4-6",
+        "n": 1439,
+        "rho_mass_balmer": null,
+        "p": null
+      },
+      {
+        "z_range": "6-8",
+        "n": 593,
+        "rho_mass_balmer": null,
+        "p": null
+      },
+      {
+        "z_range": "8-10",
+        "n": 283,
+        "rho_mass_balmer": null,
+        "p": null
+      }
+    ],
+    "discriminating_power": {
+      "mean_delta_ew": 0.0,
+      "std_delta_ew": 0.0,
+      "effect_size": 0,
+      "detectable": false
+    }
+  },
+  "priority_targets": [
+    {
+      "id": 163.0,
+      "z": 7.125229634067032,
+      "log_Mstar": 8.666426510991736,
+      "gamma_t": 0.5696489673545642,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 219.0,
+      "z": 6.6356748775847425,
+      "log_Mstar": 8.676146876894515,
+      "gamma_t": 0.594925978848546,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 220.0,
+      "z": 6.896843688280427,
+      "log_Mstar": 8.864674905625588,
+      "gamma_t": 0.770478464716264,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 299.0,
+      "z": 7.583136327978352,
+      "log_Mstar": 8.430460904633248,
+      "gamma_t": 0.3752878228937557,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 301.0,
+      "z": 6.53027077453336,
+      "log_Mstar": 8.400526150752723,
+      "gamma_t": 0.4123256825995161,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 399.0,
+      "z": 6.071092697078184,
+      "log_Mstar": 8.703666843305733,
+      "gamma_t": 0.6355043965109269,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 409.0,
+      "z": 6.113268976464072,
+      "log_Mstar": 8.299965183999552,
+      "gamma_t": 0.3842081757090657,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 423.0,
+      "z": 9.669398969427604,
+      "log_Mstar": 8.836839094755742,
+      "gamma_t": 0.7018991533040988,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 433.0,
+      "z": 6.931310791336564,
+      "log_Mstar": 8.023781288606017,
+      "gamma_t": 0.225364362380802,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 444.0,
+      "z": 6.684022861080415,
+      "log_Mstar": 9.587475763050882,
+      "gamma_t": 2.1129700571897883,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 456.0,
+      "z": 7.580495028648944,
+      "log_Mstar": 8.329442304654323,
+      "gamma_t": 0.3179514865416644,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 472.0,
+      "z": 7.062859975471843,
+      "log_Mstar": 8.86371036025871,
+      "gamma_t": 0.7685109425621742,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 514.0,
+      "z": 6.570101555015289,
+      "log_Mstar": 9.010888596227792,
+      "gamma_t": 0.9424071907655884,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 546.0,
+      "z": 7.299455035415543,
+      "log_Mstar": 8.30275125808761,
+      "gamma_t": 0.3189716067391547,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 634.0,
+      "z": 8.423488579766078,
+      "log_Mstar": 8.571069651463315,
+      "gamma_t": 0.4365311704957513,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 731.0,
+      "z": 6.585579026750897,
+      "log_Mstar": 8.313994451531197,
+      "gamma_t": 0.3636623162702418,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 734.0,
+      "z": 6.043016485419921,
+      "log_Mstar": 8.632141307418221,
+      "gamma_t": 0.5830740420168778,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 752.0,
+      "z": 6.909431015577381,
+      "log_Mstar": 8.458614858431385,
+      "gamma_t": 0.426613395762929,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 756.0,
+      "z": 7.078714449986581,
+      "log_Mstar": 8.869753011897807,
+      "gamma_t": 0.7754336371400444,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    },
+    {
+      "id": 785.0,
+      "z": 7.39085620363864,
+      "log_Mstar": 8.714357510426643,
+      "gamma_t": 0.6045778118150679,
+      "predicted_ew_tep": 0.002683701023220095,
+      "predicted_ew_std": 0.002683701023220095,
+      "priority_score": 0.0
+    }
+  ],
+  "falsification_criteria": {
+    "criterion_1": {
+      "test": "Balmer strength should correlate with \u0393t at fixed z",
+      "null_hypothesis": "No correlation (\u03c1 = 0)",
+      "tep_prediction": "Negative correlation (\u03c1 < -0.3) for ages > 1 Gyr",
+      "falsified_if": "Positive correlation (\u03c1 > +0.2) observed"
+    },
+    "criterion_2": {
+      "test": "Mass-Balmer correlation should match TEP prediction",
+      "null_hypothesis": "No mass dependence",
+      "tep_prediction": "Negative correlation (more massive = weaker Balmer)",
+      "falsified_if": "Positive correlation observed"
+    },
+    "criterion_3": {
+      "test": "Balmer ages should be consistent with TEP-corrected SED ages",
+      "null_hypothesis": "Balmer ages match uncorrected SED ages",
+      "tep_prediction": "Balmer ages closer to TEP-corrected ages",
+      "falsified_if": "Balmer ages match uncorrected SED ages better"
+    }
+  },
+  "summary": {
+    "method": "Balmer absorption (H\u03b4, H\u03b3) as independent age proxy",
+    "breaks_circularity": true,
+    "reason": "Balmer strength depends directly on A-star fraction, not M/L assumptions",
+    "n_priority_targets": 20,
+    "recommended_instrument": "JWST/NIRSpec medium resolution (R~1000)",
+    "exposure_time": "~2-4 hours per target for S/N > 10 in H\u03b4"
+  }
+}

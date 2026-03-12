@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
+# Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): 1.4s.
 """
-TEP-JWST Step 7: Thread 1 - z > 7 Mass-sSFR Inversion
+TEP-JWST Step 4: Thread 1 - z > 7 Mass-sSFR Inversion
 
 This step tests the first thread of TEP evidence: the inversion of the
 mass-sSFR correlation at z > 7.
@@ -43,7 +44,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status
 from scripts.utils.p_value_utils import format_p_value, safe_json_default
 
-STEP_NUM = "03"
+STEP_NUM = "004"
 STEP_NAME = "thread1_z7_inversion"
 
 DATA_PATH = PROJECT_ROOT / "data"

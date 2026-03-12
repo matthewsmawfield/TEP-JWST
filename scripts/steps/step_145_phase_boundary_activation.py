@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): 5.7s.
 """
 Step 145: AGB Dust Phase Boundary + Activation Curve + Spectroscopic Sharpening
 
@@ -28,7 +29,7 @@ Three complementary "aha" analyses:
 
 Outputs:
 - results/outputs/step_145_phase_boundary_activation.json
-- results/figures/figure_171_phase_boundary.png
+- results/figures/figure_145_phase_boundary.png
 """
 
 import json
@@ -50,7 +51,7 @@ from scripts.utils.tep_model import (
 )
 from scripts.utils.p_value_utils import safe_json_default
 
-STEP_NUM = "171"
+STEP_NUM = "145"
 STEP_NAME = "phase_boundary_activation"
 
 LOGS_PATH = PROJECT_ROOT / "logs"
@@ -95,11 +96,25 @@ def load_uncover():
 
 def load_specz():
     """Load spectroscopic sample."""
-    path = DATA_INTERIM / "combined_spectroscopic_catalog.csv"
+    # We need a sample with dust, z, and log_Mstar. CEERS has this.
+    path = DATA_INTERIM / "ceers_highz_sample.csv"
     if not path.exists():
         return None
     df = pd.read_csv(path)
-    df["z"] = df["z_spec"]
+    
+    # Normalize columns
+    if "z_spec" in df.columns:
+        df["z"] = df["z_spec"]
+    else:
+        df["z"] = df.get("z_best", df.get("z_phot"))
+    
+    if "dust" not in df.columns:
+        if "A_V" in df.columns:
+            df["dust"] = df["A_V"]
+        elif "dust2" in df.columns:
+            df["dust"] = df["dust2"]
+        else:
+            df["dust"] = np.nan
 
     # Compute TEP quantities
     valid = df["log_Mstar"].notna() & df["z"].notna()
@@ -467,6 +482,9 @@ def test3_spectroscopic_sharpening(df_phot, df_spec):
 
     # Spec-z correlations
     rho_spec, p_spec = stats.spearmanr(spec["gamma_t"], spec["dust"])
+    
+    from scripts.utils.p_value_utils import format_p_value
+    p_spec_fmt = format_p_value(p_spec)
 
     # Find matching galaxies in photo-z sample for fair comparison
     # Use the same redshift range as spec sample
@@ -475,6 +493,7 @@ def test3_spectroscopic_sharpening(df_phot, df_spec):
     phot_matched = phot[(phot["z"] >= z_min) & (phot["z"] <= z_max)]
 
     rho_phot_full, p_phot_full = stats.spearmanr(phot_matched["gamma_t"], phot_matched["dust"])
+    p_phot_fmt = format_p_value(p_phot_full)
 
     # Bootstrap CI for spec rho
     rng = np.random.default_rng(42)
@@ -494,13 +513,13 @@ def test3_spectroscopic_sharpening(df_phot, df_spec):
 
     if len(spec_z8) >= 10:
         r, p = stats.spearmanr(spec_z8["gamma_t"], spec_z8["dust"])
-        spec_z8_result = {"n": len(spec_z8), "rho": float(r), "p": float(p)}
+        spec_z8_result = {"n": len(spec_z8), "rho": float(r), "p": format_p_value(p)}
     else:
         spec_z8_result = {"n": len(spec_z8), "insufficient": True}
 
     if len(phot_z8) >= 10:
         r, p = stats.spearmanr(phot_z8["gamma_t"], phot_z8["dust"])
-        phot_z8_result = {"n": len(phot_z8), "rho": float(r), "p": float(p)}
+        phot_z8_result = {"n": len(phot_z8), "rho": float(r), "p": format_p_value(p)}
 
     # Per-survey breakdown if source_catalog exists
     survey_results = {}
@@ -509,7 +528,7 @@ def test3_spectroscopic_sharpening(df_phot, df_spec):
             s = spec[spec["source_catalog"] == cat]
             if len(s) >= 10:
                 r, p = stats.spearmanr(s["gamma_t"], s["dust"])
-                survey_results[cat] = {"n": len(s), "rho": float(r), "p": float(p)}
+                survey_results[cat] = {"n": len(s), "rho": float(r), "p": format_p_value(p)}
 
     sharpened = rho_spec > rho_phot_full
 
@@ -518,13 +537,13 @@ def test3_spectroscopic_sharpening(df_phot, df_spec):
         "z_range": [float(z_min), float(z_max)],
         "spec_z": {
             "rho": float(rho_spec),
-            "p": float(p_spec),
+            "p": p_spec_fmt,
             "ci_95": [float(ci_lo), float(ci_hi)],
         },
         "photo_z_matched": {
             "n": len(phot_matched),
             "rho": float(rho_phot_full),
-            "p": float(p_phot_full),
+            "p": p_phot_fmt,
         },
         "z_gt_8": {
             "spec": spec_z8_result,
@@ -543,7 +562,7 @@ def test3_spectroscopic_sharpening(df_phot, df_spec):
         ),
     }
 
-    print_status(f"  Spec-z: ρ = {rho_spec:.3f} (N = {n_spec}, p = {p_spec:.2e})")
+    print_status(f"  Spec-z: ρ = {rho_spec:.3f} (N = {n_spec}, p = {p_spec_fmt:.2e})")
     print_status(f"  Photo-z: ρ = {rho_phot_full:.3f} (N = {len(phot_matched)})")
     print_status(f"  Δρ = {rho_spec - rho_phot_full:+.3f} → {'SHARPENED' if sharpened else 'NOT sharpened'}")
 

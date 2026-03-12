@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): 1.1s.
 """
 TEP-JWST Step 035: Spectroscopic Validation
 
@@ -23,8 +24,9 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status
 from scripts.utils.p_value_utils import format_p_value, safe_json_default
 from scripts.utils.tep_model import compute_gamma_t as tep_gamma, stellar_to_halo_mass_behroozi_like
+from scripts.utils.spectroscopic_catalog import ensure_combined_spectroscopic_catalog
 
-STEP_NUM = "37"
+STEP_NUM = "035"
 STEP_NAME = "spectroscopic_validation"
 
 DATA_RAW_PATH = PROJECT_ROOT / "data" / "raw" / "uncover"
@@ -41,9 +43,13 @@ set_step_logger(logger)
 def load_spectroscopic_catalog():
     """Load combined spectroscopic catalog."""
     from astropy.cosmology import Planck18 as cosmo
-    
+
     spec_file = PROJECT_ROOT / "data" / "interim" / "combined_spectroscopic_catalog.csv"
-    
+    if not spec_file.exists():
+        generated = ensure_combined_spectroscopic_catalog(spec_file)
+        if generated is not None:
+            print_status(f"Built spectroscopic catalog from local reproducible inputs: {generated.name}", "INFO")
+
     if not spec_file.exists():
         print_status(f"ERROR: Combined spectroscopic catalog not found at {spec_file}", "ERROR")
         return None
@@ -165,6 +171,9 @@ def main():
     df = load_spectroscopic_catalog()
     if df is None:
         print_status("ERROR: Could not load spectroscopic data", "INFO")
+        status = {"status": "skipped", "reason": "combined_spectroscopic_catalog.csv unavailable and no reproducible local spectroscopic fallback could be built"}
+        with open(OUTPUT_PATH / f"step_{STEP_NUM}_{STEP_NAME}.json", "w") as _f:
+            json.dump(status, _f, indent=2)
         return
     
     results['total_spec'] = len(df)

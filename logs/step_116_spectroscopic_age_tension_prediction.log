@@ -1,0 +1,22 @@
+[19:44:44] ═══ ============================================================
+[19:44:44] ═══ STEP 116: TEP Age Tension Reduction Framework
+[19:44:44] ═══ ============================================================
+[19:44:44]     z=5.0, M*=9.0 -> Γ_t=0.89. Max age 1.15Gyr reduced to 1.29Gyr
+[19:44:44]     z=5.0, M*=10.0 -> Γ_t=2.33. Max age 1.15Gyr reduced to 0.49Gyr
+[19:44:44]     z=5.0, M*=10.5 -> Γ_t=3.77. Max age 1.15Gyr reduced to 0.31Gyr
+[19:44:44]     z=5.0, M*=11.0 -> Γ_t=6.09. Max age 1.15Gyr reduced to 0.19Gyr
+[19:44:44]     z=7.0, M*=9.0 -> Γ_t=0.94. Max age 0.77Gyr reduced to 0.82Gyr
+[19:44:44]     z=7.0, M*=10.0 -> Γ_t=4.14. Max age 0.77Gyr reduced to 0.19Gyr
+[19:44:44]     z=7.0, M*=10.5 -> Γ_t=8.67. Max age 0.77Gyr reduced to 0.09Gyr
+[19:44:44]     z=7.0, M*=11.0 -> Γ_t=18.18. Max age 0.77Gyr reduced to 0.04Gyr
+[19:44:44]     z=9.0, M*=9.0 -> Γ_t=1.00. Max age 0.54Gyr reduced to 0.54Gyr
+[19:44:44]     z=9.0, M*=10.0 -> Γ_t=7.92. Max age 0.54Gyr reduced to 0.07Gyr
+[19:44:44]     z=9.0, M*=10.5 -> Γ_t=22.28. Max age 0.54Gyr reduced to 0.02Gyr
+[19:44:44]     z=9.0, M*=11.0 -> Γ_t=62.71. Max age 0.54Gyr reduced to 0.01Gyr
+[19:44:44]     z=11.0, M*=9.0 -> Γ_t=1.05. Max age 0.42Gyr reduced to 0.40Gyr
+[19:44:44]     z=11.0, M*=10.0 -> Γ_t=15.90. Max age 0.42Gyr reduced to 0.03Gyr
+[19:44:44]     z=11.0, M*=10.5 -> Γ_t=61.97. Max age 0.42Gyr reduced to 0.01Gyr
+[19:44:44]     z=11.0, M*=11.0 -> Γ_t=241.45. Max age 0.42Gyr reduced to 0.00Gyr
+[19:44:44] ✓   
+Mean age reduction for massive systems: 80.8%
+[19:44:44] ✓   Saved to step_116_literature_spectroscopic_ages.json

@@ -1,0 +1,56 @@
+{
+  "step": "Step 110: Gravitational Wave Timing Prediction",
+  "emri_prediction": {
+    "system": "EMRI (10 M\u2609 into 10\u2076 M\u2609)",
+    "r_isco_m": 8898666666.666666,
+    "r_screen_m": 4449333333.333333,
+    "screened_at_isco": false,
+    "r_inspiral_m": 296622222222.22217,
+    "gamma_t_inspiral": 1.002904209067782,
+    "T_obs_years": 1,
+    "delta_phi_cycles": 91.48258563513278,
+    "lisa_detectable": true,
+    "prediction": "TEP effects screened at ISCO; marginal signal during early inspiral"
+  },
+  "binary_pulsar_prediction": {
+    "system": "Binary pulsar (Hulse-Taylor type)",
+    "M_ns": 1.4,
+    "P_orb_hours": 7.75,
+    "phi_ns_surface": 0.20763555555555552,
+    "ns_interior_screened": true,
+    "gamma_t_gc": 1.0000000006444445,
+    "gamma_t_field": 1.0,
+    "delta_pdot_pct": 6.444444977660169e-08,
+    "prediction": "NS interior screened; GC pulsars may show ~0.1% timing anomaly",
+    "current_constraint": "Hulse-Taylor agrees with GR to 0.2%",
+    "tep_compatible": true
+  },
+  "merger_rate_prediction": {
+    "local_rates": {
+      "R_bns_gpc3_yr": 320,
+      "R_bbh_gpc3_yr": 24
+    },
+    "tep_prediction_z8": {
+      "gamma_t": 2.0,
+      "R_bns_enhanced": 640.0,
+      "R_bbh_enhanced": 48.0
+    },
+    "tep_prediction_z15": {
+      "gamma_t": 1.2,
+      "R_bns_enhanced": 384.0,
+      "R_bbh_enhanced": 28.799999999999997
+    },
+    "falsification": "No redshift evolution of merger rates in massive hosts",
+    "prediction": "Merger rates in massive high-z hosts enhanced by \u0393\u209c"
+  },
+  "summary": {
+    "n_predictions": 3,
+    "all_compatible_with_current_data": true,
+    "key_future_test": "LISA EMRI observations"
+  },
+  "falsification_criteria": [
+    "LISA EMRI phase evolution inconsistent with TEP screening",
+    "Binary pulsar timing > 0.2% deviation from GR",
+    "No merger rate enhancement in massive high-z hosts"
+  ]
+}

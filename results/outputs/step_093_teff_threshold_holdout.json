@@ -1,0 +1,321 @@
+{
+  "config": {
+    "z_min": 8.0,
+    "threshold_min_gyr": 0.05,
+    "threshold_max_gyr": 2.0,
+    "threshold_step_gyr": 0.01,
+    "min_group": 10,
+    "fixed_threshold_gyr": 0.3,
+    "bootstrap": {
+      "n_boot": 400,
+      "seed": 42
+    }
+  },
+  "sources": {
+    "UNCOVER": "/Users/matthewsmawfield/www/TEP-JWST/results/interim/step_002_uncover_full_sample_tep.csv",
+    "CEERS": "/Users/matthewsmawfield/www/TEP-JWST/data/interim/ceers_z8_sample.csv",
+    "COSMOS-Web": "/Users/matthewsmawfield/www/TEP-JWST/data/interim/cosmosweb_z8_sample.csv"
+  },
+  "folds": [
+    {
+      "held_out_survey": "UNCOVER",
+      "train_surveys": [
+        "CEERS",
+        "COSMOS-Web"
+      ],
+      "train_n": 2688,
+      "train_selected_threshold_gyr": 1.9300000000000004,
+      "train_best": {
+        "teff_threshold_gyr": 1.9300000000000004,
+        "n_above": 407,
+        "n_below": 2281,
+        "det_above": 389,
+        "non_det_above": 18,
+        "det_below": 611,
+        "non_det_below": 1670,
+        "det_frac_above": 0.9557739557739557,
+        "det_frac_below": 0.26786497150372646,
+        "det_frac_delta": 0.6879089842702293,
+        "odds_ratio": 59.068012365884705,
+        "log_odds_ratio": 4.052056439896108,
+        "p_fisher_greater": 1.805652641348846e-164,
+        "mean_dust_above": 0.7308565487034338,
+        "mean_dust_below": 0.059918547669259734,
+        "mean_ratio": 12.19750105989949,
+        "mannwhitney_u": 863163.5,
+        "p_mannwhitney_greater": 5.362002873187093e-225
+      },
+      "train_bootstrap_best_threshold": {
+        "n_boot": 400,
+        "seed": 42,
+        "threshold_q16": 1.3800000000000003,
+        "threshold_q50": 1.8600000000000003,
+        "threshold_q84": 1.9300000000000004
+      },
+      "test_n": 283,
+      "test_at_train_selected_threshold": {
+        "teff_threshold_gyr": 1.9300000000000004,
+        "n_above": 16,
+        "n_below": 267,
+        "det_above": 16,
+        "non_det_above": 0,
+        "det_below": 267,
+        "non_det_below": 0,
+        "det_frac_above": 1.0,
+        "det_frac_below": 1.0,
+        "det_frac_delta": 0.0,
+        "odds_ratio": null,
+        "log_odds_ratio": -2.7857591854295265,
+        "p_fisher_greater": 1.0,
+        "mean_dust_above": 2.0908879093570727,
+        "mean_dust_below": 0.7152222541134757,
+        "mean_ratio": 2.9234100272072023,
+        "mannwhitney_u": 3851.0,
+        "p_mannwhitney_greater": 3.483060972990316e-08,
+        "n_total": 283,
+        "z_min": 8.0,
+        "min_group": 10
+      },
+      "test_at_fixed_threshold": {
+        "teff_threshold_gyr": 0.3,
+        "n_above": 62,
+        "n_below": 221,
+        "det_above": 62,
+        "non_det_above": 0,
+        "det_below": 221,
+        "non_det_below": 0,
+        "det_frac_above": 1.0,
+        "det_frac_below": 1.0,
+        "det_frac_delta": 0.0,
+        "odds_ratio": null,
+        "log_odds_ratio": -1.2652560327428344,
+        "p_fisher_greater": 1.0,
+        "mean_dust_above": 1.3167220912810194,
+        "mean_dust_below": 0.6460713970071854,
+        "mean_ratio": 2.0380442430674193,
+        "mannwhitney_u": 11262.0,
+        "p_mannwhitney_greater": 4.7751527163355855e-15,
+        "n_total": 283,
+        "z_min": 8.0,
+        "min_group": 10
+      }
+    },
+    {
+      "held_out_survey": "CEERS",
+      "train_surveys": [
+        "UNCOVER",
+        "COSMOS-Web"
+      ],
+      "train_n": 2889,
+      "train_selected_threshold_gyr": 1.9300000000000004,
+      "train_best": {
+        "teff_threshold_gyr": 1.9300000000000004,
+        "n_above": 406,
+        "n_below": 2483,
+        "det_above": 388,
+        "non_det_above": 18,
+        "det_below": 813,
+        "non_det_below": 1670,
+        "det_frac_above": 0.9556650246305419,
+        "det_frac_below": 0.3274265002013693,
+        "det_frac_delta": 0.6282385244291726,
+        "odds_ratio": 44.277709443761104,
+        "log_odds_ratio": 3.7640547728611415,
+        "p_fisher_greater": 1.4735110803636921e-139,
+        "mean_dust_above": 0.7501335136692443,
+        "mean_dust_below": 0.12221681105448974,
+        "mean_ratio": 6.137727757720672,
+        "mannwhitney_u": 900048.5,
+        "p_mannwhitney_greater": 1.0826425447732392e-178
+      },
+      "train_bootstrap_best_threshold": {
+        "n_boot": 400,
+        "seed": 42,
+        "threshold_q16": 1.4100000000000004,
+        "threshold_q50": 1.8600000000000003,
+        "threshold_q84": 1.9300000000000004
+      },
+      "test_n": 82,
+      "test_at_train_selected_threshold": {
+        "teff_threshold_gyr": 1.9300000000000004,
+        "n_above": 17,
+        "n_below": 65,
+        "det_above": 17,
+        "non_det_above": 0,
+        "det_below": 65,
+        "non_det_below": 0,
+        "det_frac_above": 1.0,
+        "det_frac_below": 1.0,
+        "det_frac_delta": 0.0,
+        "odds_ratio": null,
+        "log_odds_ratio": -1.3198492617117379,
+        "p_fisher_greater": 1.0,
+        "mean_dust_above": 1.5505067836645585,
+        "mean_dust_below": 0.37191088051663784,
+        "mean_ratio": 4.169027756086837,
+        "mannwhitney_u": 1044.0,
+        "p_mannwhitney_greater": 9.753300436310158e-09,
+        "n_total": 82,
+        "z_min": 8.0,
+        "min_group": 10
+      },
+      "test_at_fixed_threshold": {
+        "teff_threshold_gyr": 0.3,
+        "n_above": 46,
+        "n_below": 36,
+        "det_above": 46,
+        "non_det_above": 0,
+        "det_below": 36,
+        "non_det_below": 0,
+        "det_frac_above": 1.0,
+        "det_frac_below": 1.0,
+        "det_frac_delta": 0.0,
+        "odds_ratio": null,
+        "log_odds_ratio": 0.2421400520048648,
+        "p_fisher_greater": 1.0,
+        "mean_dust_above": 0.8969421664573949,
+        "mean_dust_below": 0.2575967471899661,
+        "mean_ratio": 3.4819623160689215,
+        "mannwhitney_u": 1382.0,
+        "p_mannwhitney_greater": 1.1594468348598818e-07,
+        "n_total": 82,
+        "z_min": 8.0,
+        "min_group": 10
+      }
+    },
+    {
+      "held_out_survey": "COSMOS-Web",
+      "train_surveys": [
+        "UNCOVER",
+        "CEERS"
+      ],
+      "train_n": 365,
+      "train_selected_threshold_gyr": 0.060000000000000005,
+      "train_best": {
+        "teff_threshold_gyr": 0.060000000000000005,
+        "n_above": 353,
+        "n_below": 12,
+        "det_above": 353,
+        "non_det_above": 0,
+        "det_below": 12,
+        "non_det_below": 0,
+        "det_frac_above": 1.0,
+        "det_frac_below": 1.0,
+        "det_frac_delta": 0.0,
+        "odds_ratio": null,
+        "log_odds_ratio": 3.342154841028372,
+        "p_fisher_greater": 1.0,
+        "mean_dust_above": 0.7726416260913465,
+        "mean_dust_below": 0.1840730786370641,
+        "mean_ratio": 4.197472176877966,
+        "mannwhitney_u": 3639.0,
+        "p_mannwhitney_greater": 1.167538066813067e-05
+      },
+      "train_bootstrap_best_threshold": {
+        "n_boot": 400,
+        "seed": 42,
+        "threshold_q16": 0.05,
+        "threshold_q50": 0.060000000000000005,
+        "threshold_q84": 0.07
+      },
+      "test_n": 2606,
+      "test_at_train_selected_threshold": {
+        "teff_threshold_gyr": 0.060000000000000005,
+        "n_above": 2294,
+        "n_below": 312,
+        "det_above": 889,
+        "non_det_above": 1405,
+        "det_below": 29,
+        "non_det_below": 283,
+        "det_frac_above": 0.3875326939843069,
+        "det_frac_below": 0.09294871794871795,
+        "det_frac_delta": 0.29458397603558895,
+        "odds_ratio": 6.1746717388636645,
+        "log_odds_ratio": 1.805332976581336,
+        "p_fisher_greater": 5.0459869106077437e-29,
+        "mean_dust_above": 0.1603748910200523,
+        "mean_dust_below": 0.05032051282051282,
+        "mean_ratio": 3.1870678979781095,
+        "mannwhitney_u": 458752.0,
+        "p_mannwhitney_greater": 8.857706243726747e-22,
+        "n_total": 2606,
+        "z_min": 8.0,
+        "min_group": 10
+      },
+      "test_at_fixed_threshold": {
+        "teff_threshold_gyr": 0.3,
+        "n_above": 1064,
+        "n_below": 1542,
+        "det_above": 774,
+        "non_det_above": 290,
+        "det_below": 144,
+        "non_det_below": 1398,
+        "det_frac_above": 0.7274436090225563,
+        "det_frac_below": 0.0933852140077821,
+        "det_frac_delta": 0.6340583950147742,
+        "odds_ratio": 25.911206896551725,
+        "log_odds_ratio": 3.2504900886544847,
+        "p_fisher_greater": 8.660460515261302e-258,
+        "mean_dust_above": 0.3317669172932331,
+        "mean_dust_below": 0.0198443579766537,
+        "mean_ratio": 16.71845053810998,
+        "mannwhitney_u": 1358627.5,
+        "p_mannwhitney_greater": 6.287968051379569e-247,
+        "n_total": 2606,
+        "z_min": 8.0,
+        "min_group": 10
+      }
+    }
+  ],
+  "summary": {
+    "k_folds": 3,
+    "selected_thresholds_gyr": [
+      1.9300000000000004,
+      1.9300000000000004,
+      0.060000000000000005
+    ],
+    "selected_threshold_median_gyr": 1.9300000000000004,
+    "selected_threshold_min_gyr": 0.060000000000000005,
+    "selected_threshold_max_gyr": 1.9300000000000004,
+    "heldout_log_odds_ratio": [
+      -2.7857591854295265,
+      -1.3198492617117379,
+      1.805332976581336
+    ],
+    "heldout_log_odds_ratio_median": -1.3198492617117379,
+    "heldout_p_fisher": [
+      1.0,
+      1.0,
+      5.0459869106077437e-29
+    ],
+    "heldout_p_fisher_fisher_combined": {
+      "k": 3,
+      "stat": 130.3127488812507,
+      "df": 6,
+      "p": 1.1044822362547457e-25,
+      "log10_p": -24.95684126463508
+    },
+    "fixed_threshold_gyr": 0.3,
+    "fixed_log_odds_ratio": [
+      -1.2652560327428344,
+      0.2421400520048648,
+      3.2504900886544847
+    ],
+    "fixed_p_fisher": [
+      1.0,
+      1.0,
+      8.660460515261302e-258
+    ],
+    "fixed_p_fisher_fisher_combined": {
+      "k": 3,
+      "stat": 1183.8163721880428,
+      "df": 6,
+      "p": 1.5222539822293544e-252,
+      "log10_p": -251.81751288115387
+    }
+  },
+  "figure": {
+    "path": "/Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_093_teff_threshold_holdout.png",
+    "written": true
+  }
+}

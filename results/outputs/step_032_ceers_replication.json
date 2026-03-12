@@ -1,0 +1,23 @@
+{
+  "ceers_source": "ceers_real",
+  "ceers_n": 82,
+  "mass_dust": {
+    "rho": 0.680499776885319,
+    "ci_lo": 0.5205684198361263,
+    "ci_hi": 0.7993088724002527,
+    "p": 2.026059724327422e-12,
+    "n": 82
+  },
+  "gamma_dust": {
+    "rho_raw": 0.6599296916663946,
+    "p_raw": 1.546171143428649e-11,
+    "rho_partial": -0.20168262061452663,
+    "p_partial": 0.06921763268621635
+  },
+  "uncover": {
+    "uncover_n": 283,
+    "uncover_rho": 0.5594522703471411,
+    "uncover_p": 1.046457458256734e-24
+  },
+  "replication_status": "confirmed"
+}

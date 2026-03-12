@@ -1,0 +1,78 @@
+{
+  "ml_power_test": [
+    {
+      "ml_power": 0.5,
+      "rho_mass_age": 0.0023773729737842936,
+      "p_value": 0.9089806659495354,
+      "scatter": 0.08190224273890687
+    },
+    {
+      "ml_power": 0.6,
+      "rho_mass_age": -0.028110427669698186,
+      "p_value": 0.1763579245117455,
+      "scatter": 0.08190224273890687
+    },
+    {
+      "ml_power": 0.7,
+      "rho_mass_age": -0.0597291989234804,
+      "p_value": 0.004042168383757079,
+      "scatter": 0.08190224273890687
+    },
+    {
+      "ml_power": 0.8,
+      "rho_mass_age": -0.09222706427801745,
+      "p_value": 8.808316626791446e-06,
+      "scatter": 0.08190224273890687
+    },
+    {
+      "ml_power": 0.9,
+      "rho_mass_age": -0.12491905012559297,
+      "p_value": 1.63149002416275e-09,
+      "scatter": 0.08190224273890687
+    }
+  ],
+  "best_ml_power": 0.5,
+  "alternative_hypotheses": {
+    "burstiness_mass": {
+      "rho": null,
+      "p": null,
+      "note": "sfr_100 data not available"
+    },
+    "age_mass_controlling_met": {
+      "rho": 0.12948089041703856,
+      "p": 4.0296515275075347e-10
+    },
+    "age_mass_controlling_dust": {
+      "rho": 0.16468983167863874,
+      "p": 1.5338716932482278e-15
+    },
+    "age_mass_controlling_all": {
+      "rho": 0.16789357425071139,
+      "p": 4.239147184836421e-16
+    }
+  },
+  "alternative_hypothesis_rejected": true,
+  "z_dependent_ml": [
+    {
+      "z_range": "4-6",
+      "n": 1439,
+      "best_ml_power": 0.9
+    },
+    {
+      "z_range": "6-8",
+      "n": 593,
+      "best_ml_power": 0.5
+    },
+    {
+      "z_range": "8-10",
+      "n": 283,
+      "best_ml_power": 0.5
+    }
+  ],
+  "summary": {
+    "best_ml_power": 0.5,
+    "standard_assumption_validated": false,
+    "alternative_hypotheses_rejected": true,
+    "tep_preferred_by_chi2": null
+  }
+}

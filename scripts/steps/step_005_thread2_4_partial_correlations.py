@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
+# Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): 4.4s.
 """
-TEP-JWST Step 8: Threads 2-4 - Partial Correlations
+TEP-JWST Step 5: Threads 2-4 - Partial Correlations
 
 This step tests threads 2-4 of TEP evidence using partial correlations
 (controlling for redshift):
@@ -47,8 +48,9 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status
 from scripts.utils.p_value_utils import format_p_value, safe_json_default
+from scripts.utils.rank_stats import partial_rank_correlation, bootstrap_partial_rank_ci
 
-STEP_NUM = "04"
+STEP_NUM = "005"
 STEP_NAME = "thread2_4_partial_correlations"
 
 DATA_PATH = PROJECT_ROOT / "data"
@@ -68,69 +70,20 @@ set_step_logger(logger)
 # =============================================================================
 
 def partial_correlation(x, y, z_control):
-    """
-    Compute partial correlation between x and y, controlling for z.
-    
-    Method: Residualize both x and y against z, then correlate residuals.
-    """
-    slope_x, int_x, _, _, _ = linregress(z_control, x)
-    x_resid = x - (slope_x * z_control + int_x)
-    
-    slope_y, int_y, _, _, _ = linregress(z_control, y)
-    y_resid = y - (slope_y * z_control + int_y)
-    
-    return spearmanr(x_resid, y_resid)
+    rho, p, _ = partial_rank_correlation(x, y, z_control)
+    return rho, p
 
 def partial_correlation_double(x, y, z_control, mass_control, use_log_x=False):
-    """
-    Compute partial correlation between x and y, controlling for BOTH z AND mass.
-    
-    This is more robust because Γ_t is derived from mass, so controlling for
-    mass isolates the z-dependent component of TEP.
-    
-    Method: Multiple regression residualization.
-    
-    IMPORTANT: When x is gamma_t (exponential), set use_log_x=True to properly
-    residualize log(gamma_t) instead of gamma_t. This is because gamma_t is
-    exponential in z and mass, so linear residualization of gamma_t leaves
-    nonlinear structure that creates spurious correlations.
-    """
-    # If x is exponential (like gamma_t), residualize log(x) instead
-    if use_log_x:
-        x_for_resid = np.log(np.maximum(x, 1e-10))
-    else:
-        x_for_resid = x
-    
-    # Residualize x against both z and mass
-    X_controls = np.column_stack([z_control, mass_control, np.ones(len(z_control))])
-    coeffs_x = np.linalg.lstsq(X_controls, x_for_resid, rcond=None)[0]
-    x_resid = x_for_resid - X_controls @ coeffs_x
-    
-    # Residualize y against both z and mass
-    coeffs_y = np.linalg.lstsq(X_controls, y, rcond=None)[0]
-    y_resid = y - X_controls @ coeffs_y
-    
-    return spearmanr(x_resid, y_resid)
+    controls = np.column_stack([z_control, mass_control])
+    rho, p, _ = partial_rank_correlation(x, y, controls)
+    return rho, p
 
 def bootstrap_partial_ci(x, y, z_control, n_boot=1000):
-    """Bootstrap CI for partial correlation."""
-    n = len(x)
-    rhos = []
-    for _ in range(n_boot):
-        idx = np.random.choice(n, n, replace=True)
-        rho, _ = partial_correlation(x[idx], y[idx], z_control[idx])
-        rhos.append(rho)
-    return np.percentile(rhos, [2.5, 97.5])
+    return bootstrap_partial_rank_ci(x, y, z_control, n_boot=n_boot, seed=42)
 
 def bootstrap_partial_ci_double(x, y, z_control, mass_control, n_boot=1000, use_log_x=False):
-    """Bootstrap CI for double-control partial correlation."""
-    n = len(x)
-    rhos = []
-    for _ in range(n_boot):
-        idx = np.random.choice(n, n, replace=True)
-        rho, _ = partial_correlation_double(x[idx], y[idx], z_control[idx], mass_control[idx], use_log_x=use_log_x)
-        rhos.append(rho)
-    return np.percentile(rhos, [2.5, 97.5])
+    controls = np.column_stack([z_control, mass_control])
+    return bootstrap_partial_rank_ci(x, y, controls, n_boot=n_boot, seed=42)
 
 # =============================================================================
 # THREAD 2: Γ_t vs Age Ratio
@@ -339,6 +292,14 @@ def main():
     with open(OUTPUT_PATH / f"step_{STEP_NUM}_thread4_gamma_dust.json", "w") as f:
         json.dump(result_4, f, indent=2, default=safe_json_default)
     
+    summary = {
+        'step': STEP_NUM, 'name': STEP_NAME,
+        'thread2_gamma_age': result_2,
+        'thread3_gamma_metallicity': result_3,
+        'thread4_gamma_dust': result_4,
+    }
+    with open(OUTPUT_PATH / f"step_{STEP_NUM}_{STEP_NAME}.json", "w") as f:
+        json.dump(summary, f, indent=2, default=safe_json_default)
     print_status("\n" + "=" * 50, "INFO")
     print_status("SUMMARY", "INFO")
     print_status("=" * 50, "INFO")

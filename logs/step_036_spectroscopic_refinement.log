@@ -1,0 +1,14 @@
+[01:33:51]     Loading Data...
+[01:33:51]     Loaded 34 sources.
+[01:33:51]     Bin        | N     | Rho      | P-value    | Mean AgeRatio   | Mean Gamma     
+[01:33:51]     --------------------------------------------------------------------------------
+[01:33:51]     z6_8       | 13    | +0.962    | 1.63e-07     | 0.359           | 0.340
+[01:33:51]     z8_plus    | 21    | +0.965    | 1.71e-12     | 0.330           | 0.208
+[01:33:51]     full       | 34    | +0.910    | 9.11e-14     | 0.341           | 0.258
+[01:33:51]     
+--- Checking Simpson's Paradox (Z-score Normalization) ---
+[01:33:51]     Global correlation (Raw): rho = 0.910
+[01:33:51]     Global correlation (Bin-Normalized): rho = 0.963, p = 7.55e-20
+[01:33:51]     
+CONCLUSION: Mixed Signals.
+[01:33:51]     Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_036_spectroscopic_refinement.json

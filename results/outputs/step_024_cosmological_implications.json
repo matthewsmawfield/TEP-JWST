@@ -1,0 +1,54 @@
+{
+  "formation_redshift": {
+    "age_0_0.05": {
+      "n": 70,
+      "rho": -0.08441956084332079,
+      "p": 0.48716244282058707
+    },
+    "age_0.05_0.1": {
+      "n": 345,
+      "rho": 0.3480283114256825,
+      "p": 2.932724299983583e-11
+    },
+    "age_0.1_0.2": {
+      "n": 1230,
+      "rho": 0.5119362037596081,
+      "p": 4.0292569234267136e-83
+    },
+    "age_0.2_0.5": {
+      "n": 660,
+      "rho": -0.06838583192339744,
+      "p": 0.07915858461947292
+    },
+    "confirmed": true
+  },
+  "stellar_mass_density": {
+    "total_raw": 1880468754526.9775,
+    "total_corrected": 1517409597393.1843,
+    "reduction_pct": 19.306843374013884,
+    "confirmed": true
+  },
+  "ssfr_floor": {
+    "ssfr_floor_raw": 3.1533990317229823,
+    "ssfr_floor_corr": 1.5230265777885632,
+    "floor_shift_pct": -51.702066168378366,
+    "confirmed": false
+  },
+  "age_metallicity": {
+    "rho_raw": -0.9074559169974936,
+    "rho_corrected": 0.6650934346525089,
+    "confirmed": false
+  },
+  "quenching_timescale": {
+    "n_quenched": 50,
+    "rho": -0.09723889555822329,
+    "p": 0.5017195639649019,
+    "confirmed": false
+  },
+  "cosmic_variance": {
+    "variance_raw": 0.004983839547515295,
+    "variance_corrected": 0.035200170204013226,
+    "reduction_pct": -606.2861849467516,
+    "confirmed": null
+  }
+}

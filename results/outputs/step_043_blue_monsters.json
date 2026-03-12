@@ -1,0 +1,36 @@
+{
+  "test": "Step 043: Blue Monsters TEP Analysis",
+  "description": "TEP analysis of massive high-z galaxies after LRD cleaning",
+  "sample_size": 16,
+  "selection": {
+    "z_min": 5.0,
+    "log_Mstar_min": 10.0,
+    "lrd_excluded": true
+  },
+  "parameters": {
+    "alpha_0": 0.58,
+    "z_ref": 5.5,
+    "sfe_standard": 0.2
+  },
+  "redshift_range": {
+    "min": 5.2,
+    "max": 9.1,
+    "median": 7.15
+  },
+  "temporal_enhancement": {
+    "mean_gamma_t": 1.809690479730911,
+    "median_gamma_t": 1.7609436163404837
+  },
+  "sfe_analysis": {
+    "mean_sfe_obs": 0.403125,
+    "mean_sfe_true": 0.2763149365631778,
+    "mean_excess_obs": 2.015625,
+    "mean_excess_corrected": 1.381574682815889
+  },
+  "anomaly_resolution": {
+    "mean_pct_resolved": 66.81882143034618,
+    "median_pct_resolved": 66.93605832670903,
+    "fraction_still_anomalous": 1.0
+  },
+  "conclusion": "TEP resolves 67% of the Blue Monster SFE anomaly on average. The residual ~33% excess (1.4x standard) may reflect genuine high-z physics (denser gas, faster cooling) operating in concert with TEP."
+}

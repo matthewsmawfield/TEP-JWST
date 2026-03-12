@@ -1,0 +1,157 @@
+{
+  "step": "Step 111: Power Analysis for Key Tests",
+  "tests": [
+    {
+      "test_name": "UNCOVER z>8 Dust-\u0393\u209c",
+      "n": 283,
+      "observed_rho": 0.593,
+      "effect_size": "large",
+      "power_observed": 1.0,
+      "min_detectable_rho_80pct": 0.16587966529819761,
+      "n_required_80pct": 20,
+      "adequately_powered": true
+    },
+    {
+      "test_name": "CEERS z>8 Dust-\u0393\u209c",
+      "n": 82,
+      "observed_rho": 0.66,
+      "effect_size": "large",
+      "power_observed": 0.9999998178432687,
+      "min_detectable_rho_80pct": 0.30516299817474124,
+      "n_required_80pct": 16,
+      "adequately_powered": true
+    },
+    {
+      "test_name": "COSMOS-Web z>8 Dust-\u0393\u209c",
+      "n": 918,
+      "observed_rho": 0.629,
+      "effect_size": "large",
+      "power_observed": 1.0,
+      "min_detectable_rho_80pct": 0.0923536311276931,
+      "n_required_80pct": 18,
+      "adequately_powered": true
+    },
+    {
+      "test_name": "Combined z>8 Dust-\u0393\u209c",
+      "n": 1283,
+      "observed_rho": 0.623,
+      "effect_size": "large",
+      "power_observed": 1.0,
+      "min_detectable_rho_80pct": 0.0781470217858842,
+      "n_required_80pct": 18,
+      "adequately_powered": true
+    },
+    {
+      "test_name": "Spectroscopic (global)",
+      "n": 147,
+      "observed_rho": -0.136,
+      "effect_size": "small",
+      "power_observed": 0.37548030176335095,
+      "min_detectable_rho_80pct": 0.2293141552797172,
+      "n_required_80pct": 423,
+      "adequately_powered": false
+    },
+    {
+      "test_name": "Spectroscopic (z=4-6)",
+      "n": 77,
+      "observed_rho": 0.348,
+      "effect_size": "medium",
+      "power_observed": 0.8778107118530115,
+      "min_detectable_rho_80pct": 0.31463163754175066,
+      "n_required_80pct": 63,
+      "adequately_powered": true
+    },
+    {
+      "test_name": "Spectroscopic (z=6-8)",
+      "n": 38,
+      "observed_rho": 0.266,
+      "effect_size": "small",
+      "power_observed": 0.36428054991366315,
+      "min_detectable_rho_80pct": 0.4410666719786448,
+      "n_required_80pct": 109,
+      "adequately_powered": false
+    },
+    {
+      "test_name": "Spectroscopic (bin-normalized)",
+      "n": 147,
+      "observed_rho": 0.312,
+      "effect_size": "medium",
+      "power_observed": 0.9721356280548098,
+      "min_detectable_rho_80pct": 0.2293141552797172,
+      "n_required_80pct": 79,
+      "adequately_powered": true
+    },
+    {
+      "test_name": "Red Monsters (N=3)",
+      "n": 3,
+      "observed_rho": 0.5,
+      "effect_size": "large",
+      "power_observed": 0.0,
+      "min_detectable_rho_80pct": 1.0,
+      "n_required_80pct": 30,
+      "adequately_powered": false
+    },
+    {
+      "test_name": "Mass-Age (UNCOVER)",
+      "n": 2315,
+      "observed_rho": 0.135,
+      "effect_size": "small",
+      "power_observed": 0.9999975746960581,
+      "min_detectable_rho_80pct": 0.058199446896604175,
+      "n_required_80pct": 429,
+      "adequately_powered": true
+    },
+    {
+      "test_name": "Inside-Out Screening",
+      "n": 500,
+      "observed_rho": -0.18,
+      "effect_size": "small",
+      "power_observed": 0.9820061565339732,
+      "min_detectable_rho_80pct": 0.12501088494234194,
+      "n_required_80pct": 240,
+      "adequately_powered": true
+    },
+    {
+      "test_name": "Environmental Screening",
+      "n": 200,
+      "observed_rho": 0.25,
+      "effect_size": "small",
+      "power_observed": 0.9479108150267136,
+      "min_detectable_rho_80pct": 0.196995373086156,
+      "n_required_80pct": 124,
+      "adequately_powered": true
+    },
+    {
+      "test_name": "Dust-\u0393\u209c | M* (z>8)",
+      "n": 283,
+      "observed_rho": 0.28,
+      "effect_size": "small",
+      "power_observed": 0.9978405431253156,
+      "min_detectable_rho_80pct": 0.16587966529819761,
+      "n_required_80pct": 98,
+      "adequately_powered": true
+    }
+  ],
+  "summary": {
+    "n_tests": 13,
+    "n_adequately_powered": 10,
+    "pct_adequately_powered": 76.92307692307692,
+    "n_large_effects": 5
+  },
+  "underpowered_tests": [
+    "Spectroscopic (global)",
+    "Spectroscopic (z=6-8)",
+    "Red Monsters (N=3)"
+  ],
+  "key_findings": [
+    "Primary dust-\u0393\u209c correlations are highly powered (>99%)",
+    "Red Monsters (N=3) is illustrative only, not statistically robust",
+    "Spectroscopic z=6-8 bin is marginally powered (N=38)",
+    "Combined analyses provide robust statistical power"
+  ],
+  "recommendations": [
+    "Increase spectroscopic sample at z>6 for direct age validation",
+    "Do not rely on Red Monsters for statistical inference",
+    "Primary evidence rests on N=1283 combined z>8 sample"
+  ]
+}

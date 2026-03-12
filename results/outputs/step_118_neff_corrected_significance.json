@@ -1,0 +1,153 @@
+{
+  "step": "118",
+  "description": "N_eff-Corrected Significance Analysis (live-source-only reproducible basket)",
+  "selection_policy": {
+    "include_only_live_reproducible_rho_tests": true,
+    "exclude_reference_only_or_metric_incompatible_branches": true,
+    "note": "This step no longer falls back to hardcoded placeholder statistics when a live upstream output is absent or not directly compatible with the Spearman N_eff basket."
+  },
+  "tests": [
+    {
+      "name": "z>8 Dust-\u0393t (UNCOVER)",
+      "rho": 0.5928581034360436,
+      "n_raw": 283,
+      "n_eff": 28.3,
+      "n_eff_ratio": 0.1,
+      "p_original": 2.9965940211265795e-28,
+      "p_corrected": 0.0008255349084889749,
+      "sigma_original": 11.021901995361594,
+      "sigma_corrected": 3.3440881881366114,
+      "still_significant_0.05": true,
+      "still_significant_0.01": true,
+      "still_significant_0.001": true,
+      "survey_area_sq_arcmin": 45.0,
+      "source_step": "step_081_survey_cross_correlation",
+      "source_metric": "survey_correlations",
+      "source_status": "live_reproducible"
+    },
+    {
+      "name": "z>8 Dust-\u0393t (CEERS)",
+      "rho": 0.6599296916663946,
+      "n_raw": 82,
+      "n_eff": 9.055385138137417,
+      "n_eff_ratio": 0.11043152607484655,
+      "p_original": 1.546171143428648e-11,
+      "p_corrected": 0.05209513729376508,
+      "sigma_original": 6.743498931286387,
+      "sigma_corrected": 1.9423467480222998,
+      "still_significant_0.05": false,
+      "still_significant_0.01": false,
+      "still_significant_0.001": false,
+      "survey_area_sq_arcmin": 100.0,
+      "source_step": "step_081_survey_cross_correlation",
+      "source_metric": "survey_correlations",
+      "source_status": "live_reproducible"
+    },
+    {
+      "name": "z>8 Dust-\u0393t (COSMOS-Web)",
+      "rho": 0.6287929331621774,
+      "n_raw": 918,
+      "n_eff": 30.298514815086232,
+      "n_eff_ratio": 0.03300491809922248,
+      "p_original": 3.4709864032498897e-102,
+      "p_corrected": 0.000182833893830734,
+      "sigma_original": 21.462757088493017,
+      "sigma_corrected": 3.741625418374151,
+      "still_significant_0.05": true,
+      "still_significant_0.01": true,
+      "still_significant_0.001": true,
+      "survey_area_sq_arcmin": 1800.0,
+      "source_step": "step_081_survey_cross_correlation",
+      "source_metric": "survey_correlations",
+      "source_status": "live_reproducible"
+    },
+    {
+      "name": "Core Screening (JADES)",
+      "rho": -0.16561160112876575,
+      "n_raw": 277,
+      "n_eff": 27.7,
+      "n_eff_ratio": 0.09999999999999999,
+      "p_original": 0.005727857723798489,
+      "p_corrected": 0.4024509537917079,
+      "sigma_original": 2.762966885882483,
+      "sigma_corrected": 0.8372519644734132,
+      "still_significant_0.05": false,
+      "still_significant_0.01": false,
+      "still_significant_0.001": false,
+      "survey_area_sq_arcmin": 25.0,
+      "source_step": "step_037_resolved_gradients",
+      "source_metric": "rho_mass_grad",
+      "source_status": "live_reproducible"
+    },
+    {
+      "name": "Mass-sSFR Inversion (z>7)",
+      "rho": 0.0865815948252025,
+      "n_raw": 504,
+      "n_eff": 50.4,
+      "n_eff_ratio": 0.09999999999999999,
+      "p_original": 0.05206755140695994,
+      "p_corrected": 0.5482559322759134,
+      "sigma_original": 1.9425748225820973,
+      "sigma_corrected": 0.6003756196791175,
+      "still_significant_0.05": false,
+      "still_significant_0.01": false,
+      "still_significant_0.001": false,
+      "survey_area_sq_arcmin": 45.0,
+      "source_step": "step_004_thread1_z7_inversion",
+      "source_metric": "high_z_rho",
+      "source_status": "live_reproducible"
+    },
+    {
+      "name": "Spectroscopic Validation (z>8)",
+      "rho": 0.9649350649350649,
+      "n_raw": 21,
+      "n_eff": 4.58257569495584,
+      "n_eff_ratio": 0.21821789023599236,
+      "p_original": 1.7137077303369096e-12,
+      "p_corrected": 0.014563197641784284,
+      "sigma_original": 7.055994362888005,
+      "sigma_corrected": 2.4430629294974033,
+      "still_significant_0.05": true,
+      "still_significant_0.01": false,
+      "still_significant_0.001": false,
+      "survey_area_sq_arcmin": 25.0,
+      "source_step": "step_035_spectroscopic_validation",
+      "source_metric": "z8_sample.rho_gamma_age",
+      "source_status": "live_reproducible"
+    }
+  ],
+  "excluded_tests": [
+    {
+      "name": "Environmental Screening (z>8)",
+      "source_step": "step_138_environmental_screening_steiger",
+      "reason": "primary statistic is a field-vs-dense delta_rho / Fisher-Z contrast, not a single-sample Spearman rho suitable for the N_eff basket"
+    }
+  ],
+  "summary": {
+    "n_tests": 6,
+    "n_excluded_live_or_reference_tests": 1,
+    "n_significant_0.05": 3,
+    "n_significant_0.01": 2,
+    "n_significant_0.001": 2,
+    "mean_neff_ratio": 0.11027572240167689,
+    "combined_significance": {
+      "fisher_chi2": 48.80309586938556,
+      "fisher_df": 12,
+      "fisher_p": 2.264178563265284e-06,
+      "harmonic_mean_p": 0.0008858766661791309,
+      "bonferroni_p": 0.001097003362984404,
+      "bonferroni_sigma": 3.264389261795041
+    },
+    "interpretation": "Moderate combined evidence (3.3\u03c3): the live-source-only basket remains meaningful after conservative N_eff correction."
+  },
+  "methodology": {
+    "neff_model": "Clustering-corrected effective sample size",
+    "correlation_length_Mpc": 50,
+    "pvalue_method": "t-distribution with N_eff-2 degrees of freedom",
+    "combined_methods": [
+      "Fisher",
+      "Harmonic mean",
+      "Bonferroni"
+    ]
+  }
+}

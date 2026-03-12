@@ -1,7 +1,7 @@
 {
   "id": "smawfield2026jwst",
   "type": "article",
-  "title": "Temporal Shear: Reconciling JWST's Impossible Galaxies",
+  "title": "Temporal Shear: Resolving the High-Redshift Efficiency Crisis",
   "author": [
     {
       "family": "Smawfield",
@@ -9,7 +9,7 @@
     }
   ],
   "issued": {
-    "date-parts": [[2026, 1, 19]]
+    "date-parts": [[2026, 3, 12]]
   },
   "doi": "10.5281/zenodo.18204192",
   "URL": "https://matthewsmawfield.github.io/TEP-JWST/",

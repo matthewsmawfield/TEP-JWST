@@ -1,0 +1,33 @@
+[01:35:38]     ============================================================
+[01:35:38]     Step 135: Scale-Dependent Growth with Chameleon Yukawa
+[01:35:38]     ============================================================
+[01:35:38]     Computing ΛCDM reference growth...
+[01:35:38]     Scanning 50 m_φ,0 values...
+[01:35:42]     m_φ,0 (2σ min): 0.202 h/Mpc
+[01:35:42]     m_φ,0 (best fit): 100.000 h/Mpc
+[01:35:42]     σ₈ (best): 0.8110 (Planck: 0.811)
+[01:35:42]     λ_C(z=0): 0.06 Mpc/h
+[01:35:42]     Computing full scale-dependent growth at best-fit m_φ,0...
+[01:35:42]     Final σ₈_TEP: 0.8110
+[01:35:42]     σ₈ ratio: 1.000000
+[01:35:42]     G_eff/G_N at k₈=0.785 h/Mpc: 1.000041
+[01:35:42]     β_eff at k₈: 0.004555
+[01:35:42]     Suppression factor: 0.0079
+[01:35:42]     Computing f(z)σ₈(z)...
+[01:35:42]     RSD χ² — ΛCDM: 7.70/8, TEP: 7.70/8
+[01:35:43]     Unscreened σ₈: 7.64 (confirms Step 92: ~3.40)
+[01:35:43]     Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_135_scale_dependent_growth.json
+[01:35:43]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_135_scale_dependent_growth.png
+[01:35:43]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_135_geff_scale.png
+[01:35:43]     ============================================================
+[01:35:43]     SUMMARY
+[01:35:43]       β (conformal coupling): 0.58
+[01:35:43]       m_φ,0 (best fit): 100.00 h/Mpc
+[01:35:43]       λ_C(z=0): 0.06 Mpc/h
+[01:35:43]       σ₈ (TEP, screened): 0.8110
+[01:35:43]       σ₈ (Planck): 0.811
+[01:35:43]       Δσ₈/σ: 0.00σ
+[01:35:43]       β_eff on R₈ scales: 0.0046 (suppression: 0.0079)
+[01:35:43]       P(k) enhancement at k=1 h/Mpc: 1.0000
+[01:35:43]       RSD χ² — ΛCDM: 7.7, TEP: 7.7
+[01:35:43]     ============================================================

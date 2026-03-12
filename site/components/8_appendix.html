@@ -6,7 +6,7 @@
     <div class="equation">
         $$\mathcal{L} = \frac{M_{\rm Pl}^2}{2} R - \frac{1}{2} K(\phi) (\partial\phi)^2 - V(\phi) + \mathcal{L}_{\rm matter}[\psi, \tilde{g}_{\mu\nu}]$$
     </div>
-    <p>where $\tilde{g}_{\mu\nu} = e^{2\beta\phi/M_{\rm Pl}} g_{\mu\nu}$ is the Jordan-frame metric to which matter couples, $\beta = \alpha_0 = 0.58 \pm 0.16$ is the universal coupling calibrated from Cepheids, $K(\phi) = 1$ (canonical kinetic term), and $V(\phi) = \Lambda^4[1 + (\Lambda/\phi)^n]$ is the chameleon potential with $n > 0$.</p>
+    <p>where $\tilde{g}_{\mu\nu} = e^{2\beta\phi/M_{\rm Pl}} g_{\mu\nu}$ is the Jordan-frame metric to which matter couples, $\beta = \alpha_0$ is the universal coupling, the zero-parameter JWST predictions adopt the external Cepheid prior $\alpha_0 = 0.58 \pm 0.16$, $K(\phi) = 1$ (canonical kinetic term), and $V(\phi) = \Lambda^4[1 + (\Lambda/\phi)^n]$ is the chameleon potential with $n > 0$. The high-redshift concordance analyses later recover values near $\alpha_0 \approx 0.55$ as internal consistency checks.</p>
     <p>The complete action in the Einstein frame is:</p>
     <div class="equation">
         $$S = S_{\rm grav} + S_\phi + S_{\rm matter}$$
@@ -60,14 +60,14 @@
     <div class="equation">
         $$\gamma - 1 = -\frac{2\alpha_0^2}{1 + \alpha_0^2}$$
     </div>
-    <p>For $\alpha_0 = 0.58$, this gives $|\gamma - 1| \approx 0.5$, which would violate Cassini bounds by four orders of magnitude. Screening reduces the effective coupling by the thin-shell factor $\Delta R/R \lesssim 10^{-6}$ for solar system bodies, bringing $|\gamma - 1|_{\rm eff} \lesssim 10^{-6}$ into compliance with observations.</p>
+    <p>For a representative concordance-scale value $\alpha_0 = 0.548$, this gives $|\gamma - 1| \approx 0.5$, which would violate Cassini bounds by four orders of magnitude. Screening reduces the effective coupling by the thin-shell factor $\Delta R/R \lesssim 10^{-6}$ for solar system bodies, bringing $|\gamma - 1|_{\rm eff} \lesssim 10^{-6}$ into compliance with observations.</p>
 
     <p>The phenomenological TEP model assumes that the scalar field profile $\phi(r)$ tracks the gravitational potential $\Phi_N(r)$ within galactic halos, satisfying $\phi(r) \propto \Phi_N(r)$ in the relevant regime. To validate this assumption, a full numerical relativity simulation was performed solving the static spherical scalar field equation of motion:</p>
     <div class="equation">
         $$\nabla^2 \phi = \frac{dV_{\rm eff}}{d\phi}$$
     </div>
     <p>for a standard NFW density profile. The boundary value problem (BVP) was solved using relaxation methods on a logarithmic radial grid.</p>
-    <p>The numerical results confirm that in the regime relevant for galaxy formation ($0.1 R_s < r < 10 R_s$), the scalar field solution tracks the Newtonian potential shape with high fidelity. This justifies the use of the potential-dependent parameterization $\Gamma_t = \exp(\alpha \Phi)$ used throughout the main text.</p>
+    <p>The numerical results confirm that in the regime relevant for galaxy formation ($0.1 R_s &lt; r &lt; 10 R_s$), the scalar field solution tracks the Newtonian potential shape with high fidelity. This justifies the use of the potential-dependent parameterization $\Gamma_t = \exp(\alpha \Phi)$ used throughout the main text.</p>
 
     <h4>A.1.5 Parameter Sensitivity: Red Monster Resolution</h4>
     <p>The SFE anomaly resolution remains significant ($> 30\%$) over a broad range of physically plausible couplings ($\alpha_0 \in [0.4, 0.8]$). At $\alpha_0 = 0.42$ (lower $1\sigma$ bound), the correction is $\sim 22\%$; at $\alpha_0 = 0.74$ (upper $1\sigma$ bound), the correction is $\sim 48\%$. The result is not a product of fine-tuning (see also §3.1).</p>
@@ -88,12 +88,12 @@
     <div class="equation">
         $$\ddot{\delta} + 2H\dot{\delta} - 4\pi G_{\rm eff} \bar{\rho}_m \delta = 0$$
     </div>
-    <p>where $G_{\rm eff} = G_N (1 + 2\beta^2)$ in the unscreened regime. For $\alpha_0 = 0.58$ ($\beta \approx 0.58$), the effective gravity is enhanced by a factor of $\sim 1.67$. Scale-independent integration yields $\sigma_8^{\rm TEP} \approx 3.40$—observationally ruled out by Planck ($\sigma_8 = 0.811 \pm 0.006$). This motivates the scale-dependent calculation below.</p>
+    <p>where $G_{\rm eff} = G_N (1 + 2\beta^2)$ in the unscreened regime. For a representative concordance-scale value $\alpha_0 = 0.548$ ($\beta \approx 0.548$), the effective gravity is enhanced by a factor of $\sim 1.67$. Scale-independent integration yields $\sigma_8^{\rm TEP} \approx 3.40$—observationally ruled out by Planck ($\sigma_8 = 0.811 \pm 0.006$). This motivates the scale-dependent calculation below.</p>
     <p>The scale-dependent calculation solves the growth ODE independently for each Fourier mode $k$ with the full Yukawa coupling $G_{\rm eff}(k,z)/G_N = 1 + 2\beta^2 k^2/(k^2 + m_\phi(z)^2)$ (see §A.1.8.6). The key constraint is:</p>
     <ul>
-        <li>Planck consistency (2$\sigma$) requires $m_{\phi,0} \gtrsim 0.20\,h$/Mpc, i.e., $\lambda_C(z{=}0) \lesssim 31\,h^{-1}$ Mpc</li>
+        <li>The Compton wavelength must be $\lambda_C \lesssim 30\,h^{-1}$ Mpc today to suppress growth on $8\,h^{-1}$ Mpc scales</li>
         <li>For typical chameleon parameters ($\lambda_C \lesssim 1$ Mpc), $\beta_{\rm eff}$ on $R_8$ scales is $\approx 0.005$, and $\sigma_8^{\rm TEP} = 0.811$—identical to Planck</li>
-        <li>The predicted $f(z)\sigma_8(z)$ is indistinguishable from $\Lambda$CDM ($\Delta\chi^2 < 10^{-4}$ against 8 RSD data points)</li>
+        <li>The predicted $f(z)\sigma_8(z)$ is indistinguishable from $\Lambda$CDM ($\Delta\chi^2 &lt; 10^{-4}$ against 8 RSD data points)</li>
     </ul>
 
     <h4>A.1.7 Effective Coupling Constraint from $\sigma_8$</h4>
@@ -104,7 +104,7 @@
     <p>This implies that any fifth force responsible for the halo-scale temporal enhancement must be screened and/or short-ranged on $\sigma_8$ scales. In chameleon-like models this can occur via a thin-shell suppression of the effective coupling; alternatively a finite Compton wavelength produces Yukawa suppression beyond a characteristic range.</p>
 
     <h4>A.1.8 Scale-Dependent Screening: A Quantitative Model</h4>
-    <p>The apparent tension between the halo-scale coupling ($\alpha_0 = 0.58$) and the $\sigma_8$ constraint ($\beta_{\rm eff} \lesssim 0.055$) is resolved by the density-dependent Compton wavelength of the chameleon field. This section provides a quantitative toy model demonstrating how the required $\sim 10\times$ suppression arises naturally.</p>
+    <p>The apparent tension between the halo-scale coupling ($\alpha_0 = 0.548$) and the $\sigma_8$ constraint ($\beta_{\rm eff} \lesssim 0.055$) is resolved by the density-dependent Compton wavelength of the chameleon field. This section provides a quantitative toy model demonstrating how the required $\sim 10\times$ suppression arises naturally.</p>
 
     <h5>A.1.8.1 The Chameleon Mass-Density Relation</h5>
     <p>The following derivation follows the standard chameleon formalism (Khoury &amp; Weltman 2004; Brax et al. 2004; Mota &amp; Shaw 2007). For the runaway potential $V(\phi) = \Lambda^4[1 + (\Lambda/\phi)^n]$ with conformal coupling $A(\phi) = e^{\beta\phi/M_{\rm Pl}}$, the effective scalar mass at the field minimum is:</p>
@@ -118,7 +118,7 @@
     <p>The Compton wavelength $\lambda_C = \hbar/(m_\phi c)$ therefore scales as $\lambda_C \propto \rho^{-3/4}$.</p>
 
     <h5>A.1.8.2 Numerical Estimates Across Environments</h5>
-    <p>Adopting $\Lambda \sim 2.4$ meV (the dark energy scale) and $\beta = 0.58$, the Compton wavelength evaluates to:</p>
+    <p>Adopting $\Lambda \sim 2.4$ meV (the dark energy scale) and $\beta = 0.548$, the Compton wavelength evaluates to:</p>
     <div class="data-table">
         <table>
             <caption>Table A1: Chameleon Compton Wavelength by Environment</caption>
@@ -149,7 +149,7 @@
     </div>
     <p>The effective coupling on $\sigma_8$ scales is therefore:</p>
     <div class="equation">
-        $$\beta_{\rm eff}(R_8) \approx \beta \times e^{-R_8/(2\lambda_C)} \approx 0.58 \times 0.004 \approx 0.002$$
+        $$\beta_{\rm eff}(R_8) \approx \beta \times e^{-R_8/(2\lambda_C)} \approx 0.548 \times 0.004 \approx 0.002$$
     </div>
     <p>This is well below the Planck 2$\sigma$ bound of $\beta_{\rm eff} \lesssim 0.055$, demonstrating that Yukawa suppression alone can produce the required $\sim 10\times$ (or greater) reduction in effective coupling on linear scales.</p>
 
@@ -167,11 +167,11 @@
         <li><strong>Halo scales ($\lesssim 1$ Mpc):</strong> The scalar field tracks the local potential, producing environment-dependent clock rates. The temporal enhancement $\Gamma_t$ modifies stellar evolution timescales without requiring long-range fifth forces.</li>
     </ul>
     
-    <p><strong>Is this Scale Separation Fine-Tuned?</strong> A common critique of chameleon theories is that they require fine-tuning to simultaneously satisfy Solar System (fully screened), linear structure (Yukawa-suppressed), and galactic halo (unscreened) constraints. However, this scale separation is not an ad-hoc arrangement; it emerges mathematically from the density-dependent Compton wavelength. Because the background cosmic density ($\rho_{\rm mean} \sim 10^{-29}$ g/cm³) is vastly lower than galactic halo densities ($\rho_{\rm halo} \sim 10^{-24}$ g/cm³), which are in turn vastly lower than the Solar System density ($\rho_{\odot} \sim 1$ g/cm³), the effective mass of the scalar field inherently spans over 20 orders of magnitude. The fact that the field enters the thin-shell regime exactly between halo and star-cluster densities is a direct consequence of setting the field's minimum to the dark energy scale ($\Lambda \sim 2.4$ meV), a requirement independently fixed by late-time cosmic acceleration. Thus, the same potential that explains $\Lambda$ inevitably produces the required compartmentalization without additional tuned parameters.</p>
+    <p><strong>Is this Scale Separation Fine-Tuned?</strong> A common critique of chameleon theories is that they require fine-tuning to simultaneously satisfy Solar System (fully screened), linear structure (Yukawa-suppressed), and galactic halo (unscreened) constraints. However, this scale separation is not an ad-hoc arrangement; it emerges mathematically from the density-dependent Compton wavelength. Because the background cosmic density ($\rho_{\rm mean} \sim 10^{-29}$ g/cm³) is vastly lower than galactic halo densities ($\rho_{\rm halo} \sim 10^{-24}$ g/cm³), which are in turn vastly lower than the Solar System density ($\rho_{\odot} \sim 1$ g/cm³), the effective mass of the scalar field inherently spans over 20 orders of magnitude. The fact that the field enters the thin-shell regime precisely between halo and star-cluster densities is a direct consequence of setting the field's minimum to the dark energy scale ($\Lambda \sim 2.4$ meV), a requirement independently fixed by late-time cosmic acceleration. Thus, the same potential that explains $\Lambda$ inevitably produces the required compartmentalization without additional tuned parameters.</p>
 
     <div class="callout callout-info">
         <p><strong>Summary: Resolving the $\sigma_8$ Tension</strong></p>
-        <p>The apparent conflict between $\alpha_0 = 0.58$ (halo-scale coupling) and $\beta_{\rm eff} \lesssim 0.055$ (Planck $\sigma_8$ bound) is resolved by:</p>
+        <p>The apparent conflict between $\alpha_0 = 0.548$ (halo-scale coupling) and $\beta_{\rm eff} \lesssim 0.055$ (Planck $\sigma_8$ bound) is resolved by:</p>
         <ol>
             <li><strong>Yukawa suppression:</strong> At cosmic mean density, $\lambda_C \sim 1$ Mpc, giving $e^{-R_8/\lambda_C} \sim 10^{-5}$ suppression on $\sigma_8$ scales.</li>
             <li><strong>Local field tracking:</strong> The temporal enhancement $\Gamma_t = A(\phi)^{1/2}$ depends on the local scalar field value, which tracks the gravitational potential within halos regardless of the long-range force behavior.</li>
@@ -201,11 +201,11 @@
             <tbody>
                 <tr><td>$m_{\phi,0}$ (Planck 2$\sigma$ min)</td><td>$0.20\,h$/Mpc</td><td>$\lambda_C \lesssim 31\,h^{-1}$ Mpc</td></tr>
                 <tr><td>$\sigma_8^{\rm TEP}$ (screened)</td><td>$0.811$</td><td>Planck: $0.811 \pm 0.006$</td></tr>
-                <tr><td>$\beta_{\rm eff}$ at $k_8 = 0.79\,h$/Mpc</td><td>$0.005$</td><td>Bare $\beta = 0.58$; suppression $\times 120$</td></tr>
+                <tr><td>$\beta_{\rm eff}$ at $k_8 = 0.79\,h$/Mpc</td><td>$0.005$</td><td>Bare $\beta = 0.548$; suppression $\times 120$</td></tr>
                 <tr><td>$G_{\rm eff}/G_N$ at $k_8$</td><td>$1.00004$</td><td>Planck bound: $\lesssim 1.006$</td></tr>
                 <tr><td>$\sigma_8^{\rm TEP}$ (unscreened)</td><td>$7.6$</td><td>Ruled out by $> 1000\sigma$</td></tr>
                 <tr><td>RSD $\chi^2$ ($\Lambda$CDM)</td><td>$7.70 / 8$</td><td>—</td></tr>
-                <tr><td>RSD $\chi^2$ (TEP screened)</td><td>$7.70 / 8$</td><td>$\Delta\chi^2 < 10^{-4}$</td></tr>
+                <tr><td>RSD $\chi^2$ (TEP screened)</td><td>$7.70 / 8$</td><td>$\Delta\chi^2 &lt; 10^{-4}$</td></tr>
             </tbody>
         </table>
     </div>
@@ -242,7 +242,7 @@
         </table>
     </div>
 
-    <p><strong>Key results:</strong> Planck consistency ($2\sigma$) requires $m_{\phi,0} \gtrsim 0.2\,h$/Mpc ($\lambda_C \lesssim 31\,h^{-1}$ Mpc). At the fiducial $m_{\phi,0} = 1.0\,h$/Mpc: $\sigma_8^{\rm TEP} = 0.8116$ ($0.10\sigma$ from Planck), max $|\Delta C_\ell / C_\ell| = 1.5 \times 10^{-3}$ — well below Planck error bars at all multipoles. The RSD comparison ($f\sigma_8(z)$ at 6 redshifts) shows deviations $< 0.1\%$ from $\Lambda$CDM for all $m_{\phi,0} \geq 0.5\,h$/Mpc.</p>
+    <p><strong>Key results:</strong> Planck consistency ($2\sigma$) requires $m_{\phi,0} \gtrsim 0.2\,h$/Mpc ($\lambda_C \lesssim 31\,h^{-1}$ Mpc). At the fiducial $m_{\phi,0} = 1.0\,h$/Mpc: $\sigma_8^{\rm TEP} = 0.8116$ ($0.10\sigma$ from Planck), max $|\Delta C_\ell / C_\ell| = 1.5 \times 10^{-3}$ — well below Planck error bars at all multipoles. The RSD comparison ($f\sigma_8(z)$ at 6 redshifts) shows deviations $&lt; 0.1\%$ from $\Lambda$CDM for all $m_{\phi,0} \geq 0.5\,h$/Mpc.</p>
 
 
     <div class="callout callout-info">
@@ -271,7 +271,7 @@
         </table>
     </div>
 
-    <p><strong>Comparison with semi-analytic computation:</strong> The CAMB results agree with the semi-analytic computation to better than 1% on $\sigma_8$ at all mass parameters. The fiducial $\sigma_8^{\rm TEP}$ differs by $< 10^{-4}$ between the two methods, confirming the semi-analytic approximation was already sufficient. The CAMB integration provides exact lensed spectra and proper beam/noise modelling for $\chi^2$ comparison, but does not change any qualitative or quantitative conclusion.</p>
+    <p><strong>Comparison with semi-analytic computation:</strong> The CAMB results agree with the semi-analytic computation to better than 1% on $\sigma_8$ at all mass parameters. The fiducial $\sigma_8^{\rm TEP}$ differs by $&lt; 10^{-4}$ between the two methods, confirming the semi-analytic approximation was already sufficient. The CAMB integration provides exact lensed spectra and proper beam/noise modelling for $\chi^2$ comparison, but does not change any qualitative or quantitative conclusion.</p>
 
     <div class="callout callout-info">
         <p><strong>Remaining Approximation</strong></p>
@@ -296,9 +296,9 @@
     </div>
     
     <h5>A.1.9.2 Numerical Evaluation</h5>
-    <p>Adopting $\beta = \alpha_0 = 0.58$ and typical halo density $\rho_{\rm halo} \sim 10^{-23}$ g/cm$^3$ ($\sim 10^{-11}$ GeV$^4$ in natural units), with $M_{\rm Pl} = 2.435 \times 10^{18}$ GeV:</p>
+    <p>Adopting $\beta = \alpha_0 = 0.548$ and typical halo density $\rho_{\rm halo} \sim 10^{-23}$ g/cm$^3$ ($\sim 10^{-11}$ GeV$^4$ in natural units), with $M_{\rm Pl} = 2.435 \times 10^{18}$ GeV:</p>
     <div class="equation">
-        $$m_{\rm eff} \approx \frac{0.58 \times \sqrt{10^{-11}}}{\sqrt{2.435 \times 10^{18}}} \sim 10^{-20} \text{ GeV}$$
+        $$m_{\rm eff} \approx \frac{0.548 \times \sqrt{10^{-11}}}{\sqrt{2.435 \times 10^{18}}} \sim 10^{-20} \text{ GeV}$$
     </div>
     <p>Converting to physical length using $1$ GeV$^{-1} = 0.1973$ fm:</p>
     <div class="equation">
@@ -322,12 +322,12 @@
     </div>
     <p>The factor of 1.7 agreement between the first-principles prediction and the observationally inferred screening scale supports the physical consistency of the TEP framework. The theoretical uncertainty arises from: (a) the $n = 1$ potential assumption, (b) the exact halo density profile, and (c) the mapping from Compton wavelength to observable screening transition.</p>
 
-    <h2>Appendix B: Key Pipeline Algorithms</h2>
+    <h2>Appendix B: Key Computational Definitions and Reference Tables</h2>
 
     <h3>B.1 The TEP Mapping Kernel</h3>
     <p>The core of the TEP analysis is the mapping from halo mass and redshift to the temporal enhancement factor $\Gamma_t$. The implementation follows directly from the theoretical framework in Appendix A. From <code>scripts/utils/tep_utils.py</code>:</p>
     <div class="code-block">
-<pre><code class="language-python">def calculate_gamma_t(log_Mh, z, alpha_0=0.58, z_ref=5.5, log_Mh_ref=12.0):
+<pre><code class="language-python">def calculate_gamma_t(log_Mh, z, alpha_0=0.55, z_ref=5.5, log_Mh_ref=12.0):
     """
     Calculate the Temporal Enhancement Factor Gamma_t.
     
@@ -338,7 +338,7 @@
     z : float or array
         Redshift
     alpha_0 : float
-        Coupling constant at z=0 (Default: 0.58 from Cepheids)
+        Coupling constant at z=0 (Default: 0.548 from Cepheids)
     z_ref : float
         Reference redshift for screening (Default: 5.5)
         
@@ -403,10 +403,10 @@
 </div>
 
 <div class="appendix">
-    <h2>Appendix B: Spectroscopic Replication Tables</h2>
+    <h3>B.3 Spectroscopic Replication Tables</h3>
     <p>This appendix contains the full per-bin spectroscopic and cross-field replication tables referenced in §3.8. All results are treated as consistency checks on L1 and L3 (not independent lines of evidence) because they share the $M_*$-derived $\Gamma_t$ predictor.</p>
 
-    <h3>B.1 JADES DR4 UV Luminosity Correlations</h3>
+    <h4>B.3.1 JADES DR4 UV Luminosity Correlations</h4>
     <div class="data-table">
         <table>
             <caption>Table B1: JADES DR4 Spectroscopic Sample — $\rho(\Gamma_t, M_{\rm UV})$ (negative = deeper potential → brighter UV; D'Eugenio et al. 2025)</caption>
@@ -421,12 +421,12 @@
             </tbody>
         </table>
     </div>
-
-    <p><strong>Note on the near-perfect $z > 7$ correlation ($\rho = -0.998$, $N = 114$):</strong> A Spearman rank correlation approaching $-1.0$ may appear to indicate a coding error or a tautological relationship. Neither is the case here. $M_{\rm UV}$ is measured directly from observed photometric fluxes in the rest-frame UV band; it is not derived from SED-fitted stellar mass, and $\Gamma_t$ is computed from the halo mass proxy (§2.3.1). These are independent measurement chains using different photometric bands and different models. The near-perfect rank ordering at $z > 7$ reflects that, in the $z > 7$ JADES spectroscopic sample, $\Gamma_t$ (which encodes gravitational potential depth) is essentially a perfect rank-predictor of UV brightness: the most massive, deepest-potential systems are systematically the brightest UV emitters. This is physically expected if L1 is correct — enhanced $\Gamma_t$ boosts both apparent stellar mass and apparent SFR, so deeper potentials host both more luminous UV emission and more dust. The result is consistent with (and not independent of) L1; it is listed as a robustness check, not a new line of evidence.</p>
-    <h3>B.2 DJA NIRSpec Merged v4.4 Cross-Survey Correlations</h3>
+    <p><strong>Note on the near-strong $z > 7$ correlation ($\rho = -0.998$, $N = 114$):</strong> A Spearman rank correlation approaching $-1.0$ may appear to indicate a coding error or a tautological relationship. Neither is the case here. $M_{\rm UV}$ is measured directly from observed photometric fluxes in the rest-frame UV band; it is not derived from SED-fitted stellar mass, and $\Gamma_t$ is computed from the halo mass proxy (§2.3.1). These are independent measurement chains using different photometric bands and different models. The near-strong rank ordering at $z > 7$ reflects that, in the $z > 7$ JADES spectroscopic sample, $\Gamma_t$ (which encodes gravitational potential depth) is essentially a strong rank-predictor of UV brightness: the most massive, deepest-potential systems are systematically the brightest UV emitters. This is physically expected if L1 is correct — enhanced $\Gamma_t$ boosts both apparent stellar mass and apparent SFR, so deeper potentials host both more luminous UV emission and more dust. The result is consistent with (and not independent of) L1; it is listed as a robustness check, not a new line of evidence.</p>
+    <h4>B.3.2 DJA NIRSpec Merged v4.4 Cross-Survey Correlations</h4>
+    <p>This table is retained as a supplementary external reference drawn from the DJA merged-catalog analysis used in earlier manuscript iterations. It is included for context and is not part of the primary evidence count.</p>
     <div class="data-table">
         <table>
-            <caption>Table B2: DJA NIRSpec Merged v4.4 — $\rho(\Gamma_t, \log M_*)$ across 50+ JWST programs (Brammer et al.; de Graaff et al. 2024)</caption>
+            <caption>Table B2: DJA NIRSpec Merged v4.4 — external cross-survey reference for $\rho(\Gamma_t, \log M_*)$ across 50+ JWST programs (Brammer et al.; de Graaff et al. 2024)</caption>
             <thead>
                 <tr><th>Sample</th><th>$N$</th><th>Spearman $\rho$</th><th>$p$-value</th><th>Result</th></tr>
             </thead>
@@ -438,9 +438,9 @@
             </tbody>
         </table>
     </div>
-    <p>Also: DJA spec-z × CEERS+UNCOVER SED cross-match ($N = 776$ at $z > 5$, $N = 142$ at $z > 7$): $\rho(\Gamma_t, E(B-V)) = -0.013$ ($p = 0.72$) at $z > 4$ (null) rising to $\rho = -0.357$ ($p = 1.3 \times 10^{-5}$) at $z > 7$ ($N = 142$), consistent with the UNCOVER photometric emergence (Table B3).</p>
+    <p>Also: the live DJA–CEERS spectroscopic crossmatch remains supportive but supplementary. In the current run it yields $\rho(\Gamma_t, E(B-V)) = +0.777$ for $N = 1{,}499$ dust-measured CEERS sources ($p &lt; 10^{-300}$), while $\Gamma_t$ and $\log M_*$ are themselves tightly coupled in the same sample ($\rho = +0.891$, $N = 10{,}483$). This branch is therefore treated as a field-level consistency check rather than as part of the primary evidence count.</p>
 
-    <h3>B.3 UNCOVER DR4 Full SPS (MegaScience, Prospector-β) — Redshift-Binned Dust and Spec-z</h3>
+    <h4>B.3.3 UNCOVER DR4 Full SPS (MegaScience, Prospector-β) — Redshift-Binned Dust and Spec-z</h4>
     <div class="data-table">
         <table>
             <caption>Table B3: UNCOVER DR4 Full SPS (Prospector-β, 20-band MegaScience) — Redshift-binned dust signal and spec-z confirmation (Wang et al. 2024; Suess et al. 2024; Price et al. 2025)</caption>
@@ -448,16 +448,16 @@
                 <tr><th>Sample / Observable</th><th>$N$</th><th>Spearman $\rho$</th><th>$p$-value</th><th>Interpretation</th></tr>
             </thead>
             <tbody>
-                <tr><td>Photometric: dust2, $z = 4$–$5$</td><td>1,283</td><td>$-0.019$</td><td>$0.32$</td><td><strong>Null</strong> — no signal below AGB threshold</td></tr>
-                <tr><td>Photometric: dust2, $z = 5$–$6$</td><td>1,261</td><td>$+0.041$</td><td>$0.09$</td><td>Marginal; consistent with null</td></tr>
-                <tr><td>Photometric: dust2, $z = 6$–$7$</td><td>325</td><td>$-0.053$</td><td>$0.35$</td><td>Null</td></tr>
-                <tr><td>Photometric: dust2, $z = 7$–$8$</td><td>129</td><td>$+0.373$</td><td>$1.4 \times 10^{-5}$</td><td>Signal emerges at $z > 7$</td></tr>
-                <tr><td>Photometric: dust2, $z = 8$–$9$</td><td>66</td><td>$+0.514$</td><td>$1.0 \times 10^{-5}$</td><td>Strong signal at $z > 8$</td></tr>
-                <tr><td>Photometric: dust2, $z > 7$ (combined)</td><td>860</td><td>$+0.155$</td><td>$4.6 \times 10^{-6}$</td><td>Significant; well-powered</td></tr>
-                <tr><td>Spec-z Prospector: dust2, $z > 2$ (qual$\ge 2$)</td><td>161</td><td>$+0.544$</td><td>$8.3 \times 10^{-14}$</td><td>Strong; spec-z precision eliminates photo-z scatter</td></tr>
-                <tr><td>Spec-z Prospector: dust2, $z > 4$</td><td>53</td><td>$+0.575$</td><td>$6.8 \times 10^{-6}$</td><td>Strong at high-$z$ with spec-z</td></tr>
-                <tr><td>Spec-z Prospector: dust2, $z > 5$</td><td>35</td><td>$+0.650$</td><td>$2.4 \times 10^{-5}$</td><td>Strong; Prospector dust2 at spec-z precision</td></tr>
-                <tr><td>Photometric: dust2, $z = 9$–$12$</td><td>122</td><td>$-0.009$</td><td>$0.92$</td><td><strong>Null at highest-$z$</strong> — open tension; flagged in §4.11</td></tr>
+                <tr><td>Photometric: dust2, $z = 4$–$5$</td><td>938</td><td>$+0.034$</td><td>$0.30$</td><td><strong>Null</strong> — no signal below AGB threshold</td></tr>
+                <tr><td>Photometric: dust2, $z = 5$–$6$</td><td>505</td><td>$+0.010$</td><td>$0.82$</td><td>Null</td></tr>
+                <tr><td>Photometric: dust2, $z = 6$–$7$</td><td>325</td><td>$-0.048$</td><td>$0.39$</td><td>Null</td></tr>
+                <tr><td>Photometric: dust2, $z = 7$–$8$</td><td>129</td><td>$+0.388$</td><td>$5.4 \times 10^{-6}$</td><td>Signal emerges at $z &gt; 7$</td></tr>
+                <tr><td>Photometric: dust2, $z = 8$–$9$</td><td>66</td><td>$+0.492$</td><td>$2.7 \times 10^{-5}$</td><td>Strong signal at $z &gt; 8$</td></tr>
+                <tr><td>Photometric: dust2, $z &gt; 7$ (combined)</td><td>860</td><td>$+0.130$</td><td>$1.3 \times 10^{-4}$</td><td>Significant but modest combined signal</td></tr>
+                <tr><td>Spec-z Prospector: dust2, $z &gt; 2$ (qual$\ge 2$)</td><td>161</td><td>$+0.473$</td><td>$2.4 \times 10^{-10}$</td><td>Strong; spec-z precision eliminates photo-z scatter</td></tr>
+                <tr><td>Spec-z Prospector: dust2, $z &gt; 4$</td><td>53</td><td>$+0.535$</td><td>$3.7 \times 10^{-5}$</td><td>Strong at high-$z$ with spec-z</td></tr>
+                <tr><td>Spec-z Prospector: dust2, $z &gt; 5$</td><td>35</td><td>$+0.628$</td><td>$5.4 \times 10^{-5}$</td><td>Strong but small-$N$</td></tr>
+                <tr><td>Photometric: dust2, $z = 9$–$12$</td><td>122</td><td>$-0.001$</td><td>$0.99$</td><td><strong>Null at highest-$z$</strong> — live audit indicates compressed dust posteriors and inflated redshift uncertainties rather than simple sample collapse</td></tr>
             </tbody>
         </table>
     </div>
@@ -470,54 +470,57 @@
                 <tr><th>Redshift bin</th><th>$N$</th><th>Spearman $\rho(\Gamma_t, E(B-V))$</th><th>$p$-value</th><th>Interpretation</th></tr>
             </thead>
             <tbody>
-                <tr><td>$z = 4$–$5$</td><td>23,474</td><td>$+0.305$</td><td>$&lt;10^{-300}$</td><td>Moderate signal; mass-dominated regime</td></tr>
-                <tr><td>$z = 5$–$6$</td><td>4,846</td><td>$+0.357$</td><td>$1.1 \times 10^{-145}$</td><td>Growing signal</td></tr>
-                <tr><td>$z = 6$–$7$</td><td>3,976</td><td>$+0.500$</td><td>$&lt;10^{-300}$</td><td>Strong signal</td></tr>
-                <tr><td>$z = 7$–$8$</td><td>3,544</td><td>$+0.594$</td><td>$&lt;10^{-300}$</td><td>Strong; well-powered</td></tr>
-                <tr><td>$z = 8$–$9$</td><td>992</td><td>$+0.732$</td><td>$1.7 \times 10^{-167}$</td><td>Strong</td></tr>
-                <tr><td>$z = 9$–$10$</td><td>767</td><td>$+0.615$</td><td>$5.9 \times 10^{-81}$</td><td>Strong at $z > 9$</td></tr>
-                <tr><td>$z = 10$–$13$</td><td>305</td><td>$+0.816$</td><td>$5.7 \times 10^{-74}$</td><td>Strongest signal at cosmic dawn</td></tr>
-                <tr><td>$z > 7$ (combined)</td><td>5,672</td><td>$+0.642$</td><td>$&lt;10^{-300}$</td><td>Strong; $N = 5{,}672$</td></tr>
-                <tr><td>$z > 8$ (combined)</td><td>2,128</td><td>$+0.706$</td><td>$&lt;10^{-300}$</td><td>Strong; $N = 2{,}128$</td></tr>
-                <tr><td>Partial $\rho$ ($z > 4$, controlling $M_*$, $z$)</td><td>37,965</td><td>$+0.376$</td><td>$&lt;10^{-300}$</td><td>Signal survives mass+redshift control</td></tr>
+                <tr><td>$z = 4$–$5$</td><td>31,573</td><td>$+0.356$</td><td>$&lt;10^{-300}$</td><td>Moderate signal; mass-dominated regime</td></tr>
+                <tr><td>$z = 5$–$6$</td><td>5,358</td><td>$+0.404$</td><td>$1.2 \times 10^{-209}$</td><td>Growing signal</td></tr>
+                <tr><td>$z = 6$–$7$</td><td>4,684</td><td>$+0.546$</td><td>$&lt;10^{-300}$</td><td>Strong signal</td></tr>
+                <tr><td>$z = 7$–$8$</td><td>4,590</td><td>$+0.596$</td><td>$&lt;10^{-300}$</td><td>Strong; well-powered</td></tr>
+                <tr><td>$z = 8$–$9$</td><td>1,121</td><td>$+0.744$</td><td>$3.4 \times 10^{-198}$</td><td>Strong</td></tr>
+                <tr><td>$z = 9$–$10$</td><td>959</td><td>$+0.597$</td><td>$1.8 \times 10^{-93}$</td><td>Strong at $z > 9$</td></tr>
+                <tr><td>$z = 10$–$13$</td><td>508</td><td>$+0.745$</td><td>$5.5 \times 10^{-91}$</td><td>Strongest signal at cosmic dawn</td></tr>
+                <tr><td>$z > 7$ (combined)</td><td>7,249</td><td>$+0.647$</td><td>$&lt;10^{-300}$</td><td>Strong; $N = 7{,}249$</td></tr>
+                <tr><td>$z > 8$ (combined)</td><td>2,659</td><td>$+0.718$</td><td>$&lt;10^{-300}$</td><td>Strong; $N = 2{,}659$</td></tr>
+                <tr><td>Partial $\rho$ ($z > 4$, controlling $M_*$, $z$)</td><td>48,861</td><td>$+0.201$</td><td>$&lt;10^{-300}$</td><td>Signal survives mass+redshift control but is weaker than the raw blank-field trend</td></tr>
             </tbody>
         </table>
     </div>
     <div class="data-table">
         <table>
-            <caption>Table B4b: COSMOS2025 sSFR inversion and GOODS-S morphology — Partial $\rho(\Gamma_t, \text{observable} \mid M_*, z)$ by redshift bin</caption>
+            <caption>Table B4b: COSMOS2025 blank-field follow-up and supplementary morphology checks</caption>
             <thead>
-                <tr><th>Observable / Field</th><th>Sample</th><th>$N$</th><th>Partial $\rho$</th><th>$p$ (partial)</th><th>Bootstrap 95% CI</th></tr>
+                <tr><th>Observable / Field</th><th>Sample</th><th>$N$</th><th>Statistic</th><th>$p$-value</th><th>Note</th></tr>
             </thead>
             <tbody>
-                <tr><td>log sSFR (COSMOS2025)</td><td>$z = 4$–$7$</td><td>42,948</td><td>$-0.010$</td><td>$0.036$</td><td>$[-0.022, 0.000]$</td></tr>
-                <tr><td>log sSFR (COSMOS2025)</td><td>$z = 7$–$8$</td><td>4,740</td><td>$+0.153$</td><td>$3.4 \times 10^{-26}$</td><td>$[+0.107, +0.251]$</td></tr>
-                <tr><td>log sSFR (COSMOS2025)</td><td>$z = 8$–$9$</td><td>1,156</td><td>$+0.181$</td><td>$5.3 \times 10^{-10}$</td><td>$[+0.059, +0.248]$</td></tr>
-                <tr><td>log sSFR (COSMOS2025)</td><td>$z = 9$–$13$</td><td>1,568</td><td>$\mathbf{+0.237}$</td><td>$2.2 \times 10^{-21}$</td><td>$[+0.180, +0.283]$</td></tr>
-                <tr><td colspan="6"><em>Steiger Z-test (z&gt;7 vs z=4–7): Z = 6.37, p = 1.9 × 10<sup>−10</sup></em></td></tr>
-                <tr><td>$E(B-V)$ dust (COSMOS2025)</td><td>$z = 9$–$13$</td><td>1,568</td><td>$\mathbf{+0.595}$</td><td>$1.6 \times 10^{-150}$</td><td>$[+0.532, +0.660]$</td></tr>
-                <tr><td>$A_V$ dust (GOODS-S/EAZY)</td><td>$z > 4$</td><td>1,946</td><td>$+0.243$</td><td>$1.3 \times 10^{-27}$</td><td>—</td></tr>
-                <tr><td>Sérsic index $n$ (GOODS-S)</td><td>$z = 7$–$9$</td><td>341</td><td>$-0.196$</td><td>$2.8 \times 10^{-4}$</td><td>$[-0.289, -0.120]$</td></tr>
-                <tr><td>Sérsic index $n$ (GOODS-S)</td><td>$z = 4$–$7$</td><td>—</td><td>$\approx 0$</td><td>$> 0.19$</td><td>Null; consistent with TEP activation</td></tr>
+                <tr><td>log sSFR (COSMOS2025)</td><td>$z = 4$–$7$</td><td>42,361</td><td>partial $\rho = +0.040$</td><td>$8.5 \times 10^{-17}$</td><td>95% CI $[+0.033, +0.048]$</td></tr>
+                <tr><td>log sSFR (COSMOS2025)</td><td>$z = 7$–$8$</td><td>4,590</td><td>partial $\rho = -0.042$</td><td>$4.3 \times 10^{-3}$</td><td>95% CI $[-0.071, -0.015]$</td></tr>
+                <tr><td>log sSFR (COSMOS2025)</td><td>$z = 8$–$9$</td><td>1,121</td><td>partial $\rho = +0.067$</td><td>$2.4 \times 10^{-2}$</td><td>95% CI $[+0.012, +0.118]$; weighted debiased $\rho = +0.074$ ($p = 3.2 \times 10^{-2}$)</td></tr>
+                <tr><td>log sSFR (COSMOS2025)</td><td>$z = 9$–$13$</td><td>1,467</td><td>partial $\rho = -0.106$</td><td>$4.5 \times 10^{-5}$</td><td>95% CI $[-0.160, -0.054]$; weighted debiased $\rho = -0.165$ ($p = 1.6 \times 10^{-7}$)</td></tr>
+                <tr><td colspan="6"><em>Steiger Z-test (z&gt;9–13 vs z=4–7): Z = -5.54, p = 3.1 × 10<sup>−8</sup>. The matched blank-field bin at $z = 8$–9 is supportive after weighting, whereas the broader ultrahigh-$z$ $z = 9$–13 branch is negative. This blank-field sSFR analysis is therefore treated as an auxiliary diagnostic rather than an independent L3 replication.</em></td></tr>
+                <tr><td>$E(B-V)$ dust (COSMOS2025)</td><td>$z = 9$–$13$</td><td>1,467</td><td>partial $\rho = +0.074$</td><td>$4.3 \times 10^{-3}$</td><td>95% CI $[+0.019, +0.117]$</td></tr>
+                <tr><td>$r_{\rm half,F277W}$ (JADES DR5 direct-mass morphology)</td><td>$z &gt; 7$</td><td>384</td><td>partial $\rho = -0.256$</td><td>$3.7 \times 10^{-7}$</td><td>Preferred direct-mass sample; controlled for direct $\log M_*$ and redshift</td></tr>
+                <tr><td>$r_{\rm half,F444W}$ (JADES DR5 direct-mass morphology)</td><td>$z &gt; 7$</td><td>384</td><td>partial $\rho = -0.256$</td><td>$3.7 \times 10^{-7}$</td><td>Independent size proxy in the same preferred direct-mass sample</td></tr>
+                <tr><td>Gini (JADES DR5 direct-mass morphology)</td><td>$z &gt; 7$</td><td>384</td><td>partial $\rho = +0.361$</td><td>$2.9 \times 10^{-13}$</td><td>Higher central concentration at larger $\Gamma_t$ in the preferred direct-mass sample</td></tr>
+                <tr><td>$\sigma_\star$ (JADES DR5 direct-mass morphology)</td><td>$z &gt; 7$</td><td>384</td><td>partial $\rho = +0.624$</td><td>$7.0 \times 10^{-43}$</td><td>Strongest controlled structural support in the preferred direct-mass sample</td></tr>
+                <tr><td>FWHM (GOODS-S crossmatch)</td><td>$z &gt; 4$</td><td>588</td><td>raw $\rho = -0.176$</td><td>$1.7 \times 10^{-5}$</td><td>Smaller apparent sizes at higher $\Gamma_t$</td></tr>
+                <tr><td>$R_{\rm KRON}$ (GOODS-S crossmatch)</td><td>$z &gt; 4$</td><td>588</td><td>raw $\rho = -0.159$</td><td>$1.0 \times 10^{-4}$</td><td>Consistent size-type trend in supplementary GOODS-S branch</td></tr>
             </tbody>
         </table>
     </div>
 
     <h3>B.5 DJA NIRSpec H$\alpha$/H$\beta$ Balmer Decrement</h3>
+    <p>This table reports the current DJA v4.4 Balmer-decrement branch. It is retained as a supplementary spectroscopic check and is not part of the primary evidence count because the overall mass+redshift-controlled partial is null in the current run.</p>
     <div class="data-table">
         <table>
-            <caption>Table B5: DJA NIRSpec H$\alpha$/H$\beta$ Balmer decrement — spectroscopic dust vs $\Gamma_t$ (de Graaff et al. 2024; msaexp pipeline)</caption>
+            <caption>Table B5: DJA NIRSpec H$\alpha$/H$\beta$ Balmer decrement — live supplementary spectroscopic branch (DJA v4.4)</caption>
             <thead>
                 <tr><th>Sample</th><th>$N$</th><th>Raw $\rho$</th><th>Partial $\rho$ ($\mid M_*, z$)</th><th>$p$ (partial)</th><th>Bootstrap 95% CI</th><th>Median H$\alpha$/H$\beta$</th></tr>
             </thead>
             <tbody>
-                <tr><td>$z = 2$–$4$</td><td>1,606</td><td>$+0.570$</td><td>$\mathbf{+0.252}$</td><td>$1.2 \times 10^{-24}$</td><td>$[+0.206, +0.302]$</td><td>3.15</td></tr>
-                <tr><td>$z = 4$–$5$</td><td>342</td><td>$+0.348$</td><td>$+0.204$</td><td>$1.5 \times 10^{-4}$</td><td>$[+0.091, +0.304]$</td><td>2.91</td></tr>
-                <tr><td>$z = 5$–$6$</td><td>649</td><td>$+0.382$</td><td>$+0.140$</td><td>$3.6 \times 10^{-4}$</td><td>$[+0.064, +0.226]$</td><td>2.82</td></tr>
-                <tr><td>$z = 6$–$7$</td><td>266</td><td>$+0.310$</td><td>$+0.156$</td><td>$0.011$</td><td>$[+0.044, +0.290]$</td><td>2.90</td></tr>
-                <tr><td>$z > 2$ (all)</td><td>2,925</td><td>$+0.485$</td><td>$\mathbf{+0.243}$</td><td>$1.6 \times 10^{-40}$</td><td>$[+0.205, +0.280]$</td><td>3.04</td></tr>
-                <tr><td>$z > 4$</td><td>1,319</td><td>$+0.318$</td><td>$+0.162$</td><td>$3.5 \times 10^{-9}$</td><td>$[+0.111, +0.214]$</td><td>2.86</td></tr>
-                <tr><td>$z > 6$ (with [NII] contamination)</td><td>328</td><td>—</td><td>$+0.124$</td><td>$0.024$</td><td>—</td><td>Interpret cautiously</td></tr>
+                <tr><td>$z = 2$–$4$</td><td>1,603</td><td>$+0.556$</td><td>$+0.073$</td><td>$3.6 \times 10^{-3}$</td><td>$[+0.514, +0.591]$</td><td>3.52</td></tr>
+                <tr><td>$z = 4$–$5$</td><td>712</td><td>$+0.453$</td><td>$+0.027$</td><td>$0.48$</td><td>$[+0.400, +0.519]$</td><td>3.08</td></tr>
+                <tr><td>$z = 5$–$6$</td><td>584</td><td>$+0.380$</td><td>$-0.015$</td><td>$0.72$</td><td>$[+0.289, +0.455]$</td><td>3.03</td></tr>
+                <tr><td>$z = 6$–$7$</td><td>286</td><td>$+0.440$</td><td>$+0.010$</td><td>$0.87$</td><td>$[+0.338, +0.545]$</td><td>3.27</td></tr>
+                <tr><td>$z &gt; 2$ (all)</td><td>3,259</td><td>$+0.493$</td><td>$-0.002$</td><td>$0.92$</td><td>—</td><td>—</td></tr>
+                <tr><td colspan="7"><em>Overall live result: the raw Balmer decrement correlates positively with $\Gamma_t$, but the mass+redshift-controlled partial is null for the full $z &gt; 2$ sample, so this branch is retained as supplementary rather than primary evidence.</em></td></tr>
             </tbody>
         </table>
     </div>

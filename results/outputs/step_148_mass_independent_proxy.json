@@ -1,0 +1,173 @@
+{
+  "step": "Step 148: Mass-Independent Potential-Depth Proxy Tests",
+  "description": "Five tests of whether the TEP dust signal persists when using proxies for potential depth that are partially independent of stellar mass. Each test computes partial correlations controlling for M* and z.",
+  "N_total": 2315,
+  "tests": {
+    "full_z4_10": {
+      "N": 2315,
+      "test1_sfr_surface_density": {
+        "description": "SFR/(M*^(2/3)) as potential-depth proxy",
+        "rho_raw": -0.09398225407631225,
+        "p_raw": 5.9126218570581724e-06,
+        "rho_partial_Mz": -0.2612932396828817,
+        "p_partial_Mz": 1.913767925656154e-37,
+        "N_partial": 2315,
+        "rho_surface_density_gamma_t_partial": 0.00729225368724138,
+        "p_surface_density_gamma_t_partial": 0.7258299942633663,
+        "N_partial_gamma_t": 2315,
+        "rho_partial_Mz_Gt": -0.261386368111235,
+        "p_partial_Mz_Gt": 1.8009264688415358e-37,
+        "N_partial_Gt": 2315,
+        "mass_independent_signal": true,
+        "dust_significant": true,
+        "gamma_linked_signal": false,
+        "joint_supportive_signal": false,
+        "survives_gamma_t_control": true
+      },
+      "test2_ssfr_residual": {
+        "description": "sSFR residual after removing mass+z trend \u2192 dust",
+        "rho_ssfr_resid_dust": -0.091712758814065,
+        "p_ssfr_resid_dust": 9.886440686308234e-06,
+        "N": 2315,
+        "rho_ssfr_resid_gamma_t": -0.0321344289008619,
+        "p_ssfr_resid_gamma_t": 0.1221783937819015,
+        "dust_significant": true,
+        "gamma_linked_signal": false,
+        "joint_supportive_signal": false,
+        "interpretation": "If sSFR residual (mass-independent) predicts dust, this supports an effect beyond mass scaling."
+      },
+      "test3_chi2_proxy": {
+        "description": "SED chi\u00b2 as TEP distortion proxy \u2192 dust",
+        "rho_chi2_dust_partial": -0.2605875684295841,
+        "p_chi2_dust_partial": 3.030645989231747e-37,
+        "N": 2315,
+        "rho_chi2_gamma_t_partial": 0.10451637777144099,
+        "p_chi2_gamma_t_partial": 4.659218744204497e-07,
+        "dust_significant": true,
+        "gamma_linked_signal": true,
+        "joint_supportive_signal": false,
+        "interpretation": "Higher chi\u00b2 indicates poorer SED fit. Under TEP, high-Gamma_t galaxies have distorted SEDs. If chi\u00b2 predicts dust at fixed M* and z, it supports the isochrony-bias interpretation."
+      },
+      "test4_photoz_uncertainty": {
+        "description": "Photo-z uncertainty (z_84-z_16) as SED-shape proxy \u2192 dust",
+        "rho_zunc_dust_partial": 0.5181134071600948,
+        "p_zunc_dust_partial": 3.227807640170544e-159,
+        "N": 2315,
+        "rho_zunc_gamma_t_partial": -0.08572946947184586,
+        "p_zunc_gamma_t_partial": 3.6244209684997685e-05,
+        "dust_significant": true,
+        "gamma_linked_signal": true,
+        "joint_supportive_signal": false,
+        "interpretation": "Photo-z uncertainty depends on SED shape, not mass directly. If it predicts dust at fixed M* and z, this is a mass-independent signal consistent with TEP-distorted SEDs."
+      },
+      "test5_age_residual": {
+        "description": "Age-ratio residual (after M*+z control) \u2192 dust",
+        "rho_age_resid_dust": 0.11671898702951705,
+        "p_age_resid_dust": 1.7803267428221947e-08,
+        "N": 2315,
+        "rho_age_resid_gamma_t": -0.017726465018118143,
+        "p_age_resid_gamma_t": 0.39393364572152456,
+        "dust_significant": true,
+        "gamma_linked_signal": false,
+        "joint_supportive_signal": false,
+        "interpretation": "If the mass-independent component of age ratio predicts dust, this supports a time-dependent mechanism (TEP) rather than a pure mass proxy."
+      },
+      "summary": {
+        "tests_significant_at_005": 5,
+        "tests_with_dust_association": 5,
+        "tests_with_gamma_link": 2,
+        "tests_jointly_supportive": 0,
+        "tests_total": 5,
+        "fraction_significant": 1.0,
+        "assessment": "5/5 indirect proxies significantly predict dust at fixed M* and z in the full_z4_10 sample; 2/5 also track \u0393t directly; 0/5 satisfy both conditions with a consistent depth ordering."
+      }
+    },
+    "z_gt_8": {
+      "N": 283,
+      "test1_sfr_surface_density": {
+        "description": "SFR/(M*^(2/3)) as potential-depth proxy",
+        "rho_raw": -0.16553610816088168,
+        "p_raw": 0.0052430524086319865,
+        "rho_partial_Mz": -0.5682193922688372,
+        "p_partial_Mz": 1.3447811843708608e-25,
+        "N_partial": 283,
+        "rho_surface_density_gamma_t_partial": -0.28693885536959984,
+        "p_surface_density_gamma_t_partial": 9.139481597254741e-07,
+        "N_partial_gamma_t": 283,
+        "rho_partial_Mz_Gt": -0.5333542791057015,
+        "p_partial_Mz_Gt": 3.3257742010191526e-22,
+        "N_partial_Gt": 283,
+        "mass_independent_signal": true,
+        "dust_significant": true,
+        "gamma_linked_signal": true,
+        "joint_supportive_signal": true,
+        "survives_gamma_t_control": true
+      },
+      "test2_ssfr_residual": {
+        "description": "sSFR residual after removing mass+z trend \u2192 dust",
+        "rho_ssfr_resid_dust": -0.21122736721055602,
+        "p_ssfr_resid_dust": 0.000346071200146232,
+        "N": 283,
+        "rho_ssfr_resid_gamma_t": -0.016479222678375344,
+        "p_ssfr_resid_gamma_t": 0.7825363927092386,
+        "dust_significant": true,
+        "gamma_linked_signal": false,
+        "joint_supportive_signal": false,
+        "interpretation": "If sSFR residual (mass-independent) predicts dust, this supports an effect beyond mass scaling."
+      },
+      "test3_chi2_proxy": {
+        "description": "SED chi\u00b2 as TEP distortion proxy \u2192 dust",
+        "rho_chi2_dust_partial": 0.1214049628507769,
+        "p_chi2_dust_partial": 0.04126442531679561,
+        "N": 283,
+        "rho_chi2_gamma_t_partial": 0.0177324728456722,
+        "p_chi2_gamma_t_partial": 0.7664593110298362,
+        "dust_significant": true,
+        "gamma_linked_signal": false,
+        "joint_supportive_signal": false,
+        "interpretation": "Higher chi\u00b2 indicates poorer SED fit. Under TEP, high-Gamma_t galaxies have distorted SEDs. If chi\u00b2 predicts dust at fixed M* and z, it supports the isochrony-bias interpretation."
+      },
+      "test4_photoz_uncertainty": {
+        "description": "Photo-z uncertainty (z_84-z_16) as SED-shape proxy \u2192 dust",
+        "rho_zunc_dust_partial": 0.004131120209045477,
+        "p_zunc_dust_partial": 0.944839253671887,
+        "N": 283,
+        "rho_zunc_gamma_t_partial": -0.09343210359941637,
+        "p_zunc_gamma_t_partial": 0.11682351012120565,
+        "dust_significant": false,
+        "gamma_linked_signal": false,
+        "joint_supportive_signal": false,
+        "interpretation": "Photo-z uncertainty depends on SED shape, not mass directly. If it predicts dust at fixed M* and z, this is a mass-independent signal consistent with TEP-distorted SEDs."
+      },
+      "test5_age_residual": {
+        "description": "Age-ratio residual (after M*+z control) \u2192 dust",
+        "rho_age_resid_dust": 0.1906973001076907,
+        "p_age_resid_dust": 0.0012665288251081795,
+        "N": 283,
+        "rho_age_resid_gamma_t": 0.009016054071969596,
+        "p_age_resid_gamma_t": 0.8799715559677218,
+        "dust_significant": true,
+        "gamma_linked_signal": false,
+        "joint_supportive_signal": false,
+        "interpretation": "If the mass-independent component of age ratio predicts dust, this supports a time-dependent mechanism (TEP) rather than a pure mass proxy."
+      },
+      "summary": {
+        "tests_significant_at_005": 4,
+        "tests_with_dust_association": 4,
+        "tests_with_gamma_link": 1,
+        "tests_jointly_supportive": 1,
+        "tests_total": 5,
+        "fraction_significant": 0.8,
+        "assessment": "4/5 indirect proxies significantly predict dust at fixed M* and z in the z_gt_8 sample; 1/5 also track \u0393t directly; 1/5 satisfy both conditions with a consistent depth ordering."
+      }
+    }
+  },
+  "headline": {
+    "z_gt_8_tests_passing": 1,
+    "z_gt_8_tests_total": 5,
+    "z_gt_8_tests_with_dust_association": 4,
+    "z_gt_8_tests_with_gamma_link": 1,
+    "conclusion": "At z>8, 4/5 indirect proxies associate with dust after mass+z control, but only 1/5 also track \u0393t directly and 1/5 satisfy both criteria with a consistent depth ordering. The proxy suite therefore narrows \u2014 but does not close \u2014 the mass-proxy degeneracy.",
+    "honest_caveat": "All five proxies are INDIRECT measures of potential depth. They are partially correlated with mass through astrophysical channels unrelated to TEP. A definitive test requires a mass-independent dynamical measurement of potential depth, such as NIRSpec IFU velocity dispersions for z>8 galaxies. This test is proposed as a Cycle 4 JWST program."
+  }
+}

@@ -1,0 +1,16 @@
+[01:33:52]     Loading Data...
+[01:33:52]     Loading JADES_z_gt_8_Candidates_Hainline_et_al.fits...
+[01:33:52]     Loaded 94000 rows from JADES_z_gt_8_Candidates_Hainline_et_al.fits [CIRC_CONV]
+[01:33:52]     Matching catalogs by JADES ID...
+[01:33:52]     Matched 527 sources.
+[01:33:52]     Sources with valid fluxes: 328
+[01:33:52]     Saved resolved gradients to /Users/matthewsmawfield/www/TEP-JWST/data/interim/jades_resolved_gradients.csv
+[01:33:52]     
+--- Gradient Correlations ---
+[01:33:52]     N = 277 (final sample z>4)
+[01:33:52]     rho(Mass, Gradient) = -0.166, p = 5.73e-03
+[01:33:52]     rho(z, Gradient) = +0.186, p = 1.84e-03
+[01:33:52]     rho(Mass, Compactness) = -0.099, p = 1.01e-01
+[01:33:52]     Mass 7-8.5: N=228, <Grad>=+0.201 +/- 0.043
+[01:33:52]     Mass 8.5-9.5: N=9, <Grad>=+0.107 +/- 0.072
+[01:33:52]     Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_037_resolved_gradients.json

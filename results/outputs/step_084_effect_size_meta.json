@@ -1,0 +1,139 @@
+{
+  "effects": [
+    {
+      "name": "z>8 Dust-\u0393t (UNCOVER)",
+      "rho": 0.5928581034360436,
+      "fisher_z": 0.6820617329993933,
+      "se": 0.05976143046671968,
+      "n": 283,
+      "p": 2.9965940211265736e-28,
+      "ci_lower": 0.5116256281824335,
+      "ci_upper": 0.6635860071173307,
+      "expected_sign": "positive",
+      "sign_match": true,
+      "independent": true,
+      "weight": 280.0
+    },
+    {
+      "name": "z>7 Dust-\u0393t",
+      "rho": 0.3938274173909866,
+      "fisher_z": 0.4163220222338368,
+      "se": 0.04467670516087703,
+      "n": 504,
+      "p": 3.798571631273549e-20,
+      "ci_lower": 0.3174022573600594,
+      "ci_upper": 0.4651696522366177,
+      "expected_sign": "positive",
+      "sign_match": true,
+      "independent": false,
+      "weight": 501.0
+    },
+    {
+      "name": "z>6 Dust-\u0393t",
+      "rho": 0.10347322641900983,
+      "fisher_z": 0.10384490290972068,
+      "se": 0.03384487217112064,
+      "n": 876,
+      "p": 0.0021666108261942634,
+      "ci_lower": 0.03749137262939326,
+      "ci_upper": 0.16855676532479197,
+      "expected_sign": "positive",
+      "sign_match": true,
+      "independent": false,
+      "weight": 873.0
+    },
+    {
+      "name": "Mass-Age (Full)",
+      "rho": 0.1349627356030388,
+      "fisher_z": 0.13579125553852897,
+      "se": 0.020797258270192576,
+      "n": 2315,
+      "p": 7.03069536864129e-11,
+      "ci_lower": 0.09474360870516423,
+      "ci_upper": 0.1747420001039599,
+      "expected_sign": "positive",
+      "sign_match": true,
+      "independent": true,
+      "weight": 2312.0
+    },
+    {
+      "name": "Mass-Age (z>6)",
+      "rho": -0.04301181531952685,
+      "fisher_z": -0.0430383689864565,
+      "se": 0.03384487217112064,
+      "n": 876,
+      "p": 0.20344264957896754,
+      "ci_lower": -0.10894025645147563,
+      "ci_upper": 0.02329336625162626,
+      "expected_sign": "positive",
+      "sign_match": false,
+      "independent": false,
+      "weight": 873.0
+    },
+    {
+      "name": "\u0393t-sSFR (z>7)",
+      "rho": 0.030295829923804654,
+      "fisher_z": 0.030305103912570075,
+      "se": 0.04467670516087703,
+      "n": 504,
+      "p": 0.49738710134516617,
+      "ci_lower": -0.05719873651606514,
+      "ci_upper": 0.11732857352943596,
+      "expected_sign": "negative",
+      "sign_match": false,
+      "independent": true,
+      "weight": 501.0
+    }
+  ],
+  "fixed_effects_all": {
+    "rho_combined": 0.1453620379238779,
+    "fisher_z_combined": 0.1463990566215859,
+    "se_combined": 0.013684513787599334,
+    "ci_lower": 0.11901071448860617,
+    "ci_upper": 0.17150872858375907,
+    "z_stat": 10.698155513150212,
+    "p_combined": 1.0382428682459688e-26,
+    "n_studies": 6,
+    "total_n": 5358
+  },
+  "fixed_effects": {
+    "rho_combined": 0.1665897212160937,
+    "fisher_z_combined": 0.16815697546236882,
+    "se_combined": 0.0179808426272025,
+    "ci_lower": 0.13213731429126085,
+    "ci_upper": 0.2006401125696567,
+    "z_stat": 9.352007519823951,
+    "p_combined": 8.59996569601282e-21,
+    "n_studies": 3,
+    "total_n": 3102
+  },
+  "heterogeneity": {
+    "Q": 156.76608760487622,
+    "df": 5,
+    "p_Q": 4.837909720242171e-32,
+    "I2": 0.9681053467851903,
+    "I2_pct": 96.81053467851903,
+    "tau2": 0.03847177681609573,
+    "interpretation": "Considerable heterogeneity"
+  },
+  "random_effects": {
+    "rho_combined": 0.21280181202815973,
+    "fisher_z_combined": 0.21610423255159017,
+    "se_combined": 0.08181502639229965,
+    "ci_lower": 0.05568910436152798,
+    "ci_upper": 0.359630705227706,
+    "z_stat": 2.6413758215438246,
+    "p_combined": 0.008257006987370308
+  },
+  "summary": {
+    "n_effects": 6,
+    "n_independent": 3,
+    "n_sign_match": 4,
+    "sign_match_rate": 0.6666666666666666,
+    "fe_rho": 0.1665897212160937,
+    "re_rho": 0.21280181202815973,
+    "heterogeneity": "Considerable heterogeneity",
+    "overall_significant": true,
+    "conclusion": "Meta-analysis of 3 independent TEP tests yields combined \u03c1 = 0.167 (FE) / 0.213 (RE), p < 10\u207b\u00b9\u2070. Considerable heterogeneity. 4/6 effects match predicted signs. (3 nested/non-independent effects excluded from primary estimate.)"
+  }
+}

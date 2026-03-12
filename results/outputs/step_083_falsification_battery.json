@@ -1,0 +1,155 @@
+{
+  "tests": [
+    {
+      "test_name": "Sign Consistency",
+      "predictions": {
+        "gamma_t-dust": {
+          "expected": "positive",
+          "observed": "positive",
+          "rho": 0.5928581034360436,
+          "p": 2.9965940211265736e-28,
+          "passed": true
+        },
+        "log_Mstar-mwa": {
+          "expected": "positive",
+          "observed": "positive",
+          "rho": 0.1349627356030388,
+          "p": 7.03069536864129e-11,
+          "passed": true
+        }
+      },
+      "passed": true
+    },
+    {
+      "test_name": "Magnitude Scaling",
+      "bins": [
+        {
+          "bin": "Q1",
+          "gamma_range": 0.08655161827111581,
+          "n": 71,
+          "rho": 0.4191817572099262,
+          "p": 0.00027423723112139886
+        },
+        {
+          "bin": "Q2",
+          "gamma_range": 0.1088278211963209,
+          "n": 70,
+          "rho": 0.2470300061236987,
+          "p": 0.039240374196728184
+        },
+        {
+          "bin": "Q3",
+          "gamma_range": 0.18979228897621153,
+          "n": 71,
+          "rho": 0.1879610999329309,
+          "p": 0.11648435720155312
+        },
+        {
+          "bin": "Q4",
+          "gamma_range": 134.65760354888235,
+          "n": 70,
+          "rho": 0.5768699151430321,
+          "p": 1.7238841642189713e-07
+        }
+      ],
+      "passed": "True",
+      "high_gamma_positive": "True"
+    },
+    {
+      "test_name": "Redshift Evolution",
+      "z_bins": [
+        {
+          "z_range": "4-5",
+          "n": 942,
+          "rho": 0.026652941800485778,
+          "p": 0.41387609773718426
+        },
+        {
+          "z_range": "5-6",
+          "n": 497,
+          "rho": -0.061447874968426956,
+          "p": 0.1713961848513243
+        },
+        {
+          "z_range": "6-7",
+          "n": 372,
+          "rho": -0.10744513881879486,
+          "p": 0.03832588515705622
+        },
+        {
+          "z_range": "7-8",
+          "n": 221,
+          "rho": 0.07474846298375708,
+          "p": 0.2685262293679773
+        },
+        {
+          "z_range": "8-10",
+          "n": 283,
+          "rho": 0.5928581034360436,
+          "p": 2.9965940211265736e-28
+        }
+      ],
+      "passed": "True",
+      "z_trend": 0.6
+    },
+    {
+      "test_name": "Mass Independence",
+      "mass_bins": [
+        {
+          "mass_range": "7.5-8.5",
+          "n": 180,
+          "rho": 0.36883648672284125,
+          "p": 3.491651757456966e-07,
+          "significant": true
+        },
+        {
+          "mass_range": "8.5-9.5",
+          "n": 87,
+          "rho": 0.3657687541007509,
+          "p": 0.0004942286125780087,
+          "significant": true
+        }
+      ],
+      "passed": true,
+      "n_significant_bins": 2
+    },
+    {
+      "test_name": "Null Regions",
+      "regions": [
+        {
+          "region": "z > 8 (signal expected)",
+          "n": 283,
+          "rho": 0.5928581034360436,
+          "p": 2.9965940211265736e-28,
+          "expected": "strong (\u03c1 > 0.3, p < 0.001)",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "test_name": "Internal Consistency",
+      "correlations": [
+        {
+          "pair": "Dust-\u0393t",
+          "rho": 0.5928581034360436,
+          "p": 2.9965940211265736e-28
+        },
+        {
+          "pair": "Age-\u0393t",
+          "rho": -0.0029585830145144225,
+          "p": 0.9604802800188397
+        }
+      ],
+      "passed": "True",
+      "dust_gamma_positive": "True"
+    }
+  ],
+  "summary": {
+    "tests_passed": 6,
+    "tests_total": 6,
+    "pass_rate": 1.0,
+    "all_passed": true,
+    "verdict": "TEP SUPPORTED"
+  }
+}

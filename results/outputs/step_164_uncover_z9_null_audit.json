@@ -1,0 +1,95 @@
+{
+  "step": "164",
+  "name": "uncover_z9_null_audit",
+  "status": "SUCCESS",
+  "description": "UNCOVER DR4 audit of the z=9-12 dust-Gamma_t null branch",
+  "photoz_source": "/Users/matthewsmawfield/www/TEP-JWST/results/interim/step_152_uncover_dr4_full_sps.csv",
+  "zspec_context": {
+    "n_total": 203,
+    "n_z_gt_4": 53,
+    "n_z_gt_5": 35,
+    "n_z_gt_7": 12
+  },
+  "bin_summaries": [
+    {
+      "label": "z=7-8",
+      "z_lo": 7.0,
+      "z_hi": 8.0,
+      "n": 129,
+      "rho": 0.38833296064400724,
+      "p": 5.429689009916603e-06,
+      "dust2_median": 0.3643601972455375,
+      "dust2_iqr": 0.8059915881368622,
+      "dust2_p90_minus_p10": 1.3853431441888602,
+      "median_sigma_dust2": 0.2579564956161742,
+      "median_sigma_log_mstar": 0.33631134496288784,
+      "median_sigma_z_rel": 0.09195685327226501,
+      "fraction_t_eff_gt_0p3": 0.9069767441860465,
+      "median_gamma_t": 0.6739806565950097,
+      "median_log_mstar": 8.344976302773542,
+      "high_quality_subset": {
+        "n": 65,
+        "rho": 0.45734265734265733,
+        "p": 0.00012812493201706405
+      }
+    },
+    {
+      "label": "z=8-9",
+      "z_lo": 8.0,
+      "z_hi": 9.0,
+      "n": 66,
+      "rho": 0.4923285669554327,
+      "p": 2.6828226805063528e-05,
+      "dust2_median": 0.6032710990087103,
+      "dust2_iqr": 0.8027693584502777,
+      "dust2_p90_minus_p10": 1.3406625230070042,
+      "median_sigma_dust2": 0.373605698739219,
+      "median_sigma_log_mstar": 0.3235522716959045,
+      "median_sigma_z_rel": 0.10118751752899348,
+      "fraction_t_eff_gt_0p3": 0.7575757575757576,
+      "median_gamma_t": 0.6081984374924332,
+      "median_log_mstar": 8.250433422695485,
+      "high_quality_subset": {
+        "n": 33,
+        "rho": 0.25902406417112306,
+        "p": 0.14550827325162385
+      }
+    },
+    {
+      "label": "z=9-12",
+      "z_lo": 9.0,
+      "z_hi": 12.0,
+      "n": 122,
+      "rho": -0.0013449165788230162,
+      "p": 0.9882697893013033,
+      "dust2_median": 0.4222775622769763,
+      "dust2_iqr": 0.6113102254913165,
+      "dust2_p90_minus_p10": 0.8811136024788513,
+      "median_sigma_dust2": 0.49281593790919365,
+      "median_sigma_log_mstar": 0.5098371685928993,
+      "median_sigma_z_rel": 0.4014481961675893,
+      "fraction_t_eff_gt_0p3": 0.5409836065573771,
+      "median_gamma_t": 0.7104946584312055,
+      "median_log_mstar": 8.269772531762378,
+      "high_quality_subset": {
+        "n": 61,
+        "rho": 0.12845055526176624,
+        "p": 0.32385307003068164
+      }
+    }
+  ],
+  "diagnosis": {
+    "status": "success",
+    "n_ratio_z9_12_vs_z8_9": 1.8484848484848484,
+    "dust_dynamic_range_ratio_z9_12_vs_z8_9": 0.6572225204763541,
+    "dust_uncertainty_ratio_z9_12_vs_z8_9": 1.3190803554984978,
+    "z_uncertainty_ratio_z9_12_vs_z8_9": 3.9673687621851332,
+    "flags": {
+      "sample_size_collapse": false,
+      "dust_posterior_compression": true,
+      "uncertainty_inflation": true,
+      "high_quality_subset_recovers_signal": false
+    },
+    "assessment": "The z=9-12 null is likely sensitivity-limited: the tail sample is smaller and/or the dust posteriors are more compressed or uncertain than in z=8-9."
+  }
+}

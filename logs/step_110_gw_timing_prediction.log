@@ -1,0 +1,43 @@
+[19:44:41]     ======================================================================
+[19:44:41]     STEP 110: Gravitational Wave Timing Prediction
+[19:44:41]     ======================================================================
+[19:44:41]     
+--- EMRI Timing Predictions for LISA ---
+[19:44:41]       SMBH mass: 1e+06 M☉
+[19:44:41]       ISCO radius: 8.90e+09 m (3.0 r_s)
+[19:44:41]       Screening radius: 4.45e+09 m
+[19:44:41]       Screened at ISCO: False
+[19:44:41]       Γₜ at 100 r_s: 1.0029
+[19:44:41]       Phase shift: 91.48 cycles/year
+[19:44:41]       LISA detectable: True
+[19:44:41]     
+--- Binary Pulsar Timing Predictions ---
+[19:44:41]       NS mass: 1.4 M☉
+[19:44:41]       NS interior screened: True (ρ >> ρ_c)
+[19:44:41]       Γₜ (GC environment): 1.000000
+[19:44:41]       ΔṖ/Ṗ: 0.0000%
+[19:44:41]       Compatible with Hulse-Taylor: True
+[19:44:41]     
+--- Compact Binary Merger Rate Predictions ---
+[19:44:41]       Local BNS rate: 320 Gpc⁻³ yr⁻¹
+[19:44:41]       Local BBH rate: 24 Gpc⁻³ yr⁻¹
+[19:44:41]       TEP enhancement at z=8 (Γₜ=2): 2.0×
+[19:44:41]       TEP enhancement at z=1.5 (Γₜ=1.2): 1.2×
+[19:44:41]     
+======================================================================
+[19:44:41]     SUMMARY
+[19:44:41]     ======================================================================
+[19:44:41]     
+Key predictions:
+[19:44:41]       1. EMRI: TEP screened at ISCO; marginal signal during inspiral
+[19:44:41]       2. Binary pulsars: Compatible with Hulse-Taylor (< 0.2% deviation)
+[19:44:41]       3. Merger rates: Enhanced in high-Γₜ environments at high z
+[19:44:41]     
+Falsification criteria:
+[19:44:41]       - LISA detects EMRI phase evolution inconsistent with TEP screening
+[19:44:41]       - Binary pulsar timing shows > 0.2% deviation from GR
+[19:44:41]       - No merger rate enhancement in massive high-z hosts
+[19:44:41]     
+Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_110_gw_timing_prediction.json
+[19:44:41]     
+Step 110 complete.

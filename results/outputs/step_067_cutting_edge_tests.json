@@ -1,0 +1,27 @@
+{
+  "n_total": 2315,
+  "cutting_edge": {
+    "overmassive_bh": {
+      "rho": -0.711461734074572,
+      "ratio": 0.0761234171161495
+    },
+    "disk_morphology": {
+      "mean_gamma_disk": 2.5387061180033017,
+      "mean_gamma_irregular": 1.2978024165672182
+    },
+    "photon_budget": {
+      "mean_ratio": 1.7568440470393636
+    },
+    "nitrogen_enrichment": {
+      "rho_cosmic": -0.0532311083991103,
+      "rho_teff": 0.12773233301745401,
+      "improvement": 0.1809634414165643
+    },
+    "proto_gc": {
+      "n": 87,
+      "mean_gamma_pgc": 5.4752290074690935,
+      "mean_gamma_normal": 0.3967353937811152,
+      "ratio": 13.800707205089592
+    }
+  }
+}

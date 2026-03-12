@@ -1,0 +1,51 @@
+{
+  "step": "Step 114: IMF Constraint from TEP",
+  "red_monsters": [
+    {
+      "name": "RM1",
+      "z": 5.3,
+      "sfe_observed": 0.5,
+      "gamma_t": 1.81,
+      "sfe_tep_corrected": 0.37164707312358314,
+      "imf_correction_without_tep": 0.4,
+      "imf_correction_with_tep": 0.5381449618829485
+    },
+    {
+      "name": "RM2",
+      "z": 7.0,
+      "sfe_observed": 0.45,
+      "gamma_t": 2.34,
+      "sfe_tep_corrected": 0.29417420270727607,
+      "imf_correction_without_tep": 0.4444444444444445,
+      "imf_correction_with_tep": 0.679869268479038
+    },
+    {
+      "name": "RM3",
+      "z": 9.0,
+      "sfe_observed": 0.55,
+      "gamma_t": 2.94,
+      "sfe_tep_corrected": 0.3207665139358924,
+      "imf_correction_without_tep": 0.36363636363636365,
+      "imf_correction_with_tep": 0.6235064799811726
+    }
+  ],
+  "imf_analysis": {
+    "sfe_max_theoretical": 0.2,
+    "mean_sfe_observed": 0.5,
+    "mean_sfe_tep_corrected": 0.3288625965889172,
+    "imf_correction_without_tep": 0.4,
+    "imf_correction_with_tep": 0.6081567258620255
+  },
+  "imf_slope_constraint": {
+    "alpha_salpeter": 2.35,
+    "alpha_chabrier": 2.3,
+    "alpha_min_without_tep": 1.5,
+    "alpha_min_with_tep": 2.1
+  },
+  "conclusion": {
+    "without_tep": "Top-heavy IMF required (\u03b1 < 2.0)",
+    "with_tep": "Standard IMF acceptable (\u03b1 \u2248 2.1-2.3)",
+    "implication": "TEP removes need for extreme IMF variations"
+  },
+  "falsification": "IMF indicators require top-heavy despite TEP age confirmation"
+}

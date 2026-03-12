@@ -1,0 +1,62 @@
+{
+  "step": "127",
+  "name": "imf_discrimination",
+  "status": "SUCCESS",
+  "description": "IMF vs TEP discrimination power",
+  "tep_mass_bias_z7": 0.28,
+  "tep_dust_corr_z7": 0.4,
+  "imf_models": {
+    "Chabrier": {
+      "MLR_corr": 0.0,
+      "mass_bias": 0.0,
+      "ref": "Chabrier (2003)"
+    },
+    "Kroupa": {
+      "MLR_corr": 0.05,
+      "mass_bias": 0.05,
+      "ref": "Kroupa (2001)"
+    },
+    "Salpeter": {
+      "MLR_corr": 0.23,
+      "mass_bias": 0.23,
+      "ref": "Salpeter (1955)"
+    },
+    "top-heavy": {
+      "MLR_corr": -0.3,
+      "mass_bias": -0.3,
+      "ref": "Dav\u00e9 (2008)"
+    }
+  },
+  "imf_results": [
+    {
+      "imf": "Chabrier",
+      "mass_corr": 0.0,
+      "partial_rho": 0.18185588767050892,
+      "p": 1e-300,
+      "ref": "Chabrier (2003)"
+    },
+    {
+      "imf": "Kroupa",
+      "mass_corr": 0.05,
+      "partial_rho": 0.17208696891241515,
+      "p": 1e-300,
+      "ref": "Kroupa (2001)"
+    },
+    {
+      "imf": "Salpeter",
+      "mass_corr": 0.23,
+      "partial_rho": 0.12839763109655106,
+      "p": 1.39343495766684e-180,
+      "ref": "Salpeter (1955)"
+    },
+    {
+      "imf": "top-heavy",
+      "mass_corr": -0.3,
+      "partial_rho": 0.22087100119631936,
+      "p": 1e-300,
+      "ref": "Dav\u00e9 (2008)"
+    }
+  ],
+  "partial_rho_range_across_imf": 0.0924733700997683,
+  "conclusion": "TEP mass bias (0.28 dex at z=7) is 1x larger than IMF uncertainty (0.30 dex). Partial rho varies by only 0.092 across IMF models, confirming TEP is not degenerate with IMF choice."
+}

@@ -1,0 +1,43 @@
+[01:33:45]     ======================================================================
+[01:33:45]     STEP 32: Independent Replication with CEERS Data
+[01:33:45]     ======================================================================
+[01:33:45] 
+[01:33:45]     Testing whether the z>8 dust anomaly replicates in CEERS,
+[01:33:45]     an independent JWST survey.
+[01:33:45] 
+[01:33:45]     Loaded CEERS z>8 sample: N = 82
+[01:33:45]     
+============================================================
+[01:33:45]     MASS-DUST CORRELATION: CEERS z>8
+[01:33:45]     ============================================================
+[01:33:45]     Sample size: N = 82
+[01:33:45]     Redshift range: z = 8.0 - 11.7
+[01:33:45]     
+Mass-Dust Correlation:
+[01:33:45]       ρ = 0.680 [0.521, 0.799]
+[01:33:45]       p = 2.03e-12
+[01:33:45]     
+Γ_t-DUST CORRELATION: CEERS z>8
+[01:33:45]       Raw: ρ(Γ_t, dust) = 0.660, p = 1.55e-11
+[01:33:45]       Partial (|M*): ρ = -0.202, p = 6.92e-02
+[01:33:45]     
+============================================================
+[01:33:45]     CROSS-SURVEY COMPARISON
+[01:33:45]     ============================================================
+[01:33:45]     
+UNCOVER z>8 (N=283):
+[01:33:45]       ρ(M*, dust) = 0.559, p = 1.05e-24
+[01:33:45]     
+======================================================================
+[01:33:45]     REPLICATION SUMMARY
+[01:33:45]     ======================================================================
+[01:33:45]     
+Mass-Dust Correlation at z>8:
+[01:33:45]       UNCOVER: ρ = 0.559
+[01:33:45]       CEERS:   ρ = 0.680
+[01:33:45]     
+✓ REPLICATION SUCCESSFUL
+[01:33:45]       The z>8 dust anomaly is confirmed in independent CEERS data.
+[01:33:45]     
+Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_032_ceers_replication.json
+[01:33:45]     Step 032 complete.

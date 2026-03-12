@@ -1,0 +1,55 @@
+{
+  "step": "Step 104: Cosmic Variance Quantification",
+  "surveys": {
+    "UNCOVER": {
+      "n_total": 2315,
+      "n_z8": 283,
+      "area_arcmin2": 45,
+      "field": "Abell 2744"
+    },
+    "CEERS": {
+      "n_total": 82,
+      "n_z8": 82,
+      "area_arcmin2": 100,
+      "field": "EGS"
+    },
+    "COSMOS-Web": {
+      "n_total": 2606,
+      "n_z8": 2606,
+      "area_arcmin2": 1800,
+      "field": "COSMOS"
+    }
+  },
+  "cosmic_variance_estimates": {
+    "UNCOVER": {
+      "sigma_cv": 3.6469726253495898,
+      "sigma_poisson": 0.0594438298277764,
+      "sigma_total": 3.647457045525536
+    },
+    "CEERS": {
+      "sigma_cv": 2.446463610708766,
+      "sigma_poisson": 0.11043152607484653,
+      "sigma_total": 2.448954740388926
+    },
+    "COSMOS-Web": {
+      "sigma_cv": 0.5766370030194314,
+      "sigma_poisson": 0.019589023819033338,
+      "sigma_total": 0.5769696379406931
+    }
+  },
+  "field_correlations": {
+    "UNCOVER": {
+      "rho": 0.5928581034360436,
+      "p": 2.9965940211265736e-28,
+      "n": 283
+    }
+  },
+  "cross_field_consistency": {
+    "rho_mean": 0.5928581034360436,
+    "rho_std": 0.0,
+    "consistent_sign": true,
+    "n_fields": 3
+  },
+  "effective_sample_size": 300,
+  "conclusion": "Signal consistency across fields is uncertain"
+}

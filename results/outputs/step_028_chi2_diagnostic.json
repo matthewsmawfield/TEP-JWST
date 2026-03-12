@@ -1,0 +1,35 @@
+{
+  "test": "Chi-Squared Diagnostic",
+  "n_total": 2315,
+  "correlation": {
+    "rho": 0.15881146507755423,
+    "p": 1.5201627688146416e-14
+  },
+  "regimes": [
+    {
+      "regime": "Neutral",
+      "gamma_range": [
+        0,
+        1
+      ],
+      "n": 1868,
+      "mean_chi2": 35.54828442554621,
+      "median_chi2": 12.160529134594027
+    },
+    {
+      "regime": "Enhanced",
+      "gamma_range": [
+        1,
+        4
+      ],
+      "n": 413,
+      "mean_chi2": 70.9020190363431,
+      "median_chi2": 18.313682648942553
+    }
+  ],
+  "enhanced_vs_suppressed": {
+    "chi2_ratio": 2.034191233934592,
+    "p": 4.677650250816061e-11,
+    "significant": true
+  }
+}

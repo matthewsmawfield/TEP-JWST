@@ -1,0 +1,61 @@
+[01:33:59]     ======================================================================
+[01:33:59]     STEP 045: SFR-Age Consistency Test
+[01:33:59]     ======================================================================
+[01:33:59] 
+[01:33:59]     Standard Physics: High SFR → Young age (anticorrelation)
+[01:33:59]     TEP Prediction: High-Γ_t galaxies break this relationship
+[01:33:59]     
+Loaded N = 2315 galaxies
+[01:33:59]     Valid sample: N = 2315
+[01:33:59]     
+==================================================
+[01:33:59]     TEST 1: Overall SFR-Age Correlation
+[01:33:59]     ==================================================
+[01:33:59]     
+ρ(log sSFR, log Age) = -0.953 (p = 0.00e+00)
+[01:33:59]       Expected: Strong negative (high sSFR → young)
+[01:33:59]     
+==================================================
+[01:33:59]     TEST 2: SFR-Age by Γ_t Regime
+[01:33:59]     ==================================================
+[01:33:59]     
+Enhanced (Γ_t > 1): N = 202
+[01:33:59]     Suppressed (Γ_t < 0.5): N = 1383
+[01:33:59]     
+SFR-Age correlation:
+[01:33:59]       Enhanced: ρ = -0.924 (p = 2.79e-85)
+[01:33:59]       Suppressed: ρ = -0.946 (p = 0.00e+00)
+[01:33:59]     
+✓ WEAKER SFR-Age coupling in enhanced regime
+[01:33:59]       TEP explanation: Age is inflated independently of SFR
+[01:33:59]     
+==================================================
+[01:33:59]     TEST 3: 'Old but Star-Forming' Population
+[01:33:59]     ==================================================
+[01:33:59]     
+Age threshold (75th %ile): 0.212 Gyr
+[01:33:59]     sSFR threshold (median): 6.95e-09 yr⁻¹
+[01:33:59]     'Old but Star-Forming' galaxies: N = 0
+[01:33:59]     
+==================================================
+[01:33:59]     TEST 4: Age Residual at Fixed sSFR
+[01:33:59]     ==================================================
+[01:33:59]     
+Age-sSFR relation: log(Age) = -0.798 × log(sSFR) + -7.372
+[01:33:59]     
+ρ(Γ_t, Age_resid|sSFR) = 0.280 (p = 6.68e-43)
+[01:33:59]     
+✓ STRONG EVIDENCE: High-Γ_t galaxies are older than expected at fixed sSFR
+[01:33:59]       This is a unique TEP signature
+[01:33:59]     
+======================================================================
+[01:33:59]     SUMMARY: SFR-Age Consistency
+[01:33:59]     ======================================================================
+[01:33:59]     
+Tests passed: 2/3
+[01:33:59]     
+✓ SFR-AGE DECOUPLING CONFIRMED
+[01:33:59]       High-Γ_t galaxies appear older than their SFR would suggest.
+[01:33:59]       This is a unique TEP signature.
+[01:33:59]     
+Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_045_sfr_age_consistency.json
