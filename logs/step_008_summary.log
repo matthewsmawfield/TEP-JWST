@@ -1,24 +1,24 @@
-[01:33:20]     ============================================================
-[01:33:20]     STEP 11: Summary - The Seven Threads
-[01:33:20]     ============================================================
-[01:33:20] 
-[01:33:20]     Saved: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_008_summary.json
-[01:33:20]     Saved: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_008_seven_threads_summary.md
-[01:33:20] 
-[01:33:20]     ============================================================
-[01:33:20]     THE SEVEN THREADS
-[01:33:20]     ============================================================
-[01:33:20] 
-[01:33:20]       z > 7 Mass-sSFR Inversion: ✓
-[01:33:20]       Γ_t vs Age Ratio: ✓
-[01:33:20]       Γ_t vs Metallicity: ✓
-[01:33:20]       Γ_t vs Dust: ✓
-[01:33:20]       z > 8 Dust Anomaly: ✓
-[01:33:20]       Age-Metallicity Coherence: ✓
-[01:33:20]       Multi-Property Split: ✓
-[01:33:20] 
-[01:33:20]     Threads significant: 7/7
-[01:33:20] 
-[01:33:20]     ★ ALL THREADS CONFIRMED ★
-[01:33:20] 
-[01:33:20]     Step 008 complete.
+[13:03:45]     ============================================================
+[13:03:45]     STEP 11: Summary - The Seven Threads
+[13:03:45]     ============================================================
+[13:03:45] 
+[13:03:45]     Saved: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_008_summary.json
+[13:03:45]     Saved: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_008_seven_threads_summary.md
+[13:03:45] 
+[13:03:45]     ============================================================
+[13:03:45]     THE SEVEN THREADS
+[13:03:45]     ============================================================
+[13:03:45] 
+[13:03:45]       z > 7 Mass-sSFR Inversion: ✓
+[13:03:45]       Γ_t vs Age Ratio: ✓
+[13:03:45]       Γ_t vs Metallicity: ✓
+[13:03:45]       Γ_t vs Dust: ✓
+[13:03:45]       z > 8 Dust Anomaly: ✓
+[13:03:45]       Age-Metallicity Coherence: ✓
+[13:03:45]       Multi-Property Split: ✓
+[13:03:45] 
+[13:03:45]     Threads significant: 7/7
+[13:03:45] 
+[13:03:45]     ★ ALL THREADS CONFIRMED ★
+[13:03:45] 
+[13:03:45]     Step 008 complete.

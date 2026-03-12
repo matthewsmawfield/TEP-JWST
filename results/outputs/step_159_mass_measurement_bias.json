@@ -2091,7 +2091,8 @@
         0.7448318317038835,
         0.3555543025756766,
         0.3302290230267882
-      ]
+      ],
+      "n_upper_limit_rows_excluded": 1
     }
   },
   "key_result_corrections": {

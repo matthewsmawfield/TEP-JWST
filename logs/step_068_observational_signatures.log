@@ -1,12 +1,12 @@
-[01:34:20]     Starting Observational Signatures Analysis...
-[01:34:20]     Loading photometry: JADES_z_gt_8_Candidates_Hainline_et_al.fits
-[01:34:20]     Matching catalogs by JADES ID...
-[01:34:20]     Matched 527 sources.
-[01:34:20]     Analyzing z > 7 sample: N = 527
-[01:34:20]     Correlation: Mag(F444W) vs Color(UV-Opt)
-[01:34:20]     rho = -0.389, p = 5.85e-15
-[01:34:20]     Correlation: Compactness vs Color Residuals (fixed Mag)
-[01:34:20]     rho = -0.007, p = 8.96e-01
-[01:34:20]     z > 8 Subset (N=375): Mag vs Color
-[01:34:20]     rho = -0.389, p = 5.85e-15
-[01:34:20] ✓   Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_068_observational_signatures.json
+[13:04:49]     Starting Observational Signatures Analysis...
+[13:04:49]     Loading photometry: JADES_z_gt_8_Candidates_Hainline_et_al.fits
+[13:04:49]     Matching catalogs by JADES ID...
+[13:04:49]     Matched 527 sources.
+[13:04:49]     Analyzing z > 7 sample: N = 527
+[13:04:49]     Correlation: Mag(F444W) vs Color(UV-Opt)
+[13:04:49]     rho = -0.389, p = 5.85e-15
+[13:04:49]     Correlation: Compactness vs Color Residuals (fixed Mag)
+[13:04:49]     rho = -0.007, p = 8.96e-01
+[13:04:49]     z > 8 Subset (N=375): Mag vs Color
+[13:04:49]     rho = -0.389, p = 5.85e-15
+[13:04:49] ✓   Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_068_observational_signatures.json

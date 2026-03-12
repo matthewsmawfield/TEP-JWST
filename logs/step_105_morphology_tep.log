@@ -1,30 +1,30 @@
-[01:35:25]     ======================================================================
-[01:35:25]     STEP 105: Morphology-TEP Correlation
-[01:35:25]     ======================================================================
-[01:35:25]     Loaded 2315 galaxies
-[01:35:25]     Sérsic column: None
-[01:35:25]     Effective radius column: None
-[01:35:25]     High-z sample (z > 6): 876 galaxies
-[01:35:25]     
+[13:05:55]     ======================================================================
+[13:05:55]     STEP 105: Morphology-TEP Correlation
+[13:05:55]     ======================================================================
+[13:05:55]     Loaded 2315 galaxies
+[13:05:55]     Sérsic column: None
+[13:05:55]     Effective radius column: None
+[13:05:55]     High-z sample (z > 6): 876 galaxies
+[13:05:55]     
 No Sérsic index column found - simulating morphology proxy
-[01:35:25]     Using mass-concentration proxy (limited test)
-[01:35:25]     
+[13:05:55]     Using mass-concentration proxy (limited test)
+[13:05:55]     
 No effective radius column found
-[01:35:25]     
+[13:05:55]     
 --- Dust (morphology proxy) vs Γₜ ---
-[01:35:25]     N = 876
-[01:35:25]     ρ(Γₜ, dust) = 0.103
-[01:35:25]     p-value = 2.17e-03
-[01:35:25]     
+[13:05:55]     N = 876
+[13:05:55]     ρ(Γₜ, dust) = 0.103
+[13:05:55]     p-value = 2.17e-03
+[13:05:55]     
 ======================================================================
-[01:35:25]     SUMMARY
-[01:35:25]     ======================================================================
-[01:35:25]     
+[13:05:55]     SUMMARY
+[13:05:55]     ======================================================================
+[13:05:55]     
 ⚠ Insufficient morphology data for testing
-[01:35:25]       Morphology columns (sersic_n, r_e) not found in catalog
-[01:35:25]       Future JWST morphology catalogs will enable this test
-[01:35:25]     
+[13:05:55]       Morphology columns (sersic_n, r_e) not found in catalog
+[13:05:55]       Future JWST morphology catalogs will enable this test
+[13:05:55]     
 Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_105_morphology_tep.json
-[01:35:25]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_105_morphology_tep.png
-[01:35:25]     
+[13:05:55]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_105_morphology_tep.png
+[13:05:55]     
 Step 105 complete.

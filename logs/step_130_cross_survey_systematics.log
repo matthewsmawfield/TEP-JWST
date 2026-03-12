@@ -1,8 +1,8 @@
-[01:35:33]     STEP 130: Cross-survey systematic error budget
-[01:35:33]   Missing: step_020_uncover_partial_correlation.json
-[01:35:33]   CEERS: rho=0.680, p=2.03e-12, N=82
-[01:35:33]   COSMOS-Web: rho=0.631, p=3.19e-103, N=2606
-[01:35:33]   Cochran's Q = 0.193, p = 0.661 (df=1)
-[01:35:33]   Cross-survey rho: mean=0.656 +/-0.025 (range 0.049), systematic floor=3.8%
-[01:35:33] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_130_cross_survey_systematics.json
-[01:35:33]     Step 130 complete. rho scatter=0.0246
+[13:06:03]     STEP 130: Cross-survey systematic error budget
+[13:06:03]   Missing: step_020_uncover_partial_correlation.json
+[13:06:03]   CEERS: rho=0.680, p=2.03e-12, N=82
+[13:06:03]   COSMOS-Web: rho=0.631, p=3.19e-103, N=2606
+[13:06:03]   Cochran's Q = 0.193, p = 0.661 (df=1)
+[13:06:03]   Cross-survey rho: mean=0.656 +/-0.025 (range 0.049), systematic floor=3.8%
+[13:06:03] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_130_cross_survey_systematics.json
+[13:06:03]     Step 130 complete. rho scatter=0.0246

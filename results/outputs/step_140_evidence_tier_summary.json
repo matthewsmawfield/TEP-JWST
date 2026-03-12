@@ -2109,13 +2109,19 @@
             0.7448318317038835,
             0.3555543025756766,
             0.3302290230267882
-          ]
+          ],
+          "n_upper_limit_rows_excluded": 1
         },
         "supplementary_direct_object_level_available": true,
-        "supplementary_direct_n_objects": 4,
+        "supplementary_direct_n_objects": 5,
+        "supplementary_direct_n_objects_exact_mdyn": 4,
+        "supplementary_direct_n_objects_upper_limit_only": 1,
         "supplementary_direct_mean_observed_excess_dex": 0.16811325000000021,
         "supplementary_direct_mean_corrected_excess_dex": -0.07531999668861422,
+        "supplementary_direct_mean_excess_metrics_basis": "exact_mdyn_rows_only",
         "supplementary_direct_resolution_fraction_among_anomalous": 0.6666666666666666,
+        "supplementary_direct_upper_limit_mean_observed_excess_lower_bound_dex": -0.018482999999999805,
+        "supplementary_direct_upper_limit_mean_corrected_excess_lower_bound_dex": -0.31775750850077067,
         "sigma_pilot_status": "SUCCESS",
         "sigma_pilot_assessment": "Within the fitted DJA pilot subset, the Balmer dust proxy tracks the fitted emission-line width at least as strongly as photometric stellar mass after mass-plus-redshift control, which is the intended direction for the sigma-based decoupling audit.",
         "sigma_pilot_quality_fit_n": 15,

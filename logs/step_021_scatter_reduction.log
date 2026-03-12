@@ -1,94 +1,94 @@
-[01:33:37] ======================================================================
-[01:33:37] TEP-JWST Step 21: Scatter Reduction Analysis
-[01:33:37] ======================================================================
-[01:33:37] 
-[01:33:37] Testing whether TEP corrections reduce data anomalies.
-[01:33:37] 
-[01:33:37] Loading UNCOVER data...
-[01:33:37] Loaded 2315 galaxies
-[01:33:37] ======================================================================
-[01:33:37] TEST 1: The Cosmic Age Limit
-[01:33:37] ======================================================================
-[01:33:37] Total galaxies: N = 2315
-[01:33:37] Near cosmic limit (age_ratio > 0.3): N = 50 (2.2%)
-[01:33:37] 
+[13:04:04] ======================================================================
+[13:04:04] TEP-JWST Step 21: Scatter Reduction Analysis
+[13:04:04] ======================================================================
+[13:04:04] 
+[13:04:04] Testing whether TEP corrections reduce data anomalies.
+[13:04:04] 
+[13:04:04] Loading UNCOVER data...
+[13:04:04] Loaded 2315 galaxies
+[13:04:04] ======================================================================
+[13:04:04] TEST 1: The Cosmic Age Limit
+[13:04:04] ======================================================================
+[13:04:04] Total galaxies: N = 2315
+[13:04:04] Near cosmic limit (age_ratio > 0.3): N = 50 (2.2%)
+[13:04:04] 
 Γ_t comparison:
-[01:33:37]   Near limit: mean Γ_t = 3.857
-[01:33:37]   Far from limit: mean Γ_t = 0.649
-[01:33:37]   Difference: 3.208
-[01:33:37]   p-value: 4.18e-11
-[01:33:37] 
+[13:04:04]   Near limit: mean Γ_t = 3.857
+[13:04:04]   Far from limit: mean Γ_t = 0.649
+[13:04:04]   Difference: 3.208
+[13:04:04]   p-value: 4.18e-11
+[13:04:04] 
 ✓ Near-limit galaxies have higher Γ_t (TEP resolves this anomaly)
-[01:33:37] 
+[13:04:04] 
 'Anomalous' galaxies (age_ratio > 0.5): N = 9
-[01:33:37]   Resolved by TEP correction: 8/9 (89%)
-[01:33:37] ======================================================================
-[01:33:37] TEST 2: Scatter Reduction
-[01:33:37] ======================================================================
-[01:33:37] Mass-Age relation:
-[01:33:37]   Raw scatter: σ = 0.0800 Gyr
-[01:33:37]   Raw R²: 0.0464
-[01:33:37] 
+[13:04:04]   Resolved by TEP correction: 8/9 (89%)
+[13:04:04] ======================================================================
+[13:04:04] TEST 2: Scatter Reduction
+[13:04:04] ======================================================================
+[13:04:04] Mass-Age relation:
+[13:04:04]   Raw scatter: σ = 0.0800 Gyr
+[13:04:04]   Raw R²: 0.0464
+[13:04:04] 
   TEP-corrected scatter: σ = 0.1388 Gyr
-[01:33:37]   TEP-corrected R²: 0.3762
-[01:33:37] 
+[13:04:04]   TEP-corrected R²: 0.3762
+[13:04:04] 
   Scatter reduction: -73.5%
-[01:33:37] ⚠ TEP correction does not reduce scatter
-[01:33:37] ======================================================================
-[01:33:37] TEST 3: The Downsizing Transition
-[01:33:37] ======================================================================
-[01:33:37] 
+[13:04:04] ⚠ TEP correction does not reduce scatter
+[13:04:04] ======================================================================
+[13:04:04] TEST 3: The Downsizing Transition
+[13:04:04] ======================================================================
+[13:04:04] 
 z = [7, 9): N = 400
-[01:33:37]   Mass-sSFR correlation: ρ = 0.185
-[01:33:37]   Mean Γ_t: 0.69
-[01:33:37] 
+[13:04:04]   Mass-sSFR correlation: ρ = 0.185
+[13:04:04]   Mean Γ_t: 0.69
+[13:04:04] 
 z = [9, 11): N = 104
-[01:33:37]   Mass-sSFR correlation: ρ = -0.244
-[01:33:37]   Mean Γ_t: 3.13
-[01:33:37] 
+[13:04:04]   Mass-sSFR correlation: ρ = -0.244
+[13:04:04]   Mean Γ_t: 3.13
+[13:04:04] 
 Trend: correlation vs z: ρ = -1.000, p = 1.0000
-[01:33:37] Correlation vs mean Γ_t: ρ = -1.000, p = nan
-[01:33:37] 
+[13:04:04] Correlation vs mean Γ_t: ρ = -1.000, p = nan
+[13:04:04] 
 ⚠ Downsizing trend not as expected
-[01:33:37] ======================================================================
-[01:33:37] TEST 4: Mass Function Correction
-[01:33:37] ======================================================================
-[01:33:37] Raw mass distribution:
-[01:33:37]   Mean log(M*): 8.46
-[01:33:37]   Std log(M*): 0.43
-[01:33:37] 
+[13:04:04] ======================================================================
+[13:04:04] TEST 4: Mass Function Correction
+[13:04:04] ======================================================================
+[13:04:04] Raw mass distribution:
+[13:04:04]   Mean log(M*): 8.46
+[13:04:04]   Std log(M*): 0.43
+[13:04:04] 
 TEP-corrected mass distribution:
-[01:33:37]   Mean log(M*): 8.33
-[01:33:37]   Std log(M*): 0.36
-[01:33:37] 
+[13:04:04]   Mean log(M*): 8.33
+[13:04:04]   Std log(M*): 0.36
+[13:04:04] 
 Mass shift: Δlog(M*) = 0.131 dex
-[01:33:37] 
+[13:04:04] 
 Galaxies above log(M*) = 7.0:
-[01:33:37]   Raw: 2315
-[01:33:37]   Corrected: 2315
-[01:33:37]   Reduction: 0.0%
-[01:33:37] 
+[13:04:04]   Raw: 2315
+[13:04:04]   Corrected: 2315
+[13:04:04]   Reduction: 0.0%
+[13:04:04] 
 ✓ TEP correction shifts masses down (anomaly resolved)
-[01:33:37] ======================================================================
-[01:33:37] TEST 5: Coherence Structure
-[01:33:37] ======================================================================
-[01:33:37] Mass-Age correlation:
-[01:33:37]   Raw: ρ = 0.135, p = 0.0000
-[01:33:37]   Partial (controlling for Γ_t): ρ = 0.125, p = 0.0000
-[01:33:37] 
+[13:04:04] ======================================================================
+[13:04:04] TEST 5: Coherence Structure
+[13:04:04] ======================================================================
+[13:04:04] Mass-Age correlation:
+[13:04:04]   Raw: ρ = 0.135, p = 0.0000
+[13:04:04]   Partial (controlling for Γ_t): ρ = 0.125, p = 0.0000
+[13:04:04] 
   Δρ (raw - partial): 0.010
-[01:33:37] ✓ Γ_t explains part of the mass-age correlation (anomaly resolved)
-[01:33:37]   Fraction explained by Γ_t: 7.3%
-[01:33:37] 
-[01:33:37] ======================================================================
-[01:33:37] SUMMARY: Anomaly Resolution Results
-[01:33:37] ======================================================================
-[01:33:37] ✓ cosmic_age_limit: Anomaly resolved
-[01:33:37] ⚠ scatter_reduction: Anomaly not resolved
-[01:33:37] ⚠ downsizing_transition: Anomaly not resolved
-[01:33:37] ✓ mass_function: Anomaly resolved
-[01:33:37] ✓ coherence_structure: Anomaly resolved
-[01:33:37] 
+[13:04:04] ✓ Γ_t explains part of the mass-age correlation (anomaly resolved)
+[13:04:04]   Fraction explained by Γ_t: 7.3%
+[13:04:04] 
+[13:04:04] ======================================================================
+[13:04:04] SUMMARY: Anomaly Resolution Results
+[13:04:04] ======================================================================
+[13:04:04] ✓ cosmic_age_limit: Anomaly resolved
+[13:04:04] ⚠ scatter_reduction: Anomaly not resolved
+[13:04:04] ⚠ downsizing_transition: Anomaly not resolved
+[13:04:04] ✓ mass_function: Anomaly resolved
+[13:04:04] ✓ coherence_structure: Anomaly resolved
+[13:04:04] 
 Anomalies resolved: 3/5
-[01:33:37] 
+[13:04:04] 
 Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_021_scatter_reduction.json

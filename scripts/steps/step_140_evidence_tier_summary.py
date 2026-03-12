@@ -233,7 +233,9 @@ def main():
     if s117:
         pub = s117.get('published_tension_resolution', {})
         supplementary_direct = s117.get('supplementary_direct_object_level', {})
+        supplementary_direct_table = supplementary_direct.get('kinematic_table', {})
         supplementary_direct_summary = supplementary_direct.get('object_level_summary', {})
+        supplementary_direct_upper_limits = supplementary_direct.get('upper_limit_summary', {})
         sigma_pilot = s169.get('pilot_balmer_sigma_test', {}).get('quality_screened', {}) if s169 else {}
         sigma_fit_summary = s169.get('fit_summary', {}).get('quality_screened', {}) if s169 else {}
         lines_of_evidence['L4_dynamical_mass'] = {
@@ -251,9 +253,14 @@ def main():
             'object_level_beta_bootstrap': s117.get('object_level_beta_bootstrap'),
             'supplementary_direct_object_level_available': s117.get('supplementary_direct_object_level_available', False),
             'supplementary_direct_n_objects': supplementary_direct.get('n_kinematic_regime'),
+            'supplementary_direct_n_objects_exact_mdyn': supplementary_direct_table.get('n_objects_exact_mdyn'),
+            'supplementary_direct_n_objects_upper_limit_only': supplementary_direct_table.get('n_objects_upper_limit_only'),
             'supplementary_direct_mean_observed_excess_dex': supplementary_direct_summary.get('mean_observed_excess_dex'),
             'supplementary_direct_mean_corrected_excess_dex': supplementary_direct_summary.get('mean_corrected_excess_dex'),
+            'supplementary_direct_mean_excess_metrics_basis': supplementary_direct_summary.get('mean_excess_metrics_basis'),
             'supplementary_direct_resolution_fraction_among_anomalous': supplementary_direct_summary.get('resolution_fraction_among_anomalous'),
+            'supplementary_direct_upper_limit_mean_observed_excess_lower_bound_dex': supplementary_direct_upper_limits.get('mean_observed_excess_lower_bound_dex'),
+            'supplementary_direct_upper_limit_mean_corrected_excess_lower_bound_dex': supplementary_direct_upper_limits.get('mean_corrected_excess_lower_bound_dex'),
             'sigma_pilot_status': s169.get('status') if s169 else None,
             'sigma_pilot_assessment': s169.get('assessment') if s169 else None,
             'sigma_pilot_quality_fit_n': sigma_fit_summary.get('n_success'),

@@ -1,6 +1,8 @@
 <div class="methodology">
   <h2>2. Data and Methods</h2>
 
+  <p>This section follows the same logic as the manuscript as a whole. It first defines the observational datasets, then the derived TEP quantities, then the statistical tests used to separate genuine TEP signatures from mass-proxy artifacts, and finally the black-hole simulation used for the Little Red Dot mechanism. The aim is to state the observational mapping clearly enough that each empirical result in §3 can be read directly back to its data and assumptions.</p>
+
   <h3>2.1 Data</h3>
 
   <h4>2.1.1 Red Monsters (FRESCO)</h4>
@@ -161,7 +163,7 @@
   <p>For each galaxy, the analysis uses an abundance-matching relation (Behroozi et al. 2019) to map stellar mass to halo mass. This mapping is used solely to construct $\Delta\log(M_h)$ for the TEP parameterization. To mitigate circularity, sensitivity tests are performed with $\pm 0.3$ dex scatter in the $M_h-M_*$ relation, propagating to $\pm 12\%$ in $\Gamma_t$ corrections.</p>
 
   <h4>2.3.2 The TEP Metric Coupling</h4>
-  <p>The temporal enhancement factor $\Gamma_t$ is not a free fitting function but is derived from first principles within a conformally coupled scalar-tensor framework. This framework introduces a scalar field $\phi$ that couples to the trace of the matter energy-momentum tensor, thereby altering the local metric experienced by standard model fields. While the full theoretical development, including stability analysis and cosmological constraints, is extensive, this section summarizes the key steps from action to observable that are required for the present analysis.</p>
+  <p>The temporal enhancement factor $\Gamma_t$ is not introduced here as an ad hoc fitting function. It is the observable mapping of a conformally coupled scalar-tensor framework in which a chameleon field modifies the local rate at which material clocks accumulate proper time. The full theoretical development is extensive; this section states only the steps needed to connect the action-level construction to the measurable quantities used in the present analysis.</p>
   
   <h5>2.3.2.1 From Action to Observable</h5>
   <p>The TEP framework builds upon chameleon-class scalar-tensor theories (Khoury &amp; Weltman 2004; Brax et al. 2004; Burrage &amp; Sakstein 2018) where the effective mass of the scalar field depends on the local matter density. The key steps mapping the fundamental physics to the observable $\Gamma_t$ are:</p>
@@ -264,7 +266,7 @@
   </div>
 
   <h3>2.4 Statistical procedures</h3>
-  <p>Associations are quantified using Spearman rank correlations and bootstrap confidence intervals. To address confounding by redshift and stellar mass, partial-correlation analyses implemented via residualization are employed. In addition to correlation-based tests, the following are reported:</p>
+  <p>The statistical design separates three questions: whether the predicted associations are present, whether they survive control for obvious confounders, and whether they generalize across surveys and subsamples. Associations are quantified using Spearman rank correlations and bootstrap confidence intervals. To address confounding by redshift and stellar mass, partial-correlation analyses implemented via residualization are employed. In addition to correlation-based tests, the following are reported:</p>
   <ul>
     <li>Stratified comparisons (e.g., high vs low $\Gamma_t$ splits) for multi-property coherence</li>
     <li>Distributional comparisons (e.g., Kolmogorov-Smirnov tests) for regime separation</li>

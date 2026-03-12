@@ -471,6 +471,7 @@ def run_step(script_name: str, step_idx: int, total: int, estimated_s: float | N
     before_state = _json_output_state()
     script_path  = STEPS_DIR / script_name
     phase_label  = f"[{step_idx:>3}/{total}]"
+    pre_elapsed = 0.0
 
     bar_width = 50
     progress  = int(bar_width * step_idx / total)
@@ -483,13 +484,26 @@ def run_step(script_name: str, step_idx: int, total: int, estimated_s: float | N
         print(f" Estimated time from last full run: {_fmt_elapsed(estimated_s)}")
     print(f"{'═'*70}\n")
 
+    if script_name == "step_160_manuscript_consistency_check.py":
+        print(" Rebuilding site and generated markdown before step_160...")
+        pre_t0 = time.perf_counter()
+        build_result = subprocess.run(
+            ["npm", "--prefix", str(PROJECT_ROOT / "site"), "run", "build"],
+            cwd=str(PROJECT_ROOT),
+            capture_output=False,
+        )
+        pre_elapsed = time.perf_counter() - pre_t0
+        if build_result.returncode != 0:
+            print(f"\n✗  FAILED  site build before {script_name}  (rc={build_result.returncode}, {_fmt_elapsed(pre_elapsed)})")
+            return StepResult(script_name, "FAIL", pre_elapsed, build_result.returncode)
+
     t0 = time.perf_counter()
     result = subprocess.run(
         [sys.executable, str(script_path)],
         cwd=str(PROJECT_ROOT),
         capture_output=False,
     )
-    elapsed = time.perf_counter() - t0
+    elapsed = pre_elapsed + (time.perf_counter() - t0)
     estimate_suffix = f"; est {_fmt_elapsed(estimated_s)}" if estimated_s is not None else ""
 
     if result.returncode != 0:

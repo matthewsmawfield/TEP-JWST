@@ -32,6 +32,7 @@ set_step_logger(logger)
 ROOT = PROJECT_ROOT
 OUTPUT = ROOT / "results/outputs/step_160_manuscript_consistency_check.json"
 RUN_ALL = ROOT / "scripts/steps/run_all_steps.py"
+GENERATED_ROOT_MARKDOWN = ROOT / "13manuscript-tep-jwst.md"
 
 FILES = {
     "abstract": ROOT / "site/components/1_abstract.html",
@@ -85,6 +86,7 @@ def contains_any(texts: dict[str, str], snippets: list[str]) -> dict[str, list[s
 def main() -> None:
     texts = {k: p.read_text() for k, p in FILES.items()}
     combined_text = "\n".join(texts.values())
+    generated_root_markdown_text = GENERATED_ROOT_MARKDOWN.read_text() if GENERATED_ROOT_MARKDOWN.exists() else ""
     run_all_text = RUN_ALL.read_text()
     j037 = json.loads(JSONS["step_037"].read_text())
     j076 = json.loads(JSONS["step_076"].read_text())
@@ -384,6 +386,55 @@ def main() -> None:
             "step_140_l4_status": l4_status,
         },
         "pass": l4_status == expected_l4_status,
+    })
+
+    # 6d) Derived L4 wording must stay non-overclaiming and the generated root manuscript must be rebuilt
+    stale_l4_overclaim_phrases = [
+        "definitively breaks the photometric mass circularity",
+        "proves that the scale factor tracks real gravitational dynamics",
+    ]
+    derived_l4_hits = contains_any(
+        {
+            "conclusion": texts["conclusion"],
+            "generated_root_markdown": generated_root_markdown_text,
+        },
+        stale_l4_overclaim_phrases,
+    )
+    derived_l4_token_presence = {
+        "conclusion": {
+            "materially_narrows_phrase": "materially narrows the photometric mass-circularity objection" in texts["conclusion"],
+            "derived_regime_phrase": "derived regime-level comparison rather than a primary empirical line" in texts["conclusion"],
+        },
+        "generated_root_markdown_exists": GENERATED_ROOT_MARKDOWN.exists(),
+        "generated_root_markdown": {
+            "materially_narrows_phrase": "materially narrows the photometric mass-circularity objection" in generated_root_markdown_text,
+            "five_object_phrase": "five-object direct literature ingestion" in generated_root_markdown_text,
+            "upper_limit_phrase": "conservative upper-limit row" in generated_root_markdown_text,
+        },
+    }
+    checks.append({
+        "name": "derived_l4_wording_is_non_overclaiming_and_generated_markdown_is_synced",
+        "expected": (
+            {
+                "stale_overclaim_phrases_absent": True,
+                "updated_conclusion_tokens_present": True,
+                "generated_root_markdown_exists": True,
+                "generated_root_markdown_tokens_present": True,
+            }
+            if expected_l4_status == "derived_from_real_data"
+            else "check skipped when L4 is not in derived-regime mode"
+        ),
+        "found": {
+            "step_140_l4_status": l4_status,
+            "stale_overclaim_phrase_hits": derived_l4_hits,
+            "updated_token_presence": derived_l4_token_presence,
+        },
+        "pass": (
+            not derived_l4_hits
+            and all(derived_l4_token_presence["conclusion"].values())
+            and derived_l4_token_presence["generated_root_markdown_exists"]
+            and all(derived_l4_token_presence["generated_root_markdown"].values())
+        ) if expected_l4_status == "derived_from_real_data" else None,
     })
 
     # 7) Cross-domain language must keep the non-independent-programme caveat

@@ -141,23 +141,33 @@ def _load_direct_kinematic_table():
     if "log_Mdyn_upper" in df.columns:
         upper_limit_rows = df[df["log_Mdyn"].isna() & df["log_Mdyn_upper"].notna()].copy()
 
-    df = df.dropna(subset=required).copy()
-    df = df[(df["z"] > 0) & (df["z"] < 15)]
-    df = df[(df["log_Mstar_obs"] > 5) & (df["log_Mstar_obs"] < 13)]
-    df = df[(df["log_Mdyn"] > 5) & (df["log_Mdyn"] < 13)]
+    exact_rows = df.dropna(subset=required).copy()
+    exact_rows = exact_rows[(exact_rows["z"] > 0) & (exact_rows["z"] < 15)]
+    exact_rows = exact_rows[(exact_rows["log_Mstar_obs"] > 5) & (exact_rows["log_Mstar_obs"] < 13)]
+    exact_rows = exact_rows[(exact_rows["log_Mdyn"] > 5) & (exact_rows["log_Mdyn"] < 13)]
 
-    if len(df) < 3:
+    if not upper_limit_rows.empty:
+        upper_limit_rows = upper_limit_rows.dropna(subset=["z", "log_Mstar_obs", "log_Mdyn_upper"]).copy()
+        upper_limit_rows = upper_limit_rows[(upper_limit_rows["z"] > 0) & (upper_limit_rows["z"] < 15)]
+        upper_limit_rows = upper_limit_rows[(upper_limit_rows["log_Mstar_obs"] > 5) & (upper_limit_rows["log_Mstar_obs"] < 13)]
+        upper_limit_rows = upper_limit_rows[(upper_limit_rows["log_Mdyn_upper"] > 5) & (upper_limit_rows["log_Mdyn_upper"] < 13)]
+
+    if len(exact_rows) < 3:
         return None, {
             "status": "table_present_but_underpowered",
             "path": str(path),
-            "n_valid": int(len(df)),
+            "n_valid": int(len(exact_rows)),
         }
+
+    combined_rows = pd.concat([exact_rows, upper_limit_rows], ignore_index=True, sort=False)
 
     meta = {
         "status": "loaded_local_object_level_table",
         "path": str(path),
-        "n_objects": int(len(df)),
-        "sources": sorted(str(s) for s in df.get("source", pd.Series(dtype=str)).dropna().unique()),
+        "n_objects": int(len(combined_rows)),
+        "n_objects_exact_mdyn": int(len(exact_rows)),
+        "n_objects_upper_limit_only": int(len(upper_limit_rows)),
+        "sources": sorted(str(s) for s in combined_rows.get("source", pd.Series(dtype=str)).dropna().unique()),
         "sample_name": table_metadata.get("sample_name"),
         "analysis_role": table_metadata.get("analysis_role"),
         "authoritative_for_l4_regime": bool(table_metadata.get("authoritative_for_l4_regime", False)),
@@ -177,7 +187,10 @@ def _load_direct_kinematic_table():
         ],
         "metadata": table_metadata,
     }
-    return df.reset_index(drop=True), meta
+    return {
+        "exact": exact_rows.reset_index(drop=True),
+        "upper_limits": upper_limit_rows.reset_index(drop=True),
+    }, meta
 
 
 def _bootstrap_beta(log_gamma, observed_excess, calibration_mask=None):
@@ -226,7 +239,7 @@ def _bootstrap_beta(log_gamma, observed_excess, calibration_mask=None):
     }
 
 
-def _serialise_object_level_rows(df_direct, gamma_t_arr, delta_log_mstar, observed_excess, corrected_excess):
+def _serialise_object_level_rows(df_direct, gamma_t_arr, delta_log_mstar, observed_excess, corrected_excess, df_upper_limits=None):
     rows = []
     for idx, row in df_direct.reset_index(drop=True).iterrows():
         payload = {
@@ -240,6 +253,7 @@ def _serialise_object_level_rows(df_direct, gamma_t_arr, delta_log_mstar, observ
             "corrected_excess_dex": float(corrected_excess[idx]),
             "anomalous_observed": bool(observed_excess[idx] > 0),
             "resolved_after_tep": bool(corrected_excess[idx] <= 0),
+            "mdyn_limit_type": "exact",
         }
         if "source" in df_direct.columns and pd.notna(row.get("source")):
             payload["source"] = str(row["source"])
@@ -248,10 +262,47 @@ def _serialise_object_level_rows(df_direct, gamma_t_arr, delta_log_mstar, observ
         if "re_kpc" in df_direct.columns and pd.notna(row.get("re_kpc")):
             payload["re_kpc"] = float(row["re_kpc"])
         rows.append(payload)
+
+    if df_upper_limits is not None and len(df_upper_limits) > 0:
+        z_upper = df_upper_limits["z"].to_numpy(dtype=float)
+        log_mstar_obs_upper = df_upper_limits["log_Mstar_obs"].to_numpy(dtype=float)
+        log_mh_upper = stellar_to_halo_mass_behroozi_like(log_mstar_obs_upper, z_upper)
+        gamma_t_upper = tep_compute_gamma_t(log_mh_upper, z_upper)
+        mass_correction_upper = np.power(np.maximum(gamma_t_upper, 0.01), N_ML_HIGHZ)
+        delta_log_mstar_upper = np.log10(mass_correction_upper)
+        log_mstar_tep_upper = log_mstar_obs_upper - delta_log_mstar_upper
+        log_mdyn_upper = df_upper_limits["log_Mdyn_upper"].to_numpy(dtype=float)
+        observed_excess_lower_bound = log_mstar_obs_upper - log_mdyn_upper
+        corrected_excess_lower_bound = log_mstar_tep_upper - log_mdyn_upper
+
+        for idx, row in df_upper_limits.reset_index(drop=True).iterrows():
+            payload = {
+                "object_id": str(row["object_id"]),
+                "z": float(row["z"]),
+                "log_Mstar_obs": float(row["log_Mstar_obs"]),
+                "log_Mdyn_upper": float(row["log_Mdyn_upper"]),
+                "gamma_t": float(gamma_t_upper[idx]),
+                "delta_logMstar_dex": float(delta_log_mstar_upper[idx]),
+                "observed_excess_lower_bound_dex": float(observed_excess_lower_bound[idx]),
+                "corrected_excess_lower_bound_dex": float(corrected_excess_lower_bound[idx]),
+                "anomalous_observed_lower_bound": bool(observed_excess_lower_bound[idx] > 0),
+                "resolved_after_tep": None,
+                "mdyn_limit_type": "upper_limit",
+            }
+            if "source" in df_upper_limits.columns and pd.notna(row.get("source")):
+                payload["source"] = str(row["source"])
+            if "sigma_kms" in df_upper_limits.columns and pd.notna(row.get("sigma_kms")):
+                payload["sigma_kms"] = float(row["sigma_kms"])
+            if "re_kpc" in df_upper_limits.columns and pd.notna(row.get("re_kpc")):
+                payload["re_kpc"] = float(row["re_kpc"])
+            rows.append(payload)
+
     return rows
 
 
-def _run_direct_object_level(df_direct):
+def _run_direct_object_level(direct_sample):
+    df_direct = direct_sample["exact"]
+    df_upper_limits = direct_sample["upper_limits"]
     z_arr = df_direct["z"].to_numpy(dtype=float)
     log_mstar_obs = df_direct["log_Mstar_obs"].to_numpy(dtype=float)
     log_mh = stellar_to_halo_mass_behroozi_like(log_mstar_obs, z_arr)
@@ -275,11 +326,37 @@ def _run_direct_object_level(df_direct):
         observed_excess,
         calibration_mask=reference_mask,
     )
+    if beta_boot is not None and len(df_upper_limits) > 0:
+        beta_boot["n_upper_limit_rows_excluded"] = int(len(df_upper_limits))
+
+    upper_limit_summary = None
+    if len(df_upper_limits) > 0:
+        z_upper = df_upper_limits["z"].to_numpy(dtype=float)
+        log_mstar_obs_upper = df_upper_limits["log_Mstar_obs"].to_numpy(dtype=float)
+        log_mh_upper = stellar_to_halo_mass_behroozi_like(log_mstar_obs_upper, z_upper)
+        gamma_t_upper = tep_compute_gamma_t(log_mh_upper, z_upper)
+        mass_correction_upper = np.power(np.maximum(gamma_t_upper, 0.01), N_ML_HIGHZ)
+        delta_log_mstar_upper = np.log10(mass_correction_upper)
+        log_mstar_tep_upper = log_mstar_obs_upper - delta_log_mstar_upper
+        log_mdyn_upper = df_upper_limits["log_Mdyn_upper"].to_numpy(dtype=float)
+        observed_excess_lower_bound = log_mstar_obs_upper - log_mdyn_upper
+        corrected_excess_lower_bound = log_mstar_tep_upper - log_mdyn_upper
+        upper_limit_summary = {
+            "n_objects": int(len(df_upper_limits)),
+            "mean_observed_excess_lower_bound_dex": float(np.mean(observed_excess_lower_bound)),
+            "median_observed_excess_lower_bound_dex": float(np.median(observed_excess_lower_bound)),
+            "mean_corrected_excess_lower_bound_dex": float(np.mean(corrected_excess_lower_bound)),
+            "median_corrected_excess_lower_bound_dex": float(np.median(corrected_excess_lower_bound)),
+            "n_lower_bound_anomalous": int(np.sum(observed_excess_lower_bound > 0)),
+            "n_lower_bound_nonpositive_after_tep": int(np.sum(corrected_excess_lower_bound <= 0)),
+        }
+
     source_breakdown = None
-    if "source" in df_direct.columns:
+    combined_direct_rows = pd.concat([df_direct, df_upper_limits], ignore_index=True, sort=False)
+    if "source" in combined_direct_rows.columns:
         source_breakdown = {
             str(source): int(count)
-            for source, count in df_direct["source"].fillna("unknown").value_counts().items()
+            for source, count in combined_direct_rows["source"].fillna("unknown").value_counts().items()
         }
 
     summary = {
@@ -288,9 +365,11 @@ def _run_direct_object_level(df_direct):
         "analysis_class": "real_data_direct_object_level_kinematics",
         "direct_kinematic_measurements_used": True,
         "kinematic_table": {
-            "n_objects": int(len(df_direct)),
+            "n_objects": int(len(combined_direct_rows)),
+            "n_objects_exact_mdyn": int(len(df_direct)),
+            "n_objects_upper_limit_only": int(len(df_upper_limits)),
         },
-        "n_kinematic_regime": int(len(df_direct)),
+        "n_kinematic_regime": int(len(combined_direct_rows)),
         "global_stats": {
             "mean_gamma_t": float(np.mean(gamma_t_arr)),
             "mean_mass_correction_factor": float(np.mean(mass_correction)),
@@ -303,6 +382,9 @@ def _run_direct_object_level(df_direct):
             "resolved": bool(np.mean(corrected_excess[reference_mask]) <= 0),
         },
         "object_level_summary": {
+            "n_objects_total": int(len(combined_direct_rows)),
+            "n_exact_mdyn_objects": int(len(df_direct)),
+            "n_upper_limit_objects": int(len(df_upper_limits)),
             "n_anomalous_observed": int(anomalous.sum()),
             "n_resolved_after_tep": int(anomalous_and_resolved.sum()),
             "resolution_fraction_among_anomalous": float(np.mean(anomalous_and_resolved[anomalous])) if anomalous.any() else None,
@@ -310,6 +392,7 @@ def _run_direct_object_level(df_direct):
             "median_observed_excess_dex": float(np.median(observed_excess)),
             "mean_corrected_excess_dex": float(np.mean(corrected_excess)),
             "median_corrected_excess_dex": float(np.median(corrected_excess)),
+            "mean_excess_metrics_basis": "exact_mdyn_rows_only",
         },
         "object_level_beta_bootstrap": beta_boot,
         "objects": _serialise_object_level_rows(
@@ -318,14 +401,22 @@ def _run_direct_object_level(df_direct):
             delta_log_mstar=delta_log_mstar,
             observed_excess=observed_excess,
             corrected_excess=corrected_excess,
+            df_upper_limits=df_upper_limits,
         ),
         "methodology": {
             "source_data": "Local curated object-level kinematic table",
             "comparison_type": "Observed M* vs direct M_dyn per object",
             "mass_correction_formula": "M*_tep = M*_standard / Gamma_t^n_ML",
             "n_ML": N_ML_HIGHZ,
+            "upper_limit_handling": (
+                "Rows with log_Mdyn_upper but no exact log_Mdyn are included as censored upper-limit objects. "
+                "They contribute conservative lower-bound excess metrics in upper_limit_summary and the object list, "
+                "but are excluded from exact-mean excess summaries and beta bootstrap calculations."
+            ),
         },
     }
+    if upper_limit_summary is not None:
+        summary["upper_limit_summary"] = upper_limit_summary
     if source_breakdown:
         summary["source_breakdown"] = source_breakdown
     return summary
@@ -428,8 +519,8 @@ def _run_regime_level_fallback():
     }
 
 
-def _run_with_direct_sample(df_direct, direct_meta):
-    direct_summary = _run_direct_object_level(df_direct)
+def _run_with_direct_sample(direct_sample, direct_meta):
+    direct_summary = _run_direct_object_level(direct_sample)
     direct_summary["kinematic_table"].update(direct_meta)
 
     if bool(direct_meta.get("authoritative_for_l4_regime", False)):
@@ -465,8 +556,8 @@ def run():
     print_status(f"STEP {STEP_NUM}: TEP M*/M_dyn Correction — Real UNCOVER Data", "TITLE")
     print_status("=" * 65, "TITLE")
 
-    df_direct, direct_meta = _load_direct_kinematic_table()
-    if df_direct is not None:
+    direct_sample, direct_meta = _load_direct_kinematic_table()
+    if direct_sample is not None:
         print_status(
             f"Loaded local object-level kinematic table: {direct_meta['path']} (N={direct_meta['n_objects']})",
             "INFO",
@@ -477,7 +568,7 @@ def run():
             print_status("Direct object-level sample loaded as supplementary; matched regime-level fallback remains primary.", "INFO")
         if direct_meta.get("authoritative_for_beta_propagation", False):
             print_status("Direct object-level sample is marked authoritative for downstream beta propagation.", "INFO")
-        summary = _run_with_direct_sample(df_direct, direct_meta)
+        summary = _run_with_direct_sample(direct_sample, direct_meta)
     else:
         print_status(
             "No local object-level kinematic table detected; using regime-level fallback.",

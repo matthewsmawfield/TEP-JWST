@@ -2,8 +2,8 @@
   "step": "step_160",
   "description": "Automated manuscript-to-JSON consistency checks for defensibility",
   "summary": {
-    "checks_total": 16,
-    "checks_passed": 15,
+    "checks_total": 17,
+    "checks_passed": 16,
     "checks_skipped": 1,
     "checks_failed": 0,
     "status": "PASS"
@@ -46,7 +46,7 @@
         "step_164_present": true,
         "step_140_present": true,
         "step_164_before_step_140": true,
-        "registered_steps": 153
+        "registered_steps": 154
       },
       "pass": true
     },
@@ -139,6 +139,32 @@
       "found": {
         "step_117_direct_kinematic_measurements_used": false,
         "step_140_l4_status": "derived_from_real_data"
+      },
+      "pass": true
+    },
+    {
+      "name": "derived_l4_wording_is_non_overclaiming_and_generated_markdown_is_synced",
+      "expected": {
+        "stale_overclaim_phrases_absent": true,
+        "updated_conclusion_tokens_present": true,
+        "generated_root_markdown_exists": true,
+        "generated_root_markdown_tokens_present": true
+      },
+      "found": {
+        "step_140_l4_status": "derived_from_real_data",
+        "stale_overclaim_phrase_hits": {},
+        "updated_token_presence": {
+          "conclusion": {
+            "materially_narrows_phrase": true,
+            "derived_regime_phrase": true
+          },
+          "generated_root_markdown_exists": true,
+          "generated_root_markdown": {
+            "materially_narrows_phrase": true,
+            "five_object_phrase": true,
+            "upper_limit_phrase": true
+          }
+        }
       },
       "pass": true
     },

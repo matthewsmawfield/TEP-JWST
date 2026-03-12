@@ -1,15 +1,15 @@
-[01:37:23]     STEP 153: COSMOS2025 LePHARE SED analysis (Table B4a)
-[01:37:23] Loading COSMOSWeb_mastercatalog_v1_lephare.fits ...
-[01:37:23] Total sources: 784,016
-[01:37:23] Valid galaxy SED fits: 648,073
-[01:38:00] z>4 sample: N = 48,861
-[01:38:01]   z=4-5: N=31,573, rho=0.356, partial_rho=0.028
-[01:38:01]   z=5-6: N=5,358, rho=0.404, partial_rho=0.013
-[01:38:01]   z=6-7: N=4,684, rho=0.546, partial_rho=0.011
-[01:38:01]   z=7-8: N=4,590, rho=0.596, partial_rho=0.070
-[01:38:01]   z=8-9: N=1,121, rho=0.744, partial_rho=-0.021
-[01:38:01]   z=9-10: N=959, rho=0.597, partial_rho=0.020
-[01:38:01]   z=10-13: N=508, rho=0.745, partial_rho=-0.107
-[01:38:01] Full z>4 partial rho: 0.201 (p=1.00e-300)
-[01:38:01] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_153_cosmos2025_sed_analysis.json
-[01:38:01]     Step 153 complete. N(z>4)=48,861, partial rho(z>4)=0.201
+[13:08:42]     STEP 153: COSMOS2025 LePHARE SED analysis (Table B4a)
+[13:08:43] Loading COSMOSWeb_mastercatalog_v1_lephare.fits ...
+[13:08:44] Total sources: 784,016
+[13:08:44] Valid galaxy SED fits: 648,073
+[13:09:20] z>4 sample: N = 48,861
+[13:09:21]   z=4-5: N=31,573, rho=0.356, partial_rho=0.028
+[13:09:21]   z=5-6: N=5,358, rho=0.404, partial_rho=0.013
+[13:09:21]   z=6-7: N=4,684, rho=0.546, partial_rho=0.011
+[13:09:21]   z=7-8: N=4,590, rho=0.596, partial_rho=0.070
+[13:09:21]   z=8-9: N=1,121, rho=0.744, partial_rho=-0.021
+[13:09:21]   z=9-10: N=959, rho=0.597, partial_rho=0.020
+[13:09:21]   z=10-13: N=508, rho=0.745, partial_rho=-0.107
+[13:09:21] Full z>4 partial rho: 0.201 (p=1.00e-300)
+[13:09:21] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_153_cosmos2025_sed_analysis.json
+[13:09:21]     Step 153 complete. N(z>4)=48,861, partial rho(z>4)=0.201

@@ -1,74 +1,74 @@
-[01:35:44] ============================================================
-[01:35:44] Step 136: Functional Form Discrimination Test
-[01:35:44] ============================================================
-[01:35:44] Loading surveys...
-[01:35:44]   UNCOVER: loaded 2315 galaxies
-[01:35:44]   CEERS: loaded 71 galaxies (z=8.0-10.5)
-[01:35:45]   COSMOS-Web: loaded 2340 galaxies (z=8.0-10.5)
-[01:35:45] Total: 4726 galaxies across 3 surveys
-[01:35:45] 
+[13:06:15] ============================================================
+[13:06:15] Step 136: Functional Form Discrimination Test
+[13:06:15] ============================================================
+[13:06:15] Loading surveys...
+[13:06:15]   UNCOVER: loaded 2315 galaxies
+[13:06:15]   CEERS: loaded 71 galaxies (z=8.0-10.5)
+[13:06:15]   COSMOS-Web: loaded 2340 galaxies (z=8.0-10.5)
+[13:06:15] Total: 4726 galaxies across 3 surveys
+[13:06:15] 
 Analyzing: Full (z=4-10) (N=4726)
-[01:35:45]   ρ(dust, M*) = 0.166
-[01:35:45]   ρ(dust, t_eff) = 0.495
-[01:35:45]   ρ(dust, t_cosmic) = 0.451
-[01:35:45]   Steiger Z (t_eff vs M*): z=31.15, p=0.0000
-[01:35:45] 
+[13:06:15]   ρ(dust, M*) = 0.166
+[13:06:15]   ρ(dust, t_eff) = 0.495
+[13:06:15]   ρ(dust, t_cosmic) = 0.451
+[13:06:15]   Steiger Z (t_eff vs M*): z=31.15, p=0.0000
+[13:06:15] 
 Analyzing: z > 8 (all) (N=2694)
-[01:35:45]   ρ(dust, M*) = 0.525
-[01:35:45]   ρ(dust, t_eff) = 0.571
-[01:35:45]   ρ(dust, t_cosmic) = 0.324
-[01:35:45]   Steiger Z (t_eff vs M*): z=13.90, p=0.0000
-[01:35:45] 
+[13:06:15]   ρ(dust, M*) = 0.525
+[13:06:15]   ρ(dust, t_eff) = 0.571
+[13:06:15]   ρ(dust, t_cosmic) = 0.324
+[13:06:15]   Steiger Z (t_eff vs M*): z=13.90, p=0.0000
+[13:06:15] 
 Analyzing: z > 8 (dust>0) (N=1170)
-[01:35:45]   ρ(dust, M*) = 0.295
-[01:35:45]   ρ(dust, t_eff) = 0.298
-[01:35:45]   ρ(dust, t_cosmic) = -0.152
-[01:35:45]   Steiger Z (t_eff vs M*): z=1.26, p=0.2091
-[01:35:45] 
+[13:06:15]   ρ(dust, M*) = 0.295
+[13:06:15]   ρ(dust, t_eff) = 0.298
+[13:06:15]   ρ(dust, t_cosmic) = -0.152
+[13:06:15]   Steiger Z (t_eff vs M*): z=1.26, p=0.2091
+[13:06:15] 
 Analyzing: z = 4-7 (N=1811)
-[01:35:45]   ρ(dust, M*) = -0.022
-[01:35:45]   ρ(dust, t_eff) = -0.107
-[01:35:45]   ρ(dust, t_cosmic) = -0.149
-[01:35:45]   Steiger Z (t_eff vs M*): z=-5.19, p=0.0000
-[01:35:45] 
+[13:06:15]   ρ(dust, M*) = -0.022
+[13:06:15]   ρ(dust, t_eff) = -0.107
+[13:06:15]   ρ(dust, t_cosmic) = -0.149
+[13:06:15]   Steiger Z (t_eff vs M*): z=-5.19, p=0.0000
+[13:06:15] 
 Analyzing: UNCOVER z>8 (N=283)
-[01:35:45]   ρ(dust, M*) = 0.559
-[01:35:45]   ρ(dust, t_eff) = 0.599
-[01:35:45]   ρ(dust, t_cosmic) = -0.006
-[01:35:45]   Steiger Z (t_eff vs M*): z=2.71, p=0.0067
-[01:35:45] 
+[13:06:15]   ρ(dust, M*) = 0.559
+[13:06:15]   ρ(dust, t_eff) = 0.599
+[13:06:15]   ρ(dust, t_cosmic) = -0.006
+[13:06:15]   Steiger Z (t_eff vs M*): z=2.71, p=0.0067
+[13:06:15] 
 Analyzing: CEERS z>8 (N=71)
-[01:35:45]   ρ(dust, M*) = 0.795
-[01:35:45]   ρ(dust, t_eff) = 0.795
-[01:35:45]   ρ(dust, t_cosmic) = -0.154
-[01:35:45]   Steiger Z (t_eff vs M*): z=0.00, p=0.9975
-[01:35:45] 
+[13:06:15]   ρ(dust, M*) = 0.795
+[13:06:15]   ρ(dust, t_eff) = 0.795
+[13:06:15]   ρ(dust, t_cosmic) = -0.154
+[13:06:15]   Steiger Z (t_eff vs M*): z=0.00, p=0.9975
+[13:06:15] 
 Analyzing: COSMOS-Web z>8 (N=2340)
-[01:35:45]   ρ(dust, M*) = 0.706
-[01:35:45]   ρ(dust, t_eff) = 0.722
-[01:35:45]   ρ(dust, t_cosmic) = 0.360
-[01:35:45]   Steiger Z (t_eff vs M*): z=5.95, p=0.0000
-[01:35:45] ============================================================
-[01:35:45] Redshift Evolution Analysis
-[01:35:45] ============================================================
-[01:35:45]   ρ(α_predicted, ρ_dust_mstar) = 0.771
-[01:35:45]   p = 0.0724
-[01:35:45] ============================================================
-[01:35:45] AGB Threshold Discrimination
-[01:35:45] ============================================================
-[01:35:45]   t_eff threshold: det_frac above=0.741, below=0.225
-[01:35:45]   M* threshold:    det_frac above=0.722, below=0.238
-[01:35:45]   t_eff dust ratio: 3.8x
-[01:35:45]   M* dust ratio:   3.6x
-[01:35:45] ============================================================
-[01:35:45] Summary
-[01:35:45] ============================================================
-[01:35:45]   Best model (AIC) at z>8: M*_times_z
-[01:35:45]     M*_times_z: ΔAIC = 0.0
-[01:35:45]     M*_plus_z: ΔAIC = 66.7
-[01:35:45]     M*_only: ΔAIC = 67.8
-[01:35:45]     z_only: ΔAIC = 880.5
-[01:35:45] 
+[13:06:15]   ρ(dust, M*) = 0.706
+[13:06:15]   ρ(dust, t_eff) = 0.722
+[13:06:15]   ρ(dust, t_cosmic) = 0.360
+[13:06:15]   Steiger Z (t_eff vs M*): z=5.95, p=0.0000
+[13:06:15] ============================================================
+[13:06:15] Redshift Evolution Analysis
+[13:06:15] ============================================================
+[13:06:15]   ρ(α_predicted, ρ_dust_mstar) = 0.771
+[13:06:15]   p = 0.0724
+[13:06:15] ============================================================
+[13:06:15] AGB Threshold Discrimination
+[13:06:15] ============================================================
+[13:06:15]   t_eff threshold: det_frac above=0.741, below=0.225
+[13:06:15]   M* threshold:    det_frac above=0.722, below=0.238
+[13:06:15]   t_eff dust ratio: 3.8x
+[13:06:15]   M* dust ratio:   3.6x
+[13:06:15] ============================================================
+[13:06:15] Summary
+[13:06:15] ============================================================
+[13:06:15]   Best model (AIC) at z>8: M*_times_z
+[13:06:15]     M*_times_z: ΔAIC = 0.0
+[13:06:15]     M*_plus_z: ΔAIC = 66.7
+[13:06:15]     M*_only: ΔAIC = 67.8
+[13:06:15]     z_only: ΔAIC = 880.5
+[13:06:15] 
 Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_136_functional_form_test.json
-[01:35:45] Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_136_functional_form_test.png
-[01:35:45]     Step 136 (functional_form_test): PASS
+[13:06:16] Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_136_functional_form_test.png
+[13:06:16]     Step 136 (functional_form_test): PASS

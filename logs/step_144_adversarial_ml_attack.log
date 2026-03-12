@@ -1,83 +1,83 @@
-[01:35:56] ======================================================================
-[01:35:56] Step 144: Adversarial Machine Learning Attack on TEP
-[01:35:56] ======================================================================
-[01:35:56]     Loading UNCOVER...
-[01:35:56]   UNCOVER: 2315 galaxies
-[01:35:56]     Loading CEERS...
-[01:35:56]   CEERS: 10300 galaxies
-[01:35:56]     Loading COSMOS-Web...
-[01:35:56]   COSMOS-Web: 50057 galaxies
-[01:35:56]     TEST 1: Within-survey adversarial attack (UNCOVER)
-[01:35:56]       N = 2315 galaxies with all features
-[01:35:57]       mass_z_poly (8 features)...
-[01:36:01]         GBR: R²=0.2352±0.1260, ρ=0.3575
-[01:36:01]         RF: R²=0.2929±0.1222, ρ=0.3999
-[01:36:01]         Ridge: R²=0.2348±0.1177, ρ=0.3930
-[01:36:01]       mass_z_poly+extras (12 features)...
-[01:36:02]         GBR: R²=0.5625±0.1001, ρ=0.6857
-[01:36:04]         RF: R²=0.5526±0.0703, ρ=0.6872
-[01:36:04]         Ridge: R²=0.2354±0.1577, ρ=0.4600
-[01:36:04]       mass_z_poly+gamma_t (10 features)...
-[01:36:04]         GBR: R²=0.2279±0.1147, ρ=0.3471
-[01:36:04]         RF: R²=0.2832±0.1230, ρ=0.3935
-[01:36:04]         Ridge: R²=0.2387±0.1224, ρ=0.3915
-[01:36:04]       mass_z_poly+extras+gamma_t (14 features)...
-[01:36:04]         GBR: R²=0.5570±0.0907, ρ=0.6775
-[01:36:05]         RF: R²=0.5438±0.0743, ρ=0.6872
-[01:36:05]         Ridge: R²=0.2072±0.2326, ρ=0.4562
-[01:36:05]       gamma_t_only (2 features)...
-[01:36:05]         GBR: R²=-0.0129±0.1227, ρ=0.1910
-[01:36:05]         RF: R²=0.1074±0.1174, ρ=0.2133
-[01:36:05]         Ridge: R²=-0.2484±0.5892, ρ=-0.1063
-[01:36:05]       mass_only (1 features)...
-[01:36:05]         GBR: R²=-0.1482±0.0560, ρ=0.0083
-[01:36:05]         RF: R²=-0.0090±0.0342, ρ=0.0386
-[01:36:05]         Ridge: R²=0.0384±0.0257, ρ=0.0266
-[01:36:05]       z_only (1 features)...
-[01:36:05]         GBR: R²=-0.0499±0.0935, ρ=0.3079
-[01:36:05]         RF: R²=0.1024±0.0588, ρ=0.3281
-[01:36:05]         Ridge: R²=0.1468±0.0362, ρ=0.3631
-[01:36:05]       Computing permutation importance of Gamma_t...
-[01:36:06]       Gamma_t permutation importance: R² drop = 0.0497 ± 0.0290
-[01:36:06]     TEST 2: Cross-survey generalization attack
-[01:36:06]       UNCOVER_to_CEERS...
-[01:36:08]         mass_z_poly: R²=-2.5933, ρ=-0.3499
-[01:36:08]         mass_z_poly+gamma_t: R²=-2.5002, ρ=-0.2819
-[01:36:08]         Gamma_t cross-survey lift: ΔR² = +0.0931
-[01:36:08]       UNCOVER_to_COSMOS-Web...
-[01:36:08]         mass_z_poly: R²=-0.0158, ρ=-0.1192
-[01:36:08]         mass_z_poly+gamma_t: R²=-0.0158, ρ=-0.1208
-[01:36:08]         Gamma_t cross-survey lift: ΔR² = +0.0000
-[01:36:08]       CEERS_to_UNCOVER...
-[01:36:15]         mass_z_poly: R²=-2.1501, ρ=0.1044
-[01:36:15]         mass_z_poly+gamma_t: R²=-2.1577, ρ=0.1089
-[01:36:15]         Gamma_t cross-survey lift: ΔR² = -0.0076
-[01:36:15]       CEERS_to_COSMOS-Web...
-[01:36:15]         mass_z_poly: R²=-0.0118, ρ=0.3528
-[01:36:15]         mass_z_poly+gamma_t: R²=-0.0118, ρ=0.3549
-[01:36:15]         Gamma_t cross-survey lift: ΔR² = -0.0000
-[01:36:15]       COSMOS-Web_to_UNCOVER...
-[01:36:56]         mass_z_poly: R²=-91.2685, ρ=0.2154
-[01:36:56]         mass_z_poly+gamma_t: R²=-89.2393, ρ=0.2251
-[01:36:56]         Gamma_t cross-survey lift: ΔR² = +2.0292
-[01:36:56]       COSMOS-Web_to_CEERS...
-[01:36:56]         mass_z_poly: R²=-100054.7520, ρ=0.5462
-[01:36:56]         mass_z_poly+gamma_t: R²=-102042.7881, ρ=0.5471
-[01:36:56]         Gamma_t cross-survey lift: ΔR² = -1988.0361
-[01:36:56]     TEST 3: Conditional mutual information I(Γ_t; dust | M*, z)
-[01:36:56]       z_gt_8: N = 283
-[01:36:57]         I(Γ_t; dust | M*, z) = 0.3290 (z-score = 28.5)
-[01:36:57]         I(M*; dust | Γ_t, z) = 0.1828
-[01:36:57]       full_z4_10: N = 2315
-[01:37:02]         I(Γ_t; dust | M*, z) = 0.0178 (z-score = 9.4)
-[01:37:02]         I(M*; dust | Γ_t, z) = 0.0141
-[01:37:02] Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_144_adversarial_ml_attack.json
-[01:37:03] Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_144_adversarial_ml_attack.png
-[01:37:03]     ============================================================
-[01:37:03]     ADVERSARIAL ML ATTACK RESULTS
-[01:37:03]     ============================================================
-[01:37:03]       WITHIN-SURVEY: Γ_t lift is negligible once flexible survey-specific features are available (ΔR²=-0.0055)
-[01:37:03]       SINGLE-FEATURE: gamma_t wins (Γ_t R²=-0.013, M* R²=-0.148, z R²=-0.050)
-[01:37:03]       CROSS-SURVEY: Γ_t Δρ positive in 5/6 pairs (mean Δρ=+0.0139). All flexible transfer models fail cross-survey (R² << 0), so the relevant comparison is retained rank information rather than within-survey fit quality.
-[01:37:03]       PERMUTATION: joint Γ_t feature permutation lowers GBR R² by 0.0497 on average
-[01:37:03]       INFO THEORY: I(Γ_t; dust | M*, z) significant (z=28.5; ΔI=+0.1462 nats)
+[13:06:26] ======================================================================
+[13:06:26] Step 144: Adversarial Machine Learning Attack on TEP
+[13:06:26] ======================================================================
+[13:06:26]     Loading UNCOVER...
+[13:06:26]   UNCOVER: 2315 galaxies
+[13:06:26]     Loading CEERS...
+[13:06:26]   CEERS: 10300 galaxies
+[13:06:26]     Loading COSMOS-Web...
+[13:06:26]   COSMOS-Web: 50057 galaxies
+[13:06:26]     TEST 1: Within-survey adversarial attack (UNCOVER)
+[13:06:26]       N = 2315 galaxies with all features
+[13:06:28]       mass_z_poly (8 features)...
+[13:06:32]         GBR: R²=0.2352±0.1260, ρ=0.3575
+[13:06:33]         RF: R²=0.2929±0.1222, ρ=0.3999
+[13:06:33]         Ridge: R²=0.2348±0.1177, ρ=0.3930
+[13:06:33]       mass_z_poly+extras (12 features)...
+[13:06:34]         GBR: R²=0.5625±0.1001, ρ=0.6857
+[13:06:36]         RF: R²=0.5526±0.0703, ρ=0.6872
+[13:06:36]         Ridge: R²=0.2354±0.1577, ρ=0.4600
+[13:06:36]       mass_z_poly+gamma_t (10 features)...
+[13:06:36]         GBR: R²=0.2279±0.1147, ρ=0.3471
+[13:06:36]         RF: R²=0.2832±0.1230, ρ=0.3935
+[13:06:36]         Ridge: R²=0.2387±0.1224, ρ=0.3915
+[13:06:36]       mass_z_poly+extras+gamma_t (14 features)...
+[13:06:36]         GBR: R²=0.5570±0.0907, ρ=0.6775
+[13:06:36]         RF: R²=0.5438±0.0743, ρ=0.6872
+[13:06:36]         Ridge: R²=0.2072±0.2326, ρ=0.4562
+[13:06:36]       gamma_t_only (2 features)...
+[13:06:36]         GBR: R²=-0.0129±0.1227, ρ=0.1910
+[13:06:36]         RF: R²=0.1074±0.1174, ρ=0.2133
+[13:06:36]         Ridge: R²=-0.2484±0.5892, ρ=-0.1063
+[13:06:36]       mass_only (1 features)...
+[13:06:36]         GBR: R²=-0.1482±0.0560, ρ=0.0083
+[13:06:36]         RF: R²=-0.0090±0.0342, ρ=0.0386
+[13:06:36]         Ridge: R²=0.0384±0.0257, ρ=0.0266
+[13:06:36]       z_only (1 features)...
+[13:06:36]         GBR: R²=-0.0499±0.0935, ρ=0.3079
+[13:06:36]         RF: R²=0.1024±0.0588, ρ=0.3281
+[13:06:36]         Ridge: R²=0.1468±0.0362, ρ=0.3631
+[13:06:36]       Computing permutation importance of Gamma_t...
+[13:06:37]       Gamma_t permutation importance: R² drop = 0.0497 ± 0.0290
+[13:06:37]     TEST 2: Cross-survey generalization attack
+[13:06:38]       UNCOVER_to_CEERS...
+[13:06:39]         mass_z_poly: R²=-2.5933, ρ=-0.3499
+[13:06:39]         mass_z_poly+gamma_t: R²=-2.5002, ρ=-0.2819
+[13:06:39]         Gamma_t cross-survey lift: ΔR² = +0.0931
+[13:06:39]       UNCOVER_to_COSMOS-Web...
+[13:06:39]         mass_z_poly: R²=-0.0158, ρ=-0.1192
+[13:06:39]         mass_z_poly+gamma_t: R²=-0.0158, ρ=-0.1208
+[13:06:39]         Gamma_t cross-survey lift: ΔR² = +0.0000
+[13:06:39]       CEERS_to_UNCOVER...
+[13:06:46]         mass_z_poly: R²=-2.1501, ρ=0.1044
+[13:06:46]         mass_z_poly+gamma_t: R²=-2.1577, ρ=0.1089
+[13:06:46]         Gamma_t cross-survey lift: ΔR² = -0.0076
+[13:06:46]       CEERS_to_COSMOS-Web...
+[13:06:46]         mass_z_poly: R²=-0.0118, ρ=0.3528
+[13:06:46]         mass_z_poly+gamma_t: R²=-0.0118, ρ=0.3549
+[13:06:46]         Gamma_t cross-survey lift: ΔR² = -0.0000
+[13:06:46]       COSMOS-Web_to_UNCOVER...
+[13:07:27]         mass_z_poly: R²=-91.2685, ρ=0.2154
+[13:07:33]         mass_z_poly+gamma_t: R²=-89.2393, ρ=0.2251
+[13:07:33]         Gamma_t cross-survey lift: ΔR² = +2.0292
+[13:07:34]       COSMOS-Web_to_CEERS...
+[13:07:34]         mass_z_poly: R²=-100054.7520, ρ=0.5462
+[13:07:34]         mass_z_poly+gamma_t: R²=-102042.7881, ρ=0.5471
+[13:07:34]         Gamma_t cross-survey lift: ΔR² = -1988.0361
+[13:07:34]     TEST 3: Conditional mutual information I(Γ_t; dust | M*, z)
+[13:07:36]       z_gt_8: N = 283
+[13:07:36]         I(Γ_t; dust | M*, z) = 0.3290 (z-score = 28.5)
+[13:07:41]         I(M*; dust | Γ_t, z) = 0.1828
+[13:07:44]       full_z4_10: N = 2315
+[13:07:50]         I(Γ_t; dust | M*, z) = 0.0178 (z-score = 9.4)
+[13:07:50]         I(M*; dust | Γ_t, z) = 0.0141
+[13:07:50] Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_144_adversarial_ml_attack.json
+[13:07:56] Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_144_adversarial_ml_attack.png
+[13:07:56]     ============================================================
+[13:07:56]     ADVERSARIAL ML ATTACK RESULTS
+[13:07:56]     ============================================================
+[13:07:56]       WITHIN-SURVEY: Γ_t lift is negligible once flexible survey-specific features are available (ΔR²=-0.0055)
+[13:07:56]       SINGLE-FEATURE: gamma_t wins (Γ_t R²=-0.013, M* R²=-0.148, z R²=-0.050)
+[13:07:56]       CROSS-SURVEY: Γ_t Δρ positive in 5/6 pairs (mean Δρ=+0.0139). All flexible transfer models fail cross-survey (R² << 0), so the relevant comparison is retained rank information rather than within-survey fit quality.
+[13:07:56]       PERMUTATION: joint Γ_t feature permutation lowers GBR R² by 0.0497 on average
+[13:07:56]       INFO THEORY: I(Γ_t; dust | M*, z) significant (z=28.5; ΔI=+0.1462 nats)

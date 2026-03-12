@@ -1,11 +1,11 @@
-[01:38:08]     STEP 157: COSMOS2025 sSFR inversion (Table B4b)
-[01:38:08] Loading COSMOSWeb_mastercatalog_v1_lephare.fits ...
-[01:38:08] Valid galaxy SED fits: 648,830
-[01:38:52]   z=4-7 (low-z): N=42,361, partial_rho=0.040, debiased=0.023, weighted_debiased=0.019
-[01:38:53]   z=7-8: N=4,590, partial_rho=-0.042, debiased=-0.065, weighted_debiased=-0.090
-[01:38:53]   z=8-9: N=1,121, partial_rho=0.067, debiased=0.043, weighted_debiased=0.070
-[01:38:54]   z=9-13 (high-z): N=1,467, partial_rho=-0.106, debiased=-0.212, weighted_debiased=-0.185
-[01:38:54] Independent-sample Fisher z-difference (z=9-13 vs z=4-7): Z=-5.54, p=3.07e-08
-[01:38:54] sSFR inversion: rho(low-z)=0.040 -> rho(high-z)=-0.106, delta_rho=-0.147
-[01:38:54] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_157_cosmos2025_ssfr_inversion.json
-[01:38:54]     Step 157 complete. Fisher z-difference=-5.54, p=3.07e-08
+[13:09:27]     STEP 157: COSMOS2025 sSFR inversion (Table B4b)
+[13:09:28] Loading COSMOSWeb_mastercatalog_v1_lephare.fits ...
+[13:09:28] Valid galaxy SED fits: 648,830
+[13:10:12]   z=4-7 (low-z): N=42,361, partial_rho=0.040, debiased=0.023, weighted_debiased=0.019
+[13:10:13]   z=7-8: N=4,590, partial_rho=-0.042, debiased=-0.065, weighted_debiased=-0.090
+[13:10:13]   z=8-9: N=1,121, partial_rho=0.067, debiased=0.043, weighted_debiased=0.070
+[13:10:13]   z=9-13 (high-z): N=1,467, partial_rho=-0.106, debiased=-0.212, weighted_debiased=-0.185
+[13:10:14] Independent-sample Fisher z-difference (z=9-13 vs z=4-7): Z=-5.54, p=3.07e-08
+[13:10:14] sSFR inversion: rho(low-z)=0.040 -> rho(high-z)=-0.106, delta_rho=-0.147
+[13:10:14] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_157_cosmos2025_ssfr_inversion.json
+[13:10:14]     Step 157 complete. Fisher z-difference=-5.54, p=3.07e-08

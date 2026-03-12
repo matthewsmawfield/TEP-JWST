@@ -1,10 +1,10 @@
-[01:34:22] ═══ STEP 070: Binary Pulsar Constraints
-[01:34:22] >>> Checking Binary Pulsar Screening Constraints...
-[01:34:22]     Neutron Star Mass: 1.4 solMass
-[01:34:22]     Neutron Star Radius: 10.0 km
-[01:34:22]     Neutron Star Density: 6.65e+14 g / cm3
-[01:34:22]     Critical Density (TEP): 20.0 g / cm3
-[01:34:22] ✓   Is Screened? True
-[01:34:22]     Suppression Factor (Scalar Charge): 3.01e-14
-[01:34:22] ✓   Saved results to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_070_binary_pulsar_constraints.json
-[01:34:22] ✓   Step 070 complete.
+[13:04:51] ═══ STEP 070: Binary Pulsar Constraints
+[13:04:51] >>> Checking Binary Pulsar Screening Constraints...
+[13:04:51]     Neutron Star Mass: 1.4 solMass
+[13:04:51]     Neutron Star Radius: 10.0 km
+[13:04:51]     Neutron Star Density: 6.65e+14 g / cm3
+[13:04:51]     Critical Density (TEP): 20.0 g / cm3
+[13:04:51] ✓   Is Screened? True
+[13:04:51]     Suppression Factor (Scalar Charge): 3.01e-14
+[13:04:51] ✓   Saved results to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_070_binary_pulsar_constraints.json
+[13:04:51] ✓   Step 070 complete.

@@ -2057,7 +2057,8 @@
       0.7448318317038835,
       0.3555543025756766,
       0.3302290230267882
-    ]
+    ],
+    "n_upper_limit_rows_excluded": 1
   },
   "methodology": {
     "source_data": "Real UNCOVER DR4 photometry (step_002)",
@@ -2071,9 +2072,12 @@
   "kinematic_table": {
     "status": "loaded_local_object_level_table",
     "path": "/Users/matthewsmawfield/www/TEP-JWST/data/interim/literature_kinematic_sample.json",
-    "n_objects": 4,
+    "n_objects": 5,
+    "n_objects_exact_mdyn": 4,
+    "n_objects_upper_limit_only": 1,
     "sources": [
-      "Esdaile et al. 2021"
+      "Esdaile et al. 2021",
+      "Tanaka et al. 2019"
     ],
     "sample_name": "Esdaile et al. 2021 massive quiescent kinematics (z=3.2-3.7)",
     "analysis_role": "supplementary_object_level_direct_kinematics",
@@ -2108,11 +2112,14 @@
     "analysis_class": "real_data_direct_object_level_kinematics",
     "direct_kinematic_measurements_used": true,
     "kinematic_table": {
-      "n_objects": 4,
+      "n_objects": 5,
+      "n_objects_exact_mdyn": 4,
+      "n_objects_upper_limit_only": 1,
       "status": "loaded_local_object_level_table",
       "path": "/Users/matthewsmawfield/www/TEP-JWST/data/interim/literature_kinematic_sample.json",
       "sources": [
-        "Esdaile et al. 2021"
+        "Esdaile et al. 2021",
+        "Tanaka et al. 2019"
       ],
       "sample_name": "Esdaile et al. 2021 massive quiescent kinematics (z=3.2-3.7)",
       "analysis_role": "supplementary_object_level_direct_kinematics",
@@ -2139,7 +2146,7 @@
         "excluded_candidates": []
       }
     },
-    "n_kinematic_regime": 4,
+    "n_kinematic_regime": 5,
     "global_stats": {
       "mean_gamma_t": 3.081339532780524,
       "mean_mass_correction_factor": 1.7534851351798229,
@@ -2152,13 +2159,17 @@
       "resolved": false
     },
     "object_level_summary": {
+      "n_objects_total": 5,
+      "n_exact_mdyn_objects": 4,
+      "n_upper_limit_objects": 1,
       "n_anomalous_observed": 3,
       "n_resolved_after_tep": 2,
       "resolution_fraction_among_anomalous": 0.6666666666666666,
       "mean_observed_excess_dex": 0.16811325000000021,
       "median_observed_excess_dex": 0.17166700000000024,
       "mean_corrected_excess_dex": -0.07531999668861422,
-      "median_corrected_excess_dex": -0.08023005436636943
+      "median_corrected_excess_dex": -0.08023005436636943,
+      "mean_excess_metrics_basis": "exact_mdyn_rows_only"
     },
     "object_level_beta_bootstrap": {
       "n_galaxies": 3,
@@ -4173,7 +4184,8 @@
         0.7448318317038835,
         0.3555543025756766,
         0.3302290230267882
-      ]
+      ],
+      "n_upper_limit_rows_excluded": 1
     },
     "objects": [
       {
@@ -4187,6 +4199,7 @@
         "corrected_excess_dex": -0.06659086918973145,
         "anomalous_observed": true,
         "resolved_after_tep": true,
+        "mdyn_limit_type": "exact",
         "source": "Esdaile et al. 2021",
         "sigma_kms": 283.0,
         "re_kpc": 0.66
@@ -4202,6 +4215,7 @@
         "corrected_excess_dex": -0.35936430033787303,
         "anomalous_observed": false,
         "resolved_after_tep": true,
+        "mdyn_limit_type": "exact",
         "source": "Esdaile et al. 2021",
         "sigma_kms": 275.0,
         "re_kpc": 2.4
@@ -4217,6 +4231,7 @@
         "corrected_excess_dex": 0.218544422316155,
         "anomalous_observed": true,
         "resolved_after_tep": false,
+        "mdyn_limit_type": "exact",
         "source": "Esdaile et al. 2021",
         "sigma_kms": 196.0,
         "re_kpc": 0.63
@@ -4232,19 +4247,47 @@
         "corrected_excess_dex": -0.09386923954300741,
         "anomalous_observed": true,
         "resolved_after_tep": true,
+        "mdyn_limit_type": "exact",
         "source": "Esdaile et al. 2021",
         "sigma_kms": 301.0,
         "re_kpc": 0.61
+      },
+      {
+        "object_id": "SXDS-27434",
+        "z": 4.01,
+        "log_Mstar_obs": 11.060698,
+        "log_Mdyn_upper": 11.079181,
+        "gamma_t": 3.9677930922545035,
+        "delta_logMstar_dex": 0.2992745085007708,
+        "observed_excess_lower_bound_dex": -0.018482999999999805,
+        "corrected_excess_lower_bound_dex": -0.31775750850077067,
+        "anomalous_observed_lower_bound": false,
+        "resolved_after_tep": null,
+        "mdyn_limit_type": "upper_limit",
+        "source": "Tanaka et al. 2019",
+        "sigma_kms": 268.0,
+        "re_kpc": 1.3
       }
     ],
     "methodology": {
       "source_data": "Local curated object-level kinematic table",
       "comparison_type": "Observed M* vs direct M_dyn per object",
       "mass_correction_formula": "M*_tep = M*_standard / Gamma_t^n_ML",
-      "n_ML": 0.5
+      "n_ML": 0.5,
+      "upper_limit_handling": "Rows with log_Mdyn_upper but no exact log_Mdyn are included as censored upper-limit objects. They contribute conservative lower-bound excess metrics in upper_limit_summary and the object list, but are excluded from exact-mean excess summaries and beta bootstrap calculations."
+    },
+    "upper_limit_summary": {
+      "n_objects": 1,
+      "mean_observed_excess_lower_bound_dex": -0.018482999999999805,
+      "median_observed_excess_lower_bound_dex": -0.018482999999999805,
+      "mean_corrected_excess_lower_bound_dex": -0.31775750850077067,
+      "median_corrected_excess_lower_bound_dex": -0.31775750850077067,
+      "n_lower_bound_anomalous": 0,
+      "n_lower_bound_nonpositive_after_tep": 1
     },
     "source_breakdown": {
-      "Esdaile et al. 2021": 4
+      "Esdaile et al. 2021": 4,
+      "Tanaka et al. 2019": 1
     }
   },
   "supplementary_direct_object_level_available": true,
@@ -6261,6 +6304,7 @@
       0.7448318317038835,
       0.3555543025756766,
       0.3302290230267882
-    ]
+    ],
+    "n_upper_limit_rows_excluded": 1
   }
 }

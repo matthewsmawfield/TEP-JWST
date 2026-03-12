@@ -1,83 +1,83 @@
-[01:34:06]     ======================================================================
-[01:34:06]     STEP 054: Unique Predictions
-[01:34:06]     ======================================================================
-[01:34:06]     
+[13:04:36]     ======================================================================
+[13:04:36]     STEP 054: Unique Predictions
+[13:04:36]     ======================================================================
+[13:04:36]     
 Testing predictions UNIQUE to TEP...
 
-[01:34:06]     Loaded N = 2315 galaxies
-[01:34:07]     
+[13:04:36]     Loaded N = 2315 galaxies
+[13:04:36]     
 ======================================================================
-[01:34:07]     PREDICTION 1: Dust Desert Violation
-[01:34:07]     ======================================================================
-[01:34:07]     At z > 10, t_cosmic < 450 Myr. AGB dust requires ~300 Myr.
-[01:34:07]     Standard physics: NO dust possible. TEP: Dust if Gamma_t > 1.
+[13:04:36]     PREDICTION 1: Dust Desert Violation
+[13:04:36]     ======================================================================
+[13:04:36]     At z > 10, t_cosmic < 450 Myr. AGB dust requires ~300 Myr.
+[13:04:36]     Standard physics: NO dust possible. TEP: Dust if Gamma_t > 1.
 
-[01:34:07]     
+[13:04:36]     
 ======================================================================
-[01:34:07]     PREDICTION 2: Mass-Age Correlation
-[01:34:07]     ======================================================================
-[01:34:07]     Standard: More massive galaxies form LATER (hierarchical).
-[01:34:07]     TEP: More massive = higher Gamma_t = appear OLDER.
+[13:04:36]     PREDICTION 2: Mass-Age Correlation
+[13:04:36]     ======================================================================
+[13:04:36]     Standard: More massive galaxies form LATER (hierarchical).
+[13:04:36]     TEP: More massive = higher Gamma_t = appear OLDER.
 
-[01:34:07]     N = 283
-[01:34:07]     ρ(M*, Age) at z > 8 = -0.043 (p = 4.76e-01)
-[01:34:07]     
+[13:04:36]     N = 283
+[13:04:36]     ρ(M*, Age) at z > 8 = -0.043 (p = 4.76e-01)
+[13:04:36]     
 ======================================================================
-[01:34:07]     PREDICTION 3: Metallicity Paradox
-[01:34:07]     ======================================================================
-[01:34:07]     At z > 9, t_cosmic < 550 Myr. High metallicity requires time.
-[01:34:07]     TEP: High metallicity possible with high Gamma_t.
+[13:04:36]     PREDICTION 3: Metallicity Paradox
+[13:04:36]     ======================================================================
+[13:04:36]     At z > 9, t_cosmic < 550 Myr. High metallicity requires time.
+[13:04:36]     TEP: High metallicity possible with high Gamma_t.
 
-[01:34:07]     High metallicity (top 25%): N = 26, <Γ_t> = 11.39
-[01:34:07]     Low metallicity: N = 78, <Γ_t> = 0.37
-[01:34:07]     Ratio: 30.83×
-[01:34:07]     ✓ UNIQUE: High-metallicity z>9 galaxies have elevated Γ_t
-[01:34:07]     
+[13:04:36]     High metallicity (top 25%): N = 26, <Γ_t> = 11.39
+[13:04:36]     Low metallicity: N = 78, <Γ_t> = 0.37
+[13:04:36]     Ratio: 30.83×
+[13:04:36]     ✓ UNIQUE: High-metallicity z>9 galaxies have elevated Γ_t
+[13:04:36]     
 ======================================================================
-[01:34:07]     PREDICTION 4: χ² Monotonicity
-[01:34:07]     ======================================================================
-[01:34:07]     TEP predicts: χ² should increase monotonically with Gamma_t.
-[01:34:07]     (Isochrony violation worsens SED fits.)
+[13:04:36]     PREDICTION 4: χ² Monotonicity
+[13:04:36]     ======================================================================
+[13:04:36]     TEP predicts: χ² should increase monotonically with Gamma_t.
+[13:04:36]     (Isochrony violation worsens SED fits.)
 
-[01:34:07]     Γ_t = 0-0.5: N = 219, <χ²> = 11.5
-[01:34:07]     Γ_t = 0.5-1: N = 31, <χ²> = 15.0
-[01:34:07]     Γ_t = 1-2: N = 12, <χ²> = 24.1
-[01:34:07]     Γ_t = 2-5: N = 7, <χ²> = 41.4
-[01:34:07]     Γ_t = 5-100: N = 13, <χ²> = 90.2
-[01:34:07]     
+[13:04:36]     Γ_t = 0-0.5: N = 219, <χ²> = 11.5
+[13:04:36]     Γ_t = 0.5-1: N = 31, <χ²> = 15.0
+[13:04:36]     Γ_t = 1-2: N = 12, <χ²> = 24.1
+[13:04:36]     Γ_t = 2-5: N = 7, <χ²> = 41.4
+[13:04:36]     Γ_t = 5-100: N = 13, <χ²> = 90.2
+[13:04:36]     
 Trend: ρ = 1.00
-[01:34:07]     ✓ UNIQUE: χ² increases monotonically with Γ_t
-[01:34:07]     
+[13:04:36]     ✓ UNIQUE: χ² increases monotonically with Γ_t
+[13:04:36]     
 ======================================================================
-[01:34:07]     PREDICTION 5: Quiescent Fraction
-[01:34:07]     ======================================================================
-[01:34:07]     Standard: NO quiescent galaxies at z > 8 (not enough time).
-[01:34:07]     TEP: Quiescent possible with high Gamma_t.
+[13:04:36]     PREDICTION 5: Quiescent Fraction
+[13:04:36]     ======================================================================
+[13:04:36]     Standard: NO quiescent galaxies at z > 8 (not enough time).
+[13:04:36]     TEP: Quiescent possible with high Gamma_t.
 
-[01:34:07]     Quiescent at z > 8: N = 3 (1.1%)
-[01:34:07]     <Γ_t> quiescent: 36.08
-[01:34:07]     <Γ_t> star-forming: 1.39
-[01:34:07]     ✓ UNIQUE: Quiescent z>8 galaxies have elevated Γ_t
-[01:34:07]     
+[13:04:36]     Quiescent at z > 8: N = 3 (1.1%)
+[13:04:36]     <Γ_t> quiescent: 36.08
+[13:04:36]     <Γ_t> star-forming: 1.39
+[13:04:36]     ✓ UNIQUE: Quiescent z>8 galaxies have elevated Γ_t
+[13:04:36]     
 ======================================================================
-[01:34:07]     PREDICTION 6: Effective Time Threshold
-[01:34:07]     ======================================================================
-[01:34:07]     TEP predicts: Dust should appear when t_eff > 300 Myr.
-[01:34:07]     This is a QUANTITATIVE prediction.
+[13:04:36]     PREDICTION 6: Effective Time Threshold
+[13:04:36]     ======================================================================
+[13:04:36]     TEP predicts: Dust should appear when t_eff > 300 Myr.
+[13:04:36]     This is a QUANTITATIVE prediction.
 
-[01:34:07]     t_eff > 300 Myr: N = 62, <A_V> = 1.317
-[01:34:07]     t_eff ≤ 300 Myr: N = 221, <A_V> = 0.646
-[01:34:07]     Ratio: 2.04×
-[01:34:07]     ✓ UNIQUE: Dust appears above t_eff threshold as predicted
-[01:34:07]     
+[13:04:36]     t_eff > 300 Myr: N = 62, <A_V> = 1.317
+[13:04:36]     t_eff ≤ 300 Myr: N = 221, <A_V> = 0.646
+[13:04:36]     Ratio: 2.04×
+[13:04:36]     ✓ UNIQUE: Dust appears above t_eff threshold as predicted
+[13:04:36]     
 ======================================================================
-[01:34:07]     SUMMARY: Unique Predictions
-[01:34:07]     ======================================================================
-[01:34:07]     
+[13:04:36]     SUMMARY: Unique Predictions
+[13:04:36]     ======================================================================
+[13:04:36]     
 Unique evidence items: 4
-[01:34:07]       • metallicity_paradox: stat = 30.832
-[01:34:07]       • chi2_monotonicity: stat = 1.000
-[01:34:07]       • quiescent_z8: stat = 25.971
-[01:34:07]       • t_eff_threshold: stat = 2.038
-[01:34:07]     
+[13:04:36]       • metallicity_paradox: stat = 30.832
+[13:04:36]       • chi2_monotonicity: stat = 1.000
+[13:04:36]       • quiescent_z8: stat = 25.971
+[13:04:36]       • t_eff_threshold: stat = 2.038
+[13:04:36]     
 Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_054_unique_predictions.json

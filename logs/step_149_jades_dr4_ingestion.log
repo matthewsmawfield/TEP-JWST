@@ -1,36 +1,36 @@
-[01:37:14]     ============================================================
-[01:37:14]     STEP 149: JADES DR4 Spectroscopic Catalog Ingestion
-[01:37:14]     ============================================================
-[01:37:14] >>> Loading JADES DR4: /Users/matthewsmawfield/www/TEP-JWST/data/raw/jades_hainline/JADES_DR4_spectroscopic_catalog.fits
-[01:37:14]     Total targets: 5190
-[01:37:14]     Good spec-z (flags A/B): N = 2858
-[01:37:14]       z>5: N = 495
-[01:37:14]       z>7: N = 118
-[01:37:14]       z>8: N = 41
-[01:37:14]       z>10: N = 2
-[01:37:14] >>> Applying TEP model...
-[01:37:14]     Sources with valid halo mass: 1345
-[01:37:14]     Gamma_t computed for 1345 sources
-[01:37:14]       Median Gamma_t: 0.454
-[01:37:14]       Gamma_t range: 0.057 - 4.888
-[01:37:14]     Saved: /Users/matthewsmawfield/www/TEP-JWST/results/interim/step_149_jades_dr4_specz.csv (N=2858)
-[01:37:14] >>> Analyzing TEP signal...
-[01:37:14]     Full sample with gamma_t + MUV: N=1345
-[01:37:14]     Full: ρ(Gamma_t, MUV) = -0.877, p = 1e-300
-[01:37:14]     z>7 sample with gamma_t + MUV: N=114
-[01:37:14]     z>7: ρ(Gamma_t, MUV) = -0.998, p = 5.6208538547660865e-140
-[01:37:14]     z>8 sample with gamma_t + MUV: N=40
-[01:37:14]     z>8: ρ(Gamma_t, MUV) = -0.997, p = 7.72804734200351e-44
-[01:37:14]     Photo-z accuracy: σ_MAD = 0.0418, η_outlier = 0.097
-[01:37:14] >>> Cross-survey consistency check...
-[01:37:14]     UNCOVER sample: N=2315
-[01:37:14]     UNCOVER ρ(Gamma_t, dust) = -0.118
-[01:37:14]     Sign consistency (JADES vs UNCOVER): True
-[01:37:14]     Saved: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_149_jades_dr4_ingestion.json
-[01:37:14]     ============================================================
-[01:37:14]     SUMMARY
-[01:37:14]       JADES DR4 good spec-z: N = 2858
-[01:37:14]       Upgrade factor vs prior: 19.4×
-[01:37:14]       TEP signal (full): ρ = -0.877, p = 1e-300
-[01:37:14]       TEP signal (z>7): ρ = -0.998, p = 5.6208538547660865e-140
-[01:37:14]     ============================================================
+[13:08:33]     ============================================================
+[13:08:33]     STEP 149: JADES DR4 Spectroscopic Catalog Ingestion
+[13:08:33]     ============================================================
+[13:08:33] >>> Loading JADES DR4: /Users/matthewsmawfield/www/TEP-JWST/data/raw/jades_hainline/JADES_DR4_spectroscopic_catalog.fits
+[13:08:33]     Total targets: 5190
+[13:08:33]     Good spec-z (flags A/B): N = 2858
+[13:08:33]       z>5: N = 495
+[13:08:33]       z>7: N = 118
+[13:08:33]       z>8: N = 41
+[13:08:33]       z>10: N = 2
+[13:08:33] >>> Applying TEP model...
+[13:08:33]     Sources with valid halo mass: 1345
+[13:08:33]     Gamma_t computed for 1345 sources
+[13:08:33]       Median Gamma_t: 0.454
+[13:08:33]       Gamma_t range: 0.057 - 4.888
+[13:08:33]     Saved: /Users/matthewsmawfield/www/TEP-JWST/results/interim/step_149_jades_dr4_specz.csv (N=2858)
+[13:08:33] >>> Analyzing TEP signal...
+[13:08:33]     Full sample with gamma_t + MUV: N=1345
+[13:08:33]     Full: ρ(Gamma_t, MUV) = -0.877, p = 1e-300
+[13:08:33]     z>7 sample with gamma_t + MUV: N=114
+[13:08:33]     z>7: ρ(Gamma_t, MUV) = -0.998, p = 5.6208538547660865e-140
+[13:08:33]     z>8 sample with gamma_t + MUV: N=40
+[13:08:33]     z>8: ρ(Gamma_t, MUV) = -0.997, p = 7.72804734200351e-44
+[13:08:33]     Photo-z accuracy: σ_MAD = 0.0418, η_outlier = 0.097
+[13:08:33] >>> Cross-survey consistency check...
+[13:08:33]     UNCOVER sample: N=2315
+[13:08:33]     UNCOVER ρ(Gamma_t, dust) = -0.118
+[13:08:33]     Sign consistency (JADES vs UNCOVER): True
+[13:08:33]     Saved: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_149_jades_dr4_ingestion.json
+[13:08:33]     ============================================================
+[13:08:33]     SUMMARY
+[13:08:33]       JADES DR4 good spec-z: N = 2858
+[13:08:33]       Upgrade factor vs prior: 19.4×
+[13:08:33]       TEP signal (full): ρ = -0.877, p = 1e-300
+[13:08:33]       TEP signal (z>7): ρ = -0.998, p = 5.6208538547660865e-140
+[13:08:33]     ============================================================
