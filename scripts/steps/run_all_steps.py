@@ -274,7 +274,12 @@ STEPS = [
     "step_166_jades_z9_beta_contrast.py",           # JADES z=9-12 UV-slope contrast companion
     "step_167_protocluster_switch.py",              # Protocluster switch sign-reversal test
     "step_168_gradient_sign_reversal.py",           # Resolved gradient sign-reversal test
-    "step_169_dja_sigma_pilot.py",                  # DJA pilot sigma extraction from public spec.fits URLs
+    "step_169_dja_sigma_pilot.py",                    # DJA pilot sigma extraction from public spec.fits URLs
+    "step_171_sigma_kinematic_expansion.py",         # Sigma-based kinematic expansion (mass-circularity breaker)
+    "step_170_kinematic_decisive_test.py",           # Kinematic decisive test + federated package (reads step_171)
+    "step_173_cosmic_sfrd_correction.py",           # Cosmic SFRD correction (Table 16)
+    "step_174_smf_mass_threshold_counts.py",        # SMF mass threshold counts (Table 15)
+    "step_176_nested_bayesian_evidence.py",         # Nested Bayesian model comparison (dynesty)
     "step_140_evidence_tier_summary.py",            # Final evidence synthesis after late-ingestion outputs
     "step_160_manuscript_consistency_check.py",     # Automated manuscript↔JSON consistency checks
 ]
@@ -402,10 +407,12 @@ def _scientific_reproducibility_snapshot():
             "L2": lines.get("L2_core_screening", {}).get("status"),
             "L3": lines.get("L3_ssfr_inversion", {}).get("status"),
             "L4": lines.get("L4_dynamical_mass", {}).get("status"),
+            "L5": lines.get("L5_kinematic_decisive", {}).get("status"),
         }
         snapshot["claim_hierarchy"] = final.get("claim_hierarchy")
         verdict = final.get("verdict", {})
         snapshot["headline_primary_result"] = verdict.get("headline_primary_result")
+        snapshot["headline_direct_test"] = verdict.get("headline_direct_test")
         snapshot["supplementary_mixed_branches"] = verdict.get("supplementary_mixed_branches", [])
 
     external_catalog_branches = {}
@@ -581,11 +588,15 @@ def _print_summary_table(results: list[StepResult], total_elapsed: float, scient
                 f"L1={line_statuses.get('L1')}  "
                 f"L2={line_statuses.get('L2')}  "
                 f"L3={line_statuses.get('L3')}  "
-                f"L4={line_statuses.get('L4')}"
+                f"L4={line_statuses.get('L4')}  "
+                f"L5={line_statuses.get('L5')}"
             )
         headline_primary_result = scientific_state.get("headline_primary_result")
         if headline_primary_result:
             print(f"  Headline primary result: {headline_primary_result}")
+        headline_direct_test = scientific_state.get("headline_direct_test")
+        if headline_direct_test:
+            print(f"  Headline direct test: {headline_direct_test}")
         supplementary_mixed_branches = scientific_state.get("supplementary_mixed_branches")
         if supplementary_mixed_branches:
             print(

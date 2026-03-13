@@ -1,54 +1,54 @@
-[13:05:43]     ======================================================================
-[13:05:43]     STEP 098: Alternative Model Comparison
-[13:05:43]     ======================================================================
-[13:05:43]     Loaded 2315 galaxies
-[13:05:43]     High-z sample: 283 galaxies
-[13:05:43]     Valid data points: 283
-[13:05:43]     
+[17:00:06]     ======================================================================
+[17:00:06]     STEP 098: Alternative Model Comparison
+[17:00:06]     ======================================================================
+[17:00:06]     Loaded 2315 galaxies
+[17:00:06]     High-z sample: 283 galaxies
+[17:00:06]     Valid data points: 283
+[17:00:06]     
 Fitting models...
-[13:05:43]       Null: LL=-139.9, AIC=287.8, BIC=302.4
-[13:05:43]       TEP: LL=-151.3, AIC=308.6, BIC=319.5
-[13:05:43]       Top-heavy IMF: LL=-138.0, AIC=286.0, BIC=304.2
-[13:05:43]       Stochastic SF: LL=-139.9, AIC=289.8, BIC=308.1
-[13:05:43]       AGN: LL=-136.8, AIC=281.6, BIC=296.2
-[13:05:43]     
+[17:00:06]       Null: LL=-139.9, AIC=287.8, BIC=302.4
+[17:00:06]       TEP: LL=-151.3, AIC=308.6, BIC=319.5
+[17:00:06]       Top-heavy IMF: LL=-138.0, AIC=286.0, BIC=304.2
+[17:00:06]       Stochastic SF: LL=-139.9, AIC=289.8, BIC=308.1
+[17:00:06]       AGN: LL=-136.8, AIC=281.6, BIC=296.2
+[17:00:06]     
 ======================================================================
-[13:05:43]     MODEL COMPARISON RESULTS
-[13:05:43]     ======================================================================
-[13:05:43]     
+[17:00:06]     MODEL COMPARISON RESULTS
+[17:00:06]     ======================================================================
+[17:00:06]     
 Ranking by AIC (lower is better):
-[13:05:43]       1. AGN Contamination: AIC=281.6 (ΔAIC=0.0)
-[13:05:43]       2. Top-Heavy IMF: AIC=286.0 (ΔAIC=4.4)
-[13:05:43]       3. Standard Physics (Null): AIC=287.8 (ΔAIC=6.2)
-[13:05:43]       4. Stochastic Star Formation: AIC=289.8 (ΔAIC=8.2)
-[13:05:43]       5. TEP (Temporal Equivalence): AIC=308.6 (ΔAIC=27.0)
-[13:05:43]     
+[17:00:06]       1. AGN Contamination: AIC=281.6 (ΔAIC=0.0)
+[17:00:06]       2. Top-Heavy IMF: AIC=286.0 (ΔAIC=4.4)
+[17:00:06]       3. Standard Physics (Null): AIC=287.8 (ΔAIC=6.2)
+[17:00:06]       4. Stochastic Star Formation: AIC=289.8 (ΔAIC=8.2)
+[17:00:06]       5. TEP (Temporal Equivalence): AIC=308.6 (ΔAIC=27.0)
+[17:00:06]     
 Bayes Factors (vs TEP):
-[13:05:43]       TEP vs Standard Physics (Null): BF=0.0 (Very strong evidence for Model 2)
-[13:05:43]       TEP vs Top-Heavy IMF: BF=0.0 (Very strong evidence for Model 2)
-[13:05:43]       TEP vs Stochastic Star Formation: BF=0.0 (Very strong evidence for Model 2)
-[13:05:43]       TEP vs AGN Contamination: BF=0.0 (Very strong evidence for Model 2)
-[13:05:43]     
+[17:00:06]       TEP vs Standard Physics (Null): BF=0.0 (Very strong evidence for Model 2)
+[17:00:06]       TEP vs Top-Heavy IMF: BF=0.0 (Very strong evidence for Model 2)
+[17:00:06]       TEP vs Stochastic Star Formation: BF=0.0 (Very strong evidence for Model 2)
+[17:00:06]       TEP vs AGN Contamination: BF=0.0 (Very strong evidence for Model 2)
+[17:00:06]     
 Akaike Weights (probability of being best model):
-[13:05:43]       Standard Physics (Null): w=0.038 (3.8%)
-[13:05:43]       TEP (Temporal Equivalence): w=0.000 (0.0%)
-[13:05:43]       Top-Heavy IMF: w=0.096 (9.6%)
-[13:05:43]       Stochastic Star Formation: w=0.014 (1.4%)
-[13:05:43]       AGN Contamination: w=0.852 (85.2%)
-[13:05:43]     
+[17:00:06]       Standard Physics (Null): w=0.038 (3.8%)
+[17:00:06]       TEP (Temporal Equivalence): w=0.000 (0.0%)
+[17:00:06]       Top-Heavy IMF: w=0.096 (9.6%)
+[17:00:06]       Stochastic Star Formation: w=0.014 (1.4%)
+[17:00:06]       AGN Contamination: w=0.852 (85.2%)
+[17:00:06]     
 ======================================================================
-[13:05:43]     SUMMARY
-[13:05:43]     ======================================================================
-[13:05:43]     
+[17:00:06]     SUMMARY
+[17:00:06]     ======================================================================
+[17:00:06]     
 TEP ranks #5 (Akaike weight = 0.0%)
-[13:05:43]     Best alternative: AGN Contamination
-[13:05:43]     
+[17:00:06]     Best alternative: AGN Contamination
+[17:00:06]     
 Key discriminating features:
-[13:05:43]       - TEP uses fewer parameters (3) than alternatives (4-5)
-[13:05:43]       - TEP's Gamma_t encodes physics (potential depth) rather than ad-hoc correlations
-[13:05:43]       - TEP makes testable predictions for screening and spectroscopy
-[13:05:43]     
+[17:00:06]       - TEP uses fewer parameters (3) than alternatives (4-5)
+[17:00:06]       - TEP's Gamma_t encodes physics (potential depth) rather than ad-hoc correlations
+[17:00:06]       - TEP makes testable predictions for screening and spectroscopy
+[17:00:06]     
 Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_098_alternative_model_comparison.json
-[13:05:44]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_098_alternative_model_comparison.png
-[13:05:44]     
+[17:00:07]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_098_alternative_model_comparison.png
+[17:00:07]     
 Step 098 complete.

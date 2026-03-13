@@ -11,24 +11,24 @@ from scipy import stats
 from scipy.optimize import least_squares
 from scipy.stats import spearmanr
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.downloader import smart_download
-from scripts.utils.logger import TEPLogger, print_status, set_step_logger
-from scripts.utils.p_value_utils import format_p_value, safe_json_default
-from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like
+from scripts.utils.downloader import smart_download  # Robust HTTP download utility
+from scripts.utils.logger import TEPLogger, print_status, set_step_logger  # Centralised logging
+from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting & JSON serialiser
+from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like  # Shared TEP model
 
-STEP_NUM = "169"
-STEP_NAME = "dja_sigma_pilot"
-DATA_PATH = PROJECT_ROOT / "data" / "raw"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
-LOGS_PATH = PROJECT_ROOT / "logs"
+STEP_NUM = "169"  # Pipeline step number
+STEP_NAME = "dja_sigma_pilot"  # Used in log / output filenames
+DATA_PATH = PROJECT_ROOT / "data" / "raw"  # Raw external catalogues
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory
 for path in [OUTPUT_PATH, INTERIM_PATH, LOGS_PATH]:
     path.mkdir(parents=True, exist_ok=True)
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger
 set_step_logger(logger)
 
 DJA_CATALOG_FILE = DATA_PATH / "dja_msaexp_emission_lines_v4.4.csv.gz"
@@ -36,7 +36,14 @@ LOCAL_SPECTRA_DIR = DATA_PATH / "dja_specfits"
 DJA_S3_BASE = "https://s3.amazonaws.com/msaexp-nirspec/extractions"
 C_KMS = 299792.458
 AUTO_DOWNLOAD = os.environ.get("TEP_DJA_SIGMA_AUTODOWNLOAD", "0").strip().lower() in {"1", "true", "yes", "on"}
-MAX_TARGETS = max(1, int(os.environ.get("TEP_DJA_SIGMA_MAX_TARGETS", "24")))
+SELECTION_MODE = os.environ.get("TEP_DJA_SIGMA_SELECTION_MODE", "pilot").strip().lower()
+DEFAULT_MAX_TARGETS = "44" if SELECTION_MODE == "high_mass_same_regime" else "24"
+MAX_TARGETS = max(1, int(os.environ.get("TEP_DJA_SIGMA_MAX_TARGETS", DEFAULT_MAX_TARGETS)))
+MIN_TARGET_Z = float(os.environ.get("TEP_DJA_SIGMA_MIN_TARGET_Z", "5.0"))
+MAX_TARGET_Z = float(os.environ.get("TEP_DJA_SIGMA_MAX_TARGET_Z", "12.5"))
+DEFAULT_MIN_TARGET_LOG_MSTAR = "10.0" if SELECTION_MODE == "high_mass_same_regime" else "5.0"
+MIN_TARGET_LOG_MSTAR = float(os.environ.get("TEP_DJA_SIGMA_MIN_TARGET_LOG_MSTAR", DEFAULT_MIN_TARGET_LOG_MSTAR))
+REQUIRE_BALMER = os.environ.get("TEP_DJA_SIGMA_REQUIRE_BALMER", "0").strip().lower() in {"1", "true", "yes", "on"}
 MIN_LINE_SNR = float(os.environ.get("TEP_DJA_SIGMA_MIN_LINE_SNR", "8.0"))
 MIN_GRADE = float(os.environ.get("TEP_DJA_SIGMA_MIN_GRADE", "3.0"))
 MIN_SUCCESS_FOR_CORRELATION = 6
@@ -97,6 +104,14 @@ def _public_url(row):
 
 def _local_path(row):
     return LOCAL_SPECTRA_DIR / str(row["root"]) / str(row["file"])
+
+
+def _balmer_available_mask(df):
+    ha = pd.to_numeric(df.get("line_ha"), errors="coerce")
+    ha_nii = pd.to_numeric(df.get("line_ha_nii"), errors="coerce")
+    hb = pd.to_numeric(df.get("line_hb"), errors="coerce")
+    mask = ((ha > 0) | (ha_nii > 0)) & (hb > 0)
+    return mask.fillna(False).to_numpy(dtype=bool)
 
 
 def _load_catalog():
@@ -182,9 +197,15 @@ def _load_catalog():
     if df["grade"].notna().any():
         df = df[df["grade"] >= MIN_GRADE].copy()
     df = df[df["grating"].str.upper() != "PRISM"].copy()
-    df = df[df["z"].between(5.0, 12.5) & df["log_Mstar"].between(5.0, 13.0)].copy()
+    df = df[df["z"].between(MIN_TARGET_Z, MAX_TARGET_Z) & df["log_Mstar"].between(MIN_TARGET_LOG_MSTAR, 13.0)].copy()
     if len(df) == 0:
-        return None, "No medium/high-resolution DJA spectra remained after the pilot cuts."
+        return None, "No medium/high-resolution DJA spectra remained after the selection cuts."
+
+    df["has_balmer"] = _balmer_available_mask(df)
+    if REQUIRE_BALMER:
+        df = df[df["has_balmer"]].copy()
+    if len(df) == 0:
+        return None, "No DJA spectra remained after the Balmer-availability requirement."
 
     snr_cols = [f"snr_{line['name']}" for line in LINE_DEFS]
     snr_frame = df[snr_cols].apply(pd.to_numeric, errors="coerce")
@@ -204,6 +225,8 @@ def _load_catalog():
         )
         df = df.drop_duplicates(subset="objid", keep="first")
 
+    candidate_pool_n = int(len(df))
+    candidate_pool_balmer_n = int(df["has_balmer"].sum()) if "has_balmer" in df.columns else None
     df = df.sort_values(["best_line_snr", "sn_line"], ascending=[False, False], na_position="last").head(MAX_TARGETS).copy()
     df["gamma_t_mass_proxy"] = compute_gamma_t(
         stellar_to_halo_mass_behroozi_like(df["log_Mstar"].to_numpy(dtype=float), df["z"].to_numpy(dtype=float)),
@@ -211,7 +234,10 @@ def _load_catalog():
     )
     df["public_url"] = df.apply(_public_url, axis=1)
     df["local_path"] = df.apply(lambda row: str(_local_path(row)), axis=1)
-    return df.reset_index(drop=True), None
+    df = df.reset_index(drop=True)
+    df.attrs["candidate_pool_n"] = candidate_pool_n
+    df.attrs["candidate_pool_balmer_n"] = candidate_pool_balmer_n
+    return df, None
 
 
 def _ensure_local_spectrum(row):
@@ -631,7 +657,12 @@ def run():
         "input_catalog": str(DJA_CATALOG_FILE),
         "config": {
             "download_enabled": AUTO_DOWNLOAD,
+            "selection_mode": SELECTION_MODE,
             "max_targets": MAX_TARGETS,
+            "min_target_z": MIN_TARGET_Z,
+            "max_target_z": MAX_TARGET_Z,
+            "min_target_log_Mstar": MIN_TARGET_LOG_MSTAR,
+            "require_balmer": REQUIRE_BALMER,
             "min_line_snr": MIN_LINE_SNR,
             "min_grade": MIN_GRADE,
             "quality_min_sigma_kms": MIN_SIGMA_KMS_QUALITY,
@@ -642,7 +673,10 @@ def run():
             "pilot_target_cap_env": "TEP_DJA_SIGMA_MAX_TARGETS",
         },
         "selection": {
+            "candidate_pool_n": int(df.attrs.get("candidate_pool_n", len(df))),
+            "candidate_pool_n_with_balmer": int(df.attrs.get("candidate_pool_balmer_n", int(df["has_balmer"].sum()) if "has_balmer" in df.columns else 0)),
             "n_targeted": int(len(df)),
+            "n_targeted_with_balmer": int(df["has_balmer"].sum()) if "has_balmer" in df.columns else 0,
             "grating_counts": {str(k): int(v) for k, v in df["grating"].value_counts().items()},
             "best_line_counts": {str(k): int(v) for k, v in df["best_line"].value_counts().items()},
             "median_best_line_snr": float(np.nanmedian(df["best_line_snr"])) if len(df) else None,

@@ -13,28 +13,28 @@ import json
 import sys
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 
-STEP_NUM  = "156"
-STEP_NAME = "dja_gds_morphology"
+STEP_NUM  = "156"  # Pipeline step number
+STEP_NAME = "dja_gds_morphology"  # Used in log / output filenames
 
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH   = PROJECT_ROOT / "logs"
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
+LOGS_PATH   = PROJECT_ROOT / "logs"  # Log directory
 OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
 LOGS_PATH.mkdir(parents=True, exist_ok=True)
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger
 set_step_logger(logger)
 
 import warnings
 import numpy as np
-from scipy.stats import spearmanr
+from scipy.stats import spearmanr  # Rank correlation for morphology analysis
 
-DATA_RAW  = PROJECT_ROOT / "data" / "raw"
-INTERIM   = PROJECT_ROOT / "data" / "interim"
+DATA_RAW  = PROJECT_ROOT / "data" / "raw"  # Raw external catalogues
+INTERIM   = PROJECT_ROOT / "data" / "interim"  # Processed catalogue products
 
 JADES_PHOT_FILE = DATA_RAW / "hlsp_jades_jwst_nircam_goods-s-deep_photometry_v2.0_catalog.fits"
 JADES_SPEC_FILE = DATA_RAW / "jades_hainline" / "JADES_DR4_spectroscopic_catalog.fits"

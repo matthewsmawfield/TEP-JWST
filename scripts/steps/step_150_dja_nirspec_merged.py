@@ -25,26 +25,26 @@ import numpy as np
 import pandas as pd
 from scipy.stats import spearmanr
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 from scripts.utils.tep_model import (
     compute_gamma_t,
-    stellar_to_halo_mass_behroozi_like,
+    stellar_to_halo_mass_behroozi_like,  # Shared TEP model
 )
-from scripts.utils.downloader import smart_download
+from scripts.utils.downloader import smart_download  # Robust HTTP download utility
 
-STEP_NUM  = "150"
-STEP_NAME = "dja_nirspec_merged"
+STEP_NUM  = "150"  # Pipeline step number
+STEP_NAME = "dja_nirspec_merged"  # Used in log / output filenames
 
-DATA_PATH   = PROJECT_ROOT / "data" / "raw"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH   = PROJECT_ROOT / "logs"
+DATA_PATH   = PROJECT_ROOT / "data" / "raw"  # Raw external catalogues
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
+LOGS_PATH   = PROJECT_ROOT / "logs"  # Log directory
 OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
 LOGS_PATH.mkdir(parents=True, exist_ok=True)
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger
 set_step_logger(logger)
 
 # DJA NIRSpec merged catalog candidates (try in order)

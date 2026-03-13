@@ -33,27 +33,27 @@ import sys
 import warnings
 warnings.filterwarnings('ignore')
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma, ALPHA_0
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.tep_model import compute_gamma_t as tep_gamma, ALPHA_0  # TEP model: Gamma_t formula, coupling constant alpha_0=0.58
 
-STEP_NUM = "095"
-STEP_NAME = "lrd_core_halo_mass"
-LOGS_PATH = PROJECT_ROOT / "logs"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-FIGURES_PATH = PROJECT_ROOT / "results" / "figures"
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
+STEP_NUM = "095"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "lrd_core_halo_mass"  # LRD core-halo mass: derives Delta log M_h for Little Red Dots from Sersic profiles (Phi_cen/Phi_vir ~ (r_vir/r_e)^(1/n))
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+FIGURES_PATH = PROJECT_ROOT / "results" / "figures"  # Publication figures directory (PNG/PDF for manuscript)
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products (CSV format for step-to-step data flow)
 
 for p in [LOGS_PATH, OUTPUT_PATH, FIGURES_PATH]:
-    p.mkdir(parents=True, exist_ok=True)
+    p.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
 # Physical constants
-T_SALPETER = 0.045  # Gyr (Eddington e-folding time)
+T_SALPETER = 0.045  # Gyr (Eddington e-folding time for Salpeter IMF)
 
 
 def sersic_bn(n):

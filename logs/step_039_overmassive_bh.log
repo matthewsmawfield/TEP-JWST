@@ -1,22 +1,22 @@
-[13:04:23]     ======================================================================
-[13:04:23]     STEP 039: Overmassive Black Hole Simulation
-[13:04:23]     ======================================================================
-[13:04:23]     Simulation Parameters:
-[13:04:23]       Halo Mass: 10^11.0 M_sun
-[13:04:23]       Central Concentration Phi_cen/Phi_vir: 10.0
-[13:04:23]       Alpha_0: 0.58
-[13:04:23]     
+[16:58:50]     ======================================================================
+[16:58:50]     STEP 039: Overmassive Black Hole Simulation
+[16:58:50]     ======================================================================
+[16:58:50]     Simulation Parameters:
+[16:58:50]       Halo Mass: 10^11.0 M_sun
+[16:58:50]       Central Concentration Phi_cen/Phi_vir: 10.0
+[16:58:50]       Alpha_0: 0.58
+[16:58:50]     
 Results:
-[13:04:23]      z   | Gamma_Halo | Gamma_Cen  | Growth Boost
-[13:04:23]     --------------------------------------------------
-[13:04:23]        4 |       1.03 |       2.80 |      1.7e+26
-[13:04:23]        5 |       1.16 |       4.30 |      2.9e+35
-[13:04:23]        6 |       1.34 |       7.01 |      6.8e+50
-[13:04:23]        7 |       1.61 |      12.14 |      1.9e+77
-[13:04:23]        8 |       2.00 |      22.24 |     3.3e+124
-[13:04:23]        9 |       2.56 |      43.05 |     3.7e+212
-[13:04:23]       10 |       3.39 |      87.82 |          inf
-[13:04:23]     
+[16:58:50]      z   | Gamma_Halo | Gamma_Cen  | Growth Boost
+[16:58:50]     --------------------------------------------------
+[16:58:50]        4 |       1.03 |       2.80 |      1.7e+26
+[16:58:50]        5 |       1.16 |       4.30 |      2.9e+35
+[16:58:50]        6 |       1.34 |       7.01 |      6.8e+50
+[16:58:50]        7 |       1.61 |      12.14 |      1.9e+77
+[16:58:50]        8 |       2.00 |      22.24 |     3.3e+124
+[16:58:50]        9 |       2.56 |      43.05 |     3.7e+212
+[16:58:50]       10 |       3.39 |      87.82 |          inf
+[16:58:50]     
 Saved table to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_039_bh_growth_table.csv
-[13:04:23]     Saved summary to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_039_overmassive_bh.json
-[13:04:23]     Step 039 complete.
+[16:58:50]     Saved summary to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_039_overmassive_bh.json
+[16:58:50]     Step 039 complete.

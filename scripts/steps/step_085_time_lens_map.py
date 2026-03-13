@@ -26,31 +26,31 @@ from scipy import stats
 from scipy.stats import rankdata
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma, stellar_to_halo_mass_behroozi_like
-from scripts.utils.p_value_utils import format_p_value, safe_json_default
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.tep_model import compute_gamma_t as tep_gamma, stellar_to_halo_mass_behroozi_like  # TEP model: Gamma_t formula, stellar-to-halo mass from abundance matching
+from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300) & JSON serialiser for numpy types
 
 
-STEP_NUM = "085"
-STEP_NAME = "time_lens_map"
+STEP_NUM = "085"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "time_lens_map"  # Time-lens map: defines z_eff via t_cosmic(z_eff) = Gamma_t × t_cosmic(z_obs), tests if z>8 dust organizes better by t_eff than observed redshift
 
-LOGS_PATH = PROJECT_ROOT / "logs"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-FIGURES_PATH = PROJECT_ROOT / "results" / "figures"
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
-DATA_INTERIM_PATH = PROJECT_ROOT / "data" / "interim"
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+FIGURES_PATH = PROJECT_ROOT / "results" / "figures"  # Publication figures directory (PNG/PDF for manuscript)
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products (CSV format for step-to-step data flow)
+DATA_INTERIM_PATH = PROJECT_ROOT / "data" / "interim"  # Processed catalogue products (CSV format from prior steps)
 
 for p in [LOGS_PATH, OUTPUT_PATH, FIGURES_PATH]:
-    p.mkdir(parents=True, exist_ok=True)
+    p.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
 
 logger = TEPLogger(
     f"step_{STEP_NUM}",
     log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log",
-)
-set_step_logger(logger)
+)  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
 
 MIN_POS_FLOAT = np.nextafter(0, 1)

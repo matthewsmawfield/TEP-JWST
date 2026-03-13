@@ -36,34 +36,38 @@ import json
 # PATHS AND LOGGER
 # =============================================================================
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting (prevents floating-point underflow at extreme significance) & JSON serialiser
 
-STEP_NUM = "007"
-STEP_NAME = "thread6_7_coherence"
+STEP_NUM = "007"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "thread6_7_coherence"  # Threads 6-7: Age-metallicity coherence & multi-property split (TEP coherence tests)
 
-DATA_PATH = PROJECT_ROOT / "data"
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH = PROJECT_ROOT / "logs"
+DATA_PATH = PROJECT_ROOT / "data"  # Top-level data directory (raw external catalogs: UNCOVER DR4, CEERS, COSMOS-Web, JADES)
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products (CSV format for step-to-step data flow)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
 
 for p in [INTERIM_PATH, OUTPUT_PATH, LOGS_PATH]:
-    p.mkdir(parents=True, exist_ok=True)
+    p.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
 
-# Initialize logger
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes here
 
-BOOTSTRAP_SEED = 42
+BOOTSTRAP_SEED = 42  # Fixed RNG seed for reproducible bootstrap confidence intervals
 
 # =============================================================================
 # BOOTSTRAP
 # =============================================================================
 
 def bootstrap_correlation(x, y, n_boot=1000, seed=BOOTSTRAP_SEED):
-    """Bootstrap confidence interval for Spearman correlation."""
+    """Bootstrap 95% CI for Spearman rho via case resampling.
+
+    Uses numpy's default_rng for reproducibility. Returns the [2.5, 97.5]
+    percentile interval from n_boot bootstrap resamples.
+    """
     n = len(x)
     rhos = []
     rng = np.random.default_rng(seed)
@@ -78,7 +82,21 @@ def bootstrap_correlation(x, y, n_boot=1000, seed=BOOTSTRAP_SEED):
 # =============================================================================
 
 def test_thread_6(df):
-    """Thread 6: Age-Metallicity Coherence."""
+    """Thread 6: Age-Metallicity Coherence.
+
+    TEP prediction: rho(age_ratio, metallicity) > 0.
+    If TEP causes galaxies in deeper potentials to accumulate more
+    proper time, those galaxies will appear both older (higher age_ratio)
+    AND more metal-enriched (higher metallicity). This creates a positive
+    correlation between age_ratio and metallicity that is a hallmark of
+    a single underlying temporal mechanism.
+
+    Under standard physics, the mass-age and mass-metallicity relations
+    could produce a spurious correlation, but the multi-property sample
+    already controls for metallicity quality (uncertainty < 0.5 dex).
+
+    Significance criterion: 95% bootstrap CI on rho excludes zero.
+    """
     print_status("\n" + "=" * 50, "INFO")
     print_status("THREAD 6: Age-Metallicity Coherence", "INFO")
     print_status("=" * 50, "INFO")
@@ -87,9 +105,11 @@ def test_thread_6(df):
     age_ratio = df['age_ratio'].values
     met = df['met'].values
     
+    # Raw Spearman correlation between age_ratio and metallicity
     rho, p = spearmanr(age_ratio, met)
     ci = bootstrap_correlation(age_ratio, met)
     
+    # Significant if the entire 95% CI is above zero (positive correlation)
     significant = bool(ci[0] > 0)
     
     print_status(f"N = {len(df)}", "INFO")
@@ -119,7 +139,28 @@ def test_thread_6(df):
 # =============================================================================
 
 def test_thread_7(df):
-    """Thread 7: Multi-Property Split Test."""
+    """Thread 7: Multi-Property Split Test.
+
+    This is the strongest coherence test for TEP. The sample is split
+    at the median Gamma_t into two groups:
+      - Low Gamma_t:  halos below the median -> less enhanced proper time
+      - High Gamma_t: halos above the median -> more enhanced proper time
+
+    TEP predicts that the high-Gamma_t group should have:
+      - Higher age_ratio  (older-appearing stellar populations)
+      - Higher metallicity (more chemical enrichment time)
+      - Higher dust content (more dust production time)
+
+    All three shifts must be in the TEP-predicted direction simultaneously.
+    A coherent multi-property shift is extremely unlikely to arise from
+    a single confounding variable (e.g. mass alone could drive one or two
+    properties but not all three in the predicted direction with high
+    significance).
+
+    Statistical test: one-sided Mann-Whitney U for each property.
+    Significance threshold: p < 0.001 for each property.
+    Overall: all three must be individually significant.
+    """
     print_status("\n" + "=" * 50, "INFO")
     print_status("THREAD 7: Multi-Property Split Test", "INFO")
     print_status("=" * 50, "INFO")
@@ -128,6 +169,7 @@ def test_thread_7(df):
     gamma_t = df['gamma_t'].values
     gamma_median = np.median(gamma_t)
     
+    # Split at the median Gamma_t to create equal-sized comparison groups
     high_gamma = gamma_t > gamma_median
     low_gamma = ~high_gamma
     
@@ -149,6 +191,10 @@ def test_thread_7(df):
         mean_high = np.mean(values[high_gamma])
         diff = mean_high - mean_low
         
+        # One-sided Mann-Whitney U test: H_a is that the high-Gamma_t group
+        # has larger values than the low-Gamma_t group (alternative='greater').
+        # Mann-Whitney is non-parametric and tests whether one distribution
+        # is stochastically greater than the other.
         stat, p = mannwhitneyu(values[high_gamma], values[low_gamma], alternative='greater')
         significant = bool(p < 0.001)
         

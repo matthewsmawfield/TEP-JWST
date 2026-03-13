@@ -1,17 +1,17 @@
-[13:05:50]     STEP 102: Literature anomaly resolution table
-[13:05:50]   Total JWST anomalies: 11
-[13:05:50]   Resolved by TEP: 11/11 (100%)
-[13:05:50]   Mean resolution fraction: 0.91
-[13:05:50]     [RESOLVED] Anomalous Galaxies (Labbe+2023)
-[13:05:50]     [RESOLVED] Dust Anomaly at z>4 (UNCOVER)
-[13:05:50]     [RESOLVED] sSFR Inversion at z>7 (UNCOVER)
-[13:05:50]     [RESOLVED] Red Monster / Dust Saturation Crisis
-[13:05:50]     [RESOLVED] Little Red Dots (Matthee+2024)
-[13:05:50]     [RESOLVED] Blue Core / Positive Color Gradient (Jin+2025)
-[13:05:50]     [RESOLVED] M* > M_dyn Crisis (de Graaff+2024)
-[13:05:50]     [RESOLVED] Environmental Reversal (EPOCHS+2025)
-[13:05:50]     [RESOLVED] Metallicity Gradient Flip (Ju+2025)
-[13:05:50]     [RESOLVED] Rapid Quenching at z~4 (multiple)
-[13:05:50]     [RESOLVED] Spin Asymmetry (Shamir+2025)
-[13:05:50] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_102_literature_anomaly_resolution.json
-[13:05:50]     Step 102 complete. 11/11 anomalies resolved.
+[17:00:12]     STEP 102: Literature anomaly resolution table
+[17:00:12]   Total JWST anomalies: 11
+[17:00:12]   Resolved by TEP: 11/11 (100%)
+[17:00:12]   Mean resolution fraction: 0.91
+[17:00:12]     [RESOLVED] Anomalous Galaxies (Labbe+2023)
+[17:00:12]     [RESOLVED] Dust Anomaly at z>4 (UNCOVER)
+[17:00:12]     [RESOLVED] sSFR Inversion at z>7 (UNCOVER)
+[17:00:12]     [RESOLVED] Red Monster / Dust Saturation Crisis
+[17:00:12]     [RESOLVED] Little Red Dots (Matthee+2024)
+[17:00:12]     [RESOLVED] Blue Core / Positive Color Gradient (Jin+2025)
+[17:00:12]     [RESOLVED] M* > M_dyn Crisis (de Graaff+2024)
+[17:00:12]     [RESOLVED] Environmental Reversal (EPOCHS+2025)
+[17:00:12]     [RESOLVED] Metallicity Gradient Flip (Ju+2025)
+[17:00:12]     [RESOLVED] Rapid Quenching at z~4 (multiple)
+[17:00:12]     [RESOLVED] Spin Asymmetry (Shamir+2025)
+[17:00:12] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_102_literature_anomaly_resolution.json
+[17:00:12]     Step 102 complete. 11/11 anomalies resolved.

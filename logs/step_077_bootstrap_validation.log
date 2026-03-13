@@ -1,23 +1,23 @@
-[13:04:55]     ======================================================================
-[13:04:55]     STEP 077: Bootstrap Validation and Confidence Intervals
-[13:04:55]     ======================================================================
-[13:04:55]     Loaded N = 2315 galaxies
-[13:04:55]     
+[16:59:21]     ======================================================================
+[16:59:21]     STEP 077: Bootstrap Validation and Confidence Intervals
+[16:59:21]     ======================================================================
+[16:59:21]     Loaded N = 2315 galaxies
+[16:59:21]     
 --- 1. Bootstrap Confidence Intervals ---
-[13:04:56]       z>8 Dust: ρ = 0.593 [0.500, 0.676]
-[13:05:00]       Mass-Age: ρ = 0.135 [0.094, 0.177]
-[13:05:04]       Γt-Dust (full): ρ = -0.118 [-0.161, -0.075]
-[13:05:04]     
+[16:59:22]       z>8 Dust: ρ = 0.593 [0.500, 0.676]
+[16:59:26]       Mass-Age: ρ = 0.135 [0.094, 0.177]
+[16:59:30]       Γt-Dust (full): ρ = -0.118 [-0.161, -0.075]
+[16:59:30]     
 --- 2. Permutation Tests ---
-[13:05:05]       z>8 Dust: p_perm = 1.00e-04, Z = 9.96
-[13:05:05]     
+[16:59:31]       z>8 Dust: p_perm = 1.00e-04, Z = 9.96
+[16:59:31]     
 --- 3. Effective Sample Size ---
-[13:05:05]       N_nominal = 283, N_eff = 133.5, DEFF = 2.12
-[13:05:05]     
+[16:59:31]       N_nominal = 283, N_eff = 133.5, DEFF = 2.12
+[16:59:31]     
 ======================================================================
-[13:05:05]     BOOTSTRAP VALIDATION SUMMARY
-[13:05:05]     ======================================================================
-[13:05:05]       All CIs exclude zero: True
-[13:05:05]       Permutation tests significant: True
-[13:05:05]     
+[16:59:31]     BOOTSTRAP VALIDATION SUMMARY
+[16:59:31]     ======================================================================
+[16:59:31]       All CIs exclude zero: True
+[16:59:31]       Permutation tests significant: True
+[16:59:31]     
 Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_077_bootstrap_validation.json

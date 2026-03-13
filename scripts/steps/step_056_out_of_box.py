@@ -28,9 +28,9 @@ or falsify the TEP framework:
 import sys
 import numpy as np
 import pandas as pd
-from scipy.stats import spearmanr, pearsonr, linregress
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import cross_val_score
+from scipy.stats import spearmanr, pearsonr, linregress  # Rank/linear correlation and OLS regression
+from sklearn.ensemble import RandomForestRegressor  # Non-linear prediction inversion test
+from sklearn.model_selection import cross_val_score  # Cross-validated scoring
 from pathlib import Path
 import json
 
@@ -38,24 +38,24 @@ import json
 # PATHS AND LOGGER
 # =============================================================================
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
 
-STEP_NUM = "056"
-STEP_NAME = "out_of_box"
+STEP_NUM = "056"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "out_of_box"  # Out-of-the-box tests: 6 unconventional TEP tests (reverse causality, information content, prediction inversion, residual structure, bootstrap stability, extreme outliers)
 
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH = PROJECT_ROOT / "logs"
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products (CSV format for step-to-step data flow)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
 
 for p in [OUTPUT_PATH, LOGS_PATH]:
-    p.mkdir(parents=True, exist_ok=True)
+    p.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
 # =============================================================================
 # MAIN ANALYSIS

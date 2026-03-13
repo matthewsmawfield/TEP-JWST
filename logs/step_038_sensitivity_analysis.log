@@ -1,18 +1,18 @@
-[13:04:22]     ======================================================================
-[13:04:22]     STEP 038: Sensitivity Analysis
-[13:04:22]     ======================================================================
-[13:04:22]     Loaded N = 2315 galaxies
-[13:04:22]     z > 8 Subset: N = 283
-[13:04:22]     
+[16:58:49]     ======================================================================
+[16:58:49]     STEP 038: Sensitivity Analysis
+[16:58:49]     ======================================================================
+[16:58:49]     Loaded N = 2315 galaxies
+[16:58:49]     z > 8 Subset: N = 283
+[16:58:49]     
 Running sensitivity sweep...
-[13:04:22]     --------------------------------------------------
-[13:04:22]     Nominal Alpha: 0.58 +/- 0.16
-[13:04:22]     Range tested: 0.0 - 1.2
-[13:04:22]     --------------------------------------------------
-[13:04:22]     Peak Dust Correlation (z>8): rho=0.593 at alpha=0.02
-[13:04:22]     Peak Age Correlation (z>4):  rho=0.048  at alpha=0.02
-[13:04:22]     Nominal Performance:
-[13:04:22]       Dust Rho: 0.593 (p=3.0e-28)
-[13:04:22]       Age Rho:  0.048 (p=2.1e-02)
-[13:04:22]     Robustness (Dust): Signal significant (p<0.05) over 100% of 1-sigma parameter range
-[13:04:22]     Saved sensitivity data to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_038_sensitivity.csv
+[16:58:49]     --------------------------------------------------
+[16:58:49]     Nominal Alpha: 0.58 +/- 0.16
+[16:58:49]     Range tested: 0.0 - 1.2
+[16:58:49]     --------------------------------------------------
+[16:58:49]     Peak Dust Correlation (z>8): rho=0.593 at alpha=0.02
+[16:58:49]     Peak Age Correlation (z>4):  rho=0.048  at alpha=0.02
+[16:58:49]     Nominal Performance:
+[16:58:49]       Dust Rho: 0.593 (p=3.0e-28)
+[16:58:49]       Age Rho:  0.048 (p=2.1e-02)
+[16:58:49]     Robustness (Dust): Signal significant (p<0.05) over 100% of 1-sigma parameter range
+[16:58:49]     Saved sensitivity data to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_038_sensitivity.csv

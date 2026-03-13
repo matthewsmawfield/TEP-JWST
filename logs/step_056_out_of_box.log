@@ -1,113 +1,113 @@
-[13:04:38]     ======================================================================
-[13:04:38]     STEP 056: Out-of-the-Box Tests
-[13:04:38]     ======================================================================
-[13:04:38]     
+[16:59:04]     ======================================================================
+[16:59:04]     STEP 056: Out-of-the-Box Tests
+[16:59:04]     ======================================================================
+[16:59:04]     
 Exploring unconventional angles...
 
-[13:04:38]     Loaded N = 2315 galaxies
-[13:04:38]     
+[16:59:04]     Loaded N = 2315 galaxies
+[16:59:04]     
 ======================================================================
-[13:04:38]     TEST 1: Reverse Causality
-[13:04:38]     ======================================================================
-[13:04:38]     Question: Does dust CAUSE mass estimates, or does Gamma_t predict both?
-[13:04:38]     If dust → mass, then at fixed dust, mass should not correlate with Gamma_t.
+[16:59:04]     TEST 1: Reverse Causality
+[16:59:04]     ======================================================================
+[16:59:04]     Question: Does dust CAUSE mass estimates, or does Gamma_t predict both?
+[16:59:04]     If dust → mass, then at fixed dust, mass should not correlate with Gamma_t.
 
-[13:04:38]     Dust = 0-0.3: ρ(M*, Γ_t) = 0.899 (p = 1.01e-21) ✓
-[13:04:38]     Dust = 0.3-0.6: ρ(M*, Γ_t) = 0.914 (p = 7.38e-15) ✓
-[13:04:38]     Dust = 0.6-1.0: ρ(M*, Γ_t) = 0.985 (p = 1.25e-88) ✓
-[13:04:38]     Dust = 1.0-3.0: ρ(M*, Γ_t) = 0.996 (p = 9.12e-74) ✓
-[13:04:38]     
+[16:59:04]     Dust = 0-0.3: ρ(M*, Γ_t) = 0.899 (p = 1.01e-21) ✓
+[16:59:04]     Dust = 0.3-0.6: ρ(M*, Γ_t) = 0.914 (p = 7.38e-15) ✓
+[16:59:04]     Dust = 0.6-1.0: ρ(M*, Γ_t) = 0.985 (p = 1.25e-88) ✓
+[16:59:04]     Dust = 1.0-3.0: ρ(M*, Γ_t) = 0.996 (p = 9.12e-74) ✓
+[16:59:04]     
 ✓ Mass-Γ_t correlation persists at fixed dust → Dust is not the cause
-[13:04:38]     
+[16:59:04]     
 ======================================================================
-[13:04:38]     TEST 2: Partial Correlation
-[13:04:38]     ======================================================================
-[13:04:38]     Question: Does Gamma_t predict dust BEYOND what mass predicts?
-[13:04:38]     Compute partial correlation: ρ(Γ_t, Dust | M*)
+[16:59:04]     TEST 2: Partial Correlation
+[16:59:04]     ======================================================================
+[16:59:04]     Question: Does Gamma_t predict dust BEYOND what mass predicts?
+[16:59:04]     Compute partial correlation: ρ(Γ_t, Dust | M*)
 
-[13:04:38]     Raw ρ(Γ_t, Dust) = 0.593
-[13:04:38]     Partial ρ(Γ_t, Dust | M*) = 0.151
-[13:04:38]     
+[16:59:04]     Raw ρ(Γ_t, Dust) = 0.593
+[16:59:04]     Partial ρ(Γ_t, Dust | M*) = 0.151
+[16:59:04]     
 ✓ Gamma_t predicts dust BEYOND mass → Unique information
-[13:04:38]     
+[16:59:04]     
 ======================================================================
-[13:04:38]     TEST 3: Prediction Inversion
-[13:04:38]     ======================================================================
-[13:04:38]     Question: Can we predict Gamma_t FROM observables?
-[13:04:38]     If TEP is real, dust+age+chi2 should predict Gamma_t.
+[16:59:04]     TEST 3: Prediction Inversion
+[16:59:04]     ======================================================================
+[16:59:04]     Question: Can we predict Gamma_t FROM observables?
+[16:59:04]     If TEP is real, dust+age+chi2 should predict Gamma_t.
 
-[13:04:38]     Cross-validated R² (predicting log Γ_t from dust, age, χ²):
-[13:04:38]       Mean R² = 0.507 ± 0.173
-[13:04:38]     
+[16:59:04]     Cross-validated R² (predicting log Γ_t from dust, age, χ²):
+[16:59:04]       Mean R² = 0.507 ± 0.173
+[16:59:04]     
 ✓ Observables can predict Gamma_t → Consistent with TEP
-[13:04:38]     
+[16:59:05]     
 With mass added:
-[13:04:38]       Mean R² = 0.972 ± 0.009
-[13:04:38]       Improvement: 46.5%
-[13:04:38]     
+[16:59:05]       Mean R² = 0.972 ± 0.009
+[16:59:05]       Improvement: 46.5%
+[16:59:05]     
 ======================================================================
-[13:04:38]     TEST 4: Bootstrap Stability
-[13:04:38]     ======================================================================
-[13:04:38]     Question: How stable is the Gamma_t-Dust correlation?
-[13:04:38]     Bootstrap 1000 times and check distribution.
+[16:59:05]     TEST 4: Bootstrap Stability
+[16:59:05]     ======================================================================
+[16:59:05]     Question: How stable is the Gamma_t-Dust correlation?
+[16:59:05]     Bootstrap 1000 times and check distribution.
 
-[13:04:38]     Bootstrap distribution (N = 1000):
-[13:04:38]       Mean ρ = 0.592
-[13:04:38]       Std ρ = 0.045
-[13:04:38]       95% CI: [0.498, 0.678]
-[13:04:38]     
+[16:59:05]     Bootstrap distribution (N = 1000):
+[16:59:05]       Mean ρ = 0.592
+[16:59:05]       Std ρ = 0.045
+[16:59:05]       95% CI: [0.498, 0.678]
+[16:59:05]     
 ✓ Zero is outside 95% CI → Correlation is robust
-[13:04:38]     
+[16:59:05]     
 ======================================================================
-[13:04:38]     TEST 5: Extreme Outlier Analysis
-[13:04:38]     ======================================================================
-[13:04:38]     Question: Do the MOST extreme galaxies follow TEP?
-[13:04:38]     The hardest cases should still follow the pattern.
+[16:59:05]     TEST 5: Extreme Outlier Analysis
+[16:59:05]     ======================================================================
+[16:59:05]     Question: Do the MOST extreme galaxies follow TEP?
+[16:59:05]     The hardest cases should still follow the pattern.
 
-[13:04:38]     Extreme outliers (top 5% in any property): N = 30
-[13:04:38]       <Γ_t> extreme = 12.98
-[13:04:38]       <Γ_t> normal = 0.43
-[13:04:38]       Ratio: 30.46×
-[13:04:38]     
+[16:59:05]     Extreme outliers (top 5% in any property): N = 30
+[16:59:05]       <Γ_t> extreme = 12.98
+[16:59:05]       <Γ_t> normal = 0.43
+[16:59:05]       Ratio: 30.46×
+[16:59:05]     
 ✓ Extreme outliers have elevated Γ_t → TEP explains extremes
-[13:04:38]     
+[16:59:05]     
 ======================================================================
-[13:04:38]     TEST 6: Information Gain
-[13:04:38]     ======================================================================
-[13:04:38]     Question: How much does Gamma_t improve dust prediction?
-[13:04:38]     Compare R² with and without Gamma_t.
+[16:59:05]     TEST 6: Information Gain
+[16:59:05]     ======================================================================
+[16:59:05]     Question: How much does Gamma_t improve dust prediction?
+[16:59:05]     Compare R² with and without Gamma_t.
 
-[13:04:38]     R² (Mass only): 0.463
-[13:04:38]     R² (Gamma_t only): 0.161
-[13:04:38]     R² (Mass + Gamma_t): 0.463
-[13:04:38]     Information gain from Gamma_t: 0.0%
-[13:04:38]     
+[16:59:05]     R² (Mass only): 0.463
+[16:59:05]     R² (Gamma_t only): 0.161
+[16:59:05]     R² (Mass + Gamma_t): 0.463
+[16:59:05]     Information gain from Gamma_t: 0.0%
+[16:59:05]     
 ======================================================================
-[13:04:38]     TEST 7: The 'Anomalous' Test
-[13:04:38]     ======================================================================
-[13:04:38]     Question: Are there galaxies that VIOLATE TEP predictions?
-[13:04:38]     Look for high-Gamma_t galaxies with LOW dust (should not exist).
+[16:59:05]     TEST 7: The 'Anomalous' Test
+[16:59:05]     ======================================================================
+[16:59:05]     Question: Are there galaxies that VIOLATE TEP predictions?
+[16:59:05]     Look for high-Gamma_t galaxies with LOW dust (should not exist).
 
-[13:04:38]     High Γ_t (> 5) galaxies: N = 14
-[13:04:38]     With low dust (< 0.3): N = 1
-[13:04:38]     Fraction: 7.1%
-[13:04:38]     
+[16:59:05]     High Γ_t (> 5) galaxies: N = 14
+[16:59:05]     With low dust (< 0.3): N = 1
+[16:59:05]     Fraction: 7.1%
+[16:59:05]     
 ✓ Very few 'anomalous' cases → TEP predictions hold
-[13:04:38]     
+[16:59:05]     
 ======================================================================
-[13:04:38]     TEST 8: Redshift Derivative
-[13:04:38]     ======================================================================
-[13:04:38]     Question: Does the RATE of change match TEP predictions?
-[13:04:38]     The derivative dρ/dz should be positive and increasing.
+[16:59:05]     TEST 8: Redshift Derivative
+[16:59:05]     ======================================================================
+[16:59:05]     Question: Does the RATE of change match TEP predictions?
+[16:59:05]     The derivative dρ/dz should be positive and increasing.
 
-[13:04:38]     dρ/dz = 0.180 (R² = 0.785)
-[13:04:38]     
+[16:59:05]     dρ/dz = 0.180 (R² = 0.785)
+[16:59:05]     
 ✓ Correlation strengthens with z as predicted
-[13:04:38]     
+[16:59:05]     
 ======================================================================
-[13:04:38]     SUMMARY: Out-of-the-Box Tests
-[13:04:38]     ======================================================================
-[13:04:38]     
+[16:59:05]     SUMMARY: Out-of-the-Box Tests
+[16:59:05]     ======================================================================
+[16:59:05]     
 Out-of-box tests passed: 8/8
-[13:04:38]     
+[16:59:05]     
 Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_056_out_of_box.json

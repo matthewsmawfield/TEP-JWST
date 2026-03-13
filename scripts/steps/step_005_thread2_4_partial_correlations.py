@@ -43,45 +43,68 @@ import json
 # PATHS AND LOGGER
 # =============================================================================
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value, safe_json_default
-from scripts.utils.rank_stats import partial_rank_correlation, bootstrap_partial_rank_ci
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting (prevents underflow at p < 1e-300) & JSON serialiser
+from scripts.utils.rank_stats import partial_rank_correlation, bootstrap_partial_rank_ci  # Partial Spearman: residualization method + bootstrap CI for partial rho
 
-STEP_NUM = "005"
-STEP_NAME = "thread2_4_partial_correlations"
+STEP_NUM = "005"  # Pipeline step number (005 out of 176 sequential steps)
+STEP_NAME = "thread2_4_partial_correlations"  # Threads 2-4: Gamma_t correlations with age ratio, metallicity, dust (controlling for z)
 
-DATA_PATH = PROJECT_ROOT / "data"
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH = PROJECT_ROOT / "logs"
+DATA_PATH = PROJECT_ROOT / "data"  # Top-level data directory (raw external catalogs: UNCOVER, CEERS, COSMOS-Web, JADES)
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products (CSV format, human-readable for debugging)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical summaries)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text file per step for execution tracing)
 
 for p in [INTERIM_PATH, OUTPUT_PATH, LOGS_PATH]:
-    p.mkdir(parents=True, exist_ok=True)
+    p.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; parents=True ensures all intermediate directories exist
 
-# Initialize logger
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated logging per step for debugging traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() writes to this step's log file
 
 # =============================================================================
 # PARTIAL CORRELATION
 # =============================================================================
 
 def partial_correlation(x, y, z_control):
+    """Spearman partial correlation between x and y controlling for z_control.
+
+    Method (residualization):
+      1. Regress ranks of x on ranks of z_control -> residuals r_x
+      2. Regress ranks of y on ranks of z_control -> residuals r_y
+      3. Compute Spearman rho between r_x and r_y
+
+    This removes the confounding influence of z_control (e.g. redshift)
+    so the remaining correlation reflects the direct x-y association.
+    """
     rho, p, _ = partial_rank_correlation(x, y, z_control)
     return rho, p
 
 def partial_correlation_double(x, y, z_control, mass_control, use_log_x=False):
+    """Spearman partial correlation controlling for both redshift and stellar mass.
+
+    This is a stricter test than single-variable control: any residual
+    correlation between Gamma_t and a stellar-population property after
+    removing both z and M* dependence cannot be attributed to the
+    well-known mass-metallicity or mass-age scaling relations.
+    """
     controls = np.column_stack([z_control, mass_control])
     rho, p, _ = partial_rank_correlation(x, y, controls)
     return rho, p
 
 def bootstrap_partial_ci(x, y, z_control, n_boot=1000):
+    """Bootstrap 95% CI for the single-control partial rank correlation.
+
+    Resamples (x, y, z_control) rows with replacement n_boot times,
+    recomputes the partial rho each time, and returns the 2.5th/97.5th
+    percentiles of the bootstrap distribution.
+    """
     return bootstrap_partial_rank_ci(x, y, z_control, n_boot=n_boot, seed=42)
 
 def bootstrap_partial_ci_double(x, y, z_control, mass_control, n_boot=1000, use_log_x=False):
+    """Bootstrap 95% CI for the double-control partial rank correlation."""
     controls = np.column_stack([z_control, mass_control])
     return bootstrap_partial_rank_ci(x, y, controls, n_boot=n_boot, seed=42)
 
@@ -90,7 +113,21 @@ def bootstrap_partial_ci_double(x, y, z_control, mass_control, n_boot=1000, use_
 # =============================================================================
 
 def test_thread_2(df):
-    """Thread 2: Γ_t vs Age Ratio (partial correlation)."""
+    """Thread 2: Gamma_t vs Age Ratio (partial correlation).
+
+    TEP prediction: rho(Gamma_t, age_ratio | z) > 0.
+    Galaxies in deeper potentials (higher Gamma_t) accumulate more
+    proper time, so their SED-fitted mass-weighted ages appear closer
+    to or exceeding the cosmic age. The age_ratio = mwa / t_cosmic
+    should therefore correlate positively with Gamma_t after removing
+    the trivial redshift dependence (younger universe -> lower t_cosmic).
+
+    Two controls are applied:
+      - Single control (z only): the primary test.
+      - Double control (z + M*): rules out residual mass-age correlations
+        that could mimic a TEP signal via the mass -> halo mass -> Gamma_t
+        chain.
+    """
     print_status("\n" + "=" * 50, "INFO")
     print_status("THREAD 2: Γ_t vs Age Ratio", "INFO")
     print_status("=" * 50, "INFO")
@@ -151,7 +188,17 @@ def test_thread_2(df):
 # =============================================================================
 
 def test_thread_3(df):
-    """Thread 3: Γ_t vs Metallicity (partial correlation)."""
+    """Thread 3: Gamma_t vs Metallicity (partial correlation).
+
+    TEP prediction: rho(Gamma_t, Z | z) > 0.
+    If stellar populations in high-Gamma_t halos experience more proper
+    time, they undergo more stellar generations and therefore produce
+    more metals. The SED-fitted metallicity log(Z/Zsun) should correlate
+    positively with Gamma_t after controlling for redshift.
+
+    The double-control (z + M*) test checks whether the signal survives
+    removal of the well-known mass-metallicity relation (MZR).
+    """
     print_status("\n" + "=" * 50, "INFO")
     print_status("THREAD 3: Γ_t vs Metallicity", "INFO")
     print_status("=" * 50, "INFO")
@@ -202,7 +249,18 @@ def test_thread_3(df):
 # =============================================================================
 
 def test_thread_4(df):
-    """Thread 4: Γ_t vs Dust (partial correlation)."""
+    """Thread 4: Gamma_t vs Dust (partial correlation).
+
+    TEP prediction: rho(Gamma_t, A_V | z) > 0.
+    Dust production requires time: AGB stars need ~100-300 Myr of
+    stellar evolution to reach the thermally-pulsing phase that
+    produces carbonaceous and silicate grains. Galaxies with higher
+    Gamma_t have more effective time for dust production, so their
+    SED-fitted dust attenuation A_V should be higher at fixed redshift.
+
+    The double-control (z + M*) test removes the mass-dust correlation
+    that arises simply because more massive galaxies have more ISM.
+    """
     print_status("\n" + "=" * 50, "INFO")
     print_status("THREAD 4: Γ_t vs Dust", "INFO")
     print_status("=" * 50, "INFO")

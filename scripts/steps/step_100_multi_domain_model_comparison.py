@@ -19,27 +19,27 @@ Outputs:
 import numpy as np
 import pandas as pd
 from scipy import stats
-from scipy.stats import spearmanr, chi2
+from scipy.stats import spearmanr, chi2  # Rank correlation and chi-squared distribution
 from pathlib import Path
 import json
 import sys
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value, safe_json_default
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300) & JSON serialiser for numpy types
 
-STEP_NUM = "100"
-STEP_NAME = "combined_evidence"
-LOGS_PATH = PROJECT_ROOT / "logs"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
+STEP_NUM = "100"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "combined_evidence"  # Combined evidence synthesis: Brown's method for correlated tests, Bayesian evidence synthesis with proper priors, sensitivity analysis
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
 
-LOGS_PATH.mkdir(parents=True, exist_ok=True)
-OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
+LOGS_PATH.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
+OUTPUT_PATH.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
 
 def _safe_float(value):

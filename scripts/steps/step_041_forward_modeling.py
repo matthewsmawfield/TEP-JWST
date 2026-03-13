@@ -23,8 +23,8 @@ Outputs:
 import sys
 import numpy as np
 import pandas as pd
-from scipy.stats import spearmanr, pearsonr
-from scipy.optimize import minimize_scalar
+from scipy.stats import spearmanr, pearsonr  # Rank and linear correlation
+from scipy.optimize import minimize_scalar  # 1-D optimisation for best-fit n_ML
 from pathlib import Path
 import json
 
@@ -32,24 +32,24 @@ import json
 # PATHS AND LOGGER
 # =============================================================================
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value, safe_json_default
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300) & JSON serialiser for numpy types
 
-STEP_NUM = "041"
-STEP_NAME = "forward_modeling"
+STEP_NUM = "041"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "forward_modeling"  # Forward-modeling SED validation: tests TEP mass corrections via synthetic SED generation (FSPS-like)
 
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH = PROJECT_ROOT / "logs"
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products (CSV format for step-to-step data flow)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
 
 for p in [INTERIM_PATH, OUTPUT_PATH, LOGS_PATH]:
-    p.mkdir(parents=True, exist_ok=True)
+    p.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
 # =============================================================================
 # STELLAR POPULATION SYNTHESIS MODEL (Simplified FSPS-like)

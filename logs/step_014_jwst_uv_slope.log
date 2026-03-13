@@ -1,56 +1,56 @@
-[13:03:51] ======================================================================
-[13:03:51] TEP-JWST Step 014: JADES Data Ingestion + UV Slope (β) Analysis
-[13:03:51] ======================================================================
-[13:03:51] 
-[13:03:51] Testing TEP prediction: massive galaxies should have redder
-[13:03:51] UV slopes due to enhanced stellar ages.
-[13:03:51] 
-[13:03:51] Loading JADES z>8 candidates (Hainline+23)...
-[13:03:51] Loaded 527 high-confidence z > 8 candidates
-[13:03:51] Saved jades_highz_physical.csv: N=527 galaxies → /Users/matthewsmawfield/www/TEP-JWST/data/interim/jades_highz_physical.csv
-[13:03:51] Calculating UV slopes...
-[13:03:51] Calculated UV slopes for 90 galaxies
-[13:03:51] Calculating TEP parameters...
-[13:03:51] ======================================================================
-[13:03:51] ANALYSIS 1: UV Slope vs Mass Correlation
-[13:03:51] ======================================================================
-[13:03:51] Sample size: N = 81
-[13:03:51] β range: -7.24 to 4.39
-[13:03:51] MUV range: -20.69 to -10.70
-[13:03:51] 
+[16:58:23] ======================================================================
+[16:58:23] TEP-JWST Step 014: JADES Data Ingestion + UV Slope (β) Analysis
+[16:58:23] ======================================================================
+[16:58:23] 
+[16:58:23] Testing TEP prediction: massive galaxies should have redder
+[16:58:23] UV slopes due to enhanced stellar ages.
+[16:58:23] 
+[16:58:23] Loading JADES z>8 candidates (Hainline+23)...
+[16:58:23] Loaded 527 high-confidence z > 8 candidates
+[16:58:23] Saved jades_highz_physical.csv: N=527 galaxies → /Users/matthewsmawfield/www/TEP-JWST/data/interim/jades_highz_physical.csv
+[16:58:23] Calculating UV slopes...
+[16:58:23] Calculated UV slopes for 90 galaxies
+[16:58:23] Calculating TEP parameters...
+[16:58:23] ======================================================================
+[16:58:23] ANALYSIS 1: UV Slope vs Mass Correlation
+[16:58:23] ======================================================================
+[16:58:23] Sample size: N = 81
+[16:58:23] β range: -7.24 to 4.39
+[16:58:23] MUV range: -20.69 to -10.70
+[16:58:23] 
 Correlation (β vs MUV):
-[13:03:51]   Spearman ρ = 0.120, p = 0.2868
-[13:03:51]   → No mass-dependent reddening detected
-[13:03:51] 
+[16:58:23]   Spearman ρ = 0.120, p = 0.2868
+[16:58:23]   → No mass-dependent reddening detected
+[16:58:23] 
 Binned analysis:
-[13:03:51]   MUV = [-20, -19): N = 6, β = -2.56 ± 0.08
-[13:03:51]   MUV = [-19, -18): N = 32, β = -2.34 ± 0.25
-[13:03:51]   MUV = [-18, -17): N = 31, β = -2.59 ± 0.15
-[13:03:51] ======================================================================
-[13:03:51] ANALYSIS 2: β-Mass Relation Redshift Evolution
-[13:03:51] ======================================================================
-[13:03:51] Low-z (z < 10): N = 63
-[13:03:51] High-z (z ≥ 10): N = 18
-[13:03:51] 
+[16:58:23]   MUV = [-20, -19): N = 6, β = -2.56 ± 0.08
+[16:58:23]   MUV = [-19, -18): N = 32, β = -2.34 ± 0.25
+[16:58:23]   MUV = [-18, -17): N = 31, β = -2.59 ± 0.15
+[16:58:23] ======================================================================
+[16:58:23] ANALYSIS 2: β-Mass Relation Redshift Evolution
+[16:58:23] ======================================================================
+[16:58:23] Low-z (z < 10): N = 63
+[16:58:23] High-z (z ≥ 10): N = 18
+[16:58:23] 
 Low-z (z < 10): ρ = 0.206, p = 0.1056
-[13:03:51] High-z (z ≥ 10): ρ = -0.100, p = 0.6927
-[13:03:51] 
+[16:58:23] High-z (z ≥ 10): ρ = -0.100, p = 0.6927
+[16:58:23] 
 Δρ (high-z - low-z) = -0.306
-[13:03:51] ✓ β-mass correlation is STRONGER at high-z (TEP-consistent)
-[13:03:51] ======================================================================
-[13:03:51] ANALYSIS 3: UV Slope vs Γ_t Correlation
-[13:03:51] ======================================================================
-[13:03:51] Sample size: N = 81
-[13:03:51] Correlation (β vs Γ_t):
-[13:03:51]   Spearman ρ = 0.018, p = 0.8747
-[13:03:51] 
+[16:58:23] ✓ β-mass correlation is STRONGER at high-z (TEP-consistent)
+[16:58:23] ======================================================================
+[16:58:23] ANALYSIS 3: UV Slope vs Γ_t Correlation
+[16:58:23] ======================================================================
+[16:58:23] Sample size: N = 81
+[16:58:23] Correlation (β vs Γ_t):
+[16:58:23]   Spearman ρ = 0.018, p = 0.8747
+[16:58:23] 
 ⚠ Positive trend but not significant
-[13:03:51] 
-[13:03:51] ======================================================================
-[13:03:51] SUMMARY
-[13:03:51] ======================================================================
-[13:03:51] ⚠ No significant β-mass correlation
-[13:03:51] ⚠ No significant β-Γ_t correlation
-[13:03:51] 
+[16:58:23] 
+[16:58:23] ======================================================================
+[16:58:23] SUMMARY
+[16:58:23] ======================================================================
+[16:58:23] ⚠ No significant β-mass correlation
+[16:58:23] ⚠ No significant β-Γ_t correlation
+[16:58:23] 
 Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_014_jwst_uv_slope.json
-[13:03:51] Step 014 complete.
+[16:58:23] Step 014 complete.

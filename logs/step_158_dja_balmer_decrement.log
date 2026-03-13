@@ -1,13 +1,13 @@
-[13:10:15]     STEP 158: DJA NIRSpec Balmer decrement (Table B5)
-[13:10:15] Loading DJA NIRSpec merged catalog for Balmer analysis ...
-[13:10:20] Total sources with Balmer detection: N=3,668
-[13:10:20]   z range: 0.26 - 7.35
-[13:10:20]   Median Ha/Hb: 3.297
-[13:10:20]   Full z>2: rho=0.493, p=1.71e-199, N=3,259
-[13:10:21]   Full z>2 partial rho: -0.002, p=9.17e-01, N=3,259
-[13:10:21]   z=2-4: N=1,603, rho=0.556, partial_rho=0.07259249304961665
-[13:10:21]   z=4-5: N=712, rho=0.453, partial_rho=0.026607348915419833
-[13:10:21]   z=5-6: N=584, rho=0.380, partial_rho=-0.014679277358894058
-[13:10:21]   z=6-7: N=286, rho=0.440, partial_rho=0.009529926689299265
-[13:10:21] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_158_dja_balmer_decrement.json
-[13:10:21]     Step 158 complete. N(z>2)=3,259
+[17:04:20]     STEP 158: DJA NIRSpec Balmer decrement (Table B5)
+[17:04:20] Loading DJA NIRSpec merged catalog for Balmer analysis ...
+[17:04:29] Total sources with Balmer detection: N=3,668
+[17:04:29]   z range: 0.26 - 7.35
+[17:04:29]   Median Ha/Hb: 3.297
+[17:04:29]   Full z>2: rho=0.493, p=1.71e-199, N=3,259
+[17:04:30]   Full z>2 partial rho: -0.002, p=9.17e-01, N=3,259
+[17:04:30]   z=2-4: N=1,603, rho=0.556, partial_rho=0.07259249304961665
+[17:04:30]   z=4-5: N=712, rho=0.453, partial_rho=0.026607348915419833
+[17:04:30]   z=5-6: N=584, rho=0.380, partial_rho=-0.014679277358894058
+[17:04:30]   z=6-7: N=286, rho=0.440, partial_rho=0.009529926689299265
+[17:04:30] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_158_dja_balmer_decrement.json
+[17:04:30]     Step 158 complete. N(z>2)=3,259

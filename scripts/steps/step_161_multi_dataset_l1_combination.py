@@ -32,16 +32,16 @@ import json
 
 import sys
 from pathlib import Path
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 from pathlib import Path
 
 import numpy as np
 from scipy import stats
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
-OUTPUTS_DIR = PROJECT_ROOT / "results" / "outputs"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root (re-assigned)
+OUTPUTS_DIR = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
 
 sys.path.insert(0, str(PROJECT_ROOT / "scripts" / "utils"))
 try:

@@ -23,31 +23,31 @@ Date: January 2026
 import sys
 import numpy as np
 import pandas as pd
-from scipy import stats
+from scipy import stats  # Hypothesis tests and correlation
 from pathlib import Path
-from astropy.io import fits
-from astropy.coordinates import SkyCoord
-from astropy import units as u
+from astropy.io import fits  # FITS catalogue I/O
+from astropy.coordinates import SkyCoord  # Sky coordinate matching between catalogues
+from astropy import units as u  # Astropy unit system
 import json
 import warnings
 
-# Suppress warnings
-warnings.filterwarnings('ignore')
+warnings.filterwarnings('ignore')  # Suppress astropy / numpy runtime warnings
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value, safe_json_default
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300) & JSON serialiser for numpy types
 
-STEP_NUM = "037"
-STEP_NAME = "resolved_gradients"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-DATA_RAW = PROJECT_ROOT / "data" / "raw"
-DATA_INTERIM = PROJECT_ROOT / "data" / "interim"
+STEP_NUM = "037"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "resolved_gradients"  # Resolved gradients: tests TEP prediction that inner galaxy regions (deeper potential) appear older/redder
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+DATA_RAW = PROJECT_ROOT / "data" / "raw"  # Raw catalogue directory (FITS files from MAST/ESA)
+DATA_INTERIM = PROJECT_ROOT / "data" / "interim"  # Processed intermediate products (CSV format for step-to-step data flow)
 
 
 def _native_array(arr):
+    """Convert big-endian FITS arrays to native byte order for scipy/pandas compatibility."""
     out = np.array(arr)
     if out.dtype.byteorder == '>':
         out = out.byteswap().view(out.dtype.newbyteorder('='))

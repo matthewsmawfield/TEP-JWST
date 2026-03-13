@@ -1,15 +1,15 @@
-[13:03:23] ═══ STEP 01: Load UNCOVER DR4 Data
-[13:03:23] >>> Loading: /Users/matthewsmawfield/www/TEP-JWST/data/raw/uncover/UNCOVER_DR4_SPS_catalog.fits
-[13:03:23]     Total sources: 74020
-[13:03:23]     Extracted 25 columns
-[13:03:23]     Full sample after cuts: N = 2315
-[13:03:24]     Multi-property sample after cuts: N = 1108
-[13:03:24]     z > 8 sample after cuts: N = 283
-[13:03:24] >>> Saving outputs...
-[13:03:24]     Saved: step_001_uncover_full_sample.csv
-[13:03:24]     Saved: step_001_uncover_multi_property_sample.csv
-[13:03:24]     Saved: step_001_uncover_z8_sample.csv
-[13:03:24] ✓   Full sample: N = 2315
-[13:03:24] ✓   Multi-property: N = 1108
-[13:03:24] ✓   z > 8: N = 283
-[13:03:24] ✓   Step 001 complete.
+[16:58:04] ═══ STEP 01: Load UNCOVER DR4 Data
+[16:58:04] >>> Loading: /Users/matthewsmawfield/www/TEP-JWST/data/raw/uncover/UNCOVER_DR4_SPS_catalog.fits
+[16:58:04]     Total sources: 74020
+[16:58:04]     Extracted 25 columns
+[16:58:04]     Full sample after cuts: N = 2315
+[16:58:04]     Multi-property sample after cuts: N = 1108
+[16:58:04]     z > 8 sample after cuts: N = 283
+[16:58:04] >>> Saving outputs...
+[16:58:04]     Saved: step_001_uncover_full_sample.csv
+[16:58:04]     Saved: step_001_uncover_multi_property_sample.csv
+[16:58:04]     Saved: step_001_uncover_z8_sample.csv
+[16:58:04] ✓   Full sample: N = 2315
+[16:58:04] ✓   Multi-property: N = 1108
+[16:58:04] ✓   z > 8: N = 283
+[16:58:04] ✓   Step 001 complete.

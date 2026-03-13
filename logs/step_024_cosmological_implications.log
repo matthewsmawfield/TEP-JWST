@@ -1,97 +1,97 @@
-[13:04:07] ======================================================================
-[13:04:07] TEP-JWST Step 024: Cosmological Implications
-[13:04:07] ======================================================================
-[13:04:07] 
-[13:04:07] Examining cosmological implications of TEP corrections.
-[13:04:07] 
-[13:04:07] Loading data...
-[13:04:07] UNCOVER: N = 2315
-[13:04:07] JADES: N = 527
-[13:04:07] ======================================================================
-[13:04:07] TEST 1: Formation Redshift Prediction
-[13:04:07] ======================================================================
-[13:04:07] 
+[16:58:36] ======================================================================
+[16:58:36] TEP-JWST Step 024: Cosmological Implications
+[16:58:36] ======================================================================
+[16:58:36] 
+[16:58:36] Examining cosmological implications of TEP corrections.
+[16:58:36] 
+[16:58:36] Loading data...
+[16:58:36] UNCOVER: N = 2315
+[16:58:36] JADES: N = 527
+[16:58:36] ======================================================================
+[16:58:36] TEST 1: Formation Redshift Prediction
+[16:58:36] ======================================================================
+[16:58:36] 
 Observed age = [0, 0.05) Gyr (N = 70):
-[13:04:07]   Γ_t vs t_form: ρ = -0.084, p = 0.4872
-[13:04:07] 
+[16:58:36]   Γ_t vs t_form: ρ = -0.084, p = 0.4872
+[16:58:36] 
 Observed age = [0.05, 0.1) Gyr (N = 345):
-[13:04:07]   Γ_t vs t_form: ρ = 0.348, p = 0.0000
-[13:04:07]   ✓ High-Γ_t galaxies formed more recently (TEP-consistent)
-[13:04:07] 
+[16:58:36]   Γ_t vs t_form: ρ = 0.348, p = 0.0000
+[16:58:36]   ✓ High-Γ_t galaxies formed more recently (TEP-consistent)
+[16:58:36] 
 Observed age = [0.1, 0.2) Gyr (N = 1230):
-[13:04:07]   Γ_t vs t_form: ρ = 0.512, p = 0.0000
-[13:04:07]   ✓ High-Γ_t galaxies formed more recently (TEP-consistent)
-[13:04:07] 
+[16:58:36]   Γ_t vs t_form: ρ = 0.512, p = 0.0000
+[16:58:36]   ✓ High-Γ_t galaxies formed more recently (TEP-consistent)
+[16:58:36] 
 Observed age = [0.2, 0.5) Gyr (N = 660):
-[13:04:07]   Γ_t vs t_form: ρ = -0.068, p = 0.0792
-[13:04:07] 
+[16:58:36]   Γ_t vs t_form: ρ = -0.068, p = 0.0792
+[16:58:36] 
 Positive correlations: 2/4
-[13:04:07] ✓ Formation redshift prediction confirmed
-[13:04:07] ======================================================================
-[13:04:07] TEST 2: Stellar Mass Density Prediction
-[13:04:07] ======================================================================
-[13:04:07] Total stellar mass (raw): 1.88e+12 M_sun
-[13:04:07] Total stellar mass (TEP-corrected): 1.52e+12 M_sun
-[13:04:07] Reduction: 19.3%
-[13:04:07] 
+[16:58:36] ✓ Formation redshift prediction confirmed
+[16:58:36] ======================================================================
+[16:58:36] TEST 2: Stellar Mass Density Prediction
+[16:58:36] ======================================================================
+[16:58:36] Total stellar mass (raw): 1.88e+12 M_sun
+[16:58:36] Total stellar mass (TEP-corrected): 1.52e+12 M_sun
+[16:58:36] Reduction: 19.3%
+[16:58:36] 
 By redshift:
-[13:04:07]   z = [7, 10): 49.9% reduction
-[13:04:07] 
+[16:58:36]   z = [7, 10): 49.9% reduction
+[16:58:36] 
 ✓ Significant mass density reduction (TEP-consistent)
-[13:04:07] ======================================================================
-[13:04:07] TEST 3: sSFR Floor Prediction
-[13:04:07] ======================================================================
-[13:04:07] sSFR floor (5th percentile):
-[13:04:07]   Raw: 3.15 Gyr^-1
-[13:04:07]   TEP-corrected: 1.52 Gyr^-1
-[13:04:07]   Floor shift: -51.7%
-[13:04:07] 
+[16:58:36] ======================================================================
+[16:58:36] TEST 3: sSFR Floor Prediction
+[16:58:36] ======================================================================
+[16:58:36] sSFR floor (5th percentile):
+[16:58:36]   Raw: 3.15 Gyr^-1
+[16:58:36]   TEP-corrected: 1.52 Gyr^-1
+[16:58:36]   Floor shift: -51.7%
+[16:58:36] 
 Galaxies near floor (< 1.1 × floor):
-[13:04:07]   Raw: 186
-[13:04:07]   TEP-corrected: 1478
-[13:04:07] 
+[16:58:36]   Raw: 186
+[16:58:36]   TEP-corrected: 1478
+[16:58:36] 
 ⚠ sSFR floor shift is small
-[13:04:07] ======================================================================
-[13:04:07] TEST 4: Age-Metallicity Relation
-[13:04:07] ======================================================================
-[13:04:07] Age-MUV correlation:
-[13:04:07]   Raw: ρ = -0.907, p = 0.0000
-[13:04:07]   TEP-corrected: ρ = 0.665, p = 0.0000
-[13:04:07] 
+[16:58:36] ======================================================================
+[16:58:36] TEST 4: Age-Metallicity Relation
+[16:58:36] ======================================================================
+[16:58:36] Age-MUV correlation:
+[16:58:36]   Raw: ρ = -0.907, p = 0.0000
+[16:58:36]   TEP-corrected: ρ = 0.665, p = 0.0000
+[16:58:36] 
 ⚠ Correlation did not strengthen
-[13:04:07] ======================================================================
-[13:04:07] TEST 5: Quenching Timescale
-[13:04:07] ======================================================================
-[13:04:07] Quenched galaxies (age_ratio > 0.3): N = 50
-[13:04:07] 
+[16:58:36] ======================================================================
+[16:58:36] TEST 5: Quenching Timescale
+[16:58:36] ======================================================================
+[16:58:36] Quenched galaxies (age_ratio > 0.3): N = 50
+[16:58:36] 
 Γ_t vs stellar age (quenched only):
-[13:04:07]   ρ = -0.097, p = 0.5017
-[13:04:07] ⚠ Quenching timescale prediction not confirmed
-[13:04:07] ======================================================================
-[13:04:07] TEST 6: Cosmic Variance Test
-[13:04:07] ======================================================================
-[13:04:07] NE: N = 187, mean age_ratio = 0.1699 (raw), 0.3466 (corr)
-[13:04:07] NW: N = 970, mean age_ratio = 0.1628 (raw), 0.4309 (corr)
-[13:04:07] SE: N = 970, mean age_ratio = 0.1567 (raw), 0.3437 (corr)
-[13:04:07] SW: N = 188, mean age_ratio = 0.1671 (raw), 0.3656 (corr)
-[13:04:07] 
+[16:58:36]   ρ = -0.097, p = 0.5017
+[16:58:36] ⚠ Quenching timescale prediction not confirmed
+[16:58:36] ======================================================================
+[16:58:36] TEST 6: Cosmic Variance Test
+[16:58:36] ======================================================================
+[16:58:36] NE: N = 187, mean age_ratio = 0.1699 (raw), 0.3466 (corr)
+[16:58:36] NW: N = 970, mean age_ratio = 0.1628 (raw), 0.4309 (corr)
+[16:58:36] SE: N = 970, mean age_ratio = 0.1567 (raw), 0.3437 (corr)
+[16:58:36] SW: N = 188, mean age_ratio = 0.1671 (raw), 0.3656 (corr)
+[16:58:36] 
 Field-to-field variance:
-[13:04:07]   Raw: σ = 0.0050
-[13:04:07]   TEP-corrected: σ = 0.0352
-[13:04:07]   Reduction: -606.3%
-[13:04:07] ⚠ Cosmic variance increased after TEP correction
-[13:04:07]    (This can indicate TEP was masking true field-to-field variations)
-[13:04:07] 
-[13:04:07] ======================================================================
-[13:04:07] SUMMARY: Cosmological Implications Results
-[13:04:07] ======================================================================
-[13:04:07] ✓ formation_redshift: Confirmed
-[13:04:07] ✓ stellar_mass_density: Confirmed
-[13:04:07] ⚠ ssfr_floor: Not confirmed
-[13:04:07] ⚠ age_metallicity: Not confirmed
-[13:04:07] ⚠ quenching_timescale: Not confirmed
-[13:04:07] ⚠ cosmic_variance: Not confirmed
-[13:04:07] 
+[16:58:36]   Raw: σ = 0.0050
+[16:58:36]   TEP-corrected: σ = 0.0352
+[16:58:36]   Reduction: -606.3%
+[16:58:36] ⚠ Cosmic variance increased after TEP correction
+[16:58:36]    (This can indicate TEP was masking true field-to-field variations)
+[16:58:36] 
+[16:58:36] ======================================================================
+[16:58:36] SUMMARY: Cosmological Implications Results
+[16:58:36] ======================================================================
+[16:58:36] ✓ formation_redshift: Confirmed
+[16:58:36] ✓ stellar_mass_density: Confirmed
+[16:58:36] ⚠ ssfr_floor: Not confirmed
+[16:58:36] ⚠ age_metallicity: Not confirmed
+[16:58:36] ⚠ quenching_timescale: Not confirmed
+[16:58:36] ⚠ cosmic_variance: Not confirmed
+[16:58:36] 
 Tests passed: 2/6
-[13:04:07] 
+[16:58:36] 
 Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_024_cosmological_implications.json

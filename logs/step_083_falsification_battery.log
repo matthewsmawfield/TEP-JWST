@@ -1,37 +1,37 @@
-[13:05:09]     ======================================================================
-[13:05:09]     STEP 083: Comprehensive Falsification Battery
-[13:05:09]     ======================================================================
-[13:05:09]     Loaded N = 2315 galaxies
-[13:05:09]     
+[16:59:34]     ======================================================================
+[16:59:34]     STEP 083: Comprehensive Falsification Battery
+[16:59:34]     ======================================================================
+[16:59:34]     Loaded N = 2315 galaxies
+[16:59:34]     
 --- Running Falsification Battery ---
-[13:05:09]     
+[16:59:34]     
   Sign Consistency: ✓ PASS
-[13:05:09]         gamma_t-dust: expected positive, observed positive (ρ=0.593)
-[13:05:09]         log_Mstar-mwa: expected positive, observed positive (ρ=0.135)
-[13:05:09]     
+[16:59:34]         gamma_t-dust: expected positive, observed positive (ρ=0.593)
+[16:59:34]         log_Mstar-mwa: expected positive, observed positive (ρ=0.135)
+[16:59:34]     
   Magnitude Scaling: ✓ PASS
-[13:05:09]     
+[16:59:34]     
   Redshift Evolution: ✓ PASS
-[13:05:09]         4-5: ρ = 0.027, N = 942
-[13:05:09]         5-6: ρ = -0.061, N = 497
-[13:05:09]         6-7: ρ = -0.107, N = 372
-[13:05:09]         7-8: ρ = 0.075, N = 221
-[13:05:09]         8-10: ρ = 0.593, N = 283
-[13:05:09]     
+[16:59:34]         4-5: ρ = 0.027, N = 942
+[16:59:34]         5-6: ρ = -0.061, N = 497
+[16:59:34]         6-7: ρ = -0.107, N = 372
+[16:59:34]         7-8: ρ = 0.075, N = 221
+[16:59:34]         8-10: ρ = 0.593, N = 283
+[16:59:34]     
   Mass Independence: ✓ PASS
-[13:05:09]         7.5-8.5: ρ = 0.369 ✓
-[13:05:09]         8.5-9.5: ρ = 0.366 ✓
-[13:05:09]     
+[16:59:34]         7.5-8.5: ρ = 0.369 ✓
+[16:59:34]         8.5-9.5: ρ = 0.366 ✓
+[16:59:34]     
   Null Regions: ✓ PASS
-[13:05:09]         z > 8 (signal expected): ρ = 0.593 ✓
-[13:05:09]     
+[16:59:34]         z > 8 (signal expected): ρ = 0.593 ✓
+[16:59:34]     
   Internal Consistency: ✓ PASS
-[13:05:09]     
+[16:59:34]     
 ======================================================================
-[13:05:09]     FALSIFICATION BATTERY SUMMARY
-[13:05:09]     ======================================================================
-[13:05:09]       Tests passed: 6/6 (100%)
-[13:05:09]       Verdict: TEP SUPPORTED
-[13:05:09]       ✓ TEP passes all falsification tests
-[13:05:09]     
+[16:59:34]     FALSIFICATION BATTERY SUMMARY
+[16:59:34]     ======================================================================
+[16:59:34]       Tests passed: 6/6 (100%)
+[16:59:34]       Verdict: TEP SUPPORTED
+[16:59:34]       ✓ TEP passes all falsification tests
+[16:59:34]     
 Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_083_falsification_battery.json

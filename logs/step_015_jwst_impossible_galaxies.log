@@ -1,63 +1,63 @@
-[13:03:52] ======================================================================
-[13:03:52] TEP-JWST Step 15: 'Anomalous' Galaxies Analysis
-[13:03:52] ======================================================================
-[13:03:52] 
-[13:03:52] Testing TEP prediction: 'anomalous' galaxies (age > cosmic age)
-[13:03:52] should have the highest predicted Γ_t values.
-[13:03:52] 
-[13:03:52] Loading UNCOVER data with TEP parameters...
-[13:03:52] Loaded 2315 galaxies
-[13:03:52] Redshift range: 4.0 - 10.0
-[13:03:52] Age ratio range: 0.016 - 0.934
-[13:03:52] ======================================================================
-[13:03:52] ANALYSIS 1: Identifying 'Anomalous' Galaxies
-[13:03:52] ======================================================================
-[13:03:52] Age ratio > 0.3: N = 50 (2.2%)
-[13:03:52] Age ratio > 0.5: N = 9 (0.4%)
-[13:03:52] Age ratio > 0.7: N = 1 (0.0%)
-[13:03:52] Age ratio > 0.9: N = 1 (0.0%)
-[13:03:52] 
+[16:58:24] ======================================================================
+[16:58:24] TEP-JWST Step 15: 'Anomalous' Galaxies Analysis
+[16:58:24] ======================================================================
+[16:58:24] 
+[16:58:24] Testing TEP prediction: 'anomalous' galaxies (age > cosmic age)
+[16:58:24] should have the highest predicted Γ_t values.
+[16:58:24] 
+[16:58:24] Loading UNCOVER data with TEP parameters...
+[16:58:24] Loaded 2315 galaxies
+[16:58:24] Redshift range: 4.0 - 10.0
+[16:58:24] Age ratio range: 0.016 - 0.934
+[16:58:24] ======================================================================
+[16:58:24] ANALYSIS 1: Identifying 'Anomalous' Galaxies
+[16:58:24] ======================================================================
+[16:58:24] Age ratio > 0.3: N = 50 (2.2%)
+[16:58:24] Age ratio > 0.5: N = 9 (0.4%)
+[16:58:24] Age ratio > 0.7: N = 1 (0.0%)
+[16:58:24] Age ratio > 0.9: N = 1 (0.0%)
+[16:58:24] 
 'Anomalous' galaxies (age_ratio > 0.5): N = 9
-[13:03:52] 'Normal' galaxies (age_ratio ≤ 0.5): N = 2306
-[13:03:52] ======================================================================
-[13:03:52] ANALYSIS 3: Age Ratio vs Γ_t Correlation
-[13:03:52] ======================================================================
-[13:03:52] Spearman ρ = 0.048, p = 2.12e-02
-[13:03:52] Pearson r = 0.146, p = 1.90e-12
-[13:03:52] 
+[16:58:24] 'Normal' galaxies (age_ratio ≤ 0.5): N = 2306
+[16:58:24] ======================================================================
+[16:58:24] ANALYSIS 3: Age Ratio vs Γ_t Correlation
+[16:58:24] ======================================================================
+[16:58:24] Spearman ρ = 0.048, p = 2.12e-02
+[16:58:24] Pearson r = 0.146, p = 1.90e-12
+[16:58:24] 
 Linear fit: age_ratio = 0.003 × Γ_t + 0.159
-[13:03:52]   Slope: 0.003 ± 0.000
-[13:03:52] 
+[16:58:24]   Slope: 0.003 ± 0.000
+[16:58:24] 
 ✓ Significant positive correlation (TEP-consistent)
-[13:03:52] ======================================================================
-[13:03:52] ANALYSIS 4: TEP Resolution of Impossibility
-[13:03:52] ======================================================================
-[13:03:52] Anomalous galaxies (raw): N = 9
-[13:03:52]   Mean Γ_t: 14.36
-[13:03:52]   Min Γ_t: 0.49
-[13:03:52]   All have Γ_t > 1: False
-[13:03:52] 
+[16:58:24] ======================================================================
+[16:58:24] ANALYSIS 4: TEP Resolution of Impossibility
+[16:58:24] ======================================================================
+[16:58:24] Anomalous galaxies (raw): N = 9
+[16:58:24]   Mean Γ_t: 14.36
+[16:58:24]   Min Γ_t: 0.49
+[16:58:24]   All have Γ_t > 1: False
+[16:58:24] 
 After TEP correction (÷Γ_t):
-[13:03:52]   Resolved: 8/9 (89%)
-[13:03:52]   Still anomalous: 1
-[13:03:52] 
+[16:58:24]   Resolved: 8/9 (89%)
+[16:58:24]   Still anomalous: 1
+[16:58:24] 
 For anomalous galaxies:
-[13:03:52]   Mean age ratio (raw): 0.642
-[13:03:52]   Mean age ratio (corrected): 0.251
-[13:03:52] 
+[16:58:24]   Mean age ratio (raw): 0.642
+[16:58:24]   Mean age ratio (corrected): 0.251
+[16:58:24] 
 Most extreme case (age_ratio > 0.9):
-[13:03:52]   N = 1
-[13:03:52]   Γ_t = 20.15
-[13:03:52]   Raw age_ratio = 0.934
-[13:03:52]   Corrected age_ratio = 0.046
-[13:03:52] 
-[13:03:52] ======================================================================
-[13:03:52] SUMMARY
-[13:03:52] ======================================================================
-[13:03:52] Age ratio vs Γ_t: ρ = 0.048 (p = 2.12e-02)
-[13:03:52] TEP reduces 'anomalous' galaxies by: 88.9%
-[13:03:52] 
+[16:58:24]   N = 1
+[16:58:24]   Γ_t = 20.15
+[16:58:24]   Raw age_ratio = 0.934
+[16:58:24]   Corrected age_ratio = 0.046
+[16:58:24] 
+[16:58:24] ======================================================================
+[16:58:24] SUMMARY
+[16:58:24] ======================================================================
+[16:58:24] Age ratio vs Γ_t: ρ = 0.048 (p = 2.12e-02)
+[16:58:24] TEP reduces 'anomalous' galaxies by: 88.9%
+[16:58:24] 
 ✓ 'Anomalous' galaxies are explained by TEP
-[13:03:52]   Higher Γ_t → higher apparent age ratio
-[13:03:52] 
+[16:58:24]   Higher Γ_t → higher apparent age ratio
+[16:58:24] 
 Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_015_jwst_impossible_galaxies.json

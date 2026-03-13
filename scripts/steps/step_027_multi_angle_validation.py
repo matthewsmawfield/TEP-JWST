@@ -28,7 +28,7 @@ Date: January 2026
 import sys
 import numpy as np
 import pandas as pd
-from scipy import stats
+from scipy import stats  # Hypothesis tests and correlation
 from pathlib import Path
 import logging
 import json
@@ -36,31 +36,27 @@ import json
 # =============================================================================
 # LOGGER SETUP
 # =============================================================================
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
+from scripts.utils.tep_model import compute_gamma_t as tep_gamma  # TEP model: Gamma_t = exp[alpha(z) * (2/3) * (log_Mh - log_Mh_ref) * z_factor]
 
-STEP_NUM = "027"
-STEP_NAME = "multi_angle_validation"
+STEP_NUM = "027"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "multi_angle_validation"  # Multi-angle validation: extreme test, stratification, robustness, residual, multi-angle TEP tests
 
-LOGS_PATH = PROJECT_ROOT / "logs"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH.mkdir(parents=True, exist_ok=True)
-OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text file per step for debugging traceability)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+LOGS_PATH.mkdir(parents=True, exist_ok=True)  # Create logs/ if missing; parents=True ensures full path tree exists
+OUTPUT_PATH.mkdir(parents=True, exist_ok=True)  # Create results/outputs/ if missing
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
-
-
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DATA_DIR = PROJECT_ROOT / "data"
-RESULTS_DIR = PROJECT_ROOT / "results" / "outputs"
-
-# Note: TEPLogger is initialized above via set_step_logger()
+# Additional path aliases used by downstream helpers
+DATA_DIR = PROJECT_ROOT / "data"  # Raw catalogue directory (external datasets: UNCOVER, CEERS, COSMOS-Web, JADES)
+RESULTS_DIR = PROJECT_ROOT / "results" / "outputs"  # Final JSON outputs (machine-readable statistical results, alias for OUTPUT_PATH)
 
 
 def load_data():

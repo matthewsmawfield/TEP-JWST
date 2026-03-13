@@ -54,21 +54,21 @@ import json
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value
-from scripts.utils.rank_stats import partial_rank_correlation
-from scripts.utils.tep_model import compute_gamma_t
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
+from scripts.utils.rank_stats import partial_rank_correlation  # Partial Spearman: residualization method to control for confounders
+from scripts.utils.tep_model import compute_gamma_t  # TEP model: Gamma_t = exp[alpha(z) * (2/3) * (log_Mh - log_Mh_ref) * z_factor]
 
-STEP_NUM = "017"
-STEP_NAME = "ml_ratio"
+STEP_NUM = "017"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "ml_ratio"  # Mass-to-light ratio: tests TEP predictions for age excess, photo-z scatter, SED chi², M/L anomaly, spec-photo-z differences
 
-LOGS_PATH = PROJECT_ROOT / "logs"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH.mkdir(parents=True, exist_ok=True)
-OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text file per step for debugging traceability)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+LOGS_PATH.mkdir(parents=True, exist_ok=True)  # Create logs/ if missing; parents=True ensures full path tree exists
+OUTPUT_PATH.mkdir(parents=True, exist_ok=True)  # Create results/outputs/ if missing
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
 
 
@@ -81,7 +81,13 @@ RESULTS_DIR = PROJECT_ROOT / "results" / "outputs"
 
 
 def load_jades_data():
-    """Load JADES data with age excess."""
+    """Load JADES data with precomputed physical properties.
+
+    Reads the jades_highz_physical.csv produced by step_014, which
+    contains: z_best, log_Mstar, log_Mhalo, t_stellar_Gyr,
+    t_cosmic_Gyr, age_excess_Gyr (= t_stellar - t_cosmic), and MUV.
+    Gamma_t is recomputed from the shared canonical model.
+    """
     logger.info("Loading JADES data...")
 
     _path = DATA_DIR / "interim" / "jades_highz_physical.csv"
@@ -99,7 +105,14 @@ def load_jades_data():
 
 
 def load_jades_raw():
-    """Load raw JADES catalog with photo-z errors and χ²."""
+    """Load the raw JADES z > 8 FITS catalog (Hainline et al. 2023).
+
+    This provides EAZY photo-z posteriors (z_a, l68, u68, l95),
+    chi-squared of the best-fit template (EAZY_chisq_min), and
+    Kron-aperture photometry. MUV is derived from F150W using the
+    luminosity distance at the best photo-z. Gamma_t is estimated
+    from a rough MUV-to-M* conversion.
+    """
     logger.info("Loading raw JADES catalog...")
 
     fits_path = DATA_DIR / "raw" / "JADES_z_gt_8_Candidates_Hainline_et_al.fits"
@@ -164,14 +177,20 @@ def load_jades_raw():
 
 
 def analyze_age_excess(df):
-    """
-    TEST 1: Age Excess Distribution
-    
-    age_excess = t_stellar - t_cosmic
-    Negative values mean stellar age > cosmic age (anomalous)
-    
-    TEP predicts: age_excess should be MORE NEGATIVE for high-Γ_t galaxies
-    (because their stellar ages are inflated by TEP)
+    """TEST 1: Age excess distribution as a function of Gamma_t.
+
+    age_excess = t_stellar - t_cosmic measures the "slack" between
+    the SED-fitted stellar age and the available cosmic time.
+      - age_excess > 0: normal (stellar age fits within cosmic time)
+      - age_excess < 0: anomalous (stellar age exceeds cosmic age)
+
+    TEP prediction: age_excess should be MORE NEGATIVE for high-Gamma_t
+    galaxies, because the enhanced proper time inflates the SED-inferred
+    stellar age. A significant negative Spearman correlation between
+    Gamma_t and age_excess constitutes TEP-consistent evidence.
+
+    Binned fractions of anomalous galaxies by Gamma_t quantile provide
+    a complementary visual diagnostic.
     """
     logger.info("=" * 70)
     logger.info("TEST 1: Age Excess Distribution")
@@ -220,11 +239,15 @@ def analyze_age_excess(df):
 
 
 def analyze_photoz_scatter(df):
-    """
-    TEST 2: Photo-z Scatter
-    
-    TEP affects the SED shape, which should confuse photo-z fitting.
-    High-Γ_t galaxies should have LARGER photo-z errors.
+    """TEST 2: Photo-z uncertainty as a TEP diagnostic.
+
+    Template-based photo-z codes (EAZY, LePhare) assume standard
+    stellar evolution timescales. If TEP modifies the SED shape
+    (older-looking spectra at fixed cosmic time), the best-fit
+    template will be a poor match and the posterior will broaden.
+
+    Prediction: sigma(z_phot) should increase with Gamma_t.
+    A positive Spearman rho with p < 0.05 is TEP-consistent.
     """
     logger.info("=" * 70)
     logger.info("TEST 2: Photo-z Scatter")
@@ -259,11 +282,16 @@ def analyze_photoz_scatter(df):
 
 
 def analyze_sed_fit_quality(df):
-    """
-    TEST 3: SED Fit Quality (χ²)
-    
-    Standard SED models assume isochrony. High-Γ_t galaxies should have
-    WORSE fits (higher χ²) because the isochrony assumption is violated for them.
+    """TEST 3: SED chi-squared as a TEP diagnostic.
+
+    Standard SED fitting (Prospector, EAZY) assumes isochronous
+    stellar evolution: all stars in a galaxy age at the same rate
+    regardless of environment. Under TEP, stars in deeper potentials
+    evolve faster in proper time, producing SEDs that deviate from
+    the isochronous templates.
+
+    Prediction: chi2_best should increase with Gamma_t, indicating
+    worse template fits for galaxies with larger TEP enhancement.
     """
     logger.info("=" * 70)
     logger.info("TEST 3: SED Fit Quality (χ²)")
@@ -302,11 +330,18 @@ def analyze_sed_fit_quality(df):
 
 
 def analyze_mass_to_light(df):
-    """
-    TEST 4: Mass-to-Light Ratio Anomaly
-    
-    At fixed MUV (luminosity), high-Γ_t galaxies should have higher M*
-    because TEP inflates the M/L ratio.
+    """TEST 4: Mass-to-light ratio anomaly as a TEP signature.
+
+    At fixed UV luminosity (MUV), TEP-affected galaxies should have
+    higher SED-inferred stellar masses because the SED fitter
+    compensates for the older-looking spectrum by increasing M/L.
+
+    The M/L proxy is: ML_proxy = log(M*) + MUV / 2.5
+    (since MUV ~ -2.5 log(L), this gives log(M*/L) up to a constant).
+
+    Both raw and partial (controlling for z) correlations with Gamma_t
+    are tested. A positive correlation indicates TEP-induced M/L
+    inflation.
     """
     logger.info("=" * 70)
     logger.info("TEST 4: Mass-to-Light Ratio Anomaly")
@@ -356,12 +391,16 @@ def analyze_mass_to_light(df):
 
 
 def analyze_spec_phot_offset(df):
-    """
-    TEST 5: Spectroscopic vs Photometric Redshift
-    
-    For galaxies with both z_spec and z_phot, the difference should
-    correlate with Γ_t because TEP affects the photometric SED but
-    not emission lines.
+    """TEST 5: Spectroscopic vs photometric redshift offset.
+
+    Emission-line redshifts (z_spec) are insensitive to TEP because
+    they depend on atomic physics, not stellar evolution timescales.
+    Photometric redshifts (z_phot) rely on SED templates that assume
+    isochronous aging.
+
+    If TEP distorts the broadband SED but not the emission lines,
+    the absolute offset |z_phot - z_spec| should increase with
+    Gamma_t. This test requires galaxies with both z_spec and z_phot.
     """
     logger.info("=" * 70)
     logger.info("TEST 5: Spec-z vs Photo-z Offset")

@@ -39,22 +39,22 @@ import json
 # =============================================================================
 # LOGGER SETUP
 # =============================================================================
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
 
-STEP_NUM = "013"
-STEP_NAME = "trgb_cepheid"
+STEP_NUM = "013"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "trgb_cepheid"  # TRGB vs Cepheid: tests TEP prediction of systematic offset between old-halo and young-disk distance indicators
 
-LOGS_PATH = PROJECT_ROOT / "logs"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH.mkdir(parents=True, exist_ok=True)
-OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text file per step for debugging traceability)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+LOGS_PATH.mkdir(parents=True, exist_ok=True)  # Create logs/ if missing; parents=True ensures full path tree exists
+OUTPUT_PATH.mkdir(parents=True, exist_ok=True)  # Create results/outputs/ if missing
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
 
 
@@ -207,8 +207,20 @@ def load_trgb_cepheid_comparison():
 
 
 def analyze_trgb_cepheid_offset(df):
-    """
-    Analyze the systematic offset between TRGB and Cepheid distances.
+    """Analyze the systematic offset between TRGB and Cepheid distances.
+
+    The offset delta_mu = mu_TRGB - mu_Cepheid measures the differential
+    distance bias between the two stellar populations. Under TEP:
+      - Cepheids reside in the thin disk (sigma ~ 40 km/s, dense gas)
+        where TEP is strong, causing period contraction and luminosity
+        overestimate -> distance UNDERestimate.
+      - TRGB stars reside in the diffuse stellar halo (sigma ~ 120 km/s)
+        where the density is lower and TEP is weaker.
+
+    The predicted sign is delta_mu > 0 (TRGB distances larger than Cepheid),
+    consistent with the observed Freedman-vs-Riess discrepancy.
+
+    Both unweighted and inverse-variance-weighted means are computed.
     """
     logger.info("=" * 70)
     logger.info("ANALYSIS 1: TRGB-Cepheid Systematic Offset")
@@ -260,10 +272,16 @@ def analyze_trgb_cepheid_offset(df):
 
 
 def analyze_offset_mass_correlation(df):
-    """
-    Test if the TRGB-Cepheid offset correlates with host galaxy mass.
-    
-    TEP Prediction: Massive galaxies have deeper potentials → larger offset
+    """Test if the TRGB-Cepheid offset correlates with host galaxy mass.
+
+    TEP prediction:
+      More massive galaxies have deeper overall gravitational potentials,
+      which amplifies the TEP correction for disk-based Cepheids while
+      leaving halo-based TRGB stars relatively unaffected. The mass
+      dependence is:
+        delta_mu ~ alpha * [log10(sigma_halo(M*)/sigma_ref) - log10(sigma_disk(M*)/sigma_ref)]
+      Because sigma_disk scales more steeply with M* than sigma_halo,
+      delta_mu should increase with host mass.
     """
     logger.info("=" * 70)
     logger.info("ANALYSIS 2: Offset vs Host Galaxy Mass")
@@ -317,10 +335,16 @@ def analyze_offset_mass_correlation(df):
 
 
 def analyze_offset_morphology(df):
-    """
-    Test if the offset correlates with morphological type.
-    
-    TEP Prediction: Late-type spirals (higher T) have denser disks → larger offset
+    """Test if the offset correlates with morphological type.
+
+    TEP prediction:
+      Late-type spirals (Sc-Sd, T-type > 3) have thinner, gas-rich disks
+      where Cepheids form in high-density molecular cloud environments.
+      This should amplify the disk-halo differential TEP correction,
+      producing larger delta_mu for later types.
+
+      Early-type spirals (Sa-Sb, T-type <= 3) have less gas-rich disks
+      and less contrast between disk and halo environments.
     """
     logger.info("=" * 70)
     logger.info("ANALYSIS 3: Offset vs Morphological Type")

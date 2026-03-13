@@ -38,21 +38,21 @@ import numpy as np
 import pandas as pd
 from scipy.stats import spearmanr
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like
-from scripts.utils.p_value_utils import safe_json_default
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
+from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like  # Shared TEP model
+from scripts.utils.p_value_utils import safe_json_default  # JSON serialiser for numpy types
 
-STEP_NUM = "144"
-STEP_NAME = "adversarial_ml_attack"
+STEP_NUM = "144"  # Pipeline step number
+STEP_NAME = "adversarial_ml_attack"  # Used in log / output filenames
 
-LOGS_PATH = PROJECT_ROOT / "logs"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-FIGURES_PATH = PROJECT_ROOT / "results" / "figures"
-DATA_INTERIM = PROJECT_ROOT / "data" / "interim"
-RESULTS_INTERIM = PROJECT_ROOT / "results" / "interim"
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
+FIGURES_PATH = PROJECT_ROOT / "results" / "figures"  # Publication figures directory
+DATA_INTERIM = PROJECT_ROOT / "data" / "interim"  # Processed catalogue products
+RESULTS_INTERIM = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products
 
 for p in [LOGS_PATH, OUTPUT_PATH, FIGURES_PATH]:
     p.mkdir(parents=True, exist_ok=True)

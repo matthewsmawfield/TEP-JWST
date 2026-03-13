@@ -41,21 +41,21 @@ import pandas as pd
 from scipy import stats
 from scipy.stats import spearmanr, rankdata
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like
-from scripts.utils.p_value_utils import format_p_value, safe_json_default
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
+from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like  # Shared TEP model
+from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting & JSON serialiser
 
-STEP_NUM = "136"
-STEP_NAME = "functional_form_test"
+STEP_NUM = "136"  # Pipeline step number
+STEP_NAME = "functional_form_test"  # Used in log / output filenames
 
-LOGS_PATH = PROJECT_ROOT / "logs"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-FIGURES_PATH = PROJECT_ROOT / "results" / "figures"
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
-DATA_INTERIM_PATH = PROJECT_ROOT / "data" / "interim"
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
+FIGURES_PATH = PROJECT_ROOT / "results" / "figures"  # Publication figures directory
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products
+DATA_INTERIM_PATH = PROJECT_ROOT / "data" / "interim"  # Processed catalogue products
 
 for p in [LOGS_PATH, OUTPUT_PATH, FIGURES_PATH]:
     p.mkdir(parents=True, exist_ok=True)

@@ -23,29 +23,29 @@ import pandas as pd
 from pathlib import Path
 import sys
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import safe_json_default
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import safe_json_default  # JSON serialiser for numpy types (handles NaN, inf, float32)
 from scripts.utils.tep_model import (
-    compute_gamma_t as tep_compute_gamma_t,
-    stellar_to_halo_mass_behroozi_like,
+    compute_gamma_t as tep_compute_gamma_t,  # TEP model: Gamma_t formula
+    stellar_to_halo_mass_behroozi_like,  # Stellar-to-halo mass from abundance matching
 )
 
-STEP_NUM  = "117"
-STEP_NAME = "dynamical_mass_comparison"
-LOGS_PATH = PROJECT_ROOT / "logs"
-LOGS_PATH.mkdir(parents=True, exist_ok=True)
+STEP_NUM  = "117"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "dynamical_mass_comparison"  # Dynamical mass comparison: TEP isochrony correction resolving M*/M_dyn tensions via M*_TEP-corrected = M*_obs × (Gamma_t)^0.5
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
+LOGS_PATH.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
-RESULTS_DIR = PROJECT_ROOT / "results" / "outputs"
-INTERIM_DIR = PROJECT_ROOT / "results" / "interim"
+RESULTS_DIR = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
+INTERIM_DIR = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products
 
-N_ML_HIGHZ = 0.5
-N_BOOT = 2000
+N_ML_HIGHZ = 0.5  # Mass-to-light power-law index for high-z isochrony correction
+N_BOOT = 2000  # Bootstrap iterations for beta confidence interval
 
 KINEMATIC_TABLE_CANDIDATES = [
     PROJECT_ROOT / "data" / "interim" / "literature_kinematic_sample.csv",

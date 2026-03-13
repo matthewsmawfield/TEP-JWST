@@ -18,8 +18,8 @@ Outputs:
 import sys
 import numpy as np
 import pandas as pd
-from astropy.cosmology import Planck18 as cosmo
-from astropy.table import Table
+from astropy.cosmology import Planck18 as cosmo  # Planck 2018 cosmology (age/distance)
+from astropy.table import Table  # Astropy FITS table reader
 from pathlib import Path
 import json
 
@@ -27,35 +27,35 @@ import json
 # PATHS AND LOGGER
 # =============================================================================
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.tep_model import compute_gamma_t as tep_gamma  # TEP model: Gamma_t = exp[alpha(z) * (2/3) * (log_Mh - log_Mh_ref) * z_factor]
 
-STEP_NUM = "042"
-STEP_NAME = "lrd_population"
+STEP_NUM = "042"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "lrd_population"  # LRD population differential temporal shear: applies step_41 simulation to Kokorev+24 sample (N=260)
 
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH = PROJECT_ROOT / "logs"
-DATA_PATH = PROJECT_ROOT / "data" / "raw"
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
+DATA_PATH = PROJECT_ROOT / "data" / "raw"  # Raw catalogue directory (FITS files from literature/Kokorev+24)
 
 for p in [OUTPUT_PATH, LOGS_PATH]:
-    p.mkdir(parents=True, exist_ok=True)
+    p.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
 # =============================================================================
 # CONSTANTS & PARAMETERS
 # =============================================================================
 
-T_SALPETER = 45e6  # years (Salpeter timescale)
+T_SALPETER = 45e6  # Salpeter e-folding time for Eddington-limited BH accretion (years)
 
 # LRD typical parameters from Kokorev et al. (2024)
-R_E_MEDIAN = 150  # pc (effective radius)
-CONCENTRATION = 10  # baryon-dominated core
-LRD_CATALOG_PATH = DATA_PATH / "kokorev_lrd_catalog_v1.1.fits"
+R_E_MEDIAN = 150  # Median effective radius (pc)
+CONCENTRATION = 10  # Baryon-dominated core concentration parameter
+LRD_CATALOG_PATH = DATA_PATH / "kokorev_lrd_catalog_v1.1.fits"  # Published LRD sample
 
 # =============================================================================
 # FUNCTIONS
@@ -106,6 +106,9 @@ def load_lrd_catalog():
 
 
 def estimate_halo_mass(log_mstar, z):
+    # LRD-specific Behroozi+19-like relation with z-evolution
+    # NOTE: differs from shared stellar_to_halo_mass (+2.0 fixed offset)
+    # by using a z-dependent offset (+1.5 at z=5, +1.7 at z=7)
     if pd.isna(log_mstar):
         return 11.0
     log_mh = log_mstar + 1.5 + 0.1 * (z - 5)

@@ -34,24 +34,24 @@ import logging
 # =============================================================================
 # LOGGER SETUP
 # =============================================================================
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value
-from scripts.utils.tep_model import ALPHA_0, compute_gamma_t as tep_gamma
-from scripts.utils.downloader import smart_download
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
+from scripts.utils.tep_model import ALPHA_0, compute_gamma_t as tep_gamma  # TEP model: alpha_0=0.58 (Cepheid-calibrated), Gamma_t formula
+from scripts.utils.downloader import smart_download  # Robust HTTP download utility with integrity checking
 
-STEP_NUM = "014"
-STEP_NAME = "jwst_uv_slope"
+STEP_NUM = "014"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "jwst_uv_slope"  # JADES UV slope: tests TEP prediction that massive galaxies have redder UV slopes at fixed dust
 
-LOGS_PATH = PROJECT_ROOT / "logs"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH.mkdir(parents=True, exist_ok=True)
-OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text file per step for debugging traceability)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+LOGS_PATH.mkdir(parents=True, exist_ok=True)  # Create logs/ if missing; parents=True ensures full path tree exists
+OUTPUT_PATH.mkdir(parents=True, exist_ok=True)  # Create results/outputs/ if missing
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
 
 
@@ -92,7 +92,17 @@ def download_jades_hainline():
 # =============================================================================
 
 def _muv_to_stellar_mass(MUV, z):
-    """Song+2016 and Stefanon+2021 MUV → log_Mstar conversion."""
+    """Convert absolute UV magnitude to stellar mass using empirical scaling.
+
+    Averages two independent calibrations:
+      - Song et al. (2016): log_M* = (9.0 - 0.05*(z-8)) - 0.50*(MUV + 21)
+      - Stefanon et al. (2021): log_M* = (8.8 - 0.03*(z-8)) - 0.45*(MUV + 21)
+
+    Both are empirically calibrated at z = 4-10 from UV-luminosity-selected
+    samples with SED-fitted stellar masses. The average reduces systematic
+    bias from either calibration alone. The combined uncertainty is ~0.43 dex,
+    dominated by the intrinsic scatter in the MUV-M* relation at high-z.
+    """
     MUV = np.atleast_1d(MUV)
     z   = np.atleast_1d(z)
     # Song et al. 2016
@@ -107,7 +117,16 @@ def _muv_to_stellar_mass(MUV, z):
 
 
 def _estimate_stellar_age(MUV, z):
-    """Empirical UV-luminosity → stellar age estimate."""
+    """Empirical UV-luminosity to stellar age estimate.
+
+    Uses a simple parametric model:
+      t_stellar = t_cosmic * f_age(MUV)
+    where f_age is a luminosity-dependent age fraction clipped to [0.1, 0.9].
+    Brighter galaxies (more negative MUV) get higher f_age because they
+    are more massive and form earlier. This is a rough proxy; proper ages
+    require full SED fitting (available in UNCOVER but not in JADES DR2
+    photometry-only catalogs).
+    """
     MUV      = np.atleast_1d(MUV)
     z        = np.atleast_1d(z)
     t_cosmic = np.array([Planck18.age(zi).value for zi in z])
@@ -222,15 +241,27 @@ def load_jades_photometry():
 
 
 def calculate_uv_slope(df):
-    """
-    Calculate UV slope β from photometry.
-    
-    For z ~ 8-12, rest-frame UV (1500-2500 Å) falls in:
-    - z=8: observed 1.35-2.25 μm (F150W, F200W)
-    - z=10: observed 1.65-2.75 μm (F200W, F277W)
-    - z=12: observed 1.95-3.25 μm (F200W, F277W, F356W)
-    
-    We use a simple two-band slope: β = (log(f1/f2)) / (log(λ1/λ2)) - 2
+    """Calculate UV spectral slope beta from broadband photometry.
+
+    The UV slope is defined as f_lambda ~ lambda^beta, where beta = -2
+    for a flat f_nu spectrum. Star-forming galaxies typically have
+    beta = -2.5 to -1.5; dust reddening and age push beta toward less
+    negative (redder) values.
+
+    For z ~ 8-12, rest-frame UV (1500-2500 Angstrom) falls in:
+      z=8:  observed 1.35-2.25 um (F150W, F200W)
+      z=10: observed 1.65-2.75 um (F200W, F277W)
+      z=12: observed 1.95-3.25 um (F200W, F277W, F356W)
+
+    Method:
+      For each galaxy, identify which NIRCam bands probe rest-frame UV,
+      require S/N > 2, then compute the power-law slope from the first
+      and last qualifying bands:
+        beta = d(log f_nu) / d(log lambda) - 2
+      The -2 converts from f_nu to f_lambda convention.
+
+    Error propagation uses standard first-order formula for the ratio
+    of two flux measurements.
     """
     logger.info("Calculating UV slopes...")
     
@@ -316,13 +347,19 @@ def calculate_tep_parameters(df):
 
 
 def analyze_beta_mass_correlation(df):
-    """
-    Test for correlation between UV slope and mass.
-    
-    Standard physics: β correlates with dust (more massive = more dust = redder)
-    TEP adds: β also correlates with age (more massive = older = redder)
-    
-    The TEP contribution should be visible as EXCESS reddening at high mass.
+    """Test for correlation between UV slope beta and galaxy mass.
+
+    Under standard physics, beta correlates with stellar mass primarily
+    through the mass-dust relation: more massive galaxies have more ISM
+    and hence more dust attenuation, producing redder UV slopes.
+
+    TEP adds a second channel: more massive galaxies have higher Gamma_t,
+    so their stellar populations appear older, shifting the intrinsic
+    (dust-free) UV slope redward. The TEP contribution manifests as
+    EXCESS reddening at high mass beyond what dust alone predicts.
+
+    MUV is used as a mass proxy (more negative = brighter = more massive),
+    so a negative rho(MUV, beta) indicates brighter galaxies are redder.
     """
     logger.info("=" * 70)
     logger.info("ANALYSIS 1: UV Slope vs Mass Correlation")
@@ -418,11 +455,15 @@ def analyze_beta_redshift_evolution(df):
 
 
 def analyze_beta_gamma_correlation(df):
-    """
-    Direct test: does β correlate with Γ_t?
-    
-    This is the most direct TEP test: galaxies with higher predicted Γ_t
-    should have redder UV slopes at fixed other properties.
+    """Direct test: does UV slope beta correlate with Gamma_t?
+
+    This is the most direct TEP test for this dataset. Unlike the
+    beta-mass correlation (which could arise from dust alone), a
+    positive correlation between beta and Gamma_t would indicate that
+    the TEP-predicted chronological enhancement contributes to the
+    UV reddening beyond the standard dust pathway.
+
+    A positive rho(Gamma_t, beta) with p < 0.05 is TEP-consistent.
     """
     logger.info("=" * 70)
     logger.info("ANALYSIS 3: UV Slope vs Γ_t Correlation")

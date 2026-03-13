@@ -13,22 +13,22 @@ Date: January 2026
 import sys
 import numpy as np
 import pandas as pd
-from scipy import stats
+from scipy import stats  # Hypothesis tests and correlation
 from pathlib import Path
 import json
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt  # Diagnostic plotting (Simpson's paradox visualisation)
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma, stellar_to_halo_mass_behroozi_like
-from scripts.utils.spectroscopic_catalog import ensure_combined_spectroscopic_catalog
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.tep_model import compute_gamma_t as tep_gamma, stellar_to_halo_mass_behroozi_like  # TEP model: Gamma_t formula, stellar-to-halo mass from abundance matching
+from scripts.utils.spectroscopic_catalog import ensure_combined_spectroscopic_catalog  # Build merged spec-z catalogue from local reproducible sources
 
-STEP_NUM = "036"
-STEP_NAME = "spectroscopic_refinement"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-DATA_INTERIM = PROJECT_ROOT / "data" / "interim"
+STEP_NUM = "036"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "spectroscopic_refinement"  # Spectroscopic refinement: Simpson's paradox check (z=4-6 vs full sample correlation discrepancy)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+DATA_INTERIM = PROJECT_ROOT / "data" / "interim"  # Processed intermediate products (CSV format for step-to-step data flow)
 
 def load_data():
     path = DATA_INTERIM / "combined_spectroscopic_catalog.csv"

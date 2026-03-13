@@ -39,34 +39,45 @@ from datetime import datetime
 # PATHS AND LOGGER
 # =============================================================================
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
 
-STEP_NUM = "008"
-STEP_NAME = "summary"
+STEP_NUM = "008"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "summary"  # Compiles seven threads of TEP evidence into unified summary report
 
-DATA_PATH = PROJECT_ROOT / "data"
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH = PROJECT_ROOT / "logs"
+DATA_PATH = PROJECT_ROOT / "data"  # Top-level data directory (raw external catalogs)
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products (CSV format)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step)
 
 for p in [INTERIM_PATH, OUTPUT_PATH, LOGS_PATH]:
-    p.mkdir(parents=True, exist_ok=True)
+    p.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
 
-# Initialize logger
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes here
 
 # =============================================================================
 # LOAD RESULTS
 # =============================================================================
 
 def load_thread_results():
-    """Load all thread results."""
+    """Load all seven thread results from their respective JSON outputs.
+
+    The seven threads of TEP evidence are distributed across four steps:
+      Step 004: Thread 1  (z > 7 mass-sSFR inversion)
+      Step 005: Threads 2-4 (partial correlations: age, metallicity, dust)
+      Step 006: Thread 5  (z > 8 dust anomaly)
+      Step 007: Threads 6-7 (coherence: age-metallicity, multi-property split)
+
+    Some steps produce a single top-level JSON (threads 1, 5), while others
+    nest multiple thread results under sub-keys within a combined JSON.
+    The (key, filename, sub_key) tuples below handle both cases.
+    """
     threads = {}
     
+    # (thread_key, output_filename, sub_key_within_json_or_None)
     thread_files = [
         ("thread_1", "step_004_thread1_z7_inversion.json",           None),
         ("thread_2", "step_005_thread2_4_partial_correlations.json", "thread2_gamma_age"),
@@ -94,7 +105,15 @@ def load_thread_results():
 # =============================================================================
 
 def generate_summary(threads):
-    """Generate summary of all threads."""
+    """Aggregate thread-level significance into an overall TEP assessment.
+
+    For each thread, extracts the boolean significance flag (using the
+    appropriate key: 'significant' for most threads, 'all_significant'
+    for Thread 7 which requires all three sub-properties to be significant).
+
+    The overall verdict is: all 7/7 threads significant = coherent TEP
+    evidence; fewer = partial or inconclusive.
+    """
     
     summary = {
         "title": "TEP-JWST: The Seven Threads of Evidence",
@@ -144,7 +163,12 @@ def generate_summary(threads):
     return summary
 
 def generate_markdown(summary):
-    """Generate markdown report."""
+    """Generate a human-readable Markdown report of the seven threads.
+
+    Produces a table with thread name, key finding (rho, CI, or p-value),
+    and significance status, followed by an interpretive paragraph.
+    This report is saved alongside the JSON for quick inspection.
+    """
     
     lines = [
         "# TEP-JWST: The Seven Threads of Evidence",

@@ -1,7 +1,7 @@
 {
   "name": "tep-jwst-site",
   "version": "0.1.0",
-  "description": "Temporal Shear: Resolving the High-Redshift Efficiency Crisis",
+  "description": "The Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies",
   "main": "index.html",
   "scripts": {
     "dev": "node dev-server.js",

@@ -1,42 +1,42 @@
-[13:05:45]     ======================================================================
-[13:05:45]     STEP 100: Combined Evidence Synthesis
-[13:05:45]     ======================================================================
-[13:05:45]     
+[17:00:08]     ======================================================================
+[17:00:08]     STEP 100: Combined Evidence Synthesis
+[17:00:08]     ======================================================================
+[17:00:08]     
 Loaded 5 live tests (5 with p-values for combination)
-[13:05:45]     
+[17:00:08]     
 --- 1. Fisher's Method (Independence Assumed) ---
-[13:05:45]       Combined p-value: 7.58e-132
-[13:05:45]       χ² = 643.7, df = 10
-[13:05:45]     
+[17:00:08]       Combined p-value: 7.58e-132
+[17:00:08]       χ² = 643.7, df = 10
+[17:00:08]     
 --- 2. Brown's Method (Correlation Adjusted) ---
-[13:05:45]       Combined p-value: 2.62e-91
-[13:05:45]       Adjusted df = 6.9
-[13:05:45]     
+[17:00:08]       Combined p-value: 2.62e-91
+[17:00:08]       Adjusted df = 6.9
+[17:00:08]     
 --- 3. Conservative Estimate (Independent Tests Only) ---
-[13:05:45]       Using 4 independent tests
-[13:05:45]       Combined p-value: 1.76e-132
-[13:05:46]     
+[17:00:08]       Using 4 independent tests
+[17:00:08]       Combined p-value: 1.76e-132
+[17:00:08]     
 --- 4. Bayesian Evidence ---
-[13:05:46]       Prior P(TEP) = 1%
-[13:05:46]       Log Bayes Factor = 301.4
-[13:05:46]       Posterior P(TEP) = 100.00%
-[13:05:46]     
+[17:00:08]       Prior P(TEP) = 1%
+[17:00:08]       Log Bayes Factor = 301.4
+[17:00:08]       Posterior P(TEP) = 100.00%
+[17:00:08]     
   Prior sensitivity:
-[13:05:46]         Prior 0.1% -> Posterior 100.00%
-[13:05:46]         Prior 1.0% -> Posterior 100.00%
-[13:05:46]         Prior 5.0% -> Posterior 100.00%
-[13:05:46]         Prior 10.0% -> Posterior 100.00%
-[13:05:46]         Prior 50.0% -> Posterior 100.00%
-[13:05:46]     
+[17:00:08]         Prior 0.1% -> Posterior 100.00%
+[17:00:08]         Prior 1.0% -> Posterior 100.00%
+[17:00:08]         Prior 5.0% -> Posterior 100.00%
+[17:00:08]         Prior 10.0% -> Posterior 100.00%
+[17:00:08]         Prior 50.0% -> Posterior 100.00%
+[17:00:08]     
 --- 5. Primary Evidence Statement ---
-[13:05:46]       The primary evidence for TEP rests on the z>8 dust-Γt correlation, replicated across 3 independent JWST surveys (N=1,283) with a sample-size-weighted ρ = 0.615 and Fisher-combined p = 2.78e-132.
-[13:05:46]     
+[17:00:08]       The primary evidence for TEP rests on the z>8 dust-Γt correlation, replicated across 3 independent JWST surveys (N=1,283) with a sample-size-weighted ρ = 0.615 and Fisher-combined p = 2.78e-132.
+[17:00:08]     
 ======================================================================
-[13:05:46]     COMBINED EVIDENCE SUMMARY
-[13:05:46]     ======================================================================
-[13:05:46]       Fisher (independence): p = 7.58e-132
-[13:05:46]       Brown (correlated): p = 2.62e-91
-[13:05:46]       Conservative: p = 1.76e-132
-[13:05:46]       Bayesian posterior: 100.00%
-[13:05:46]     
+[17:00:08]     COMBINED EVIDENCE SUMMARY
+[17:00:08]     ======================================================================
+[17:00:08]       Fisher (independence): p = 7.58e-132
+[17:00:08]       Brown (correlated): p = 2.62e-91
+[17:00:08]       Conservative: p = 1.76e-132
+[17:00:08]       Bayesian posterior: 100.00%
+[17:00:08]     
 Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_100_multi_domain_model_comparison.json

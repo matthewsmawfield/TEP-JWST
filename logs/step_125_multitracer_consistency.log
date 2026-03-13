@@ -1,8 +1,8 @@
-[13:06:02]     STEP 125: Multi-tracer redshift consistency check
-[13:06:02]   Missing: uncover_highz_sample.csv
-[13:06:02]   CEERS: N=1,499, rho=0.777, p=2.00e-303
-[13:06:02]   COSMOS-Web: N=49,397, rho=0.438, p=0.00e+00
-[13:06:02]   Cross-tracer rho: mean=0.608 +/-0.169
-[13:06:02]   Sign consistency: 2/2 positive
-[13:06:02] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_125_multitracer_consistency.json
-[13:06:02]     Step 125 complete. 2/2 tracers consistent.
+[17:00:23]     STEP 125: Multi-tracer redshift consistency check
+[17:00:23]   Missing: uncover_highz_sample.csv
+[17:00:23]   CEERS: N=1,499, rho=0.777, p=2.00e-303
+[17:00:23]   COSMOS-Web: N=49,397, rho=0.438, p=0.00e+00
+[17:00:23]   Cross-tracer rho: mean=0.608 +/-0.169
+[17:00:23]   Sign consistency: 2/2 positive
+[17:00:23] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_125_multitracer_consistency.json
+[17:00:23]     Step 125 complete. 2/2 tracers consistent.

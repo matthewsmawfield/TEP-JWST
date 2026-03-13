@@ -22,19 +22,19 @@ import logging
 
 import sys
 from pathlib import Path
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.downloader import smart_download
-from scripts.utils.rank_stats import partial_rank_correlation
-from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
+from scripts.utils.downloader import smart_download  # Robust HTTP download utility
+from scripts.utils.rank_stats import partial_rank_correlation  # Partial Spearman helper
+from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like  # Shared TEP model
 
 
-STEP_NUM = "155"
-STEP_NAME = "jades_dr5_morphology"
-LOGS_DIR = PROJECT_ROOT / "logs"
+STEP_NUM = "155"  # Pipeline step number
+STEP_NAME = "jades_dr5_morphology"  # Used in log / output filenames
+LOGS_DIR = PROJECT_ROOT / "logs"  # Log directory
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_DIR / f"step_{STEP_NUM}_{STEP_NAME}.log")
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_DIR / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger
 set_step_logger(logger)
 
 import numpy as np

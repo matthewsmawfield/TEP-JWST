@@ -1,0 +1,152 @@
+[
+  {
+    "object_id": "SUSPENSE-127108",
+    "z": 1.335,
+    "log_Mstar_obs": 10.24,
+    "log_Mdyn": 11.0,
+    "sigma_kms": 210.0,
+    "re_kpc": 1.51,
+    "source": "Slob et al. 2025",
+    "age_gyr": 2.11
+  },
+  {
+    "object_id": "SUSPENSE-127154",
+    "z": 1.205,
+    "log_Mstar_obs": 10.75,
+    "log_Mdyn": 11.2,
+    "sigma_kms": 242.0,
+    "re_kpc": 2.06,
+    "source": "Slob et al. 2025",
+    "age_gyr": 2.35
+  },
+  {
+    "object_id": "SUSPENSE-127700",
+    "z": 2.013,
+    "log_Mstar_obs": 10.92,
+    "log_Mdyn": 11.1,
+    "sigma_kms": 241.0,
+    "re_kpc": 1.49,
+    "source": "Slob et al. 2025",
+    "age_gyr": 1.81
+  },
+  {
+    "object_id": "SUSPENSE-127941",
+    "z": 2.141,
+    "log_Mstar_obs": 10.8,
+    "log_Mdyn": 11.4,
+    "sigma_kms": 259.0,
+    "re_kpc": 1.84,
+    "source": "Slob et al. 2025",
+    "age_gyr": 1.72
+  },
+  {
+    "object_id": "SUSPENSE-128036",
+    "z": 2.196,
+    "log_Mstar_obs": 10.92,
+    "log_Mdyn": 11.0,
+    "sigma_kms": 210.0,
+    "re_kpc": 1.02,
+    "source": "Slob et al. 2025",
+    "age_gyr": 1.11
+  },
+  {
+    "object_id": "SUSPENSE-128041",
+    "z": 1.76,
+    "log_Mstar_obs": 10.71,
+    "log_Mdyn": 11.3,
+    "sigma_kms": 226.0,
+    "re_kpc": 1.5,
+    "source": "Slob et al. 2025",
+    "age_gyr": 1.79
+  },
+  {
+    "object_id": "SUSPENSE-128452",
+    "z": 1.205,
+    "log_Mstar_obs": 10.99,
+    "log_Mdyn": 11.3,
+    "sigma_kms": 275.0,
+    "re_kpc": 1.59,
+    "source": "Slob et al. 2025",
+    "age_gyr": 2.41
+  },
+  {
+    "object_id": "SUSPENSE-128913",
+    "z": 2.285,
+    "log_Mstar_obs": 10.91,
+    "log_Mdyn": 11.1,
+    "sigma_kms": 180.0,
+    "re_kpc": 2.32,
+    "source": "Slob et al. 2025",
+    "age_gyr": 1.71
+  },
+  {
+    "object_id": "SUSPENSE-129133",
+    "z": 2.139,
+    "log_Mstar_obs": 11.09,
+    "log_Mdyn": 11.1,
+    "sigma_kms": 257.0,
+    "re_kpc": 1.04,
+    "source": "Slob et al. 2025",
+    "age_gyr": 1.47
+  },
+  {
+    "object_id": "SUSPENSE-129149",
+    "z": 1.579,
+    "log_Mstar_obs": 11.02,
+    "log_Mdyn": 11.4,
+    "sigma_kms": 387.0,
+    "re_kpc": 1.01,
+    "source": "Slob et al. 2025",
+    "age_gyr": 1.82
+  },
+  {
+    "object_id": "SUSPENSE-129197",
+    "z": 1.474,
+    "log_Mstar_obs": 10.52,
+    "log_Mdyn": 10.9,
+    "sigma_kms": 197.0,
+    "re_kpc": 1.2,
+    "source": "Slob et al. 2025",
+    "age_gyr": 1.73
+  },
+  {
+    "object_id": "SUSPENSE-129982",
+    "z": 1.249,
+    "log_Mstar_obs": 11.22,
+    "log_Mdyn": 11.9,
+    "sigma_kms": 213.0,
+    "re_kpc": 6.48,
+    "source": "Slob et al. 2025",
+    "age_gyr": 2.49
+  },
+  {
+    "object_id": "SUSPENSE-130040",
+    "z": 1.17,
+    "log_Mstar_obs": 11.21,
+    "log_Mdyn": 11.8,
+    "sigma_kms": 285.0,
+    "re_kpc": 5.15,
+    "source": "Slob et al. 2025",
+    "age_gyr": 2.71
+  },
+  {
+    "object_id": "SUSPENSE-130208",
+    "z": 1.231,
+    "log_Mstar_obs": 10.95,
+    "log_Mdyn": 11.5,
+    "sigma_kms": 291.0,
+    "re_kpc": 2.41,
+    "source": "Slob et al. 2025",
+    "age_gyr": 3.26
+  },
+  {
+    "object_id": "SUSPENSE-130647",
+    "z": 1.508,
+    "log_Mstar_obs": 11.48,
+    "log_Mdyn": 11.9,
+    "sigma_kms": 371.0,
+    "re_kpc": 4.15,
+    "source": "Slob et al. 2025",
+    "age_gyr": 3.18
+  }
+]

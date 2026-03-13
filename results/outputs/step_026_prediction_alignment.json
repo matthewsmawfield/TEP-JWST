@@ -6,7 +6,7 @@
     "converged": false
   },
   "null_rejection": {
-    "chi2": 1542.5368760774581,
+    "chi2": 1542.3080553751029,
     "combined_p": 1e-300,
     "sigma": 37.06578788077213,
     "disrupted": true

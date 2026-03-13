@@ -1,13 +1,13 @@
-[13:04:50] ═══ STEP 069: Compactness Verification
-[13:04:50] >>> Loading LRD Catalog (Kokorev)...
-[13:04:50]     Loaded 260 LRDs with valid sizes.
-[13:04:50] >>> Loading Survey Catalogs...
-[13:04:50]     Loaded CEERS: 10483
-[13:04:50] >>> Matching LRDs to CEERS...
-[13:04:50]     Found 40 matches in CEERS
-[13:04:50] ✓   Total matched LRDs with Mass: 40
-[13:04:50]     Calibrated k (Phi->Gamma): 3.74e-11
-[13:04:50] ✓   Saved figure to /Users/matthewsmawfield/www/TEP-JWST/results/figures/circularity_check_compactness.png
-[13:04:50] ✓   Report saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/circularity_resolution_stats.txt
-[13:04:50] ✓   JSON results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_069_compactness_verification.json
-[13:04:50] ✓   Step 069 complete.
+[16:59:16] ═══ STEP 069: Compactness Verification
+[16:59:16] >>> Loading LRD Catalog (Kokorev)...
+[16:59:16]     Loaded 260 LRDs with valid sizes.
+[16:59:16] >>> Loading Survey Catalogs...
+[16:59:16]     Loaded CEERS: 10483
+[16:59:16] >>> Matching LRDs to CEERS...
+[16:59:16]     Found 40 matches in CEERS
+[16:59:16] ✓   Total matched LRDs with Mass: 40
+[16:59:16]     Calibrated k (Phi->Gamma): 3.74e-11
+[16:59:16] ✓   Saved figure to /Users/matthewsmawfield/www/TEP-JWST/results/figures/circularity_check_compactness.png
+[16:59:16] ✓   Report saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/circularity_resolution_stats.txt
+[16:59:16] ✓   JSON results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_069_compactness_verification.json
+[16:59:16] ✓   Step 069 complete.

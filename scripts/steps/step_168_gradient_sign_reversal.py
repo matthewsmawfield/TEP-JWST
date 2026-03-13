@@ -6,22 +6,22 @@ import numpy as np
 import pandas as pd
 from scipy.stats import fisher_exact, mannwhitneyu
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import safe_json_default
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
+from scripts.utils.p_value_utils import safe_json_default  # JSON serialiser for numpy types
 
-STEP_NUM = "168"
-STEP_NAME = "gradient_sign_reversal"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH = PROJECT_ROOT / "logs"
-STEP117_JSON = OUTPUT_PATH / "step_117_dynamical_mass_comparison.json"
-STEP159_JSON = OUTPUT_PATH / "step_159_mass_measurement_bias.json"
+STEP_NUM = "168"  # Pipeline step number
+STEP_NAME = "gradient_sign_reversal"  # Used in log / output filenames
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory
+STEP117_JSON = OUTPUT_PATH / "step_117_dynamical_mass_comparison.json"  # L4 dynamical mass results
+STEP159_JSON = OUTPUT_PATH / "step_159_mass_measurement_bias.json"  # Mass bias calibration
 for path in [OUTPUT_PATH, LOGS_PATH]:
     path.mkdir(parents=True, exist_ok=True)
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger
 set_step_logger(logger)
 
 BOOTSTRAP_N = 4000

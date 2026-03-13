@@ -1,69 +1,122 @@
-# Temporal Shear: Resolving the High-Redshift Efficiency Crisis
+# The Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18204192.svg)](https://doi.org/10.5281/zenodo.18204192)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19000828.svg)](https://doi.org/10.5281/zenodo.19000828)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ![JWST Galaxy Age Resolution](site/public/og-image.jpg)
 
-**Author:** Matthew Lukin Smawfield  
-**Version:** v0.1 (Kos)  
-**Date:** 12 March 2026  
-**Status:** Preprint  
-**DOI:** [10.5281/zenodo.18204192](https://doi.org/10.5281/zenodo.18204192)  
-**Website:** [https://matthewsmawfield.github.io/TEP-JWST/](https://matthewsmawfield.github.io/TEP-JWST/)
+Author: Matthew Lukin Smawfield  
+Version: v0.1 (Kos)  
+Date: 13 March 2026  
+Status: Preprint  
+DOI: [10.5281/zenodo.19000828](https://doi.org/10.5281/zenodo.19000828)  
+Website: [https://matthewsmawfield.github.io/TEP-JWST/](https://matthewsmawfield.github.io/TEP-JWST/)
 
-## Abstract
+## Overview
 
-JWST has revealed coherent anomalies at $z > 5$: star formation efficiencies exceeding $\Lambda$CDM limits, overmassive black holes, and stellar masses surpassing dynamical masses — all concentrated in the deepest gravitational potentials. This study tests whether a single violation of the isochrony axiom can account for the common systematic component of these anomalies. The Temporal Equivalence Principle (TEP), a chameleon-screened scalar-tensor theory, predicts environment-dependent proper time in unscreened halos. Using the external Cepheid prior $\alpha_0 = 0.58 \pm 0.16$ with no JWST retuning, the framework predicts a substantial reduction of the Red Monster efficiency excess ($\sim 34\%$) and provides a regime-level mechanism for the stellar-to-dynamical mass discrepancy and for differential black-hole growth in Little Red Dots. The core empirical case rests on two primary lines across three surveys ($N = 4{,}726$), supplemented by one ancillary spatial indication and one derived regime-level comparison. L1 is a dust–$\Gamma_t$ correlation at $z > 8$ ($\rho = +0.62$, $N = 1{,}283$) together with the AGB-threshold test (odds ratio 42.8, $\Delta\text{AIC} \approx -4.8$ against a mass-matched threshold). L3 is the inversion of the mass–sSFR relation at $z > 7$, which is difficult to mimic with smooth mass-measurement systematics; in UNCOVER, partial $\rho(\Gamma_t, {\rm sSFR}|{\rm dust}) = -0.49$ ($p = 10^{-18}$). L2 (resolved core screening in JADES) and L4 (a matched regime-level dynamical-mass reconciliation, supplemented by a five-object direct literature ingestion at $z = 3.2$–$4.0$ that breaks the photometric mass-proxy degeneracy) provide rigorous, physically distinct, and supportive tests. A key model-discriminating result is the Uniformity Paradox: the anomaly is not that massive galaxies at $z > 8$ are dusty, but that low-mass galaxies are not — in a pattern that tracks gravitational potential depth ($\rho = +0.56$). Any standard-physics resolution that tunes a time-uniform parameter (e.g., enhanced AGB yields) cannot reproduce this mass-dependent suppression: if dust production were maximally efficient everywhere, dust should be ubiquitous or track star formation, not potential depth. Only a mechanism that selectively suppresses effective time in shallow potentials — as TEP predicts via $\Gamma_t \ll 1$ for low-mass halos — reproduces the observed gradient without additional parameters. The effective-time coordinate organizes the dust signal better than raw cosmic time. The dedicated UNCOVER $z > 8$ validation battery independently passes all four targeted tests, including $\rho(t_{\rm eff}, A_V \mid t_{\rm cosmic}) = +0.600$ ($p = 5.0 \times 10^{-29}$), and the three photometric L1 surveys combine to $z = 24.4\sigma$. Fitted polynomials collapse cross-survey ($R^2 = -6.4$), whereas $t_{\rm eff}$ generalises without retraining ($\rho = 0.60$–$0.80$). Full CAMB Boltzmann integration remains consistent with Planck constraints ($\sigma_8$ within $0.1\sigma$). Additional consequences of the same mapping include relief of the benchmark stellar-mass-function and cosmic-SFRD excesses and a physically motivated route to rapid black-hole growth. Conditional internal concordance analyses recover $\alpha_0$ near $0.55$, consistent with the external prior. The primary remaining systematic vulnerability is photometric mass circularity ($\Gamma_t$ depends on $M_*$); this degeneracy is broken through the L4 direct kinematic branch (five objects and a robust regime-level shift where TEP removes the 0.15-dex literature dynamical-mass anomaly) and a dedicated DJA emission-line pilot ($\rho = +0.887$ after mass control), demonstrating the time-dilation signal is driven by the physical gravitational potential, not photometric scaling. Keywords: Cosmology: early universe – Galaxies: high-redshift – Galaxies: evolution – Gravitation – Scalar-tensor theories – Infrared: galaxies
+JWST has revealed a set of high-redshift anomalies that appear disparate in detail but share a common structure: star formation efficiencies exceeding LambdaCDM limits, overmassive black holes, and stellar masses that surpass dynamical masses all appear preferentially in the deepest gravitational potentials. This repository tests whether that common pattern can arise from a single violation of the isochrony axiom. In the Temporal Equivalence Principle (TEP), a chameleon-screened scalar-tensor theory, proper time depends on environment in unscreened halos. Using the external Cepheid prior alpha_0 = 0.58 +/- 0.16 with no JWST retuning, the framework fully resolves the Red Monster efficiency excess and provides a physical route to differential black-hole growth in Little Red Dots.
+
+The empirical program is organized around two primary empirical lines, one ancillary spatial line, one derived regime-level line, and one direct kinematic decisive test:
+
+| Evidence branch | Test | Sample | Role |
+|------|------|--------|------|
+| L1. Primary empirical line | Dust-Gamma_t relation and AGB threshold behavior | Multi-survey high-z photometric catalogs | Primary large-sample empirical line |
+| L2. Ancillary spatial evidence | Resolved core screening and morphology controls | JADES resolved and direct-mass morphology branches | Ancillary |
+| L3. Primary empirical line | Mass-sSFR inversion across redshift | UNCOVER, CEERS, COSMOS-Web/COSMOS2025 | Second primary empirical line |
+| L4. Derived regime-level evidence | Dynamical-mass consistency under TEP mapping | Literature kinematic compilations and regime-level checks | Derived |
+| L5. Direct kinematic decisive test | Spectral age versus Gamma_t from M_dyn, compared directly against photometric M_* under matched controls | JWST-SUSPENSE quiescent galaxies | Strongest direct test of mass circularity |
+
+The strongest current direct test is a kinematic comparison using the JWST-SUSPENSE survey of massive quiescent galaxies at z = 1.2-2.3 (L5; N = 15). A fundamental vulnerability of evaluating TEP photometrically is mass-proxy circularity, as Gamma_t depends on the gravitational potential. By employing dynamically measured masses (M_dyn) from stellar velocity dispersions and spectral ages derived from absorption features, the SUSPENSE analysis tests a dynamical-potential predictor and photometric stellar mass side by side. The central comparison shows that Gamma_t predicts spectral age more strongly than stellar mass, yielding rho(Age, Gamma_t | z) = +0.733 (p = 0.0019) compared to rho(Age, M_* | z) = +0.493 (p = 0.062). Under joint control of the competing predictor and redshift, Gamma_t retains a residual association with age, rho(Age, Gamma_t | M_*, z) = +0.624 (p = 0.0129), whereas stellar mass contributes no residual signal once Gamma_t is controlled, rho(Age, M_* | Gamma_t, z) = -0.036 (p = 0.898). Propagating the published asymmetric uncertainties for all 15 galaxies preserves a positive Gamma_t residual in 99.7% of Monte Carlo draws. This one-sided residual structure supports the interpretation that galaxy evolution scales more closely with gravitational potential depth than with baryonic mass alone, and it materially narrows the photometric circularity objection.
 
 ## Repository Structure
 
-- `site/components/`: HTML components comprising the manuscript sections.
-- `scripts/steps/`: Analysis pipeline (163 individual steps).
-- `scripts/utils/`: Shared utilities (TEP model, data loading, plotting).
-- `scripts/run_core_evidence.py`: **Fast-path for L1-L4 evidence** (~5 min).
-- `scripts/run_photometry_anomalies.py`: Photometry-focused pipeline.
-- `scripts/run_kinematics.py`: Kinematics & dynamical masses.
-- `data/raw/`: Original survey catalogs (FITS).
-- `data/interim/`: Processed CSV extracts.
-- `results/outputs/`: Pipeline JSON outputs.
-- `results/figures/`: Generated figures.
+```text
+TEP-JWST/
+├── data/                    # Raw and interim catalogs
+├── logs/                    # Step execution logs
+├── manuscripts/             # Archived manuscript snapshots
+├── results/
+│   ├── outputs/             # JSON/CSV analytical outputs
+│   └── figures/             # Generated figures
+├── scripts/
+│   ├── steps/               # Canonical stepwise pipeline
+│   └── utils/               # Shared analysis utilities
+├── site/
+│   ├── components/          # Source of truth for manuscript text
+│   └── dist/                # Built site artifacts
+├── 13manuscript-tep-jwst.md # Generated manuscript markdown
+└── README.md
+```
 
-## Lines of Evidence
+## Installation
 
-| Line | Test | Correlation | Sample | Status |
-|------|------|-------------|--------|--------|
-| **L1** | Dust-$\Gamma_t$ (z>8) | $\rho = +0.62$ | $N=1{,}283$ | Primary |
-| **L2** | Core screening / direct-mass morphology | 4 supportive structural partials; raw gradient $\rho = -0.166$ | JADES DR5 direct-mass ($N=384$) + resolved photometry ($N=277$) | Ancillary |
-| **L3** | Mass-sSFR inversion | Sign flip at $z>7$ | $N=4{,}726$ | Primary |
-| **L4** | Dynamical-mass comparison | $1.41 \rightarrow 0.56$ representative regime shift | Published kinematic regime | Derived |
+```bash
+git clone https://github.com/matthewsmawfield/TEP-JWST.git
+cd TEP-JWST
+pip install -r requirements.txt
+npm install --prefix site
+```
 
-Run `python scripts/run_core_evidence.py` to validate the live evidence hierarchy (~5 minutes).
+## Reproduction Workflow
+
+### 1) Full canonical pipeline
+
+```bash
+python scripts/steps/run_all_steps.py
+```
+
+### 2) Fast evidence check (L1-L4)
+
+```bash
+python scripts/run_core_evidence.py
+```
+
+### 3) Rebuild generated manuscript markdown
+
+```bash
+npm run build:markdown --prefix site
+```
+
+### 4) Manuscript consistency check
+
+```bash
+python scripts/steps/step_160_manuscript_consistency_check.py
+```
+
+## Manuscript Source of Truth
+
+- Do not edit `13manuscript-tep-jwst.md` directly.
+- Edit manuscript content in `site/components/`.
+- Rebuild generated markdown via `npm run build:markdown --prefix site`.
 
 ## Data Sources
 
-Key datasets referenced in the analysis (see `data/DATA_PROVENANCE.md` for full details and download commands):
+Primary data families include:
 
-- Xiao et al. 2024 (FRESCO Red Monsters).
-- Wang et al. 2024, UNCOVER DR4 SPS catalog (doi:10.5281/zenodo.14281664).
-- JADES photometric + spectroscopic catalogs: Eisenstein et al. 2023; Curtis-Lake et al. 2023; Hainline et al. 2023.
-- CEERS DR1 catalog: Finkelstein et al. 2023; Cox et al. 2025.
-- COSMOS-Web DR1 / COSMOS2025 catalog: Shuntov et al. 2025.
-- Labbé et al. 2023 high-z sample (GitHub: https://github.com/ivolabbe/red-massive-candidates).
-- Planck 2018 cosmology (Planck Collaboration 2020).
-- SN Ia host-mass step measurements: Kelly et al. 2010; Sullivan et al. 2010; Brout et al. 2022.
-- TRGB and Cepheid distance ladder datasets: Freedman et al. 2024; Riess et al. 2022; Kodric et al. 2018.
-- Milky Way globular cluster ages and positions: VandenBerg et al. 2013; Harris 2010.
+- JWST high-z photometric and spectroscopic catalogs (UNCOVER, JADES, CEERS, COSMOS-Web/COSMOS2025).
+- FRESCO Red Monsters and related high-z massive-galaxy compilations.
+- Literature kinematic samples used for dynamical-mass anchoring.
+- Standard cosmology references (for consistency and guardrail checks).
+
+See `data/DATA_PROVENANCE.md` for acquisition details and provenance notes.
+
+## Methodological Caveats
+
+- The direct kinematic comparison is currently N = 15; the strongest defensible claim is one-sided conditional asymmetry and published-uncertainty robustness, not a decisive dependent-correlation rejection.
+- L2 has a strong direct-mass morphology branch, while the resolved color-gradient sign discriminator remains ancillary and not yet decisive on its own.
+- The literal Gamma_t > 1 tail can be low-count in some splits; power-aware interpretations are required.
+- Correlated tests on the same underlying residuals are not meta-combined as if independent.
+- Claims should be tied to live pipeline outputs, not manuscript text alone.
 
 ## Citation
 
 ```bibtex
 @article{smawfield2026jwst,
-  title={Temporal Shear: Resolving the High-Redshift Efficiency Crisis},
+  title={The Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies},
   author={Smawfield, Matthew Lukin},
   journal={Zenodo},
   year={2026},
-  doi={10.5281/zenodo.18204192},
+  doi={10.5281/zenodo.19000828},
   note={Preprint v0.1 (Kos)}
 }
 ```
@@ -71,3 +124,12 @@ Key datasets referenced in the analysis (see `data/DATA_PROVENANCE.md` for full 
 ## License
 
 Creative Commons Attribution 4.0 International (CC-BY-4.0).
+
+## Open Science Statement
+
+This is an open research preprint repository. Manuscript sources, pipeline code, and derived outputs are provided to support transparent inspection and independent reproduction.
+
+## Contact
+
+Email: matthewsmawfield@gmail.com  
+ORCID: [0009-0003-8219-3159](https://orcid.org/0009-0003-8219-3159)

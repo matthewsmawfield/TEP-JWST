@@ -15,34 +15,34 @@ Data sources:
 
 import json
 import numpy as np
-np.random.seed(42)
+np.random.seed(42)  # Fixed seed for reproducible train/test splits
 import sys
 from pathlib import Path
 from scipy import stats
 import pandas as pd
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value, safe_json_default
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300) & JSON serialiser for numpy types
 from scripts.utils.tep_model import (
-    compute_gamma_t as tep_compute_gamma_t,
-    stellar_to_halo_mass as tep_stellar_to_halo_mass,
-    ALPHA_0, ALPHA_UNCERTAINTY,
+    compute_gamma_t as tep_compute_gamma_t,  # TEP model: Gamma_t formula
+    stellar_to_halo_mass as tep_stellar_to_halo_mass,  # Stellar-to-halo mass from abundance matching
+    ALPHA_0, ALPHA_UNCERTAINTY,  # TEP coupling constant alpha_0=0.58 & its uncertainty
 )
 
-STEP_NUM  = "119"
-STEP_NAME = "blind_validation"
-LOGS_PATH = PROJECT_ROOT / "logs"
-LOGS_PATH.mkdir(parents=True, exist_ok=True)
+STEP_NUM  = "119"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "blind_validation"  # Blind validation: time-split and field-split cross-validation testing TEP signature generalization to held-out data (train z<6/test z>6, UNCOVER/CEERS/COSMOS-Web field-blind)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
+LOGS_PATH.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
-RESULTS_DIR = PROJECT_ROOT / "results" / "outputs"
-INTERIM_DIR = PROJECT_ROOT / "results" / "interim"
-DATA_DIR = PROJECT_ROOT / "data" / "interim"
+RESULTS_DIR = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
+INTERIM_DIR = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products
+DATA_DIR = PROJECT_ROOT / "data" / "interim"  # Processed catalogue products
 
 
 def load_real_surveys():

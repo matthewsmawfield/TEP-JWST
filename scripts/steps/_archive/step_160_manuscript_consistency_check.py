@@ -185,6 +185,46 @@ def main() -> None:
         "pass": bad_token not in texts["results"],
     })
 
+    # 3b) Results-section numbering and guide references must stay monotonic after the kinematic insertion
+    numbering_stale_tokens = [
+        "<h3>3.2 UNCOVER DR4: Mass-sSFR and Mass-Age Correlations</h3>",
+        "<h3>3.10 TEP Predictions vs Observations Summary</h3>",
+        "<h4>3.10.1 Adversarial Tests</h4>",
+        "<h4>3.10.2 Falsification Battery</h4>",
+        "<h3>3.11 Strategy for Kinematic Validation</h3>",
+    ]
+    numbering_hits = contains_any(
+        {
+            "introduction": texts["introduction"],
+            "results": texts["results"],
+        },
+        numbering_stale_tokens,
+    )
+    numbering_expected_tokens = {
+        "intro_stage1_ref_updated": "Stage 1: The zero-parameter prediction (§3.2)." in texts["introduction"],
+        "intro_stage2_ref_updated": "Stage 2: Two primary empirical lines, one ancillary spatial indication, one derived regime-level comparison, and one direct kinematic test (§3.0–3.10)." in texts["introduction"],
+        "results_3_3_uncover": "<h3>3.3 UNCOVER DR4: Mass-sSFR and Mass-Age Correlations</h3>" in texts["results"],
+        "results_3_9_summary": "<h3>3.9 TEP Predictions vs Observations Summary</h3>" in texts["results"],
+        "results_3_9_1_adversarial": "<h4>3.9.1 Adversarial Tests</h4>" in texts["results"],
+        "results_3_9_2_falsification": "<h4>3.9.2 Falsification Battery</h4>" in texts["results"],
+        "results_3_10_strategy": "<h3>3.10 Strategy for Kinematic Validation</h3>" in texts["results"],
+    }
+    checks.append({
+        "name": "results_section_numbering_and_reader_guide_refs_are_synced",
+        "expected": {
+            "stale_numbering_tokens_absent": True,
+            "updated_numbering_tokens_present": True,
+        },
+        "found": {
+            "stale_numbering_token_hits": numbering_hits,
+            "updated_numbering_token_presence": numbering_expected_tokens,
+        },
+        "pass": (
+            not numbering_hits
+            and all(numbering_expected_tokens.values())
+        ),
+    })
+
     # 4) L2 live/skipped state must agree with manuscript wording
     l2_status = (
         j140.get("final_synthesis", {})
@@ -251,6 +291,58 @@ def main() -> None:
             and skipped_primary_lines == 0
             and not stale_l2_hits
             and expected_ancillary_l2
+        ),
+    })
+
+    # 4b) Evidence-line labels must match the live pipeline hierarchy everywhere
+    claim_hierarchy = j140.get("final_synthesis", {}).get("claim_hierarchy", {})
+    direct_tests = claim_hierarchy.get("direct_kinematic_tests", [])
+    hierarchy_stale_phrases = [
+        "SUSPENSE kinematic comparison (L1)",
+        "current SUSPENSE kinematic comparison (L1)",
+        "The direct kinematic comparison (L1)",
+        "L1. Direct Kinematic Comparison",
+        "The L1 kinematic test",
+        "L4. Dust–",
+        "L4. Dust-",
+    ]
+    hierarchy_hits = contains_any(
+        {
+            "introduction": texts["introduction"],
+            "results": texts["results"],
+            "discussion": texts["discussion"],
+            "conclusion": texts["conclusion"],
+            "generated_root_markdown": generated_root_markdown_text,
+        },
+        hierarchy_stale_phrases,
+    )
+    hierarchy_expected_tokens = {
+        "claim_hierarchy_headline_primary_is_l1_dust": claim_hierarchy.get("headline_primary_result", "").startswith("L1 dust-Gamma_t"),
+        "claim_hierarchy_direct_test_is_l5": direct_tests == ["L5_kinematic_decisive"],
+        "introduction_l1_dust": "L1. Dust–" in texts["introduction"],
+        "introduction_l5_direct_test": "L5. Direct kinematic test:" in texts["introduction"],
+        "results_l1_dust": "L1. Dust–" in texts["results"],
+        "results_l5_direct": "3.9 Direct Kinematic Decisive Test" in texts["results"],
+        "discussion_l5_direct": "SUSPENSE kinematic comparison (L5)" in texts["discussion"],
+        "conclusion_l5_direct": "SUSPENSE kinematic comparison (L5)" in texts["conclusion"],
+        "generated_root_l5_direct": "SUSPENSE kinematic comparison (L5)" in generated_root_markdown_text,
+    }
+    checks.append({
+        "name": "evidence_hierarchy_labels_match_pipeline_summary",
+        "expected": {
+            "l1_remains_dust": True,
+            "l5_is_direct_kinematic_test": True,
+            "stale_hierarchy_phrases_absent": True,
+            "manuscript_and_generated_markdown_tokens_present": True,
+        },
+        "found": {
+            "claim_hierarchy_direct_tests": direct_tests,
+            "stale_hierarchy_phrase_hits": hierarchy_hits,
+            "expected_token_presence": hierarchy_expected_tokens,
+        },
+        "pass": (
+            not hierarchy_hits
+            and all(hierarchy_expected_tokens.values())
         ),
     })
 

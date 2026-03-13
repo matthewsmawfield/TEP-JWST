@@ -13,38 +13,38 @@ import json
 import sys
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 
-STEP_NUM  = "133"
-STEP_NAME = "hubble_connection"
+STEP_NUM  = "133"  # Pipeline step number
+STEP_NAME = "hubble_connection"  # Used in log / output filenames
 
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH   = PROJECT_ROOT / "logs"
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
+LOGS_PATH   = PROJECT_ROOT / "logs"  # Log directory
 OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
 LOGS_PATH.mkdir(parents=True, exist_ok=True)
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger
 set_step_logger(logger)
 
 import numpy as np
 from scripts.utils.tep_model import (
     compute_gamma_t, stellar_to_halo_mass_behroozi_like,
-    ALPHA_0, ALPHA_UNCERTAINTY, Z_REF
+    ALPHA_0, ALPHA_UNCERTAINTY, Z_REF  # Shared TEP model
 )
 
 # Observed H0 tension values
-H0_PLANCK    = 67.4   # km/s/Mpc (CMB, Planck 2020)
-H0_SH0ES     = 73.04  # km/s/Mpc (Cepheids+SNIa, Riess+2022)
-H0_TENSION   = H0_SH0ES - H0_PLANCK
-SIGMA_TENSION = 5.0   # sigma significance of H0 tension
+H0_PLANCK    = 67.4   # CMB-inferred Hubble constant [km/s/Mpc] (Planck 2020)
+H0_SH0ES     = 73.04  # Local Cepheid+SNIa Hubble constant [km/s/Mpc] (Riess+2022)
+H0_TENSION   = H0_SH0ES - H0_PLANCK  # H0 discrepancy [km/s/Mpc]
+SIGMA_TENSION = 5.0   # Significance of H0 tension [sigma]
 
 # S8 tension
-S8_PLANCK    = 0.832
-S8_KiDS      = 0.766
-S8_TENSION   = S8_PLANCK - S8_KiDS
+S8_PLANCK    = 0.832  # Planck CMB S8 value
+S8_KiDS      = 0.766  # KiDS weak-lensing S8 value
+S8_TENSION   = S8_PLANCK - S8_KiDS  # S8 discrepancy
 
 # TEP prediction for H0:
 # TEP modifies the effective Hubble flow in the late universe through

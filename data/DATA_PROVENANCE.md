@@ -2,7 +2,7 @@
 
 This document tracks all external data sources used in the TEP-JWST analysis.
 
-**Last Updated:** 2026-01-15  
+**Last Updated:** 2026-03-14  
 **Analysis Status:** Complete with real Prospector-derived SED ages from UNCOVER DR4
 
 ---
@@ -109,23 +109,19 @@ curl -L "https://zenodo.org/api/records/14281664/files/UNCOVER_DR4_SPS_catalog.f
 
 ## 4. High-z Galaxy Samples (ANALYZED)
 
-### 4.1 Labbé et al. 2023 - "Impossible Galaxies"
+### 4.1 Labbé et al. 2023 - "Impossible Galaxies" (Reference only)
 
 **Reference:** Nature 616, 266 (arXiv:2207.12446)  
 **GitHub Repository:** https://github.com/ivolabbe/red-massive-candidates  
-**Local File:** `data/raw/red-massive-candidates-main/sample_revision3_2207.12446.ecsv`
+**Local File:** `data/raw/labbe_2023_github.tar.gz`
 
 | Property | Value |
 |----------|-------|
-| N galaxies | 13 |
+| N galaxies (published) | 13 |
 | z range | 6.5 - 9.1 |
-| log(M*) range | 9.2 - 10.9 M⊙ |
-| Status | ✓ ANALYZED |
+| Status | Reference catalog only; not used in primary analysis |
 
-**Analysis Results:**
-- Spearman ρ = 0.989, p < 10⁻⁴
-- TEP Γ_t range: 1.3 - 5.1
-- Most massive: ID 38094 with Γ_t = 5.11
+**Note:** The Labbé et al. 2023 catalog is retained as a reference. The primary Red Monster case study (step_043) uses only the 3 verified Xiao et al. (2024) FRESCO objects with published spectroscopic confirmations.
 
 ### 4.2 Hainline et al. 2023 - JADES z > 8 Catalog
 
@@ -237,7 +233,88 @@ curl -L "https://zenodo.org/api/records/14281664/files/UNCOVER_DR4_SPS_catalog.f
 
 ---
 
-## 5. Stellar Population Models
+## 5. COSMOS-Web Master Catalog
+
+**Source:** COSMOS-Web Survey  
+**Reference:** Shuntov et al. 2025  
+**Local File:** `data/raw/COSMOSWeb_mastercatalog_v1_lephare.fits` (270 MB)
+
+| Property | Value |
+|----------|-------|
+| SED Fitting Code | LePhare |
+| Field | COSMOS |
+| Status | ✓ ANALYZED (step_033, step_157, step_174) |
+
+---
+
+## 6. Kokorev LRD Catalog
+
+**Source:** Little Red Dots photometric catalog  
+**Reference:** Kokorev et al. 2024, ApJ, 968, 38  
+**Local File:** `data/raw/kokorev_lrd_catalog_v1.1.fits` (210 KB)
+
+| Property | Value |
+|----------|-------|
+| N objects | 260 |
+| Status | ✓ ANALYZED (step_132) |
+
+---
+
+## 7. Direct Kinematic Samples
+
+### 7.1 Primary Literature Kinematic Sample (L4)
+
+**Local File:** `data/interim/literature_kinematic_sample.json`
+
+| Source | Reference | N objects | z range | Type |
+|--------|-----------|-----------|---------|------|
+| Esdaile et al. 2021 | arXiv:2010.09738 | 4 | 3.2–3.7 | Exact M_dyn |
+| Tanaka et al. 2019 | arXiv:1909.10721 | 1 | 4.01 | Upper-limit M_dyn |
+
+**Status:** ✓ ANALYZED (step_117)
+
+### 7.2 Same-Regime Literature Kinematic Sample (contextual)
+
+**Local File:** `data/interim/same_regime_literature_kinematic_sample.json`
+
+| Source | Reference | N objects | z range |
+|--------|-----------|-----------|---------|
+| de Graaff et al. 2024 | JADES NIRSpec | 6 | 5.5–7.4 |
+| Saldana-Lopez et al. 2025 | arXiv:2501.17145 | 16 | 4.0–7.6 |
+| Danhaive et al. 2025 | arXiv:2503.21863 | 33 | 4.0–7.6 |
+
+**Status:** ✓ ANALYZED (step_170, contextual branch)
+
+### 7.3 SUSPENSE Spectral Ages (L5)
+
+**Source:** SUSPENSE Survey  
+**Reference:** Slob et al. 2025  
+**Local File:** `data/interim/suspense_kinematics_ages.json`
+
+| Property | Value |
+|----------|-------|
+| N objects | 15 |
+| z range | 1.0–2.5 |
+| Status | ✓ ANALYZED (step_170, primary branch) |
+
+---
+
+## 8. Red Monsters (FRESCO)
+
+**Source:** Xiao et al. 2024  
+**Reference:** arXiv:2309.02492  
+**Local File:** Hardcoded in `scripts/steps/step_043_blue_monsters.py`
+
+| Property | Value |
+|----------|-------|
+| N objects | 3 (spectroscopically confirmed) |
+| z range | 5.3–5.9 |
+| log(M*) range | 10.5–11.1 M⊙ |
+| Status | ✓ ANALYZED (step_043) |
+
+---
+
+## 9. Stellar Population Models
 
 **SED Fitting Codes:**
 - BAGPIPES (Carnall et al. 2018)

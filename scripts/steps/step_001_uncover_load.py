@@ -27,7 +27,8 @@ from pathlib import Path
 # =============================================================================
 # PATHS AND LOGGER
 # =============================================================================
-
+# Resolve the project root by navigating two directories up from this script:
+# scripts/steps/step_001_... -> scripts/ -> PROJECT_ROOT/
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
 
@@ -40,8 +41,14 @@ STEP_NAME = "uncover_load"
 
 DATA_PATH = PROJECT_ROOT / "data" / "raw" / "uncover"
 
-# Zenodo record for UNCOVER DR4 SPS catalog (Wang et al. 2024, ApJS 270, 12)
+# ---------------------------------------------------------------------------
+# UNCOVER DR4 SPS catalog (Wang et al. 2024, ApJS 270, 12)
 # DOI: 10.5281/zenodo.14281664
+#
+# This is the primary photometric catalog for the Abell 2744 lensing field,
+# containing ~50,000 sources with SED-fitted stellar population parameters
+# (stellar mass, SFR, dust, metallicity, mass-weighted age) from Prospector.
+# ---------------------------------------------------------------------------
 UNCOVER_DR4_URL = (
     "https://zenodo.org/api/records/14281664/files/"
     "UNCOVER_DR4_SPS_catalog.fits/content"
@@ -95,41 +102,62 @@ def load_uncover_catalog():
 # =============================================================================
 
 def fix_byteorder(arr):
-    """Fix big-endian byte order for numpy 2.0 compatibility."""
+    """Fix big-endian byte order for numpy 2.0 compatibility.
+
+    FITS files store data in big-endian ('>') format. NumPy 2.0+ raises
+    errors when mixing big-endian arrays with native-endian operations.
+    This converts to the system's native byte order ('=') to avoid those
+    errors while preserving the numerical values.
+    """
     arr = np.array(arr)
     if arr.dtype.byteorder == '>':
         return arr.astype(arr.dtype.newbyteorder('='))
     return arr
 
 def extract_columns(data):
-    """Extract relevant columns into a DataFrame."""
+    """Extract relevant columns into a DataFrame.
+
+    Column mapping (UNCOVER DR4 Prospector names -> analysis names):
+      z_50         -> z_phot       : median photometric redshift from EAZY
+      mstar_50     -> log_Mstar    : log10(M*/Msun), median SED-fitted stellar mass
+      mwa_50       -> mwa          : mass-weighted age [Gyr] from Prospector
+      met_50       -> met          : log(Z/Zsun), stellar metallicity
+      dust2_50     -> dust         : A_V [mag], diffuse dust attenuation (Calzetti)
+      sfr100_50    -> sfr100       : SFR averaged over last 100 Myr [Msun/yr]
+      ssfr100_50   -> ssfr100      : specific SFR over last 100 Myr [1/yr]
+      sfr10_50     -> sfr10        : SFR averaged over last 10 Myr [Msun/yr]
+      ssfr10_50    -> ssfr10       : specific SFR over last 10 Myr [1/yr]
+
+    The _16 and _84 suffixes denote the 16th and 84th posterior percentiles,
+    providing approximate 1-sigma uncertainties on each parameter.
+    """
     
     df = pd.DataFrame({
         'id': fix_byteorder(data['id']),
         'ra': fix_byteorder(data['ra']),
         'dec': fix_byteorder(data['dec']),
         'z_spec': fix_byteorder(data['z_spec']),
-        'z_phot': fix_byteorder(data['z_50']),
-        'z_16': fix_byteorder(data['z_16']),
-        'z_84': fix_byteorder(data['z_84']),
-        'log_Mstar': fix_byteorder(data['mstar_50']),
+        'z_phot': fix_byteorder(data['z_50']),         # median photo-z
+        'z_16': fix_byteorder(data['z_16']),            # photo-z 16th percentile
+        'z_84': fix_byteorder(data['z_84']),            # photo-z 84th percentile
+        'log_Mstar': fix_byteorder(data['mstar_50']),   # log10(M*/Msun)
         'log_Mstar_16': fix_byteorder(data['mstar_16']),
         'log_Mstar_84': fix_byteorder(data['mstar_84']),
-        'mwa': fix_byteorder(data['mwa_50']),
+        'mwa': fix_byteorder(data['mwa_50']),           # mass-weighted age [Gyr]
         'mwa_16': fix_byteorder(data['mwa_16']),
         'mwa_84': fix_byteorder(data['mwa_84']),
-        'met': fix_byteorder(data['met_50']),
+        'met': fix_byteorder(data['met_50']),           # log(Z/Zsun)
         'met_16': fix_byteorder(data['met_16']),
         'met_84': fix_byteorder(data['met_84']),
-        'dust': fix_byteorder(data['dust2_50']),
+        'dust': fix_byteorder(data['dust2_50']),        # A_V [mag]
         'dust_16': fix_byteorder(data['dust2_16']),
         'dust_84': fix_byteorder(data['dust2_84']),
-        'sfr100': fix_byteorder(data['sfr100_50']),
-        'ssfr100': fix_byteorder(data['ssfr100_50']),
-        'sfr10': fix_byteorder(data['sfr10_50']),
-        'ssfr10': fix_byteorder(data['ssfr10_50']),
-        'chi2': fix_byteorder(data['chi2']),
-        'use_phot': fix_byteorder(data['use_phot']),
+        'sfr100': fix_byteorder(data['sfr100_50']),     # SFR_100Myr [Msun/yr]
+        'ssfr100': fix_byteorder(data['ssfr100_50']),   # sSFR_100Myr [1/yr]
+        'sfr10': fix_byteorder(data['sfr10_50']),       # SFR_10Myr [Msun/yr]
+        'ssfr10': fix_byteorder(data['ssfr10_50']),     # sSFR_10Myr [1/yr]
+        'chi2': fix_byteorder(data['chi2']),            # best-fit chi-squared
+        'use_phot': fix_byteorder(data['use_phot']),    # photometry quality flag
     })
     
     return df
@@ -147,6 +175,15 @@ def apply_full_sample_cuts(df):
     - log_Mstar > 8 (above completeness limit)
     - Valid sSFR (not NaN, > 0)
     - Valid MWA (not NaN)
+
+    Rationale:
+      z > 4  : TEP effects scale as alpha(z) = alpha_0 * sqrt(1+z), so they
+               become observationally significant only above z ~ 4.
+      z < 10 : Upper bound of reliable UNCOVER photometric redshifts.
+      M* > 10^8 Msun : Below this, the catalog becomes severely incomplete
+               at z > 6 due to surface-brightness limits.
+      Valid sSFR/MWA : Needed for the downstream age-ratio and sSFR
+               correlation analyses (Threads 1-4).
     """
     
     mask = (
@@ -172,6 +209,13 @@ def apply_multi_property_cuts(df):
     - Valid metallicity (not NaN)
     - Metallicity uncertainty < 0.5 dex
     - Valid dust (not NaN)
+
+    Rationale:
+      This stricter sample is used for Threads 3 (Gamma_t vs metallicity)
+      and Thread 4 (Gamma_t vs dust), which require well-constrained
+      metallicity and dust posteriors. The 0.5 dex metallicity uncertainty
+      threshold removes objects whose broad posteriors would dilute any
+      genuine TEP-driven correlation.
     """
     
     df['met_err'] = (df['met_84'] - df['met_16']) / 2
@@ -202,6 +246,15 @@ def apply_z8_cuts(df):
     - z_phot >= 8 and z_phot < 10
     - log_Mstar > 8
     - Valid dust (not NaN)
+
+    Rationale:
+      At z > 8 the universe is < 600 Myr old. Standard AGB dust production
+      requires 100-300 Myr of stellar evolution, so under standard physics
+      the most massive galaxies should not yet be heavily dust-obscured.
+      TEP predicts that enhanced proper time (Gamma_t > 1) in massive halos
+      allows sufficient time for AGB dust production, creating an anomalously
+      strong mass-dust correlation at these redshifts. This sample isolates
+      the regime where the TEP dust signature is strongest.
     """
     
     mask = (
@@ -227,14 +280,21 @@ def stellar_to_halo_mass(log_Mstar, z):
     Based on Behroozi et al. (2019) parametrization, simplified for high-z.
     At high-z (z > 4), the stellar-to-halo mass ratio is approximately:
     
-    log(M*/Mh) ≈ -1.8 - 0.1*(log_Mstar - 10) + 0.05*(z - 5)
+        log(M*/Mh) ≈ -1.8 - 0.1*(log_Mstar - 10) + 0.05*(z - 5)
     
     This gives:
-    - At log_Mstar = 8: log(M*/Mh) ≈ -2.0 → Mh/M* ≈ 100
-    - At log_Mstar = 10: log(M*/Mh) ≈ -1.8 → Mh/M* ≈ 63
-    - At log_Mstar = 11: log(M*/Mh) ≈ -1.7 → Mh/M* ≈ 50
+    - At log_Mstar = 8:  log(M*/Mh) ≈ -2.0  ->  Mh/M* ≈ 100
+    - At log_Mstar = 10: log(M*/Mh) ≈ -1.8  ->  Mh/M* ≈ 63
+    - At log_Mstar = 11: log(M*/Mh) ≈ -1.7  ->  Mh/M* ≈ 50
     
     The relation flattens at high mass due to AGN feedback.
+
+    Why halo mass matters for TEP:
+      The TEP chronological enhancement factor Gamma_t depends on the
+      depth of the gravitational potential, which is set primarily by
+      the dark-matter halo mass M_h rather than the stellar mass M*.
+      This function provides the M* -> M_h bridge needed to compute
+      Gamma_t from the SED-fitted stellar masses in the catalog.
     """
     # Base ratio at log_Mstar = 10, z = 5
     log_ratio_base = -1.8
@@ -253,7 +313,20 @@ def stellar_to_halo_mass(log_Mstar, z):
     return log_Mh
 
 def compute_derived_quantities(df):
-    """Compute derived quantities for TEP analysis."""
+    """Compute derived quantities for TEP analysis.
+
+    Derived columns added:
+      log_Mh       : log10(M_halo/Msun) via Behroozi-like abundance matching.
+      log_Mh_simple: log10(M_halo/Msun) using a fixed M_h/M* = 100 ratio
+                     (retained for cross-check only; not used in main analysis).
+      t_cosmic     : Age of the universe at the galaxy's redshift [Gyr],
+                     computed from Planck18 cosmology.
+      age_ratio    : mwa / t_cosmic. Under standard physics this should be
+                     <= 1; values approaching or exceeding 1 indicate that
+                     the SED-fitted stellar age is comparable to the cosmic
+                     age, which TEP explains via enhanced proper time.
+      log_ssfr     : log10(sSFR_100Myr) for correlation analyses.
+    """
     
     # Use abundance matching for halo mass (more accurate than fixed ratio)
     df['log_Mh'] = stellar_to_halo_mass(df['log_Mstar'].values, df['z_phot'].values)
@@ -261,8 +334,13 @@ def compute_derived_quantities(df):
     # Also store the simple estimate for comparison
     df['log_Mh_simple'] = df['log_Mstar'] + 2.0
     
-    df['t_cosmic'] = cosmo.age(df['z_phot'].values).value
+    # Cosmic age at each galaxy's redshift from Planck18 LCDM
+    df['t_cosmic'] = cosmo.age(df['z_phot'].values).value  # [Gyr]
+    
+    # Age ratio: how close the SED-fitted stellar age is to the cosmic age
     df['age_ratio'] = df['mwa'] / df['t_cosmic']
+    
+    # log specific SFR for Thread 1 (mass-sSFR inversion test)
     df['log_ssfr'] = np.log10(df['ssfr100'])
     
     return df

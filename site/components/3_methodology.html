@@ -6,7 +6,7 @@
   <h3>2.1 Data</h3>
 
   <h4>2.1.1 Red Monsters (FRESCO)</h4>
-  <p>The motivating case study is the class of ultra-massive galaxies at $z \sim 5$–$6$ exemplified by the three spectroscopically confirmed "Red Monsters" reported by Xiao et al. (2024). For the illustrative TEP prediction (§3.1), representative parameters spanning the published range ($z \approx 5.1$–$5.9$, $\log M_* \approx 10.6$–$10.9$, SFE $\approx 0.48$–$0.52$) are adopted. These are <em>not</em> the exact catalogue values for individual objects but capture the regime where the anomaly is most acute. The resulting SFE correction ($\sim 34\%$) depends primarily on $\Gamma_t$ (set by halo mass and redshift via the pre-calibrated TEP formula) and is insensitive to the precise input SFE at the $\lesssim 2\%$ level.</p>
+  <p>The motivating case study is the class of ultra-massive galaxies at $z \sim 5$–$6$ exemplified by the three spectroscopically confirmed "Red Monsters" reported by Xiao et al. (2024). For the illustrative TEP prediction (§3.1), representative parameters spanning the published range ($z \approx 5.3$–$5.9$, $\log M_* \approx 10.8$–$11.2$, SFE $\approx 0.50$) are adopted. These capture the regime where the anomaly is most acute. The resulting SFE correction fully resolves the anomaly (corrected SFE $\sim 0.11$, well below the $\Lambda$CDM limit of 0.20), with the correction depending primarily on $\Gamma_t$ (set by halo mass and redshift via the pre-calibrated TEP formula) and insensitive to the precise input SFE at the $\lesssim 2\%$ level.</p>
 
   <h4>2.1.2 UNCOVER DR4</h4>
   <p>For population-level tests, the UNCOVER DR4 stellar population synthesis catalog is used (Wang et al. 2024; Furtak et al. 2023). The analysis applies quality cuts and constructs a high-redshift sample with $4 &lt; z &lt; 10$ and $\log M_* &gt; 8$, yielding $N = 2{,}315$ galaxies. For multi-property analyses (age ratio, metallicity, dust), a subset with complete measurements is used (e.g., $N = 1{,}108$ for the partial-correlation and split tests).</p>
@@ -173,15 +173,18 @@
     <li><strong>Halo mapping:</strong> In virialized halos, $\phi$ tracks the potential depth $\Phi \propto M_h^{2/3}$, yielding:</li>
   </ol>
   <div class="equation">
+    $$\alpha(z) = \alpha_0 \sqrt{1+z}$$
+  </div>
+  <div class="equation">
     $$\Gamma_t = \exp \left[ \alpha(z) \times \frac{2}{3} \times \Delta \log(M_h) \times \frac{1+z}{1+z_{\rm ref}} \right]$$
   </div>
-  <p>where $\Delta\log(M_h) = \log(M_h/M_{\rm ref})$, $\log M_{h,\rm ref} = 12.0$, and $\alpha(z)$ is the redshift-dependent coupling.</p>
+  <p>where $\Delta\log(M_h) = \log M_h - \log M_{h,\rm ref}(z)$, the reference halo mass evolves as $\log M_{h,\rm ref}(z) = 12.0 - 1.5\log_{10}(1+z)$ (fixed potential-depth scaling), $z_{\rm ref} = 5.5$, and $\alpha_0 = 0.58 \pm 0.16$ is the external Cepheid prior.</p>
 
   <h5>2.3.2.1a Enhancement and Suppression: The Two-Sided Prediction</h5>
-  <p>The exponential formula predicts two physically distinct regimes depending on halo mass relative to the reference mass $\log M_{h,\rm ref} = 12.0$:</p>
+  <p>The exponential formula predicts two physically distinct regimes depending on halo mass relative to the redshift-dependent reference mass $\log M_{h,\rm ref}(z)$:</p>
   <ul>
     <li><strong>Enhancement ($\Gamma_t > 1$, massive halos):</strong> For $M_h > M_{\rm ref}$, $\Delta\log M_h > 0$ and $\Gamma_t > 1$. The scalar field $\phi$ is sourced more strongly by the deeper potential, raising $A(\phi) > 1$ and accelerating material clock rates relative to the cosmic mean. This is the regime of the Red Monsters and massive $z > 8$ galaxies.</li>
-    <li><strong>Suppression ($\Gamma_t < 1$, low-mass halos):</strong> For $M_h < M_{\rm ref}$, $\Delta\log M_h < 0$ and $\Gamma_t < 1$. In shallow potentials, the chameleon field relaxes toward a lower-energy minimum with $A(\phi) < 1$, meaning material clocks tick <em>slower</em> than the cosmic mean. This is not an ad-hoc extension: it follows directly from the same conformal coupling $d\tau/dt \propto A(\phi)^{1/2}$, which is symmetric about the reference environment. The reference mass $\log M_{h,\rm ref} = 12.0$ defines the environment where $A(\phi) = 1$ (i.e., $\phi = 0$ in the Einstein frame), and deviations in either direction produce proportional clock-rate shifts.</li>
+    <li><strong>Suppression ($\Gamma_t < 1$, low-mass halos):</strong> For $M_h < M_{\rm ref}$, $\Delta\log M_h < 0$ and $\Gamma_t < 1$. In shallow potentials, the chameleon field relaxes toward a lower-energy minimum with $A(\phi) < 1$, meaning material clocks tick <em>slower</em> than the cosmic mean. This is not an ad-hoc extension: it follows directly from the same conformal coupling $d\tau/dt \propto A(\phi)^{1/2}$, which is symmetric about the reference environment. The reference mass $\log M_{h,\rm ref}(z) = 12.0 - 1.5\log_{10}(1+z)$ defines the environment where $A(\phi) = 1$ (i.e., $\phi = 0$ in the Einstein frame), and deviations in either direction produce proportional clock-rate shifts.</li>
   </ul>
   <p>This two-sided prediction is central to the interpretation: the "Uniformity Paradox" — why low-mass galaxies at $z > 8$ are dust-poor despite cosmic time being nominally sufficient for AGB production — is resolved because $\Gamma_t \ll 1$ in low-mass halos shuts off the effective AGB clock. A model that only predicted enhancement ($\Gamma_t \geq 1$ everywhere) would not explain the dust-poor low-mass population. The suppression regime is therefore a falsifiable prediction rather than a free parameter: it predicts that low-mass galaxies at $z > 8$ should be systematically younger in their stellar populations than their cosmic age implies, and should lack dust regardless of the available cosmic time.</p>
 
@@ -270,11 +273,11 @@
   <ul>
     <li>Stratified comparisons (e.g., high vs low $\Gamma_t$ splits) for multi-property coherence</li>
     <li>Distributional comparisons (e.g., Kolmogorov-Smirnov tests) for regime separation</li>
-    <li>Model comparison using AIC/BIC for regression models that compare predictors {z}, {z, $\log M_*$}, {z, $\Gamma_t$}, and {z, $\log M_*$, $\Gamma_t$}</li>
+    <li>Model comparison using both AIC/BIC and nested Bayesian evidence: the regression comparisons test predictors {z}, {z, $\log M_*$}, {z, $\Gamma_t$}, and {z, $\log M_*$, $\Gamma_t$}, while a separate <code>dynesty</code> nested-sampling analysis compares TEP against explicit bursty-SF, varying-IMF, standard-physics, and AGN alternatives in both raw standardized space and a mass+$z$-residualized control space</li>
   </ul>
 
   <h4>2.4.1 Combined significance and multiple testing</h4>
-  <p>Combined significance is assessed using Fisher's method, Bonferroni correction, Brown's method (dependence-adjusted), harmonic mean p-value, and Benjamini-Hochberg FDR ($\alpha = 0.05$). Because omnibus significance depends sensitively on how clustering and shared predictors are penalized, the manuscript treats the three-survey photometric L1 replication as the headline result and uses broader multi-test combinations as supportive context. An extreme stress test that reduces effective sample sizes by 90% via spatial clustering autocorrelation still leaves a Bonferroni-corrected floor of $3.2\sigma$ for the mixed battery. Parametric p-values are supplemented by permutation tests ($N = 10{,}000$ shuffles) and bootstrap confidence intervals ($N = 10{,}000$ resamples). Cross-survey effect sizes are combined via DerSimonian-Laird random-effects meta-analysis with $I^2$ heterogeneity assessment and leave-one-out influence diagnostics.</p>
+  <p>Combined significance is assessed using Fisher's method, Bonferroni correction, Brown's method (dependence-adjusted), harmonic mean p-value, and Benjamini-Hochberg FDR ($\alpha = 0.05$). Because omnibus significance depends sensitively on how clustering and shared predictors are penalized, the manuscript treats the three-survey photometric L1 replication as the headline result and uses broader multi-test combinations as supportive context. An extreme stress test that reduces effective sample sizes by 90% via spatial clustering autocorrelation still leaves a Bonferroni-corrected floor of $3.3\sigma$ for the mixed battery. Parametric p-values are supplemented by permutation tests ($N = 10{,}000$ shuffles) and bootstrap confidence intervals ($N = 10{,}000$ resamples). Cross-survey effect sizes are combined via DerSimonian-Laird random-effects meta-analysis with $I^2$ heterogeneity assessment and leave-one-out influence diagnostics.</p>
 
   <h4>2.4.2 Blind validation protocol</h4>
   <p>Three split strategies test generalization: (1) time-split (low-$z$ train / high-$z$ test, 60/40); (2) field-split (RA median); (3) cross-survey leave-one-out. A test passes if the dust–$\Gamma_t$ correlation remains significant ($p &lt; 0.05$) on held-out data.</p>

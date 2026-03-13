@@ -10,22 +10,21 @@ from pathlib import Path
 # =============================================================================
 # PATHS AND LOGGER
 # =============================================================================
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.tep_model import RHO_CRIT_G_CM3  # TEP model: critical screening density rho_c ≈ 20 g/cm³ (from Paper 7)
+STEP_NUM = "070"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "binary_pulsar_constraints"  # Binary pulsar constraints: validates TEP screening at neutron star densities (~10¹⁴ g/cm³ >> rho_c ≈ 20 g/cm³), ensuring Hulse-Taylor orbital decay agreement
 
-STEP_NUM = "070"
-STEP_NAME = "binary_pulsar_constraints"
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
+LOGS_PATH.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
-# Initialize logger
-LOGS_PATH = PROJECT_ROOT / "logs"
-LOGS_PATH.mkdir(parents=True, exist_ok=True)
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
-
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+OUTPUT_PATH.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
 
 # =============================================================================
 # PHYSICS CONSTANTS & PARAMETERS

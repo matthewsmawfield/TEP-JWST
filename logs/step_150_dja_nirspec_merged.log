@@ -1,9 +1,9 @@
-[13:08:34]     STEP 150: DJA NIRSpec Merged v4.4 — rho(Gamma_t, log M*)
-[13:08:34] Loading DJA merged table: dja_msaexp_emission_lines_v4.4.csv.gz
-[13:08:38] DJA merged table loaded: N=14,236
-[13:08:38] Full z>5: N=2,653, rho=0.982, p=0.00e+00
-[13:08:38]   z=5-7: N=2,088, rho=0.995
-[13:08:38]   z=7-9: N=498, rho=0.994
-[13:08:38]   z=9-99: N=67, rho=0.982
-[13:08:38] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_150_dja_nirspec_merged.json
-[13:08:38]     Step 150 complete (SUCCESS)
+[17:02:19]     STEP 150: DJA NIRSpec Merged v4.4 — rho(Gamma_t, log M*)
+[17:02:19] Loading DJA merged table: dja_msaexp_emission_lines_v4.4.csv.gz
+[17:02:24] DJA merged table loaded: N=14,236
+[17:02:24] Full z>5: N=2,653, rho=0.982, p=0.00e+00
+[17:02:24]   z=5-7: N=2,088, rho=0.995
+[17:02:24]   z=7-9: N=498, rho=0.994
+[17:02:24]   z=9-99: N=67, rho=0.982
+[17:02:24] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_150_dja_nirspec_merged.json
+[17:02:24]     Step 150 complete (SUCCESS)

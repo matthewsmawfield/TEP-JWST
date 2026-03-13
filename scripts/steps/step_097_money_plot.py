@@ -16,7 +16,7 @@ Author: TEP-JWST Pipeline
 
 import sys
 from pathlib import Path
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 import json
@@ -24,24 +24,21 @@ import numpy as np
 from pathlib import Path
 from datetime import datetime
 import sys
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-
-# Paths
-SCRIPT_DIR = Path(__file__).parent
-PROJECT_ROOT = SCRIPT_DIR.parent.parent
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import safe_json_default  # JSON serialiser for numpy types (handles NaN, inf, float32)
 sys.path.insert(0, str(PROJECT_ROOT))
-from scripts.utils.p_value_utils import safe_json_default
-RESULTS_DIR = PROJECT_ROOT / "results"
-OUTPUTS_DIR = RESULTS_DIR / "outputs"
-FIGURES_DIR = RESULTS_DIR / "figures"
+from scripts.utils.p_value_utils import safe_json_default  # JSON serialiser for numpy types
+RESULTS_DIR = PROJECT_ROOT / "results"  # Results root directory
+OUTPUTS_DIR = RESULTS_DIR / "outputs"  # JSON output directory (machine-readable statistical results)
+FIGURES_DIR = RESULTS_DIR / "figures"  # Publication figures directory (PNG/PDF for manuscript)
 
-STEP_NUM = "097"
-STEP_NAME = "money_plot"
+STEP_NUM = "097"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "money_plot"  # Money plot: TEP predictions vs observations summary figure (1:1 line agreement visualization for abstract/cover letter)
 
-LOGS_DIR = PROJECT_ROOT / "logs"
-LOGS_DIR.mkdir(parents=True, exist_ok=True)
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_DIR / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+LOGS_DIR = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
+LOGS_DIR.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_DIR / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
 
 def main():

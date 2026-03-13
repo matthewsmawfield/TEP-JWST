@@ -8,23 +8,23 @@ from astropy.cosmology import Planck18
 from astropy.io import fits
 from scipy.stats import spearmanr
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import safe_json_default
-from scripts.utils.tep_model import ALPHA_0, compute_gamma_t as tep_gamma
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
+from scripts.utils.p_value_utils import safe_json_default  # JSON serialiser for numpy types
+from scripts.utils.tep_model import ALPHA_0, compute_gamma_t as tep_gamma  # Shared TEP model
 
-STEP_NUM = "166"
-STEP_NAME = "jades_z9_beta_contrast"
-DATA_PATH = PROJECT_ROOT / "data" / "raw" / "JADES_z_gt_8_Candidates_Hainline_et_al.fits"
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH = PROJECT_ROOT / "logs"
+STEP_NUM = "166"  # Pipeline step number
+STEP_NAME = "jades_z9_beta_contrast"  # Used in log / output filenames
+DATA_PATH = PROJECT_ROOT / "data" / "raw" / "JADES_z_gt_8_Candidates_Hainline_et_al.fits"  # JADES high-z candidates
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory
 for path in [INTERIM_PATH, OUTPUT_PATH, LOGS_PATH]:
     path.mkdir(parents=True, exist_ok=True)
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger
 set_step_logger(logger)
 
 BOOTSTRAP_N = 4000

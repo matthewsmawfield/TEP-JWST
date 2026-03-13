@@ -1,54 +1,54 @@
-[13:04:11]     ======================================================================
-[13:04:11]     STEP 16: CHI-SQUARED AS TEP DIAGNOSTIC
-[13:04:11]     ======================================================================
-[13:04:11] 
-[13:04:11]     Poor SED fits reveal isochrony violation.
-[13:04:11]     
+[16:58:39]     ======================================================================
+[16:58:39]     STEP 16: CHI-SQUARED AS TEP DIAGNOSTIC
+[16:58:39]     ======================================================================
+[16:58:39] 
+[16:58:39]     Poor SED fits reveal isochrony violation.
+[16:58:39]     
 Sample size: N = 2315
-[13:04:11]     
+[16:58:39]     
 ==================================================
-[13:04:11]     TEST 1: χ² CORRELATION WITH Γ_t
-[13:04:11]     ==================================================
-[13:04:11]     
+[16:58:39]     TEST 1: χ² CORRELATION WITH Γ_t
+[16:58:39]     ==================================================
+[16:58:39]     
 ρ(Γ_t, χ²) = 0.159 (p = 1.52e-14)
-[13:04:11] 
-[13:04:11]     Interpretation:
-[13:04:11]       Positive correlation: Higher Γ_t → worse SED fit
-[13:04:11]       This is predicted by TEP: isochrony assumption fails
-[13:04:11]     
+[16:58:39] 
+[16:58:39]     Interpretation:
+[16:58:39]       Positive correlation: Higher Γ_t → worse SED fit
+[16:58:39]       This is predicted by TEP: isochrony assumption fails
+[16:58:39]     
 ==================================================
-[13:04:11]     TEST 2: χ² BY Γ_t REGIME
-[13:04:11]     ==================================================
-[13:04:11]     
+[16:58:39]     TEST 2: χ² BY Γ_t REGIME
+[16:58:39]     ==================================================
+[16:58:39]     
 Regime               N      <χ²>       median    
-[13:04:11]     --------------------------------------------------
-[13:04:11]     Neutral               1868        35.5       12.2
-[13:04:11]     Enhanced               413        70.9       18.3
-[13:04:11]     
+[16:58:39]     --------------------------------------------------
+[16:58:39]     Neutral               1868        35.5       12.2
+[16:58:39]     Enhanced               413        70.9       18.3
+[16:58:39]     
 ==================================================
-[13:04:11]     TEST 3: STATISTICAL SIGNIFICANCE
-[13:04:11]     ==================================================
-[13:04:11]     
+[16:58:39]     TEST 3: STATISTICAL SIGNIFICANCE
+[16:58:39]     ==================================================
+[16:58:39]     
 Enhanced vs Suppressed:
-[13:04:11]       Mean χ² ratio: 2.03×
-[13:04:11]       Mann-Whitney U: p = 4.68e-11
-[13:04:11]     
+[16:58:39]       Mean χ² ratio: 2.03×
+[16:58:39]       Mann-Whitney U: p = 4.68e-11
+[16:58:39]     
 ======================================================================
-[13:04:11]     SUMMARY
-[13:04:11]     ======================================================================
-[13:04:11] 
-[13:04:11]     Standard SED fitting assumes isochrony: stellar clocks tick
-[13:04:11]     at the cosmic rate everywhere. For high-Γ_t galaxies, this
-[13:04:11]     assumption is violated.
-[13:04:11] 
-[13:04:11]     The result: Poor fits (high χ²).
-[13:04:11] 
-[13:04:11]     Enhanced regime has 2.0× higher χ² than suppressed.
-[13:04:11]     This difference is highly significant (p = 4.68e-11).
-[13:04:11] 
-[13:04:11]     The poor fits are not noise—they are TEP.
-[13:04:11]     This supports the TEP framework.
-[13:04:11] 
-[13:04:11]     Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_028_chi2_diagnostic.json
-[13:04:11] 
-[13:04:11]     Step 028 complete.
+[16:58:39]     SUMMARY
+[16:58:39]     ======================================================================
+[16:58:39] 
+[16:58:39]     Standard SED fitting assumes isochrony: stellar clocks tick
+[16:58:39]     at the cosmic rate everywhere. For high-Γ_t galaxies, this
+[16:58:39]     assumption is violated.
+[16:58:39] 
+[16:58:39]     The result: Poor fits (high χ²).
+[16:58:39] 
+[16:58:39]     Enhanced regime has 2.0× higher χ² than suppressed.
+[16:58:39]     This difference is highly significant (p = 4.68e-11).
+[16:58:39] 
+[16:58:39]     The poor fits are not noise—they are TEP.
+[16:58:39]     This supports the TEP framework.
+[16:58:39] 
+[16:58:39]     Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_028_chi2_diagnostic.json
+[16:58:39] 
+[16:58:39]     Step 028 complete.

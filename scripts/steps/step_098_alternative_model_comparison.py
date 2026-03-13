@@ -18,31 +18,30 @@ import sys
 
 import sys
 from pathlib import Path
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 import json
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
 import numpy as np
 import pandas as pd
 from pathlib import Path
 from datetime import datetime
 from scipy import stats
 
-# Paths
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent.parent
-RESULTS_DIR = PROJECT_ROOT / "results"
-OUTPUTS_DIR = RESULTS_DIR / "outputs"
-FIGURES_DIR = RESULTS_DIR / "figures"
-INTERIM_DIR = RESULTS_DIR / "interim"
+RESULTS_DIR = PROJECT_ROOT / "results"  # Results root directory
+OUTPUTS_DIR = RESULTS_DIR / "outputs"  # JSON output directory (machine-readable statistical results)
+FIGURES_DIR = RESULTS_DIR / "figures"  # Publication figures directory (PNG/PDF for manuscript)
+INTERIM_DIR = RESULTS_DIR / "interim"  # Pre-processed intermediate products (CSV format for step-to-step data flow)
 
-STEP_NUM = "098"
-STEP_NAME = "alternative_model_comparison"
+STEP_NUM = "098"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "alternative_model_comparison"  # Alternative model comparison: AIC/BIC model selection comparing TEP vs top-heavy IMF, stochastic SF, AGN contamination, standard physics (null)
 
-LOGS_DIR = PROJECT_ROOT / "logs"
-LOGS_DIR.mkdir(parents=True, exist_ok=True)
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_DIR / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+LOGS_DIR = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
+LOGS_DIR.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_DIR / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
 
 def compute_aic_bic(log_likelihood, n_params, n_data):

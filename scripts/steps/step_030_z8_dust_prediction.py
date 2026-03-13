@@ -22,32 +22,33 @@ Date: January 2026
 import sys
 import numpy as np
 import pandas as pd
-from scipy import stats
+from scipy import stats  # Hypothesis tests (Mann-Whitney, Spearman)
 from pathlib import Path
 import json
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value, safe_json_default
-from scripts.utils.rank_stats import partial_rank_correlation
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300) & JSON serialiser
+from scripts.utils.rank_stats import partial_rank_correlation  # Partial Spearman: residualization method to control for confounders
 
-STEP_NUM = "030"
-STEP_NAME = "z8_dust_prediction"
+STEP_NUM = "030"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "z8_dust_prediction"  # z>8 dust prediction: tests AGB threshold (300 Myr) via t_eff = t_cosmic × Gamma_t
 
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH = PROJECT_ROOT / "logs"
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products (CSV format for step-to-step data flow)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
 
-OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
-LOGS_PATH.mkdir(parents=True, exist_ok=True)
+OUTPUT_PATH.mkdir(parents=True, exist_ok=True)  # Create results/outputs/ if missing; parents=True ensures full path tree exists
+LOGS_PATH.mkdir(parents=True, exist_ok=True)  # Create logs/ if missing
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
-# AGB dust production threshold (Myr)
-T_AGB_THRESHOLD = 300
+# AGB dust production threshold: stellar evolution models require ~300 Myr for
+# significant AGB-driven dust yields (e.g. Valiante+2009, Schneider+2014).
+T_AGB_THRESHOLD = 300  # Myr
 
 
 def load_z8_data():
@@ -64,9 +65,9 @@ def load_z8_data():
     df = df[df['z_phot'] >= 8].copy()
     df = df.dropna(subset=['dust', 'log_Mstar', 'gamma_t', 't_cosmic'])
     
-    # Compute effective time (Myr)
-    df['t_cosmic_Myr'] = df['t_cosmic'] * 1000  # Gyr to Myr
-    df['t_eff_Myr'] = df['t_cosmic_Myr'] * df['gamma_t']
+    # Compute effective time: t_eff = t_cosmic × Γ_t (TEP-enhanced timescale)
+    df['t_cosmic_Myr'] = df['t_cosmic'] * 1000  # Convert Gyr → Myr
+    df['t_eff_Myr'] = df['t_cosmic_Myr'] * df['gamma_t']  # TEP-corrected effective age
     
     return df
 
@@ -109,7 +110,7 @@ def test_agb_threshold():
     # Mann-Whitney U test (non-parametric)
     stat, p_value = stats.mannwhitneyu(dust_above, dust_below, alternative='greater')
     
-    # Effect size (Cohen's d)
+    # Effect size (Cohen's d): standardised mean difference between groups
     pooled_std = np.sqrt((np.var(dust_above) + np.var(dust_below)) / 2)
     cohens_d = (mean_above - mean_below) / pooled_std if pooled_std > 0 else 0
     

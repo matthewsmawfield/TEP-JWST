@@ -2124,6 +2124,7 @@
         "supplementary_direct_upper_limit_mean_corrected_excess_lower_bound_dex": -0.31775750850077067,
         "sigma_pilot_status": "SUCCESS",
         "sigma_pilot_assessment": "Within the fitted DJA pilot subset, the Balmer dust proxy tracks the fitted emission-line width at least as strongly as photometric stellar mass after mass-plus-redshift control, which is the intended direction for the sigma-based decoupling audit.",
+        "sigma_pilot_counted_toward_supportive_tally": false,
         "sigma_pilot_quality_fit_n": 15,
         "sigma_pilot_quality_balmer_n": 7,
         "sigma_pilot_quality_partial_rho_sigma_given_mass_z": 0.8866085005165906,
@@ -2133,6 +2134,204 @@
         "sigma_pilot_quality_raw_rho_sigma_vs_balmer": 0.7142857142857144,
         "sigma_pilot_quality_raw_p_sigma_vs_balmer": 0.0713435614675376,
         "sigma_pilot_resolution_model": "grating_fallback_pilot"
+      },
+      "L5_kinematic_decisive": {
+        "status": "live",
+        "assessment": "kinematic_support_with_small_sample_caveat",
+        "federated_assessment": "primary_direct_kinematic_support_with_two_auxiliary_direct_branch_alignments",
+        "rho_mstar_age": 0.42537997325426125,
+        "p_mstar_age": 0.11393737480236173,
+        "rho_gamma_dyn_age": 0.7068528249565593,
+        "p_gamma_dyn_age": 0.0032135982222336362,
+        "rho_tep_age": 0.8142857142857142,
+        "p_tep_age": 0.000219365827727102,
+        "partial_rho_gamma_dyn_age_given_z": 0.7329146648059125,
+        "p_partial_gamma_dyn_age_given_z": 0.0018812791577521911,
+        "partial_rho_mstar_age_given_z": 0.4927949054177814,
+        "p_partial_mstar_age_given_z": 0.061989028603082766,
+        "partial_rho_gamma_dyn_age_given_mstar_z": 0.6241190426024141,
+        "p_partial_gamma_dyn_age_given_mstar_z": 0.012891341145563258,
+        "partial_rho_mstar_age_given_gamma_dyn_z": -0.03638361400088119,
+        "p_partial_mstar_age_given_gamma_dyn_z": 0.8975715624446297,
+        "delta_partial_rho_gamma_minus_mstar_given_z": 0.24011975938813107,
+        "delta_partial_rho_gamma_minus_mstar_given_competitor_z": 0.6605026566032953,
+        "steiger_gamma_dyn_vs_mstar_given_z": {
+          "n": 15,
+          "rho_age_mstar_given_z": 0.4927949054177814,
+          "rho_age_gamma_dyn_given_z": 0.7329146648059124,
+          "rho_mstar_gamma_dyn_given_z": 0.6966072486528576,
+          "delta_rho_gamma_minus_mstar_given_z": 0.24011975938813096,
+          "z_stat_gamma_dyn_better_than_mstar": 1.4569938230070842,
+          "p_value_gamma_dyn_better_than_mstar": 0.14511808531309245
+        },
+        "steiger_gamma_dyn_vs_mstar_given_z_bootstrap": {
+          "n_boot": 2000,
+          "z_stat_ci_95": [
+            -1.3045892603457419,
+            3.3184274653289103
+          ],
+          "delta_rho_ci_95": [
+            -0.19027622080847473,
+            0.8138194152150813
+          ],
+          "support_fraction_gamma_dyn_better": 0.858,
+          "support_fraction_gamma_dyn_better_and_significant": 0.341
+        },
+        "published_uncertainty_coverage": {
+          "n_with_log_mdyn_uncertainty": 15,
+          "n_with_log_mstar_uncertainty": 15,
+          "n_with_age_uncertainty": 15,
+          "n_with_all_three_uncertainties": 15
+        },
+        "uncertainty_monte_carlo": {
+          "n_draws": 2000,
+          "partial_gamma_dyn_age_given_z": {
+            "median": 0.6149986445016031,
+            "ci_95": [
+              0.34239443900583805,
+              0.7951969411314909
+            ],
+            "support_fraction_positive": 1.0,
+            "support_fraction_p_lt_0_05": 0.786
+          },
+          "partial_mstar_age_given_z": {
+            "median": 0.4111595798572776,
+            "ci_95": [
+              0.21299989387074017,
+              0.528661864964279
+            ],
+            "support_fraction_positive": 1.0,
+            "support_fraction_p_lt_0_05": 0.052
+          },
+          "partial_gamma_dyn_age_given_mstar_z": {
+            "median": 0.5141581138556446,
+            "ci_95": [
+              0.14939977596834722,
+              0.7550096804417622
+            ],
+            "support_fraction_positive": 0.9965,
+            "support_fraction_p_lt_0_05": 0.5005
+          },
+          "partial_mstar_age_given_gamma_dyn_z": {
+            "median": -0.006038720642453546,
+            "ci_95": [
+              -0.3426021969901103,
+              0.28457614070225107
+            ],
+            "support_fraction_positive": 0.4865,
+            "support_fraction_p_lt_0_05": 0.0015
+          },
+          "delta_partial_rho_gamma_minus_mstar_given_z": {
+            "median": 0.21048970995886654,
+            "ci_95": [
+              -0.03904648771205905,
+              0.4044878088917237
+            ],
+            "support_fraction_positive": 0.9575,
+            "support_fraction_p_lt_0_05": null
+          },
+          "steiger_z_gamma_dyn_better_than_mstar": {
+            "median": 1.1103945688464765,
+            "ci_95": [
+              -0.1888210492079292,
+              2.260840149098186
+            ],
+            "support_fraction_positive": 0.9575,
+            "support_fraction_p_lt_0_05": 0.0835
+          }
+        },
+        "direct_kinematic_package_branch_count": 5,
+        "direct_kinematic_package_counted_branch_count": 3,
+        "direct_kinematic_package_contextual_branch_count": 2,
+        "direct_kinematic_package_supportive_branch_count": 3,
+        "direct_kinematic_package_primary_branch_label": "SUSPENSE spectral-age decoupling",
+        "direct_kinematic_package_available_branch_labels": [
+          "SUSPENSE spectral-age decoupling",
+          "Object-level M*/Mdyn anomaly resolution",
+          "DJA sigma-Balmer pilot",
+          "Same-regime literature kinematic sample",
+          "Sigma-based kinematic expansion (N=83, z=1.2-7.6)"
+        ],
+        "direct_kinematic_package_counted_branch_labels": [
+          "SUSPENSE spectral-age decoupling",
+          "Object-level M*/Mdyn anomaly resolution",
+          "Sigma-based kinematic expansion (N=83, z=1.2-7.6)"
+        ],
+        "direct_kinematic_package_contextual_branch_labels": [
+          "DJA sigma-Balmer pilot",
+          "Same-regime literature kinematic sample"
+        ],
+        "direct_kinematic_package_supportive_branch_labels": [
+          "SUSPENSE spectral-age decoupling",
+          "Object-level M*/Mdyn anomaly resolution",
+          "Sigma-based kinematic expansion (N=83, z=1.2-7.6)"
+        ],
+        "direct_kinematic_package_all_available_branches_supportive": true,
+        "direct_kinematic_package_caveat": "Only the SUSPENSE branch is a direct age-based predictor-comparison test. The object-level M*/Mdyn branch strengthens the broader direct kinematic package, but it remains auxiliary because it uses a different observable. The DJA sigma-Balmer pilot is surfaced as contextual pilot evidence rather than counted supportive evidence because the current supportive subset is very small and relies entirely on fallback spectral-resolution handling. The same-regime literature sample is surfaced as contextual direct-regime coverage and is not counted as a TEP sign-test branch. The sigma-based kinematic expansion branch uses a sigma-only Gamma_t (zero SED dependence) on a combined N=83 sample to break the mass-proxy circularity.",
+        "auxiliary_direct_object_level_assessment": "supportive_object_level_mass_resolution",
+        "auxiliary_direct_object_level_n_objects_total": 5,
+        "auxiliary_direct_object_level_n_objects_exact_mdyn": 4,
+        "auxiliary_direct_object_level_n_objects_upper_limit_only": 1,
+        "auxiliary_direct_object_level_mean_observed_excess_dex": 0.16811325000000021,
+        "auxiliary_direct_object_level_mean_corrected_excess_dex": -0.07531999668861422,
+        "auxiliary_direct_object_level_resolution_fraction_among_anomalous": 0.6666666666666666,
+        "auxiliary_sigma_pilot_assessment": "supportive_one_sided_conditional_asymmetry",
+        "auxiliary_sigma_pilot_counts_toward_supportive_tally": false,
+        "auxiliary_sigma_pilot_n_quality_screened": 15,
+        "auxiliary_sigma_pilot_n_with_balmer": 7,
+        "auxiliary_sigma_pilot_partial_rho_sigma_given_mass_z": 0.8866085005165906,
+        "auxiliary_sigma_pilot_partial_p_sigma_given_mass_z": 0.04504809743706803,
+        "auxiliary_sigma_pilot_partial_rho_mass_given_sigma_z": -0.38227642577130344,
+        "auxiliary_sigma_pilot_partial_p_mass_given_sigma_z": 0.5253997346033027,
+        "auxiliary_sigma_pilot_uses_fallback_resolution_model": true,
+        "auxiliary_sigma_pilot_robustness_gate": {
+          "passes_supportive_tally_robustness": false,
+          "n_quality_screened": 15,
+          "n_with_balmer": 7,
+          "fallback_resolution_count": 15,
+          "uses_any_fallback_resolution_model": true,
+          "all_quality_screened_widths_use_fallback_resolution": true,
+          "failed_criteria": [
+            "n_with_balmer_below_8",
+            "all_quality_screened_widths_use_fallback_resolution"
+          ]
+        },
+        "contextual_same_regime_assessment": "same_regime_direct_kinematic_sample_available",
+        "contextual_same_regime_n_objects_total": 55,
+        "contextual_same_regime_n_objects_exact_mdyn": 36,
+        "contextual_same_regime_n_objects_upper_limit_only": 19,
+        "contextual_same_regime_z_min": 4.02,
+        "contextual_same_regime_z_max": 7.61,
+        "contextual_same_regime_fraction_exact_mdyn_gt_mstar": 0.9166666666666666,
+        "contextual_same_regime_source_breakdown": {
+          "Danhaive et al. 2025": 33,
+          "Saldana-Lopez et al. 2025": 16,
+          "de Graaff et al. 2024": 6
+        },
+        "sigma_expansion_assessment": "directionally_supportive_sigma_test",
+        "sigma_expansion_supportive": true,
+        "sigma_expansion_counts_toward_supportive_tally": true,
+        "sigma_expansion_n_objects_total": 83,
+        "sigma_expansion_n_sources": 6,
+        "sigma_expansion_z_min": 1.17,
+        "sigma_expansion_z_max": 7.61,
+        "sigma_expansion_T3_partial_rho": 0.3264727183166993,
+        "sigma_expansion_T3_p": 0.002593640803285009,
+        "sigma_expansion_T3_ci_95": [
+          0.10150783330479503,
+          0.5122135491832388
+        ],
+        "sigma_expansion_T5_highz_n": 56,
+        "sigma_expansion_T5_highz_partial_rho": 0.3261587271078059,
+        "sigma_expansion_T5_highz_p": 0.01415944656068624,
+        "sigma_expansion_source_breakdown": {
+          "Danhaive et al. 2025": 41,
+          "Saldana-Lopez et al. 2025": 16,
+          "Slob et al. 2025": 15,
+          "de Graaff et al. 2024": 6,
+          "Esdaile et al. 2021": 4,
+          "Tanaka et al. 2019": 1
+        }
       }
     },
     "auxiliary_checks": {
@@ -2147,7 +2346,7 @@
         "partial_rank_rho": 0.2617505389865666,
         "partial_rank_p": 8.124749057016333e-06,
         "shuffled_mass_z_score": 9.240337930025218,
-        "shuffled_mass_p": 1e-300,
+        "shuffled_mass_p": 0.0004997501249375312,
         "degeneracy_state": "narrowed_not_closed",
         "limitations": [
           "The environment-density branch remains inconclusive and sign-mixed.",
@@ -2226,12 +2425,12 @@
         "status": "live",
         "beta_ml": 0.7,
         "beta_empirical_from_l4": 0.5211082204349958,
-        "rho_true_unbiased": 0.6971201567992016,
-        "rho_partial_obs_beta07": 0.3718278524502785,
-        "suppression_fraction_beta07": 0.5333769922211269,
-        "correction_factor_beta07": 1.8748465242861863,
-        "uncover_corrected_rho": 0.48746009631440845,
-        "cosmos_z9_13_corrected_rho": 0.13959765189747567
+        "rho_true_unbiased": 0.4349809571818095,
+        "rho_partial_obs_beta07": 0.28492820609328207,
+        "suppression_fraction_beta07": 0.6550360455761062,
+        "correction_factor_beta07": 1.5266335444494463,
+        "uncover_corrected_rho": 0.39692472155685604,
+        "cosmos_z9_13_corrected_rho": 0.11367034866718102
       },
       "jades_dr5_morphology": {
         "status": "live",
@@ -2316,6 +2515,35 @@
           "uncertainty_inflation": true,
           "high_quality_subset_recovers_signal": false
         }
+      },
+      "nested_bayesian_model_comparison": {
+        "status": "live",
+        "sample_size": 504,
+        "n_observables": 4,
+        "observables": [
+          "dust",
+          "log_ssfr",
+          "chi2",
+          "met"
+        ],
+        "joint_key_finding": "Multi-observable joint nested Bayesian model comparison favours TEP over most alternatives, but AGN_Feedback decisively outperforms TEP in this comparison (ln BF = -27.6). Mean ln(BF) across 4 alternatives = -1.2 (log10 = -0.5).  TEP achieves this with the fewest parameters, leveraging a single theory-fixed predictor (Gamma_t) across all observables.",
+        "joint_mean_ln_BF": -1.1844084882401376,
+        "joint_mean_log10_BF": -0.5143820707620641,
+        "joint_hardest_alternative": "AGN_Feedback",
+        "joint_hardest_ln_BF": -27.616757665032765,
+        "joint_n_strong_for_TEP": 3,
+        "joint_n_favour_alternative": 1,
+        "joint_ln_BF_standard_physics": 13.220565148659716,
+        "joint_ln_BF_bursty_sf": 5.98039307929912,
+        "joint_ln_BF_varying_imf": 3.6781654841133786,
+        "joint_ln_BF_agn_feedback": -27.616757665032765,
+        "residual_key_finding": "Residual-space nested Bayesian comparison decisively favours TEP over all tested residual alternatives. After removing linear mass+z trends from both observables and competing predictors, mean ln(BF) across 2 alternatives = 77.4 (log10 = 33.6).",
+        "residual_mean_ln_BF": 77.39619407059286,
+        "residual_mean_log10_BF": 33.61274000517165,
+        "residual_n_decisive_for_TEP": 2,
+        "residual_n_favour_alternative": 0,
+        "residual_ln_BF_null": 99.08331343701275,
+        "residual_ln_BF_constrained_agn": 55.70907470417296
       }
     },
     "availability": {
@@ -2341,10 +2569,14 @@
       }
     },
     "claim_hierarchy": {
-      "headline_primary_result": "L1 dust-Gamma_t replication across three independent JWST surveys is the primary reproducible JWST result",
+      "headline_primary_result": "L1 dust-Gamma_t replication across three independent JWST surveys remains the primary large-sample JWST result",
+      "headline_direct_test": "L5 JWST-SUSPENSE direct kinematic comparison materially narrows the photometric mass-circularity objection",
       "primary_live_lines": [
         "L1_dust_replication",
         "L3_ssfr_inversion"
+      ],
+      "direct_kinematic_tests": [
+        "L5_kinematic_decisive"
       ],
       "ancillary_indications": [
         "L2_core_screening"
@@ -2375,11 +2607,13 @@
       "skipped_primary_lines": 0,
       "missing_primary_lines": 0,
       "headline_primary_result": "L1 dust-Gamma_t replication across three independent JWST surveys",
+      "headline_direct_test": "L5 JWST-SUSPENSE direct kinematic comparison materially narrows the photometric mass-circularity objection",
       "supporting_primary_lines": [
         "L3_ssfr_inversion"
       ],
       "ancillary_indication": "L2_core_screening",
       "derived_regime_comparison": "L4_dynamical_mass",
+      "direct_kinematic_test": "L5_kinematic_decisive",
       "supplementary_mixed_branches": [
         "environmental_screening"
       ],

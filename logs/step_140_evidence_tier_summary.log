@@ -1,26 +1,27 @@
-[13:10:39]     ======================================================================
-[13:10:39]     STEP 140: Final Synthesis
-[13:10:39]     ======================================================================
-[13:10:39]     
+[17:09:12]     ======================================================================
+[17:09:12]     STEP 140: Final Synthesis
+[17:09:12]     ======================================================================
+[17:09:12]     
 Loaded N = 2315 galaxies
-[13:10:39]     
+[17:09:12]     
 ======================================================================
-[13:10:39]     LIVE SYNTHESIS
-[13:10:39]     ======================================================================
-[13:10:39]       Live primary lines: 2
-[13:10:39]       Skipped primary lines: 0
-[13:10:39]       Missing primary lines: 0
-[13:10:39]       L1: Fisher z = 24.45σ across 3 datasets
-[13:10:39]       L3: Δρ = 0.250, high-z ρ = 0.087
-[13:10:39]       L4 (derived_from_real_data): published excess 0.150 dex, TEP reduction 0.400 dex
-[13:10:39]       α₀ concordance: JWST 0.548 ± 0.010; external Cepheid prior 0.580 ± 0.160; agreement = 0.20σ (p = 0.999)
-[13:10:39]       Cross-survey generalization: mean Δρ = 0.021; mean polynomial R² drop = 3.063
-[13:10:39]       Adversarial information: z>8 CMI z = 28.48; mean cross-survey Δρ = 0.014
-[13:10:39]       Functional-form discrimination: step ΔAIC = -4.78
-[13:10:39]       Mass-bias attenuation: ρ_true ≈ 0.697; β=0.7 observed ρ ≈ 0.372
-[13:10:39]       JADES DR5 morphology: supportive partials = 4; strongest = sigma_star_z_gt_7
-[13:10:39]       COSMOS2025 blank-field L3: matched_z8_9_supportive_but_ultrahighz_selection_sensitive
-[13:10:39]       UNCOVER z=9-12 audit: The z=9-12 null is likely sensitivity-limited: the tail sample is smaller and/or the dust posteriors are more compressed or uncertain than in z=8-9.
-[13:10:39]       Environmental screening: full-sample Δρ = 0.192; z>8 Δρ = 0.003 (p = 0.966)
-[13:10:39]     
+[17:09:12]     LIVE SYNTHESIS
+[17:09:12]     ======================================================================
+[17:09:12]       Live primary lines: 2
+[17:09:12]       Skipped primary lines: 0
+[17:09:12]       Missing primary lines: 0
+[17:09:12]       L1: Fisher z = 24.45σ across 3 datasets
+[17:09:12]       L3: Δρ = 0.250, high-z ρ = 0.087
+[17:09:12]       L4 (derived_from_real_data): published excess 0.150 dex, TEP reduction 0.400 dex
+[17:09:12]       L5 (live kinematics): kinematic_support_with_small_sample_caveat; ρ(Age, M_star|z)=0.493 (p=6.199e-02) vs ρ(Age, Γ_dyn|z)=0.733 (p=1.881e-03); ρ(Age, Γ_dyn|M_star,z)=0.624 vs ρ(Age, M_star|Γ_dyn,z)=-0.036; Steiger Z=1.457
+[17:09:12]       α₀ concordance: JWST 0.548 ± 0.010; external Cepheid prior 0.580 ± 0.160; agreement = 0.20σ (p = 0.999)
+[17:09:12]       Cross-survey generalization: mean Δρ = 0.021; mean polynomial R² drop = 3.063
+[17:09:12]       Adversarial information: z>8 CMI z = 28.48; mean cross-survey Δρ = 0.014
+[17:09:12]       Functional-form discrimination: step ΔAIC = -4.78
+[17:09:12]       Mass-bias attenuation: ρ_true ≈ 0.435; β=0.7 observed ρ ≈ 0.285
+[17:09:12]       JADES DR5 morphology: supportive partials = 4; strongest = sigma_star_z_gt_7
+[17:09:12]       COSMOS2025 blank-field L3: matched_z8_9_supportive_but_ultrahighz_selection_sensitive
+[17:09:12]       UNCOVER z=9-12 audit: The z=9-12 null is likely sensitivity-limited: the tail sample is smaller and/or the dust posteriors are more compressed or uncertain than in z=8-9.
+[17:09:12]       Environmental screening: full-sample Δρ = 0.192; z>8 Δρ = 0.003 (p = 0.966)
+[17:09:12]     
 Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_140_evidence_tier_summary.json

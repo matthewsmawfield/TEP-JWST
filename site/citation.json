@@ -1,7 +1,7 @@
 {
   "id": "smawfield2026jwst",
   "type": "article",
-  "title": "Temporal Shear: Resolving the High-Redshift Efficiency Crisis",
+  "title": "The Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies",
   "author": [
     {
       "family": "Smawfield",
@@ -9,11 +9,11 @@
     }
   ],
   "issued": {
-    "date-parts": [[2026, 3, 12]]
+    "date-parts": [[2026, 3, 13]]
   },
-  "doi": "10.5281/zenodo.18204192",
+  "doi": "10.5281/zenodo.19000828",
   "URL": "https://matthewsmawfield.github.io/TEP-JWST/",
-  "publisher": "Zenodo",
+  "publisher": "Preprint",
   "keywords": [
     "JWST",
     "High-Redshift",

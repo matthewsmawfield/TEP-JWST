@@ -14,30 +14,30 @@ import sys
 import warnings
 import numpy as np
 import pandas as pd
-from scipy import stats
+from scipy import stats  # Hypothesis tests and correlation
 from pathlib import Path
 import json
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value, safe_json_default
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma, stellar_to_halo_mass_behroozi_like
-from scripts.utils.spectroscopic_catalog import ensure_combined_spectroscopic_catalog
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300) & JSON serialiser for numpy types
+from scripts.utils.tep_model import compute_gamma_t as tep_gamma, stellar_to_halo_mass_behroozi_like  # TEP model: Gamma_t formula, stellar-to-halo mass from abundance matching
+from scripts.utils.spectroscopic_catalog import ensure_combined_spectroscopic_catalog  # Build merged spec-z catalogue from local reproducible sources (UNCOVER, JADES, CEERS, literature)
 
-STEP_NUM = "035"
-STEP_NAME = "spectroscopic_validation"
+STEP_NUM = "035"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "spectroscopic_validation"  # Spectroscopic validation: tests TEP predictions with spec-z confirmed galaxies (not photo-z)
 
-DATA_RAW_PATH = PROJECT_ROOT / "data" / "raw" / "uncover"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH = PROJECT_ROOT / "logs"
+DATA_RAW_PATH = PROJECT_ROOT / "data" / "raw" / "uncover"  # Raw UNCOVER data directory (FITS catalogs from Zenodo)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
 
 for p in [OUTPUT_PATH, LOGS_PATH]:
-    p.mkdir(parents=True, exist_ok=True)
+    p.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
 
 def load_spectroscopic_catalog():

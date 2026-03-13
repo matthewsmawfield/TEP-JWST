@@ -1,26 +1,26 @@
-[13:03:28]     ============================================================
-[13:03:28]     STEP 2: TEP Model and Gamma_t Calculation
-[13:03:28]     ============================================================
-[13:03:28] 
-[13:03:28]     TEP Model Parameters:
-[13:03:28]       alpha_0 = 0.58 ± 0.16
-[13:03:28]       log_Mh_ref = 12.0
-[13:03:28]       z_ref = 5.5
-[13:03:28] 
-[13:03:28]     Loaded full sample: N = 2315
-[13:03:28]     Loaded multi-property sample: N = 1108
-[13:03:28] 
-[13:03:28]     Applying TEP model...
-[13:03:28] 
-[13:03:28]     Gamma_t Statistics (Full Sample):
-[13:03:28]       Min: 0.099
-[13:03:28]       Max: 135.142
-[13:03:28]       Median: 0.455
-[13:03:28]       N with Gamma_t > 1: 202
-[13:03:28]       N with Gamma_t > 1.5: 75
-[13:03:28] 
-[13:03:28]     Saving outputs...
-[13:03:28]     Saved: step_002_uncover_full_sample_tep.csv
-[13:03:28]     Saved: step_002_uncover_multi_property_sample_tep.csv
-[13:03:28] 
-[13:03:28]     Step 002 complete.
+[16:58:05]     ============================================================
+[16:58:05]     STEP 2: TEP Model and Gamma_t Calculation
+[16:58:05]     ============================================================
+[16:58:05] 
+[16:58:05]     TEP Model Parameters:
+[16:58:05]       alpha_0 = 0.58 ± 0.16
+[16:58:05]       log_Mh_ref = 12.0
+[16:58:05]       z_ref = 5.5
+[16:58:05] 
+[16:58:05]     Loaded full sample: N = 2315
+[16:58:05]     Loaded multi-property sample: N = 1108
+[16:58:05] 
+[16:58:05]     Applying TEP model...
+[16:58:05] 
+[16:58:05]     Gamma_t Statistics (Full Sample):
+[16:58:05]       Min: 0.099
+[16:58:05]       Max: 135.142
+[16:58:05]       Median: 0.455
+[16:58:05]       N with Gamma_t > 1: 202
+[16:58:05]       N with Gamma_t > 1.5: 75
+[16:58:05] 
+[16:58:05]     Saving outputs...
+[16:58:05]     Saved: step_002_uncover_full_sample_tep.csv
+[16:58:05]     Saved: step_002_uncover_multi_property_sample_tep.csv
+[16:58:05] 
+[16:58:05]     Step 002 complete.

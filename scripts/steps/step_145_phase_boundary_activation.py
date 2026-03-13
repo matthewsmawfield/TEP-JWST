@@ -41,23 +41,23 @@ import numpy as np
 import pandas as pd
 from scipy import stats, optimize
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 from scripts.utils.tep_model import (
     compute_gamma_t, stellar_to_halo_mass_behroozi_like,
-    compute_t_eff, ALPHA_0,
+    compute_t_eff, ALPHA_0,  # Shared TEP model
 )
-from scripts.utils.p_value_utils import safe_json_default
+from scripts.utils.p_value_utils import safe_json_default  # JSON serialiser for numpy types
 
-STEP_NUM = "145"
-STEP_NAME = "phase_boundary_activation"
+STEP_NUM = "145"  # Pipeline step number
+STEP_NAME = "phase_boundary_activation"  # Used in log / output filenames
 
-LOGS_PATH = PROJECT_ROOT / "logs"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-FIGURES_PATH = PROJECT_ROOT / "results" / "figures"
-DATA_INTERIM = PROJECT_ROOT / "data" / "interim"
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
+FIGURES_PATH = PROJECT_ROOT / "results" / "figures"  # Publication figures directory
+DATA_INTERIM = PROJECT_ROOT / "data" / "interim"  # Processed catalogue products
 RESULTS_INTERIM = PROJECT_ROOT / "results" / "interim"
 
 for p in [LOGS_PATH, OUTPUT_PATH, FIGURES_PATH]:

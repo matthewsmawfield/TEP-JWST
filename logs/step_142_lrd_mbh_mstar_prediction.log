@@ -1,33 +1,52 @@
-[19:45:10]     =================================================================
-[19:45:10]     STEP 142: LRD M_BH/M_* Quantitative Prediction vs Observation
-[19:45:10]     =================================================================
-[19:45:10]     
-   z   log_Mh    Γ_halo    Γ_cen    Ratio    M_BH/M_* boost
-[19:45:10]     -----------------------------------------------------------------
-[19:45:10]        4     10.5     0.741    2.008     2.71          6.50e+18
-[19:45:10]        4     11.0     1.033    2.801     2.71          1.72e+26
-[19:45:10]        4     11.5     1.440    3.906     2.71          3.84e+36
-[19:45:10]        5     10.5     0.748    2.775     3.71          7.97e+22
-[19:45:10]        5     11.0     1.157    4.296     3.71          2.87e+35
-[19:45:10]        5     11.5     1.792    6.651     3.71          7.92e+54
-[19:45:10]        6     10.5     0.774    4.041     5.22          2.00e+29
-[19:45:10]        6     11.0     1.343    7.011     5.22          6.77e+50
-[19:45:10]        6     11.5     2.330   12.162     5.22          1.51e+88
-[19:45:10]        7     10.5     0.822    6.193     7.53          2.64e+39
-[19:45:10]        7     11.0     1.612   12.139     7.53          1.87e+77
-[19:45:10]        7     11.5     3.159   23.794     7.53         2.92e+151
-[19:45:10]        8     10.5     0.896    9.964    11.13          5.98e+55
-[19:45:10]        8     11.0     1.999   22.244    11.13         3.29e+124
-[19:45:10]        8     11.5     4.463   49.657    11.13         9.35e+277
-[19:45:10]        9     10.5     1.000   16.806    16.81          9.66e+82
-[19:45:10]        9     11.0     2.561   43.047    16.81         3.65e+212
-[19:45:10]        9     11.5     6.561  110.264    16.81         1.01e+304
-[19:45:10]       10     10.5     1.144   29.670    25.93         6.06e+129
-[19:45:10]       10     11.0     3.387   87.819    25.93         1.01e+304
-[19:45:10]       10     11.5    10.024  259.929    25.93         1.01e+304
-[19:45:10]     
-Median M_BH/M_* boost (log_Mh=11): 1.87e+77
-[19:45:10]     Maximum boost at z=10.0: 1.01e+304
-[19:45:10]     Saved: /Users/matthewsmawfield/www/TEP-JWST/results/interim/step_142_lrd_mbh_mstar_prediction.csv
-[19:45:10] Saved: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_142_lrd_mbh_mstar_prediction.json
-[19:45:10]     Step 142 complete.
+[16:46:21]     ======================================================================
+[16:46:21]     STEP 142: LRD M_BH/M_* Combined Growth Model
+[16:46:21]     ======================================================================
+[16:46:21]     Loaded step_132 population: N=260, median ΔΓ=0.328, median log_boost=3.24
+[16:46:21]     
+Loaded real LRD sample: N=253, median z=5.55, median log_M*=8.28, median Re=91 pc
+[16:46:21]     Direct-mass CEERS overlap: N=40, median log_M*=9.69, median Δlog_M*(direct - MUV)=+1.43
+[16:46:21]     Observed LRD M_BH/M*: 0.010–0.050 (median 0.032)
+[16:46:21]     
+Sample shear summary: median ΔΓ=0.102, median concentration=5.5, median t_cos=1.028 Gyr
+[16:46:21]     
+======================================================================
+[16:46:21]     GROWTH SCENARIO COMPARISON
+[16:46:21]     ======================================================================
+[16:46:21]       Standard (no TEP)                                   median log(M_BH/M*)=-3.00  offset=-1.50 dex  ✗ gap remains
+[16:46:21]       TEP-only (100 M_sun seed, Eddington)                median log(M_BH/M*)=-5.16  offset=-3.66 dex  ✗ gap remains
+[16:46:21]       TEP + intermediate seed (10^3 M_sun)                median log(M_BH/M*)=-4.16  offset=-2.66 dex  ✗ gap remains
+[16:46:21]       TEP + mild super-Eddington (f=1.3, 100 M_sun)       median log(M_BH/M*)=-4.85  offset=-3.35 dex  ✗ gap remains
+[16:46:21]       TEP combined (500 M_sun, f=1.1)                     median log(M_BH/M*)=-4.36  offset=-2.86 dex  ✗ gap remains
+[16:46:21]     
+Monte Carlo error propagation (N=5000)...
+[16:46:21]       TEP + intermediate seed (10^3 M_sun)     sample median=-4.16, 95% CI [-4.74, -3.43], in-range=0.0%
+[16:46:21]       TEP + mild super-Eddington (f=1.3, 100 M_sun) sample median=-4.85, 95% CI [-5.60, -3.88], in-range=0.0%
+[16:46:21]       TEP combined (500 M_sun, f=1.1)          sample median=-4.36, 95% CI [-4.99, -3.55], in-range=0.0%
+[16:46:22]     
+Empirical CEERS-calibrated branch: N=253, LOO MAE=0.29 dex, median log_M*=9.64, median ΔΓ=0.462
+[16:46:22]       TEP-only (100 M_sun seed, Eddington)                median log(M_BH/M*)=-2.83  offset=-1.33 dex
+[16:46:22]       TEP + intermediate seed (10^3 M_sun)                median log(M_BH/M*)=-1.83  offset=-0.33 dex
+[16:46:22]       TEP + mild super-Eddington (f=1.3, 100 M_sun)       median log(M_BH/M*)=-1.37  offset=+0.13 dex
+[16:46:22]       TEP combined (500 M_sun, f=1.1)                     median log(M_BH/M*)=-1.64  offset=-0.14 dex
+[16:46:22]       MC TEP + intermediate seed (10^3 M_sun)        median=-1.89, 95% CI [-3.00, -1.80], in-range=68.3%
+[16:46:22]       MC TEP + mild super-Eddington (f=1.3, 100 M_sun) median=-1.41, 95% CI [-2.89, -1.35], in-range=88.9%
+[16:46:22]       MC TEP combined (500 M_sun, f=1.1)             median=-1.70, 95% CI [-2.94, -1.61], in-range=81.7%
+[16:46:22]     
+CEERS direct-mass subset: median ΔΓ=0.739, median log_M*=9.69
+[16:46:22]       TEP-only (100 M_sun seed, Eddington)                median log(M_BH/M*)=-0.61  offset=+0.89 dex
+[16:46:22]       TEP + intermediate seed (10^3 M_sun)                median log(M_BH/M*)=+0.00  offset=+1.50 dex
+[16:46:22]       TEP + mild super-Eddington (f=1.3, 100 M_sun)       median log(M_BH/M*)=+0.00  offset=+1.50 dex
+[16:46:22]       TEP combined (500 M_sun, f=1.1)                     median log(M_BH/M*)=+0.00  offset=+1.50 dex
+[16:46:22]     
+======================================================================
+[16:46:22]     GAP CLOSURE SUMMARY
+[16:46:22]     ======================================================================
+[16:46:22]       Conservative MUV-proxy TEP-only offset: -3.66 dex
+[16:46:22]       Empirical CEERS-calibrated median S1:  -1.33 dex
+[16:46:22]       Best empirical deterministic path:     TEP + mild super-Eddington (f=1.3, 100 M_sun) (+0.13 dex)
+[16:46:22]       Best empirical MC-supported path:      TEP + mild super-Eddington (f=1.3, 100 M_sun) (88.9% in-range)
+[16:46:22]     
+Assessment: mass_model_sensitive_real_sample_empirical_calibration_supports_closure
+[16:46:22]     Saved: /Users/matthewsmawfield/www/TEP-JWST/results/interim/step_142_lrd_mbh_mstar_prediction.csv
+[16:46:22] Saved: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_142_lrd_mbh_mstar_prediction.json
+[16:46:22]     Step 142 complete.

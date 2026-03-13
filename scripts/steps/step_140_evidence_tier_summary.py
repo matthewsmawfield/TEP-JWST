@@ -18,22 +18,22 @@ import json
 # PATHS AND LOGGER
 # =============================================================================
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 
-STEP_NUM = "140"
-STEP_NAME = "evidence_tier_summary"
+STEP_NUM = "140"  # Pipeline step number
+STEP_NAME = "evidence_tier_summary"  # Used in log / output filenames
 
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH = PROJECT_ROOT / "logs"
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory
 
 for p in [OUTPUT_PATH, LOGS_PATH]:
     p.mkdir(parents=True, exist_ok=True)
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger
 set_step_logger(logger)
 
 # =============================================================================
@@ -65,6 +65,7 @@ def main():
     s037 = load_json_optional(OUTPUT_PATH / "step_037_resolved_gradients.json")
     s139 = load_json_optional(OUTPUT_PATH / "step_139_colour_gradient_steiger.json")
     s117 = load_json_optional(OUTPUT_PATH / "step_117_dynamical_mass_comparison.json")
+    s170 = load_json_optional(OUTPUT_PATH / "step_170_kinematic_decisive_test.json")
     s143 = load_json_optional(OUTPUT_PATH / "step_143_mass_proxy_breaker.json")
     s144 = load_json_optional(OUTPUT_PATH / "step_144_adversarial_ml_attack.json")
     s162 = load_json_optional(OUTPUT_PATH / "step_162_l1_l3_independence.json")
@@ -82,6 +83,7 @@ def main():
     s158 = load_json_optional(OUTPUT_PATH / "step_158_dja_balmer_decrement.json")
     s164 = load_json_optional(OUTPUT_PATH / "step_164_uncover_z9_null_audit.json")
     s169 = load_json_optional(OUTPUT_PATH / "step_169_dja_sigma_pilot.json")
+    s176 = load_json_optional(OUTPUT_PATH / "step_176_nested_bayesian_evidence.json")
 
     results = {
         'n_total': n_total,
@@ -236,8 +238,15 @@ def main():
         supplementary_direct_table = supplementary_direct.get('kinematic_table', {})
         supplementary_direct_summary = supplementary_direct.get('object_level_summary', {})
         supplementary_direct_upper_limits = supplementary_direct.get('upper_limit_summary', {})
-        sigma_pilot = s169.get('pilot_balmer_sigma_test', {}).get('quality_screened', {}) if s169 else {}
-        sigma_fit_summary = s169.get('fit_summary', {}).get('quality_screened', {}) if s169 else {}
+        dja_branch = (
+            s170.get('federated_direct_kinematic_package', {}).get('branches', {}).get('dja_sigma_balmer_pilot', {})
+            if s170 else {}
+        )
+        dja_branch_present = bool(dja_branch)
+        dja_branch_counted = bool(dja_branch_present and dja_branch.get('counts_toward_supportive_tally', True))
+        sigma_surface_allowed = bool(s169) and (dja_branch_present or s170 is None)
+        sigma_pilot = s169.get('pilot_balmer_sigma_test', {}).get('quality_screened', {}) if sigma_surface_allowed else {}
+        sigma_fit_summary = s169.get('fit_summary', {}).get('quality_screened', {}) if sigma_surface_allowed else {}
         lines_of_evidence['L4_dynamical_mass'] = {
             'status': (
                 'direct_object_level_kinematics'
@@ -261,8 +270,9 @@ def main():
             'supplementary_direct_resolution_fraction_among_anomalous': supplementary_direct_summary.get('resolution_fraction_among_anomalous'),
             'supplementary_direct_upper_limit_mean_observed_excess_lower_bound_dex': supplementary_direct_upper_limits.get('mean_observed_excess_lower_bound_dex'),
             'supplementary_direct_upper_limit_mean_corrected_excess_lower_bound_dex': supplementary_direct_upper_limits.get('mean_corrected_excess_lower_bound_dex'),
-            'sigma_pilot_status': s169.get('status') if s169 else None,
-            'sigma_pilot_assessment': s169.get('assessment') if s169 else None,
+            'sigma_pilot_status': s169.get('status') if sigma_surface_allowed else None,
+            'sigma_pilot_assessment': s169.get('assessment') if sigma_surface_allowed else None,
+            'sigma_pilot_counted_toward_supportive_tally': dja_branch_counted if sigma_surface_allowed and s170 else None,
             'sigma_pilot_quality_fit_n': sigma_fit_summary.get('n_success'),
             'sigma_pilot_quality_balmer_n': sigma_pilot.get('n'),
             'sigma_pilot_quality_partial_rho_sigma_given_mass_z': sigma_pilot.get('partial_sigma_given_mass_z', {}).get('rho'),
@@ -280,6 +290,96 @@ def main():
         lines_of_evidence['L4_dynamical_mass'] = {
             'status': 'missing',
             'reason': 'step_117 output not available'
+        }
+
+    
+    if s170:
+        direct_package = s170.get('federated_direct_kinematic_package', {})
+        direct_package_summary = direct_package.get('summary', {})
+        direct_package_branches = direct_package.get('branches', {})
+        l5_sigma_pilot = direct_package_branches.get('dja_sigma_balmer_pilot', {})
+        l5_object_level = direct_package_branches.get('object_level_mass_anomaly_resolution', {})
+        l5_same_regime = direct_package_branches.get('same_regime_literature_kinematics', {})
+        l5_sigma_expansion = direct_package_branches.get('sigma_kinematic_expansion', {})
+        lines_of_evidence['L5_kinematic_decisive'] = {
+            'status': 'live',
+            'assessment': s170.get('assessment'),
+            'federated_assessment': s170.get('federated_assessment'),
+            'rho_mstar_age': s170.get('results', {}).get('rho_mstar_age'),
+            'p_mstar_age': s170.get('results', {}).get('p_mstar_age'),
+            'rho_gamma_dyn_age': s170.get('results', {}).get('rho_gamma_dyn_age'),
+            'p_gamma_dyn_age': s170.get('results', {}).get('p_gamma_dyn_age'),
+            'rho_tep_age': s170.get('results', {}).get('rho_tep_age'),
+            'p_tep_age': s170.get('results', {}).get('p_tep_age'),
+            'partial_rho_gamma_dyn_age_given_z': s170.get('results', {}).get('partial_rho_gamma_dyn_age_given_z'),
+            'p_partial_gamma_dyn_age_given_z': s170.get('results', {}).get('p_partial_gamma_dyn_age_given_z'),
+            'partial_rho_mstar_age_given_z': s170.get('results', {}).get('partial_rho_mstar_age_given_z'),
+            'p_partial_mstar_age_given_z': s170.get('results', {}).get('p_partial_mstar_age_given_z'),
+            'partial_rho_gamma_dyn_age_given_mstar_z': s170.get('results', {}).get('partial_rho_gamma_dyn_age_given_mstar_z'),
+            'p_partial_gamma_dyn_age_given_mstar_z': s170.get('results', {}).get('p_partial_gamma_dyn_age_given_mstar_z'),
+            'partial_rho_mstar_age_given_gamma_dyn_z': s170.get('results', {}).get('partial_rho_mstar_age_given_gamma_dyn_z'),
+            'p_partial_mstar_age_given_gamma_dyn_z': s170.get('results', {}).get('p_partial_mstar_age_given_gamma_dyn_z'),
+            'delta_partial_rho_gamma_minus_mstar_given_z': s170.get('results', {}).get('delta_partial_rho_gamma_minus_mstar_given_z'),
+            'delta_partial_rho_gamma_minus_mstar_given_competitor_z': s170.get('results', {}).get('delta_partial_rho_gamma_minus_mstar_given_competitor_z'),
+            'steiger_gamma_dyn_vs_mstar_given_z': s170.get('results', {}).get('steiger_gamma_dyn_vs_mstar_given_z'),
+            'steiger_gamma_dyn_vs_mstar_given_z_bootstrap': s170.get('results', {}).get('steiger_gamma_dyn_vs_mstar_given_z_bootstrap'),
+            'published_uncertainty_coverage': s170.get('robustness', {}).get('published_uncertainty_coverage'),
+            'uncertainty_monte_carlo': s170.get('robustness', {}).get('uncertainty_monte_carlo'),
+            'direct_kinematic_package_branch_count': direct_package_summary.get('n_available_branches'),
+            'direct_kinematic_package_counted_branch_count': direct_package_summary.get('n_counted_branches'),
+            'direct_kinematic_package_contextual_branch_count': direct_package_summary.get('n_contextual_branches'),
+            'direct_kinematic_package_supportive_branch_count': direct_package_summary.get('n_supportive_branches'),
+            'direct_kinematic_package_primary_branch_label': direct_package_summary.get('primary_branch_label'),
+            'direct_kinematic_package_available_branch_labels': direct_package_summary.get('available_branch_labels'),
+            'direct_kinematic_package_counted_branch_labels': direct_package_summary.get('counted_branch_labels'),
+            'direct_kinematic_package_contextual_branch_labels': direct_package_summary.get('contextual_branch_labels'),
+            'direct_kinematic_package_supportive_branch_labels': direct_package_summary.get('supportive_branch_labels'),
+            'direct_kinematic_package_all_available_branches_supportive': direct_package_summary.get('all_available_branches_supportive'),
+            'direct_kinematic_package_caveat': direct_package_summary.get('caveat'),
+            'auxiliary_direct_object_level_assessment': l5_object_level.get('assessment'),
+            'auxiliary_direct_object_level_n_objects_total': l5_object_level.get('n_objects_total'),
+            'auxiliary_direct_object_level_n_objects_exact_mdyn': l5_object_level.get('n_objects_exact_mdyn'),
+            'auxiliary_direct_object_level_n_objects_upper_limit_only': l5_object_level.get('n_objects_upper_limit_only'),
+            'auxiliary_direct_object_level_mean_observed_excess_dex': l5_object_level.get('mean_observed_excess_dex'),
+            'auxiliary_direct_object_level_mean_corrected_excess_dex': l5_object_level.get('mean_corrected_excess_dex'),
+            'auxiliary_direct_object_level_resolution_fraction_among_anomalous': l5_object_level.get('resolution_fraction_among_anomalous'),
+            'auxiliary_sigma_pilot_assessment': l5_sigma_pilot.get('assessment'),
+            'auxiliary_sigma_pilot_counts_toward_supportive_tally': l5_sigma_pilot.get('counts_toward_supportive_tally'),
+            'auxiliary_sigma_pilot_n_quality_screened': l5_sigma_pilot.get('n_quality_screened'),
+            'auxiliary_sigma_pilot_n_with_balmer': l5_sigma_pilot.get('n_with_balmer'),
+            'auxiliary_sigma_pilot_partial_rho_sigma_given_mass_z': l5_sigma_pilot.get('results', {}).get('partial_rho_direct_outcome_given_mass_z'),
+            'auxiliary_sigma_pilot_partial_p_sigma_given_mass_z': l5_sigma_pilot.get('results', {}).get('p_partial_direct_outcome_given_mass_z'),
+            'auxiliary_sigma_pilot_partial_rho_mass_given_sigma_z': l5_sigma_pilot.get('results', {}).get('partial_rho_mass_outcome_given_direct_z'),
+            'auxiliary_sigma_pilot_partial_p_mass_given_sigma_z': l5_sigma_pilot.get('results', {}).get('p_partial_mass_outcome_given_direct_z'),
+            'auxiliary_sigma_pilot_uses_fallback_resolution_model': l5_sigma_pilot.get('uses_fallback_resolution_model'),
+            'auxiliary_sigma_pilot_robustness_gate': l5_sigma_pilot.get('robustness_gate'),
+            'contextual_same_regime_assessment': l5_same_regime.get('assessment'),
+            'contextual_same_regime_n_objects_total': l5_same_regime.get('n_objects_total'),
+            'contextual_same_regime_n_objects_exact_mdyn': l5_same_regime.get('n_objects_exact_mdyn'),
+            'contextual_same_regime_n_objects_upper_limit_only': l5_same_regime.get('n_objects_upper_limit_only'),
+            'contextual_same_regime_z_min': l5_same_regime.get('z_min'),
+            'contextual_same_regime_z_max': l5_same_regime.get('z_max'),
+            'contextual_same_regime_fraction_exact_mdyn_gt_mstar': l5_same_regime.get('fraction_exact_mdyn_gt_mstar'),
+            'contextual_same_regime_source_breakdown': l5_same_regime.get('source_breakdown'),
+            'sigma_expansion_assessment': l5_sigma_expansion.get('assessment'),
+            'sigma_expansion_supportive': l5_sigma_expansion.get('supportive'),
+            'sigma_expansion_counts_toward_supportive_tally': l5_sigma_expansion.get('counts_toward_supportive_tally'),
+            'sigma_expansion_n_objects_total': l5_sigma_expansion.get('n_objects_total'),
+            'sigma_expansion_n_sources': l5_sigma_expansion.get('n_sources'),
+            'sigma_expansion_z_min': l5_sigma_expansion.get('z_min'),
+            'sigma_expansion_z_max': l5_sigma_expansion.get('z_max'),
+            'sigma_expansion_T3_partial_rho': l5_sigma_expansion.get('T3_partial_rho_gamma_mstar_given_sigma_z'),
+            'sigma_expansion_T3_p': l5_sigma_expansion.get('T3_p_partial_gamma_mstar_given_sigma_z'),
+            'sigma_expansion_T3_ci_95': l5_sigma_expansion.get('T3_ci_95'),
+            'sigma_expansion_T5_highz_n': l5_sigma_expansion.get('T5_highz_n'),
+            'sigma_expansion_T5_highz_partial_rho': l5_sigma_expansion.get('T5_highz_partial_rho_gamma'),
+            'sigma_expansion_T5_highz_p': l5_sigma_expansion.get('T5_highz_p_gamma'),
+            'sigma_expansion_source_breakdown': l5_sigma_expansion.get('source_paper_breakdown'),
+        }
+    else:
+        lines_of_evidence['L5_kinematic_decisive'] = {
+            'status': 'missing',
+            'reason': 'step_170 output not available'
         }
 
     auxiliary_checks = {}
@@ -449,6 +549,34 @@ def main():
             'flags': s164.get('diagnosis', {}).get('flags'),
         }
 
+    if s176:
+        joint_bf = s176.get('joint_bayes_factors', {})
+        residual_bf = s176.get('residual_space_bayes_factors', {})
+        auxiliary_checks['nested_bayesian_model_comparison'] = {
+            'status': 'live',
+            'sample_size': s176.get('sample_size'),
+            'n_observables': s176.get('n_observables'),
+            'observables': s176.get('observables'),
+            'joint_key_finding': s176.get('key_finding', {}).get('statement'),
+            'joint_mean_ln_BF': s176.get('joint_summary', {}).get('mean_ln_BF'),
+            'joint_mean_log10_BF': s176.get('joint_summary', {}).get('mean_log10_BF'),
+            'joint_hardest_alternative': s176.get('joint_summary', {}).get('hardest_alternative'),
+            'joint_hardest_ln_BF': s176.get('joint_summary', {}).get('hardest_ln_BF'),
+            'joint_n_strong_for_TEP': s176.get('joint_summary', {}).get('n_strong_for_TEP'),
+            'joint_n_favour_alternative': s176.get('joint_summary', {}).get('n_favour_alternative'),
+            'joint_ln_BF_standard_physics': joint_bf.get('Standard_Physics', {}).get('ln_BF_TEP_vs_alt'),
+            'joint_ln_BF_bursty_sf': joint_bf.get('Bursty_SF', {}).get('ln_BF_TEP_vs_alt'),
+            'joint_ln_BF_varying_imf': joint_bf.get('Varying_IMF', {}).get('ln_BF_TEP_vs_alt'),
+            'joint_ln_BF_agn_feedback': joint_bf.get('AGN_Feedback', {}).get('ln_BF_TEP_vs_alt'),
+            'residual_key_finding': s176.get('residual_space_key_finding', {}).get('statement'),
+            'residual_mean_ln_BF': s176.get('residual_space_summary', {}).get('mean_ln_BF'),
+            'residual_mean_log10_BF': s176.get('residual_space_summary', {}).get('mean_log10_BF'),
+            'residual_n_decisive_for_TEP': s176.get('residual_space_summary', {}).get('n_decisive_for_TEP'),
+            'residual_n_favour_alternative': s176.get('residual_space_summary', {}).get('n_favour_alternative'),
+            'residual_ln_BF_null': residual_bf.get('Residual_Null', {}).get('ln_BF_TEP_vs_alt'),
+            'residual_ln_BF_constrained_agn': residual_bf.get('Constrained_AGN', {}).get('ln_BF_TEP_vs_alt'),
+        }
+
     derived_consequences = {}
     if s146:
         labbe = s146.get('labbe_resolution', {})
@@ -501,8 +629,13 @@ def main():
     if derived_consequences:
         results['final_synthesis']['derived_consequences'] = derived_consequences
     results['final_synthesis']['claim_hierarchy'] = {
-        'headline_primary_result': 'L1 dust-Gamma_t replication across three independent JWST surveys is the primary reproducible JWST result',
+        'headline_primary_result': 'L1 dust-Gamma_t replication across three independent JWST surveys remains the primary large-sample JWST result',
+        'headline_direct_test': 'L5 JWST-SUSPENSE direct kinematic comparison materially narrows the photometric mass-circularity objection',
         'primary_live_lines': ['L1_dust_replication', 'L3_ssfr_inversion'],
+        'direct_kinematic_tests': [
+            key for key in ['L5_kinematic_decisive']
+            if lines_of_evidence.get(key, {}).get('status') == 'live'
+        ],
         'ancillary_indications': ['L2_core_screening'],
         'derived_regime_comparisons': [
             key for key in ['L4_dynamical_mass']
@@ -558,6 +691,20 @@ def main():
             f"TEP reduction {lines_of_evidence['L4_dynamical_mass']['tep_reduction_dex']:.3f} dex",
             "INFO",
         )
+    
+    if 'L5_kinematic_decisive' in lines_of_evidence and lines_of_evidence['L5_kinematic_decisive']['status'] == 'live':
+        l5 = lines_of_evidence['L5_kinematic_decisive']
+        steiger = l5.get('steiger_gamma_dyn_vs_mstar_given_z') or {}
+        print_status(
+            f"  L5 (live kinematics): {l5['assessment']}; "
+            f"ρ(Age, M_star|z)={l5['partial_rho_mstar_age_given_z']:.3f} (p={l5['p_partial_mstar_age_given_z']:.3e}) vs "
+            f"ρ(Age, Γ_dyn|z)={l5['partial_rho_gamma_dyn_age_given_z']:.3f} (p={l5['p_partial_gamma_dyn_age_given_z']:.3e}); "
+            f"ρ(Age, Γ_dyn|M_star,z)={l5['partial_rho_gamma_dyn_age_given_mstar_z']:.3f} vs "
+            f"ρ(Age, M_star|Γ_dyn,z)={l5['partial_rho_mstar_age_given_gamma_dyn_z']:.3f}; "
+            f"Steiger Z={steiger.get('z_stat_gamma_dyn_better_than_mstar', float('nan')):.3f}",
+            "INFO"
+        )
+
     if 'alpha0_concordance' in auxiliary_checks:
         print_status(
             f"  α₀ concordance: JWST {auxiliary_checks['alpha0_concordance']['jwst_recovered_alpha0']:.3f} ± "
@@ -621,9 +768,15 @@ def main():
         'skipped_primary_lines': skipped_primary_lines,
         'missing_primary_lines': missing_primary_lines,
         'headline_primary_result': 'L1 dust-Gamma_t replication across three independent JWST surveys',
+        'headline_direct_test': 'L5 JWST-SUSPENSE direct kinematic comparison materially narrows the photometric mass-circularity objection',
         'supporting_primary_lines': ['L3_ssfr_inversion'],
         'ancillary_indication': 'L2_core_screening',
         'derived_regime_comparison': 'L4_dynamical_mass' if 'L4_dynamical_mass' in lines_of_evidence else None,
+        'direct_kinematic_test': (
+            'L5_kinematic_decisive'
+            if lines_of_evidence.get('L5_kinematic_decisive', {}).get('status') == 'live'
+            else None
+        ),
         'supplementary_mixed_branches': [
             key for key in ['environmental_screening']
             if key in lines_of_evidence or key in auxiliary_checks

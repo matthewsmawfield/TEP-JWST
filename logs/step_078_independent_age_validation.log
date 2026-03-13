@@ -1,30 +1,30 @@
-[13:05:06]     ======================================================================
-[13:05:06]     STEP 078: Independent Age Validation via Balmer Absorption
-[13:05:06]     ======================================================================
-[13:05:06]     Loaded N = 2315 galaxies
-[13:05:06]     
+[16:59:31]     ======================================================================
+[16:59:31]     STEP 078: Independent Age Validation via Balmer Absorption
+[16:59:31]     ======================================================================
+[16:59:31]     Loaded N = 2315 galaxies
+[16:59:31]     
 --- 1. Computing TEP Age Predictions ---
-[13:05:06]       Generated predictions for 2315 galaxies
-[13:05:06]     
+[16:59:32]       Generated predictions for 2315 galaxies
+[16:59:32]     
 --- 2. Spectroscopic Predictions ---
-[13:05:06]       Effect size (Cohen's d): 0.00
-[13:05:06]       Detectable with NIRSpec: False
-[13:05:06]     
+[16:59:32]       Effect size (Cohen's d): 0.00
+[16:59:32]       Detectable with NIRSpec: False
+[16:59:32]     
 --- 3. Priority Targets for Follow-up ---
-[13:05:06]       Identified 20 priority targets
-[13:05:06]       Top target: z=7.13, log M*=8.7, Γt=0.57
-[13:05:06]     
+[16:59:32]       Identified 20 priority targets
+[16:59:32]       Top target: z=7.13, log M*=8.7, Γt=0.57
+[16:59:32]     
 --- 4. Falsification Criteria ---
-[13:05:06]       criterion_1: Balmer strength should correlate with Γt at fixed z
-[13:05:06]       criterion_2: Mass-Balmer correlation should match TEP prediction
-[13:05:06]       criterion_3: Balmer ages should be consistent with TEP-corrected SED ages
-[13:05:06]     
+[16:59:32]       criterion_1: Balmer strength should correlate with Γt at fixed z
+[16:59:32]       criterion_2: Mass-Balmer correlation should match TEP prediction
+[16:59:32]       criterion_3: Balmer ages should be consistent with TEP-corrected SED ages
+[16:59:32]     
 ======================================================================
-[13:05:06]     INDEPENDENT AGE VALIDATION SUMMARY
-[13:05:06]     ======================================================================
-[13:05:06]       Method: Balmer absorption (Hδ, Hγ) as independent age proxy
-[13:05:06]       Breaks M/L circularity: True
-[13:05:06]       Priority targets identified: 20
-[13:05:06]     
+[16:59:32]     INDEPENDENT AGE VALIDATION SUMMARY
+[16:59:32]     ======================================================================
+[16:59:32]       Method: Balmer absorption (Hδ, Hγ) as independent age proxy
+[16:59:32]       Breaks M/L circularity: True
+[16:59:32]       Priority targets identified: 20
+[16:59:32]     
 Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_078_independent_age_validation.json
-[13:05:06]     Priority targets saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_078_priority_targets.csv
+[16:59:32]     Priority targets saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_078_priority_targets.csv

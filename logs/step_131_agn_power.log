@@ -1,9 +1,9 @@
-[13:06:04]     STEP 131: AGN contamination analysis
-[13:06:04]   Kokorev LRD catalog: N=260 AGN
-[13:06:04]   z=4-5: f_AGN=5%, rho_obs=0.355 -> rho_corr=0.347 (change: -2.5%)
-[13:06:04]   z=5-6: f_AGN=8%, rho_obs=0.384 -> rho_corr=0.368 (change: -4.0%)
-[13:06:04]   z=6-7: f_AGN=12%, rho_obs=0.545 -> rho_corr=0.512 (change: -6.0%)
-[13:06:04]   z=7-9: f_AGN=15%, rho_obs=0.598 -> rho_corr=0.553 (change: -7.5%)
-[13:06:04]   z=9-12: f_AGN=20%, rho_obs=0.579 -> rho_corr=0.521 (change: -10.0%)
-[13:06:04] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_131_agn_power.json
-[13:06:04]     Step 131 complete.
+[17:00:25]     STEP 131: AGN contamination analysis
+[17:00:25]   Kokorev LRD catalog: N=260 AGN
+[17:00:25]   z=4-5: f_AGN=5%, rho_obs=0.355 -> rho_corr=0.347 (change: -2.5%)
+[17:00:25]   z=5-6: f_AGN=8%, rho_obs=0.384 -> rho_corr=0.368 (change: -4.0%)
+[17:00:25]   z=6-7: f_AGN=12%, rho_obs=0.545 -> rho_corr=0.512 (change: -6.0%)
+[17:00:25]   z=7-9: f_AGN=15%, rho_obs=0.598 -> rho_corr=0.553 (change: -7.5%)
+[17:00:25]   z=9-12: f_AGN=20%, rho_obs=0.579 -> rho_corr=0.521 (change: -10.0%)
+[17:00:25] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_131_agn_power.json
+[17:00:25]     Step 131 complete.

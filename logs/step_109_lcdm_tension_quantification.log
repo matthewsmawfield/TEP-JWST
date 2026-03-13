@@ -1,42 +1,42 @@
-[13:05:56]     ======================================================================
-[13:05:56]     STEP 109: ΛCDM Tension Quantification
-[13:05:56]     ======================================================================
-[13:05:56]     Loaded 2315 galaxies
-[13:05:56]     
+[17:00:18]     ======================================================================
+[17:00:18]     STEP 109: ΛCDM Tension Quantification
+[17:00:18]     ======================================================================
+[17:00:18]     Loaded 2315 galaxies
+[17:00:18]     
 --- Stellar Mass Density Comparison ---
-[13:05:56]     z bin      ΛCDM         Observed     TEP-corr     Tension (obs)   Tension (TEP)  
-[13:05:56]     --------------------------------------------------------------------------------
-[13:05:56]     Bin z=7-8 (Gamma=6.40):
-[13:05:56]       ΛCDM pred : 1.60 (at z=7.50)
-[13:05:56]       Observed  : 5.27 -> Tension: 12.2σ
-[13:05:56]       TEP corr  : < LCDM -> Tension: 0.0σ
-[13:05:56]     Bin z=8-9 (Gamma=10.63):
-[13:05:56]       ΛCDM pred : 0.80 (at z=8.50)
-[13:05:56]       Observed  : 6.47 -> Tension: 18.9σ
-[13:05:56]       TEP corr  : < LCDM -> Tension: 0.0σ
-[13:05:56]     Bin z=9-10 (Gamma=44.04):
-[13:05:56]       ΛCDM pred : 0.00 (at z=9.50)
-[13:05:56]       Observed  : 6.68 -> Tension: 22.3σ
-[13:05:56]       TEP corr  : < LCDM -> Tension: 0.0σ
-[13:05:56]     
+[17:00:18]     z bin      ΛCDM         Observed     TEP-corr     Tension (obs)   Tension (TEP)  
+[17:00:18]     --------------------------------------------------------------------------------
+[17:00:18]     Bin z=7-8 (Gamma=6.40):
+[17:00:18]       ΛCDM pred : 1.60 (at z=7.50)
+[17:00:18]       Observed  : 5.27 -> Tension: 12.2σ
+[17:00:18]       TEP corr  : < LCDM -> Tension: 0.0σ
+[17:00:18]     Bin z=8-9 (Gamma=10.63):
+[17:00:18]       ΛCDM pred : 0.80 (at z=8.50)
+[17:00:18]       Observed  : 6.47 -> Tension: 18.9σ
+[17:00:18]       TEP corr  : < LCDM -> Tension: 0.0σ
+[17:00:18]     Bin z=9-10 (Gamma=44.04):
+[17:00:18]       ΛCDM pred : 0.00 (at z=9.50)
+[17:00:18]       Observed  : 6.68 -> Tension: 22.3σ
+[17:00:18]       TEP corr  : < LCDM -> Tension: 0.0σ
+[17:00:18]     
 ======================================================================
-[13:05:56]     SUMMARY
-[13:05:56]     ======================================================================
-[13:05:56]     
+[17:00:18]     SUMMARY
+[17:00:18]     ======================================================================
+[17:00:18]     
 Mean tension (observed vs ΛCDM): 17.8σ
-[13:05:56]     Mean tension (TEP-corrected vs ΛCDM): 0.0σ
-[13:05:56]     Mean tension reduction: 100%
-[13:05:56]     Mean mass reduction: fully clears threshold
-[13:05:56]     
+[17:00:18]     Mean tension (TEP-corrected vs ΛCDM): 0.0σ
+[17:00:18]     Mean tension reduction: 100%
+[17:00:18]     Mean mass reduction: fully clears threshold
+[17:00:18]     
 ✓ TEP reduces ΛCDM tension from 17.8σ to 0.0σ (< 2σ)
-[13:05:56]       Status: SUPPORTED
-[13:05:56]     
+[17:00:18]       Status: SUPPORTED
+[17:00:18]     
 --- Implications ---
-[13:05:56]       1. Observed massive galaxies (M* > 10^10) at z > 7 exceed ΛCDM bounds entirely.
-[13:05:56]       2. TEP correction reduces this excess by 100%
-[13:05:56]       3. Remaining tension (0.0σ) may be genuine early structure formation
-[13:05:56]     
+[17:00:18]       1. Observed massive galaxies (M* > 10^10) at z > 7 exceed ΛCDM bounds entirely.
+[17:00:18]       2. TEP correction reduces this excess by 100%
+[17:00:18]       3. Remaining tension (0.0σ) may be genuine early structure formation
+[17:00:18]     
 Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_109_lcdm_tension_quantification.json
-[13:05:57]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_109_lcdm_tension.png
-[13:05:57]     
+[17:00:18]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_109_lcdm_tension.png
+[17:00:18]     
 Step 109 complete.

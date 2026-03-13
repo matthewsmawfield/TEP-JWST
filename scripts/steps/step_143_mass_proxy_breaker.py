@@ -42,20 +42,20 @@ import pandas as pd
 from scipy import stats
 from scipy.stats import spearmanr, pearsonr, rankdata
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like
-from scripts.utils.p_value_utils import format_p_value, safe_json_default
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
+from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like  # Shared TEP model
+from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting & JSON serialiser
 
-STEP_NUM = "143"
-STEP_NAME = "mass_proxy_breaker"
+STEP_NUM = "143"  # Pipeline step number
+STEP_NAME = "mass_proxy_breaker"  # Used in log / output filenames
 
-LOGS_PATH = PROJECT_ROOT / "logs"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
-FIGURES_PATH = PROJECT_ROOT / "results" / "figures"
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products
+FIGURES_PATH = PROJECT_ROOT / "results" / "figures"  # Publication figures directory
 
 for p in [LOGS_PATH, OUTPUT_PATH, FIGURES_PATH]:
     p.mkdir(parents=True, exist_ok=True)
@@ -513,7 +513,8 @@ def test3_shuffled_mass(df, n_shuffles=2000):
         mean_shuffled = float(np.mean(shuffled_rhos))
         std_shuffled = float(np.std(shuffled_rhos))
         z_score = float((rho_obs - mean_shuffled) / std_shuffled) if std_shuffled > 0 else 0.0
-        p_empirical = max(float(np.mean(shuffled_rhos >= rho_obs)), 1e-300)
+        n_extreme = int(np.sum(shuffled_rhos >= rho_obs))
+        p_empirical = float((n_extreme + 1) / (len(shuffled_rhos) + 1))
 
         # What fraction of the signal survives shuffling?
         signal_fraction = float(mean_shuffled / rho_obs) if rho_obs != 0 else np.nan

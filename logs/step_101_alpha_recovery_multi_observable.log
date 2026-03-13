@@ -1,38 +1,38 @@
-[13:05:46]     ======================================================================
-[13:05:46]     STEP 101: Multi-Observable α₀ Recovery Test
-[13:05:46]     ======================================================================
-[13:05:46]     Loaded 2315 galaxies
-[13:05:46]     High-z sample (z > 6): 876 galaxies
-[13:05:46]       Added: dust (N=876)
-[13:05:46]       Added: age_ratio (N=876)
-[13:05:46]       Added: metallicity (N=876)
-[13:05:46]       Added: log_ssfr (N=876)
-[13:05:46]     
+[17:00:09]     ======================================================================
+[17:00:09]     STEP 101: Multi-Observable α₀ Recovery Test
+[17:00:09]     ======================================================================
+[17:00:09]     Loaded 2315 galaxies
+[17:00:09]     High-z sample (z > 6): 876 galaxies
+[17:00:09]       Added: dust (N=876)
+[17:00:09]       Added: age_ratio (N=876)
+[17:00:09]       Added: metallicity (N=876)
+[17:00:09]       Added: log_ssfr (N=876)
+[17:00:09]     
 Fitting α₀ to 4 observables:
-[13:05:47]       dust: α₀ = 0.55 ± 0.32, ρ = 0.49 ✓
-[13:05:47]       age_ratio: α₀ = 1.07 ± 0.34, ρ = 0.33 ✓
-[13:05:47]       metallicity: α₀ = 1.26 ± 0.35, ρ = 0.05 ✓
-[13:05:48]       ssfr: α₀ = 1.32 ± 0.37, ρ = -0.40 ✓
-[13:05:48]     
+[17:00:09]       dust: α₀ = 0.55 ± 0.32, ρ = 0.49 ✓
+[17:00:10]       age_ratio: α₀ = 1.07 ± 0.34, ρ = 0.33 ✓
+[17:00:10]       metallicity: α₀ = 1.26 ± 0.35, ρ = 0.05 ✓
+[17:00:11]       ssfr: α₀ = 1.32 ± 0.37, ρ = -0.40 ✓
+[17:00:11]     
 Joint fit across all observables:
-[13:05:49]       Joint α₀ = 0.75 ± 0.29
-[13:05:49]       Nominal α₀ = 0.58 ± 0.16
-[13:05:49]       Tension: 0.5σ ✓
-[13:05:49]     
+[17:00:12]       Joint α₀ = 0.75 ± 0.29
+[17:00:12]       Nominal α₀ = 0.58 ± 0.16
+[17:00:12]       Tension: 0.5σ ✓
+[17:00:12]     
 Weighted mean of individual fits:
-[13:05:49]       α₀ = 1.02 ± 0.18
-[13:05:49]       Tension with nominal: 1.8σ
-[13:05:49]     
+[17:00:12]       α₀ = 1.02 ± 0.18
+[17:00:12]       Tension with nominal: 1.8σ
+[17:00:12]     
 ======================================================================
-[13:05:49]     SUMMARY
-[13:05:49]     ======================================================================
-[13:05:49]     
+[17:00:12]     SUMMARY
+[17:00:12]     ======================================================================
+[17:00:12]     
 ✗ Joint fit does not improve agreement
-[13:05:49]       This may indicate systematic effects in the data
-[13:05:49]     
+[17:00:12]       This may indicate systematic effects in the data
+[17:00:12]     
 Joint α₀ is CONSISTENT with Cepheid calibration within 2σ
-[13:05:49]     
+[17:00:12]     
 Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_101_alpha_recovery_multi_observable.json
-[13:05:50]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_101_alpha_recovery.png
-[13:05:50]     
+[17:00:12]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_101_alpha_recovery.png
+[17:00:12]     
 Step 101 complete.

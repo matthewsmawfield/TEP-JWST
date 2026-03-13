@@ -49,34 +49,34 @@ warnings.filterwarnings('ignore')
 # PATHS AND LOGGER
 # =============================================================================
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value, safe_json_default
-from scripts.utils.downloader import smart_download
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
+from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting & JSON serialiser
+from scripts.utils.downloader import smart_download  # Robust HTTP download utility
 from scripts.utils.tep_model import (
     ALPHA_0, LOG_MH_REF, Z_REF,
-    tep_alpha, compute_gamma_t as tep_gamma, isochrony_mass_bias
+    tep_alpha, compute_gamma_t as tep_gamma, isochrony_mass_bias  # Shared TEP model
 )
 
-STEP_NUM = "149"
-STEP_NAME = "jades_dr4_ingestion"
+STEP_NUM = "149"  # Pipeline step number
+STEP_NAME = "jades_dr4_ingestion"  # Used in log / output filenames
 
-DATA_PATH = PROJECT_ROOT / "data" / "raw" / "jades_hainline"
+DATA_PATH = PROJECT_ROOT / "data" / "raw" / "jades_hainline"  # JADES raw data directory
 
 # JADES DR4 NIRSpec/MSA catalog (D'Eugenio et al. 2025; Curtis-Lake et al. 2025)
 JADES_DR4_URL = "https://jades.herts.ac.uk/DR4/Combined_DR4_external_v1.2.1.fits"
 JADES_DR4_FILE = DATA_PATH / "JADES_DR4_spectroscopic_catalog.fits"
 JADES_DR4_SIZE_MB_MIN = 5
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH = PROJECT_ROOT / "logs"
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory
 
 for p in [INTERIM_PATH, OUTPUT_PATH, LOGS_PATH]:
     p.mkdir(parents=True, exist_ok=True)
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger
 set_step_logger(logger)
 
 # =============================================================================

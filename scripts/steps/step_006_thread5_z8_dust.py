@@ -38,34 +38,37 @@ import json
 # PATHS AND LOGGER
 # =============================================================================
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value, safe_json_default
-from scripts.utils.rank_stats import partial_rank_correlation
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting (prevents floating-point underflow at extreme significance) & JSON serialiser
+from scripts.utils.rank_stats import partial_rank_correlation  # Partial Spearman: residualization method to control for confounders
 
-STEP_NUM = "006"
-STEP_NAME = "thread5_z8_dust"
+STEP_NUM = "006"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "thread5_z8_dust"  # Thread 5: z>8 dust anomaly (TEP prediction: enhanced time allows AGB dust production)
 
-DATA_PATH = PROJECT_ROOT / "data"
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH = PROJECT_ROOT / "logs"
+DATA_PATH = PROJECT_ROOT / "data"  # Top-level data directory (raw external catalogs: UNCOVER DR4, CEERS, COSMOS-Web, JADES)
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products (CSV format for step-to-step data flow)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
 
 for p in [INTERIM_PATH, OUTPUT_PATH, LOGS_PATH]:
-    p.mkdir(parents=True, exist_ok=True)
+    p.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
 
-# Initialize logger
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes here
 
 # =============================================================================
 # BOOTSTRAP
 # =============================================================================
 
 def bootstrap_correlation(x, y, n_boot=1000):
-    """Bootstrap confidence interval for Spearman correlation."""
+    """Bootstrap 95% CI for Spearman rho via case resampling.
+
+    Draws n_boot resamples with replacement, computes Spearman rho for
+    each, and returns the [2.5, 97.5] percentile interval.
+    """
     n = len(x)
     rhos = []
     for _ in range(n_boot):
@@ -75,6 +78,13 @@ def bootstrap_correlation(x, y, n_boot=1000):
     return np.percentile(rhos, [2.5, 97.5])
 
 def partial_correlation(x, y, control):
+    """Spearman partial rank correlation controlling for one variable.
+
+    Residualizes ranks of x and y against ranks of the control variable,
+    then correlates the residuals. Used here to test whether the
+    Gamma_t-dust signal persists after removing the effect of mass or
+    redshift.
+    """
     rho, p, _ = partial_rank_correlation(x, y, control)
     return rho, p
 
@@ -100,6 +110,11 @@ def main():
     print_status("Mass-Dust Correlation by Redshift:", "INFO")
     print_status("-" * 50, "INFO")
     
+    # Measure rho(M*, dust) in redshift bins to track evolution.
+    # TEP predicts the correlation should strengthen toward higher z because:
+    #   (a) alpha(z) = alpha_0 * sqrt(1+z) increases, widening the Gamma_t range
+    #   (b) the shorter cosmic age at high-z makes the "extra time" from TEP
+    #       relatively more important for dust production
     z_bins = [(4, 5), (5, 6), (6, 7), (7, 8), (8, 10)]
     results_by_z = []
     
@@ -151,17 +166,24 @@ def main():
     mass = df_z8['log_Mstar'].values
     z = df_z8['z_phot'].values
     
-    # 1. rho(Gamma, Dust | Mass)
-    # Checking if TEP signal persists after controlling for mass
+    # Partial correlation 1: rho(Gamma_t, dust | M*)
+    # Controls for stellar mass to check whether the TEP signal is
+    # genuinely tied to Gamma_t rather than the trivial mass-dust
+    # correlation (more massive galaxies have more ISM and hence more dust).
     rho_part, p_part = partial_correlation(gamma, dust, mass)
     print_status(f"rho(Γ_t, dust | M*) = {rho_part:.3f}, p = {p_part:.2e}", "INFO")
     
-    # 2. rho(Gamma, Dust | z)
-    # Checking if TEP signal persists after controlling for redshift
+    # Partial correlation 2: rho(Gamma_t, dust | z)
+    # Controls for redshift to remove any residual evolution within the
+    # z > 8 bin (e.g. z = 8.0 vs z = 9.5 have different cosmic ages).
     rho_part_z, p_part_z = partial_correlation(gamma, dust, z)
     print_status(f"rho(Γ_t, dust | z)  = {rho_part_z:.3f}, p = {p_part_z:.2e}", "INFO")
     
-    # 3. rho(Gamma, Dust | M*, z)
+    # Partial correlation 3: rho(Gamma_t, dust | M*, z)
+    # The strictest test: controls for both mass and redshift simultaneously.
+    # A significant positive residual correlation here means the Gamma_t-dust
+    # link cannot be explained by either the mass-dust relation or redshift
+    # evolution alone.
     rho_double, p_double, _ = partial_rank_correlation(gamma, dust, np.column_stack([mass, z]))
     print_status(f"rho(Γ_t, dust | M*, z) = {rho_double:.3f}, p = {p_double:.2e}", "INFO")
     
@@ -181,6 +203,9 @@ def main():
     print_status("Mean A_V by Mass at z > 8:", "INFO")
     print_status("-" * 30, "INFO")
     
+    # Bin galaxies by stellar mass to show the physical effect:
+    # under TEP, more massive galaxies at z > 8 have higher Gamma_t,
+    # hence more effective time for AGB dust production, hence higher A_V.
     mass_bins = [(8, 8.5), (8.5, 9), (9, 10), (10, 12)]
     dust_by_mass = []
     

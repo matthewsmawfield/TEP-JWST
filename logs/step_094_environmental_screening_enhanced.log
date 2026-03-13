@@ -1,53 +1,53 @@
-[13:05:35]     ======================================================================
-[13:05:35]     STEP 094: Enhanced Environmental Screening Analysis
-[13:05:35]     ======================================================================
-[13:05:35]     Loaded 2315 galaxies from UNCOVER
-[13:05:35]     Using real sky coordinates for density estimation
-[13:05:35]     Computing density estimators...
-[13:05:35]     
+[16:59:58]     ======================================================================
+[16:59:58]     STEP 094: Enhanced Environmental Screening Analysis
+[16:59:58]     ======================================================================
+[16:59:58]     Loaded 2315 galaxies from UNCOVER
+[16:59:58]     Using real sky coordinates for density estimation
+[16:59:58]     Computing density estimators...
+[16:59:58]     
 Testing screening hypothesis with multiple density estimators:
-[13:05:35]     
+[16:59:58]     
   density_5nn:
-[13:05:36]         rho(high density) = -0.239
-[13:05:36]         rho(low density)  = 0.011
-[13:05:36]         delta_rho = 0.250 [0.158, 0.336]
-[13:05:36]         Result: SUPPORTS TEP
-[13:05:36]     
+[16:59:59]         rho(high density) = -0.239
+[16:59:59]         rho(low density)  = 0.011
+[16:59:59]         delta_rho = 0.250 [0.168, 0.335]
+[16:59:59]         Result: SUPPORTS TEP
+[16:59:59]     
   density_1arcmin:
-[13:05:37]         rho(high density) = -0.248
-[13:05:37]         rho(low density)  = 0.040
-[13:05:37]         delta_rho = 0.288 [0.195, 0.371]
-[13:05:37]         Result: SUPPORTS TEP
-[13:05:37]     
+[17:00:00]         rho(high density) = -0.248
+[17:00:00]         rho(low density)  = 0.040
+[17:00:00]         delta_rho = 0.288 [0.202, 0.373]
+[17:00:00]         Result: SUPPORTS TEP
+[17:00:00]     
   density_2arcmin:
-[13:05:37]         rho(high density) = -0.177
-[13:05:37]         rho(low density)  = 0.025
-[13:05:37]         delta_rho = 0.202 [0.118, 0.286]
-[13:05:37]         Result: SUPPORTS TEP
-[13:05:37]     
+[17:00:00]         rho(high density) = -0.177
+[17:00:00]         rho(low density)  = 0.025
+[17:00:00]         delta_rho = 0.202 [0.117, 0.291]
+[17:00:00]         Result: SUPPORTS TEP
+[17:00:00]     
   overdensity:
-[13:05:38]         rho(high density) = -0.177
-[13:05:38]         rho(low density)  = 0.025
-[13:05:38]         delta_rho = 0.202 [0.112, 0.285]
-[13:05:38]         Result: SUPPORTS TEP
-[13:05:38]     
+[17:00:01]         rho(high density) = -0.177
+[17:00:01]         rho(low density)  = 0.025
+[17:00:01]         delta_rho = 0.202 [0.108, 0.280]
+[17:00:01]         Result: SUPPORTS TEP
+[17:00:01]     
 Testing by redshift bins:
-[13:05:39]       z=4-6: delta_rho=-0.103, TEP: INCONCLUSIVE or CONTRADICTS
-[13:05:39]       z=6-8: delta_rho=0.349, TEP: SUPPORTS TEP
-[13:05:39]       z=8-10: delta_rho=0.032, TEP: INCONCLUSIVE or CONTRADICTS
-[13:05:39]     
+[17:00:02]       z=4-6: delta_rho=-0.103, TEP: INCONCLUSIVE or CONTRADICTS
+[17:00:02]       z=6-8: delta_rho=0.349, TEP: SUPPORTS TEP
+[17:00:02]       z=8-10: delta_rho=0.032, TEP: INCONCLUSIVE or CONTRADICTS
+[17:00:02]     
 Testing with isolation index (field vs clustered):
-[13:05:39]       Field galaxies: rho = 0.044 (n=1147)
-[13:05:39]       Clustered galaxies: rho = -0.204 (n=1168)
-[13:05:39]       Delta: 0.248
-[13:05:39]     
+[17:00:02]       Field galaxies: rho = 0.044 (n=1147)
+[17:00:02]       Clustered galaxies: rho = -0.204 (n=1168)
+[17:00:02]       Delta: 0.248
+[17:00:02]     
 ======================================================================
-[13:05:39]     SUMMARY
-[13:05:39]     ======================================================================
-[13:05:39]     Tests supporting TEP screening: 5/5
-[13:05:39]     RESULT: Evidence SUPPORTS environmental screening hypothesis
-[13:05:39]     
+[17:00:02]     SUMMARY
+[17:00:02]     ======================================================================
+[17:00:02]     Tests supporting TEP screening: 5/5
+[17:00:02]     RESULT: Evidence SUPPORTS environmental screening hypothesis
+[17:00:02]     
 Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_094_environmental_screening_enhanced.json
-[13:05:40]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_094_environmental_screening_enhanced.png
-[13:05:40]     
+[17:00:03]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_094_environmental_screening_enhanced.png
+[17:00:03]     
 Step 094 complete.

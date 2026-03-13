@@ -14,12 +14,12 @@ Author: TEP-JWST Pipeline
 
 import sys
 from pathlib import Path
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 import json
 import sys
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -31,35 +31,20 @@ SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.p_value_utils import format_p_value
+from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
+from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass  # TEP model: Gamma_t formula, stellar-to-halo mass from abundance matching
 RESULTS_DIR = PROJECT_ROOT / "results"
-OUTPUTS_DIR = RESULTS_DIR / "outputs"
-FIGURES_DIR = RESULTS_DIR / "figures"
-INTERIM_DIR = RESULTS_DIR / "interim"
+OUTPUTS_DIR = RESULTS_DIR / "outputs"  # JSON output directory (machine-readable statistical results)
+FIGURES_DIR = RESULTS_DIR / "figures"  # Publication figures directory (PNG/PDF for manuscript)
+INTERIM_DIR = RESULTS_DIR / "interim"  # Pre-processed intermediate products (CSV format for step-to-step data flow)
 
-STEP_NUM = "128"
-STEP_NAME = "selection_mc"
+STEP_NUM = "128"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "selection_mc"  # Selection function Monte Carlo: tests if Malmquist bias/detection limits produce spurious mass-dust correlation (N_sim=5000, flux limit model)
 
-LOGS_DIR = PROJECT_ROOT / "logs"
-LOGS_DIR.mkdir(parents=True, exist_ok=True)
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_DIR / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
-
-# TEP constants
-ALPHA_0 = 0.58
-LOG_MH_REF = 12.0
-Z_REF = 5.5
-
-
-
-def compute_gamma_t(log_Mh, z, alpha_0=ALPHA_0):
-    """Compute TEP Gamma_t."""
-    alpha_z = alpha_0 * np.sqrt(1 + z)
-    log_mh_ref_z = LOG_MH_REF - 1.5 * np.log10(1 + z)
-    delta_log_Mh = log_Mh - log_mh_ref_z
-    z_factor = (1 + z) / (1 + Z_REF)
-    argument = alpha_z * (2/3) * delta_log_Mh * z_factor
-    return np.exp(argument)
+LOGS_DIR = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
+LOGS_DIR.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_DIR / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
 
 def simulate_selection_effects(n_sim=5000, z_range=(8, 10), mass_range=(7.5, 11)):
@@ -107,7 +92,7 @@ def simulate_selection_effects(n_sim=5000, z_range=(8, 10), mass_range=(7.5, 11)
     dust_selected = dust_intrinsic[detected]
     
     # Compute Gamma_t for selected sample
-    log_mh_selected = log_mass_selected + 2.0
+    log_mh_selected = stellar_to_halo_mass(log_mass_selected, z_selected)
     gamma_t_selected = compute_gamma_t(log_mh_selected, z_selected)
     log_gamma_selected = np.log10(np.maximum(gamma_t_selected, 0.01))
     
@@ -137,7 +122,7 @@ def compare_with_observed(df, z_col, mass_col):
     df_z8 = df[df[z_col] > 8].copy()
     
     # Compute observed correlation
-    log_mh = df_z8[mass_col].values + 2.0
+    log_mh = stellar_to_halo_mass(df_z8[mass_col].values, df_z8[z_col].values)
     z = df_z8[z_col].values
     dust = df_z8['dust'].values
     

@@ -1,7 +1,0 @@
-[19:44:44]     STEP 115: TEP predictions for Euclid and Roman surveys
-[19:44:44]   Euclid-Wide: rho_pred=0.990, N(z>4)=6e+08, sigma_det=64191
-[19:44:44]   Euclid-Deep: rho_pred=0.990, N(z>4)=3e+07, sigma_det=14147
-[19:44:44]   Roman-HLS: rho_pred=0.990, N(z>4)=2e+08, sigma_det=37429
-[19:44:44]   Roman-HLSS: rho_pred=0.437, N(z>4)=0e+00, sigma_det=1
-[19:44:44] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_115_euclid_roman_predictions.json
-[19:44:44]     Step 115 complete.

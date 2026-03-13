@@ -1,7 +1,7 @@
-[13:05:51]     STEP 103: z_phot error propagation through Gamma_t
-[13:05:51] Sample: COSMOS-Web N=50,143 z>4
-[13:05:51]   Baseline rho(Gamma_t, dust): 0.4383
-[13:05:52]   After z_phot perturbation: rho_mean=0.4370 ± 0.0003
-[13:05:52]   Bias from z_phot errors: -0.0012 (-0.3% of baseline)
-[13:05:52] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_103_zphot_error_propagation.json
-[13:05:52]     Step 103 complete. rho bias = -0.0012
+[17:00:13]     STEP 103: z_phot error propagation through Gamma_t
+[17:00:13] Sample: COSMOS-Web N=50,143 z>4
+[17:00:13]   Baseline rho(Gamma_t, dust): 0.4383
+[17:00:14]   After z_phot perturbation: rho_mean=0.4370 ± 0.0003
+[17:00:14]   Bias from z_phot errors: -0.0012 (-0.3% of baseline)
+[17:00:14] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_103_zphot_error_propagation.json
+[17:00:14]     Step 103 complete. rho bias = -0.0012

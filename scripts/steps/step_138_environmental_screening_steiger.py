@@ -34,20 +34,20 @@ import pandas as pd
 from scipy import stats
 from scipy.stats import spearmanr, pearsonr
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like
-from scripts.utils.p_value_utils import format_p_value, safe_json_default
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
+from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like  # Shared TEP model
+from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting & JSON serialiser
 
-STEP_NUM = "138"
-STEP_NAME = "environmental_screening_steiger"
+STEP_NUM = "138"  # Pipeline step number
+STEP_NAME = "environmental_screening_steiger"  # Used in log / output filenames
 
-LOGS_PATH = PROJECT_ROOT / "logs"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
-DATA_INTERIM_PATH = PROJECT_ROOT / "data" / "interim"
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products
+DATA_INTERIM_PATH = PROJECT_ROOT / "data" / "interim"  # Processed catalogue products
 
 for p in [LOGS_PATH, OUTPUT_PATH]:
     p.mkdir(parents=True, exist_ok=True)
@@ -55,7 +55,7 @@ for p in [LOGS_PATH, OUTPUT_PATH]:
 logger = TEPLogger(
     f"step_{STEP_NUM}",
     log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log",
-)
+)  # Step-specific logger
 set_step_logger(logger)
 
 warnings.filterwarnings("ignore", category=RuntimeWarning)

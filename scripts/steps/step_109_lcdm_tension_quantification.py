@@ -24,7 +24,7 @@ tension is mitigated when the TEP isochrony correction is applied.
 
 import sys
 from pathlib import Path
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 import json
@@ -34,7 +34,8 @@ from pathlib import Path
 from datetime import datetime
 from scipy import stats
 import sys
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.tep_model import ALPHA_0, LOG_MH_REF, Z_REF, compute_gamma_t  # TEP model: alpha_0=0.58, log_Mh_ref=12.0, z_ref=5.5, Gamma_t formula
 
 # Paths
 SCRIPT_DIR = Path(__file__).parent
@@ -42,36 +43,20 @@ PROJECT_ROOT = SCRIPT_DIR.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 RESULTS_DIR = PROJECT_ROOT / "results"
-OUTPUTS_DIR = RESULTS_DIR / "outputs"
-FIGURES_DIR = RESULTS_DIR / "figures"
-INTERIM_DIR = RESULTS_DIR / "interim"
+OUTPUTS_DIR = RESULTS_DIR / "outputs"  # JSON output directory (machine-readable statistical results)
+FIGURES_DIR = RESULTS_DIR / "figures"  # Publication figures directory (PNG/PDF for manuscript)
+INTERIM_DIR = RESULTS_DIR / "interim"  # Pre-processed intermediate products (CSV format for step-to-step data flow)
 
-STEP_NUM = 109
-STEP_NAME = "lcdm_tension_quantification"
+STEP_NUM = 109  # Pipeline step number (sequential 001-176)
+STEP_NAME = "lcdm_tension_quantification"  # ΛCDM tension quantification: evaluates stellar mass density discrepancy vs ΛCDM predictions, tests TEP isochrony correction (factor Gamma_t^0.7)
 
-LOGS_DIR = PROJECT_ROOT / "logs"
-LOGS_DIR.mkdir(parents=True, exist_ok=True)
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_DIR / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
-
-
-# TEP constants
-ALPHA_0 = 0.58
-LOG_MH_REF = 12.0
-Z_REF = 5.5
+LOGS_DIR = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
+LOGS_DIR.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_DIR / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
 
-
-def compute_gamma_t(log_Mh, z, alpha_0=ALPHA_0):
-    """Compute TEP temporal enhancement factor Gamma_t.
-    Gamma_t = exp(alpha(z) * 2/3 * (log_Mh - log_Mh_ref(z)) * (1+z)/(1+z_ref))
-    """
-    alpha_z = alpha_0 * np.sqrt(1 + z)
-    log_mh_ref_z = LOG_MH_REF - 1.5 * np.log10(1 + z)
-    delta_log_Mh = log_Mh - log_mh_ref_z
-    z_factor = (1 + z) / (1 + Z_REF)
-    argument = alpha_z * (2/3) * delta_log_Mh * z_factor
-    return np.exp(argument)
+# TEP constants and compute_gamma_t imported from scripts.utils.tep_model
 
 
 def lcdm_stellar_mass_density(z):

@@ -6,7 +6,12 @@
   "input_catalog": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_msaexp_emission_lines_v4.4.csv.gz",
   "config": {
     "download_enabled": false,
+    "selection_mode": "pilot",
     "max_targets": 24,
+    "min_target_z": 5.0,
+    "max_target_z": 12.5,
+    "min_target_log_Mstar": 5.0,
+    "require_balmer": false,
     "min_line_snr": 8.0,
     "min_grade": 3.0,
     "quality_min_sigma_kms": 10.0,
@@ -17,7 +22,10 @@
     "pilot_target_cap_env": "TEP_DJA_SIGMA_MAX_TARGETS"
   },
   "selection": {
+    "candidate_pool_n": 1325,
+    "candidate_pool_n_with_balmer": 836,
     "n_targeted": 24,
+    "n_targeted_with_balmer": 11,
     "grating_counts": {
       "G395M": 14,
       "G395H": 5,

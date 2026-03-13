@@ -1,86 +1,86 @@
-[13:04:41]     ======================================================================
-[13:04:41]     STEP 060: Functional Form Discrimination Test
-[13:04:41]     ======================================================================
-[13:04:41]     
+[16:59:08]     ======================================================================
+[16:59:08]     STEP 060: Functional Form Discrimination Test
+[16:59:08]     ======================================================================
+[16:59:08]     
 The core test that definitively evaluates TEP...
 
-[13:04:41]     Loaded N = 2315 galaxies
-[13:04:42]     
+[16:59:08]     Loaded N = 2315 galaxies
+[16:59:08]     
 ======================================================================
-[13:04:42]     THE FUNCTIONAL FORM DISCRIMINATION TEST: t_eff vs t_cosmic
-[13:04:42]     ======================================================================
-[13:04:42]     
+[16:59:08]     THE FUNCTIONAL FORM DISCRIMINATION TEST: t_eff vs t_cosmic
+[16:59:08]     ======================================================================
+[16:59:08]     
 Hypothesis: t_eff predicts observables BETTER than t_cosmic
-[13:04:42]     If true: TEP is supported
-[13:04:42]     If false: TEP is unsupported
+[16:59:08]     If true: TEP is supported
+[16:59:08]     If false: TEP is unsupported
 
-[13:04:42]     Sample size: N = 283
-[13:04:42]     Redshift range: 8.00 - 9.99
-[13:04:42]     t_cosmic range: 0.472 - 0.637 Gyr
-[13:04:42]     t_eff range: 0.047 - 66.490 Gyr
-[13:04:42]     
+[16:59:08]     Sample size: N = 283
+[16:59:08]     Redshift range: 8.00 - 9.99
+[16:59:08]     t_cosmic range: 0.472 - 0.637 Gyr
+[16:59:08]     t_eff range: 0.047 - 66.490 Gyr
+[16:59:08]     
 --------------------------------------------------
-[13:04:42]     TEST 1: Predicting Dust
-[13:04:42]     --------------------------------------------------
-[13:04:42]     ρ(t_cosmic, Dust) = -0.0063 (p = 9.17e-01)
-[13:04:42]     ρ(t_eff, Dust) = +0.5988 (p = 6.41e-29)
-[13:04:42]     Improvement: Δρ = +0.6050
-[13:04:42]     ✓ t_eff WINS for Dust prediction
-[13:04:42]     
+[16:59:08]     TEST 1: Predicting Dust
+[16:59:08]     --------------------------------------------------
+[16:59:08]     ρ(t_cosmic, Dust) = -0.0063 (p = 9.17e-01)
+[16:59:08]     ρ(t_eff, Dust) = +0.5988 (p = 6.41e-29)
+[16:59:08]     Improvement: Δρ = +0.6050
+[16:59:08]     ✓ t_eff WINS for Dust prediction
+[16:59:08]     
 --------------------------------------------------
-[13:04:42]     TEST 2: Predicting Stellar Age (MWA)
-[13:04:42]     --------------------------------------------------
-[13:04:42]     ρ(t_cosmic, MWA) = +0.1595 (p = 7.17e-03)
-[13:04:42]     ρ(t_eff, MWA) = +0.0277 (p = 6.42e-01)
-[13:04:42]     Improvement: Δρ = -0.1318
-[13:04:42]     ✗ t_cosmic wins for Age prediction
-[13:04:42]     
+[16:59:08]     TEST 2: Predicting Stellar Age (MWA)
+[16:59:08]     --------------------------------------------------
+[16:59:08]     ρ(t_cosmic, MWA) = +0.1595 (p = 7.17e-03)
+[16:59:08]     ρ(t_eff, MWA) = +0.0277 (p = 6.42e-01)
+[16:59:08]     Improvement: Δρ = -0.1318
+[16:59:08]     ✗ t_cosmic wins for Age prediction
+[16:59:08]     
 --------------------------------------------------
-[13:04:42]     TEST 3: Predicting SED Fit Quality (χ²)
-[13:04:42]     --------------------------------------------------
-[13:04:42]     ρ(t_cosmic, χ²) = -0.2151 (p = 2.67e-04)
-[13:04:42]     ρ(t_eff, χ²) = +0.1160 (p = 5.13e-02)
-[13:04:42]     Improvement: Δρ = +0.3311
-[13:04:42]     ✓ t_eff WINS for χ² prediction
-[13:04:42]     
+[16:59:08]     TEST 3: Predicting SED Fit Quality (χ²)
+[16:59:08]     --------------------------------------------------
+[16:59:08]     ρ(t_cosmic, χ²) = -0.2151 (p = 2.67e-04)
+[16:59:08]     ρ(t_eff, χ²) = +0.1160 (p = 5.13e-02)
+[16:59:08]     Improvement: Δρ = +0.3311
+[16:59:08]     ✓ t_eff WINS for χ² prediction
+[16:59:08]     
 --------------------------------------------------
-[13:04:42]     TEST 4: R² Comparison (Linear Regression)
-[13:04:42]     --------------------------------------------------
-[13:04:42]     R²(t_cosmic → Dust) = 0.0026
-[13:04:42]     R²(t_eff → Dust) = 0.1776
-[13:04:42]     Improvement: ΔR² = +0.1750
-[13:04:42]     
+[16:59:08]     TEST 4: R² Comparison (Linear Regression)
+[16:59:08]     --------------------------------------------------
+[16:59:08]     R²(t_cosmic → Dust) = 0.0026
+[16:59:08]     R²(t_eff → Dust) = 0.1776
+[16:59:08]     Improvement: ΔR² = +0.1750
+[16:59:08]     
 ======================================================================
-[13:04:42]     THE VERDICT
-[13:04:42]     ======================================================================
-[13:04:42]     
+[16:59:08]     THE VERDICT
+[16:59:08]     ======================================================================
+[16:59:08]     
 t_eff wins: 2/3 tests
-[13:04:42]     t_cosmic wins: 1/3 tests
-[13:04:42]     
+[16:59:08]     t_cosmic wins: 1/3 tests
+[16:59:08]     
 Total correlation improvement: Δρ = +0.8043
-[13:04:42]     
+[16:59:08]     
 ======================================================================
-[13:04:42]     ★★★★★ TEP SUPPORTED ★★★★★
-[13:04:42]     ======================================================================
-[13:04:42]     The functional form of TEP (t_eff) significantly outperforms
-[13:04:42]     the standard model (t_cosmic) across multiple independent observables.
-[13:04:42]     
+[16:59:08]     ★★★★★ TEP SUPPORTED ★★★★★
+[16:59:08]     ======================================================================
+[16:59:08]     The functional form of TEP (t_eff) significantly outperforms
+[16:59:08]     the standard model (t_cosmic) across multiple independent observables.
+[16:59:08]     
 ======================================================================
-[13:04:42]     THE CRITICAL SIGNAL NUMBER
-[13:04:42]     ======================================================================
-[13:04:42]     
+[16:59:08]     THE CRITICAL SIGNAL NUMBER
+[16:59:08]     ======================================================================
+[16:59:08]     
 Δρ(Dust) = +0.6050
-[13:04:42]     
+[16:59:08]     
 Interpretation:
-[13:04:42]       • t_cosmic alone: ρ = -0.0063 (essentially ZERO)
-[13:04:42]       • t_eff (TEP): ρ = +0.5988 (STRONG positive)
-[13:04:42]       • Improvement: +0.6050
-[13:04:42]     
+[16:59:08]       • t_cosmic alone: ρ = -0.0063 (essentially ZERO)
+[16:59:08]       • t_eff (TEP): ρ = +0.5988 (STRONG positive)
+[16:59:08]       • Improvement: +0.6050
+[16:59:08]     
 This means:
-[13:04:42]       • Cosmic time has NO predictive power for dust at z > 8
-[13:04:42]       • TEP-corrected time has STRONG predictive power
-[13:04:42]       • The difference is 0.61 in correlation coefficient
-[13:04:42]     
+[16:59:08]       • Cosmic time has NO predictive power for dust at z > 8
+[16:59:08]       • TEP-corrected time has STRONG predictive power
+[16:59:08]       • The difference is 0.61 in correlation coefficient
+[16:59:08]     
 THE CRITICAL SIGNAL:
-[13:04:42]     
+[16:59:08]     
 Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_060_functional_form_discrimination.json

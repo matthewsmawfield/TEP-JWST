@@ -24,20 +24,19 @@ from pathlib import Path
 from datetime import datetime
 import sys
 
-# Add project root to path
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
 
-STEP_NUM  = "071"
-STEP_NAME = "bbn_analysis"
-LOGS_PATH = PROJECT_ROOT / "logs"
-LOGS_PATH.mkdir(parents=True, exist_ok=True)
+STEP_NUM  = "071"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "bbn_analysis"  # BBN analysis: validates TEP scalar-tensor modification preserves standard Big Bang Nucleosynthesis yields within 1% during radiation-dominated era (z ~ 10⁸-10⁹)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
+LOGS_PATH.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
-from scripts.utils.p_value_utils import safe_json_default
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
+from scripts.utils.p_value_utils import safe_json_default  # JSON serialiser for numpy types (handles NaN, inf, float32)
 
 # =============================================================================
 # CONSTANTS & PARAMETERS

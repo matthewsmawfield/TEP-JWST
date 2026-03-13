@@ -6,23 +6,23 @@ import numpy as np
 import pandas as pd
 from scipy.stats import mannwhitneyu
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import safe_json_default
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
+from scripts.utils.p_value_utils import safe_json_default  # JSON serialiser for numpy types
 
-STEP_NUM = "167"
-STEP_NAME = "protocluster_switch"
-DATA_RAW = PROJECT_ROOT / "data" / "raw"
-DATA_INTERIM = PROJECT_ROOT / "data" / "interim"
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH = PROJECT_ROOT / "logs"
+STEP_NUM = "167"  # Pipeline step number
+STEP_NAME = "protocluster_switch"  # Used in log / output filenames
+DATA_RAW = PROJECT_ROOT / "data" / "raw"  # Raw external catalogues
+DATA_INTERIM = PROJECT_ROOT / "data" / "interim"  # Processed catalogue products
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory
 for path in [INTERIM_PATH, OUTPUT_PATH, LOGS_PATH]:
     path.mkdir(parents=True, exist_ok=True)
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger
 set_step_logger(logger)
 
 DJA_FILE = DATA_RAW / "dja_msaexp_emission_lines_v4.4.csv.gz"

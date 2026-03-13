@@ -29,10 +29,10 @@ import sys
 import json
 import os
 import warnings
-from concurrent.futures import ProcessPoolExecutor, as_completed
+from concurrent.futures import ProcessPoolExecutor, as_completed  # Parallel bootstrap workers
 import multiprocessing as mp
 import numpy as np
-np.random.seed(42)
+np.random.seed(42)  # Fixed seed for reproducibility
 import pandas as pd
 from pathlib import Path
 from scipy import stats

@@ -10,7 +10,7 @@ where beta ~ 0.7 from M/L ~ t^0.7 (step_44).
 
 This has two implications:
 1. CONSERVATIVE BIAS: Our partial correlations (dust ~ Gamma_t | M*_obs, z)
-   understate the true mass-independent signal by ~2x at beta=0.7.
+   understate the true mass-independent signal by ~1.5x at beta=0.7.
 2. SELF-DEFEATING PROXY ARGUMENT: The mass-proxy concern and TEP mass bias
    are mutually exclusive — a critic cannot simultaneously claim both
    (a) Gamma_t is just a mass proxy AND (b) TEP does not bias M*_obs.
@@ -27,18 +27,18 @@ import logging
 
 import sys
 from pathlib import Path
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.tep_model import ALPHA_0 as PIPELINE_ALPHA0
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
+from scripts.utils.tep_model import compute_gamma_t  # Shared TEP model
 from pathlib import Path
 
 
-STEP_NUM = "159"
-STEP_NAME = "mass_measurement_bias"
-LOGS_DIR = PROJECT_ROOT / "logs"
+STEP_NUM = "159"  # Pipeline step number
+STEP_NAME = "mass_measurement_bias"  # Used in log / output filenames
+LOGS_DIR = PROJECT_ROOT / "logs"  # Log directory
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_DIR / f"step_{STEP_NUM}_{STEP_NAME}.log")
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_DIR / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger
 set_step_logger(logger)
 
 import numpy as np
@@ -61,13 +61,15 @@ COSMOS2025_JSON = ROOT / "results/outputs/step_153_cosmos2025_sed_analysis.json"
 BALMER_JSON = ROOT / "results/outputs/step_158_dja_balmer_decrement.json"
 GOODS_S_JSON = ROOT / "results/outputs/step_156_dja_gds_morphology.json"
 
-ALPHA0 = PIPELINE_ALPHA0
 BETA_ML = 0.7   # M/L ~ t^0.7 from step_44
 
 
 def gamma_t(log_mstar, z):
+    # Mass-dependent SHMR with tanh flattening at high masses
+    # NOTE: differs from shared stellar_to_halo_mass (+2.0 fixed offset)
+    # to account for the stellar-to-halo mass relation flattening above log_M*~10.5
     log_mh = np.clip(log_mstar + 1.5 - 0.5 * np.tanh((log_mstar - 10.5) / 1.2), 10.0, 15.0)
-    return np.exp(ALPHA0 * (1 + z) * (2.0 / 3.0) * (log_mh - 11.5))
+    return compute_gamma_t(log_mh, z)
 
 
 def partial_rho(x, y, controls):
@@ -229,7 +231,7 @@ def main():
     N = 10_000
     log_mh_true = np.random.uniform(10, 14, N)
     z = np.random.uniform(4, 10, N)
-    gt = np.exp(ALPHA0 * (1 + z) * (2.0 / 3.0) * (log_mh_true - 11.5))
+    gt = compute_gamma_t(log_mh_true, z)
     log_gt = np.log10(np.clip(gt, 1e-9, None))
 
     # True stellar mass (no TEP bias)
@@ -273,7 +275,7 @@ def main():
     if l4_calibration is None:
         z_typical = 8.0
         log_mh_typical = 12.0
-        gt_typical = np.exp(ALPHA0 * (1 + z_typical) * (2.0 / 3.0) * (log_mh_typical - 11.5))
+        gt_typical = float(compute_gamma_t(log_mh_typical, z_typical))
         ratio_before = np.nan
         ratio_after = np.nan
         beta_empirical = np.nan
@@ -482,7 +484,7 @@ def main():
         "step": "step_159",
         "description": (
             "TEP mass measurement bias: SED-inferred M*_obs = M*_true * Gamma_t^beta "
-            "suppresses partial rho by ~2x at beta=0.7; self-defeating proxy argument"
+            "suppresses partial rho by ~1.5x at beta=0.7; self-defeating proxy argument"
         ),
         "beta_ml": BETA_ML,
         "beta_empirical_from_L4": float(beta_empirical),

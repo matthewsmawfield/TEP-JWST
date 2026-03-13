@@ -1,0 +1,70 @@
+{
+  "step": "174",
+  "name": "smf_mass_threshold_counts",
+  "status": "SUCCESS",
+  "description": "Stellar mass function mass-threshold counts (Table 15)",
+  "n_ml": 0.7,
+  "total_galaxies": 46659,
+  "total_z7": 7378,
+  "per_survey_z7": {
+    "UNCOVER": 504,
+    "CEERS": 414,
+    "COSMOS-Web": 6460
+  },
+  "table_15": [
+    {
+      "z_lo": 7,
+      "z_hi": 8,
+      "threshold": 10.0,
+      "n_bin": 4474,
+      "n_obs": 119,
+      "n_corr": 17,
+      "reduction_pct": 85.7
+    },
+    {
+      "z_lo": 7,
+      "z_hi": 8,
+      "threshold": 10.5,
+      "n_bin": 4474,
+      "n_obs": 41,
+      "n_corr": 1,
+      "reduction_pct": 97.6
+    },
+    {
+      "z_lo": 8,
+      "z_hi": 9,
+      "threshold": 10.0,
+      "n_bin": 1373,
+      "n_obs": 113,
+      "n_corr": 7,
+      "reduction_pct": 93.8
+    },
+    {
+      "z_lo": 8,
+      "z_hi": 9,
+      "threshold": 10.5,
+      "n_bin": 1373,
+      "n_obs": 34,
+      "n_corr": 0,
+      "reduction_pct": 100.0
+    },
+    {
+      "z_lo": 9,
+      "z_hi": 10,
+      "threshold": 10.0,
+      "n_bin": 1081,
+      "n_obs": 54,
+      "n_corr": 0,
+      "reduction_pct": 100.0
+    },
+    {
+      "z_lo": 9,
+      "z_hi": 10,
+      "threshold": 10.5,
+      "n_bin": 1081,
+      "n_obs": 17,
+      "n_corr": 0,
+      "reduction_pct": 100.0
+    }
+  ]
+}

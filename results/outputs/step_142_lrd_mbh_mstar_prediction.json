@@ -3,24 +3,335 @@
   "name": "lrd_mbh_mstar_prediction",
   "status": "complete",
   "alpha_0": 0.58,
-  "concentration_factor": 10.0,
-  "t_salpeter_Gyr": 0.045,
-  "redshifts_probed": [
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10
-  ],
-  "log_Mh_probed": [
-    10.5,
-    11.0,
-    11.5
-  ],
-  "median_mbh_mstar_boost_log11": 1.8728398547089413e+77,
-  "max_mbh_mstar_boost_log11": 1.0142320547350045e+304,
-  "max_boost_redshift": 10.0,
-  "conclusion": "Differential Temporal Shear predicts M_BH/M_* boosts of 2e+77\u20131e+304 for LRD-mass halos at z=4\u201310. This is consistent with JWST observations of overmassive black holes (Pacucci et al. 2024; Maiolino et al. 2024) without requiring super-Eddington accretion or exotic heavy seeds."
+  "alpha_uncertainty": 0.16,
+  "real_sample": {
+    "catalog": "kokorev_lrd_catalog_v1.1.fits",
+    "sample_size": 253,
+    "median_z": 5.54536247253418,
+    "median_log_mstar": 8.281083818181528,
+    "median_re_pc": 90.98577110551594,
+    "median_concentration": 5.495364757860341,
+    "mass_source_counts": {
+      "MUV_proxy": 253
+    }
+  },
+  "observed_regime": {
+    "log_mbh_mstar_median": -1.5,
+    "log_mbh_mstar_lo": -2.0,
+    "log_mbh_mstar_hi": -1.3,
+    "sources": "Matthee+2024; Greene+2024; Kokorev+2024; Maiolino+2024; Pacucci+2024"
+  },
+  "differential_shear": {
+    "median_delta_gamma": 0.10164784181529285,
+    "median_t_cosmic_Gyr": 1.0276744019339263
+  },
+  "scenarios": {
+    "S0_standard": {
+      "label": "Standard (no TEP)",
+      "M_seed": 100.0,
+      "f_Edd": 1.0,
+      "use_tep": false,
+      "median_log_mbh_mstar": -3.0,
+      "offset_from_observed_median_dex": -1.5,
+      "covers_observed_range": false,
+      "n_objects_in_observed_regime": 0,
+      "fraction_objects_in_observed_regime": 0.0,
+      "median_extra_efolds": 0.0,
+      "p16_log_mbh_mstar": -3.0,
+      "p84_log_mbh_mstar": -3.0
+    },
+    "S1_tep_only": {
+      "label": "TEP-only (100 M_sun seed, Eddington)",
+      "M_seed": 100.0,
+      "f_Edd": 1.0,
+      "use_tep": true,
+      "median_log_mbh_mstar": -5.1638235774720345,
+      "offset_from_observed_median_dex": -3.6638235774720345,
+      "covers_observed_range": false,
+      "n_objects_in_observed_regime": 0,
+      "fraction_objects_in_observed_regime": 0.0,
+      "median_extra_efolds": 2.3973428608694705,
+      "p16_log_mbh_mstar": -5.506385361324528,
+      "p84_log_mbh_mstar": -4.764257801660085
+    },
+    "S2_tep_intermediate_seed": {
+      "label": "TEP + intermediate seed (10^3 M_sun)",
+      "M_seed": 1000.0,
+      "f_Edd": 1.0,
+      "use_tep": true,
+      "median_log_mbh_mstar": -4.1638235774720345,
+      "offset_from_observed_median_dex": -2.6638235774720345,
+      "covers_observed_range": false,
+      "n_objects_in_observed_regime": 0,
+      "fraction_objects_in_observed_regime": 0.0,
+      "median_extra_efolds": 2.3973428608694705,
+      "p16_log_mbh_mstar": -4.506385361324528,
+      "p84_log_mbh_mstar": -3.7642578016600847
+    },
+    "S3_tep_mild_super_eddington": {
+      "label": "TEP + mild super-Eddington (f=1.3, 100 M_sun)",
+      "M_seed": 100.0,
+      "f_Edd": 1.3,
+      "use_tep": true,
+      "median_log_mbh_mstar": -4.852523776703525,
+      "offset_from_observed_median_dex": -3.352523776703525,
+      "covers_observed_range": false,
+      "n_objects_in_observed_regime": 0,
+      "fraction_objects_in_observed_regime": 0.0,
+      "median_extra_efolds": 3.1165457191303116,
+      "p16_log_mbh_mstar": -5.244951376410308,
+      "p84_log_mbh_mstar": -4.246903345939088
+    },
+    "S4_tep_combined": {
+      "label": "TEP combined (500 M_sun, f=1.1)",
+      "M_seed": 500.0,
+      "f_Edd": 1.1,
+      "use_tep": true,
+      "median_log_mbh_mstar": -4.359431730030347,
+      "offset_from_observed_median_dex": -2.859431730030347,
+      "covers_observed_range": false,
+      "n_objects_in_observed_regime": 0,
+      "fraction_objects_in_observed_regime": 0.0,
+      "median_extra_efolds": 2.637077146956418,
+      "p16_log_mbh_mstar": -4.71249636313946,
+      "p84_log_mbh_mstar": -3.9104973156682905
+    }
+  },
+  "monte_carlo_population_muv_proxy": {
+    "S2_tep_intermediate_seed": {
+      "n_draws": 5000,
+      "sample_size": 253,
+      "statistic": "population_median_log_mbh_mstar",
+      "median_log_mbh_mstar_population": -4.162027915196518,
+      "ci_95_lo": -4.737368948621627,
+      "ci_95_hi": -3.429826513559941,
+      "fraction_in_observed_range": 0.0,
+      "median_in_observed_range": false
+    },
+    "S3_tep_mild_super_eddington": {
+      "n_draws": 5000,
+      "sample_size": 253,
+      "statistic": "population_median_log_mbh_mstar",
+      "median_log_mbh_mstar_population": -4.8505011525784045,
+      "ci_95_lo": -5.603245342292509,
+      "ci_95_hi": -3.8822320472317533,
+      "fraction_in_observed_range": 0.0,
+      "median_in_observed_range": false
+    },
+    "S4_tep_combined": {
+      "n_draws": 5000,
+      "sample_size": 253,
+      "statistic": "population_median_log_mbh_mstar",
+      "median_log_mbh_mstar_population": -4.357780441355079,
+      "ci_95_lo": -4.987949440924385,
+      "ci_95_hi": -3.5476414996393144,
+      "fraction_in_observed_range": 0.0,
+      "median_in_observed_range": false
+    }
+  },
+  "gap_closure": {
+    "conservative_muv_proxy": {
+      "tep_only_offset_dex": -3.6638235774720345,
+      "best_plausible_scenario": null,
+      "best_plausible_offset_dex": null,
+      "additional_closure_dex": 0.0,
+      "plausible_closure_scenarios": [],
+      "robust_closure_scenarios": [],
+      "gap_closed_population_median": false
+    },
+    "empirical_ceers_calibrated": {
+      "best_plausible_scenario": "S3_tep_mild_super_eddington",
+      "best_plausible_offset_dex": 0.1344611577778383,
+      "best_robust_scenario": "S3_tep_mild_super_eddington",
+      "best_robust_fraction_in_range": 0.8888,
+      "plausible_closure_scenarios": [
+        "S2_tep_intermediate_seed",
+        "S3_tep_mild_super_eddington",
+        "S4_tep_combined"
+      ],
+      "robust_closure_scenarios": [
+        "S2_tep_intermediate_seed",
+        "S3_tep_mild_super_eddington",
+        "S4_tep_combined"
+      ],
+      "gap_closed_population_median": true
+    }
+  },
+  "assessment": "mass_model_sensitive_real_sample_empirical_calibration_supports_closure",
+  "conclusion": "The upgraded real-sample analysis shows that LRD gap closure is dominated by stellar-mass estimation. Under the conservative MUV-only mass proxy, the full Kokorev population undercloses badly (TEP-only -3.7 dex). But a CEERS direct-mass calibration trained on matched real LRDs (N=40, leave-one-out MAE 0.29 dex) shifts the full real sample into population-median near-closure, with Monte Carlo support strongest for TEP + mild super-Eddington (f=1.3, 100 M_sun).",
+  "step_132_population_baseline": {
+    "available": true,
+    "median_delta_gamma": 0.3278295679943958,
+    "median_log_boost": 3.236738551906286
+  },
+  "empirical_ceers_mass_calibrated_full_sample": {
+    "sample_size": 253,
+    "median_z": 5.54536247253418,
+    "median_log_mstar_empirical": 9.639001821490957,
+    "median_log_mstar_muv_proxy": 8.281083818181528,
+    "median_mass_offset_empirical_minus_muv": 1.2879703545206862,
+    "median_delta_gamma": 0.46200050499367545,
+    "median_concentration": 5.495364757860341,
+    "mass_calibration": {
+      "features": [
+        "Muv",
+        "Av",
+        "log_Lbol",
+        "z"
+      ],
+      "training_sample_size": 40,
+      "loo_mae_dex": 0.29380998215895937,
+      "loo_pred_true_corr": 0.7733089366191294,
+      "coefficients": {
+        "Muv": 0.36866967791452354,
+        "Av": -0.9218134213282206,
+        "log_Lbol": 1.6780617359958183,
+        "z": -0.175503648758734
+      },
+      "intercept": -56.63934156164638,
+      "training_feature_ranges": {
+        "Muv": {
+          "min": -20.138818844791903,
+          "max": -16.226724031172736
+        },
+        "Av": {
+          "min": 0.4,
+          "max": 3.9000000000000004
+        },
+        "log_Lbol": {
+          "min": 43.74086607688362,
+          "max": 46.709689522729164
+        },
+        "z": {
+          "min": 4.533113956451416,
+          "max": 8.93444538116455
+        }
+      }
+    },
+    "scenarios": {
+      "S0_standard": {
+        "median_log_mbh_mstar": -3.0,
+        "offset_from_observed_median_dex": -1.5,
+        "fraction_objects_in_observed_regime": 0.0,
+        "median_extra_efolds": 0.0,
+        "p16_log_mbh_mstar": -3.0,
+        "p84_log_mbh_mstar": -3.0
+      },
+      "S1_tep_only": {
+        "median_log_mbh_mstar": -2.8324004829375315,
+        "offset_from_observed_median_dex": -1.3324004829375315,
+        "fraction_objects_in_observed_regime": 0.043478260869565216,
+        "median_extra_efolds": 11.269164476089324,
+        "p16_log_mbh_mstar": -4.672504125894498,
+        "p84_log_mbh_mstar": 0.0
+      },
+      "S2_tep_intermediate_seed": {
+        "median_log_mbh_mstar": -1.8324004829375315,
+        "offset_from_observed_median_dex": -0.33240048293753155,
+        "fraction_objects_in_observed_regime": 0.11462450592885376,
+        "median_extra_efolds": 11.269164476089324,
+        "p16_log_mbh_mstar": -3.672504125894498,
+        "p84_log_mbh_mstar": 0.0
+      },
+      "S3_tep_mild_super_eddington": {
+        "median_log_mbh_mstar": -1.3655388422221617,
+        "offset_from_observed_median_dex": 0.1344611577778383,
+        "fraction_objects_in_observed_regime": 0.09090909090909091,
+        "median_extra_efolds": 14.649913818916122,
+        "p16_log_mbh_mstar": -3.9193360703944067,
+        "p84_log_mbh_mstar": 0.0
+      },
+      "S4_tep_combined": {
+        "median_log_mbh_mstar": -1.6398668456669117,
+        "offset_from_observed_median_dex": -0.13986684566691165,
+        "fraction_objects_in_observed_regime": 0.09090909090909091,
+        "median_extra_efolds": 12.396080923698259,
+        "p16_log_mbh_mstar": -3.7333157836520043,
+        "p84_log_mbh_mstar": 0.0
+      }
+    },
+    "monte_carlo_population": {
+      "S2_tep_intermediate_seed": {
+        "n_draws": 5000,
+        "sample_size": 253,
+        "statistic": "population_median_log_mbh_mstar",
+        "median_log_mbh_mstar_population": -1.8910270306661163,
+        "ci_95_lo": -2.998946738024367,
+        "ci_95_hi": -1.798280654097629,
+        "fraction_in_observed_range": 0.6826,
+        "median_in_observed_range": true
+      },
+      "S3_tep_mild_super_eddington": {
+        "n_draws": 5000,
+        "sample_size": 253,
+        "statistic": "population_median_log_mbh_mstar",
+        "median_log_mbh_mstar_population": -1.4135329747845817,
+        "ci_95_lo": -2.893121580709806,
+        "ci_95_hi": -1.3469149499920061,
+        "fraction_in_observed_range": 0.8888,
+        "median_in_observed_range": true
+      },
+      "S4_tep_combined": {
+        "n_draws": 5000,
+        "sample_size": 253,
+        "statistic": "population_median_log_mbh_mstar",
+        "median_log_mbh_mstar_population": -1.699713978964886,
+        "ci_95_lo": -2.9384248742796877,
+        "ci_95_hi": -1.6136975311475819,
+        "fraction_in_observed_range": 0.8172,
+        "median_in_observed_range": true
+      }
+    },
+    "plausible_closure_scenarios": [
+      "S2_tep_intermediate_seed",
+      "S3_tep_mild_super_eddington",
+      "S4_tep_combined"
+    ],
+    "robust_closure_scenarios": [
+      "S2_tep_intermediate_seed",
+      "S3_tep_mild_super_eddington",
+      "S4_tep_combined"
+    ]
+  },
+  "direct_mass_ceers_subset": {
+    "sample_size": 40,
+    "match_radius_arcsec": 0.1,
+    "median_z": 5.9051454067230225,
+    "median_log_mstar_direct": 9.692078572391242,
+    "median_log_mstar_muv_proxy": 8.255859909378845,
+    "median_mass_offset_direct_minus_muv": 1.433830762439007,
+    "median_delta_gamma": 0.7390634084798307,
+    "median_concentration": 8.021507520337105,
+    "scenarios": {
+      "S0_standard": {
+        "median_log_mbh_mstar": -3.0,
+        "offset_from_observed_median_dex": -1.5,
+        "fraction_objects_in_observed_regime": 0.0
+      },
+      "S1_tep_only": {
+        "median_log_mbh_mstar": -0.6117071408264653,
+        "offset_from_observed_median_dex": 0.8882928591735347,
+        "fraction_objects_in_observed_regime": 0.125
+      },
+      "S2_tep_intermediate_seed": {
+        "median_log_mbh_mstar": 0.0,
+        "offset_from_observed_median_dex": 1.5,
+        "fraction_objects_in_observed_regime": 0.1
+      },
+      "S3_tep_mild_super_eddington": {
+        "median_log_mbh_mstar": 0.0,
+        "offset_from_observed_median_dex": 1.5,
+        "fraction_objects_in_observed_regime": 0.1
+      },
+      "S4_tep_combined": {
+        "median_log_mbh_mstar": 0.0,
+        "offset_from_observed_median_dex": 1.5,
+        "fraction_objects_in_observed_regime": 0.125
+      }
+    }
+  },
+  "physical_motivation": {
+    "intermediate_seeds": "Seeds of 10^3 M_sun are consistent with Population III remnants in dense nuclear star clusters (Madau & Rees 2001; Devecchi & Volonteri 2009) and fall well below the heavy-seed abundance problem threshold (10^5 M_sun).",
+    "mild_super_eddington": "Accretion at 1.5-2.5x Eddington is routinely observed in local ultraluminous X-ray sources (King et al. 2023; Middleton et al. 2015) and confirmed stable over 10^7 yr timescales in radiation-magnetohydrodynamic simulations (Jiang et al. 2019). This is far below the 10x required without TEP."
+  }
 }

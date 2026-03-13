@@ -1,0 +1,620 @@
+{
+  "step": 176,
+  "name": "nested_bayesian_evidence",
+  "timestamp": "2026-03-13T17:05:15.230003",
+  "description": "Fully nested Bayesian evidence computation for TEP vs explicit astrophysical alternatives, using both multi-observable joint tests (primary) and single-observable supplementary tests.",
+  "sampler_config": {
+    "nlive": 500,
+    "dlogz": 0.5,
+    "seed_base": 176,
+    "sampling": "rwalk",
+    "bounding": "multi"
+  },
+  "sample_size": 504,
+  "observables": [
+    "dust",
+    "log_ssfr",
+    "chi2",
+    "met"
+  ],
+  "n_observables": 4,
+  "z_range": [
+    7.002410816821598,
+    9.985523401104327
+  ],
+  "mass_range": [
+    8.00060190406349,
+    11.136567502108385
+  ],
+  "preprocessing": {
+    "observables_standardized_for_evidence": true,
+    "observable_means_raw": {
+      "dust": 0.7644616707162569,
+      "log_ssfr": -8.125363067581045,
+      "chi2": 20.380666556326666,
+      "met": -0.8230535648451801
+    },
+    "observable_stds_raw": {
+      "dust": 0.6052695032162856,
+      "log_ssfr": 0.21239166348416363,
+      "chi2": 47.34704327546426,
+      "met": 0.33448966756755005
+    },
+    "mass_z_residual_comparison_included": true,
+    "note": "Observables were z-scored before nested sampling so the shared Gaussian-noise priors are valid across domains with very different scales."
+  },
+  "joint_model_evidence": {
+    "TEP": {
+      "label": "TEP Joint (12 params)",
+      "n_params": 12,
+      "logZ": -2738.9435586323143,
+      "logZ_err": 0.48311121904076204,
+      "n_samples": 26796,
+      "posterior_means": [
+        0.6313416653541698,
+        1.4411352954190833,
+        -0.20200541312566245,
+        -0.45166389838527243,
+        -1.0302224402074183,
+        -0.0909545355865536,
+        0.315889191238849,
+        0.7194638091512597,
+        -0.04179146547821744,
+        0.07598712459408793,
+        0.1740076328593458,
+        0.00011389256076500882
+      ],
+      "posterior_stds": [
+        0.05392916281365304,
+        0.09020352093592643,
+        0.031778915997185665,
+        0.05896237067644147,
+        0.0990533417757178,
+        0.030279731554301942,
+        0.06378459423862647,
+        0.10480962851703642,
+        0.03180391656932214,
+        0.06469202751155649,
+        0.10779875300333933,
+        0.03127896578177802
+      ],
+      "niter": 26296,
+      "ncall": 1,
+      "eff": 3.336691276362862,
+      "seed": 1845
+    },
+    "Standard_Physics": {
+      "label": "Standard Physics Joint (16 params)",
+      "n_params": 16,
+      "logZ": -2752.164123780974,
+      "logZ_err": 0.5397782840504404,
+      "n_samples": 31899,
+      "posterior_means": [
+        -9.436646156890626,
+        1.2212489652711849,
+        -0.107040626573917,
+        -0.20874228507565187,
+        7.198321919339132,
+        -0.7157319513355661,
+        -0.13896776817988504,
+        -0.07307243928020801,
+        -4.597616821561996,
+        0.6351795867214525,
+        -0.09320065856557899,
+        -0.03977280723048501,
+        -1.5207804247812469,
+        0.02327091139637253,
+        0.16031209089032547,
+        -0.0052603763911488206
+      ],
+      "posterior_stds": [
+        0.431714469491262,
+        0.06002617806655933,
+        0.04453185840994588,
+        0.03163035503786476,
+        0.7922281091541419,
+        0.09112927534987932,
+        0.053525050459769054,
+        0.03158446305910397,
+        0.7948441171833025,
+        0.09241907990806832,
+        0.05488418104871801,
+        0.031321827787271855,
+        0.8372949750227109,
+        0.09659850734284786,
+        0.05781901131161835,
+        0.032060734096253526
+      ],
+      "niter": 31399,
+      "ncall": 1,
+      "eff": 2.948988298898116,
+      "seed": 3204
+    },
+    "Bursty_SF": {
+      "label": "Bursty SF Joint (21 params)",
+      "n_params": 21,
+      "logZ": -2744.9239517116134,
+      "logZ_err": 0.5703106457600103,
+      "n_samples": 34234,
+      "posterior_means": [
+        4.620928311088329,
+        -6.565923463541358,
+        0.7764001983649532,
+        -0.0979652193553581,
+        1.6150369742790678,
+        -0.2166785845515217,
+        3.715686953663727,
+        -0.20479620976233834,
+        -0.14002208110149744,
+        -1.6420485133102398,
+        -0.08393408253916508,
+        -2.393426667491865,
+        0.31348013693408067,
+        -0.09348644915399612,
+        1.0280160095409034,
+        -0.039422196740119486,
+        -0.7574504262290752,
+        -0.09150759912786817,
+        0.16322680925630453,
+        0.36686899931472944,
+        -0.004850823584184843
+      ],
+      "posterior_stds": [
+        0.3767680340679034,
+        1.0056654540824845,
+        0.1301367042583489,
+        0.04591711094696555,
+        0.32904778280353497,
+        0.030886746132086543,
+        1.1162402080291416,
+        0.14385159517666324,
+        0.051264544287416065,
+        0.345580721851631,
+        0.031007253052334025,
+        1.6976305423416624,
+        0.24270152290725056,
+        0.052871507654461775,
+        0.734571464671586,
+        0.03173548241610839,
+        2.1090758107366945,
+        0.3036045742437,
+        0.055696879877844586,
+        0.9394853328408697,
+        0.03151723670195002
+      ],
+      "niter": 33734,
+      "ncall": 1,
+      "eff": 2.5809788328674093,
+      "seed": 2446
+    },
+    "Varying_IMF": {
+      "label": "Varying IMF Joint (20 params)",
+      "n_params": 20,
+      "logZ": -2742.6217241164277,
+      "logZ_err": 0.5354734826556813,
+      "n_samples": 34694,
+      "posterior_means": [
+        2.3705540568783197,
+        -1.4888022607843454,
+        0.15399614337832546,
+        -0.09950339478403764,
+        -0.22134081501530575,
+        -3.0520896085252653,
+        1.5856683369669582,
+        -0.12887951619355809,
+        -0.13515019015024332,
+        -0.08557402158322006,
+        2.4217508730859576,
+        -0.9296498332452644,
+        0.08682856217264875,
+        -0.09513013255613376,
+        -0.04202115635711956,
+        -0.49432631985396974,
+        -0.203310830080843,
+        0.012512436996052948,
+        0.15925728669358685,
+        -0.003095216961117457
+      ],
+      "posterior_stds": [
+        2.124838309864983,
+        0.4640326779235387,
+        0.026009017359110456,
+        0.045002815532139515,
+        0.03189660739431208,
+        1.8677044762756048,
+        0.3995864559572172,
+        0.02258828271408914,
+        0.053207587379812814,
+        0.03166582564990598,
+        3.7770632858878983,
+        0.8342379437476021,
+        0.04648816789891229,
+        0.05467898304171137,
+        0.0309296512018747,
+        4.7023589917320905,
+        1.0470758647108753,
+        0.05847732278524749,
+        0.05632966944670811,
+        0.03135278897927541
+      ],
+      "niter": 34194,
+      "ncall": 1,
+      "eff": 2.6404574337164815,
+      "seed": 2599
+    },
+    "AGN_Feedback": {
+      "label": "AGN Feedback Joint (14 params)",
+      "n_params": 14,
+      "logZ": -2711.3268009672815,
+      "logZ_err": 0.5083347801863037,
+      "n_samples": 26612,
+      "posterior_means": [
+        9.723443526876434,
+        2.897225944527,
+        -0.2625948499965866,
+        4.2228675369442294,
+        -0.23769286087292388,
+        0.1917669433011731,
+        -3.063697849968303,
+        -0.10893377026730014,
+        -0.1307561354709581,
+        2.075986483083542,
+        -0.04489053447700165,
+        -0.010723471022812422,
+        0.18377330620558238,
+        0.0029564980961611456
+      ],
+      "posterior_stds": [
+        0.07826071756836389,
+        0.40855048372320274,
+        0.06233420306278346,
+        0.35231999563721866,
+        0.031448600730375455,
+        0.05376368940333389,
+        0.34126396250563734,
+        0.03211135331530617,
+        0.05116486423592027,
+        0.32787102581511773,
+        0.03209714270948246,
+        0.047901632074214565,
+        0.3107773656646601,
+        0.031786536694357465
+      ],
+      "niter": 26112,
+      "ncall": 1,
+      "eff": 3.1544148413487694,
+      "seed": 2633
+    }
+  },
+  "joint_bayes_factors": {
+    "Standard_Physics": {
+      "ln_BF_TEP_vs_alt": 13.220565148659716,
+      "ln_BF_err": 0.7244011636486299,
+      "BF": 551592.6768737632,
+      "log10_BF": 5.741618491705358,
+      "interpretation": "Decisive evidence for TEP",
+      "TEP_n_params": 12,
+      "alt_n_params": 16,
+      "delta_params": 4
+    },
+    "Bursty_SF": {
+      "ln_BF_TEP_vs_alt": 5.98039307929912,
+      "ln_BF_err": 0.7474293830391278,
+      "BF": 395.5958381320949,
+      "log10_BF": 2.5972517139520037,
+      "interpretation": "Decisive evidence for TEP",
+      "TEP_n_params": 12,
+      "alt_n_params": 21,
+      "delta_params": 9
+    },
+    "Varying_IMF": {
+      "ln_BF_TEP_vs_alt": 3.6781654841133786,
+      "ln_BF_err": 0.7211992100595059,
+      "BF": 39.57372880597147,
+      "log10_BF": 1.597406973277443,
+      "interpretation": "Very strong evidence for TEP",
+      "TEP_n_params": 12,
+      "alt_n_params": 20,
+      "delta_params": 8
+    },
+    "AGN_Feedback": {
+      "ln_BF_TEP_vs_alt": -27.616757665032765,
+      "ln_BF_err": 0.7012850338557846,
+      "BF": 1.014365659281452e-12,
+      "log10_BF": -11.993805461983062,
+      "interpretation": "Decisive evidence for alternative",
+      "TEP_n_params": 12,
+      "alt_n_params": 14,
+      "delta_params": 2
+    }
+  },
+  "single_dust_evidence": {
+    "TEP": {
+      "label": "TEP Dust (3 params)",
+      "n_params": 3,
+      "logZ": -625.4116529412368,
+      "logZ_err": 0.28556447817519187,
+      "n_samples": 7712,
+      "posterior_means": [
+        0.630915299764903,
+        1.4378458522107098,
+        -0.2012636760089578
+      ],
+      "posterior_stds": [
+        0.053093326520172374,
+        0.09144504684928108,
+        0.03128208640414838
+      ],
+      "niter": 7212,
+      "ncall": 1,
+      "eff": 5.449021408888575,
+      "seed": 1697
+    },
+    "Standard_Physics": {
+      "label": "Standard Dust (4 params)",
+      "n_params": 4,
+      "logZ": -625.1776536511753,
+      "logZ_err": 0.3142793710817575,
+      "n_samples": 9256,
+      "posterior_means": [
+        -9.441201557073368,
+        1.2233566047167244,
+        -0.10860426109953596,
+        -0.2077852059587333
+      ],
+      "posterior_stds": [
+        0.41704019571523526,
+        0.058455246370980485,
+        0.04413647331828634,
+        0.03148335476042459
+      ],
+      "niter": 8756,
+      "ncall": 1,
+      "eff": 5.019903897259011,
+      "seed": 2282
+    },
+    "Varying_IMF": {
+      "label": "Varying IMF Dust (5 params)",
+      "n_params": 5,
+      "logZ": -619.9921005749055,
+      "logZ_err": 0.32252270778564734,
+      "n_samples": 10282,
+      "posterior_means": [
+        2.379708293896504,
+        -1.4918769261873077,
+        0.15417919099536037,
+        -0.09906548422666651,
+        -0.22006101319283392
+      ],
+      "posterior_stds": [
+        2.1165201621597487,
+        0.46589908280861536,
+        0.026246146023905594,
+        0.045313617890669296,
+        0.03119534191207831
+      ],
+      "niter": 9782,
+      "ncall": 1,
+      "eff": 4.728900008738485,
+      "seed": 2454
+    },
+    "AGN_Feedback": {
+      "label": "AGN Dust (5 params)",
+      "n_params": 5,
+      "logZ": -609.2182251985962,
+      "logZ_err": 0.30119495903092663,
+      "n_samples": 9072,
+      "posterior_means": [
+        -0.3348405539494925,
+        4.150935512202388,
+        9.659351045560639,
+        2.6379121062735478,
+        -0.23884261459519116
+      ],
+      "posterior_stds": [
+        0.09785214210621737,
+        0.41606085953445315,
+        0.09959545893128197,
+        0.5155370004000179,
+        0.03148810464624789
+      ],
+      "niter": 8572,
+      "ncall": 1,
+      "eff": 4.845403222791341,
+      "seed": 1680
+    }
+  },
+  "single_dust_bayes_factors": {
+    "Standard_Physics": {
+      "ln_BF_TEP_vs_alt": -0.23399929006143338,
+      "ln_BF_err": 0.42463936968092664,
+      "BF": 0.7913623777140565,
+      "log10_BF": -0.10162460044295894,
+      "interpretation": "Weak evidence for alternative",
+      "TEP_n_params": 3,
+      "alt_n_params": 4,
+      "delta_params": 1
+    },
+    "Varying_IMF": {
+      "ln_BF_TEP_vs_alt": -5.4195523663312315,
+      "ln_BF_err": 0.43077600703016844,
+      "BF": 0.004429128831340596,
+      "log10_BF": -2.3536816870833643,
+      "interpretation": "Decisive evidence for alternative",
+      "TEP_n_params": 3,
+      "alt_n_params": 5,
+      "delta_params": 2
+    },
+    "AGN_Feedback": {
+      "ln_BF_TEP_vs_alt": -16.19342774264055,
+      "ln_BF_err": 0.41504876164266674,
+      "BF": 9.27435441585878e-08,
+      "log10_BF": -7.032716311727823,
+      "interpretation": "Decisive evidence for alternative",
+      "TEP_n_params": 3,
+      "alt_n_params": 5,
+      "delta_params": 2
+    }
+  },
+  "residual_space_model_evidence": {
+    "TEP": {
+      "label": "Residual TEP Joint (12 params)",
+      "n_params": 12,
+      "logZ": -2795.029679249815,
+      "logZ_err": 0.5481001081123991,
+      "n_samples": 28369,
+      "posterior_means": [
+        0.0011595640815727471,
+        -0.02473005041547422,
+        0.0023895451513687733,
+        -0.0007136428526949738,
+        -0.558787854943384,
+        -0.18572109733222972,
+        0.000947490534201125,
+        0.051968205380273184,
+        0.001153322916877543,
+        0.0009566948860020048,
+        0.3150133795980239,
+        -0.04994399234746503
+      ],
+      "posterior_stds": [
+        0.045067740791203736,
+        0.044761927811484296,
+        0.0316733481510241,
+        0.03735440730178379,
+        0.036901153143408784,
+        0.031913238938053035,
+        0.04456887194685271,
+        0.045237960149775575,
+        0.03206644763882621,
+        0.04264024068816368,
+        0.04192726805322271,
+        0.031767828892982866
+      ],
+      "niter": 27869,
+      "ncall": 1,
+      "eff": 3.3233017704205174,
+      "seed": 2702
+    },
+    "Residual_Null": {
+      "label": "Residual Null (8 params)",
+      "n_params": 8,
+      "logZ": -2894.112992686828,
+      "logZ_err": 0.41438400643010576,
+      "n_samples": 17470,
+      "posterior_means": [
+        -0.0008282222114192608,
+        0.0023848910623147667,
+        -0.001025540967400805,
+        0.0023521777068626444,
+        -0.0006136507770185609,
+        0.002237802881501115,
+        -0.0009672685946749859,
+        0.002354010813793851
+      ],
+      "posterior_stds": [
+        0.04516225220614617,
+        0.03142644700436377,
+        0.04424943132813203,
+        0.03161833629257759,
+        0.04397174872442073,
+        0.031312837754838785,
+        0.04505542281628211,
+        0.031663882176832296
+      ],
+      "niter": 16970,
+      "ncall": 1,
+      "eff": 3.9406400212934414,
+      "seed": 2289
+    },
+    "Constrained_AGN": {
+      "label": "Residual Constrained AGN (10 params)",
+      "n_params": 10,
+      "logZ": -2850.738753953988,
+      "logZ_err": 0.41699142348447565,
+      "n_samples": 18633,
+      "posterior_means": [
+        9.74175284167568,
+        3.534334509262687,
+        0.26834601165075606,
+        -0.03487855791672908,
+        -0.2931332486055988,
+        -0.04257666482742939,
+        0.12217232511031423,
+        -0.004201577418045045,
+        0.0005710787585553788,
+        0.0016452179522827755
+      ],
+      "posterior_stds": [
+        0.08756993151019365,
+        0.8340264320306037,
+        0.04290904386531115,
+        0.03213324293220968,
+        0.043873567676481304,
+        0.031729490067668294,
+        0.04551077268514445,
+        0.03170676886977216,
+        0.045787030606252346,
+        0.031894409971602956
+      ],
+      "niter": 18133,
+      "ncall": 1,
+      "eff": 3.6630821554249318,
+      "seed": 3311
+    }
+  },
+  "residual_space_bayes_factors": {
+    "Residual_Null": {
+      "ln_BF_TEP_vs_alt": 99.08331343701275,
+      "ln_BF_err": 0.6871155894737723,
+      "BF": 1.0748213247912482e+43,
+      "log10_BF": 43.031336274384955,
+      "interpretation": "Decisive evidence for TEP",
+      "TEP_n_params": 12,
+      "alt_n_params": 8,
+      "delta_params": -4
+    },
+    "Constrained_AGN": {
+      "ln_BF_TEP_vs_alt": 55.70907470417296,
+      "ln_BF_err": 0.6886912049477856,
+      "BF": 1.5636650742882243e+24,
+      "log10_BF": 24.194143735958345,
+      "interpretation": "Decisive evidence for TEP",
+      "TEP_n_params": 12,
+      "alt_n_params": 10,
+      "delta_params": -2
+    }
+  },
+  "joint_summary": {
+    "n_alternatives": 4,
+    "n_decisive_for_TEP": 2,
+    "n_strong_for_TEP": 3,
+    "n_favour_alternative": 1,
+    "hardest_alternative": "AGN_Feedback",
+    "hardest_ln_BF": -27.616757665032765,
+    "easiest_alternative": "Standard_Physics",
+    "easiest_ln_BF": 13.220565148659716,
+    "mean_ln_BF": -1.1844084882401376,
+    "mean_log10_BF": -0.5143820707620641
+  },
+  "key_finding": {
+    "statement": "Multi-observable joint nested Bayesian model comparison favours TEP over most alternatives, but AGN_Feedback decisively outperforms TEP in this comparison (ln BF = -27.6). Mean ln(BF) across 4 alternatives = -1.2 (log10 = -0.5).  TEP achieves this with the fewest parameters, leveraging a single theory-fixed predictor (Gamma_t) across all observables.",
+    "methodology": "Dynesty nested sampling with nlive=500, dlogz=0.5, multi-observable joint likelihood across 4 observables (dust, log_ssfr, chi2, met).  TEP uses 12 params (3 per observable, shared log(Gamma_t) predictor) while alternatives range from 14 to 21 params."
+  },
+  "residual_space_summary": {
+    "n_alternatives": 2,
+    "n_decisive_for_TEP": 2,
+    "n_strong_for_TEP": 2,
+    "n_favour_alternative": 0,
+    "hardest_alternative": "Constrained_AGN",
+    "hardest_ln_BF": 55.70907470417296,
+    "easiest_alternative": "Residual_Null",
+    "easiest_ln_BF": 99.08331343701275,
+    "mean_ln_BF": 77.39619407059286,
+    "mean_log10_BF": 33.61274000517165
+  },
+  "residual_space_key_finding": {
+    "statement": "Residual-space nested Bayesian comparison decisively favours TEP over all tested residual alternatives. After removing linear mass+z trends from both observables and competing predictors, mean ln(BF) across 2 alternatives = 77.4 (log10 = 33.6).",
+    "methodology": "Residual-space dynesty comparison with nlive=500, dlogz=0.5. Observables and competing predictors were residualized against a linear [1, log_Mstar, z] design matrix before evidence computation. Residual TEP uses 12 params, residual null uses 8, and constrained AGN uses 10 params with metallicity excluded from explicit AGN contamination response."
+  }
+}

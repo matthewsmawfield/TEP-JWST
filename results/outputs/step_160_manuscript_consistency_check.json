@@ -2,8 +2,8 @@
   "step": "step_160",
   "description": "Automated manuscript-to-JSON consistency checks for defensibility",
   "summary": {
-    "checks_total": 17,
-    "checks_passed": 16,
+    "checks_total": 21,
+    "checks_passed": 20,
     "checks_skipped": 1,
     "checks_failed": 0,
     "status": "PASS"
@@ -46,7 +46,21 @@
         "step_164_present": true,
         "step_140_present": true,
         "step_164_before_step_140": true,
-        "registered_steps": 154
+        "registered_steps": 159
+      },
+      "pass": true
+    },
+    {
+      "name": "canonical_registry_includes_nested_bayesian_step_before_final_synthesis",
+      "expected": {
+        "step_176_present": true,
+        "step_140_present": true,
+        "step_176_before_step_140": true
+      },
+      "found": {
+        "step_176_present": true,
+        "step_140_present": true,
+        "step_176_before_step_140": true
       },
       "pass": true
     },
@@ -54,6 +68,26 @@
       "name": "table13_n_range_math_delimiter_regression",
       "expected": "bad token absent",
       "found": false,
+      "pass": true
+    },
+    {
+      "name": "results_section_numbering_and_reader_guide_refs_are_synced",
+      "expected": {
+        "stale_numbering_tokens_absent": true,
+        "updated_numbering_tokens_present": true
+      },
+      "found": {
+        "stale_numbering_token_hits": {},
+        "updated_numbering_token_presence": {
+          "intro_stage1_ref_updated": true,
+          "intro_stage2_ref_updated": true,
+          "results_3_3_uncover": true,
+          "results_3_9_summary": true,
+          "results_3_9_1_adversarial": true,
+          "results_3_9_2_falsification": true,
+          "results_3_10_strategy": true
+        }
+      },
       "pass": true
     },
     {
@@ -84,6 +118,33 @@
       "pass": true
     },
     {
+      "name": "evidence_hierarchy_labels_match_pipeline_summary",
+      "expected": {
+        "l1_remains_dust": true,
+        "l5_is_direct_kinematic_test": true,
+        "stale_hierarchy_phrases_absent": true,
+        "manuscript_and_generated_markdown_tokens_present": true
+      },
+      "found": {
+        "claim_hierarchy_direct_tests": [
+          "L5_kinematic_decisive"
+        ],
+        "stale_hierarchy_phrase_hits": {},
+        "expected_token_presence": {
+          "claim_hierarchy_headline_primary_is_l1_dust": true,
+          "claim_hierarchy_direct_test_is_l5": true,
+          "introduction_l1_dust": true,
+          "introduction_l5_direct_test": true,
+          "results_l1_dust": true,
+          "results_l5_direct": true,
+          "discussion_l5_direct": true,
+          "conclusion_l5_direct": true,
+          "generated_root_l5_direct": true
+        }
+      },
+      "pass": true
+    },
+    {
       "name": "alpha0_external_prior_and_jwst_recovery_are_distinguished",
       "expected": {
         "stale_alpha0_phrases_absent": true,
@@ -94,6 +155,26 @@
         "stale_alpha0_phrase_hits": {},
         "external_prior_tokens_present": true,
         "jwst_recovery_tokens_present": true
+      },
+      "pass": true
+    },
+    {
+      "name": "nested_bayesian_step176_is_synced_to_synthesis_and_manuscript",
+      "expected": {
+        "step_140_nested_bayesian_status_live": true,
+        "step_140_bayes_factor_fields_match_step176": true,
+        "results_and_discussion_tokens_present": true,
+        "generated_root_tokens_present": true
+      },
+      "found": {
+        "step_140_status_live": true,
+        "step_140_joint_standard_matches": true,
+        "step_140_joint_agn_matches": true,
+        "step_140_residual_null_matches": true,
+        "step_140_residual_agn_matches": true,
+        "results_tokens_present": true,
+        "discussion_tokens_present": true,
+        "generated_root_tokens_present": true
       },
       "pass": true
     },
@@ -225,8 +306,8 @@
     {
       "name": "step159_suppression_values_present_in_discussion",
       "expected": {
-        "rho_true": "0.697",
-        "rho_obs_beta07": "0.372"
+        "rho_true": "0.435",
+        "rho_obs_beta07": "0.285"
       },
       "found": {
         "rho_true": true,

@@ -168,11 +168,11 @@
       "rho_shuffled_mean": 0.002084505983347646,
       "rho_shuffled_std": 0.06393419828652129,
       "z_score": 9.240337930025218,
-      "p_empirical": 1e-300,
+      "p_empirical": 0.0004997501249375312,
       "signal_fraction_from_mass_ordering": 0.003516028491921454,
       "unique_fraction_from_gamma_t_form": 0.9964839715080785,
       "n_shuffles": 2000,
-      "interpretation": "Observed rho = 0.593. After shuffling masses within z-bins: mean rho = 0.002 \u00b1 0.064. z-score = 9.2, p = 0.0000. The non-linear Gamma_t form captures 99.6% of the signal beyond what mass ordering within z-bins provides."
+      "interpretation": "Observed rho = 0.593. After shuffling masses within z-bins: mean rho = 0.002 \u00b1 0.064. z-score = 9.2, p = 0.0005. The non-linear Gamma_t form captures 99.6% of the signal beyond what mass ordering within z-bins provides."
     },
     "full_z4_10": {
       "n": 2315,
@@ -180,11 +180,11 @@
       "rho_shuffled_mean": -0.18340873938539876,
       "rho_shuffled_std": 0.01748991932659641,
       "z_score": 3.751668097549041,
-      "p_empirical": 1e-300,
+      "p_empirical": 0.0004997501249375312,
       "signal_fraction_from_mass_ordering": 1.5570511402972158,
       "unique_fraction_from_gamma_t_form": -0.5570511402972158,
       "n_shuffles": 2000,
-      "interpretation": "Observed rho = -0.118. After shuffling masses within z-bins: mean rho = -0.183 \u00b1 0.017. z-score = 3.8, p = 0.0000. The non-linear Gamma_t form captures -55.7% of the signal beyond what mass ordering within z-bins provides."
+      "interpretation": "Observed rho = -0.118. After shuffling masses within z-bins: mean rho = -0.183 \u00b1 0.017. z-score = 3.8, p = 0.0005. The non-linear Gamma_t form captures -55.7% of the signal beyond what mass ordering within z-bins provides."
     }
   },
   "overall_verdict": {
@@ -194,7 +194,7 @@
     "verdicts": [
       "Test 1 INCONCLUSIVE: environment density predicts dust at fixed mass/z but with the opposite sign to the field-dustier formulation (\u03c1=0.069, p=8.51e-04)",
       "Test 2 PASS: nonparametric residual tests retain the z>8 signal after mass+z removal (LOWESS \u03c1=0.241; partial-rank \u03c1=0.262; partial-rank+interaction \u03c1=0.245)",
-      "Test 3 PASS: \u0393_t outperforms shuffled-mass \u0393_t (p=0.0000, unique fraction=99.6%)"
+      "Test 3 PASS: \u0393_t outperforms shuffled-mass \u0393_t (p=0.0005, unique fraction=99.6%)"
     ],
     "limitations": [
       "The environment-density branch remains inconclusive and sign-mixed.",

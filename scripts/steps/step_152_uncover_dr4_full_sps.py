@@ -44,20 +44,20 @@ import json
 import warnings
 warnings.filterwarnings('ignore')
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value, safe_json_default
-from scripts.utils.downloader import smart_download
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
+from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting & JSON serialiser
+from scripts.utils.downloader import smart_download  # Robust HTTP download utility
 from scripts.utils.tep_model import (
-    tep_alpha, compute_gamma_t as tep_gamma, isochrony_mass_bias
+    tep_alpha, compute_gamma_t as tep_gamma, isochrony_mass_bias  # Shared TEP model
 )
 
-STEP_NUM = "152"
-STEP_NAME = "uncover_dr4_full_sps"
+STEP_NUM = "152"  # Pipeline step number
+STEP_NAME = "uncover_dr4_full_sps"  # Used in log / output filenames
 
-DATA_PATH = PROJECT_ROOT / "data" / "raw" / "uncover"
+DATA_PATH = PROJECT_ROOT / "data" / "raw" / "uncover"  # UNCOVER raw data directory
 UNCOVER_FULL_SPS_FILE = DATA_PATH / "UNCOVER_DR4_SPS_catalog.fits"
 UNCOVER_FULL_SPS_URLS = [
     "https://zenodo.org/api/records/14281664/files/UNCOVER_DR4_SPS_catalog.fits/content",

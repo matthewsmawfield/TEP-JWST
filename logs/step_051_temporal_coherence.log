@@ -1,92 +1,92 @@
-[13:04:33]     ======================================================================
-[13:04:33]     STEP 051: Temporal Coherence Test
-[13:04:33]     ======================================================================
-[13:04:33]     
+[16:59:00]     ======================================================================
+[16:59:00]     STEP 051: Temporal Coherence Test
+[16:59:00]     ======================================================================
+[16:59:00]     
 The deepest test: Do multiple age indicators become coherent under TEP?
 
-[13:04:33]     Loaded N = 2315 galaxies
-[13:04:33]     
+[16:59:00]     Loaded N = 2315 galaxies
+[16:59:00]     
 ======================================================================
-[13:04:33]     TEST 1: Age Indicator Correlation Matrix
-[13:04:33]     ======================================================================
-[13:04:33]     If TEP is correct, age indicators should correlate with t_eff.
+[16:59:00]     TEST 1: Age Indicator Correlation Matrix
+[16:59:00]     ======================================================================
+[16:59:00]     If TEP is correct, age indicators should correlate with t_eff.
 
-[13:04:33]     Correlations with log(t_eff) at z > 7:
-[13:04:33]       ρ(log t_eff, log_mwa) = 0.020 (p = 6.59e-01) 
-[13:04:33]       ρ(log t_eff, dust) = 0.364 (p = 2.90e-17) ✓
-[13:04:33]       ρ(log t_eff, burstiness) = -0.177 (p = 6.75e-05) ✓
-[13:04:33]       ρ(log t_eff, met) = 0.128 (p = 4.08e-03) ✓
-[13:04:33]       ρ(log t_eff, chi2) = 0.135 (p = 2.39e-03) ✓
-[13:04:33]     
+[16:59:00]     Correlations with log(t_eff) at z > 7:
+[16:59:00]       ρ(log t_eff, log_mwa) = 0.020 (p = 6.59e-01) 
+[16:59:00]       ρ(log t_eff, dust) = 0.364 (p = 2.90e-17) ✓
+[16:59:00]       ρ(log t_eff, burstiness) = -0.177 (p = 6.75e-05) ✓
+[16:59:00]       ρ(log t_eff, met) = 0.128 (p = 4.08e-03) ✓
+[16:59:00]       ρ(log t_eff, chi2) = 0.135 (p = 2.39e-03) ✓
+[16:59:00]     
 Significant correlations: 4/5
-[13:04:33]     ✓ COHERENCE: Multiple age indicators correlate with t_eff
-[13:04:33]     
+[16:59:00]     ✓ COHERENCE: Multiple age indicators correlate with t_eff
+[16:59:00]     
 ======================================================================
-[13:04:33]     TEST 2: Principal Component Analysis
-[13:04:33]     ======================================================================
-[13:04:33]     If age indicators are coherent, PC1 should capture most variance.
+[16:59:00]     TEST 2: Principal Component Analysis
+[16:59:00]     ======================================================================
+[16:59:00]     If age indicators are coherent, PC1 should capture most variance.
 
-[13:04:33]     Variance explained by principal components:
-[13:04:33]       PC1: 45.4%
-[13:04:33]       PC2: 24.2%
-[13:04:33]       PC3: 17.9%
-[13:04:33]       PC4: 8.3%
-[13:04:33]       PC5: 4.3%
-[13:04:33]     
+[16:59:00]     Variance explained by principal components:
+[16:59:00]       PC1: 45.4%
+[16:59:00]       PC2: 24.2%
+[16:59:00]       PC3: 17.9%
+[16:59:00]       PC4: 8.3%
+[16:59:00]       PC5: 4.3%
+[16:59:00]     
 ✓ COHERENCE: PC1 explains 45.4% of variance
-[13:04:33]     
+[16:59:00]     
 ρ(PC1, log Γ_t) = 0.069 (p = 1.23e-01)
-[13:04:33]     
+[16:59:00]     
 ======================================================================
-[13:04:33]     TEST 3: Dust-Age Consistency
-[13:04:33]     ======================================================================
-[13:04:33]     Dust requires ~300 Myr. Does t_eff predict dust better than t_cosmic?
+[16:59:00]     TEST 3: Dust-Age Consistency
+[16:59:00]     ======================================================================
+[16:59:00]     Dust requires ~300 Myr. Does t_eff predict dust better than t_cosmic?
 
-[13:04:33]     ρ(t_cosmic, Dust) = -0.149 (p = 8.08e-04)
-[13:04:33]     ρ(t_eff, Dust) = 0.364 (p = 2.90e-17)
-[13:04:33]     Improvement: Δρ = 0.513
-[13:04:33]     ✓ COHERENCE: t_eff predicts dust better than t_cosmic
-[13:04:33]     
+[16:59:00]     ρ(t_cosmic, Dust) = -0.149 (p = 8.08e-04)
+[16:59:00]     ρ(t_eff, Dust) = 0.364 (p = 2.90e-17)
+[16:59:00]     Improvement: Δρ = 0.513
+[16:59:00]     ✓ COHERENCE: t_eff predicts dust better than t_cosmic
+[16:59:00]     
 ======================================================================
-[13:04:33]     TEST 4: Age Ratio Consistency
-[13:04:33]     ======================================================================
-[13:04:33]     Under TEP, apparent_age / t_cosmic should correlate with Gamma_t.
+[16:59:00]     TEST 4: Age Ratio Consistency
+[16:59:00]     ======================================================================
+[16:59:00]     Under TEP, apparent_age / t_cosmic should correlate with Gamma_t.
 
-[13:04:33]     ρ(Γ_t, age_ratio) at z > 7 = -0.081 (p = 6.98e-02)
-[13:04:33]     
+[16:59:00]     ρ(Γ_t, age_ratio) at z > 7 = -0.081 (p = 6.98e-02)
+[16:59:00]     
 Scatter in age_ratio:
-[13:04:33]       Apparent: σ = 0.078
-[13:04:33]       TEP-corrected: σ = 0.385
-[13:04:33]       Reduction: -393.5%
-[13:04:33]     
+[16:59:00]       Apparent: σ = 0.078
+[16:59:00]       TEP-corrected: σ = 0.385
+[16:59:00]       Reduction: -393.5%
+[16:59:00]     
 ======================================================================
-[13:04:33]     TEST 5: Multi-Indicator Alignment
-[13:04:33]     ======================================================================
-[13:04:33]     Do galaxies that are 'old' by one indicator also appear 'old' by others?
+[16:59:00]     TEST 5: Multi-Indicator Alignment
+[16:59:00]     ======================================================================
+[16:59:00]     Do galaxies that are 'old' by one indicator also appear 'old' by others?
 
-[13:04:33]     ρ(Γ_t, n_old_indicators) = 0.164 (p = 2.21e-04)
-[13:04:33]     
+[16:59:00]     ρ(Γ_t, n_old_indicators) = 0.164 (p = 2.21e-04)
+[16:59:00]     
 'Old' by all 3 indicators: N = 122, <Γ_t> = 1.571
-[13:04:33]     'Old' by 0 indicators: N = 116, <Γ_t> = 0.354
-[13:04:33]     Ratio: 4.44×
-[13:04:33]     ✓ COHERENCE: Multi-indicator 'old' galaxies have elevated Γ_t
-[13:04:33]     
+[16:59:00]     'Old' by 0 indicators: N = 116, <Γ_t> = 0.354
+[16:59:00]     Ratio: 4.44×
+[16:59:00]     ✓ COHERENCE: Multi-indicator 'old' galaxies have elevated Γ_t
+[16:59:00]     
 ======================================================================
-[13:04:33]     TEST 6: The Ultimate Coherence Test
-[13:04:33]     ======================================================================
-[13:04:33]     Create a 'temporal anomaly score' from multiple indicators.
-[13:04:33]     This score should correlate CLOSELY with Gamma_t if TEP is correct.
+[16:59:00]     TEST 6: The Ultimate Coherence Test
+[16:59:00]     ======================================================================
+[16:59:00]     Create a 'temporal anomaly score' from multiple indicators.
+[16:59:00]     This score should correlate CLOSELY with Gamma_t if TEP is correct.
 
-[13:04:33]     ρ(Γ_t, Temporal Score) = 0.284 (p = 8.57e-11)
-[13:04:33]     
+[16:59:00]     ρ(Γ_t, Temporal Score) = 0.284 (p = 8.57e-11)
+[16:59:00]     
 ======================================================================
-[13:04:33]     SUMMARY: Temporal Coherence Evidence
-[13:04:33]     ======================================================================
-[13:04:33]     
+[16:59:00]     SUMMARY: Temporal Coherence Evidence
+[16:59:00]     ======================================================================
+[16:59:00]     
 Coherence evidence items: 4
-[13:04:33]       • t_eff_correlations: stat = 4.000
-[13:04:33]       • pca_coherence: stat = 0.454
-[13:04:33]       • dust_prediction: stat = 0.513
-[13:04:33]       • multi_indicator: stat = 4.445
-[13:04:33]     
+[16:59:00]       • t_eff_correlations: stat = 4.000
+[16:59:00]       • pca_coherence: stat = 0.454
+[16:59:00]       • dust_prediction: stat = 0.513
+[16:59:00]       • multi_indicator: stat = 4.445
+[16:59:00]     
 Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_051_temporal_coherence.json

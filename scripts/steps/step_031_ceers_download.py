@@ -18,26 +18,27 @@ import sys
 import os
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.downloader import smart_download
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.downloader import smart_download  # Robust HTTP download utility with integrity checking and resume capability
 
-STEP_NUM = "031"
-STEP_NAME = "ceers_download"
+STEP_NUM = "031"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "ceers_download"  # CEERS data download: retrieves DR1 photometric catalog (Cox et al. 2025) from TACC
 
-DATA_PATH = PROJECT_ROOT / "data" / "raw"
-INTERIM_PATH = PROJECT_ROOT / "data" / "interim"
-LOGS_PATH = PROJECT_ROOT / "logs"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
+DATA_PATH = PROJECT_ROOT / "data" / "raw"  # Raw catalogue directory (external datasets from Zenodo/MAST/TACC)
+INTERIM_PATH = PROJECT_ROOT / "data" / "interim"  # Processed intermediate products (CSV format for downstream steps)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
 
 for p in [DATA_PATH, INTERIM_PATH, LOGS_PATH]:
-    p.mkdir(parents=True, exist_ok=True)
+    p.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
+# CEERS DR1 photometric catalog (Cox et al. 2025) – ~120 MB compressed FITS
 CEERS_CATALOG_URL = "https://web.corral.tacc.utexas.edu/ceersdata/DR1/Catalog/ceers_cat_v1.0.fits.gz"
 CEERS_CATALOG_FILE = DATA_PATH / "ceers_cat_v1.0.fits.gz"
 

@@ -18,31 +18,31 @@ import sys
 import os
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value
-from scripts.utils.downloader import smart_download
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
+from scripts.utils.downloader import smart_download  # Robust HTTP download utility with integrity checking, resume capability, and authentication support
 
-STEP_NUM = "033"
-STEP_NAME = "cosmosweb_download"
+STEP_NUM = "033"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "cosmosweb_download"  # COSMOS-Web download: retrieves DR1 LePhare catalog (Shuntov et al. 2025) from IAP server
 
-DATA_PATH = PROJECT_ROOT / "data" / "raw"
-INTERIM_PATH = PROJECT_ROOT / "data" / "interim"
-LOGS_PATH = PROJECT_ROOT / "logs"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
+DATA_PATH = PROJECT_ROOT / "data" / "raw"  # Raw catalogue directory (external datasets from Zenodo/MAST/TACC/IAP)
+INTERIM_PATH = PROJECT_ROOT / "data" / "interim"  # Processed intermediate products (CSV format for downstream steps)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
 
 for p in [DATA_PATH, INTERIM_PATH, LOGS_PATH]:
-    p.mkdir(parents=True, exist_ok=True)
+    p.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
-# COSMOS-Web catalog URL (requires authentication)
+# COSMOS-Web DR1 catalog (Shuntov et al. 2025 / COSMOS2025) – requires authentication
 COSMOSWEB_BASE_URL = "https://cosmos2025.iap.fr/data/catalog"
-COSMOSWEB_LEPHARE_FILE = DATA_PATH / "COSMOSWeb_mastercatalog_v1_lephare.fits"
-COSMOSWEB_CIGALE_FILE = DATA_PATH / "COSMOSWeb_mastercatalog_v1_cigale.fits"
+COSMOSWEB_LEPHARE_FILE = DATA_PATH / "COSMOSWeb_mastercatalog_v1_lephare.fits"  # LePhare SED-fit catalog
+COSMOSWEB_CIGALE_FILE = DATA_PATH / "COSMOSWeb_mastercatalog_v1_cigale.fits"  # CIGALE SED-fit catalog
 
 
 def download_cosmosweb_catalog():

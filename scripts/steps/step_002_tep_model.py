@@ -42,30 +42,64 @@ import json
 # PATHS AND LOGGER
 # =============================================================================
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value, safe_json_default
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging for step-level tracking
+from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting (prevents underflow) & JSON serialiser for numpy types
+from scripts.utils.downloader import smart_download  # Robust HTTP download utility with integrity checking
 
-STEP_NUM = "002"
-STEP_NAME = "tep_model"
+STEP_NUM = "002"  # Pipeline step number (sequential, 001-176)
+STEP_NAME = "tep_model"  # Used in log / output filenames for traceability
 
-DATA_PATH = PROJECT_ROOT / "data"
-INTERIM_PATH = PROJECT_ROOT / "results" / "interim"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH = PROJECT_ROOT / "logs"
+DATA_PATH = PROJECT_ROOT / "data"  # Top-level data directory for raw/external catalogs
+INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products (CSV intermediates between steps)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable results)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one log file per step for debugging)
 
 for p in [INTERIM_PATH, OUTPUT_PATH, LOGS_PATH]:
-    p.mkdir(parents=True, exist_ok=True)
+    p.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok prevents race conditions in parallel runs
 
-# Initialize logger
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated logs per step for debugging)
+set_step_logger(logger)  # Register as global step logger so print_status() routes here
 
 # =============================================================================
 # TEP MODEL FUNCTIONS (Imported from Shared Utils)
 # =============================================================================
+#
+# Mathematical constants imported from scripts/utils/tep_model.py:
+#
+# ALPHA_0 = 0.58  (dimensionless)
+#   - Coupling strength from Cepheid calibration (Paper 12)
+#   - Represents the fractional strength of the scalar field coupling to the metric
+#   - Theoretical basis: alpha_0 arises from the conformal factor A(phi) = exp(alpha_0 * phi/M_pl)
+#
+# ALPHA_UNCERTAINTY = 0.16  (dimensionless)
+#   - 1-sigma uncertainty from Cepheid distance ladder analysis
+#   - Propagates to ~27% uncertainty in predicted Gamma_t at typical masses
+#
+# LOG_MH_REF = 12.0  (log10(M_halo/Msun))
+#   - Reference halo mass where Gamma_t = 1 by definition
+#   - Chosen near the knee of the SMHM relation where M* is well-constrained
+#   - Mathematically: Gamma_t(M_h = M_ref, z = z_ref) = 1 exactly
+#
+# Z_REF = 5.5  (dimensionless)
+#   - Reference redshift where the coupling strength is calibrated
+#   - At z != z_ref, alpha(z) = alpha_0 * sqrt((1+z)/(1+z_ref))
+#
+# tep_alpha(z)  ->  alpha_0 * sqrt((1+z)/(1+z_ref))
+#   - Redshift-dependent coupling from TEP theory (Paper 1, Eq. 3)
+#   - Derivation: scalar field kinetic term scaling with cosmic density
+#
+# compute_gamma_t(log_Mh, z)  ->  exp[alpha(z) * (2/3) * (log_Mh - log_Mh_ref) * ((1+z)/(1+z_ref))]
+#   - Exponential form ensures Gamma_t > 0 always
+#   - The (2/3) factor comes from spherical collapse: t_dyn ~ 1/sqrt(G*rho) ~ M_h^(-1/2) * R^(3/2) ~ M_h^(2/3)
+#   - The z_factor accounts for higher coupling strength at early times
+#
+# isochrony_mass_bias(gamma_t, n_ML=0.7)  ->  n_ML * log10(gamma_t)
+#   - Predicted stellar mass bias from enhanced proper time
+#   - n_ML ~ 0.7 from M/L ~ t^0.7 (mass-to-light evolves with age)
+#   - Bias in dex: M*_obs / M*_true = Gamma_t^(n_ML)
 
 from scripts.utils.tep_model import (
     ALPHA_0, ALPHA_UNCERTAINTY, LOG_MH_REF, Z_REF,
@@ -77,28 +111,69 @@ from scripts.utils.tep_model import (
 # =============================================================================
 
 def apply_tep_model(df):
-    """Apply TEP model to compute Gamma_t and derived quantities."""
+    """Apply TEP model to compute Gamma_t and derived quantities.
+
+    For each galaxy, this function computes:
+
+    1. alpha(z) = alpha_0 * sqrt(1+z)
+       The redshift-dependent TEP coupling strength. The sqrt(1+z) factor
+       arises because the scalar field gradient scales with the expansion
+       rate, which increases at earlier epochs.
+
+    2. Gamma_t = exp[ alpha(z) * (2/3) * (log_Mh - log_Mh_ref) * z_factor ]
+       The chronological enhancement factor. Gamma_t encodes how much
+       faster (>1) or slower (<1) proper time accumulates in a halo of
+       mass M_h relative to the reference mass M_h_ref = 10^12 Msun.
+       The (2/3) exponent maps halo mass to potential depth via the
+       virial relation Phi ~ M^(2/3). The z_factor = (1+z)/(1+z_ref)
+       accounts for the evolving NFW concentration at earlier epochs.
+
+    3. t_eff = t_cosmic * Gamma_t
+       The effective proper time experienced by stellar populations.
+       SED fitting interprets this elapsed proper time as the apparent
+       stellar age, so galaxies with Gamma_t > 1 appear older than the
+       cosmic age at their redshift.
+
+    4. ml_bias = Gamma_t^n_ml
+       The isochrony mass-to-light bias. When SED fitting assumes
+       standard time flow, a stellar population that has evolved for
+       longer proper time is assigned a higher M/L ratio, leading to
+       an overestimated stellar mass:
+         M*_apparent / M*_true = Gamma_t^n_ml
+       The exponent n_ml depends on the age-metallicity degeneracy
+       and varies with redshift (calibrated in step_044 forward modeling):
+         n_ml ~ 0.9 at z = 4-6  (moderate metallicity, strong M/L-age slope)
+         n_ml ~ 0.5 at z > 6    (low metallicity, flatter M/L-age slope)
+         n_ml = 0.7 default      (intermediate fallback)
+
+    5. log_Mstar_true = log_Mstar - log10(ml_bias)
+       The TEP-corrected (de-biased) stellar mass, removing the
+       isochrony-induced overestimate.
+    """
     
     df = df.copy()
     
-    # Core TEP quantities
+    # alpha(z) = alpha_0 * sqrt(1+z): redshift-dependent coupling strength
     df['alpha_z'] = tep_alpha(df['z_phot'].values)
+    
+    # Gamma_t: chronological enhancement factor from halo mass and redshift
     df['gamma_t'] = tep_gamma(df['log_Mh'].values, df['z_phot'].values)
     
-    # Effective time: t_eff = t_cosmic × Γ_t
-    # This is the proper time experienced by stellar populations
-    # With exponential form, Gamma_t is always positive
+    # Effective proper time experienced by stellar populations [Gyr]
+    # Gamma_t is always positive (exponential form), so t_eff > 0 always
     df['t_eff'] = df['t_cosmic'] * df['gamma_t']
     
-    # Isochrony bias: M/L_apparent / M/L_true = Γ_t^n
-    # Redshift-dependent n from Step 44 forward-modeling validation:
-    #   n ≈ 0.9 at z = 4–6  (moderate metallicity)
-    #   n ≈ 0.5 at z > 6    (low metallicity; primary high-z analysis)
-    #   n = 0.7 default for intermediate cases
+    # Isochrony mass-to-light bias: M/L_apparent = M/L_true * Gamma_t^n_ml
+    # n_ml is redshift-dependent because the slope of the M/L-age relation
+    # changes with metallicity (which evolves with redshift)
     z = df['z_phot'].values
     n_ml = np.where(z > 6, 0.5, np.where(z > 4, 0.9, 0.7))
     df['n_ml'] = n_ml
+    
+    # Floor Gamma_t at 0.01 to prevent log(0) in edge cases
     df['ml_bias'] = np.power(np.maximum(df['gamma_t'].values, 0.01), n_ml)
+    
+    # TEP-corrected stellar mass: remove the isochrony overestimate
     df['log_Mstar_true'] = df['log_Mstar'] - np.log10(df['ml_bias'])
     
     return df

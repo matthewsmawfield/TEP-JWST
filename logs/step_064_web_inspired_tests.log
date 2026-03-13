@@ -1,87 +1,87 @@
-[13:04:45]     ======================================================================
-[13:04:45]     STEP 064: Web-Inspired Tests
-[13:04:45]     ======================================================================
-[13:04:45]     
+[16:59:11]     ======================================================================
+[16:59:11]     STEP 064: Web-Inspired Tests
+[16:59:11]     ======================================================================
+[16:59:11]     
 Testing ideas from recent JWST literature...
 
-[13:04:45]     Loaded N = 2315 galaxies
-[13:04:45]     
+[16:59:11]     Loaded N = 2315 galaxies
+[16:59:11]     
 ======================================================================
-[13:04:45]     TEST 1: Quiescent Galaxy Fraction
-[13:04:45]     ======================================================================
-[13:04:45]     Recent papers: High quiescent fractions at z > 5 are unexpected.
-[13:04:45]     TEP predicts: High-Gamma_t → faster effective quenching.
+[16:59:11]     TEST 1: Quiescent Galaxy Fraction
+[16:59:11]     ======================================================================
+[16:59:11]     Recent papers: High quiescent fractions at z > 5 are unexpected.
+[16:59:11]     TEP predicts: High-Gamma_t → faster effective quenching.
 
-[13:04:45]     High Γ_t (> 1): Quiescent fraction = 2.6%
-[13:04:45]     Low Γ_t (< 0.5): Quiescent fraction = 0.0%
-[13:04:45]     ✓ High-Γ_t galaxies have higher quiescent fraction
-[13:04:45]     
+[16:59:11]     High Γ_t (> 1): Quiescent fraction = 2.6%
+[16:59:11]     Low Γ_t (< 0.5): Quiescent fraction = 0.0%
+[16:59:11]     ✓ High-Γ_t galaxies have higher quiescent fraction
+[16:59:11]     
 ======================================================================
-[13:04:45]     TEST 2: Galaxy Compactness
-[13:04:45]     ======================================================================
-[13:04:45]     Recent papers: High-z galaxies are unexpectedly compact.
-[13:04:45]     TEP predicts: High-Gamma_t → more evolved → more compact.
+[16:59:11]     TEST 2: Galaxy Compactness
+[16:59:11]     ======================================================================
+[16:59:11]     Recent papers: High-z galaxies are unexpectedly compact.
+[16:59:11]     TEP predicts: High-Gamma_t → more evolved → more compact.
 
-[13:04:45]     Size columns found: []
-[13:04:45]     ρ(Γ_t, Dust) = 0.593 (p = 3.00e-28)
-[13:04:45]     (High dust indicates evolved, compact state)
-[13:04:45]     
+[16:59:11]     Size columns found: []
+[16:59:11]     ρ(Γ_t, Dust) = 0.593 (p = 3.00e-28)
+[16:59:11]     (High dust indicates evolved, compact state)
+[16:59:11]     
 ======================================================================
-[13:04:45]     TEST 3: Stellar Mass Density Excess
-[13:04:45]     ======================================================================
-[13:04:45]     Recent papers: Stellar mass density at z > 10 exceeds predictions.
-[13:04:45]     TEP naturally explains this: Masses are inflated by Gamma_t.
+[16:59:11]     TEST 3: Stellar Mass Density Excess
+[16:59:11]     ======================================================================
+[16:59:11]     Recent papers: Stellar mass density at z > 10 exceeds predictions.
+[16:59:11]     TEP naturally explains this: Masses are inflated by Gamma_t.
 
-[13:04:45]     z = 8-9:
-[13:04:45]       Observed <M*> = 2.78e+08 M_sun
-[13:04:45]       <Γ_t> = 0.96
-[13:04:45]       TEP-corrected <M*> = 2.89e+08 M_sun
-[13:04:45]       Inflation factor: 0.96×
-[13:04:45]     z = 9-10:
-[13:04:45]       Observed <M*> = 4.25e+08 M_sun
-[13:04:45]       <Γ_t> = 3.13
-[13:04:45]       TEP-corrected <M*> = 1.36e+08 M_sun
-[13:04:45]       Inflation factor: 3.13×
-[13:04:45]     
+[16:59:11]     z = 8-9:
+[16:59:11]       Observed <M*> = 2.78e+08 M_sun
+[16:59:11]       <Γ_t> = 0.96
+[16:59:11]       TEP-corrected <M*> = 2.89e+08 M_sun
+[16:59:11]       Inflation factor: 0.96×
+[16:59:11]     z = 9-10:
+[16:59:11]       Observed <M*> = 4.25e+08 M_sun
+[16:59:11]       <Γ_t> = 3.13
+[16:59:11]       TEP-corrected <M*> = 1.36e+08 M_sun
+[16:59:11]       Inflation factor: 3.13×
+[16:59:11]     
 ======================================================================
-[13:04:45]     TEST 4: Rapid Quenching Timescale
-[13:04:45]     ======================================================================
-[13:04:45]     Recent papers: Galaxies quench faster than expected at high-z.
-[13:04:45]     TEP predicts: Effective quenching time is Gamma_t × cosmic time.
+[16:59:11]     TEST 4: Rapid Quenching Timescale
+[16:59:11]     ======================================================================
+[16:59:11]     Recent papers: Galaxies quench faster than expected at high-z.
+[16:59:11]     TEP predicts: Effective quenching time is Gamma_t × cosmic time.
 
-[13:04:45]     Quenching galaxies (SFR declining): N = 15
-[13:04:45]     <Γ_t> quenching: 9.67
-[13:04:45]     <Γ_t> all: 1.20
-[13:04:45]     ✓ Quenching galaxies have higher Γ_t (more effective time)
-[13:04:45]     
+[16:59:11]     Quenching galaxies (SFR declining): N = 15
+[16:59:11]     <Γ_t> quenching: 9.67
+[16:59:11]     <Γ_t> all: 1.20
+[16:59:11]     ✓ Quenching galaxies have higher Γ_t (more effective time)
+[16:59:11]     
 ======================================================================
-[13:04:45]     TEST 5: Little Red Dots Analog
-[13:04:45]     ======================================================================
-[13:04:45]     Recent papers: 'Little red dots' are compact, red, with overmassive BHs.
-[13:04:45]     TEP predicts: High dust + high mass + high Gamma_t.
+[16:59:11]     TEST 5: Little Red Dots Analog
+[16:59:11]     ======================================================================
+[16:59:11]     Recent papers: 'Little red dots' are compact, red, with overmassive BHs.
+[16:59:11]     TEP predicts: High dust + high mass + high Gamma_t.
 
-[13:04:45]     'Red dot' analogs (high dust + high mass): N = 75
-[13:04:45]     <Γ_t> red dots: 6.09
-[13:04:45]     <Γ_t> normal: 0.34
-[13:04:45]     Ratio: 18.0×
-[13:04:45]     ✓ 'Red dot' analogs have elevated Γ_t
-[13:04:45]     
+[16:59:11]     'Red dot' analogs (high dust + high mass): N = 75
+[16:59:11]     <Γ_t> red dots: 6.09
+[16:59:11]     <Γ_t> normal: 0.34
+[16:59:11]     Ratio: 18.0×
+[16:59:11]     ✓ 'Red dot' analogs have elevated Γ_t
+[16:59:11]     
 ======================================================================
-[13:04:45]     TEST 6: Balmer Break Proxy
-[13:04:45]     ======================================================================
-[13:04:45]     Recent papers: Strong Balmer breaks at z > 7 indicate old populations.
-[13:04:45]     TEP predicts: High-Gamma_t → older effective age → stronger break.
+[16:59:11]     TEST 6: Balmer Break Proxy
+[16:59:11]     ======================================================================
+[16:59:11]     Recent papers: Strong Balmer breaks at z > 7 indicate old populations.
+[16:59:11]     TEP predicts: High-Gamma_t → older effective age → stronger break.
 
-[13:04:45]     ρ(Γ_t, MWA) = -0.034 (p = 4.45e-01)
-[13:04:45]     ρ(t_eff, MWA) = -0.034 (p = 4.45e-01)
-[13:04:45]     
+[16:59:11]     ρ(Γ_t, MWA) = -0.034 (p = 4.45e-01)
+[16:59:11]     ρ(t_eff, MWA) = -0.034 (p = 4.45e-01)
+[16:59:11]     
 ======================================================================
-[13:04:45]     SUMMARY: Web-Inspired Tests
-[13:04:45]     ======================================================================
-[13:04:45]     
+[16:59:11]     SUMMARY: Web-Inspired Tests
+[16:59:11]     ======================================================================
+[16:59:11]     
 Key findings from literature-inspired tests:
-[13:04:45]       • Quiescent fraction: 2.6% (high Γ_t) vs 0.0% (low Γ_t)
-[13:04:45]       • 'Red dot' analogs: 18.0× Γ_t elevation
-[13:04:45]       • Quenching galaxies: <Γ_t> = 9.67 vs 1.20
-[13:04:45]     
+[16:59:11]       • Quiescent fraction: 2.6% (high Γ_t) vs 0.0% (low Γ_t)
+[16:59:11]       • 'Red dot' analogs: 18.0× Γ_t elevation
+[16:59:11]       • Quenching galaxies: <Γ_t> = 9.67 vs 1.20
+[16:59:11]     
 Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_064_web_inspired_tests.json

@@ -26,27 +26,27 @@ from scipy import stats
 from scipy.stats import spearmanr
 from numpy.linalg import lstsq
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 from scripts.utils.tep_model import (
     compute_gamma_t,
-    stellar_to_halo_mass_behroozi_like,
+    stellar_to_halo_mass_behroozi_like,  # Shared TEP model
 )
-from scripts.utils.p_value_utils import format_p_value
-from scripts.utils.rank_stats import partial_rank_correlation
+from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting
+from scripts.utils.rank_stats import partial_rank_correlation  # Partial Spearman helper
 
-STEP_NUM  = "157"
-STEP_NAME = "cosmos2025_ssfr_inversion"
+STEP_NUM  = "157"  # Pipeline step number
+STEP_NAME = "cosmos2025_ssfr_inversion"  # Used in log / output filenames
 
-DATA_PATH   = PROJECT_ROOT / "data" / "raw"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH   = PROJECT_ROOT / "logs"
+DATA_PATH   = PROJECT_ROOT / "data" / "raw"  # Raw external catalogues
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
+LOGS_PATH   = PROJECT_ROOT / "logs"  # Log directory
 OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
 LOGS_PATH.mkdir(parents=True, exist_ok=True)
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger
 set_step_logger(logger)
 
 COSMOSWEB_FITS = DATA_PATH / "COSMOSWeb_mastercatalog_v1_lephare.fits"

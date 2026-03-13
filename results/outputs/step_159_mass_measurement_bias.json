@@ -1,6 +1,6 @@
 {
   "step": "step_159",
-  "description": "TEP mass measurement bias: SED-inferred M*_obs = M*_true * Gamma_t^beta suppresses partial rho by ~2x at beta=0.7; self-defeating proxy argument",
+  "description": "TEP mass measurement bias: SED-inferred M*_obs = M*_true * Gamma_t^beta suppresses partial rho by ~1.5x at beta=0.7; self-defeating proxy argument",
   "beta_ml": 0.7,
   "beta_empirical_from_L4": 0.5211082204349958,
   "beta_empirical_bootstrap_L4": {
@@ -14,53 +14,53 @@
       1.005004757530748
     ]
   },
-  "rho_true_unbiased": 0.6971201567992016,
+  "rho_true_unbiased": 0.4349809571818095,
   "suppression_by_beta": {
     "beta_0.0": {
       "beta": 0.0,
-      "rho_partial_obs": 0.6971201567992016,
-      "rho_partial_true": 0.6971201567992016,
+      "rho_partial_obs": 0.4349809571818095,
+      "rho_partial_true": 0.4349809571818095,
       "suppression_fraction": 1.0
     },
     "beta_0.3": {
       "beta": 0.3,
-      "rho_partial_obs": 0.5215960675759607,
-      "rho_partial_true": 0.6971201567992016,
-      "suppression_fraction": 0.7482154439068975
+      "rho_partial_obs": 0.358276407690764,
+      "rho_partial_true": 0.4349809571818095,
+      "suppression_fraction": 0.8236599827541756
     },
     "beta_0.5": {
       "beta": 0.5,
-      "rho_partial_obs": 0.43632145347121454,
-      "rho_partial_true": 0.6971201567992016,
-      "suppression_fraction": 0.6258913176095301
+      "rho_partial_obs": 0.3181007595970076,
+      "rho_partial_true": 0.4349809571818095,
+      "suppression_fraction": 0.7312981277570059
     },
     "beta_0.7": {
       "beta": 0.7,
-      "rho_partial_obs": 0.3718278524502785,
-      "rho_partial_true": 0.6971201567992016,
-      "suppression_fraction": 0.5333769922211269
+      "rho_partial_obs": 0.28492820609328207,
+      "rho_partial_true": 0.4349809571818095,
+      "suppression_fraction": 0.6550360455761062
     },
     "beta_1.0": {
       "beta": 1.0,
-      "rho_partial_obs": 0.3016364336563643,
-      "rho_partial_true": 0.6971201567992016,
-      "suppression_fraction": 0.43268930142734
+      "rho_partial_obs": 0.24537891239378914,
+      "rho_partial_true": 0.4349809571818095,
+      "suppression_fraction": 0.5641141487746274
     },
     "beta_1.2": {
       "beta": 1.2,
-      "rho_partial_obs": 0.2669907531899075,
-      "rho_partial_true": 0.6971201567992016,
-      "suppression_fraction": 0.3829910103529132
+      "rho_partial_obs": 0.22406772455667726,
+      "rho_partial_true": 0.4349809571818095,
+      "suppression_fraction": 0.5151207676041399
     }
   },
-  "correction_factor_beta07": 1.8748465242861863,
-  "correction_factor_beta_empirical_from_L4": 1.6230413342829741,
+  "correction_factor_beta07": 1.5266335444494463,
+  "correction_factor_beta_empirical_from_L4": 1.382649025427831,
   "correction_factor_posterior_from_L4_beta": {
-    "median": 1.6230413342829741,
-    "std": 0.23425159001136983,
+    "median": 1.382649025427831,
+    "std": 0.13478694096426266,
     "ci_95": [
-      1.3354425271300838,
-      2.3177889783211714
+      1.2134741179625301,
+      1.7765518817868942
     ]
   },
   "l4_live_regime_calibration": {
@@ -2099,62 +2099,62 @@
     "UNCOVER_dust_z4_10": {
       "rho_obs": 0.26,
       "p_obs": 7.4e-06,
-      "rho_corrected_estimate_linear": 0.48746009631440845,
-      "rho_corrected_estimate_bounded": 0.48746009631440845,
+      "rho_corrected_estimate_linear": 0.39692472155685604,
+      "rho_corrected_estimate_bounded": 0.39692472155685604,
       "saturation_applied": false,
-      "rho_corrected_estimate_linear_empirical_beta": 0.4219907469135733,
-      "rho_corrected_estimate_bounded_empirical_beta": 0.4219907469135733,
-      "correction_factor_empirical_beta": 1.6230413342829741,
+      "rho_corrected_estimate_linear_empirical_beta": 0.3594887466112361,
+      "rho_corrected_estimate_bounded_empirical_beta": 0.3594887466112361,
+      "correction_factor_empirical_beta": 1.382649025427831,
       "rho_corrected_ci_95_unbounded": [
-        0.34721505705382183,
-        0.6026251343635046
+        0.31550327067025785,
+        0.4619034892645925
       ],
       "rho_corrected_ci_95_bounded": [
-        0.34721505705382183,
-        0.6026251343635046
+        0.31550327067025785,
+        0.4619034892645925
       ],
       "saturation_probability": 0.0,
-      "correction_factor": 1.8748465242861863
+      "correction_factor": 1.5266335444494463
     },
     "COSMOS2025_dust_z9_13": {
       "rho_obs": 0.07445817569020746,
       "p_obs": 0.004325610760215357,
-      "rho_corrected_estimate_linear": 0.13959765189747567,
-      "rho_corrected_estimate_bounded": 0.13959765189747567,
+      "rho_corrected_estimate_linear": 0.11367034866718102,
+      "rho_corrected_estimate_bounded": 0.11367034866718102,
       "saturation_applied": false,
-      "rho_corrected_estimate_linear_empirical_beta": 0.12084869682051043,
-      "rho_corrected_estimate_bounded_empirical_beta": 0.12084869682051043,
-      "correction_factor_empirical_beta": 1.6230413342829741,
+      "rho_corrected_estimate_linear_empirical_beta": 0.10294952405319956,
+      "rho_corrected_estimate_bounded_empirical_beta": 0.10294952405319956,
+      "correction_factor_empirical_beta": 1.382649025427831,
       "rho_corrected_ci_95_unbounded": [
-        0.09943461430922643,
-        0.17257833896066424
+        0.0903530690707736,
+        0.13227881213685724
       ],
       "rho_corrected_ci_95_bounded": [
-        0.09943461430922643,
-        0.17257833896066424
+        0.0903530690707736,
+        0.13227881213685724
       ],
       "saturation_probability": 0.0,
-      "correction_factor": 1.8748465242861863
+      "correction_factor": 1.5266335444494463
     },
     "DJA_balmer_z_gt_2": {
       "rho_obs": -0.0018243635417706933,
       "p_obs": 0.917083036104385,
-      "rho_corrected_estimate_linear": -0.0034204016453232206,
-      "rho_corrected_estimate_bounded": -0.0034204016453232206,
+      "rho_corrected_estimate_linear": -0.002785134580137739,
+      "rho_corrected_estimate_bounded": -0.002785134580137739,
       "saturation_applied": false,
-      "rho_corrected_estimate_linear_empirical_beta": -0.0029610174370527185,
-      "rho_corrected_estimate_bounded_empirical_beta": -0.0029610174370527185,
-      "correction_factor_empirical_beta": 1.6230413342829741,
+      "rho_corrected_estimate_linear_empirical_beta": -0.002522454473055315,
+      "rho_corrected_estimate_bounded_empirical_beta": -0.002522454473055315,
+      "correction_factor_empirical_beta": 1.382649025427831,
       "rho_corrected_ci_95_unbounded": [
-        -0.0042284897095670885,
-        -0.002436332658626245
+        -0.0032410764831961284,
+        -0.0022138179396931894
       ],
       "rho_corrected_ci_95_bounded": [
-        -0.0042284897095670885,
-        -0.002436332658626245
+        -0.0032410764831961284,
+        -0.0022138179396931894
       ],
       "saturation_probability": 0.0,
-      "correction_factor": 1.8748465242861863
+      "correction_factor": 1.5266335444494463
     }
   },
   "gt_typical_l4_kinematic_regime": 6.312015473653286

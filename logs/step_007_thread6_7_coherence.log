@@ -1,62 +1,62 @@
-[13:03:44]     ============================================================
-[13:03:44]     STEP 7: Threads 6-7 - Coherence Tests
-[13:03:44]     ============================================================
-[13:03:44]     Loaded multi-property sample: N = 1108
-[13:03:44]     
+[16:58:15]     ============================================================
+[16:58:15]     STEP 7: Threads 6-7 - Coherence Tests
+[16:58:15]     ============================================================
+[16:58:15]     Loaded multi-property sample: N = 1108
+[16:58:15]     
 ==================================================
-[13:03:44]     THREAD 6: Age-Metallicity Coherence
-[13:03:44]     ==================================================
-[13:03:44] 
-[13:03:45]     N = 1108
-[13:03:45]     rho(age_ratio, metallicity) = 0.331 [0.267, 0.388]
-[13:03:45]     p = 1.05e-29
-[13:03:45] 
-[13:03:45]     ★ STATISTICALLY SIGNIFICANT: True
-[13:03:45] 
-[13:03:45]     INTERPRETATION:
-[13:03:45]       Older-appearing galaxies are more metal-enriched.
-[13:03:45]       This is consistent with TEP: enhanced time → more enrichment.
-[13:03:45]     
+[16:58:15]     THREAD 6: Age-Metallicity Coherence
+[16:58:15]     ==================================================
+[16:58:15] 
+[16:58:16]     N = 1108
+[16:58:16]     rho(age_ratio, metallicity) = 0.331 [0.267, 0.388]
+[16:58:16]     p = 1.05e-29
+[16:58:16] 
+[16:58:16]     ★ STATISTICALLY SIGNIFICANT: True
+[16:58:16] 
+[16:58:16]     INTERPRETATION:
+[16:58:16]       Older-appearing galaxies are more metal-enriched.
+[16:58:16]       This is consistent with TEP: enhanced time → more enrichment.
+[16:58:16]     
 ==================================================
-[13:03:45]     THREAD 7: Multi-Property Split Test
-[13:03:45]     ==================================================
-[13:03:45] 
-[13:03:45]     N = 1108
-[13:03:45]     Γ_t median = 0.532
-[13:03:45] 
-[13:03:45]     age_ratio:
-[13:03:45]       Low Γ_t:  0.133
-[13:03:45]       High Γ_t: 0.167
-[13:03:45]       Diff:     +0.034
-[13:03:45]       p = 3.05e-13
-[13:03:45]       ★ SIGNIFICANT: True
-[13:03:45] 
-[13:03:45]     metallicity:
-[13:03:45]       Low Γ_t:  -1.243
-[13:03:45]       High Γ_t: -1.078
-[13:03:45]       Diff:     +0.164
-[13:03:45]       p = 1.73e-08
-[13:03:45]       ★ SIGNIFICANT: True
-[13:03:45] 
-[13:03:45]     dust:
-[13:03:45]       Low Γ_t:  0.194
-[13:03:45]       High Γ_t: 0.362
-[13:03:45]       Diff:     +0.169
-[13:03:45]       p = 6.78e-16
-[13:03:45]       ★ SIGNIFICANT: True
-[13:03:45] 
-[13:03:45]     ==================================================
-[13:03:45]     ALL PROPERTIES SIGNIFICANT: True
-[13:03:45] 
-[13:03:45]     INTERPRETATION:
-[13:03:45]       All three properties (age, metallicity, dust) shift
-[13:03:45]       in the direction predicted by TEP.
-[13:03:45]       This is the TEP signature - coherent multi-property shift.
-[13:03:45]     
+[16:58:16]     THREAD 7: Multi-Property Split Test
+[16:58:16]     ==================================================
+[16:58:16] 
+[16:58:16]     N = 1108
+[16:58:16]     Γ_t median = 0.532
+[16:58:16] 
+[16:58:16]     age_ratio:
+[16:58:16]       Low Γ_t:  0.133
+[16:58:16]       High Γ_t: 0.167
+[16:58:16]       Diff:     +0.034
+[16:58:16]       p = 3.05e-13
+[16:58:16]       ★ SIGNIFICANT: True
+[16:58:16] 
+[16:58:16]     metallicity:
+[16:58:16]       Low Γ_t:  -1.243
+[16:58:16]       High Γ_t: -1.078
+[16:58:16]       Diff:     +0.164
+[16:58:16]       p = 1.73e-08
+[16:58:16]       ★ SIGNIFICANT: True
+[16:58:16] 
+[16:58:16]     dust:
+[16:58:16]       Low Γ_t:  0.194
+[16:58:16]       High Γ_t: 0.362
+[16:58:16]       Diff:     +0.169
+[16:58:16]       p = 6.78e-16
+[16:58:16]       ★ SIGNIFICANT: True
+[16:58:16] 
+[16:58:16]     ==================================================
+[16:58:16]     ALL PROPERTIES SIGNIFICANT: True
+[16:58:16] 
+[16:58:16]     INTERPRETATION:
+[16:58:16]       All three properties (age, metallicity, dust) shift
+[16:58:16]       in the direction predicted by TEP.
+[16:58:16]       This is the TEP signature - coherent multi-property shift.
+[16:58:16]     
 ==================================================
-[13:03:45]     SUMMARY
-[13:03:45]     ==================================================
-[13:03:45]     Thread 6 (Age-Metallicity): ✓
-[13:03:45]     Thread 7 (Multi-Property):  ✓
-[13:03:45] 
-[13:03:45]     Step 007 complete.
+[16:58:16]     SUMMARY
+[16:58:16]     ==================================================
+[16:58:16]     Thread 6 (Age-Metallicity): ✓
+[16:58:16]     Thread 7 (Multi-Property):  ✓
+[16:58:16] 
+[16:58:16]     Step 007 complete.

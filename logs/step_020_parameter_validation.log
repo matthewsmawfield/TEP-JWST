@@ -1,55 +1,55 @@
-[13:04:02]     ======================================================================
-[13:04:02]     STEP 20: PARAMETER VALIDATION
-[13:04:02]     ======================================================================
-[13:04:02] 
-[13:04:02]     Validating TEP parameter α₀ = 0.58
-[13:04:03]     
+[16:58:32]     ======================================================================
+[16:58:32]     STEP 20: PARAMETER VALIDATION
+[16:58:32]     ======================================================================
+[16:58:32] 
+[16:58:32]     Validating TEP parameter α₀ = 0.58
+[16:58:32]     
 Sample size: N = 2315
-[13:04:03]     
+[16:58:32]     
 ==================================================
-[13:04:03]     THE SEVEN CONFIRMATIONS
-[13:04:03]     ==================================================
-[13:04:03]     
+[16:58:32]     THE SEVEN CONFIRMATIONS
+[16:58:32]     ==================================================
+[16:58:32]     
 1. χ² anomaly: ρ = 0.159 (p = 1.52e-14) ✓
-[13:04:03]     4. Regime separation: KS = 0.170 (p = 1.33e-09) ✓
-[13:04:03]     7. t_eff threshold: 1.7× ratio (p = 2.70e-10) ✓
-[13:04:03]     
+[16:58:32]     4. Regime separation: KS = 0.170 (p = 1.33e-09) ✓
+[16:58:32]     7. t_eff threshold: 1.7× ratio (p = 2.70e-10) ✓
+[16:58:32]     
 Evidence confirmed: 3/7
-[13:04:03]     
+[16:58:32]     
 ==================================================
-[13:04:03]     ANOMALIES RESOLVED
-[13:04:03]     ==================================================
-[13:04:03]     
+[16:58:32]     ANOMALIES RESOLVED
+[16:58:32]     ==================================================
+[16:58:32]     
 1. 'Anomalous' massive galaxies at z > 8
-[13:04:03]        → Γ_t ~ 2 gives t_eff ~ 1000 Myr
-[13:04:03]     
+[16:58:32]        → Γ_t ~ 2 gives t_eff ~ 1000 Myr
+[16:58:32]     
 2. Elevated χ² in SED fitting
-[13:04:03]        → Isochrony assumption fails for high Γ_t
-[13:04:03]     
+[16:58:32]        → Isochrony assumption fails for high Γ_t
+[16:58:32]     
 3. Unexplained scatter in scaling relations
-[13:04:03]        → Γ_t is the hidden variable
-[13:04:03]     
+[16:58:32]        → Γ_t is the hidden variable
+[16:58:32]     
 4. Mass-dependent dust at high z
-[13:04:03]        → t_eff scales with mass via Γ_t
-[13:04:03]     
+[16:58:32]        → t_eff scales with mass via Γ_t
+[16:58:32]     
 5. Bimodality in galaxy properties
-[13:04:03]        → Enhanced vs suppressed regimes
-[13:04:03]     
+[16:58:32]        → Enhanced vs suppressed regimes
+[16:58:32]     
 ======================================================================
-[13:04:03]     PARAMETER VALIDATION SUMMARY
-[13:04:03]     ======================================================================
-[13:04:03] 
-[13:04:03]     Validated parameter: α₀ = 0.58
-[13:04:03] 
-[13:04:03]     This single number, calibrated from LOCAL Cepheids,
-[13:04:03]     accounts for multiple high-z observations.
-[13:04:03] 
-[13:04:03]     The TEP equation:
-[13:04:03] 
-[13:04:03]       Γ_t = exp[0.58 × √(1+z) × (2/3) × (log M_h - 12) × z_factor]
-[13:04:03] 
-[13:04:03]     Parameter validation complete.
-[13:04:03] 
-[13:04:03]     Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_020_parameter_validation.json
-[13:04:03] 
-[13:04:03]     Step 020 complete.
+[16:58:32]     PARAMETER VALIDATION SUMMARY
+[16:58:32]     ======================================================================
+[16:58:32] 
+[16:58:32]     Validated parameter: α₀ = 0.58
+[16:58:32] 
+[16:58:32]     This single number, calibrated from LOCAL Cepheids,
+[16:58:32]     accounts for multiple high-z observations.
+[16:58:32] 
+[16:58:32]     The TEP equation:
+[16:58:32] 
+[16:58:32]       Γ_t = exp[0.58 × √(1+z) × (2/3) × (log M_h - 12) × z_factor]
+[16:58:32] 
+[16:58:32]     Parameter validation complete.
+[16:58:32] 
+[16:58:32]     Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_020_parameter_validation.json
+[16:58:32] 
+[16:58:32]     Step 020 complete.

@@ -1,58 +1,58 @@
-[13:05:58]     ======================================================================
-[13:05:58]     STEP 112: Scalar-Tensor Constraint Comparison
-[13:05:58]     ======================================================================
-[13:05:58]     
+[17:00:19]     ======================================================================
+[17:00:19]     STEP 112: Scalar-Tensor Constraint Comparison
+[17:00:19]     ======================================================================
+[17:00:19]     
 TEP coupling: α₀ = 0.58 ± 0.16
-[13:05:58]     Equivalent Brans-Dicke: ω_BD ≈ 1.0
-[13:05:58]     
+[17:00:19]     Equivalent Brans-Dicke: ω_BD ≈ 1.0
+[17:00:19]     
 --- Scalar-Tensor Constraints ---
-[13:05:58]     Constraint                       ω_BD limit    α limit   Screened
-[13:05:58]     ----------------------------------------------------------------------
-[13:05:58]     Cassini (Shapiro delay)               40000     0.0035        Yes
-[13:05:58]     Lunar Laser Ranging                    1000     0.0223        Yes
-[13:05:58]     Binary Pulsar (Hulse-Taylor)            100     0.0702        Yes
-[13:05:58]     Binary Pulsar (Double Pulsar)           200     0.0498        Yes
-[13:05:58]     BBN (light element abundances)          500     0.0316         No
-[13:05:58]     CMB (Planck)                           1000     0.0223         No
-[13:05:58]     Cepheid P-L (TEP-H0)                      1     0.5800         No
-[13:05:58]     
+[17:00:19]     Constraint                       ω_BD limit    α limit   Screened
+[17:00:19]     ----------------------------------------------------------------------
+[17:00:19]     Cassini (Shapiro delay)               40000     0.0035        Yes
+[17:00:19]     Lunar Laser Ranging                    1000     0.0223        Yes
+[17:00:19]     Binary Pulsar (Hulse-Taylor)            100     0.0702        Yes
+[17:00:19]     Binary Pulsar (Double Pulsar)           200     0.0498        Yes
+[17:00:19]     BBN (light element abundances)          500     0.0316         No
+[17:00:19]     CMB (Planck)                           1000     0.0223         No
+[17:00:19]     Cepheid P-L (TEP-H0)                      1     0.5800         No
+[17:00:19]     
 --- Screening Analysis ---
-[13:05:58]     
+[17:00:19]     
 Without screening, TEP would be ruled out by:
-[13:05:58]       - Cassini (Shapiro delay): 3.6σ tension
-[13:05:58]       - Lunar Laser Ranging: 3.5σ tension
-[13:05:58]       - Binary Pulsar (Hulse-Taylor): 3.2σ tension
-[13:05:58]       - Binary Pulsar (Double Pulsar): 3.3σ tension
-[13:05:58]       - BBN (light element abundances): 3.4σ tension
-[13:05:58]       - CMB (Planck): 3.5σ tension
-[13:05:58]     
+[17:00:19]       - Cassini (Shapiro delay): 3.6σ tension
+[17:00:19]       - Lunar Laser Ranging: 3.5σ tension
+[17:00:19]       - Binary Pulsar (Hulse-Taylor): 3.2σ tension
+[17:00:19]       - Binary Pulsar (Double Pulsar): 3.3σ tension
+[17:00:19]       - BBN (light element abundances): 3.4σ tension
+[17:00:19]       - CMB (Planck): 3.5σ tension
+[17:00:19]     
 With chameleon screening:
-[13:05:58]       - Solar System tests: ρ >> ρ_c → α_eff → 0
-[13:05:58]       - Binary pulsars: NS interior screened
-[13:05:58]       - Galactic halos: ρ < ρ_c → α_eff = α₀
-[13:05:58]     
+[17:00:19]       - Solar System tests: ρ >> ρ_c → α_eff → 0
+[17:00:19]       - Binary pulsars: NS interior screened
+[17:00:19]       - Galactic halos: ρ < ρ_c → α_eff = α₀
+[17:00:19]     
 Screening threshold: ρ_c ≈ 20 g/cm³
-[13:05:58]     Environment                ρ (g/cm³)   Screened
-[13:05:58]     --------------------------------------------------
-[13:05:58]     Solar core                  1.50e+02        Yes
-[13:05:58]     Earth core                  1.30e+01         No
-[13:05:58]     NS interior                 1.00e+15        Yes
-[13:05:58]     Milky Way disk              1.00e-24         No
-[13:05:58]     Galaxy cluster              1.00e-27         No
-[13:05:58]     High-z halo                 1.00e-26         No
-[13:05:58]     
+[17:00:19]     Environment                ρ (g/cm³)   Screened
+[17:00:19]     --------------------------------------------------
+[17:00:19]     Solar core                  1.50e+02        Yes
+[17:00:19]     Earth core                  1.30e+01         No
+[17:00:19]     NS interior                 1.00e+15        Yes
+[17:00:19]     Milky Way disk              1.00e-24         No
+[17:00:19]     Galaxy cluster              1.00e-27         No
+[17:00:19]     High-z halo                 1.00e-26         No
+[17:00:19]     
 ======================================================================
-[13:05:58]     SUMMARY
-[13:05:58]     ======================================================================
-[13:05:58]     
+[17:00:19]     SUMMARY
+[17:00:19]     ======================================================================
+[17:00:19]     
 Key findings:
-[13:05:58]       1. TEP α₀ = 0.58 ± 0.16 (ω_BD ≈ 1)
-[13:05:58]       2. Without screening, this would be ruled out by Cassini (>100σ)
-[13:05:58]       3. Chameleon screening resolves all Solar System constraints
-[13:05:58]       4. TEP effects only manifest in unscreened environments (galactic halos)
-[13:05:58]       5. High-z JWST galaxies are in the unscreened regime
-[13:05:58]     
+[17:00:19]       1. TEP α₀ = 0.58 ± 0.16 (ω_BD ≈ 1)
+[17:00:19]       2. Without screening, this would be ruled out by Cassini (>100σ)
+[17:00:19]       3. Chameleon screening resolves all Solar System constraints
+[17:00:19]       4. TEP effects only manifest in unscreened environments (galactic halos)
+[17:00:19]       5. High-z JWST galaxies are in the unscreened regime
+[17:00:19]     
 Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_112_scalar_tensor_constraints.json
-[13:05:58]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_112_scalar_tensor.png
-[13:05:58]     
+[17:00:19]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_112_scalar_tensor.png
+[17:00:19]     
 Step 112 complete.

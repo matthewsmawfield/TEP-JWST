@@ -31,45 +31,42 @@ Outputs:
 import sys
 import numpy as np
 import pandas as pd
-from astropy.cosmology import Planck18 as cosmo
+from astropy.cosmology import Planck18 as cosmo  # Planck 2018 cosmology (age/distance)
 from pathlib import Path
 import json
-import matplotlib.pyplot as plt
-from scipy import stats
+import matplotlib.pyplot as plt  # Figure generation for SFE correction plot
+from scipy import stats  # Hypothesis tests and correlation
 
 # =============================================================================
 # PATHS AND LOGGER
 # =============================================================================
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.tep_model import ALPHA_0, LOG_MH_REF, Z_REF, compute_gamma_t, stellar_to_halo_mass as tep_stellar_to_halo_mass  # TEP model: alpha_0=0.58, reference constants, Gamma_t formula, stellar-to-halo mass conversion
 
-STEP_NUM = "043"
-STEP_NAME = "blue_monsters_tep"
+STEP_NUM = "043"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "blue_monsters_tep"  # Blue Monsters TEP analysis: quantifies TEP correction to SFE for massive z>5 galaxies (post-LRD cleaning)
 
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-FIGURES_PATH = PROJECT_ROOT / "results" / "figures"
-DATA_PATH = PROJECT_ROOT / "data" / "interim"
-LOGS_PATH = PROJECT_ROOT / "logs"
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+FIGURES_PATH = PROJECT_ROOT / "results" / "figures"  # Publication figures directory (PNG/PDF for manuscript)
+DATA_PATH = PROJECT_ROOT / "data" / "interim"  # Processed intermediate products (CSV format from prior steps)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
 
 for p in [OUTPUT_PATH, FIGURES_PATH, DATA_PATH, LOGS_PATH]:
-    p.mkdir(parents=True, exist_ok=True)
+    p.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
 # =============================================================================
-# CONSTANTS & PARAMETERS (From TEP-H0)
+# CONSTANTS & PARAMETERS
 # =============================================================================
 
-ALPHA_0 = 0.58  # Calibrated from local Cepheids
-Z_REF = 5.5
-LOG_MH_REF = 12.0  # Fixed reference halo mass (consistent with Section 3.1)
-
-# Standard SFE limit
-SFE_STANDARD = 0.20  # Lambda-CDM maximum
+# Standard SFE limit: maximum baryon-to-star conversion efficiency in ΛCDM
+SFE_STANDARD = 0.20  # Lambda-CDM maximum (Behroozi+2019)
 
 # Blue Monster selection
 Z_MIN = 5.0
@@ -80,34 +77,17 @@ RE_LRD_MAX_KPC = 0.5  # LRDs are < 500 pc
 BETA_OPT_LRD_MIN = 1.0  # LRDs have red optical slopes
 
 # =============================================================================
-# TEP FUNCTIONS
+# TEP FUNCTIONS (delegating to shared model)
 # =============================================================================
 
 def stellar_to_halo_mass(log_Mstar, z):
-    """
-    Convert stellar mass to halo mass using Behroozi+19 relation.
-    At high-z, the relation is approximately:
-    log(Mh) ~ log(M*) + 1.5 with scatter ~0.3 dex
-    """
-    # Simplified high-z relation
-    log_Mh = log_Mstar + 1.5 + 0.1 * (z - 5)
-    return np.clip(log_Mh, 10.0, 14.0)
+    """Delegate to shared TEP model."""
+    return tep_stellar_to_halo_mass(log_Mstar, z)
 
 
 def calculate_gamma_t(log_Mh, z):
-    """
-    Calculate the TEP temporal enhancement factor.
-    
-    Gamma_t = exp[alpha(z) * (2/3) * (log_Mh - log_Mh_ref) * z_factor]
-    
-    Uses fixed reference halo mass for consistency with Section 3.1.
-    """
-    alpha_z = ALPHA_0 * np.sqrt(1 + z)
-    delta_log_Mh = log_Mh - LOG_MH_REF
-    z_factor = (1 + z) / (1 + Z_REF)
-    
-    argument = alpha_z * (2/3) * delta_log_Mh * z_factor
-    return np.exp(argument)
+    """Delegate to shared TEP model (includes redshift-dependent reference mass)."""
+    return compute_gamma_t(log_Mh, z)
 
 
 def correct_sfe(sfe_obs, gamma_t):
@@ -357,32 +337,13 @@ def run_analysis():
     # These are the galaxies with SFE ~ 0.5 that define the anomaly
     print_status("Loading canonical Monster galaxies from literature...", "INFO")
     
-    # Red Monsters from Xiao et al. 2024 (the headline claim)
+    # Red Monsters from Xiao et al. 2024 (the headline case study)
     # These have SFE ~ 0.5, which is 2.5x the standard limit
-    # After Chworowsky+25 cleaning, the "Blue Monsters" are the residual
+    # Halo masses derived via shared stellar_to_halo_mass (Behroozi+19 proxy)
     literature_data = [
-        # Xiao et al. 2024 Red Monsters - the original 3
-        {'id': 'S1-Xiao', 'z': 5.85, 'log_mass': 11.15, 'SFE': 0.50, 'log_Mh': 12.88, 'source': 'Xiao+24'},
-        {'id': 'S2-Xiao', 'z': 5.30, 'log_mass': 10.95, 'SFE': 0.50, 'log_Mh': 12.68, 'source': 'Xiao+24'},
-        {'id': 'S3-Xiao', 'z': 5.55, 'log_mass': 10.80, 'SFE': 0.50, 'log_Mh': 12.54, 'source': 'Xiao+24'},
-        # Labbe et al. 2023 "anomalous" galaxies (subset with high SFE)
-        {'id': '38094-Labbe', 'z': 7.48, 'log_mass': 10.89, 'SFE': 0.45, 'log_Mh': 12.6, 'source': 'Labbe+23'},
-        {'id': '35300-Labbe', 'z': 9.08, 'log_mass': 10.40, 'SFE': 0.42, 'log_Mh': 12.2, 'source': 'Labbe+23'},
-        {'id': '14924-Labbe', 'z': 8.83, 'log_mass': 10.02, 'SFE': 0.38, 'log_Mh': 11.8, 'source': 'Labbe+23'},
-        # Additional massive galaxies from UNCOVER/CEERS with elevated SFE
-        # Halo masses estimated from SFE: SFE = M* / (f_b * M_h) => log_Mh = log_M* - log(SFE * f_b)
-        # For SFE ~ 0.4 and f_b = 0.16: log_Mh ~ log_M* + 1.2
-        # These are the "Blue Monsters" that remain after LRD cleaning (Chworowsky+25)
-        {'id': 'BM1', 'z': 5.2, 'log_mass': 10.8, 'SFE': 0.40, 'log_Mh': 12.6, 'source': 'UNCOVER'},
-        {'id': 'BM2', 'z': 5.8, 'log_mass': 10.6, 'SFE': 0.38, 'log_Mh': 12.5, 'source': 'UNCOVER'},
-        {'id': 'BM3', 'z': 6.1, 'log_mass': 10.7, 'SFE': 0.42, 'log_Mh': 12.5, 'source': 'CEERS'},
-        {'id': 'BM4', 'z': 6.5, 'log_mass': 10.5, 'SFE': 0.35, 'log_Mh': 12.5, 'source': 'CEERS'},
-        {'id': 'BM5', 'z': 7.0, 'log_mass': 10.4, 'SFE': 0.38, 'log_Mh': 12.4, 'source': 'UNCOVER'},
-        {'id': 'BM6', 'z': 7.3, 'log_mass': 10.3, 'SFE': 0.36, 'log_Mh': 12.4, 'source': 'UNCOVER'},
-        {'id': 'BM7', 'z': 7.8, 'log_mass': 10.2, 'SFE': 0.34, 'log_Mh': 12.3, 'source': 'CEERS'},
-        {'id': 'BM8', 'z': 8.2, 'log_mass': 10.5, 'SFE': 0.40, 'log_Mh': 12.5, 'source': 'COSMOS-Web'},
-        {'id': 'BM9', 'z': 8.7, 'log_mass': 10.3, 'SFE': 0.35, 'log_Mh': 12.4, 'source': 'COSMOS-Web'},
-        {'id': 'BM10', 'z': 9.1, 'log_mass': 10.1, 'SFE': 0.32, 'log_Mh': 12.3, 'source': 'COSMOS-Web'},
+        {'id': 'S1-Xiao', 'z': 5.85, 'log_mass': 11.15, 'SFE': 0.50, 'source': 'Xiao+24'},
+        {'id': 'S2-Xiao', 'z': 5.30, 'log_mass': 10.95, 'SFE': 0.50, 'source': 'Xiao+24'},
+        {'id': 'S3-Xiao', 'z': 5.55, 'log_mass': 10.80, 'SFE': 0.50, 'source': 'Xiao+24'},
     ]
     df = pd.DataFrame(literature_data)
     print_status(f"Created sample of {len(df)} Monster galaxies from literature", "INFO")

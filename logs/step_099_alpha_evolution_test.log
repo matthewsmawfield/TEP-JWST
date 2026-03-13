@@ -1,43 +1,43 @@
-[13:05:44]     ======================================================================
-[13:05:44]     STEP 099: Alpha(z) Evolution Test
-[13:05:44]     ======================================================================
-[13:05:44]     Loaded 2315 galaxies
-[13:05:44]     
+[17:00:07]     ======================================================================
+[17:00:07]     STEP 099: Alpha(z) Evolution Test
+[17:00:07]     ======================================================================
+[17:00:07]     Loaded 2315 galaxies
+[17:00:07]     
 Fitting alpha_0 in ALL redshift bins (for completeness):
-[13:05:44]     ------------------------------------------------------------
-[13:05:44]       z=4.0-5.5: N=1233, α₀=0.10±0.00, ρ=0.05 ✗
-[13:05:44]       z=5.5-7.0: N=578, α₀=0.10±0.00, ρ=-0.11 ✗
-[13:05:44]       z=7.0-8.5: N=328, α₀=0.10±0.00, ρ=0.18 ✗
-[13:05:44]       z=8.5-10.0: N=176, α₀=0.10±0.00, ρ=0.65 ✗
-[13:05:44]       z=10.0-12.0: N=0 (too few, skipping)
-[13:05:44]     Used bootstrap for uncertainty (covariance matrix singular)
-[13:05:44]     
+[17:00:07]     ------------------------------------------------------------
+[17:00:07]       z=4.0-5.5: N=1233, α₀=0.10±0.00, ρ=0.05 ✗
+[17:00:07]       z=5.5-7.0: N=578, α₀=0.10±0.00, ρ=-0.11 ✗
+[17:00:07]       z=7.0-8.5: N=328, α₀=0.10±0.00, ρ=0.18 ✗
+[17:00:07]       z=8.5-10.0: N=176, α₀=0.10±0.00, ρ=0.65 ✗
+[17:00:07]       z=10.0-12.0: N=0 (too few, skipping)
+[17:00:07]     Used bootstrap for uncertainty (covariance matrix singular)
+[17:00:07]     
 ======================================================================
-[13:05:44]     HIGH-Z ALPHA_0 RECOVERY (z > 7, signal-active bins only)
-[13:05:44]     ======================================================================
-[13:05:44]       z=7.0-8.5: N=328, α₀=0.10±0.00, ρ=0.18 ✗
-[13:05:45]       z=8.5-10.0: N=176, α₀=0.10±0.00, ρ=0.65 ✗
-[13:05:45]     
+[17:00:07]     HIGH-Z ALPHA_0 RECOVERY (z > 7, signal-active bins only)
+[17:00:07]     ======================================================================
+[17:00:07]       z=7.0-8.5: N=328, α₀=0.10±0.00, ρ=0.18 ✗
+[17:00:07]       z=8.5-10.0: N=176, α₀=0.10±0.00, ρ=0.65 ✗
+[17:00:07]     
 High-z weighted mean α₀ = 0.10 ± 0.07
-[13:05:45]     Tension with nominal (0.58): 2.74σ
-[13:05:45]     
+[17:00:07]     Tension with nominal (0.58): 2.74σ
+[17:00:07]     
 ======================================================================
-[13:05:45]     EVOLUTION TEST RESULTS
-[13:05:45]     ======================================================================
-[13:05:45]     
+[17:00:07]     EVOLUTION TEST RESULTS
+[17:00:07]     ======================================================================
+[17:00:07]     
 Linear fit: α₀(z) = 0.10 + -0.000 × z
-[13:05:45]     Slope significance: p = 1.000
-[13:05:45]     
+[17:00:07]     Slope significance: p = 1.000
+[17:00:07]     
 ✓ α₀ is CONSISTENT with being constant across redshift
-[13:05:45]       The TEP assumption α₀ = 0.58 is validated
-[13:05:45]     
+[17:00:07]       The TEP assumption α₀ = 0.58 is validated
+[17:00:07]     
 All-bins weighted mean α₀ = 0.10 ± 0.05
-[13:05:45]       (LOW-Z BINS INCLUDED — methodologically incorrect, reported for completeness)
-[13:05:45]     High-z-only weighted mean α₀ = 0.10 ± 0.07
-[13:05:45]     Nominal value: α₀ = 0.58 ± 0.16
-[13:05:45]     All-bins tension with nominal: 2.9σ  (high-z only: 2.74σ)
-[13:05:45]     
+[17:00:07]       (LOW-Z BINS INCLUDED — methodologically incorrect, reported for completeness)
+[17:00:07]     High-z-only weighted mean α₀ = 0.10 ± 0.07
+[17:00:07]     Nominal value: α₀ = 0.58 ± 0.16
+[17:00:07]     All-bins tension with nominal: 2.9σ  (high-z only: 2.74σ)
+[17:00:07]     
 Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_099_alpha_evolution_test.json
-[13:05:45]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_099_alpha_evolution_test.png
-[13:05:45]     
+[17:00:08]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_099_alpha_evolution_test.png
+[17:00:08]     
 Step 099 complete.

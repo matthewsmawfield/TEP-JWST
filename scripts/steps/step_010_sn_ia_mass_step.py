@@ -32,22 +32,22 @@ from scipy.optimize import curve_fit
 # =============================================================================
 # LOGGER SETUP
 # =============================================================================
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
-from scripts.utils.p_value_utils import format_p_value
+from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
 
-STEP_NUM = "010"
-STEP_NAME = "sn_ia_mass_step"
+STEP_NUM = "010"  # Pipeline step number (sequential 001-176)
+STEP_NAME = "sn_ia_mass_step"  # SN Ia mass step: tests TEP prediction that host mass correlates with distance bias via time dilation
 
-LOGS_PATH = PROJECT_ROOT / "logs"
-OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"
-LOGS_PATH.mkdir(parents=True, exist_ok=True)
-OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
+LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text file per step for debugging traceability)
+OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
+LOGS_PATH.mkdir(parents=True, exist_ok=True)  # Create logs/ if missing; parents=True ensures full path tree exists
+OUTPUT_PATH.mkdir(parents=True, exist_ok=True)  # Create results/outputs/ if missing
 
-logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")
-set_step_logger(logger)
+logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
+set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
 
 
@@ -65,20 +65,32 @@ RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 # TEP PARAMETERS (from TEP-H0, Paper 12)
 # Exact values from tep_correction_results.json
 # =============================================================================
+# ALPHA_TEP: The TEP coupling constant, derived from the slope of the
+# H0-vs-host-sigma relation in the SH0ES Cepheid sample. It quantifies
+# how strongly proper-time dilation scales with gravitational potential.
+# The TEP-H0 correction formula is: Delta_mu = alpha * log10(sigma / sigma_ref)
 ALPHA_TEP = 0.58  # Optimal coupling constant (0.5798828125)
 ALPHA_TEP_ERR = 0.16  # Bootstrap uncertainty
+# SIGMA_REF: The effective velocity dispersion of the calibrator environment.
+# Cepheid calibrators (LMC, NGC 4258, MW) reside in relatively low-sigma
+# environments; this sets the zero-point for the TEP distance correction.
 SIGMA_REF = 75.25  # Reference calibrator sigma (km/s)
 
 # Screening thresholds (from TEP-COS and TEP-H0)
+# Above SIGMA_SCREEN, the TEP scalar field is screened by the deep
+# potential well, saturating the correction (no further increase with sigma).
 SIGMA_SCREEN = 165.0  # High-sigma screening threshold (km/s)
 RHO_SCREEN = 0.5  # Density screening threshold (M_sun/pc^3)
 
 # Mass step threshold (standard literature value)
+# The SN Ia mass step is conventionally measured at 10^10 Msun
 MASS_STEP_THRESHOLD = 10.0  # log(M*/Msun)
 
 # Group Halo Screening (from TEP-H0 v0.3)
-# Galaxies in group environments are screened by the ambient potential
-# even if their local disk density is low
+# Galaxies in group/cluster environments are screened by the ambient
+# group-scale potential even if the individual host's disk density is low.
+# This preferentially reduces the TEP bias for high-mass hosts (which are
+# more likely to reside in groups), thereby shrinking the predicted mass step.
 GROUP_SCREENING_ENABLED = True
 
 # =============================================================================
@@ -112,9 +124,15 @@ def prepare_sample(df):
     Prepare sample for mass step analysis.
     
     Filters:
-    - Valid host mass measurements
-    - Not calibrators (to avoid circularity)
-    - Reasonable redshift range
+    - Valid host mass measurements (0 < log M* < 15)
+    - Not calibrators (IS_CALIBRATOR=0) to avoid circularity: calibrators
+      define the distance ladder zero-point and must not be included in
+      the Hubble residual sample that tests the mass step.
+    - Reasonable redshift range (0.01 < z < 1.0): excludes peculiar-velocity
+      dominated nearby SNe and very high-z objects with large uncertainties.
+    
+    After filtering, groups multiple observations of the same SN (by CID)
+    into a single weighted entry.
     """
     # Filter for valid host masses
     valid_mass = (df['HOST_LOGMASS'] > 0) & (df['HOST_LOGMASS'] < 15)
@@ -262,8 +280,16 @@ def analyze_mass_step(df):
     return results
 
 def analyze_continuous_correlation(df):
-    """
-    Analyze continuous correlation between host mass and Hubble residual.
+    """Analyze continuous correlation between host mass and Hubble residual.
+
+    Unlike the binary mass step (Analysis 1), this tests whether the
+    Hubble residual varies continuously with host mass, which is the
+    natural TEP prediction: Delta_mu ~ alpha * log10(sigma(M*) / sigma_ref)
+    is a smooth function of M*, not a step function.
+
+    Both Spearman (rank-based, robust to outliers) and Pearson (linear)
+    correlations are computed, plus a linear regression slope in
+    mag/dex units.
     """
     logger.info("=" * 70)
     logger.info("ANALYSIS 2: Continuous Mass-Residual Correlation")
@@ -497,8 +523,16 @@ def test_tep_prediction(df, observed_step):
 # BINNED ANALYSIS
 # =============================================================================
 def binned_mass_analysis(df, n_bins=5):
-    """
-    Analyze Hubble residuals in mass bins to test M^(1/3) scaling.
+    """Analyze Hubble residuals in mass bins to test M^(1/3) scaling.
+
+    The Faber-Jackson relation gives sigma ~ M*^0.25, so the TEP correction
+    Delta_mu ~ alpha * log10(sigma / sigma_ref) ~ alpha * 0.25 * log10(M*/M_ref)
+    scales roughly as M*^(1/4) in linear space, or linearly in log M*.
+
+    This analysis bins the sample into n_bins equal-count quantiles by
+    HOST_LOGMASS, computes the mean Hubble residual and the TEP-predicted
+    Delta_mu in each bin, and tests whether the bin-to-bin trend matches
+    the TEP prediction via Spearman correlation.
     """
     logger.info("=" * 70)
     logger.info("ANALYSIS 4: Binned Mass Analysis (Testing M^(1/3) Scaling)")
@@ -554,7 +588,25 @@ def binned_mass_analysis(df, n_bins=5):
 # MAIN ANALYSIS
 # =============================================================================
 def run_sn_ia_mass_step_analysis():
-    """Run the complete SN Ia mass step analysis."""
+    """Run the complete SN Ia mass step analysis.
+
+    This step connects the TEP-JWST high-z evidence to the local universe
+    by testing whether the well-known SN Ia host-galaxy mass step
+    (~0.06 mag; Kelly+10, Sullivan+10) can be explained by TEP.
+
+    The physical mechanism: Cepheid calibrators used by SH0ES reside in
+    specific host environments. If proper time runs faster in deeper
+    potentials (higher sigma), Cepheid pulsation periods are contracted,
+    leading to a systematic luminosity overestimate and hence distance
+    underestimate for high-mass hosts. This produces the observed mass
+    step without requiring intrinsic SN Ia physics variations.
+
+    Four analyses are performed:
+      1. Traditional binary mass step at 10^10 Msun
+      2. Continuous mass-residual correlation
+      3. TEP prediction comparison (with and without group screening)
+      4. Binned mass analysis to test the M^(1/3) scaling law
+    """
     
     logger.info("=" * 70)
     logger.info("TEP-JWST Step 10: SN Ia Host Galaxy Mass Step Analysis")

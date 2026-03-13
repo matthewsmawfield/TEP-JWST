@@ -1,32 +1,32 @@
-[13:06:05]     ======================================================================
-[13:06:05]     STEP 132: LRD Population Differential Temporal Shear Analysis
-[13:06:05]     ======================================================================
-[13:06:05]     LRD catalog already exists: /Users/matthewsmawfield/www/TEP-JWST/data/raw/kokorev_lrd_catalog_v1.1.fits
-[13:06:05]     Loaded 260 LRDs from catalog
-[13:06:05]     Redshift range: 4.02 - 8.93
-[13:06:05]     Median z: 5.57
-[13:06:05]     
+[17:00:27]     ======================================================================
+[17:00:27]     STEP 132: LRD Population Differential Temporal Shear Analysis
+[17:00:27]     ======================================================================
+[17:00:27]     LRD catalog already exists: /Users/matthewsmawfield/www/TEP-JWST/data/raw/kokorev_lrd_catalog_v1.1.fits
+[17:00:27]     Loaded 260 LRDs from catalog
+[17:00:27]     Redshift range: 4.02 - 8.93
+[17:00:27]     Median z: 5.57
+[17:00:27]     
 Analyzing 260 LRDs...
-[13:06:05]     
+[17:00:27]     
 ==================================================
-[13:06:05]     POPULATION SUMMARY
-[13:06:05]     ==================================================
-[13:06:05]     Total LRDs analyzed: 260
-[13:06:05]     Redshift range: 4.02 - 8.93
-[13:06:05]     Median z: 5.57
-[13:06:05]     
+[17:00:27]     POPULATION SUMMARY
+[17:00:27]     ==================================================
+[17:00:27]     Total LRDs analyzed: 260
+[17:00:27]     Redshift range: 4.02 - 8.93
+[17:00:27]     Median z: 5.57
+[17:00:27]     
 Temporal Enhancement:
-[13:06:05]       Median Gamma_halo: 0.14
-[13:06:05]       Median Gamma_cen: 0.47
-[13:06:05]       Median Delta_Gamma: 0.33
-[13:06:05]     
+[17:00:27]       Median Gamma_halo: 0.14
+[17:00:27]       Median Gamma_cen: 0.47
+[17:00:27]       Median Delta_Gamma: 0.33
+[17:00:27]     
 BH Growth Boost:
-[13:06:05]       Median log(Boost): 3.2
-[13:06:05]       Mean log(Boost): 3.2
-[13:06:05]       LRDs with >1000x boost: 182/260 (70.0%)
-[13:06:05]     
+[17:00:27]       Median log(Boost): 3.2
+[17:00:27]       Mean log(Boost): 3.2
+[17:00:27]       LRDs with >1000x boost: 182/260 (70.0%)
+[17:00:27]     
 Saved CSV to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_132_lrd_population.csv
-[13:06:06]     Saved figure to /Users/matthewsmawfield/www/TEP-JWST/results/figures/lrd_population_time_bubble.png
-[13:06:06]     Saved JSON to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_132_lrd_validation.json
-[13:06:06]     
+[17:00:27]     Saved figure to /Users/matthewsmawfield/www/TEP-JWST/results/figures/lrd_population_time_bubble.png
+[17:00:27]     Saved JSON to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_132_lrd_validation.json
+[17:00:27]     
 Step 132 complete.

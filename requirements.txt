@@ -19,5 +19,8 @@ scikit-learn>=1.2.0
 # Cosmological Boltzmann solver
 camb>=1.5.0
 
+# Bayesian nested sampling
+dynesty>=2.0.0
+
 # Utilities
 tqdm>=4.65.0

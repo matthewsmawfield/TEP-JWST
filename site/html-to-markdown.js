@@ -137,7 +137,7 @@ class HTMLToMarkdownConverter {
             }
 
             console.log(`  Total HTML: ${(allHtml.length / 1024).toFixed(1)} KB`);
-            const markdownTitle = manifest.title || 'Temporal Shear: Resolving the High-Redshift Efficiency Crisis';
+            const markdownTitle = manifest.title || 'The Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies';
             const markdown = `# ${markdownTitle}\n\n` + this.htmlToMarkdown(allHtml);
             const outputPath = path.join(__dirname, '..', '13manuscript-tep-jwst.md');
             fs.writeFileSync(outputPath, markdown, 'utf8');

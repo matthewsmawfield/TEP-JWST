@@ -1,0 +1,99 @@
+[17:05:15]     ======================================================================
+[17:05:15]     STEP 176: Nested Bayesian Model Comparison
+[17:05:15]     ======================================================================
+[17:05:15]     Loaded 2315 galaxies from step_002_uncover_full_sample_tep.csv
+[17:05:15]     Valid multi-observable sample: N=504 at z >= 7
+[17:05:15]     
+======================================================================
+[17:05:15]     A. MULTI-OBSERVABLE JOINT TEST (PRIMARY)
+[17:05:15]     ======================================================================
+[17:05:15]     
+  Running nested sampling: TEP Joint (12 params)
+[17:05:15]         ndim=12, nlive=500
+[17:05:37]         ln(Z) = -2738.94 ± 0.48
+[17:05:37]     
+  Running nested sampling: Standard Physics Joint (16 params)
+[17:05:37]         ndim=16, nlive=500
+[17:06:10]         ln(Z) = -2752.16 ± 0.54
+[17:06:10]     
+  Running nested sampling: Bursty SF Joint (21 params)
+[17:06:10]         ndim=21, nlive=500
+[17:06:53]         ln(Z) = -2744.92 ± 0.57
+[17:06:53]     
+  Running nested sampling: Varying IMF Joint (20 params)
+[17:06:53]         ndim=20, nlive=500
+[17:07:31]         ln(Z) = -2742.62 ± 0.54
+[17:07:31]     
+  Running nested sampling: AGN Feedback Joint (14 params)
+[17:07:31]         ndim=14, nlive=500
+[17:07:56]         ln(Z) = -2711.33 ± 0.51
+[17:07:56]     
+--------------------------------------------------
+[17:07:56]     JOINT BAYES FACTORS (TEP vs Alternatives)
+[17:07:56]     --------------------------------------------------
+[17:07:56]       Standard_Physics: ln(BF)=13.22 ± 0.72  |  Δparams=4  |  Decisive evidence for TEP
+[17:07:56]       Bursty_SF: ln(BF)=5.98 ± 0.75  |  Δparams=9  |  Decisive evidence for TEP
+[17:07:56]       Varying_IMF: ln(BF)=3.68 ± 0.72  |  Δparams=8  |  Very strong evidence for TEP
+[17:07:56]       AGN_Feedback: ln(BF)=-27.62 ± 0.70  |  Δparams=2  |  Decisive evidence for alternative
+[17:07:56]     
+======================================================================
+[17:07:56]     B. SINGLE-OBSERVABLE DUST TEST (SUPPLEMENTARY)
+[17:07:56]     ======================================================================
+[17:07:56]     
+  Running nested sampling: TEP Dust (3 params)
+[17:07:56]         ndim=3, nlive=500
+[17:07:59]         ln(Z) = -625.41 ± 0.29
+[17:07:59]     
+  Running nested sampling: Standard Dust (4 params)
+[17:07:59]         ndim=4, nlive=500
+[17:08:02]         ln(Z) = -625.18 ± 0.31
+[17:08:02]     
+  Running nested sampling: Varying IMF Dust (5 params)
+[17:08:02]         ndim=5, nlive=500
+[17:08:05]         ln(Z) = -619.99 ± 0.32
+[17:08:05]     
+  Running nested sampling: AGN Dust (5 params)
+[17:08:05]         ndim=5, nlive=500
+[17:08:09]         ln(Z) = -609.22 ± 0.30
+[17:08:09]     
+--------------------------------------------------
+[17:08:09]     SINGLE-OBSERVABLE DUST BAYES FACTORS
+[17:08:09]     --------------------------------------------------
+[17:08:09]       Standard_Physics: ln(BF)=-0.23 ± 0.42  |  Δparams=1  |  Weak evidence for alternative
+[17:08:09]       Varying_IMF: ln(BF)=-5.42 ± 0.43  |  Δparams=2  |  Decisive evidence for alternative
+[17:08:09]       AGN_Feedback: ln(BF)=-16.19 ± 0.42  |  Δparams=2  |  Decisive evidence for alternative
+[17:08:09]     
+======================================================================
+[17:08:09]     C. RESIDUAL-SPACE COMPARISON (MASS+Z-CONTROLLED)
+[17:08:09]     ======================================================================
+[17:08:09]     
+  Running nested sampling: Residual TEP Joint (12 params)
+[17:08:09]         ndim=12, nlive=500
+[17:08:35]         ln(Z) = -2795.03 ± 0.55
+[17:08:35]     
+  Running nested sampling: Residual Null (8 params)
+[17:08:35]         ndim=8, nlive=500
+[17:08:49]         ln(Z) = -2894.11 ± 0.41
+[17:08:49]     
+  Running nested sampling: Residual Constrained AGN (10 params)
+[17:08:49]         ndim=10, nlive=500
+[17:09:12]         ln(Z) = -2850.74 ± 0.42
+[17:09:12]     
+--------------------------------------------------
+[17:09:12]     RESIDUAL-SPACE BAYES FACTORS (TEP vs Alternatives)
+[17:09:12]     --------------------------------------------------
+[17:09:12]       Residual_Null: ln(BF)=99.08 ± 0.69  |  Δparams=-4  |  Decisive evidence for TEP
+[17:09:12]       Constrained_AGN: ln(BF)=55.71 ± 0.69  |  Δparams=-2  |  Decisive evidence for TEP
+[17:09:12]     
+======================================================================
+[17:09:12]     KEY FINDING
+[17:09:12]     ======================================================================
+[17:09:12]     Multi-observable joint nested Bayesian model comparison favours TEP over most alternatives, but AGN_Feedback decisively outperforms TEP in this comparison (ln BF = -27.6). Mean ln(BF) across 4 alternatives = -1.2 (log10 = -0.5).  TEP achieves this with the fewest parameters, leveraging a single theory-fixed predictor (Gamma_t) across all observables.
+[17:09:12]     
+======================================================================
+[17:09:12]     RESIDUAL-SPACE KEY FINDING
+[17:09:12]     ======================================================================
+[17:09:12]     Residual-space nested Bayesian comparison decisively favours TEP over all tested residual alternatives. After removing linear mass+z trends from both observables and competing predictors, mean ln(BF) across 2 alternatives = 77.4 (log10 = 33.6).
+[17:09:12]     
+Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_176_nested_bayesian_evidence.json
+[17:09:12]     ======================================================================
