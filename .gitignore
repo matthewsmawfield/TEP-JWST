@@ -42,11 +42,21 @@ site/dist/
 tmp/
 
 # Data & Large Results
-# data/  # Uncommented - Data is small and needed for reproducibility
-# results/
-# logs/
+# Exclude large downloadable data files (pipeline will download these)
+data/raw/**/*.fits
+data/raw/**/*.fits.gz
+data/raw/**/*.tar.gz
+data/raw/**/*.zip
+data/raw/**/*.csv.gz
+data/raw/**/*.pdf
+data/raw/**/*.png
 
-# Ignore massive data files
+# Keep small metadata/config files
+!data/raw/**/*.json
+!data/raw/**/*.txt
+!data/raw/**/*.yaml
+
+# Ignore massive result files
 results/**/*.fits
 results/**/*.hdf5
 
