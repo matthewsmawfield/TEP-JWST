@@ -3,14 +3,15 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19000828.svg)](https://doi.org/10.5281/zenodo.19000828)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-![JWST Galaxy Age Resolution](site/public/og-image.jpg)
+![JWST Galaxy Age Resolution](site/public/image.webp)
 
-Author: Matthew Lukin Smawfield  
-Version: v0.1 (Kos)  
-Date: 13 March 2026  
-Status: Preprint  
-DOI: [10.5281/zenodo.19000828](https://doi.org/10.5281/zenodo.19000828)  
-Website: [https://matthewsmawfield.github.io/TEP-JWST/](https://matthewsmawfield.github.io/TEP-JWST/)
+**Author:** Matthew Lukin Smawfield  
+**Version:** v0.1 (Kos)  
+**Date:** 13 March 2026  
+**Status:** Preprint (Open for Collaboration)  
+**DOI:** [10.5281/zenodo.19000828](https://doi.org/10.5281/zenodo.19000828)  
+**Website:** [https://mlsmawfield.com/tep/jwst/](https://mlsmawfield.com/tep/jwst/)  
+**Paper Series:** TEP Series: Paper 13 (High-Redshift Anomalies)
 
 ## Overview
 
