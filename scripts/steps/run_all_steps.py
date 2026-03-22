@@ -25,7 +25,7 @@ STEPS_DIR = PROJECT_ROOT / "scripts" / "steps"
 OUTPUTS_DIR = PROJECT_ROOT / "results" / "outputs"
 
 # =============================================================================
-# FULL PIPELINE: 168 analysis steps
+# FULL PIPELINE: 158 analysis steps
 # Includes core analysis, replication, robustness, falsification, and
 # advanced discriminating tests used by the current manuscript build.
 # =============================================================================
