@@ -64,11 +64,11 @@
     }
   ],
   "concordance": {
-    "alpha0_weighted_mean": 0.5482115422204167,
-    "alpha0_weighted_sigma": 0.009947767078223745,
-    "chi2_concordance": 0.0688960259301965,
+    "alpha0_weighted_mean": 0.570221618985842,
+    "alpha0_weighted_sigma": 0.09745548872907688,
+    "chi2_concordance": 4.964337903388981,
     "ndof": 4,
-    "p_concordance": 0.9994201188755247,
+    "p_concordance": 0.2909762616936371,
     "max_pairwise_tension_sigma": 0.16660240344211974,
     "concordant": true,
     "individual_alphas": [
@@ -85,14 +85,14 @@
       0.44056565656565655,
       0.007323232323232343
     ],
-    "jwst_recovered_alpha0": 0.5482115422204167,
-    "jwst_recovered_sigma": 0.009947767078223745,
-    "cepheid_tension_sigma": 0.1982949712616984,
+    "jwst_recovered_alpha0": 0.570221618985842,
+    "jwst_recovered_sigma": 0.09745548872907688,
+    "cepheid_tension_sigma": 0.052194941714757484,
     "cepheid_reference": {
       "alpha0": 0.58,
       "sigma": 0.16
     },
-    "external_cepheid_tension_sigma": 0.1982949712616984,
+    "external_cepheid_tension_sigma": 0.052194941714757484,
     "external_cepheid_reference": {
       "alpha0": 0.58,
       "sigma": 0.16

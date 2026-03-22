@@ -1,15 +1,15 @@
 # The Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19000828.svg)](https://doi.org/10.5281/zenodo.19000828)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19000827.svg)](https://doi.org/10.5281/zenodo.19000827)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ![JWST Galaxy Age Resolution](site/public/image.webp)
 
 **Author:** Matthew Lukin Smawfield  
-**Version:** v0.1 (Kos)  
-**Date:** 13 March 2026  
+**Version:** v0.2 (Kos)  
+**Date:** 13 March 2026 (first release) – 22 March 2026 (last updated)  
 **Status:** Preprint (Open for Collaboration)  
-**DOI:** [10.5281/zenodo.19000828](https://doi.org/10.5281/zenodo.19000828)  
+**DOI:** [10.5281/zenodo.19000827](https://doi.org/10.5281/zenodo.19000827)  
 **Website:** [https://mlsmawfield.com/tep/jwst/](https://mlsmawfield.com/tep/jwst/)  
 **Paper Series:** TEP Series: Paper 13 (High-Redshift Anomalies)
 
@@ -66,30 +66,6 @@ npm install --prefix site
 python scripts/steps/run_all_steps.py
 ```
 
-### 2) Fast evidence check (L1-L4)
-
-```bash
-python scripts/run_core_evidence.py
-```
-
-### 3) Rebuild generated manuscript markdown
-
-```bash
-npm run build:markdown --prefix site
-```
-
-### 4) Manuscript consistency check
-
-```bash
-python scripts/steps/step_160_manuscript_consistency_check.py
-```
-
-## Manuscript Source of Truth
-
-- Do not edit `13manuscript-tep-jwst.md` directly.
-- Edit manuscript content in `site/components/`.
-- Rebuild generated markdown via `npm run build:markdown --prefix site`.
-
 ## Data Sources
 
 Primary data families include:
@@ -101,14 +77,6 @@ Primary data families include:
 
 See `data/DATA_PROVENANCE.md` for acquisition details and provenance notes.
 
-## Methodological Caveats
-
-- The direct kinematic comparison is currently N = 15; the strongest defensible claim is one-sided conditional asymmetry and published-uncertainty robustness, not a decisive dependent-correlation rejection.
-- L2 has a strong direct-mass morphology branch, while the resolved color-gradient sign discriminator remains ancillary and not yet decisive on its own.
-- The literal Gamma_t > 1 tail can be low-count in some splits; power-aware interpretations are required.
-- Correlated tests on the same underlying residuals are not meta-combined as if independent.
-- Claims should be tied to live pipeline outputs, not manuscript text alone.
-
 ## Citation
 
 ```bibtex
@@ -117,8 +85,8 @@ See `data/DATA_PROVENANCE.md` for acquisition details and provenance notes.
   author={Smawfield, Matthew Lukin},
   journal={Zenodo},
   year={2026},
-  doi={10.5281/zenodo.19000828},
-  note={Preprint v0.1 (Kos)}
+  doi={10.5281/zenodo.19000827},
+  note={Preprint v0.2 (Kos)}
 }
 ```
 

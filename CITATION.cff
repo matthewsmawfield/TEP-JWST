@@ -9,8 +9,8 @@ authors:
 abstract: >
   This work demonstrates that JWST's 'impossible' high-redshift galaxies are natural consequences of the Temporal Equivalence Principle (TEP). Galaxies formed in deep gravitational potentials experience enhanced proper time evolution, resolving the apparent age paradox without invoking exotic physics or systematic errors.
 license: CC-BY-4.0
-version: 0.1
-date-released: 2026-03-13
+version: 0.2
+date-released: 2026-03-22
 keywords:
   - jwst
   - high-redshift-galaxies
@@ -20,7 +20,7 @@ keywords:
   - cosmology
 repository-code: "https://github.com/matthewsmawfield/TEP-JWST"
 url: "https://matthewsmawfield.github.io/TEP-JWST/"
-doi: 10.5281/zenodo.19000828
+doi: 10.5281/zenodo.19000827
 
 preferred-citation:
   type: article
@@ -31,10 +31,10 @@ preferred-citation:
       orcid: "https://orcid.org/0009-0003-8219-3159"
   year: 2026
   journal: Zenodo
-  doi: 10.5281/zenodo.19000828
+  doi: 10.5281/zenodo.19000827
   identifiers:
   - type: doi
-    value: 10.5281/zenodo.19000828
+    value: 10.5281/zenodo.19000827
     description: Pre-print DOI
-  url: "https://doi.org/10.5281/zenodo.19000828"
-  notes: "Preprint, Version 0.1 (Kos)"
+  url: "https://doi.org/10.5281/zenodo.19000827"
+  notes: "Preprint, Version 0.2 (Kos)"
