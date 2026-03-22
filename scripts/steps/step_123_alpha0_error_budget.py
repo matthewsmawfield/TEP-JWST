@@ -158,7 +158,7 @@ def main():
         'step': 146,
         'description': 'Alpha_0 Error Propagation and Systematic Budget',
         'error_budget': budget,
-        'conclusion': 'α₀ = 0.58 ± 0.05 (systematic) propagates to ~10-15% uncertainty in Γ_t predictions'
+        'conclusion': 'α₀ = 0.58 ± 0.05 (systematic only) propagates to ~10-15% uncertainty in Γ_t predictions. (Note: Total external uncertainty is ±0.16, which propagates to ~30-45%)'
     }
     
     output_path = RESULTS_DIR / "step_123_alpha0_error_budget.json"

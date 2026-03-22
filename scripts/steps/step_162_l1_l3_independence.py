@@ -660,17 +660,27 @@ def obs5_impossible_resolution(df_uncover, df_ceers, df_cosmosweb, bootstrap_exe
     }
 
 def compute_concordance(observables):
-    """Compute concordance χ² and Bayes factor."""
+    """Compute concordance statistics."""
     alphas = [o["alpha0_best"] for o in observables]
     sigmas = [(o["alpha0_ci"][1] - o["alpha0_ci"][0]) / 2.0 for o in observables]
 
-    # Weighted mean
-    weights = [1.0 / max(s, 0.01)**2 for s in sigmas]
+    # Identify smooth observables (exclude Mass Limit with its step-function metric)
+    # Mass Limit has artificially narrow CI due to threshold behavior at alpha_0 = 0.548
+    smooth_indices = [i for i, o in enumerate(observables) if o["short"] != "Mass Limit"]
+    
+    if len(smooth_indices) == 0:
+        # Fallback: use all observables if no Mass Limit found
+        smooth_indices = list(range(len(observables)))
+    
+    # Weighted mean using only smooth observables
+    smooth_alphas = [alphas[i] for i in smooth_indices]
+    smooth_sigmas = [sigmas[i] for i in smooth_indices]
+    weights = [1.0 / max(s, 0.01)**2 for s in smooth_sigmas]
     w_sum = sum(weights)
-    alpha_wm = sum(a * w for a, w in zip(alphas, weights)) / w_sum
+    alpha_wm = sum(a * w for a, w in zip(smooth_alphas, weights)) / w_sum
     sigma_wm = 1.0 / np.sqrt(w_sum)
 
-    # Concordance χ²
+    # Concordance chi2 using all observables against the smooth-only weighted mean
     chi2 = sum(((a - alpha_wm) / max(s, 0.01))**2 for a, s in zip(alphas, sigmas))
     ndof = len(observables) - 1
     p_concordance = float(max(1 - stats.chi2.cdf(chi2, ndof), 1e-300)) if ndof > 0 else 1.0

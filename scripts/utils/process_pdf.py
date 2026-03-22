@@ -108,7 +108,7 @@ def main():
     )
     parser.add_argument(
         '--doi',
-        default='10.5281/zenodo.19000828',
+        default='10.5281/zenodo.19000827',
         help='DOI to embed in metadata'
     )
     

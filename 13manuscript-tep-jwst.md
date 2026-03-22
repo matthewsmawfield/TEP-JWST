@@ -247,7 +247,7 @@ Table 1b: Glossary of Key Terms
   
 ##### 2.3.2.2 Screening and Scale Separation
 
-  For a representative concordance-scale coupling $\alpha_0 = 0.548$, the bare Brans-Dicke parameter is $\omega_{\rm BD} = 1/(2\alpha_0^2) - 1/2 \approx 0.99$ — roughly four orders of magnitude below the Cassini bound ($\omega_{\rm BD} > 40{,}000$; Bertotti et al. 2003). This large pre-screening discrepancy illustrates the central logic of chameleon-class theories: the bare coupling is strong, but the thin-shell mechanism suppresses the effective coupling by $\Delta R/R \lesssim 10^{-6}$ in solar-system bodies, yielding $\omega_{\rm BD}^{\rm eff} > 10^6$. On cosmological scales, the Compton wavelength $\lambda_C \sim 1$ Mpc yields Yukawa suppression $\beta_{\rm eff}(R_8) \approx 0.002$ on $\sigma_8$ scales—well below the Planck bound. Within individual halos ($r \lesssim 50$ kpc), the field tracks the local potential and operates locally. This two-scale picture is standard for chameleon theories.
+  For a representative concordance-scale coupling $\alpha_0 = 0.57$, the bare Brans-Dicke parameter is $\omega_{\rm BD} = 1/(2\alpha_0^2) - 1/2 \approx 1.04$ — roughly four orders of magnitude below the Cassini bound ($\omega_{\rm BD} > 40{,}000$; Bertotti et al. 2003). This large pre-screening discrepancy illustrates the central logic of chameleon-class theories: the bare coupling is strong, but the thin-shell mechanism suppresses the effective coupling by $\Delta R/R \lesssim 10^{-6}$ in solar-system bodies, yielding $\omega_{\rm BD}^{\rm eff} > 10^6$. On cosmological scales, the Compton wavelength $\lambda_C \sim 1$ Mpc yields Yukawa suppression $\beta_{\rm eff}(R_8) \approx 0.002$ on $\sigma_8$ scales—well below the Planck bound. Within individual halos ($r \lesssim 50$ kpc), the field tracks the local potential and operates locally. This two-scale picture is standard for chameleon theories.
 
   The screening condition for local tests is:
 
@@ -837,7 +837,7 @@ Table 11: Cross-Domain TEP Evidence Summary (Papers 1–13)
 | 10 (EXP) | Precision GR tests | Conformal loophole: GW170817 constrains disformal sector only | 5 structural limitations identified; conformal sector unconstrained | Not constrained by existing tests |
 | 11 (COS) | Globular cluster pulsars | 0.13 dex spin-down excess; density slope 0.35 vs 0.82 Newtonian | $p = 1.7 \times 10^{-15}$; $4.0\sigma$ slope tension; binary inversion $p = 0.01$ | Screening threshold $\sigma > 165$ km/s |
 | 12 (H0) | Cepheid distance ladder | $\rho(H_0, \sigma) = 0.434$; $\Delta H_0 = 4.63$ km/s/Mpc; $H_0^{\rm TEP} = 68.66 \pm 1.51$ | $p = 0.019$; Planck tension $0.79\sigma$ (from $5\sigma$) | $\alpha_0 = 0.58 \pm 0.16$ *(external prior)* |
-| **13 (This work)** | **JWST high-$z$ galaxies** | **2 primary empirical lines + 1 ancillary spatial indication + 1 derived regime comparison; $N = 4{,}726$; 3 surveys; $z = 4$–$10$** | **$z = 24.4\sigma$ (3-survey Fisher combination for L1 alone: GOODS-N, EGS, COSMOS; 3 SED analyses; no clustering correction); dependence-adjusted broader multi-test combination $p = 2.6 \times 10^{-91}$; extreme 10%-$N_{\rm eff}$ stress-test floor $= 3.3\sigma$; all 3 surveys individually $> 5\sigma$ (CEERS $6.7\sigma$, UNCOVER $11.0\sigma$, COSMOS-Web $21.5\sigma$); $t_{\rm eff}$ beats $t_{\rm cosmic}$ per-survey Steiger $Z = 6.4$–$22.6$; 9/9 blind validation; $\Delta$AIC $\approx -4.8$. DJA-based GOODS-S and Balmer analyses are supplementary spectroscopic checks, not part of the primary evidence count.** | **$\alpha_0 = 0.548 \pm 0.010$ (dust, Pearson $R^2$); $0.548 \pm 0.010$ (joint); both within $0.2\sigma$ of the external prior** |
+| **13 (This work)** | **JWST high-$z$ galaxies** | **2 primary empirical lines + 1 ancillary spatial indication + 1 derived regime comparison; $N = 4{,}726$; 3 surveys; $z = 4$–$10$** | **$z = 24.4\sigma$ (3-survey Fisher combination for L1 alone: GOODS-N, EGS, COSMOS; 3 SED analyses; no clustering correction); dependence-adjusted broader multi-test combination $p = 2.6 \times 10^{-91}$; extreme 10%-$N_{\rm eff}$ stress-test floor $= 3.3\sigma$; all 3 surveys individually $> 5\sigma$ (CEERS $6.7\sigma$, UNCOVER $11.0\sigma$, COSMOS-Web $21.5\sigma$); $t_{\rm eff}$ beats $t_{\rm cosmic}$ per-survey Steiger $Z = 6.4$–$22.6$; 9/9 blind validation; $\Delta$AIC $\approx -4.8$. DJA-based GOODS-S and Balmer analyses are supplementary spectroscopic checks, not part of the primary evidence count.** | **$\alpha_0 = 0.57 \pm 0.10$ (four smooth observables); $\alpha_0 \geq 0.548$ (Mass Limit bound); consistent with the external prior** |
 
   
   The JWST result therefore probes the framework in its most distant and astrophysically independent regime: the highest redshift ($z > 8$, lookback time $> 13$ Gyr), the largest halo masses ($\log M_h \sim 12$–13), and a data type dominated by population-level photometry rather than by precision timing. Its $0.2\sigma$ agreement with the external Cepheid prior was not guaranteed. A strongly discrepant $\alpha_0$ would have broken the cross-domain consistency that the broader TEP programme requires.
@@ -957,7 +957,7 @@ Table 12: TEP vs Alternative Explanations for High-$z$ Anomalies (AIC/BIC applie
     - **Corrected $H_0$:** Applying the TEP correction with the central external-prior value $\alpha_0 = 0.58$ yields $H_0^{\rm TEP} = 68.66 \pm 1.51$ km/s/Mpc, corresponding to a Planck tension of $0.79\sigma$ — down from $5\sigma$ uncorrected. Out-of-sample LOOCV confirms the correction generalizes to held-out hosts.
 
   
-  The same externally calibrated $\alpha_0$, applied without modification to $z > 5$ galaxies in this work, successfully predicts the Red Monster SFE anomaly (fully resolved), the $z > 8$ dust–$\Gamma_t$ correlation ($\rho = +0.62$), the SN Ia mass step (0.050 vs. 0.06 mag observed), and the correct sign of the TRGB-Cepheid offset. The corrected JWST recovery gives $\alpha_0 = 0.548 \pm 0.010$ (dust-only) and $\alpha_0 = 0.548 \pm 0.010$ (joint), both consistent with the external Cepheid prior $0.58 \pm 0.16$ at $0.2\sigma$. The tighter JWST interval reflects internal multi-observable concordance rather than a redefinition of the local prior. Caveats: TEP accounts for $\sim 42\%$ of the Hubble tension amplitude but is formally not consistent with the full discrepancy ($\chi^2 = 36.8$, $p < 10^{-8}$; §C.3.3). Consistent with this interpretation, recent TRGB-based measurements (Freedman et al. 2024) also lie closer to Planck.
+  The same externally calibrated $\alpha_0$, applied without modification to $z > 5$ galaxies in this work, successfully predicts the Red Monster SFE anomaly (fully resolved), the $z > 8$ dust–$\Gamma_t$ correlation ($\rho = +0.62$), the SN Ia mass step (0.050 vs. 0.06 mag observed), and the correct sign of the TRGB-Cepheid offset. The corrected JWST recovery gives $\alpha_0 = 0.57 \pm 0.10$ (four smooth observables) and $\alpha_0 \geq 0.548$ (Mass Limit), both consistent with the external Cepheid prior $0.58 \pm 0.16$ at $\sim 0.1\sigma$. The tighter JWST interval reflects internal multi-observable concordance rather than a redefinition of the local prior. Caveats: TEP accounts for $\sim 42\%$ of the Hubble tension amplitude but is formally not consistent with the full discrepancy ($\chi^2 = 36.8$, $p < 10^{-8}$; §C.3.3). Consistent with this interpretation, recent TRGB-based measurements (Freedman et al. 2024) also lie closer to Planck.
 
   
 
@@ -1630,7 +1630,7 @@ Table 19: TEP Falsification Criteria
 | Radial Age Gradient | Inside-out (Red Core, Blue Out) | Core Screening (Blue Core, Red Out) | Standard inside-out gradients in massive high-z galaxies |
 | Time-Lens Ordering | Properties track $z_{\rm obs}$ | Properties track $z_{\rm eff}$ | Correlation with $z_{\rm obs}$ is stronger than with $z_{\rm eff}$ |
 | Type Ia / CC SN Ratio | No $\Gamma_t$ dependence | Ia/CC $\propto \Gamma_t^{0.5}$; Ia rate $4.4\times$ enhanced in high-$\Gamma_t$ hosts; CC rate unchanged ($\rho \approx 0$) | Significant deviation from predicted scaling across $\Gamma_t$ at fixed $M_*$ (e.g. Roman Space Telescope High-Latitude Time Domain Survey) |
-| $\alpha_0$ Recovery | N/A | $\alpha_0 \approx 0.58$ (external prior); JWST internal recovery $\approx 0.548$ | Independent recovery yielding $\alpha_0 > 1.2$ or $\alpha_0 < 0.2$ |
+| $\alpha_0$ Recovery | N/A | $\alpha_0 \approx 0.58$ (external prior); JWST internal recovery $\approx 0.57$ | Independent recovery yielding $\alpha_0 > 1.2$ or $\alpha_0 < 0.2$ |
 
     
 
@@ -1819,7 +1819,7 @@ Table 19: TEP Falsification Criteria
 
     Smawfield, M. L. 2026, Zenodo preprint. *Suppressed Density Scaling in Globular Cluster Pulsars.* Not yet peer-reviewed; cited for the screening threshold $\sigma > 165$ km/s, binary inversion ($-0.31$ dex, $p = 0.01$), and COSMOGRAIL lensing constraint $|\Gamma| \leq 60$ days/decade (§2.3.2.2, §4.2 Table 11, §4.4.3).
 
-    Smawfield, M. L. 2026, Zenodo preprint. *The Cepheid Bias: Resolving the Hubble Tension via Environment-Dependent Period-Luminosity Relations.* Not yet peer-reviewed; cited for the external Cepheid prior on the coupling constant, $\alpha_0 = 0.58 \pm 0.16$, derived from SH0ES local distance-ladder host stratification (§2.3.2, §3.1, §4.3.6). In the present JWST analysis, the tighter recovery $\alpha_0 = 0.548 \pm 0.010$ is treated separately as an internal high-redshift concordance check rather than as the source calibration (§4.3.6, §4.12 item 9).
+    Smawfield, M. L. 2026, Zenodo preprint. *The Cepheid Bias: Resolving the Hubble Tension via Environment-Dependent Period-Luminosity Relations.* Not yet peer-reviewed; cited for the external Cepheid prior on the coupling constant, $\alpha_0 = 0.58 \pm 0.16$, derived from SH0ES local distance-ladder host stratification (§2.3.2, §3.1, §4.3.6). In the present JWST analysis, the tighter recovery $\alpha_0 = 0.57 \pm 0.10$ is treated separately as an internal high-redshift concordance check rather than as the source calibration (§4.3.6, §4.12 item 9).
 
     Song, M., et al. 2016, ApJ, 825, 5. *The Evolution of the Galaxy Stellar Mass Function at z = 4–8.*
 
@@ -2350,7 +2350,7 @@ Table A7: Candidate Screening Mechanisms
     **What remains invariant.** All core TEP predictions are independent of the screening mechanism:
 
     
-        - Conformal coupling: $\alpha_0 = 0.58 \pm 0.16$ (Cepheid calibration) or $0.548 \pm 0.010$ (JWST concordance)
+        - Conformal coupling: $\alpha_0 = 0.58 \pm 0.16$ (Cepheid calibration) or $0.57 \pm 0.10$ (JWST concordance, four smooth observables; Mass Limit provides lower bound $\alpha_0 \geq 0.548$)
 
         - Temporal enhancement: $\Gamma_t = A(\phi)^{1/2}$
 

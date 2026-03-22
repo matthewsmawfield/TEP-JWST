@@ -74,5 +74,5 @@
       }
     }
   },
-  "conclusion": "\u03b1\u2080 = 0.58 \u00b1 0.05 (systematic) propagates to ~10-15% uncertainty in \u0393_t predictions"
+  "conclusion": "\u03b1\u2080 = 0.58 \u00b1 0.05 (systematic only) propagates to ~10-15% uncertainty in \u0393_t predictions. (Note: Total external uncertainty is \u00b10.16, which propagates to ~30-45%)"
 }
