@@ -31,32 +31,32 @@
     {
       "imf": "Chabrier",
       "mass_corr": 0.0,
-      "partial_rho": 0.18185588767050892,
+      "partial_rho": 0.2317933360392117,
       "p": 1e-300,
       "ref": "Chabrier (2003)"
     },
     {
       "imf": "Kroupa",
       "mass_corr": 0.05,
-      "partial_rho": 0.17208696891241515,
+      "partial_rho": 0.2311620855130891,
       "p": 1e-300,
       "ref": "Kroupa (2001)"
     },
     {
       "imf": "Salpeter",
       "mass_corr": 0.23,
-      "partial_rho": 0.12839763109655106,
-      "p": 1.39343495766684e-180,
+      "partial_rho": 0.22851175713857458,
+      "p": 1e-300,
       "ref": "Salpeter (1955)"
     },
     {
       "imf": "top-heavy",
       "mass_corr": -0.3,
-      "partial_rho": 0.22087100119631936,
+      "partial_rho": 0.233242176900605,
       "p": 1e-300,
       "ref": "Dav\u00e9 (2008)"
     }
   ],
-  "partial_rho_range_across_imf": 0.0924733700997683,
-  "conclusion": "TEP mass bias (0.28 dex at z=7) is 1x larger than IMF uncertainty (0.30 dex). Partial rho varies by only 0.092 across IMF models, confirming TEP is not degenerate with IMF choice."
+  "partial_rho_range_across_imf": 0.0047304197620304245,
+  "conclusion": "TEP mass bias (0.28 dex at z=7) is 1x larger than IMF uncertainty (0.30 dex). Partial rho varies by only 0.005 across IMF models, confirming TEP is not degenerate with IMF choice."
 }

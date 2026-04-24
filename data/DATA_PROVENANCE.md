@@ -2,7 +2,7 @@
 
 This document tracks all external data sources used in the TEP-JWST analysis.
 
-**Last Updated:** 2026-03-14  
+**Last Updated:** 2026-04-24  
 **Analysis Status:** Complete with real Prospector-derived SED ages from UNCOVER DR4
 
 ---
@@ -384,4 +384,4 @@ python scripts/steps/step_001_uncover_load.py --verify
 
 ---
 
-*Last updated: 2026-01-15*
+*Last updated: 2026-04-24*

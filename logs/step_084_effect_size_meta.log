@@ -1,43 +1,43 @@
-[16:59:35]     ======================================================================
-[16:59:35]     STEP 084: Effect Size Meta-Analysis
-[16:59:35]     ======================================================================
-[16:59:35]     Loaded N = 2315 galaxies
-[16:59:35]     
+[14:24:28]     ======================================================================
+[14:24:28]     STEP 084: Effect Size Meta-Analysis
+[14:24:28]     ======================================================================
+[14:24:28]     Loaded N = 2315 galaxies
+[14:24:28]     
 --- 1. Computing Effect Sizes ---
-[16:59:35]       Computed 6 effect sizes
-[16:59:35]         z>8 Dust-Γt (UNCOVER): ρ = 0.593 [0.512, 0.664] ✓
-[16:59:35]         z>7 Dust-Γt: ρ = 0.394 [0.317, 0.465] ✓
-[16:59:35]         z>6 Dust-Γt: ρ = 0.103 [0.037, 0.169] ✓
-[16:59:35]         Mass-Age (Full): ρ = 0.135 [0.095, 0.175] ✓
-[16:59:35]         Mass-Age (z>6): ρ = -0.043 [-0.109, 0.023] ✗
-[16:59:35]         Γt-sSFR (z>7): ρ = 0.030 [-0.057, 0.117] ✗
-[16:59:35]     
+[14:24:28]       Computed 6 effect sizes
+[14:24:28]         z>8 Dust-Γt (UNCOVER): ρ = 0.603 [0.523, 0.672] ✓
+[14:24:28]         z>7 Dust-Γt: ρ = 0.357 [0.279, 0.431] ✓
+[14:24:28]         z>6 Dust-Γt: ρ = 0.001 [-0.065, 0.067] ✓
+[14:24:28]         Mass-Age (Full): ρ = 0.135 [0.095, 0.175] ✓
+[14:24:28]         Mass-Age (z>6): ρ = -0.043 [-0.109, 0.023] ✗
+[14:24:28]         Γt-sSFR (z>7): ρ = -0.023 [-0.111, 0.064] ✓
+[14:24:28]     
 --- 2. Fixed-Effects Meta-Analysis ---
-[16:59:35]       All effects: Combined ρ = 0.145 [0.119, 0.172]
-[16:59:35]       Z = 10.70, p = 1.04e-26
-[16:59:35]       Independent only (3 tests): Combined ρ = 0.167 [0.132, 0.201]
-[16:59:35]       Z = 9.35, p = 8.60e-21
-[16:59:35]     
+[14:24:28]       All effects: Combined ρ = 0.121 [0.094, 0.147]
+[14:24:28]       Z = 8.87, p = 7.15e-19
+[14:24:28]       Independent only (3 tests): Combined ρ = 0.160 [0.125, 0.194]
+[14:24:28]       Z = 8.95, p = 3.64e-19
+[14:24:28]     
 --- 3. Heterogeneity Assessment ---
-[16:59:35]       Q = 156.77, df = 5, p = 0.000
-[16:59:35]       I² = 96.8% (Considerable heterogeneity)
-[16:59:35]       τ² = 0.0385
-[16:59:35]     
+[14:24:28]       Q = 172.18, df = 5, p = 0.000
+[14:24:28]       I² = 97.1% (Considerable heterogeneity)
+[14:24:28]       τ² = 0.0424
+[14:24:28]     
 --- 4. Random-Effects Meta-Analysis ---
-[16:59:35]       Combined ρ = 0.213 [0.056, 0.360]
-[16:59:35]       Z = 2.64, p = 8.26e-03
-[16:59:35]     
+[14:24:28]       Combined ρ = 0.184 [0.018, 0.340]
+[14:24:28]       Z = 2.17, p = 3.02e-02
+[14:24:28]     
 --- 5. Creating Visualizations ---
-[16:59:35]       Saved: tep_forest_plot.png
-[16:59:35]       Saved: tep_funnel_plot.png
-[16:59:35]     
+[14:24:29]       Saved: tep_forest_plot.png
+[14:24:29]       Saved: tep_funnel_plot.png
+[14:24:29]     
 ======================================================================
-[16:59:35]     META-ANALYSIS SUMMARY
-[16:59:35]     ======================================================================
-[16:59:35]       Effects analyzed: 6
-[16:59:35]       Sign match rate: 67%
-[16:59:35]       Combined ρ (FE): 0.167
-[16:59:35]       Combined ρ (RE): 0.213
-[16:59:35]       Overall significant: True
-[16:59:35]     
-Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_084_effect_size_meta.json
+[14:24:29]     META-ANALYSIS SUMMARY
+[14:24:29]     ======================================================================
+[14:24:29]       Effects analyzed: 6
+[14:24:29]       Sign match rate: 83%
+[14:24:29]       Combined ρ (FE): 0.160
+[14:24:29]       Combined ρ (RE): 0.184
+[14:24:29]       Overall significant: True
+[14:24:29]     
+Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_084_effect_size_meta.json

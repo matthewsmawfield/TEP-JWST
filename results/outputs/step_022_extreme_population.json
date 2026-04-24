@@ -1,60 +1,60 @@
 {
   "extreme_population": {
     "age_ratio": {
-      "mean_extreme": 0.2694313302950349,
-      "mean_normal": 0.15908897104086672,
-      "ratio": 1.6935889932044597,
-      "p_value": 2.2522414894643892e-30
+      "mean_extreme": 0.24144793785422394,
+      "mean_normal": 0.16097762847105437,
+      "ratio": 1.4998850470557097,
+      "p_value": 0.0021422742983816384
     },
     "mwa_Gyr": {
-      "mean_extreme": 0.1952363416185867,
-      "mean_normal": 0.16699101778789263,
-      "ratio": 1.1691427730955595,
-      "p_value": 0.023465237649259417
+      "mean_extreme": 0.1458337653621192,
+      "mean_normal": 0.1675842346623427,
+      "ratio": 0.8702117216213836,
+      "p_value": 0.5161206174973856
     },
     "t_eff_Gyr": {
-      "mean_extreme": 6.441986729102268,
-      "mean_normal": 0.575369606179268,
-      "ratio": 11.196258300608143,
-      "p_value": 2.789472870666886e-120
+      "mean_extreme": 2.7941755201582006,
+      "mean_normal": 0.980967759824972,
+      "ratio": 2.8483866999428686,
+      "p_value": 9.525060132249802e-43
     },
-    "n_extreme": 44,
-    "most_extreme_gamma": 135.14167000853067
+    "n_extreme": 6,
+    "most_extreme_gamma": 8.765758519702652
   },
   "bimodality": {
-    "n_suppressed": 2113,
-    "n_enhanced": 202,
-    "mean_suppressed": 0.15705179390413135,
-    "mean_enhanced": 0.2044336200364373,
-    "cohens_d": 0.4839197861815461,
-    "p_value": 3.9035362167139124e-24,
-    "bimodal": false
+    "n_suppressed": 2182,
+    "n_enhanced": 133,
+    "mean_suppressed": 0.15785616934961366,
+    "mean_enhanced": 0.21581857327769044,
+    "cohens_d": 0.5306787527266332,
+    "p_value": 1.5452044043425757e-24,
+    "bimodal": true
   },
   "prediction_precision": {
     "coefficients": {
-      "a": 0.13169782956679277,
-      "b": 0.0025376893442667315,
-      "c": 0.004748742906442663
+      "a": 0.10369771525820046,
+      "b": 0.028808405754008226,
+      "c": 0.0052187229774305535
     },
-    "rmse": 0.0630573743970275,
-    "r2": 0.034013479389794266,
-    "rho_resid_gamma": 0.10125165440524482,
+    "rmse": 0.06333404347199158,
+    "r2": 0.025518203192187894,
+    "rho_resid_gamma": 0.1098106341039562,
     "random_residuals": false
   },
   "emergent_correlations": {
     "mass_age_raw": 0.1349627356030388,
-    "mass_age_corrected": -0.6711358443696416,
-    "mass_age_emerged": true,
-    "emergent_count": 1
+    "mass_age_corrected": 0.07877314974026622,
+    "mass_age_emerged": false,
+    "emergent_count": 0
   },
   "parameter_recovery": {
-    "alpha_optimal": 0.1,
+    "alpha_optimal": 0.3857142857142857,
     "alpha_calibrated": 0.58,
-    "alpha_ratio": 0.1724137931034483,
+    "alpha_ratio": 0.6650246305418719,
     "scatter_no_tep": 0.06417179252610941,
-    "scatter_calibrated": 0.2538999713278044,
-    "scatter_optimal": 0.06537673841000147,
-    "scatter_reduction": -1.8776877448168563,
-    "recovered": false
+    "scatter_calibrated": 0.06250632142846001,
+    "scatter_optimal": 0.0621875692634589,
+    "scatter_reduction": 3.0920489899720303,
+    "recovered": true
   }
 }

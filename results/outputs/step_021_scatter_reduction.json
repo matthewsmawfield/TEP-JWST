@@ -2,17 +2,17 @@
   "cosmic_age_limit": {
     "n_near_limit": 50,
     "n_far_from_limit": 2265,
-    "mean_gamma_near": 3.8570997013958537,
-    "mean_gamma_far": 0.6492488254736949,
-    "p_value": 4.176660939290202e-11,
+    "mean_gamma_near": 1.12842402521518,
+    "mean_gamma_far": 0.9360407595673402,
+    "p_value": 5.966870082298698e-10,
     "tep_smooths": true
   },
   "scatter_reduction": {
     "scatter_raw": 0.07999622183379687,
-    "scatter_corrected": 0.13877087945896885,
-    "scatter_reduction_pct": -73.47179188947747,
+    "scatter_corrected": 0.08201063723181629,
+    "scatter_reduction_pct": -2.5181381718309637,
     "r2_raw": 0.0464143151836529,
-    "r2_corrected": 0.37622607082370657,
+    "r2_corrected": 0.0076687136546028855,
     "tep_smooths": false
   },
   "downsizing_transition": {
@@ -25,8 +25,8 @@
       -0.24407340232582952
     ],
     "mean_gammas": [
-      0.6936648812806605,
-      3.125166911141697
+      0.9236948068785142,
+      1.0232930918596495
     ],
     "rho_trend": -0.9999999999999999,
     "p_trend": 1.0,
@@ -34,17 +34,17 @@
   },
   "mass_function": {
     "mean_mass_raw": 8.463302797243529,
-    "mean_mass_corrected": 8.332212790019458,
-    "mass_shift": 0.1310900072240706,
+    "mean_mass_corrected": 8.262623138183677,
+    "mass_shift": 0.2006796590598512,
     "n_above_threshold_raw": 2315,
     "n_above_threshold_corr": 2315,
     "tep_smooths": true
   },
   "coherence_structure": {
     "rho_raw": 0.1349627356030388,
-    "rho_partial": 0.12515504090146007,
-    "delta_rho": 0.009807694701578745,
-    "explained_fraction": 0.07266964957220323,
+    "rho_partial": 0.11109606503780316,
+    "delta_rho": 0.023866670565235656,
+    "explained_fraction": 0.17683896564925794,
     "tep_smooths": true
   }
 }

@@ -1,43 +1,43 @@
-[17:00:07]     ======================================================================
-[17:00:07]     STEP 099: Alpha(z) Evolution Test
-[17:00:07]     ======================================================================
-[17:00:07]     Loaded 2315 galaxies
-[17:00:07]     
+[14:25:00]     ======================================================================
+[14:25:00]     STEP 099: Alpha(z) Evolution Test
+[14:25:00]     ======================================================================
+[14:25:00]     Loaded 2315 galaxies
+[14:25:00]     
 Fitting alpha_0 in ALL redshift bins (for completeness):
-[17:00:07]     ------------------------------------------------------------
-[17:00:07]       z=4.0-5.5: N=1233, α₀=0.10±0.00, ρ=0.05 ✗
-[17:00:07]       z=5.5-7.0: N=578, α₀=0.10±0.00, ρ=-0.11 ✗
-[17:00:07]       z=7.0-8.5: N=328, α₀=0.10±0.00, ρ=0.18 ✗
-[17:00:07]       z=8.5-10.0: N=176, α₀=0.10±0.00, ρ=0.65 ✗
-[17:00:07]       z=10.0-12.0: N=0 (too few, skipping)
-[17:00:07]     Used bootstrap for uncertainty (covariance matrix singular)
-[17:00:07]     
+[14:25:00]     ------------------------------------------------------------
+[14:25:00]       z=4.0-5.5: N=1233, α₀=0.10±0.00, ρ=-1.00 ✗
+[14:25:00]       z=5.5-7.0: N=578, α₀=0.10±0.00, ρ=-1.00 ✗
+[14:25:00]       z=7.0-8.5: N=328, α₀=0.10±0.00, ρ=-1.00 ✗
+[14:25:00]       z=8.5-10.0: N=176, α₀=0.10±0.00, ρ=-1.00 ✗
+[14:25:00]       z=10.0-12.0: N=0 (too few, skipping)
+[14:25:00]     Used bootstrap for uncertainty (covariance matrix singular)
+[14:25:00]     
 ======================================================================
-[17:00:07]     HIGH-Z ALPHA_0 RECOVERY (z > 7, signal-active bins only)
-[17:00:07]     ======================================================================
-[17:00:07]       z=7.0-8.5: N=328, α₀=0.10±0.00, ρ=0.18 ✗
-[17:00:07]       z=8.5-10.0: N=176, α₀=0.10±0.00, ρ=0.65 ✗
-[17:00:07]     
+[14:25:00]     HIGH-Z ALPHA_0 RECOVERY (z > 7, signal-active bins only)
+[14:25:00]     ======================================================================
+[14:25:00]       z=7.0-8.5: N=328, α₀=0.10±0.00, ρ=-1.00 ✗
+[14:25:00]       z=8.5-10.0: N=176, α₀=0.10±0.00, ρ=-1.00 ✗
+[14:25:00]     
 High-z weighted mean α₀ = 0.10 ± 0.07
-[17:00:07]     Tension with nominal (0.58): 2.74σ
-[17:00:07]     
+[14:25:00]     Tension with nominal (0.58): 2.74σ
+[14:25:00]     
 ======================================================================
-[17:00:07]     EVOLUTION TEST RESULTS
-[17:00:07]     ======================================================================
-[17:00:07]     
+[14:25:00]     EVOLUTION TEST RESULTS
+[14:25:00]     ======================================================================
+[14:25:00]     
 Linear fit: α₀(z) = 0.10 + -0.000 × z
-[17:00:07]     Slope significance: p = 1.000
-[17:00:07]     
+[14:25:00]     Slope significance: p = 1.000
+[14:25:00]     
 ✓ α₀ is CONSISTENT with being constant across redshift
-[17:00:07]       The TEP assumption α₀ = 0.58 is validated
-[17:00:07]     
+[14:25:00]       The TEP assumption α₀ = 0.58 is validated
+[14:25:00]     
 All-bins weighted mean α₀ = 0.10 ± 0.05
-[17:00:07]       (LOW-Z BINS INCLUDED — methodologically incorrect, reported for completeness)
-[17:00:07]     High-z-only weighted mean α₀ = 0.10 ± 0.07
-[17:00:07]     Nominal value: α₀ = 0.58 ± 0.16
-[17:00:07]     All-bins tension with nominal: 2.9σ  (high-z only: 2.74σ)
-[17:00:07]     
-Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_099_alpha_evolution_test.json
-[17:00:08]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_099_alpha_evolution_test.png
-[17:00:08]     
+[14:25:00]       (LOW-Z BINS INCLUDED — methodologically incorrect, reported for completeness)
+[14:25:00]     High-z-only weighted mean α₀ = 0.10 ± 0.07
+[14:25:00]     Nominal value: α₀ = 0.58 ± 0.16
+[14:25:00]     All-bins tension with nominal: 2.9σ  (high-z only: 2.74σ)
+[14:25:00]     
+Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_099_alpha_evolution_test.json
+[14:25:00]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_099_alpha_evolution_test.png
+[14:25:00]     
 Step 099 complete.

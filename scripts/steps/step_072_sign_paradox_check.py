@@ -6,7 +6,7 @@ This script resolves the "Sign Paradox" highlighted by reviewers:
 Standard GR predicts time dilation (slower clocks) in deep potentials.
 TEP predicts time enhancement (faster clocks) in diffuse halos.
 
-KEY INSIGHT FROM PAPER 12 (§1.2.2):
+KEY INSIGHT FROM PAPER 0 (§1.2.2):
 The net clock rate relative to coordinate time is:
     Γ = A(φ) × √(1 + 2Φ_N)
     
@@ -28,9 +28,9 @@ which compares to a reference environment (not to infinity). This relative
 formulation naturally produces enhancement without requiring 4β² > 1 globally.
 
 The resolution is that TEP operates in a RELATIVE frame where:
-    Γ_t = exp[α(z) × (2/3) × Δlog(M_h) × (1+z)/(1+z_ref)]
+    Γ_t = exp[ K * (Φ - Φ_ref)/c^2 * sqrt(1+z) ]
     
-This is always > 1 for M_h > M_ref and < 1 for M_h < M_ref, by construction.
+    This is always > 1 for Φ > Φ_ref and < 1 for Φ < Φ_ref, by construction.
 """
 
 import numpy as np
@@ -44,7 +44,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma, ALPHA_0, Z_REF, LOG_MH_REF  # TEP model: Gamma_t formula, alpha_0=0.58, reference redshift z_ref=5.5, reference halo mass log_Mh_ref=12.0
+from scripts.utils.tep_model import compute_gamma_t as tep_gamma, ALPHA_0, ALPHA_CLOCK_EFF, Z_REF, LOG_MH_REF  # TEP model: Gamma_t formula, alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), reference constants
 
 STEP_NUM = "072"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "sign_paradox_check"  # Sign paradox check: resolves GR time dilation vs TEP enhancement paradox via relative Gamma_t formulation (β coupling vs Newtonian potential Φ_N)
@@ -87,25 +87,14 @@ def compute_relative_gamma_t(log_Mh, z, alpha_0=ALPHA_0, z_ref=Z_REF, log_Mh_ref
     - For M_h < M_ref: Γ_t < 1 (suppression)
     
     The formula from the manuscript:
-        Γ_t = exp[α(z) × (2/3) × Δlog(M_h) × (1+z)/(1+z_ref)]
-    where:
-        α(z) = α₀ × √(1+z)
-        Δlog(M_h) = log(M_h) - log(M_h_ref)
+        Γ_t = exp[ K * (Φ - Φ_ref)/c^2 * sqrt(1+z) ]
+    where Φ is the potential depth (proportional to M_h^(2/3)).
     """
     log_mh = np.asarray(log_Mh, dtype=float)
     z_arr = np.asarray(z, dtype=float)
 
-    gamma = tep_gamma(log_mh, z_arr, alpha_0=alpha_0)
-    gamma_ref = tep_gamma(np.full_like(log_mh, float(log_Mh_ref)), z_arr, alpha_0=alpha_0)
-    gamma_ref = np.maximum(gamma_ref, np.nextafter(0, 1))
-    gamma_rel = gamma / gamma_ref
-
-    # Allow explicit z_ref override by rescaling the exponent.
-    # The canonical model uses Z_REF internally; the relative fixed-mass form is:
-    #   gamma_rel = exp[ alpha(z) * (2/3) * (log_Mh-log_Mh_ref) * (1+z)/(1+Z_REF) ]
-    # For a different z_ref, scale ln(gamma_rel) accordingly.
-    scale = (1.0 + float(Z_REF)) / (1.0 + float(z_ref))
-    return np.exp(np.log(np.maximum(gamma_rel, np.nextafter(0, 1))) * scale)
+    # The harmonized kernel compute_gamma_t handled the scaling.
+    return tep_gamma(log_mh, z_arr, alpha_0=alpha_0)
 
 
 def solve_scalar_profile_absolute(halo_mass_Msun=1e12, concentration=10, beta=1.0):
@@ -322,7 +311,7 @@ def run_analysis():
         'alpha_0': 0.58,
         'interpretation': 'α₀ is a phenomenological coupling calibrated from Cepheid P-L residuals. '
                           'It is NOT the same as the scalar-tensor coupling β in the action.',
-        'relative_formulation': 'TEP-JWST uses Γ_t = exp[α(z) × (2/3) × Δlog(M_h) × (1+z)/(1+z_ref)], '
+        'relative_formulation': 'TEP-JWST uses Γ_t = exp[ K * (Φ - Φ_ref)/c^2 * sqrt(1+z) ], '
                                 'which is a RELATIVE enhancement compared to a reference environment.',
         'sign_paradox_resolution': 'The sign paradox arises from conflating CALIBRATED clock rates '
                                    '(which require 4β² > 1 for enhancement) with RELATIVE enhancement '

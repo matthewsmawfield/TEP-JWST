@@ -1,21 +1,21 @@
 {
   "convergence": {
-    "alpha_1": 0.10000563884233099,
-    "alpha_2": 2.999631767896649,
-    "cv": 1.0345983610052527,
+    "alpha_1": 0.38535229199406235,
+    "alpha_2": 2.9999947818017043,
+    "cv": 0.8997949153211857,
     "converged": false
   },
   "null_rejection": {
-    "chi2": 1542.3080553751029,
+    "chi2": 1485.334649341342,
     "combined_p": 1e-300,
     "sigma": 37.06578788077213,
     "disrupted": true
   },
   "totality": {
     "rho_raw": 0.11419831843164013,
-    "rho_corrected": -0.6431647331528019,
-    "improvement": -0.5289664147211617,
-    "scatter_reduction_pct": -295.6566605561171,
+    "rho_corrected": 0.033003826552510565,
+    "improvement": 0.08119449187912957,
+    "scatter_reduction_pct": 2.5953320486906524,
     "flattening_pct": 0.0,
     "success": false
   }

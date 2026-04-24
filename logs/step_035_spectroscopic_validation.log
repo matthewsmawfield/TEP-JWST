@@ -1,45 +1,45 @@
-[16:58:45]     ======================================================================
-[16:58:45]     STEP 37: Spectroscopic Validation
-[16:58:45]     ======================================================================
-[16:58:45] 
-[16:58:45]     Validating TEP predictions using spectroscopically confirmed galaxies
-[16:58:45] 
-[16:58:45]     Loading spectroscopic catalog: combined_spectroscopic_catalog.csv
-[16:58:45]     Total spectroscopic sources: 34
-[16:58:45]     Valid sources for analysis: N = 34
-[16:58:45]     
+[14:23:35]     ======================================================================
+[14:23:35]     STEP 37: Spectroscopic Validation
+[14:23:35]     ======================================================================
+[14:23:35] 
+[14:23:35]     Validating TEP predictions using spectroscopically confirmed galaxies
+[14:23:35] 
+[14:23:35]     Loading spectroscopic catalog: combined_spectroscopic_catalog.csv
+[14:23:35]     Total spectroscopic sources: 34
+[14:23:35]     Valid sources for analysis: N = 34
+[14:23:35]     
 ============================================================
-[16:58:45]     SPECTROSCOPIC CORRELATIONS: Full Sample (z > 4)
-[16:58:45]     ============================================================
-[16:58:45]     Sample size: N = 34
-[16:58:45]     Redshift range: z = 7.65 - 9.69
-[16:58:46]     
-rho(Gamma_t, age_ratio) = 0.910 [0.772, 0.965], p = 9.11e-14
-[16:58:46]     
+[14:23:35]     SPECTROSCOPIC CORRELATIONS: Full Sample (z > 4)
+[14:23:35]     ============================================================
+[14:23:35]     Sample size: N = 34
+[14:23:35]     Redshift range: z = 7.65 - 9.69
+[14:23:36]     
+rho(Gamma_t, age_ratio) = 0.856 [0.686, 0.929], p = 1.12e-10
+[14:23:36]     
 ============================================================
-[16:58:46]     SPECTROSCOPIC CORRELATIONS: z > 8 Sample
-[16:58:46]     ============================================================
-[16:58:46]     Sample size: N = 21
-[16:58:46]     Redshift range: z = 8.06 - 9.69
-[16:58:46]     
-rho(Gamma_t, age_ratio) = 0.965 [0.869, 0.995], p = 1.71e-12
-[16:58:46]     
+[14:23:36]     SPECTROSCOPIC CORRELATIONS: z > 8 Sample
+[14:23:36]     ============================================================
+[14:23:36]     Sample size: N = 21
+[14:23:36]     Redshift range: z = 8.06 - 9.69
+[14:23:36]     
+rho(Gamma_t, age_ratio) = 0.888 [0.703, 0.969], p = 7.62e-08
+[14:23:36]     
 ============================================================
-[16:58:46]     CORRELATIONS BY REDSHIFT BIN
-[16:58:46]     ============================================================
-[16:58:46]     z = 4-6: N =   0 (insufficient)
-[16:58:46]     z = 6-8: N =  13, rho(Gamma_t, age_ratio) = +0.962, p = 0.0000
-[16:58:46]     z = 8-12: N =  21, rho(Gamma_t, age_ratio) = +0.965, p = 0.0000
-[16:58:46]     
+[14:23:36]     CORRELATIONS BY REDSHIFT BIN
+[14:23:36]     ============================================================
+[14:23:36]     z = 4-6: N =   0 (insufficient)
+[14:23:36]     z = 6-8: N =  13, rho(Gamma_t, age_ratio) = +0.940, p = 0.0000
+[14:23:36]     z = 8-12: N =  21, rho(Gamma_t, age_ratio) = +0.888, p = 0.0000
+[14:23:36]     
 ======================================================================
-[16:58:46]     SPECTROSCOPIC VALIDATION SUMMARY
-[16:58:46]     ======================================================================
-[16:58:46]     
+[14:23:36]     SPECTROSCOPIC VALIDATION SUMMARY
+[14:23:36]     ======================================================================
+[14:23:36]     
 Full sample (N = 34):
-[16:58:46]       rho(Gamma_t, age_ratio) = +0.910, p = 0.0000
-[16:58:46]     
+[14:23:36]       rho(Gamma_t, age_ratio) = +0.856, p = 0.0000
+[14:23:36]     
 ✓ SPECTROSCOPIC VALIDATION SUCCESSFUL
-[16:58:46]       TEP prediction confirmed in spectroscopically validated sample
-[16:58:46]     
-Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_035_spectroscopic_validation.json
-[16:58:46]     Step 035 complete.
+[14:23:36]       TEP prediction confirmed in spectroscopically validated sample
+[14:23:36]     
+Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_035_spectroscopic_validation.json
+[14:23:36]     Step 035 complete.

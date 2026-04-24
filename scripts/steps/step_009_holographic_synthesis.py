@@ -33,7 +33,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import ALPHA_0, compute_gamma_t as tep_gamma  # TEP model: alpha_0=0.58 (Cepheid-calibrated), Gamma_t formula
+from scripts.utils.tep_model import ALPHA_0, ALPHA_CLOCK_EFF, compute_gamma_t as tep_gamma  # TEP model: alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), Gamma_t formula
 from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents underflow at extreme significance)
 
 STEP_NUM = "009"  # Pipeline step number (sequential 001-176)
@@ -312,13 +312,13 @@ def test_cross_domain():
 
     This test checks one of the strongest predictions of TEP: that
     the coupling constant alpha_0, derived from Cepheid period-luminosity
-    observations in SN Ia host galaxies at z ~ 0 (Paper 12), also
+    observations in SN Ia host galaxies at z ~ 0 (Paper 11), also
     produces statistically significant stellar-population correlations
     when applied unchanged to JWST galaxies at z = 4-10.
 
     If alpha_0 were wrong by a factor of ~2, the predicted Gamma_t
     values would be qualitatively different and the correlations would
-    vanish. The fact that alpha_0 = 0.58 works across 10 Gyr of cosmic
+    vanish. The fact that the Paper 11 coupling (alpha_eff = 9.6e5 mag) works across 10 Gyr of cosmic
     time, different physical observables (Cepheid periods vs SED-fitted
     stellar populations), and different environments (SN Ia hosts vs
     high-z field galaxies) is strong evidence for a single underlying
@@ -329,7 +329,7 @@ def test_cross_domain():
     print_status("=" * 60, "INFO")
     
     print_status("", "INFO")
-    print_status("TEP-H0 derived: α₀ = 0.58 ± 0.16 (from Cepheid calibration)", "INFO")
+    print_status("TEP-H0 derived: α_eff = (9.6 ± 4.0) × 10⁵ mag (from Cepheid calibration)", "INFO")
     print_status("", "INFO")
     print_status("This α was derived from:", "INFO")
     print_status("  - SH0ES Cepheid observations in 37 SN Ia host galaxies", "INFO")
@@ -362,7 +362,7 @@ def test_cross_domain():
     print_status(f"Observed partial correlation: ρ(Γ_t, age_ratio | z) = {rho_obs:.3f}", "INFO")
     print_status("", "INFO")
     print_status("If α were different, the correlation would change.", "INFO")
-    print_status("The fact that α = 0.58 (from Cepheids) produces significant", "INFO")
+    print_status("The fact that the Paper 11 coupling (from Cepheids) produces significant", "INFO")
     print_status("correlations at high-z is STRONG evidence for TEP.", "INFO")
     
     return {

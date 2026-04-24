@@ -8,14 +8,14 @@ for Little Red Dot (LRD) overmassive black holes.
 The galactic centre (BH location) has a deeper potential well than the bulk
 stellar disk.  TEP predicts Gamma_t(centre) > Gamma_t(disk), so black holes
 accumulate effective time faster than the stellar halo.  This step quantifies
-whether the combined model — TEP differential shear plus physically motivated
+whether the combined model — TEP differential topology plus physically motivated
 seed masses and modest super-Eddington duty cycles — fully accounts for the
 observed M_BH/M_* ratios at z > 4 without requiring exotic physics.
 
 This step uses the step_132 population-level result as a conservative baseline
 and evaluates representative-host growth scenarios:
   S0: Standard (no TEP) — 100 M_sun seed, Eddington-limited
-  S1: TEP-only — 100 M_sun seed, Eddington-limited, TEP differential shear
+  S1: TEP-only — 100 M_sun seed, Eddington-limited, TEP differential topology
   S2: TEP + intermediate seed (10^3 M_sun) — Eddington-limited
   S3: TEP + mild super-Eddington (f_Edd=1.3, 100 M_sun seed)
   S4: TEP combined (500 M_sun seed, f_Edd=1.1)
@@ -47,7 +47,10 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
-from scripts.utils.tep_model import ALPHA_0, ALPHA_UNCERTAINTY, Z_REF  # Shared TEP model constants
+from scripts.utils.tep_model import (
+    ALPHA_0, ALPHA_UNCERTAINTY, Z_REF, ALPHA_CLOCK_EFF, 
+    compute_gamma_t_from_phi, get_phi_from_log_mh
+)  # Shared TEP model constants
 
 STEP_NUM  = "142"  # Pipeline step number
 STEP_NAME = "lrd_mbh_mstar_prediction"  # Used in log / output filenames
@@ -245,35 +248,31 @@ def fit_empirical_mass_calibration(df_direct):
 
 
 # =============================================================================
-# TEP POTENTIAL-RATIO APPROACH (consistent with step_132)
+# TEP POTENTIAL-LINEAR APPROACH (Harmonized v0.7)
 # =============================================================================
 
-def get_tep_gamma_potential(phi_local, phi_ref, z, alpha_0=ALPHA_0):
-    """
-    Compute Gamma_t from potential depth ratio (power-law form).
-    Consistent with step_132_lrd_validation.py.
-    """
-    alpha_z = alpha_0 * np.sqrt(1 + z)
-    z_fac = (1 + z) / (1 + Z_REF)
-    exponent = alpha_z * z_fac * 0.5
-    ratio = np.maximum(phi_local / phi_ref, 1e-6)
-    return ratio**exponent
+from scripts.utils.tep_model import (
+    ALPHA_0, ALPHA_UNCERTAINTY, Z_REF, ALPHA_CLOCK_EFF, 
+    compute_gamma_t_from_phi, get_phi_from_log_mh
+)  # Shared TEP model constants
 
 
-def calculate_differential_shear(z, log_Mh, concentration, alpha_0=ALPHA_0):
+def calculate_differential_topology(z, log_Mh, concentration, alpha_eff=ALPHA_CLOCK_EFF):
     """
-    Compute differential temporal shear between galactic centre and halo.
-    Uses the physical potential-ratio approach from step_132.
+    Compute differential temporal topology between galactic centre and halo.
+    Uses the harmonized potential-linear form.
 
     Returns (gamma_halo, gamma_cen, delta_gamma, t_cosmic_Gyr).
     """
-    M_h = 10**log_Mh
-    R_vir = 30.0 * (M_h / 1e11)**(1/3) * (10.0 / (1 + z))  # kpc
-    Phi_vir = G * M_h / R_vir
-    Phi_cen = Phi_vir * concentration
+    # 1. Halo potential at stellar disk radius (stable proxy)
+    Phi_halo = get_phi_from_log_mh(log_Mh)
+    
+    # 2. Central potential (deeper well in LRD cores)
+    # Concentration here is Phi_cen / Phi_halo
+    Phi_cen = Phi_halo * (concentration / 5.0) # Adjusted for Disk-to-Center ratio
 
-    gamma_halo = get_tep_gamma_potential(Phi_vir, PHI_REF_VIR, z, alpha_0)
-    gamma_cen  = get_tep_gamma_potential(Phi_cen, PHI_REF_VIR, z, alpha_0)
+    gamma_halo = compute_gamma_t_from_phi(Phi_halo, z, alpha_eff=alpha_eff)
+    gamma_cen  = compute_gamma_t_from_phi(Phi_cen, z, alpha_eff=alpha_eff)
 
     t_cosmic = cosmo.age(z).value  # Gyr
     delta_gamma = gamma_cen - gamma_halo
@@ -292,7 +291,7 @@ def compute_mbh_mstar(delta_gamma, t_cosmic_Gyr, M_seed, M_star, f_Edd,
     Compute predicted M_BH/M_* for a given scenario.
 
     BH grows as: M_BH = M_seed * exp(f_Edd * Delta_Gamma * t_cosmic / t_Salpeter)
-    where Delta_Gamma is the differential temporal shear (centre minus halo).
+    where Delta_Gamma is the differential temporal topology (centre minus halo).
     Without TEP, Delta_Gamma = 0 and M_BH = M_seed (no differential boost).
 
     The *stellar* mass M_* is the observed value (already TEP-inflated if TEP is
@@ -374,16 +373,16 @@ def run():
                  f"(median {10**OBSERVED_LOG_MBH_MSTAR_MEDIAN:.3f})", "INFO")
 
     # -------------------------------------------------------------------------
-    # 3. Compute differential shear for the real object-level sample
+    # 3. Compute differential topology for the real object-level sample
     # -------------------------------------------------------------------------
-    shear_rows = []
+    topology_rows = []
     for _, row in df_lrd.iterrows():
         z = float(row["z"])
         log_Mstar = float(row["log_Mstar"])
         log_Mh = estimate_halo_mass(log_Mstar, z)
         concentration = float(np.clip(500.0 / row["Re_pc"], 5.0, 50.0))
-        g_halo, g_cen, dg, t_cos = calculate_differential_shear(z, log_Mh, concentration)
-        shear_rows.append({
+        g_halo, g_cen, dg, t_cos = calculate_differential_topology(z, log_Mh, concentration)
+        topology_rows.append({
             "id": row["id"],
             "field": row.get("field", "unknown"),
             "z": z,
@@ -397,16 +396,16 @@ def run():
             "delta_gamma": dg, "t_cosmic_Gyr": t_cos,
         })
 
-    df_shear = pd.DataFrame(shear_rows)
+    df_topology = pd.DataFrame(topology_rows)
     print_status(
-        f"\nSample shear summary: median ΔΓ={df_shear['delta_gamma'].median():.3f}, "
-        f"median concentration={df_shear['concentration'].median():.1f}, "
-        f"median t_cos={df_shear['t_cosmic_Gyr'].median():.3f} Gyr",
+        f"\nSample topology summary: median ΔΓ={df_topology['delta_gamma'].median():.3f}, "
+        f"median concentration={df_topology['concentration'].median():.1f}, "
+        f"median t_cos={df_topology['t_cosmic_Gyr'].median():.3f} Gyr",
         "INFO",
     )
 
-    median_dg = float(df_shear["delta_gamma"].median())
-    median_t  = float(df_shear["t_cosmic_Gyr"].median())
+    median_dg = float(df_topology["delta_gamma"].median())
+    median_t  = float(df_topology["t_cosmic_Gyr"].median())
 
     # -------------------------------------------------------------------------
     # 4. Evaluate each growth scenario
@@ -416,11 +415,11 @@ def run():
     print_status("=" * 70, "INFO")
 
     scenario_results = {}
-    M_star_arr = np.power(10.0, df_shear["log_Mstar"].to_numpy(dtype=float))
+    M_star_arr = np.power(10.0, df_topology["log_Mstar"].to_numpy(dtype=float))
     for skey, spar in SCENARIOS.items():
         ratios, extra_efolds = compute_mbh_mstar(
-            df_shear["delta_gamma"].to_numpy(dtype=float),
-            df_shear["t_cosmic_Gyr"].to_numpy(dtype=float),
+            df_topology["delta_gamma"].to_numpy(dtype=float),
+            df_topology["t_cosmic_Gyr"].to_numpy(dtype=float),
             spar["M_seed"],
             M_star_arr,
             spar["f_Edd"],
@@ -453,7 +452,7 @@ def run():
             "p16_log_mbh_mstar": float(np.percentile(log_ratios, 16)),
             "p84_log_mbh_mstar": float(np.percentile(log_ratios, 84)),
         }
-        df_shear[f"log_mbh_mstar_{skey}"] = log_ratios
+        df_topology[f"log_mbh_mstar_{skey}"] = log_ratios
 
         status = "✓ CLOSES GAP" if abs(offset_from_obs) < 0.5 else "✗ gap remains"
         print_status(f"  {spar['label']:50s}  "
@@ -469,13 +468,12 @@ def run():
 
     alpha_samples = rng.normal(ALPHA_0, ALPHA_UNCERTAINTY, n_mc)
     alpha_samples = np.clip(alpha_samples, 0.1, 1.5)
-    z_arr = df_shear["z"].to_numpy(dtype=float)
-    log_mh_arr = df_shear["log_Mh"].to_numpy(dtype=float)
-    concentration_arr = df_shear["concentration"].to_numpy(dtype=float)
-    t_cosmic_arr = df_shear["t_cosmic_Gyr"].to_numpy(dtype=float)
-    M_h_arr = np.power(10.0, log_mh_arr)
-    R_vir_arr = 30.0 * np.power(M_h_arr / 1e11, 1 / 3) * (10.0 / (1.0 + z_arr))
-    phi_vir_arr = G * M_h_arr / R_vir_arr
+    z_arr = df_topology["z"].to_numpy(dtype=float)
+    log_mh_arr = df_topology["log_Mh"].to_numpy(dtype=float)
+    concentration_arr = df_topology["concentration"].to_numpy(dtype=float)
+    t_cosmic_arr = df_topology["t_cosmic_Gyr"].to_numpy(dtype=float)
+    # Use dimensionless phi from get_phi_from_log_mh (Phi/c^2 units)
+    phi_vir_arr = get_phi_from_log_mh(log_mh_arr)
     phi_cen_arr = phi_vir_arr * concentration_arr
 
     mc_results = {}
@@ -487,12 +485,18 @@ def run():
         spar = SCENARIOS[skey]
         mc_log_ratios = []
         for a0 in alpha_samples:
-            gamma_halo_mc = get_tep_gamma_potential(phi_vir_arr, PHI_REF_VIR, z_arr, alpha_0=a0)
-            gamma_cen_mc = get_tep_gamma_potential(phi_cen_arr, PHI_REF_VIR, z_arr, alpha_0=a0)
+            gamma_halo_mc = compute_gamma_t_from_phi(phi_vir_arr, z_arr, alpha_0=a0)
+            gamma_cen_mc = compute_gamma_t_from_phi(phi_cen_arr, z_arr, alpha_0=a0)
             dg_mc = gamma_cen_mc - gamma_halo_mc
             ratio_mc, _ = compute_mbh_mstar(
                 dg_mc, t_cosmic_arr, spar["M_seed"], M_star_arr, spar["f_Edd"], True)
-            mc_log_ratios.append(np.median(np.log10(np.maximum(ratio_mc, 1e-20))))
+            # Filter valid positive values before log10 to avoid NaN
+            valid_ratio = np.asarray(ratio_mc, dtype=float)
+            valid_ratio = valid_ratio[np.isfinite(valid_ratio) & (valid_ratio > 0)]
+            if len(valid_ratio) > 0:
+                mc_log_ratios.append(np.median(np.log10(np.maximum(valid_ratio, 1e-20))))
+            else:
+                mc_log_ratios.append(np.nan)
 
         mc_log_ratios = np.asarray(mc_log_ratios, dtype=float)
         mc_median = float(np.median(mc_log_ratios))
@@ -504,7 +508,7 @@ def run():
         ))
         mc_results[skey] = {
             "n_draws": n_mc,
-            "sample_size": int(len(df_shear)),
+            "sample_size": int(len(df_topology)),
             "statistic": "population_median_log_mbh_mstar",
             "median_log_mbh_mstar_population": mc_median,
             "ci_95_lo": mc_ci_lo,
@@ -546,7 +550,7 @@ def run():
             log_Mstar = float(row["log_Mstar_empirical"])
             log_Mh = estimate_halo_mass(log_Mstar, z)
             concentration = float(np.clip(500.0 / row["Re_pc"], 5.0, 50.0))
-            g_halo, g_cen, dg, t_cos = calculate_differential_shear(z, log_Mh, concentration)
+            g_halo, g_cen, dg, t_cos = calculate_differential_topology(z, log_Mh, concentration)
             empirical_rows.append({
                 "id": row["id"],
                 "field": row.get("field", "unknown"),
@@ -563,13 +567,13 @@ def run():
                 "t_cosmic_Gyr": t_cos,
             })
 
-        df_empirical_shear = pd.DataFrame(empirical_rows)
-        M_star_empirical = np.power(10.0, df_empirical_shear["log_Mstar_empirical"].to_numpy(dtype=float))
+        df_empirical_topology = pd.DataFrame(empirical_rows)
+        M_star_empirical = np.power(10.0, df_empirical_topology["log_Mstar_empirical"].to_numpy(dtype=float))
         empirical_scenarios = {}
         for skey, spar in SCENARIOS.items():
             ratios_emp, extra_efolds_emp = compute_mbh_mstar(
-                df_empirical_shear["delta_gamma"].to_numpy(dtype=float),
-                df_empirical_shear["t_cosmic_Gyr"].to_numpy(dtype=float),
+                df_empirical_topology["delta_gamma"].to_numpy(dtype=float),
+                df_empirical_topology["t_cosmic_Gyr"].to_numpy(dtype=float),
                 spar["M_seed"],
                 M_star_empirical,
                 spar["f_Edd"],
@@ -591,13 +595,12 @@ def run():
                 "p84_log_mbh_mstar": float(np.percentile(log_ratios_emp, 84)),
             }
 
-        z_emp = df_empirical_shear["z"].to_numpy(dtype=float)
-        log_mh_emp = df_empirical_shear["log_Mh"].to_numpy(dtype=float)
-        conc_emp = df_empirical_shear["concentration"].to_numpy(dtype=float)
-        t_emp = df_empirical_shear["t_cosmic_Gyr"].to_numpy(dtype=float)
-        M_h_emp = np.power(10.0, log_mh_emp)
-        R_vir_emp = 30.0 * np.power(M_h_emp / 1e11, 1 / 3) * (10.0 / (1.0 + z_emp))
-        phi_vir_emp = G * M_h_emp / R_vir_emp
+        z_emp = df_empirical_topology["z"].to_numpy(dtype=float)
+        log_mh_emp = df_empirical_topology["log_Mh"].to_numpy(dtype=float)
+        conc_emp = df_empirical_topology["concentration"].to_numpy(dtype=float)
+        t_emp = df_empirical_topology["t_cosmic_Gyr"].to_numpy(dtype=float)
+        # Use dimensionless phi from get_phi_from_log_mh (Phi/c^2 units)
+        phi_vir_emp = get_phi_from_log_mh(log_mh_emp)
         phi_cen_emp = phi_vir_emp * conc_emp
 
         empirical_mc_results = {}
@@ -609,17 +612,23 @@ def run():
             spar = SCENARIOS[skey]
             mc_emp = []
             for a0 in alpha_samples:
-                gamma_halo_mc = get_tep_gamma_potential(phi_vir_emp, PHI_REF_VIR, z_emp, alpha_0=a0)
-                gamma_cen_mc = get_tep_gamma_potential(phi_cen_emp, PHI_REF_VIR, z_emp, alpha_0=a0)
+                gamma_halo_mc = compute_gamma_t_from_phi(phi_vir_emp, z_emp, alpha_0=a0)
+                gamma_cen_mc = compute_gamma_t_from_phi(phi_cen_emp, z_emp, alpha_0=a0)
                 dg_mc = gamma_cen_mc - gamma_halo_mc
                 ratio_mc, _ = compute_mbh_mstar(
                     dg_mc, t_emp, spar["M_seed"], M_star_empirical, spar["f_Edd"], True)
-                mc_emp.append(np.median(np.log10(np.maximum(ratio_mc, 1e-20))))
+                # Filter valid positive values before log10 to avoid NaN
+                valid_ratio = np.asarray(ratio_mc, dtype=float)
+                valid_ratio = valid_ratio[np.isfinite(valid_ratio) & (valid_ratio > 0)]
+                if len(valid_ratio) > 0:
+                    mc_emp.append(np.median(np.log10(np.maximum(valid_ratio, 1e-20))))
+                else:
+                    mc_emp.append(np.nan)
 
             mc_emp = np.asarray(mc_emp, dtype=float)
             empirical_mc_results[skey] = {
                 "n_draws": n_mc,
-                "sample_size": int(len(df_empirical_shear)),
+                "sample_size": int(len(df_empirical_topology)),
                 "statistic": "population_median_log_mbh_mstar",
                 "median_log_mbh_mstar_population": float(np.median(mc_emp)),
                 "ci_95_lo": float(np.percentile(mc_emp, 2.5)),
@@ -643,15 +652,15 @@ def run():
         ]
 
         empirical_full_sample = {
-            "sample_size": int(len(df_empirical_shear)),
-            "median_z": float(df_empirical_shear["z"].median()),
-            "median_log_mstar_empirical": float(df_empirical_shear["log_Mstar_empirical"].median()),
-            "median_log_mstar_muv_proxy": float(df_empirical_shear["log_Mstar_muv_proxy"].median()),
+            "sample_size": int(len(df_empirical_topology)),
+            "median_z": float(df_empirical_topology["z"].median()),
+            "median_log_mstar_empirical": float(df_empirical_topology["log_Mstar_empirical"].median()),
+            "median_log_mstar_muv_proxy": float(df_empirical_topology["log_Mstar_muv_proxy"].median()),
             "median_mass_offset_empirical_minus_muv": float(
-                (df_empirical_shear["log_Mstar_empirical"] - df_empirical_shear["log_Mstar_muv_proxy"]).median()
+                (df_empirical_topology["log_Mstar_empirical"] - df_empirical_topology["log_Mstar_muv_proxy"]).median()
             ),
-            "median_delta_gamma": float(df_empirical_shear["delta_gamma"].median()),
-            "median_concentration": float(df_empirical_shear["concentration"].median()),
+            "median_delta_gamma": float(df_empirical_topology["delta_gamma"].median()),
+            "median_concentration": float(df_empirical_topology["concentration"].median()),
             "mass_calibration": empirical_calibration_output,
             "scenarios": empirical_scenarios,
             "monte_carlo_population": empirical_mc_results,
@@ -660,7 +669,7 @@ def run():
         }
 
         print_status(
-            f"\nEmpirical CEERS-calibrated branch: N={len(df_empirical_shear)}, "
+            f"\nEmpirical CEERS-calibrated branch: N={len(df_empirical_topology)}, "
             f"LOO MAE={empirical_calibration_output['loo_mae_dex']:.2f} dex, "
             f"median log_M*={empirical_full_sample['median_log_mstar_empirical']:.2f}, "
             f"median ΔΓ={empirical_full_sample['median_delta_gamma']:.3f}",
@@ -685,14 +694,14 @@ def run():
 
     ceers_direct_subset = None
     if len(df_lrd_ceers_direct) > 0:
-        ceers_shear_rows = []
+        ceers_topology_rows = []
         for _, row in df_lrd_ceers_direct.iterrows():
             z = float(row["z"])
             log_Mstar = float(row["log_Mstar"])
             log_Mh = estimate_halo_mass(log_Mstar, z)
             concentration = float(np.clip(500.0 / row["Re_pc"], 5.0, 50.0))
-            g_halo, g_cen, dg, t_cos = calculate_differential_shear(z, log_Mh, concentration)
-            ceers_shear_rows.append({
+            g_halo, g_cen, dg, t_cos = calculate_differential_topology(z, log_Mh, concentration)
+            ceers_topology_rows.append({
                 "id": row["id"],
                 "z": z,
                 "log_Mstar": log_Mstar,
@@ -704,13 +713,13 @@ def run():
                 "t_cosmic_Gyr": t_cos,
             })
 
-        df_ceers_shear = pd.DataFrame(ceers_shear_rows)
-        M_star_ceers = np.power(10.0, df_ceers_shear["log_Mstar"].to_numpy(dtype=float))
+        df_ceers_topology = pd.DataFrame(ceers_topology_rows)
+        M_star_ceers = np.power(10.0, df_ceers_topology["log_Mstar"].to_numpy(dtype=float))
         ceers_scenario_results = {}
         for skey, spar in SCENARIOS.items():
             ratios_ceers, _ = compute_mbh_mstar(
-                df_ceers_shear["delta_gamma"].to_numpy(dtype=float),
-                df_ceers_shear["t_cosmic_Gyr"].to_numpy(dtype=float),
+                df_ceers_topology["delta_gamma"].to_numpy(dtype=float),
+                df_ceers_topology["t_cosmic_Gyr"].to_numpy(dtype=float),
                 spar["M_seed"],
                 M_star_ceers,
                 spar["f_Edd"],
@@ -727,16 +736,16 @@ def run():
             }
 
         ceers_direct_subset = {
-            "sample_size": int(len(df_ceers_shear)),
+            "sample_size": int(len(df_ceers_topology)),
             "match_radius_arcsec": float(DIRECT_MASS_MATCH_ARCSEC),
-            "median_z": float(df_ceers_shear["z"].median()),
-            "median_log_mstar_direct": float(df_ceers_shear["log_Mstar"].median()),
-            "median_log_mstar_muv_proxy": float(df_ceers_shear["log_Mstar_muv_proxy"].median()),
+            "median_z": float(df_ceers_topology["z"].median()),
+            "median_log_mstar_direct": float(df_ceers_topology["log_Mstar"].median()),
+            "median_log_mstar_muv_proxy": float(df_ceers_topology["log_Mstar_muv_proxy"].median()),
             "median_mass_offset_direct_minus_muv": float(
-                (df_ceers_shear["log_Mstar"] - df_ceers_shear["log_Mstar_muv_proxy"]).median()
+                (df_ceers_topology["log_Mstar"] - df_ceers_topology["log_Mstar_muv_proxy"]).median()
             ),
-            "median_delta_gamma": float(df_ceers_shear["delta_gamma"].median()),
-            "median_concentration": float(df_ceers_shear["concentration"].median()),
+            "median_delta_gamma": float(df_ceers_topology["delta_gamma"].median()),
+            "median_concentration": float(df_ceers_topology["concentration"].median()),
             "scenarios": ceers_scenario_results,
         }
         print_status(
@@ -870,9 +879,9 @@ def run():
     # -------------------------------------------------------------------------
     # 7. Save outputs
     # -------------------------------------------------------------------------
-    # CSV: per-redshift shear table
+    # CSV: per-redshift topology table
     csv_path = INTERIM_PATH / f"step_{STEP_NUM}_{STEP_NAME}.csv"
-    df_shear.to_csv(csv_path, index=False)
+    df_topology.to_csv(csv_path, index=False)
     print_status(f"Saved: {csv_path}", "INFO")
 
     result = {
@@ -883,11 +892,11 @@ def run():
         "alpha_uncertainty": float(ALPHA_UNCERTAINTY),
         "real_sample": {
             "catalog": str(LRD_CATALOG_PATH.name),
-            "sample_size": int(len(df_shear)),
-            "median_z": float(df_shear["z"].median()),
-            "median_log_mstar": float(df_shear["log_Mstar"].median()),
-            "median_re_pc": float(df_shear["Re_pc"].median()),
-            "median_concentration": float(df_shear["concentration"].median()),
+            "sample_size": int(len(df_topology)),
+            "median_z": float(df_topology["z"].median()),
+            "median_log_mstar": float(df_topology["log_Mstar"].median()),
+            "median_re_pc": float(df_topology["Re_pc"].median()),
+            "median_concentration": float(df_topology["concentration"].median()),
             "mass_source_counts": df_lrd["log_Mstar_source"].value_counts().to_dict(),
         },
         "observed_regime": {
@@ -896,7 +905,7 @@ def run():
             "log_mbh_mstar_hi":     OBSERVED_LOG_MBH_MSTAR_HI,
             "sources": "Matthee+2024; Greene+2024; Kokorev+2024; Maiolino+2024; Pacucci+2024",
         },
-        "differential_shear": {
+        "differential_topology": {
             "median_delta_gamma": median_dg,
             "median_t_cosmic_Gyr": median_t,
         },

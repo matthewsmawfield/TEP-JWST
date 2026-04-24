@@ -1,6 +1,6 @@
 {
   "title": "TEP-JWST: The Seven Threads of Evidence",
-  "generated": "2026-03-13T16:58:16.317742",
+  "generated": "2026-04-24T14:23:06.865633",
   "threads": {
     "thread_1": {
       "name": "z > 7 Mass-sSFR Inversion",
@@ -49,19 +49,19 @@
       "details": {
         "test": "Thread 2: \u0393_t vs Age Ratio",
         "n": 2315,
-        "raw_rho": 0.04789577527211646,
-        "raw_p": 0.021191412985561757,
-        "partial_rho": 0.08443251213838716,
-        "partial_p": 4.752141681372902e-05,
+        "raw_rho": 0.019377853966021305,
+        "raw_p": 0.35136822260136824,
+        "partial_rho": 0.07229474213217335,
+        "partial_p": 0.0004993618150221883,
         "ci_95": [
-          0.03698874423110844,
-          0.12652463383754903
+          0.02426834077873719,
+          0.11631712125628725
         ],
-        "partial_rho_double": -0.08011081324038496,
-        "partial_p_double": 0.0001140344702207694,
+        "partial_rho_double": -0.07442210709326635,
+        "partial_p_double": 0.0003386117430860236,
         "ci_95_double": [
-          -0.12235496793240981,
-          -0.03820085384279384
+          -0.11897427191270338,
+          -0.030097982377421627
         ],
         "significant": true,
         "significant_double": true,
@@ -74,19 +74,19 @@
       "details": {
         "test": "Thread 3: \u0393_t vs Metallicity",
         "n": 1108,
-        "raw_rho": 0.22491646693655873,
-        "raw_p": 3.5766812937548035e-14,
-        "partial_rho": 0.17735703141197998,
-        "partial_p": 2.7791425206596067e-09,
+        "raw_rho": 0.24550162081751223,
+        "raw_p": 1.1335533050118366e-16,
+        "partial_rho": 0.17492174615801298,
+        "partial_p": 4.594535946408525e-09,
         "ci_95": [
-          0.11873261027356044,
-          0.24107091067936148
+          0.11567553765805465,
+          0.23764608054131833
         ],
-        "partial_rho_double": 0.004761796430977782,
-        "partial_p_double": 0.8741997941838326,
+        "partial_rho_double": 0.011150045395016964,
+        "partial_p_double": 0.710831140003376,
         "ci_95_double": [
-          -0.05766833552087721,
-          0.06918800830548676
+          -0.06175796745931564,
+          0.08285097070042288
         ],
         "significant": true,
         "significant_double": false,
@@ -99,19 +99,19 @@
       "details": {
         "test": "Thread 4: \u0393_t vs Dust",
         "n": 1108,
-        "raw_rho": 0.315078899975993,
-        "raw_p": 5.856403969099883e-27,
-        "partial_rho": 0.3285336913247389,
-        "partial_p": 2.6892607822152093e-29,
+        "raw_rho": 0.2963386267314608,
+        "raw_p": 6.755190101338364e-24,
+        "partial_rho": 0.32679299230787867,
+        "partial_p": 5.480455424318636e-29,
         "ci_95": [
-          0.26905221381301886,
-          0.38243117656802567
+          0.2637508394304225,
+          0.38046259116473136
         ],
-        "partial_rho_double": 0.04301480788005846,
-        "partial_p_double": 0.15246911403247754,
+        "partial_rho_double": 0.05407061962695971,
+        "partial_p_double": 0.07200071524477553,
         "ci_95_double": [
-          -0.021460183448170404,
-          0.10447051865639358
+          -0.014374771231933836,
+          0.11979799546468099
         ],
         "significant": true,
         "significant_double": false,
@@ -211,12 +211,12 @@
           "significant": true
         },
         "partial_correlations": {
-          "rho_gamma_dust_given_mass": 0.26761038598290093,
-          "p_gamma_dust_given_mass": 4.982591950513189e-06,
-          "rho_gamma_dust_given_z": 0.5931150216770826,
-          "p_gamma_dust_given_z": 2.803935403120563e-28,
-          "rho_gamma_dust_given_mass_z": 0.2617505389865665,
-          "p_gamma_dust_given_mass_z": 8.124749057016333e-06
+          "rho_gamma_dust_given_mass": 0.2715658205163702,
+          "p_gamma_dust_given_mass": 3.558482545071351e-06,
+          "rho_gamma_dust_given_z": 0.6062234201847458,
+          "p_gamma_dust_given_z": 8.715863373075491e-30,
+          "rho_gamma_dust_given_mass_z": 0.2776986663472457,
+          "p_gamma_dust_given_mass_z": 2.0893484782566255e-06
         },
         "dust_by_mass": [
           {
@@ -282,27 +282,27 @@
       "details": {
         "test": "Thread 7: Multi-Property Split Test",
         "n": 1108,
-        "gamma_median": 0.5323782802833196,
+        "gamma_median": 0.9256813078370656,
         "properties": {
           "age_ratio": {
-            "mean_low_gamma": 0.13302305023106567,
-            "mean_high_gamma": 0.16739260132405823,
-            "diff": 0.034369551092992556,
-            "p": 3.049282490499384e-13,
+            "mean_low_gamma": 0.13019284126178077,
+            "mean_high_gamma": 0.17022281029334307,
+            "diff": 0.04002996903156231,
+            "p": 6.82419280529969e-19,
             "significant": true
           },
           "metallicity": {
-            "mean_low_gamma": -1.2425063298746255,
-            "mean_high_gamma": -1.0784583463594293,
-            "diff": 0.16404798351519623,
-            "p": 1.7259140282439792e-08,
+            "mean_low_gamma": -1.257990568256088,
+            "mean_high_gamma": -1.062974107977967,
+            "diff": 0.1950164602781208,
+            "p": 1.6992634594608326e-12,
             "significant": true
           },
           "dust": {
-            "mean_low_gamma": 0.19372435343449426,
-            "mean_high_gamma": 0.3624431722971727,
-            "diff": 0.16871881886267845,
-            "p": 6.784527471512407e-16,
+            "mean_low_gamma": 0.20431176819791272,
+            "mean_high_gamma": 0.3518557575337543,
+            "diff": 0.1475439893358416,
+            "p": 4.1030023406721693e-16,
             "significant": true
           }
         },

@@ -3,7 +3,7 @@
   "name": "dja_sigma_pilot",
   "status": "SUCCESS",
   "description": "DJA pilot emission-line width extraction from individual public spec.fits files with a Balmer-vs-sigma decoupling audit on the fitted subset",
-  "input_catalog": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_msaexp_emission_lines_v4.4.csv.gz",
+  "input_catalog": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_msaexp_emission_lines_v4.4.csv.gz",
   "config": {
     "download_enabled": false,
     "selection_mode": "pilot",
@@ -144,7 +144,7 @@
       }
     }
   },
-  "interim_table": "/Users/matthewsmawfield/www/TEP-JWST/results/interim/step_169_dja_sigma_pilot.csv",
+  "interim_table": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/interim/step_169_dja_sigma_pilot.csv",
   "pilot_targets": [
     {
       "objid": 157303,
@@ -168,7 +168,7 @@
       "n_window_points": 47,
       "log_balmer": 1.0147820744048317,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/jades-gdn198-v4/jades-gdn198-v4_g395h-f290lp_1181_68797.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/jades-gdn198-v4/jades-gdn198-v4_g395h-f290lp_1181_68797.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/jades-gdn198-v4/jades-gdn198-v4_g395h-f290lp_1181_68797.spec.fits"
     },
     {
       "objid": 160442,
@@ -192,7 +192,7 @@
       "n_window_points": 17,
       "log_balmer": 0.5906277301286551,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/glimpse-obs02-v4/glimpse-obs02-v4_g395m-f290lp_9223_41948.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/glimpse-obs02-v4/glimpse-obs02-v4_g395m-f290lp_9223_41948.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/glimpse-obs02-v4/glimpse-obs02-v4_g395m-f290lp_9223_41948.spec.fits"
     },
     {
       "objid": 173791,
@@ -216,7 +216,7 @@
       "n_window_points": 24,
       "log_balmer": null,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/bluejay-south-v4/bluejay-south-v4_g235m-f170lp_1810_11247.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/bluejay-south-v4/bluejay-south-v4_g235m-f170lp_1810_11247.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/bluejay-south-v4/bluejay-south-v4_g235m-f170lp_1810_11247.spec.fits"
     },
     {
       "objid": 173321,
@@ -240,7 +240,7 @@
       "n_window_points": 18,
       "log_balmer": 0.5147576799995431,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/gds-udeep-v4/gds-udeep-v4_g395m-f290lp_3215_201249.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/gds-udeep-v4/gds-udeep-v4_g395m-f290lp_3215_201249.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/gds-udeep-v4/gds-udeep-v4_g395m-f290lp_3215_201249.spec.fits"
     },
     {
       "objid": 173929,
@@ -264,7 +264,7 @@
       "n_window_points": 14,
       "log_balmer": null,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/smacs0723-ero-v4/smacs0723-ero-v4_g395m-f290lp_2736_6355.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/smacs0723-ero-v4/smacs0723-ero-v4_g395m-f290lp_2736_6355.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/smacs0723-ero-v4/smacs0723-ero-v4_g395m-f290lp_2736_6355.spec.fits"
     },
     {
       "objid": 173875,
@@ -288,7 +288,7 @@
       "n_window_points": 24,
       "log_balmer": null,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/bluejay-north-v4/bluejay-north-v4_g235m-f170lp_1810_19945.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/bluejay-north-v4/bluejay-north-v4_g235m-f170lp_1810_19945.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/bluejay-north-v4/bluejay-north-v4_g235m-f170lp_1810_19945.spec.fits"
     },
     {
       "objid": 171722,
@@ -312,7 +312,7 @@
       "n_window_points": 14,
       "log_balmer": 0.48758133325614467,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/gdn-fujimoto-v4/gdn-fujimoto-v4_g395m-f290lp_4762_43649.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/gdn-fujimoto-v4/gdn-fujimoto-v4_g395m-f290lp_4762_43649.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/gdn-fujimoto-v4/gdn-fujimoto-v4_g395m-f290lp_4762_43649.spec.fits"
     },
     {
       "objid": 172606,
@@ -336,7 +336,7 @@
       "n_window_points": 38,
       "log_balmer": 0.5309556382016081,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/jades-gdn09-v4/jades-gdn09-v4_g395h-f290lp_1181_78773.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/jades-gdn09-v4/jades-gdn09-v4_g395h-f290lp_1181_78773.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/jades-gdn09-v4/jades-gdn09-v4_g395h-f290lp_1181_78773.spec.fits"
     },
     {
       "objid": 149593,
@@ -360,7 +360,7 @@
       "n_window_points": 38,
       "log_balmer": null,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/jades-gdn10-v4/jades-gdn10-v4_g395h-f290lp_1181_78891.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/jades-gdn10-v4/jades-gdn10-v4_g395h-f290lp_1181_78891.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/jades-gdn10-v4/jades-gdn10-v4_g395h-f290lp_1181_78891.spec.fits"
     },
     {
       "objid": 170504,
@@ -384,7 +384,7 @@
       "n_window_points": 24,
       "log_balmer": 0.43906445943774486,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/excels-uds03-v4/excels-uds03-v4_g235m-f170lp_3543_70864.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/excels-uds03-v4/excels-uds03-v4_g235m-f170lp_3543_70864.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/excels-uds03-v4/excels-uds03-v4_g235m-f170lp_3543_70864.spec.fits"
     },
     {
       "objid": 173435,
@@ -408,7 +408,7 @@
       "n_window_points": 14,
       "log_balmer": null,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/macs0416-nakajima-v4/macs0416-nakajima-v4_g395m-f290lp_4750_30102.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/macs0416-nakajima-v4/macs0416-nakajima-v4_g395m-f290lp_4750_30102.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/macs0416-nakajima-v4/macs0416-nakajima-v4_g395m-f290lp_4750_30102.spec.fits"
     },
     {
       "objid": 147830,
@@ -432,7 +432,7 @@
       "n_window_points": 24,
       "log_balmer": null,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/excels-uds01-v4/excels-uds01-v4_g235m-f170lp_3543_122434.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/excels-uds01-v4/excels-uds01-v4_g235m-f170lp_3543_122434.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/excels-uds01-v4/excels-uds01-v4_g235m-f170lp_3543_122434.spec.fits"
     },
     {
       "objid": 173607,
@@ -456,7 +456,7 @@
       "n_window_points": 14,
       "log_balmer": null,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-egs52-v4/rubies-egs52-v4_g395m-f290lp_4233_8488.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/rubies-egs52-v4/rubies-egs52-v4_g395m-f290lp_4233_8488.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/rubies-egs52-v4/rubies-egs52-v4_g395m-f290lp_4233_8488.spec.fits"
     },
     {
       "objid": 151846,
@@ -480,7 +480,7 @@
       "n_window_points": 14,
       "log_balmer": null,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/gds-udeep-v4/gds-udeep-v4_g395m-f290lp_3215_202208.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/gds-udeep-v4/gds-udeep-v4_g395m-f290lp_3215_202208.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/gds-udeep-v4/gds-udeep-v4_g395m-f290lp_3215_202208.spec.fits"
     },
     {
       "objid": 150351,
@@ -504,7 +504,7 @@
       "n_window_points": 24,
       "log_balmer": 0.5600714203135686,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/valentino-obs19-v4/valentino-obs19-v4_g235m-f170lp_3567_26315.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/valentino-obs19-v4/valentino-obs19-v4_g235m-f170lp_3567_26315.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/valentino-obs19-v4/valentino-obs19-v4_g235m-f170lp_3567_26315.spec.fits"
     },
     {
       "objid": 176918,
@@ -528,7 +528,7 @@
       "n_window_points": 14,
       "log_balmer": 0.3651777258619422,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/glimpse-obs02-v4/glimpse-obs02-v4_g395m-f290lp_9223_55241.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/glimpse-obs02-v4/glimpse-obs02-v4_g395m-f290lp_9223_55241.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/glimpse-obs02-v4/glimpse-obs02-v4_g395m-f290lp_9223_55241.spec.fits"
     },
     {
       "objid": 160385,
@@ -552,7 +552,7 @@
       "n_window_points": 14,
       "log_balmer": 0.47138723327516796,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/aurora-gdn02-v4/aurora-gdn02-v4_g395m-f290lp_1914_100067.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/aurora-gdn02-v4/aurora-gdn02-v4_g395m-f290lp_1914_100067.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/aurora-gdn02-v4/aurora-gdn02-v4_g395m-f290lp_1914_100067.spec.fits"
     },
     {
       "objid": 172082,
@@ -576,7 +576,7 @@
       "n_window_points": 14,
       "log_balmer": 0.5267036728292331,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/jades-gds-wide2-v4/jades-gds-wide2-v4_g395m-f290lp_1180_9924.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/jades-gds-wide2-v4/jades-gds-wide2-v4_g395m-f290lp_1180_9924.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/jades-gds-wide2-v4/jades-gds-wide2-v4_g395m-f290lp_1180_9924.spec.fits"
     },
     {
       "objid": 173166,
@@ -600,7 +600,7 @@
       "n_window_points": 14,
       "log_balmer": null,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/macs1149-stiavelli-v4/macs1149-stiavelli-v4_g395m-f290lp_1199_3.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/macs1149-stiavelli-v4/macs1149-stiavelli-v4_g395m-f290lp_1199_3.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/macs1149-stiavelli-v4/macs1149-stiavelli-v4_g395m-f290lp_1199_3.spec.fits"
     },
     {
       "objid": 172440,
@@ -624,7 +624,7 @@
       "n_window_points": 37,
       "log_balmer": null,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/jades-gds08-v4/jades-gds08-v4_g395h-f290lp_1286_30148179.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/jades-gds08-v4/jades-gds08-v4_g395h-f290lp_1286_30148179.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/jades-gds08-v4/jades-gds08-v4_g395h-f290lp_1286_30148179.spec.fits"
     },
     {
       "objid": 151402,
@@ -648,7 +648,7 @@
       "n_window_points": 14,
       "log_balmer": 0.44643109371773076,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/macs1149-stiavelli-v4/macs1149-stiavelli-v4_g395m-f290lp_1199_60001.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/macs1149-stiavelli-v4/macs1149-stiavelli-v4_g395m-f290lp_1199_60001.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/macs1149-stiavelli-v4/macs1149-stiavelli-v4_g395m-f290lp_1199_60001.spec.fits"
     },
     {
       "objid": 179748,
@@ -672,7 +672,7 @@
       "n_window_points": 14,
       "log_balmer": null,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/glimpse-obs01b-v4/glimpse-obs01b-v4_g395m-f290lp_9223_47397.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/glimpse-obs01b-v4/glimpse-obs01b-v4_g395m-f290lp_9223_47397.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/glimpse-obs01b-v4/glimpse-obs01b-v4_g395m-f290lp_9223_47397.spec.fits"
     },
     {
       "objid": 179776,
@@ -696,7 +696,7 @@
       "n_window_points": 15,
       "log_balmer": null,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/glimpse-obs01b-v4/glimpse-obs01b-v4_g395m-f290lp_9223_14499.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/glimpse-obs01b-v4/glimpse-obs01b-v4_g395m-f290lp_9223_14499.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/glimpse-obs01b-v4/glimpse-obs01b-v4_g395m-f290lp_9223_14499.spec.fits"
     },
     {
       "objid": 172284,
@@ -720,7 +720,7 @@
       "n_window_points": 24,
       "log_balmer": null,
       "public_url": "https://s3.amazonaws.com/msaexp-nirspec/extractions/gds-deep-v4/gds-deep-v4_g395h-f290lp_1210_13176.spec.fits",
-      "local_path": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/dja_specfits/gds-deep-v4/gds-deep-v4_g395h-f290lp_1210_13176.spec.fits"
+      "local_path": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/dja_specfits/gds-deep-v4/gds-deep-v4_g395h-f290lp_1210_13176.spec.fits"
     }
   ],
   "assessment": "Within the fitted DJA pilot subset, the Balmer dust proxy tracks the fitted emission-line width at least as strongly as photometric stellar mass after mass-plus-redshift control, which is the intended direction for the sigma-based decoupling audit."

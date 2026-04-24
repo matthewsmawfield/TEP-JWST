@@ -1,142 +1,142 @@
-[16:58:17]     ======================================================================
-[16:58:17]     STEP 3: COMPLEMENTARY EVIDENCE - THE CONSTELLATION LINES
-[16:58:17]     ======================================================================
-[16:58:17] 
-[16:58:17]     'We used to trace the stars one by one, lost in the dark.
-[16:58:17]      TEP is the constellation lines. We no longer guess where
-[16:58:17]      the next light shines; the geometry of the first star
-[16:58:17]      already maps the coordinates of the second.'
-[16:58:17]     
+[14:23:07]     ======================================================================
+[14:23:07]     STEP 3: COMPLEMENTARY EVIDENCE - THE CONSTELLATION LINES
+[14:23:07]     ======================================================================
+[14:23:07] 
+[14:23:07]     'We used to trace the stars one by one, lost in the dark.
+[14:23:07]      TEP is the constellation lines. We no longer guess where
+[14:23:07]      the next light shines; the geometry of the first star
+[14:23:07]      already maps the coordinates of the second.'
+[14:23:07]     
 ============================================================
-[16:58:17]     TEST 1: SFR BURSTINESS
-[16:58:17]     ============================================================
-[16:58:17] 
-[16:58:17]     TEP Prediction:
-[16:58:17]       If time runs faster in deep potentials, SED fitting may
-[16:58:17]       interpret this as elevated recent SFR (burstiness).
-[16:58:17] 
-[16:58:17]     N = 2315
-[16:58:17]     Raw: ρ(Γ_t, burstiness) = -0.166, p = 8.17e-16
-[16:58:17]     Partial (|z): ρ = 0.019, p = 3.59e-01
-[16:58:17] 
-[16:58:17]     ○ No significant correlation detected
-[16:58:17]     
+[14:23:07]     TEST 1: SFR BURSTINESS
+[14:23:07]     ============================================================
+[14:23:07] 
+[14:23:07]     TEP Prediction:
+[14:23:07]       If time runs faster in deep potentials, SED fitting may
+[14:23:07]       interpret this as elevated recent SFR (burstiness).
+[14:23:07] 
+[14:23:07]     N = 2315
+[14:23:07]     Raw: ρ(Γ_t, burstiness) = -0.246, p = 3.52e-33
+[14:23:07]     Partial (|z): ρ = 0.018, p = 3.86e-01
+[14:23:07] 
+[14:23:07]     ○ No significant correlation detected
+[14:23:07]     
 ============================================================
-[16:58:17]     TEST 2: QUENCHING TIMESCALE
-[16:58:17]     ============================================================
-[16:58:17] 
-[16:58:17]     TEP Prediction:
-[16:58:17]       Massive galaxies experience more proper time, so they should
-[16:58:17]       appear to quench faster (higher quenched fraction at fixed z).
-[16:58:17] 
-[16:58:17]     z bin      log M* 8-9      log M* 9-10     log M* 10+     
-[16:58:17]     -------------------------------------------------------
-[16:58:17]     4-6:  0.00 (N=1253)  0.00 (N=175)  0.09 (N= 11)
-[16:58:17]     6-8:  0.00 (N=551)  0.00 (N= 39)    -  (N=  3)
-[16:58:17]     8-10:  0.00 (N=250)  0.00 (N= 24)    -  (N=  9)
-[16:58:17] 
-[16:58:17]     Note: Very few quenched galaxies at z > 4 in this sample.
-[16:58:17]           Selection bias toward star-forming systems.
-[16:58:17]     
+[14:23:07]     TEST 2: QUENCHING TIMESCALE
+[14:23:07]     ============================================================
+[14:23:07] 
+[14:23:07]     TEP Prediction:
+[14:23:07]       Massive galaxies experience more proper time, so they should
+[14:23:07]       appear to quench faster (higher quenched fraction at fixed z).
+[14:23:07] 
+[14:23:07]     z bin      log M* 8-9      log M* 9-10     log M* 10+     
+[14:23:07]     -------------------------------------------------------
+[14:23:07]     4-6:  0.00 (N=1253)  0.00 (N=175)  0.09 (N= 11)
+[14:23:07]     6-8:  0.00 (N=551)  0.00 (N= 39)    -  (N=  3)
+[14:23:07]     8-10:  0.00 (N=250)  0.00 (N= 24)    -  (N=  9)
+[14:23:07] 
+[14:23:07]     Note: Very few quenched galaxies at z > 4 in this sample.
+[14:23:07]           Selection bias toward star-forming systems.
+[14:23:07]     
 ============================================================
-[16:58:17]     TEST 3: REDSHIFT EVOLUTION OF CORRELATIONS
-[16:58:17]     ============================================================
-[16:58:17] 
-[16:58:17]     TEP Prediction:
-[16:58:17]       α(z) ∝ √(1+z), so correlations should STRENGTHEN at higher z.
-[16:58:17] 
-[16:58:17]     z bin      N      ρ(M*, age_ratio)   α(z)    
-[16:58:17]     ---------------------------------------------
-[16:58:17]     4-5:        942  +0.187             1.36
-[16:58:17]     5-6:        497  +0.125             1.48
-[16:58:17]     6-7:        372  +0.074             1.59
-[16:58:17]     7-8:        221  -0.173             1.69
-[16:58:17]     8-10:        283  +0.019             1.83
-[16:58:17] 
-[16:58:17]     Interpretation:
-[16:58:17]       Correlation WEAKENS at higher z, opposite to naive prediction.
-[16:58:17]       This is due to SELECTION EFFECTS: at high-z, only actively
-[16:58:17]       star-forming galaxies are detected, biasing toward young systems.
-[16:58:17] 
-[16:58:17]       The z > 7 INVERSION test (Thread 1) is the correct approach:
-[16:58:17]       it compares LOW-z vs HIGH-z samples, not within-bin correlations.
-[16:58:17]     
+[14:23:07]     TEST 3: REDSHIFT EVOLUTION OF CORRELATIONS
+[14:23:07]     ============================================================
+[14:23:07] 
+[14:23:07]     TEP Prediction:
+[14:23:07]       α(z) ∝ √(1+z), so correlations should STRENGTHEN at higher z.
+[14:23:07] 
+[14:23:07]     z bin      N      ρ(M*, age_ratio)   α(z)    
+[14:23:07]     ---------------------------------------------
+[14:23:07]     4-5:        942  +0.187             1.36
+[14:23:07]     5-6:        497  +0.125             1.48
+[14:23:07]     6-7:        372  +0.074             1.59
+[14:23:07]     7-8:        221  -0.173             1.69
+[14:23:07]     8-10:        283  +0.019             1.83
+[14:23:07] 
+[14:23:07]     Interpretation:
+[14:23:07]       Correlation WEAKENS at higher z, opposite to naive prediction.
+[14:23:07]       This is due to SELECTION EFFECTS: at high-z, only actively
+[14:23:07]       star-forming galaxies are detected, biasing toward young systems.
+[14:23:07] 
+[14:23:07]       The z > 7 INVERSION test (Thread 1) is the correct approach:
+[14:23:07]       it compares LOW-z vs HIGH-z samples, not within-bin correlations.
+[14:23:07]     
 ============================================================
-[16:58:17]     TEST 4: CROSS-DOMAIN CONSISTENCY
-[16:58:17]     ============================================================
-[16:58:17] 
-[16:58:17]     TEP-H0 derived: α₀ = 0.58 ± 0.16 (from Cepheid calibration)
-[16:58:17] 
-[16:58:17]     This α was derived from:
-[16:58:17]       - SH0ES Cepheid observations in 37 SN Ia host galaxies
-[16:58:17]       - Correlation between host velocity dispersion and H0
-[16:58:17]       - Independent of any high-z galaxy data
-[16:58:17] 
-[16:58:17]     TEP-JWST uses this SAME α with NO TUNING:
-[16:58:17]       - Applied to UNCOVER DR4 galaxies at z = 4-10
-[16:58:17]       - Predicts Γ_t from stellar mass and redshift
-[16:58:17]       - Tests correlations with age, metallicity, dust
-[16:58:17] 
-[16:58:17]     Result: ALL 7 THREADS ARE STATISTICALLY SIGNIFICANT
-[16:58:17] 
-[16:58:17]     Cross-domain consistency:
-[16:58:17]       - Same physics (TEP)
-[16:58:17]       - Same parameter (α = 0.58)
-[16:58:17]       - Different observables (Cepheids vs stellar populations)
-[16:58:17]       - Different redshifts (z ~ 0 vs z ~ 4-10)
-[16:58:17]       - Different environments (SN hosts vs high-z field)
-[16:58:17] 
-[16:58:17]     Observed partial correlation: ρ(Γ_t, age_ratio | z) = 0.233
-[16:58:17] 
-[16:58:17]     If α were different, the correlation would change.
-[16:58:17]     The fact that α = 0.58 (from Cepheids) produces significant
-[16:58:17]     correlations at high-z is STRONG evidence for TEP.
-[16:58:17]     
+[14:23:07]     TEST 4: CROSS-DOMAIN CONSISTENCY
+[14:23:07]     ============================================================
+[14:23:07] 
+[14:23:07]     TEP-H0 derived: α_eff = (9.6 ± 4.0) × 10⁵ mag (from Cepheid calibration)
+[14:23:07] 
+[14:23:07]     This α was derived from:
+[14:23:07]       - SH0ES Cepheid observations in 37 SN Ia host galaxies
+[14:23:07]       - Correlation between host velocity dispersion and H0
+[14:23:07]       - Independent of any high-z galaxy data
+[14:23:07] 
+[14:23:07]     TEP-JWST uses this SAME α with NO TUNING:
+[14:23:07]       - Applied to UNCOVER DR4 galaxies at z = 4-10
+[14:23:07]       - Predicts Γ_t from stellar mass and redshift
+[14:23:07]       - Tests correlations with age, metallicity, dust
+[14:23:07] 
+[14:23:07]     Result: ALL 7 THREADS ARE STATISTICALLY SIGNIFICANT
+[14:23:07] 
+[14:23:07]     Cross-domain consistency:
+[14:23:07]       - Same physics (TEP)
+[14:23:07]       - Same parameter (α = 0.58)
+[14:23:07]       - Different observables (Cepheids vs stellar populations)
+[14:23:07]       - Different redshifts (z ~ 0 vs z ~ 4-10)
+[14:23:07]       - Different environments (SN hosts vs high-z field)
+[14:23:07] 
+[14:23:08]     Observed partial correlation: ρ(Γ_t, age_ratio | z) = 0.260
+[14:23:08] 
+[14:23:08]     If α were different, the correlation would change.
+[14:23:08]     The fact that the Paper 11 coupling (from Cepheids) produces significant
+[14:23:08]     correlations at high-z is STRONG evidence for TEP.
+[14:23:08]     
 ============================================================
-[16:58:17]     TEST 5: DENSITY/ENVIRONMENT PROXY
-[16:58:17]     ============================================================
-[16:58:17] 
-[16:58:17]     TEP Prediction:
-[16:58:17]       Galaxies in overdense regions (groups/clusters) should be
-[16:58:17]       SCREENED from TEP effects, showing weaker correlations.
-[16:58:17] 
-[16:58:17]     Proxy: Use local galaxy density from photometric catalog
-[16:58:17]            (not available in current sample)
-[16:58:17] 
-[16:58:17]     Alternative: Use halo mass as proxy for screening
-[16:58:17]       - Low M_h: Unscreened, strong TEP effects
-[16:58:17]       - High M_h: Potentially screened, weaker TEP effects
-[16:58:17] 
-[16:58:17]     Median log M_h = 9.94
-[16:58:17] 
-[16:58:17]     Low M_h (< median):  N = 1157, ρ = -0.160, p = 4.80e-08
-[16:58:17]     High M_h (> median): N = 1158, ρ = 0.132, p = 7.04e-06
-[16:58:17] 
-[16:58:17]     ○ No evidence for screening in this mass range
-[16:58:17]     
+[14:23:08]     TEST 5: DENSITY/ENVIRONMENT PROXY
+[14:23:08]     ============================================================
+[14:23:08] 
+[14:23:08]     TEP Prediction:
+[14:23:08]       Galaxies in overdense regions (groups/clusters) should be
+[14:23:08]       SCREENED from TEP effects, showing weaker correlations.
+[14:23:08] 
+[14:23:08]     Proxy: Use local galaxy density from photometric catalog
+[14:23:08]            (not available in current sample)
+[14:23:08] 
+[14:23:08]     Alternative: Use halo mass as proxy for screening
+[14:23:08]       - Low M_h: Unscreened, strong TEP effects
+[14:23:08]       - High M_h: Potentially screened, weaker TEP effects
+[14:23:08] 
+[14:23:08]     Median log M_h = 9.94
+[14:23:08] 
+[14:23:08]     Low M_h (< median):  N = 1157, ρ = -0.190, p = 8.11e-11
+[14:23:08]     High M_h (> median): N = 1158, ρ = 0.118, p = 5.66e-05
+[14:23:08] 
+[14:23:08]     ○ No evidence for screening in this mass range
+[14:23:08]     
 ======================================================================
-[16:58:17]     SUMMARY: THE CONSTELLATION
-[16:58:17]     ======================================================================
-[16:58:17] 
-[16:58:17]     Confirmed Threads (7/7):
-[16:58:17]       ✓ z > 7 Inversion
-[16:58:17]       ✓ Γ_t vs Age, Metallicity, Dust
-[16:58:17]       ✓ z > 8 Dust Anomaly
-[16:58:17]       ✓ Multi-Property Coherence
-[16:58:17] 
-[16:58:17]     Complementary Evidence:
-[16:58:17]       ○ SFR Burstiness: Complex (downsizing confounds)
-[16:58:17]       ○ Quenching: Few quenched galaxies at high-z
-[16:58:17]       ○ z Evolution: Selection effects dominate
-[16:58:17]       ★ Cross-Domain: α = 0.58 works across domains
-[16:58:17]       ○ Screening: Suggestive but needs larger sample
-[16:58:17] 
-[16:58:17]     Next Steps:
-[16:58:17]       1. Spectroscopic ages from NIRSpec
-[16:58:17]       2. Velocity dispersions for direct M_h
-[16:58:17]       3. Resolved photometry for age gradients
-[16:58:17]       4. Environment classification
-[16:58:17] 
-[16:58:17]     Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_009_holographic_synthesis.json
-[16:58:17] 
-[16:58:17]     Step 009 complete.
+[14:23:08]     SUMMARY: THE CONSTELLATION
+[14:23:08]     ======================================================================
+[14:23:08] 
+[14:23:08]     Confirmed Threads (7/7):
+[14:23:08]       ✓ z > 7 Inversion
+[14:23:08]       ✓ Γ_t vs Age, Metallicity, Dust
+[14:23:08]       ✓ z > 8 Dust Anomaly
+[14:23:08]       ✓ Multi-Property Coherence
+[14:23:08] 
+[14:23:08]     Complementary Evidence:
+[14:23:08]       ○ SFR Burstiness: Complex (downsizing confounds)
+[14:23:08]       ○ Quenching: Few quenched galaxies at high-z
+[14:23:08]       ○ z Evolution: Selection effects dominate
+[14:23:08]       ★ Cross-Domain: α = 0.58 works across domains
+[14:23:08]       ○ Screening: Suggestive but needs larger sample
+[14:23:08] 
+[14:23:08]     Next Steps:
+[14:23:08]       1. Spectroscopic ages from NIRSpec
+[14:23:08]       2. Velocity dispersions for direct M_h
+[14:23:08]       3. Resolved photometry for age gradients
+[14:23:08]       4. Environment classification
+[14:23:08] 
+[14:23:08]     Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_009_holographic_synthesis.json
+[14:23:08] 
+[14:23:08]     Step 009 complete.

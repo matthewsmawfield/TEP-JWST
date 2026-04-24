@@ -2,11 +2,11 @@
   "step": 143,
   "description": "Screening Transition Profile Analysis",
   "results": {
-    "screening_model": "chameleon",
+    "screening_model": "temporal_topology",
     "critical_density": {
       "rho_c_g_cm3": 20.0,
       "log_rho_c": 1.3010299956639813,
-      "source": "Paper 7 (TEP-UCD)",
+      "source": "Paper 6 (TEP-UCD)",
       "physical_interpretation": "Density at which scalar field mass equals local curvature scale"
     },
     "transition_profile": {
@@ -103,14 +103,14 @@
     },
     "observational_implications": {
       "solar_system": "Fully screened (\u03b1_eff < 10^-6)",
-      "binary_pulsars": "Fully screened (thin-shell)",
+      "binary_pulsars": "Fully screened (Temporal Shear vanishes)",
       "galaxy_halos": "Partially screened",
       "cosmic_voids": "Unscreened (full TEP effect)",
       "high_z_galaxies": "Mostly unscreened (lower ambient density)"
     },
     "model_comparison": [
       {
-        "model": "chameleon",
+        "model": "temporal_topology",
         "rho_50_g_cm3": 20.244465099768018,
         "alpha_eff_earth": 0.4863855980171585,
         "alpha_eff_halo": 0.58,
@@ -134,11 +134,11 @@
         "suppression_halo": 1.0
       }
     ],
-    "interpretation": "The chameleon screening mechanism transitions over ~2.2 decades in density around \u03c1_c = 20.0 g/cm\u00b3. At Earth's surface (\u03c1 ~ 3 g/cm\u00b3), the coupling is suppressed by a factor of ~0.84, satisfying solar system constraints. At galaxy halo densities (\u03c1 ~ 10^-25 g/cm\u00b3), the coupling is essentially unscreened (suppression ~ 1.00), allowing TEP effects to manifest in high-z galaxy observations."
+    "interpretation": "The Temporal Topology screening mechanism transitions over ~2.2 decades in density around \u03c1_c = 20.0 g/cm\u00b3. At Earth's surface (\u03c1 ~ 3 g/cm\u00b3), the coupling is suppressed by a factor of ~0.84, satisfying solar system constraints. At galaxy halo densities (\u03c1 ~ 10^-25 g/cm\u00b3), the coupling is essentially unscreened (suppression ~ 1.00), allowing TEP effects to manifest in high-z galaxy observations."
   },
   "methodology": {
     "screening_models": [
-      "chameleon",
+      "temporal_topology",
       "symmetron",
       "dilaton"
     ],

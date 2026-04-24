@@ -14,7 +14,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import RHO_CRIT_G_CM3  # TEP model: critical screening density rho_c ≈ 20 g/cm³ (from Paper 7)
+from scripts.utils.tep_model import RHO_CRIT_G_CM3  # TEP model: critical screening density rho_c ≈ 20 g/cm³ (from Paper 6)
 STEP_NUM = "070"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "binary_pulsar_constraints"  # Binary pulsar constraints: validates TEP screening at neutron star densities (~10¹⁴ g/cm³ >> rho_c ≈ 20 g/cm³), ensuring Hulse-Taylor orbital decay agreement
 
@@ -31,7 +31,7 @@ OUTPUT_PATH.mkdir(parents=True, exist_ok=True)  # Create directory tree if missi
 # =============================================================================
 from scripts.utils.tep_model import RHO_CRIT_G_CM3
 
-# Critical Density for Screening (from TEP-UCD / Paper 7)
+# Critical Density for Screening (from TEP-UCD / Paper 6)
 RHO_CRIT = RHO_CRIT_G_CM3 * u.g / u.cm**3
 
 # Neutron Star Parameters (Canonical)
@@ -55,7 +55,7 @@ def check_screening():
     print_status(f"Critical Density (TEP): {RHO_CRIT}", "INFO")
     
     # 2. Check Screening Condition
-    # Screening Factor ~ rho / rho_crit (Rough proxy for Thin Shell suppression)
+    # Screening Factor ~ rho / rho_crit (Rough proxy for Temporal Shear suppression)
     # The scalar charge Q_scalar is suppressed by ~ (rho_crit / rho)
     suppression_factor = (RHO_CRIT / rho_ns).decompose().value
     

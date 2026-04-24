@@ -1,24 +1,24 @@
-[17:00:39] ======================================================================
-[17:00:39] Step 137: Cross-Survey Generalization Test
-[17:00:39] ======================================================================
-[17:00:39]   UNCOVER z>8: loaded 283 galaxies
-[17:00:39]   CEERS: loaded 71 galaxies (z>=8.0)
-[17:00:39]   COSMOS-Web: loaded 2340 galaxies (z>=8.0)
-[17:00:39] Loaded 3 surveys: ['UNCOVER', 'CEERS', 'COSMOS-Web']
-[17:00:39] 
+[14:25:32] ======================================================================
+[14:25:32] Step 137: Cross-Survey Generalization Test
+[14:25:32] ======================================================================
+[14:25:32]   UNCOVER z>8: loaded 283 galaxies
+[14:25:33]   CEERS: loaded 71 galaxies (z>=8.0)
+[14:25:33]   COSMOS-Web: loaded 2340 galaxies (z>=8.0)
+[14:25:33] Loaded 3 surveys: ['UNCOVER', 'CEERS', 'COSMOS-Web']
+[14:25:33] 
 --- Within-Survey Statistics ---
-[17:00:39]   UNCOVER (N=283): ρ(dust,t_eff)=0.599, ρ(dust,M*)=0.559, poly_CV_R²=0.473
-[17:00:39]   CEERS (N=71): ρ(dust,t_eff)=0.795, ρ(dust,M*)=0.795, poly_CV_R²=0.557
-[17:00:39]   COSMOS-Web (N=2340): ρ(dust,t_eff)=0.722, ρ(dust,M*)=0.706, poly_CV_R²=0.508
-[17:00:39] 
+[14:25:33]   UNCOVER (N=283): ρ(dust,t_eff)=0.233, ρ(dust,M*)=0.559, poly_CV_R²=0.473
+[14:25:33]   CEERS (N=71): ρ(dust,t_eff)=0.539, ρ(dust,M*)=0.795, poly_CV_R²=0.557
+[14:25:33]   COSMOS-Web (N=2340): ρ(dust,t_eff)=0.665, ρ(dust,M*)=0.706, poly_CV_R²=0.508
+[14:25:33] 
 --- Leave-One-Survey-Out (Continuous Dust Prediction) ---
-[17:00:39]   Test=UNCOVER (N=283): poly cross-ρ=0.542, t_eff ρ=0.599, Δρ(t_eff-poly)=+0.056, poly R²_cross=-1.388
-[17:00:39]   Test=CEERS (N=71): poly cross-ρ=0.788, t_eff ρ=0.795, Δρ(t_eff-poly)=+0.007, poly R²_cross=0.170
-[17:00:39]   Test=COSMOS-Web (N=2340): poly cross-ρ=0.724, t_eff ρ=0.722, Δρ(t_eff-poly)=-0.001, poly R²_cross=-6.433
-[17:00:39] 
+[14:25:33]   Test=UNCOVER (N=283): poly cross-ρ=0.542, t_eff ρ=0.233, Δρ(t_eff-poly)=-0.309, poly R²_cross=-1.388
+[14:25:33]   Test=CEERS (N=71): poly cross-ρ=0.788, t_eff ρ=0.539, Δρ(t_eff-poly)=-0.249, poly R²_cross=0.170
+[14:25:33]   Test=COSMOS-Web (N=2340): poly cross-ρ=0.724, t_eff ρ=0.665, Δρ(t_eff-poly)=-0.059, poly R²_cross=-6.433
+[14:25:33] 
 --- Summary ---
-[17:00:39]   Mean t_eff ρ advantage: +0.021
-[17:00:39]   t_eff wins: 2/3
-[17:00:39]   Mean poly R² drop (within→cross): +3.063
-[17:00:39] 
-Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_137_cross_survey_generalization.json
+[14:25:33]   Mean t_eff ρ advantage: -0.206
+[14:25:33]   t_eff wins: 0/3
+[14:25:33]   Mean poly R² drop (within→cross): +3.063
+[14:25:33] 
+Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_137_cross_survey_generalization.json

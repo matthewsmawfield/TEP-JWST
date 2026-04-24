@@ -1,118 +1,109 @@
-[16:59:07]     ======================================================================
-[16:59:07]     STEP 059: The Ultimate Missing Piece
-[16:59:07]     ======================================================================
-[16:59:07]     
+[14:23:59]     ======================================================================
+[14:23:59]     STEP 059: The Ultimate Missing Piece
+[14:23:59]     ======================================================================
+[14:23:59]     
 Searching for the evidence that would make TEP DEFINITIVE...
 
-[16:59:07]     Loaded N = 2315 galaxies
-[16:59:07]     
+[14:23:59]     Loaded N = 2315 galaxies
+[14:23:59]     
 ======================================================================
-[16:59:07]     MISSING PIECE 1: Spectroscopic Confirmation
-[16:59:07]     ======================================================================
-[16:59:07]     Do galaxies with SPECTROSCOPIC redshifts show the same effect?
+[14:23:59]     MISSING PIECE 1: Spectroscopic Confirmation
+[14:23:59]     ======================================================================
+[14:23:59]     Do galaxies with SPECTROSCOPIC redshifts show the same effect?
 
-[16:59:07]     Spectroscopic columns found: ['z_spec']
-[16:59:07]     Loaded spectroscopic catalog: N = 34
-[16:59:07]     Spectroscopic z > 7: N = 34
-[16:59:07]     Spectroscopic sample available for validation
-[16:59:07]     
+[14:23:59]     Spectroscopic columns found: ['z_spec']
+[14:23:59]     Loaded spectroscopic catalog: N = 34
+[14:23:59]     Spectroscopic z > 7: N = 34
+[14:23:59]     Spectroscopic sample available for validation
+[14:23:59]     
 ======================================================================
-[16:59:07]     MISSING PIECE 2: The Redshift Transition
-[16:59:07]     ======================================================================
-[16:59:07]     Is there a sharp transition in TEP strength at some redshift?
+[14:23:59]     MISSING PIECE 2: The Redshift Transition
+[14:23:59]     ======================================================================
+[14:23:59]     Is there a sharp transition in TEP strength at some redshift?
 
-[16:59:07]     Redshift evolution of Γ_t-Dust correlation:
-[16:59:07]       z = 4.2: ρ = +0.091 (N = 499) ○
-[16:59:07]       z = 4.8: ρ = -0.008 (N = 443) ✗
-[16:59:07]       z = 5.2: ρ = +0.060 (N = 291) ○
-[16:59:07]       z = 5.8: ρ = -0.123 (N = 206) ✗
-[16:59:07]       z = 6.2: ρ = -0.130 (N = 168) ✗
-[16:59:07]       z = 6.8: ρ = -0.134 (N = 204) ✗
-[16:59:07]       z = 7.2: ρ = +0.015 (N = 104) ○
-[16:59:07]       z = 7.8: ρ = +0.145 (N = 117) ○
-[16:59:07]       z = 8.2: ρ = +0.315 (N = 107) ✓
-[16:59:07]       z = 8.8: ρ = +0.530 (N = 72) ✓
-[16:59:07]       z = 9.2: ρ = +0.633 (N = 49) ✓
-[16:59:07]       z = 9.8: ρ = +0.793 (N = 55) ✓
-[16:59:07]     
+[14:23:59]     Redshift evolution of Γ_t-Dust correlation:
+[14:23:59]       z = 4.2: ρ = +0.093 (N = 499) ○
+[14:23:59]       z = 4.8: ρ = -0.013 (N = 443) ✗
+[14:23:59]       z = 5.2: ρ = +0.056 (N = 291) ○
+[14:23:59]       z = 5.8: ρ = -0.131 (N = 206) ✗
+[14:23:59]       z = 6.2: ρ = -0.136 (N = 168) ✗
+[14:23:59]       z = 6.8: ρ = -0.137 (N = 204) ✗
+[14:23:59]       z = 7.2: ρ = -0.005 (N = 104) ✗
+[14:23:59]       z = 7.8: ρ = +0.126 (N = 117) ○
+[14:23:59]       z = 8.2: ρ = +0.306 (N = 107) ✓
+[14:23:59]       z = 8.8: ρ = +0.531 (N = 72) ✓
+[14:23:59]       z = 9.2: ρ = +0.627 (N = 49) ✓
+[14:23:59]       z = 9.8: ρ = +0.805 (N = 55) ✓
+[14:23:59]     
 ✓ TRANSITION DETECTED: TEP becomes significant at z ≈ 8.25
-[16:59:07]     
+[14:23:59]     
 ======================================================================
-[16:59:07]     MISSING PIECE 3: The Mass-Independent Signal
-[16:59:07]     ======================================================================
-[16:59:07]     Does TEP predict dust INDEPENDENTLY of mass?
+[14:23:59]     MISSING PIECE 3: The Mass-Independent Signal
+[14:23:59]     ======================================================================
+[14:23:59]     Does TEP predict dust INDEPENDENTLY of mass?
 
-[16:59:07]     ρ(Γ_t, Dust_resid|M*) = -0.090 (p = 1.31e-01)
-[16:59:07]     ρ(Γ_t_resid, Dust_resid) = 0.151 (p = 1.07e-02)
-[16:59:07]     
+[14:23:59]     ρ(Γ_t, Dust_resid|M*) = -0.041 (p = 4.92e-01)
+[14:23:59]     ρ(Γ_t_resid, Dust_resid) = 0.171 (p = 3.84e-03)
+[14:23:59]     
 ✓ MASS-INDEPENDENT SIGNAL: Gamma_t predicts dust beyond mass
-[16:59:07]     
+[14:23:59]     
 ======================================================================
-[16:59:07]     MISSING PIECE 4: The Anomalous Population
-[16:59:07]     ======================================================================
-[16:59:07]     Are there galaxies that are ANOMALOUS under standard physics?
+[14:23:59]     MISSING PIECE 4: The Anomalous Population
+[14:23:59]     ======================================================================
+[14:23:59]     Are there galaxies that are ANOMALOUS under standard physics?
 
-[16:59:07]     'Anomalous' galaxies at z > 9: N = 60
-[16:59:07]       <Γ_t> anomalous: 5.22
-[16:59:07]       <Γ_t> normal: 0.27
-[16:59:07]       Ratio: 19.3×
-[16:59:07]     
-✓ ANOMALOUS POPULATION: Extreme galaxies have extreme Γ_t
-[16:59:07]     
+[14:23:59]     'Anomalous' galaxies at z > 9: N = 60
+[14:23:59]       <Γ_t> anomalous: 1.12
+[14:23:59]       <Γ_t> normal: 0.89
+[14:23:59]       Ratio: 1.3×
+[14:23:59]     
 ======================================================================
-[16:59:07]     MISSING PIECE 5: The Quantitative Prediction
-[16:59:07]     ======================================================================
-[16:59:07]     Does t_eff = t_cosmic × Γ_t QUANTITATIVELY predict dust?
+[14:23:59]     MISSING PIECE 5: The Quantitative Prediction
+[14:23:59]     ======================================================================
+[14:23:59]     Does t_eff = t_cosmic × Γ_t QUANTITATIVELY predict dust?
 
-[16:59:07]       t_eff = 0-0.1 Gyr: <Dust> = 0.411 (expected: low) ✓
-[16:59:07]       t_eff = 0.1-0.2 Gyr: <Dust> = 0.667 (expected: low) ✗
-[16:59:07]       t_eff = 0.2-0.3 Gyr: <Dust> = 0.847 (expected: low) ✗
-[16:59:07]       t_eff = 0.3-0.5 Gyr: <Dust> = 0.943 (expected: high) ✓
-[16:59:07]       t_eff = 0.5-1.0 Gyr: <Dust> = 1.066 (expected: high) ✓
-[16:59:07]       t_eff = 1.0-5.0 Gyr: <Dust> = 1.553 (expected: high) ✓
-[16:59:07]     
-Trend: ρ(t_eff, Dust) = 1.000 (p = 0.00e+00)
-[16:59:07]     ✓ QUANTITATIVE MATCH: Dust increases with t_eff as predicted
-[16:59:07]     
+[14:23:59]       t_eff = 0.3-0.5 Gyr: <Dust> = 0.657 (expected: high) ✓
+[14:23:59]       t_eff = 0.5-1.0 Gyr: <Dust> = 0.832 (expected: high) ✓
+[14:23:59]     
 ======================================================================
-[16:59:07]     MISSING PIECE 6: Cross-Survey Validation
-[16:59:07]     ======================================================================
-[16:59:07]     Does the effect hold across DIFFERENT surveys?
+[14:23:59]     MISSING PIECE 6: Cross-Survey Validation
+[14:23:59]     ======================================================================
+[14:23:59]     Does the effect hold across DIFFERENT surveys?
 
-[16:59:07]     CEERS (z > 8): ρ(M*, Dust) = 0.680 (N = 82)
-[16:59:07]     UNCOVER (z > 8): ρ(M*, Dust) = 0.559 (N = 283)
-[16:59:07]     
+[14:23:59]     CEERS (z > 8): ρ(M*, Dust) = 0.680 (N = 82)
+[14:23:59]     UNCOVER (z > 8): ρ(M*, Dust) = 0.559 (N = 283)
+[14:23:59]     
 ✓ CROSS-SURVEY VALIDATION: Consistent across surveys
-[16:59:07]     
+[14:23:59]     
 ======================================================================
-[16:59:07]     MISSING PIECE 7: The Ultimate Critical Signal
-[16:59:07]     ======================================================================
-[16:59:07]     What is the ONE observation that would be ANOMALOUS without TEP?
+[14:23:59]     MISSING PIECE 7: The Ultimate Critical Signal
+[14:23:59]     ======================================================================
+[14:23:59]     What is the ONE observation that would be ANOMALOUS without TEP?
 
-[16:59:07]     
+[14:23:59]     
 ======================================================================
-[16:59:07]     SYNTHESIS: The Ultimate Missing Piece
-[16:59:07]     ======================================================================
-[16:59:07]     
+[14:23:59]     SYNTHESIS: The Ultimate Missing Piece
+[14:23:59]     ======================================================================
+[14:23:59]     
 Based on this analysis, the ULTIMATE missing pieces are:
-[16:59:07] 
-[16:59:07]     1. SPECTROSCOPIC CONFIRMATION
-[16:59:07]        - Need more spec-z galaxies at z > 8 to rule out photo-z systematics
-[16:59:07]        - Current spec-z sample is limited
-[16:59:07] 
-[16:59:07]     2. DYNAMICAL MASS COMPARISON
-[16:59:07]        - TEP predicts M_*(SED) > M_dyn for high-Gamma_t galaxies
-[16:59:07]        - This would be a QUANTITATIVE, UNIQUE prediction
-[16:59:07]        - Requires IFU spectroscopy (e.g., NIRSpec)
-[16:59:07] 
-[16:59:07]     3. INTERNAL GRADIENT MEASUREMENT
-[16:59:07]        - TEP predicts: Core = young, Outskirts = old
-[16:59:07]        - Opposite of standard inside-out formation
-[16:59:07]        - Requires resolved photometry/spectroscopy
-[16:59:07] 
-[16:59:07]     4. EMISSION LINE RATIOS
-[16:59:07]        - Independent age/metallicity indicators
-[16:59:07]        - Should correlate with Gamma_t
-[16:59:07]        - Requires deep spectroscopy
-[16:59:07]     
-Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_059_ultimate_missing_piece.json
+[14:23:59] 
+[14:23:59]     1. SPECTROSCOPIC CONFIRMATION
+[14:23:59]        - Need more spec-z galaxies at z > 8 to rule out photo-z systematics
+[14:23:59]        - Current spec-z sample is limited
+[14:23:59] 
+[14:23:59]     2. DYNAMICAL MASS COMPARISON
+[14:23:59]        - TEP predicts M_*(SED) > M_dyn for high-Gamma_t galaxies
+[14:23:59]        - This would be a QUANTITATIVE, UNIQUE prediction
+[14:23:59]        - Requires IFU spectroscopy (e.g., NIRSpec)
+[14:23:59] 
+[14:23:59]     3. INTERNAL GRADIENT MEASUREMENT
+[14:23:59]        - TEP predicts: Core = young, Outskirts = old
+[14:23:59]        - Opposite of standard inside-out formation
+[14:23:59]        - Requires resolved photometry/spectroscopy
+[14:23:59] 
+[14:23:59]     4. EMISSION LINE RATIOS
+[14:23:59]        - Independent age/metallicity indicators
+[14:23:59]        - Should correlate with Gamma_t
+[14:23:59]        - Requires deep spectroscopy
+[14:23:59]     
+Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_059_ultimate_missing_piece.json

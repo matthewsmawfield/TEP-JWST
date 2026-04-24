@@ -116,6 +116,11 @@ class HTMLToMarkdownConverter {
         return html.replace(/\n{3,}/g, '\n\n').trim();
     }
 
+    stripLeadingWhitespace(text) {
+        // Split into lines, strip leading whitespace from each line, rejoin
+        return text.split('\n').map(line => line.replace(/^\s+/, '')).join('\n');
+    }
+
     async convertSiteToMarkdown() {
         console.log('🔄 Converting HTML site to markdown (TEP-JWST)...');
         try {
@@ -137,9 +142,24 @@ class HTMLToMarkdownConverter {
             }
 
             console.log(`  Total HTML: ${(allHtml.length / 1024).toFixed(1)} KB`);
-            const markdownTitle = manifest.title || 'The Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies';
-            const markdown = `# ${markdownTitle}\n\n` + this.htmlToMarkdown(allHtml);
-            const outputPath = path.join(__dirname, '..', '13manuscript-tep-jwst.md');
+            const markdownTitle = manifest.title || 'Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies';
+            
+            // Build header with metadata
+            const header = `# ${markdownTitle}
+**Matthew Lukin Smawfield**  
+Version: v0.3 (Kos)  
+First published: 13 March 2026 · Last updated: 24 April 2026  
+DOI: 10.5281/zenodo.19000827
+
+---
+
+`;
+            
+            const rawMarkdown = this.htmlToMarkdown(allHtml);
+            const cleanedMarkdown = this.stripLeadingWhitespace(rawMarkdown);
+            const markdown = header + cleanedMarkdown;
+            
+            const outputPath = path.join(__dirname, '..', '12-TEP-JWST-v0.3-Kos.md');
             fs.writeFileSync(outputPath, markdown, 'utf8');
             console.log(`✅ Markdown saved to: ${outputPath} (${(markdown.length / 1024).toFixed(1)} KB)`);
         } catch (error) {

@@ -1,6 +1,6 @@
 # TEP-JWST: The Seven Threads of Evidence
 
-Generated: 2026-03-13T16:58:16.317742
+Generated: 2026-04-24T14:23:06.865633
 
 ## Summary
 
@@ -9,9 +9,9 @@ Generated: 2026-03-13T16:58:16.317742
 | Thread | Finding | Significant |
 |--------|---------|-------------|
 | z > 7 Mass-sSFR Inversion | Δρ = 0.25 [0.14, 0.35] | ✓ |
-| Γ_t vs Age Ratio | ρ = 0.08 (p = 5e-05) | ✓ |
-| Γ_t vs Metallicity | ρ = 0.18 (p = 3e-09) | ✓ |
-| Γ_t vs Dust | ρ = 0.33 (p = 3e-29) | ✓ |
+| Γ_t vs Age Ratio | ρ = 0.07 (p = 5e-04) | ✓ |
+| Γ_t vs Metallicity | ρ = 0.17 (p = 5e-09) | ✓ |
+| Γ_t vs Dust | ρ = 0.33 (p = 5e-29) | ✓ |
 | z > 8 Dust Anomaly | ρ = 0.56 [0.46, 0.64] | ✓ |
 | Age-Metallicity Coherence | ρ = 0.33 [0.27, 0.39] | ✓ |
 | Multi-Property Split | All p < 10⁻¹⁰ | ✓ |

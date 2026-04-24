@@ -68,7 +68,7 @@ RESULTS_DIR = PROJECT_ROOT / "results" / "outputs"
 # Note: TEPLogger is initialized above via set_step_logger()
 
 # =============================================================================
-# TEP PARAMETERS (from TEP-H0, Paper 12)
+# TEP PARAMETERS (from TEP-H0, Paper 11)
 # =============================================================================
 # ALPHA_TEP: coupling constant from the TEP-H0 Cepheid analysis.
 # Applied here to the MW GC system to predict age gradients.

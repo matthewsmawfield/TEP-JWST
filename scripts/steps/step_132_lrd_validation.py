@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-TEP-JWST Step 132: LRD Population Differential Temporal Shear Analysis
+TEP-JWST Step 132: LRD Population Differential Temporal Topology Analysis
 
 Expands the single-LRD simulation (Step 41) to a population-level analysis
 using the Kokorev et al. (2024) catalog of 260 photometrically selected
 Little Red Dots at 4 < z < 9.
 
-This addresses the feedback that the differential temporal shear mechanism 
+This addresses the feedback that the differential temporal topology mechanism
 must be shown to be universal, not anecdotal.
 
 Data Source:
@@ -40,7 +40,11 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
-from scripts.utils.tep_model import ALPHA_0, Z_REF, LOG_MH_REF  # Shared TEP model constants
+from scripts.utils.tep_model import (
+    ALPHA_CLOCK_EFF, ALPHA_CLOCK_UNCERTAINTY, 
+    LOG_MH_REF, Z_REF, PHI_REF_0,
+    get_phi_from_log_mh, compute_gamma_t_from_phi
+)
 
 STEP_NUM = "132"  # Pipeline step number
 STEP_NAME = "lrd_validation"  # Used in log / output filenames
@@ -62,7 +66,7 @@ set_step_logger(logger)
 # =============================================================================
 
 G = 4.301e-6  # kpc (km/s)^2 / M_sun
-PHI_REF_VIR = 360.0**2  # Reference potential depth (V_vir^2 for M=10^12 at z=5.5)
+PHI_REF_VIR = PHI_REF_0  # Reference potential depth from tep_model.py
 T_SALPETER = 0.045  # Gyr (Eddington e-folding time)
 
 # LRD-specific parameters
@@ -150,19 +154,16 @@ def estimate_sigma_from_size(log_Mstar, Re_pc):
 
 def get_tep_gamma_potential(phi_local, phi_ref, z):
     """
-    Calculate Gamma_t based on potential depth relative to reference.
+    Wrapper for backward compatibility, using the harmonized kernel.
+    The phi_ref argument is kept for API compatibility but is not used
+    (reference potential is built into compute_gamma_t_from_phi).
     """
-    alpha_z = ALPHA_0 * np.sqrt(1 + z)
-    z_fac = (1 + z) / (1 + Z_REF)
-    exponent = alpha_z * z_fac * 0.5  # Potential scaling
-    
-    ratio = np.maximum(phi_local / phi_ref, 1e-6)
-    return ratio**exponent
+    return compute_gamma_t_from_phi(phi_local, z)
 
 
-def calculate_differential_shear(z, log_Mh, concentration=CONCENTRATION_FACTOR):
+def calculate_differential_topology(z, log_Mh, concentration=CONCENTRATION_FACTOR):
     """
-    Calculate the differential temporal shear between
+    Calculate the differential temporal topology between
     the galactic center (BH) and the stellar halo.
     
     Returns:
@@ -176,7 +177,7 @@ def calculate_differential_shear(z, log_Mh, concentration=CONCENTRATION_FACTOR):
     R_vir = 30.0 * (M_h / 1e11)**(1/3) * (10.0 / (1 + z))  # kpc
     
     # Potentials (proportional to V^2)
-    Phi_vir = G * M_h / R_vir
+    Phi_vir = get_phi_from_log_mh(log_Mh)
     Phi_cen = Phi_vir * concentration
     
     # TEP factors
@@ -194,7 +195,7 @@ def calculate_differential_shear(z, log_Mh, concentration=CONCENTRATION_FACTOR):
 
 def analyze_lrd_population(df):
     """
-    Apply Differential Temporal Shear analysis to the full LRD population.
+    Apply Differential Temporal Topology analysis to the full LRD population.
     """
     results = []
     
@@ -217,8 +218,8 @@ def analyze_lrd_population(df):
             Re_pc = R_E_TYPICAL_PC
             concentration = CONCENTRATION_FACTOR
         
-        # Calculate differential temporal shear
-        gamma_halo, gamma_cen, boost, t_cosmic = calculate_differential_shear(
+        # Calculate differential temporal topology
+        gamma_halo, gamma_cen, boost, t_cosmic = calculate_differential_topology(
             z, log_Mh, concentration
         )
         
@@ -242,7 +243,7 @@ def analyze_lrd_population(df):
 
 
 def create_population_figure(df_results):
-    """Create visualization of the LRD population Differential Temporal Shear analysis."""
+    """Create visualization of the LRD population Differential Temporal Topology analysis."""
     fig, axes = plt.subplots(2, 2, figsize=(12, 10))
     
     # 1. Boost factor vs redshift
@@ -306,7 +307,7 @@ def create_population_figure(df_results):
 def run_analysis():
     """Main analysis function."""
     print_status("=" * 70, "INFO")
-    print_status(f"STEP {STEP_NUM}: LRD Population Differential Temporal Shear Analysis", "INFO")
+    print_status(f"STEP {STEP_NUM}: LRD Population Differential Temporal Topology Analysis", "INFO")
     print_status("=" * 70, "INFO")
     
     # Download catalog
@@ -354,11 +355,12 @@ def run_analysis():
     
     # JSON summary
     summary = {
-        "test": f"Step {STEP_NUM}: LRD Population Differential Temporal Shear Analysis",
+        "test": f"Step {STEP_NUM}: LRD Population Differential Temporal Topology Analysis",
         "data_source": "Kokorev et al. 2024 (arXiv:2401.09981)",
         "sample_size": len(df_results),
         "parameters": {
-            "alpha_0": ALPHA_0,
+            "alpha_eff": ALPHA_CLOCK_EFF,
+            "alpha_uncertainty": ALPHA_CLOCK_UNCERTAINTY,
             "z_ref": Z_REF,
             "t_salpeter_Gyr": T_SALPETER,
         },
@@ -378,7 +380,7 @@ def run_analysis():
             "fraction_gt_1000x": float(significant / len(df_results)),
         },
         "conclusion": (
-            f"The Differential Temporal Shear mechanism is universal across the LRD population. "
+            f"The Differential Temporal Topology mechanism is universal across the LRD population. "
             f"{100*significant/len(df_results):.0f}% of {len(df_results)} LRDs show >1000x "
             f"differential BH growth boost, explaining the overmassive BH phenomenon "
             f"without requiring exotic seeds or super-Eddington accretion."

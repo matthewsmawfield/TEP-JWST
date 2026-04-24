@@ -62,7 +62,7 @@ RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 # Note: TEPLogger is initialized above via set_step_logger()
 
 # =============================================================================
-# TEP PARAMETERS (from TEP-H0, Paper 12)
+# TEP PARAMETERS (from TEP-H0, Paper 11)
 # Exact values from tep_correction_results.json
 # =============================================================================
 # ALPHA_TEP: The TEP coupling constant, derived from the slope of the
@@ -79,8 +79,11 @@ SIGMA_REF = 75.25  # Reference calibrator sigma (km/s)
 # Screening thresholds (from TEP-COS and TEP-H0)
 # Above SIGMA_SCREEN, the TEP scalar field is screened by the deep
 # potential well, saturating the correction (no further increase with sigma).
+# Note: SIGMA_SCREEN is an empirical velocity dispersion proxy. The v0.7 TEP
+# framework uses density-based screening via RHO_CRIT_G_CM3 = 20 g/cm^3
+# (from Paper 6 / TEP-UCD), which corresponds to sigma ~ 165 km/s via the
+# Faber-Jackson relation for typical galaxy-scale potentials.
 SIGMA_SCREEN = 165.0  # High-sigma screening threshold (km/s)
-RHO_SCREEN = 0.5  # Density screening threshold (M_sun/pc^3)
 
 # Mass step threshold (standard literature value)
 # The SN Ia mass step is conventionally measured at 10^10 Msun
@@ -331,7 +334,7 @@ def tep_mass_step_prediction(sigma_low, sigma_high, alpha=ALPHA_TEP, sigma_ref=S
     """
     Calculate TEP-predicted mass step using EXACT TEP-H0 formula.
     
-    From TEP-H0 (Paper 12):
+    From TEP-H0 (Paper 11):
     - Correction formula: Δμ = α * log10(σ / σ_ref)
     - α = 0.58 ± 0.16 (optimized to minimize H0-σ slope)
     - σ_ref = 75.25 km/s (effective calibrator environment)

@@ -1,75 +1,71 @@
-[16:58:25] ======================================================================
-[16:58:25] TEP-JWST Step 017: Mass-to-Light Ratio Analysis
-[16:58:25] ======================================================================
-[16:58:25] 
-[16:58:25] Loading JADES data...
-[16:58:25] Loaded 527 JADES galaxies
-[16:58:25] Loading raw JADES catalog...
-[16:58:27] Loaded 94000 raw JADES candidates
-[16:58:27] ======================================================================
-[16:58:27] TEST 1: Age Excess Distribution
-[16:58:27] ======================================================================
-[16:58:27] Sample size: N = 422
-[16:58:27] Age excess range: -0.572 to -0.098 Gyr
-[16:58:27] 
+[14:23:15] ======================================================================
+[14:23:15] TEP-JWST Step 017: Mass-to-Light Ratio Analysis
+[14:23:15] ======================================================================
+[14:23:15] 
+[14:23:15] Loading JADES data...
+[14:23:15] Loaded 527 JADES galaxies
+[14:23:15] Loading raw JADES catalog...
+[14:23:17] Loaded 94000 raw JADES candidates
+[14:23:17] ======================================================================
+[14:23:17] TEST 1: Age Excess Distribution
+[14:23:17] ======================================================================
+[14:23:17] Sample size: N = 422
+[14:23:17] Age excess range: -0.572 to -0.098 Gyr
+[14:23:17] 
 Correlation (age_excess vs Γ_t):
-[16:58:27]   Spearman ρ = 0.136, p = 0.0050
-[16:58:27] 
-✗ No negative correlation detected
-[16:58:27] 
+[14:23:17]   Spearman ρ = -0.375, p = 0.0000
+[14:23:17] 
+✓ Higher Γ_t → more negative age_excess (TEP-consistent)
+[14:23:17]   Correlation confirmed
+[14:23:17] 
 Fraction with age_excess < 0 by Γ_t bin:
-[16:58:27]   Γ_t = [0.0, 0.3): N = 289, anomalous = 100.0%
-[16:58:27]   Γ_t = [0.3, 0.5): N = 61, anomalous = 100.0%
-[16:58:27]   Γ_t = [0.5, 0.7): N = 19, anomalous = 100.0%
-[16:58:27]   Γ_t = [0.7, 1.0): N = 25, anomalous = 100.0%
-[16:58:27]   Γ_t = [1.0, 5.0): N = 19, anomalous = 100.0%
-[16:58:27] ======================================================================
-[16:58:27] TEST 2: Photo-z Scatter
-[16:58:27] ======================================================================
-[16:58:27] Sample size: N = 84291
-[16:58:27] 
+[14:23:17]   Γ_t = [0.7, 1.0): N = 420, anomalous = 100.0%
+[14:23:17] ======================================================================
+[14:23:17] TEST 2: Photo-z Scatter
+[14:23:17] ======================================================================
+[14:23:17] Sample size: N = 84291
+[14:23:17] 
 Correlation (z_phot_err vs Γ_t):
-[16:58:27]   Spearman ρ = -0.074, p = 0.0000
-[16:58:27] 
+[14:23:17]   Spearman ρ = -0.385, p = 0.0000
+[14:23:17] 
 ⚠ No significant correlation
-[16:58:27] ======================================================================
-[16:58:27] TEST 3: SED Fit Quality (χ²)
-[16:58:27] ======================================================================
-[16:58:27] Sample size: N = 84291
-[16:58:27] χ² range: 0.0 to 788.1
-[16:58:27] 
+[14:23:17] ======================================================================
+[14:23:17] TEST 3: SED Fit Quality (χ²)
+[14:23:17] ======================================================================
+[14:23:17] Sample size: N = 84291
+[14:23:17] χ² range: 0.0 to 788.1
+[14:23:17] 
 Correlation (χ² vs Γ_t):
-[16:58:27]   Spearman ρ = 0.049, p = 0.0000
-[16:58:27] 
-✓ Higher Γ_t → worse SED fit (TEP-consistent)
-[16:58:27]   Standard models fail for TEP-affected galaxies
-[16:58:27] ======================================================================
-[16:58:27] TEST 4: Mass-to-Light Ratio Anomaly
-[16:58:27] ======================================================================
-[16:58:27] Sample size: N = 422
-[16:58:27] 
+[14:23:17]   Spearman ρ = -0.123, p = 0.0000
+[14:23:17] 
+✗ No positive correlation detected
+[14:23:17] ======================================================================
+[14:23:17] TEST 4: Mass-to-Light Ratio Anomaly
+[14:23:17] ======================================================================
+[14:23:17] Sample size: N = 422
+[14:23:17] 
 Correlation (M/L proxy vs Γ_t):
-[16:58:27]   Spearman ρ = 0.599, p = 0.0000
-[16:58:27] 
+[14:23:17]   Spearman ρ = 0.932, p = 0.0000
+[14:23:17] 
 ✓ Higher Γ_t → higher M/L (TEP-consistent)
-[16:58:27]   TEP inflates mass-to-light ratios
-[16:58:27] 
+[14:23:17]   TEP inflates mass-to-light ratios
+[14:23:17] 
 Partial correlation (controlling for z):
-[16:58:27]   Spearman ρ = 0.741, p = 0.0000
-[16:58:27] ======================================================================
-[16:58:27] TEST 5: Spec-z vs Photo-z Offset
-[16:58:27] ======================================================================
-[16:58:27] Galaxies with both z_spec and z_phot: N = 0
-[16:58:27] Insufficient sample for spec-phot analysis
-[16:58:27] 
-[16:58:27] ======================================================================
-[16:58:27] SUMMARY
-[16:58:27] ======================================================================
-[16:58:27] ⚠ age_excess: Not significant
-[16:58:27] ⚠ photoz_scatter: Not significant
-[16:58:27] ✓ sed_quality: TEP-consistent
-[16:58:27] ✓ mass_to_light: TEP-consistent
-[16:58:27] 
+[14:23:17]   Spearman ρ = 0.875, p = 0.0000
+[14:23:17] ======================================================================
+[14:23:17] TEST 5: Spec-z vs Photo-z Offset
+[14:23:17] ======================================================================
+[14:23:17] Galaxies with both z_spec and z_phot: N = 0
+[14:23:17] Insufficient sample for spec-phot analysis
+[14:23:17] 
+[14:23:17] ======================================================================
+[14:23:17] SUMMARY
+[14:23:17] ======================================================================
+[14:23:17] ✓ age_excess: TEP-consistent
+[14:23:17] ⚠ photoz_scatter: Not significant
+[14:23:17] ⚠ sed_quality: Not significant
+[14:23:17] ✓ mass_to_light: TEP-consistent
+[14:23:17] 
 Tests passed: 2/4
-[16:58:27] 
-Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_017_ml_ratio.json
+[14:23:17] 
+Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_017_ml_ratio.json

@@ -1,12 +1,12 @@
-[16:58:42]     ======================================================================
-[16:58:42]     STEP 33: COSMOS-Web Data Download and Processing
-[16:58:42]     ======================================================================
-[16:58:42] 
-[16:58:42]     Using existing local catalog: COSMOSWeb_mastercatalog_v1_lephare.fits
-[16:58:43]     
+[14:23:32]     ======================================================================
+[14:23:32]     STEP 33: COSMOS-Web Data Download and Processing
+[14:23:32]     ======================================================================
+[14:23:32] 
+[14:23:32]     Using existing local catalog: COSMOSWeb_mastercatalog_v1_lephare.fits
+[14:23:33]     
 COSMOS-Web processed data already exists:
-[16:58:43]       High-z sample (z > 4): N = 50146
-[16:58:43]       z > 8 sample: N = 2606
-[16:58:43] 
-[16:58:43]     Step 033 complete.
-[16:58:43]     COSMOS-Web z > 8 sample ready for analysis: N = 2606
+[14:23:33]       High-z sample (z > 4): N = 50146
+[14:23:33]       z > 8 sample: N = 2606
+[14:23:33] 
+[14:23:33]     Step 033 complete.
+[14:23:33]     COSMOS-Web z > 8 sample ready for analysis: N = 2606

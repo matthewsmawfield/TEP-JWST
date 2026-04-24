@@ -1,40 +1,40 @@
-[17:00:15]     ======================================================================
-[17:00:15]     STEP 104: Cosmic Variance Quantification
-[17:00:15]     ======================================================================
-[17:00:15]     
+[14:25:09]     ======================================================================
+[14:25:09]     STEP 104: Cosmic Variance Quantification
+[14:25:09]     ======================================================================
+[14:25:09]     
 Loaded 3 surveys
-[17:00:15]       UNCOVER: N(z>8) = 283, Area = 45 arcmin²
-[17:00:15]       CEERS: N(z>8) = 82, Area = 100 arcmin²
-[17:00:15]       COSMOS-Web: N(z>8) = 2606, Area = 1800 arcmin²
-[17:00:15]     
+[14:25:09]       UNCOVER: N(z>8) = 283, Area = 45 arcmin²
+[14:25:09]       CEERS: N(z>8) = 82, Area = 100 arcmin²
+[14:25:09]       COSMOS-Web: N(z>8) = 2606, Area = 1800 arcmin²
+[14:25:09]     
 --- Cosmic Variance Estimates ---
-[17:00:15]       UNCOVER:
-[17:00:15]         σ_cv = 3.65
-[17:00:15]         σ_Poisson = 0.06
-[17:00:15]         σ_total = 3.65
-[17:00:15]       CEERS:
-[17:00:15]         σ_cv = 2.45
-[17:00:15]         σ_Poisson = 0.11
-[17:00:15]         σ_total = 2.45
-[17:00:15]       COSMOS-Web:
-[17:00:15]         σ_cv = 0.58
-[17:00:15]         σ_Poisson = 0.02
-[17:00:15]         σ_total = 0.58
-[17:00:15]     
+[14:25:09]       UNCOVER:
+[14:25:09]         σ_cv = 3.65
+[14:25:09]         σ_Poisson = 0.06
+[14:25:09]         σ_total = 3.65
+[14:25:09]       CEERS:
+[14:25:09]         σ_cv = 2.45
+[14:25:09]         σ_Poisson = 0.11
+[14:25:09]         σ_total = 2.45
+[14:25:09]       COSMOS-Web:
+[14:25:09]         σ_cv = 0.58
+[14:25:09]         σ_Poisson = 0.02
+[14:25:09]         σ_total = 0.58
+[14:25:09]     
 --- Field-by-Field Correlations ---
-[17:00:15]       UNCOVER: ρ = 0.593 (N = 283)
-[17:00:15]     
+[14:25:09]       UNCOVER: ρ = 0.603 (N = 283)
+[14:25:09]     
 ======================================================================
-[17:00:15]     SUMMARY
-[17:00:15]     ======================================================================
-[17:00:15]     
+[14:25:09]     SUMMARY
+[14:25:09]     ======================================================================
+[14:25:09]     
 Total N (z > 8): 2971
-[17:00:15]     Number of independent fields: 3
-[17:00:15]     Effective N (accounting for CV): ~300
-[17:00:15]     
+[14:25:09]     Number of independent fields: 3
+[14:25:09]     Effective N (accounting for CV): ~300
+[14:25:09]     
 ⚠ Signal consistency across fields is uncertain
-[17:00:15]     
-Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_104_cosmic_variance.json
-[17:00:16]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/figure_104_cosmic_variance.png
-[17:00:16]     
+[14:25:09]     
+Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_104_cosmic_variance.json
+[14:25:09]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_104_cosmic_variance.png
+[14:25:09]     
 Step 104 complete.

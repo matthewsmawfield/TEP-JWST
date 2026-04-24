@@ -48,7 +48,7 @@ def run_analysis():
                 'high_z_dust_correlation': 'Strong positive (ρ > 0.5)',
                 'mass_ssfr_inversion': 'Yes, at z > 7',
                 'core_screening': 'Bluer cores in massive galaxies',
-                'lrd_overmassive_bh': 'Explained by differential shear',
+                'lrd_overmassive_bh': 'Explained by differential topology',
                 'hubble_tension': 'Reduced by ~5 km/s/Mpc',
                 'sn_ia_mass_step': '0.05 mag predicted',
                 'bbn_constraints': 'Satisfied (ΔY_p ~ 10^-11)',
@@ -58,7 +58,7 @@ def run_analysis():
             'unique_signatures': [
                 'Environment-dependent clock rates',
                 'Redshift-dependent coupling α(z) ∝ √(1+z)',
-                'Differential temporal shear in compact objects'
+                'Differential temporal topology in compact objects'
             ],
             'falsification': 'ρ(dust, Γ_t) < 0.1 at z > 8'
         },
@@ -281,7 +281,7 @@ def run_analysis():
     summary['interpretation'] = (
         f"TEP scores {tep_score}/8 on JWST anomaly predictions, compared to {next_best}/8 for "
         f"the next best theory. TEP is unique in predicting: (1) environment-dependent clock rates, "
-        f"(2) redshift-dependent coupling strength, and (3) differential temporal shear explaining "
+        f"(2) redshift-dependent coupling strength, and (3) differential temporal topology explaining "
         f"overmassive black holes. Other modified gravity theories (f(R), MOND, Galileon, etc.) "
         f"do not make specific predictions for the high-z dust anomaly or mass-sSFR inversion. "
         f"TEP satisfies all current observational constraints (BBN, GW speed, solar system) "

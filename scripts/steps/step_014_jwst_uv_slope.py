@@ -39,7 +39,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
 from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
-from scripts.utils.tep_model import ALPHA_0, compute_gamma_t as tep_gamma  # TEP model: alpha_0=0.58 (Cepheid-calibrated), Gamma_t formula
+from scripts.utils.tep_model import ALPHA_0, ALPHA_CLOCK_EFF, compute_gamma_t as tep_gamma  # TEP model: alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), Gamma_t formula
 from scripts.utils.downloader import smart_download  # Robust HTTP download utility with integrity checking
 
 STEP_NUM = "014"  # Pipeline step number (sequential 001-176)

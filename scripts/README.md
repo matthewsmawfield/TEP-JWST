@@ -1,6 +1,6 @@
 # TEP-JWST Analysis Pipeline
 
-Reproducible analysis pipeline for testing the Temporal Equivalence Principle (TEP) using JWST high-redshift galaxy observations.
+Reproducible analysis pipeline for testing Temporal Equivalence Principle: A Unified Resolution to JWST High-Redshift Galaxy Anomalies.
 
 **Pipeline size:** 163 steps | **Framework:** Python 3.10+
 **Last full canonical run:** ~32m18s total (2026-03-09 15:52 UTC)

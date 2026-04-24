@@ -18,8 +18,8 @@
       "threshold": 10.0,
       "n_bin": 4474,
       "n_obs": 119,
-      "n_corr": 17,
-      "reduction_pct": 85.7
+      "n_corr": 97,
+      "reduction_pct": 18.5
     },
     {
       "z_lo": 7,
@@ -27,8 +27,8 @@
       "threshold": 10.5,
       "n_bin": 4474,
       "n_obs": 41,
-      "n_corr": 1,
-      "reduction_pct": 97.6
+      "n_corr": 0,
+      "reduction_pct": 100.0
     },
     {
       "z_lo": 8,
@@ -36,8 +36,8 @@
       "threshold": 10.0,
       "n_bin": 1373,
       "n_obs": 113,
-      "n_corr": 7,
-      "reduction_pct": 93.8
+      "n_corr": 89,
+      "reduction_pct": 21.2
     },
     {
       "z_lo": 8,
@@ -54,8 +54,8 @@
       "threshold": 10.0,
       "n_bin": 1081,
       "n_obs": 54,
-      "n_corr": 0,
-      "reduction_pct": 100.0
+      "n_corr": 46,
+      "reduction_pct": 14.8
     },
     {
       "z_lo": 9,

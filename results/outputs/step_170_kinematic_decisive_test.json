@@ -326,12 +326,12 @@
         "n_objects_exact_mdyn": 4,
         "n_objects_upper_limit_only": 1,
         "mean_observed_excess_dex": 0.16811325000000021,
-        "mean_corrected_excess_dex": -0.07531999668861422,
+        "mean_corrected_excess_dex": -0.30479474098715187,
         "resolution_fraction_among_anomalous": 0.6666666666666666,
         "mean_excess_metrics_basis": "exact_mdyn_rows_only",
         "upper_limit_summary": {
           "mean_observed_excess_lower_bound_dex": -0.018482999999999805,
-          "mean_corrected_excess_lower_bound_dex": -0.31775750850077067,
+          "mean_corrected_excess_lower_bound_dex": -0.4650793941003819,
           "n_objects": 1
         },
         "beta_bootstrap_summary": {
@@ -339,12 +339,12 @@
           "n_boot": 2000,
           "estimator": "bootstrap_slope_through_origin",
           "calibration_subset": "anomalous_objects_only_if_available",
-          "median": 0.5211082204349958,
-          "mean": 0.5330502069048891,
-          "std": 0.17015536901714623,
+          "median": 0.3142781341571038,
+          "mean": 0.3172167469086502,
+          "std": 0.09463528858605866,
           "ci_95": [
-            0.2992850930705939,
-            1.005004757530748
+            0.1798427014393439,
+            0.5626225384301359
           ],
           "n_upper_limit_rows_excluded": 1
         },
@@ -1378,20 +1378,20 @@
         "z_median": 4.17,
         "sigma_min_kms": 22.0,
         "sigma_max_kms": 387.0,
-        "T3_partial_rho_gamma_mstar_given_sigma_z": 0.3264727183166993,
-        "T3_p_partial_gamma_mstar_given_sigma_z": 0.002593640803285009,
+        "T3_partial_rho_gamma_mstar_given_sigma_z": 0.34360541127714217,
+        "T3_p_partial_gamma_mstar_given_sigma_z": 0.0014709971912229057,
         "T3_ci_95": [
-          0.10150783330479503,
-          0.5122135491832388
+          0.11840495842883729,
+          0.5385553945778664
         ],
         "T1_observed_rho_resid_z": -0.49733351384751323,
-        "T1_corrected_rho_resid_z": -0.523307841663241,
-        "T1_z_trend_improved": false,
+        "T1_corrected_rho_resid_z": -0.47659325831636273,
+        "T1_z_trend_improved": true,
         "T1_scatter_improved": true,
         "T2_scatter_improved": true,
         "T5_highz_n": 56,
-        "T5_highz_partial_rho_gamma": 0.3261587271078059,
-        "T5_highz_p_gamma": 0.01415944656068624,
+        "T5_highz_partial_rho_gamma": 0.258091060320722,
+        "T5_highz_p_gamma": 0.05479588100715019,
         "methodology_note": "Sigma-only mass-circularity-breaking test on a combined N=83 kinematic sample. Gamma_t is computed from velocity dispersion alone (sigma -> M_halo -> Gamma_t) with zero dependence on SED-fitted M* or Mdyn. The key test (T3) asks whether sigma-only Gamma_t adds predictive power for M*_obs beyond sigma and z individually."
       }
     }

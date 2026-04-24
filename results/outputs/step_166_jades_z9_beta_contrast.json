@@ -3,7 +3,7 @@
   "name": "jades_z9_beta_contrast",
   "status": "SUCCESS",
   "description": "JADES photometric z=9-12 UV-slope companion analysis split by predicted Gamma_t",
-  "input_catalog": "/Users/matthewsmawfield/www/TEP-JWST/data/raw/JADES_z_gt_8_Candidates_Hainline_et_al.fits",
+  "input_catalog": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/JADES_z_gt_8_Candidates_Hainline_et_al.fits",
   "selection": {
     "base_highz_count": 527,
     "n_with_beta": 90,
@@ -20,8 +20,8 @@
     "median_z": 9.46
   },
   "raw_correlation": {
-    "rho_gamma_t_vs_beta": 0.25889436234263824,
-    "p": 0.18342097585586292
+    "rho_gamma_t_vs_beta": 0.013683634373289545,
+    "p": 0.9449029783807149
   },
   "contrasts": {
     "q33_q67": {
@@ -29,46 +29,46 @@
         0.3333333333333333,
         0.6666666666666666
       ],
-      "gamma_t_threshold_low": 276.3179995634058,
-      "gamma_t_threshold_high": 618.45196390245,
-      "n_low": 10,
+      "gamma_t_threshold_low": 64.1757258163234,
+      "gamma_t_threshold_high": 689.4143647020702,
+      "n_low": 9,
       "n_high": 10,
-      "median_gamma_t_low": 201.1161119652203,
-      "median_gamma_t_high": 799.555298815461,
-      "median_beta_low": -2.272116598750064,
-      "median_beta_high": -1.9606160157799586,
-      "weighted_beta_low": -2.3477659985326684,
-      "weighted_beta_high": -1.5696127827393238,
-      "delta_weighted_beta_high_minus_low": 0.7781532157933446,
+      "median_gamma_t_low": 23.689832327160453,
+      "median_gamma_t_high": 1819.4083403590234,
+      "median_beta_low": -2.5169509795495166,
+      "median_beta_high": -2.49638839115154,
+      "weighted_beta_low": -2.6643782259154127,
+      "weighted_beta_high": -2.3603482641097107,
+      "delta_weighted_beta_high_minus_low": 0.3040299618057021,
       "bootstrap_ci_95": [
-        -0.3307191191566516,
-        2.632146815106989
+        -0.5000947073985766,
+        0.8581144433670778
       ],
-      "bootstrap_supportive_p_one_sided": 0.1279680079980005,
-      "mean_MUV_high_minus_low": -0.6663148283795408
+      "bootstrap_supportive_p_one_sided": 0.23194201449637591,
+      "mean_MUV_high_minus_low": -1.6879029478167737
     },
     "q25_q75": {
       "gamma_t_quantiles": [
         0.25,
         0.75
       ],
-      "gamma_t_threshold_low": 253.8889022885391,
-      "gamma_t_threshold_high": 682.0234507563068,
+      "gamma_t_threshold_low": 33.25520227655525,
+      "gamma_t_threshold_high": 812.0864948789942,
       "n_low": 7,
       "n_high": 7,
-      "median_gamma_t_low": 161.10233005495655,
-      "median_gamma_t_high": 1268.2317070349688,
-      "median_beta_low": -2.313918531870911,
-      "median_beta_high": -1.92850595659879,
-      "weighted_beta_low": -2.3938516401728034,
-      "weighted_beta_high": -1.453135735363793,
-      "delta_weighted_beta_high_minus_low": 0.9407159048090104,
+      "median_gamma_t_low": 23.234662738527884,
+      "median_gamma_t_high": 3841.101256166178,
+      "median_beta_low": -2.1974647603941806,
+      "median_beta_high": -2.394605106087663,
+      "weighted_beta_low": -2.661510444006633,
+      "weighted_beta_high": -2.191288172934715,
+      "delta_weighted_beta_high_minus_low": 0.47022227107191794,
       "bootstrap_ci_95": [
-        -0.3840608663151717,
-        3.298987791294346
+        -0.3462604928523272,
+        1.0052956347511386
       ],
-      "bootstrap_supportive_p_one_sided": 0.1277180704823794,
-      "mean_MUV_high_minus_low": -1.0568651365419157
+      "bootstrap_supportive_p_one_sided": 0.13121719570107473,
+      "mean_MUV_high_minus_low": -1.9525281996678743
     }
   },
   "primary_contrast": {
@@ -76,23 +76,23 @@
       0.25,
       0.75
     ],
-    "gamma_t_threshold_low": 253.8889022885391,
-    "gamma_t_threshold_high": 682.0234507563068,
+    "gamma_t_threshold_low": 33.25520227655525,
+    "gamma_t_threshold_high": 812.0864948789942,
     "n_low": 7,
     "n_high": 7,
-    "median_gamma_t_low": 161.10233005495655,
-    "median_gamma_t_high": 1268.2317070349688,
-    "median_beta_low": -2.313918531870911,
-    "median_beta_high": -1.92850595659879,
-    "weighted_beta_low": -2.3938516401728034,
-    "weighted_beta_high": -1.453135735363793,
-    "delta_weighted_beta_high_minus_low": 0.9407159048090104,
+    "median_gamma_t_low": 23.234662738527884,
+    "median_gamma_t_high": 3841.101256166178,
+    "median_beta_low": -2.1974647603941806,
+    "median_beta_high": -2.394605106087663,
+    "weighted_beta_low": -2.661510444006633,
+    "weighted_beta_high": -2.191288172934715,
+    "delta_weighted_beta_high_minus_low": 0.47022227107191794,
     "bootstrap_ci_95": [
-      -0.3840608663151717,
-      3.298987791294346
+      -0.3462604928523272,
+      1.0052956347511386
     ],
-    "bootstrap_supportive_p_one_sided": 0.1277180704823794,
-    "mean_MUV_high_minus_low": -1.0568651365419157
+    "bootstrap_supportive_p_one_sided": 0.13121719570107473,
+    "mean_MUV_high_minus_low": -1.9525281996678743
   },
   "assessment": "The JADES z=9-12 beta sample is directionally supportive but remains a lower-power photometric companion rather than a decisive standalone test."
 }

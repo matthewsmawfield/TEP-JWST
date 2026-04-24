@@ -24,14 +24,14 @@
     "percentile_97.5": 0.45154499349597177
   },
   "boost_distribution": {
-    "median_log10": 9.31444181063194,
-    "mean_log10": 13.152399632510217,
-    "std_log10": 11.53533933995154,
-    "percentile_16_log10": 5.641384237446413,
-    "percentile_84_log10": 20.068680636682686,
-    "fraction_gt_1e3": 0.999,
-    "fraction_gt_1e5": 0.9082,
-    "fraction_gt_1e6": 0.8001
+    "median_log10": 0.9857272246467489,
+    "mean_log10": 1.1975405377549826,
+    "std_log10": 0.8185279526856545,
+    "percentile_16_log10": 0.5602619489809136,
+    "percentile_84_log10": 1.777143247775302,
+    "fraction_gt_1e3": 0.0349,
+    "fraction_gt_1e5": 0.0042,
+    "fraction_gt_1e6": 0.002
   },
   "step41_comparison": {
     "step41_assumed": 1.5,
@@ -44,44 +44,43 @@
       "r_e_range": "0.05-0.10",
       "r_e_center": 0.07500000000000001,
       "n_samples": 2212,
-      "median_log10_boost": 9.418581289070504,
-      "fraction_runaway": 0.9986437613019892
+      "median_log10_boost": 0.9758703696144384,
+      "fraction_runaway": 0.027124773960216998
     },
     {
       "r_e_range": "0.10-0.15",
       "r_e_center": 0.125,
       "n_samples": 2294,
-      "median_log10_boost": 9.387876634297946,
-      "fraction_runaway": 1.0
+      "median_log10_boost": 0.9824268499276786,
+      "fraction_runaway": 0.036181342632955533
     },
     {
       "r_e_range": "0.15-0.20",
       "r_e_center": 0.175,
       "n_samples": 1681,
-      "median_log10_boost": 9.364175631943453,
-      "fraction_runaway": 0.998810232004759
+      "median_log10_boost": 0.9743192559690643,
+      "fraction_runaway": 0.03390838786436645
     },
     {
       "r_e_range": "0.20-0.30",
       "r_e_center": 0.25,
       "n_samples": 1805,
-      "median_log10_boost": 9.165267909122711,
-      "fraction_runaway": 0.9994459833795014
+      "median_log10_boost": 0.9786423770835537,
+      "fraction_runaway": 0.0371191135734072
     },
     {
       "r_e_range": "0.30-0.50",
       "r_e_center": 0.4,
       "n_samples": 1153,
-      "median_log10_boost": 9.484123247986927,
-      "fraction_runaway": 0.9991326973113617
+      "median_log10_boost": 1.0413575895685692,
+      "fraction_runaway": 0.045099739809193407
     },
     {
       "r_e_range": "0.50-0.80",
       "r_e_center": 0.65,
       "n_samples": 287,
-      "median_log10_boost": 9.13009397273857,
-      "fraction_runaway": 1.0
+      "median_log10_boost": 0.9964645634231628,
+      "fraction_runaway": 0.041811846689895474
     }
-  ],
-  "critical_radius_kpc": 0.05
+  ]
 }

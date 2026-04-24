@@ -152,7 +152,7 @@ def main():
     # Paper metadata - must match manuscript, CITATION.cff, and zenodo.txt
     metadata = {
         # Core identification
-        'Title': 'The Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies',
+        'Title': 'Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies',
         'Author': 'Matthew Lukin Smawfield',
         'Creator': 'Matthew Lukin Smawfield',
         
@@ -193,11 +193,11 @@ def main():
         
         # Dates
         'CreationDate': '2026:03:13 00:00:00',
-        'ModifyDate': '2026:03:13 00:00:00',
+        'ModifyDate': '2026:04:24 00:00:00',
         
         # XMP Dublin Core metadata (exiftool uses these prefixes)
         'XMP-dc:Creator': 'Matthew Lukin Smawfield',
-        'XMP-dc:Title': 'The Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies',
+        'XMP-dc:Title': 'Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies',
         'XMP-dc:Description': 'TEP resolution to JWST high-redshift anomalies via environment-dependent proper time',
         'XMP-dc:Rights': 'CC BY 4.0',
         'XMP-dc:Identifier': f'doi:{args.doi}',

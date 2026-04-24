@@ -1,6 +1,6 @@
-[16:59:54] ═══ STEP 093: t_eff Threshold Holdout Validation
-[16:59:54]     Surveys loaded: ['UNCOVER', 'CEERS', 'COSMOS-Web']
-[16:59:55]     Holdout UNCOVER: selected t_eff≈1.93 Gyr on ['CEERS', 'COSMOS-Web']
-[16:59:57]     Holdout CEERS: selected t_eff≈1.93 Gyr on ['UNCOVER', 'COSMOS-Web']
-[16:59:57]     Holdout COSMOS-Web: selected t_eff≈0.06 Gyr on ['UNCOVER', 'CEERS']
-[16:59:58] ✓   Saved: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_093_teff_threshold_holdout.json
+[14:24:47] ═══ STEP 093: t_eff Threshold Holdout Validation
+[14:24:47]     Surveys loaded: ['UNCOVER', 'CEERS', 'COSMOS-Web']
+[14:24:48]     Holdout UNCOVER: selected t_eff≈1.06 Gyr on ['CEERS', 'COSMOS-Web']
+[14:24:49]     Holdout CEERS: selected t_eff≈1.06 Gyr on ['UNCOVER', 'COSMOS-Web']
+[14:24:49]     Holdout COSMOS-Web: selected t_eff≈0.41 Gyr on ['UNCOVER', 'CEERS']
+[14:24:49] ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_093_teff_threshold_holdout.json

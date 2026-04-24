@@ -1,4 +1,4 @@
-[17:00:27]     STEP 134: TEP prediction error budget (alpha_0 uncertainty)
-[17:00:28]   d(rho)/d(alpha_0) = 0.000  delta_rho(1-sigma) = 0.0000
-[17:00:28] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_134_prediction_errors.json
-[17:00:28]     Step 134 complete. delta_rho(1sigma)=0.0000
+[14:25:22]     STEP 134: TEP prediction error budget (alpha_0 uncertainty)
+[14:25:23]   d(rho)/d(alpha_0) = -0.000  delta_rho(1-sigma) = 0.0000
+[14:25:23] Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_134_prediction_errors.json
+[14:25:23]     Step 134 complete. delta_rho(1sigma)=0.0000

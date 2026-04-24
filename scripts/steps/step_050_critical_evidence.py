@@ -39,6 +39,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.tep_model import ALPHA_0, ALPHA_CLOCK_EFF  # TEP model: alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy)
 
 STEP_NUM = "050"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "critical_evidence"  # Critical evidence: searches for 5 internal consistency tests (temporal coherence, mass ladder, predictive power, sign consistency, quantitative match)
@@ -367,7 +368,7 @@ def main():
         
         # TEP predicts alpha ~ 0.5-0.6 (from TEP-H0)
         # The slope should be close to alpha
-        expected_alpha = 0.58  # From TEP-H0
+        expected_alpha = ALPHA_0  # Legacy 0.58 maps to alpha_eff = 9.6e5 mag
         
         print_status(f"Expected slope (from TEP-H0): {expected_alpha:.2f}", "INFO")
         print_status(f"Observed slope: {slope:.3f}", "INFO")
@@ -396,19 +397,19 @@ def main():
     print_status("- SN Ia host galaxies (TEP-H0)", "INFO")
     print_status("- Globular cluster pulsars (TEP-COS)\n", "INFO")
     
-    # We've already shown consistency with TEP-H0 alpha = 0.58
+    # We've already shown consistency with TEP-H0 coupling (alpha_eff = 9.6e5 mag)
     # The fact that our correlations work with this alpha is evidence
     
-    print_status("Alpha from TEP-H0 (SN Ia): 0.58 ± 0.05", "INFO")
-    print_status("Alpha used in JWST analysis: 0.58", "INFO")
+    print_status(f"Alpha from TEP-H0 (SN Ia): {ALPHA_0} (legacy, maps to alpha_eff = 9.6e5 mag)", "INFO")
+    print_status(f"Alpha used in JWST analysis: {ALPHA_0} (consistent with legacy mapping)", "INFO")
     print_status("Correlations observed: YES (multiple)", "INFO")
     
     print_status("\n✓ PASSED: Same alpha works across 15 orders of magnitude in mass", "INFO")
-    critical_evidence.append(('cross_domain', 0.58, None))
+    critical_evidence.append(('cross_domain', ALPHA_0, None))
     
     results['critical_evidence']['cross_domain'] = {
-        'alpha_tep_h0': 0.58,
-        'alpha_jwst': 0.58,
+        'alpha_tep_h0': ALPHA_0,  # Legacy value maps to alpha_eff = 9.6e5 mag
+        'alpha_jwst': ALPHA_0,  # Consistent with legacy mapping
         'consistent': True
     }
     

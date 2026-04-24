@@ -35,7 +35,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import ALPHA_0, compute_gamma_t as tep_gamma, stellar_to_halo_mass_behroozi_like  # TEP model: alpha_0=0.58, Gamma_t formula, stellar-to-halo mass from abundance matching
+from scripts.utils.tep_model import ALPHA_0, ALPHA_CLOCK_EFF, compute_gamma_t as tep_gamma, stellar_to_halo_mass_behroozi_like  # TEP model: alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), Gamma_t formula, stellar-to-halo mass from abundance matching
 
 STEP_NUM = "040"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "mass_sensitivity"  # Mass sensitivity: tests TEP signature robustness vs mass overestimation (0.0-1.0 dex corrections)

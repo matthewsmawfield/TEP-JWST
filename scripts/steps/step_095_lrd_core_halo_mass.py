@@ -417,7 +417,7 @@ Conclusion:
   Observationally-derived Δlog M_h is consistent
   with Step 41 assumption within uncertainties.
   Compact LRDs (r_e < 200 pc) naturally produce
-  runaway BH growth via differential temporal shear.
+  runaway BH growth via differential temporal topology.
 """
         ax.text(0.05, 0.95, summary_text, transform=ax.transAxes, fontsize=10,
                verticalalignment='top', fontfamily='monospace')

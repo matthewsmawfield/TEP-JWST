@@ -56,7 +56,7 @@ def main():
     
     # Add text box explaining the mechanism
     textstr = '\n'.join((
-        r'$\bf{Differential\ Time\ Shear}$',
+        r'$\bf{Differential\ Temporal\ Topology}$',
         r'Deep Core ($\Gamma_t \approx 1.5$)',
         r'vs Diffuse Halo ($\Gamma_t \approx 0.0$)',
         r'Result: Runaway Growth',

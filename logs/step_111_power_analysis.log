@@ -1,47 +1,47 @@
-[17:00:19]     ======================================================================
-[17:00:19]     STEP 111: Power Analysis for Key Tests
-[17:00:19]     ======================================================================
-[17:00:19] ⚠   Could not load step_102: [Errno 2] No such file or directory: '/Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_102_survey_cross_correlation.json'; using fallback values
-[17:00:19]     
+[14:25:13]     ======================================================================
+[14:25:13]     STEP 111: Power Analysis for Key Tests
+[14:25:13]     ======================================================================
+[14:25:13] ⚠   Could not load step_102: [Errno 2] No such file or directory: '/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_102_survey_cross_correlation.json'; using fallback values
+[14:25:13]     
 --- Power Analysis Results ---
-[17:00:19]     Test                                     N        ρ    Power    Min ρ   Adequate
-[17:00:19]     -------------------------------------------------------------------------------------
-[17:00:19]     UNCOVER z>8 Dust-Γₜ                    283    0.593     1.00    0.166          ✓
-[17:00:19]     CEERS z>8 Dust-Γₜ                       82    0.660     1.00    0.305          ✓
-[17:00:19]     COSMOS-Web z>8 Dust-Γₜ                 918    0.629     1.00    0.092          ✓
-[17:00:19]     Combined z>8 Dust-Γₜ                  1283    0.623     1.00    0.078          ✓
-[17:00:19]     Spectroscopic (global)                 147   -0.136     0.38    0.229          ✗
-[17:00:19]     Spectroscopic (z=4-6)                   77    0.348     0.88    0.315          ✓
-[17:00:19]     Spectroscopic (z=6-8)                   38    0.266     0.36    0.441          ✗
-[17:00:19]     Spectroscopic (bin-normalized)         147    0.312     0.97    0.229          ✓
-[17:00:19]     Red Monsters (N=3)                       3    0.500     0.00    1.000          ✗
-[17:00:19]     Mass-Age (UNCOVER)                    2315    0.135     1.00    0.058          ✓
-[17:00:19]     Inside-Out Screening                   500   -0.180     0.98    0.125          ✓
-[17:00:19]     Environmental Screening                200    0.250     0.95    0.197          ✓
-[17:00:19]     Dust-Γₜ | M* (z>8)                     283    0.280     1.00    0.166          ✓
-[17:00:19]     
+[14:25:13]     Test                                     N        ρ    Power    Min ρ   Adequate
+[14:25:13]     -------------------------------------------------------------------------------------
+[14:25:13]     UNCOVER z>8 Dust-Γₜ                    283    0.593     1.00    0.166          ✓
+[14:25:13]     CEERS z>8 Dust-Γₜ                       82    0.660     1.00    0.305          ✓
+[14:25:13]     COSMOS-Web z>8 Dust-Γₜ                 918    0.629     1.00    0.092          ✓
+[14:25:13]     Combined z>8 Dust-Γₜ                  1283    0.623     1.00    0.078          ✓
+[14:25:13]     Spectroscopic (global)                 147   -0.136     0.38    0.229          ✗
+[14:25:13]     Spectroscopic (z=4-6)                   77    0.348     0.88    0.315          ✓
+[14:25:13]     Spectroscopic (z=6-8)                   38    0.266     0.36    0.441          ✗
+[14:25:13]     Spectroscopic (bin-normalized)         147    0.312     0.97    0.229          ✓
+[14:25:13]     Red Monsters (N=3)                       3    0.500     0.00    1.000          ✗
+[14:25:13]     Mass-Age (UNCOVER)                    2315    0.135     1.00    0.058          ✓
+[14:25:13]     Inside-Out Screening                   500   -0.180     0.98    0.125          ✓
+[14:25:13]     Environmental Screening                200    0.250     0.95    0.197          ✓
+[14:25:13]     Dust-Γₜ | M* (z>8)                     283    0.280     1.00    0.166          ✓
+[14:25:13]     
 ======================================================================
-[17:00:19]     SUMMARY
-[17:00:19]     ======================================================================
-[17:00:19]     
+[14:25:13]     SUMMARY
+[14:25:13]     ======================================================================
+[14:25:13]     
 Total tests analyzed: 13
-[17:00:19]     Adequately powered (≥80%): 10/13 (77%)
-[17:00:19]     Large effect sizes (|ρ| ≥ 0.5): 5/13
-[17:00:19]     
+[14:25:13]     Adequately powered (≥80%): 10/13 (77%)
+[14:25:13]     Large effect sizes (|ρ| ≥ 0.5): 5/13
+[14:25:13]     
 --- Underpowered Tests ---
-[17:00:19]       Spectroscopic (global): N=147, power=0.38
-[17:00:19]         → Need N≥423 for 80% power
-[17:00:19]       Spectroscopic (z=6-8): N=38, power=0.36
-[17:00:19]         → Need N≥109 for 80% power
-[17:00:19]       Red Monsters (N=3): N=3, power=0.00
-[17:00:19]         → Need N≥30 for 80% power
-[17:00:19]     
+[14:25:13]       Spectroscopic (global): N=147, power=0.38
+[14:25:13]         → Need N≥423 for 80% power
+[14:25:13]       Spectroscopic (z=6-8): N=38, power=0.36
+[14:25:13]         → Need N≥109 for 80% power
+[14:25:13]       Red Monsters (N=3): N=3, power=0.00
+[14:25:13]         → Need N≥30 for 80% power
+[14:25:13]     
 --- Key Findings ---
-[17:00:19]       1. Primary dust-Γₜ correlations are highly powered (>99%)
-[17:00:19]       2. Red Monsters (N=3) is illustrative only, not statistically robust
-[17:00:19]       3. Spectroscopic z=6-8 bin is marginally powered (N=38)
-[17:00:19]       4. Combined analyses provide robust statistical power
-[17:00:19]     
-Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_111_power_analysis.json
-[17:00:19]     
+[14:25:13]       1. Primary dust-Γₜ correlations are highly powered (>99%)
+[14:25:13]       2. Red Monsters (N=3) is illustrative only, not statistically robust
+[14:25:13]       3. Spectroscopic z=6-8 bin is marginally powered (N=38)
+[14:25:13]       4. Combined analyses provide robust statistical power
+[14:25:13]     
+Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_111_power_analysis.json
+[14:25:13]     
 Step 111 complete.

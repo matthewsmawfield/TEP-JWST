@@ -2,7 +2,7 @@
 """
 TEP-JWST Step 20: Parameter Validation
 
-This script validates that the single TEP parameter α₀ = 0.58,
+This script validates that the single TEP coupling α_eff = 9.6e5 mag (α₀ = 0.58 legacy),
 calibrated from local Cepheids, explains high-z observations.
 
 This single number, calibrated from local Cepheids,
@@ -36,10 +36,10 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import ALPHA_0, compute_gamma_t as tep_gamma, compute_effective_time  # TEP model: alpha_0=0.58 (Cepheid-calibrated), Gamma_t formula, t_eff = Gamma_t * t_cosmic
+from scripts.utils.tep_model import ALPHA_0, ALPHA_CLOCK_EFF, compute_gamma_t as tep_gamma, compute_effective_time  # TEP model: alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), Gamma_t formula, t_eff = Gamma_t * t_cosmic
 
 STEP_NUM = "020"  # Pipeline step number (sequential 001-176)
-STEP_NAME = "parameter_validation"  # Validates single TEP parameter alpha_0=0.58 explains 7 high-z observables
+STEP_NAME = "parameter_validation"  # Validates single TEP coupling (alpha_eff=9.6e5 mag) explains 7 high-z observables
 
 DATA_PATH = PROJECT_ROOT / "data"  # Top-level data directory (raw external catalogs)
 INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products (CSV format for step-to-step data flow)
@@ -68,8 +68,8 @@ def fix_byteorder(arr):
 # =============================================================================
 
 def main():
-    """Validate that the single TEP parameter alpha_0 = 0.58, calibrated
-    from local Cepheids (TEP-H0 Paper 12), is sufficient to explain
+    """Validate that the single TEP coupling alpha_eff = 9.6e5 mag, calibrated
+    from local Cepheids (TEP-H0 Paper 11), is sufficient to explain
     seven independent high-z observables from UNCOVER DR4.
 
     The seven confirmations test:
@@ -85,7 +85,7 @@ def main():
     print_status("STEP 20: PARAMETER VALIDATION", "INFO")
     print_status("=" * 70, "INFO")
     print_status("", "INFO")
-    print_status("Validating TEP parameter α₀ = 0.58", "INFO")
+    print_status("Validating TEP coupling α_eff = 9.6×10⁵ mag", "INFO")
     
     # Load data: UNCOVER DR4 SPS catalog (Prospector SED fits)
     # z_50, mstar_50, mwa_50, dust2_50, met_50 are median posterior values
@@ -234,14 +234,15 @@ def main():
     print_status("PARAMETER VALIDATION SUMMARY", "INFO")
     print_status("=" * 70, "INFO")
     print_status("", "INFO")
-    print_status("Validated parameter: α₀ = 0.58", "INFO")
+    print_status("Validated coupling: α_eff = 9.6×10⁵ mag", "INFO")
     print_status("", "INFO")
     print_status("This single number, calibrated from LOCAL Cepheids,", "INFO")
     print_status("accounts for multiple high-z observations.", "INFO")
     print_status("", "INFO")
     print_status("The TEP equation:", "INFO")
     print_status("", "INFO")
-    print_status("  Γ_t = exp[0.58 × √(1+z) × (2/3) × (log M_h - 12) × z_factor]", "INFO")
+    print_status("  Γ_t = exp[ K × (Φ - Φ_ref)/c² × √(1+z) ]", "INFO")
+    print_status("  where K = 1.26×10⁶ (from α_eff = 9.6×10⁵ mag)", "INFO")
     print_status("", "INFO")
     print_status("Parameter validation complete.", "INFO")
     

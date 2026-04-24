@@ -6,53 +6,53 @@
   ],
   "survey_correlations": {
     "UNCOVER": {
-      "rho": 0.5928581034360436,
-      "p": 2.9965940211265795e-28,
-      "log10_p": -27.52337209133113,
-      "t_stat": 12.340776244026873,
+      "rho": 0.6029791257884878,
+      "p": 2.0887757926899795e-29,
+      "log10_p": -28.680108174296027,
+      "t_stat": 12.670239773464747,
       "n": 283,
       "se": 0.05976143046671968,
-      "ci_lower": 0.5116256280917723,
-      "ci_upper": 0.6635860070486012,
-      "z_fisher": 0.682061732876586
+      "ci_lower": 0.5231614763399076,
+      "ci_upper": 0.6723105301669378,
+      "z_fisher": 0.69781513556205
     },
     "CEERS": {
-      "rho": 0.6599296916663946,
-      "p": 1.546171143428648e-11,
-      "log10_p": -10.810742436334271,
-      "t_stat": 7.856216766609066,
+      "rho": 0.6581665415047725,
+      "p": 1.8269684771719155e-11,
+      "log10_p": -10.738268945974443,
+      "t_stat": 7.8191480436068455,
       "n": 82,
       "se": 0.1125087900926024,
-      "ci_lower": 0.5169525031412393,
-      "ci_upper": 0.7670849181576956,
-      "z_fisher": 0.7926890701464865
+      "ci_lower": 0.514664804531185,
+      "ci_upper": 0.7657989467787775,
+      "z_fisher": 0.789572061296761
     },
     "COSMOS-Web": {
-      "rho": 0.6287929331621774,
-      "p": 3.4709864032498897e-102,
-      "log10_p": -101.4595470875689,
-      "t_stat": 24.474528450928716,
+      "rho": 0.6291657760807252,
+      "p": 2.431303195687601e-102,
+      "log10_p": -101.61416087908205,
+      "t_stat": 24.498544590786988,
       "n": 918,
       "se": 0.033058980245364314,
-      "ci_lower": 0.5880117613809396,
-      "ci_upper": 0.6663853881647761,
-      "z_fisher": 0.7394172244258583
+      "ci_lower": 0.5884152146524173,
+      "ci_upper": 0.6667281987567367,
+      "z_fisher": 0.740034120877507
     }
   },
   "meta_analysis": {
-    "rho_combined": 0.6231356869342315,
-    "ci_lower": 0.588391639728072,
-    "ci_upper": 0.6555828953021952,
+    "rho_combined": 0.6254011128775211,
+    "ci_lower": 0.5908132692076081,
+    "ci_upper": 0.6576944069744148,
     "se": 0.02801659073402629,
-    "z_stat": 26.06009364341159,
-    "p_combined": 1.0338346938723878e-149,
+    "z_stat": 26.192588844371397,
+    "p_combined": 3.2277124284290486e-151,
     "n_total": 1283,
     "n_surveys": 3
   },
   "heterogeneity": {
-    "Q": 1.0350544528972223,
+    "Q": 0.6438661032133988,
     "df": 2,
-    "p_Q": 0.5959924817864526,
+    "p_Q": 0.7247467093334898,
     "I2": 0.0,
     "interpretation": "Low heterogeneity",
     "consistent": true
@@ -100,21 +100,12 @@
         "rho_t_cosmic_dust": -0.006257604267814239,
         "p_t_cosmic_dust": 0.9165310933827602,
         "log10_p_t_cosmic_dust": -0.03785279698054561,
-        "rho_t_eff_dust": 0.5987630920475109,
-        "p_t_eff_dust": 6.408145622649783e-29,
-        "log10_p_t_eff_dust": -28.193267627636263,
-        "delta_rho": 0.6050206963153251,
+        "rho_t_eff_dust": 0.23295876302851315,
+        "p_t_eff_dust": 7.615313894022365e-05,
+        "log10_p_t_eff_dust": -4.118312190866053,
+        "delta_rho": 0.2392163672963274,
         "teff_threshold_gyr": 0.3,
-        "threshold_test": {
-          "n_above": 62,
-          "n_below": 221,
-          "mean_dust_above": 1.3167220912810194,
-          "mean_dust_below": 0.6460713970071854,
-          "ratio": 2.0380442430674193,
-          "mannwhitney_u": 11262.0,
-          "p_value": 4.7751527163355855e-15,
-          "cohens_d": 1.0797959461958353
-        },
+        "threshold_test": null,
         "detection_test": null
       },
       "all_dust": {
@@ -122,21 +113,12 @@
         "rho_t_cosmic_dust": -0.006257604267814239,
         "p_t_cosmic_dust": 0.9165310933827602,
         "log10_p_t_cosmic_dust": -0.03785279698054561,
-        "rho_t_eff_dust": 0.5987630920475109,
-        "p_t_eff_dust": 6.408145622649783e-29,
-        "log10_p_t_eff_dust": -28.193267627636263,
-        "delta_rho": 0.6050206963153251,
+        "rho_t_eff_dust": 0.23295876302851315,
+        "p_t_eff_dust": 7.615313894022365e-05,
+        "log10_p_t_eff_dust": -4.118312190866053,
+        "delta_rho": 0.2392163672963274,
         "teff_threshold_gyr": 0.3,
-        "threshold_test": {
-          "n_above": 62,
-          "n_below": 221,
-          "mean_dust_above": 1.3167220912810194,
-          "mean_dust_below": 0.6460713970071854,
-          "ratio": 2.0380442430674193,
-          "mannwhitney_u": 11262.0,
-          "p_value": 4.7751527163355855e-15,
-          "cohens_d": 1.0797959461958353
-        },
+        "threshold_test": null,
         "detection_test": null
       }
     },
@@ -146,21 +128,12 @@
         "rho_t_cosmic_dust": -0.052252369913257365,
         "p_t_cosmic_dust": 0.6410580043627729,
         "log10_p_t_cosmic_dust": -0.19310267276671092,
-        "rho_t_eff_dust": 0.6588848619409889,
-        "p_t_eff_dust": 1.707115575727178e-11,
-        "log10_p_t_eff_dust": -10.76773707513518,
-        "delta_rho": 0.7111372318542463,
+        "rho_t_eff_dust": 0.47427650983337144,
+        "p_t_eff_dust": 6.7574495501499615e-06,
+        "log10_p_t_eff_dust": -5.170217187978222,
+        "delta_rho": 0.5265288797466288,
         "teff_threshold_gyr": 0.3,
-        "threshold_test": {
-          "n_above": 46,
-          "n_below": 36,
-          "mean_dust_above": 0.8969421664573949,
-          "mean_dust_below": 0.2575967471899661,
-          "ratio": 3.4819623160689215,
-          "mannwhitney_u": 1382.0,
-          "p_value": 1.1594468348598818e-07,
-          "cohens_d": 1.1583374510137405
-        },
+        "threshold_test": null,
         "detection_test": null
       },
       "all_dust": {
@@ -168,21 +141,12 @@
         "rho_t_cosmic_dust": -0.052252369913257365,
         "p_t_cosmic_dust": 0.6410580043627729,
         "log10_p_t_cosmic_dust": -0.19310267276671092,
-        "rho_t_eff_dust": 0.6588848619409889,
-        "p_t_eff_dust": 1.707115575727178e-11,
-        "log10_p_t_eff_dust": -10.76773707513518,
-        "delta_rho": 0.7111372318542463,
+        "rho_t_eff_dust": 0.47427650983337144,
+        "p_t_eff_dust": 6.7574495501499615e-06,
+        "log10_p_t_eff_dust": -5.170217187978222,
+        "delta_rho": 0.5265288797466288,
         "teff_threshold_gyr": 0.3,
-        "threshold_test": {
-          "n_above": 46,
-          "n_below": 36,
-          "mean_dust_above": 0.8969421664573949,
-          "mean_dust_below": 0.2575967471899661,
-          "ratio": 3.4819623160689215,
-          "mannwhitney_u": 1382.0,
-          "p_value": 1.1594468348598818e-07,
-          "cohens_d": 1.1583374510137405
-        },
+        "threshold_test": null,
         "detection_test": null
       }
     },
@@ -192,21 +156,12 @@
         "rho_t_cosmic_dust": -0.2299746121656186,
         "p_t_cosmic_dust": 1.7492219390072158e-12,
         "log10_p_t_cosmic_dust": -11.757155084305673,
-        "rho_t_eff_dust": 0.6315863761398941,
-        "p_t_eff_dust": 2.3816917956132987e-103,
-        "log10_p_t_eff_dust": -102.62311443937911,
-        "delta_rho": 0.8615609883055126,
+        "rho_t_eff_dust": 0.5161175640515762,
+        "p_t_eff_dust": 1.2397826010135328e-63,
+        "log10_p_t_eff_dust": -62.9066544627875,
+        "delta_rho": 0.7460921762171948,
         "teff_threshold_gyr": 0.3,
-        "threshold_test": {
-          "n_above": 774,
-          "n_below": 144,
-          "mean_dust_above": 0.4560723514211886,
-          "mean_dust_below": 0.21250000000000002,
-          "ratio": 2.146222830217358,
-          "mannwhitney_u": 73865.5,
-          "p_value": 1.466343004947674e-11,
-          "cohens_d": 0.6946528213883789
-        },
+        "threshold_test": null,
         "detection_test": null
       },
       "all_dust": {
@@ -214,30 +169,21 @@
         "rho_t_cosmic_dust": 0.25199401181288394,
         "p_t_cosmic_dust": 4.929496812591848e-39,
         "log10_p_t_cosmic_dust": -38.307197409864315,
-        "rho_t_eff_dust": 0.6834966379546171,
-        "p_t_eff_dust": 1e-300,
-        "log10_p_t_eff_dust": -323.30621534311575,
-        "delta_rho": 0.4315026261417332,
+        "rho_t_eff_dust": 0.6347823288533629,
+        "p_t_eff_dust": 5.734063551519721e-294,
+        "log10_p_t_eff_dust": -293.24153749800945,
+        "delta_rho": 0.382788317040479,
         "teff_threshold_gyr": 0.3,
-        "threshold_test": {
-          "n_above": 1064,
-          "n_below": 1542,
-          "mean_dust_above": 0.3317669172932331,
-          "mean_dust_below": 0.0198443579766537,
-          "ratio": 16.71845053810998,
-          "mannwhitney_u": 1358627.5,
-          "p_value": 6.287968051379569e-247,
-          "cohens_d": 1.0033258497308772
-        },
+        "threshold_test": null,
         "detection_test": {
-          "detected_above": 774,
-          "not_detected_above": 290,
-          "detected_below": 144,
-          "not_detected_below": 1398,
-          "detection_fraction_above": 0.7274436090225563,
-          "detection_fraction_below": 0.0933852140077821,
-          "odds_ratio": 25.911206896551725,
-          "p_value": 8.660460515261302e-258
+          "detected_above": 918,
+          "not_detected_above": 1688,
+          "detected_below": 0,
+          "not_detected_below": 0,
+          "detection_fraction_above": 0.3522640061396777,
+          "detection_fraction_below": 0.0,
+          "odds_ratio": 1.0,
+          "p_value": 1.0
         }
       }
     }
@@ -252,11 +198,11 @@
   },
   "summary": {
     "n_surveys": 3,
-    "combined_rho": 0.6231356869342315,
-    "combined_p": 1.0338346938723878e-149,
+    "combined_rho": 0.6254011128775211,
+    "combined_p": 3.2277124284290486e-151,
     "total_n": 1283,
     "heterogeneity": "Low heterogeneity",
     "replication_status": "FULLY REPLICATED",
-    "conclusion": "The z>8 dust-\u0393t correlation is replicated across 3 independent JWST surveys with combined \u03c1 = 0.62 (N = 1283). Heterogeneity is low heterogeneity, indicating consistent effect sizes across surveys."
+    "conclusion": "The z>8 dust-\u0393t correlation is replicated across 3 independent JWST surveys with combined \u03c1 = 0.63 (N = 1283). Heterogeneity is low heterogeneity, indicating consistent effect sizes across surveys."
   }
 }

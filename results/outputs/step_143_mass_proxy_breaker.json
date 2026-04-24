@@ -8,8 +8,8 @@
       "p": 0.0008505100626160521
     },
     "partial_density_dust_given_mass_z_gammat": {
-      "rho": 0.07025539448294527,
-      "p": 0.0007178901642023314
+      "rho": 0.06734371338831456,
+      "p": 0.0011863721084340118
     },
     "cell_analysis": {
       "n_cells": 10,
@@ -103,88 +103,88 @@
     "z8_field_vs_dense": {
       "n_field": 142,
       "n_dense": 141,
-      "rho_field": 0.662516686190645,
-      "p_field": 2.718688529543219e-19,
-      "rho_dense": 0.5793056209598013,
-      "p_dense": 5.2472204990537276e-14,
-      "delta_rho": 0.08321106523084365,
-      "Z_fisher": 1.1306473056985853,
-      "p_fisher": 0.2582035683126578
+      "rho_field": 0.6776217489432952,
+      "p_field": 2.0312639202171004e-20,
+      "rho_dense": 0.5435720707222055,
+      "p_dense": 3.2833886877641488e-12,
+      "delta_rho": 0.1340496782210897,
+      "Z_fisher": 1.793235691558432,
+      "p_fisher": 0.07293524530100104
     },
-    "interpretation": "Partial rho(density, dust | mass, z) = 0.069 (p = 8.51e-04). After additionally controlling for gamma_t: rho = 0.070 (p = 7.18e-04). Cell analysis: 5/10 cells show the TEP-predicted sign (field dustier). Fisher combined p = 2.22e-16."
+    "interpretation": "Partial rho(density, dust | mass, z) = 0.069 (p = 8.51e-04). After additionally controlling for gamma_t: rho = 0.067 (p = 1.19e-03). Cell analysis: 5/10 cells show the TEP-predicted sign (field dustier). Fisher combined p = 2.22e-16."
   },
   "test_2_double_residual": {
     "z_gt_8": {
       "n": 283,
       "polynomial_double_residual": {
         "degree": "cubic mass + quadratic z + interactions",
-        "rho": -0.00606329503976721,
-        "p": 0.9191139529781904,
-        "r2_gamma_from_mass_z": 0.9999999978276662,
+        "rho": -0.05875180411088438,
+        "p": 0.3247051994190676,
+        "r2_gamma_from_mass_z": 0.9920796036407711,
         "r2_dust_from_mass_z": 0.5784401593920714
       },
       "lowess_double_residual": {
         "method": "Sequential LOWESS (frac=0.3) on mass then z",
-        "rho": 0.24109592522430276,
-        "p": 4.157830948110302e-05
+        "rho": 0.09802979972913188,
+        "p": 0.09980827963019928
       },
       "partial_spearman_mass_z": {
-        "rho": 0.2617505389865666,
-        "p": 8.124749057016333e-06
+        "rho": 0.2776986663472457,
+        "p": 2.0893484782566255e-06
       },
       "partial_spearman_mass_z_interaction": {
-        "rho": 0.24524930017878221,
-        "p": 3.0279841339197735e-05
+        "rho": 0.26473675320645706,
+        "p": 6.341907356699504e-06
       }
     },
     "full_z4_10": {
       "n": 2315,
       "polynomial_double_residual": {
         "degree": "cubic mass + quadratic z + interactions",
-        "rho": 0.18303223255406414,
-        "p": 6.879530712028244e-19,
-        "r2_gamma_from_mass_z": 0.999994661428182,
+        "rho": -0.08717841388009985,
+        "p": 2.6659170690193093e-05,
+        "r2_gamma_from_mass_z": 0.9866732321592628,
         "r2_dust_from_mass_z": 0.2672913542298201
       },
       "lowess_double_residual": {
         "method": "Sequential LOWESS (frac=0.3) on mass then z",
-        "rho": 0.054436659375291595,
-        "p": 0.008800258514806782
+        "rho": -0.07682551275137223,
+        "p": 0.0002156932678944445
       },
       "partial_spearman_mass_z": {
-        "rho": 0.010018835552014584,
-        "p": 0.6299462737695487
+        "rho": -0.027821130748617064,
+        "p": 0.18085264341853585
       },
       "partial_spearman_mass_z_interaction": {
-        "rho": 0.03368922282951114,
-        "p": 0.10512001076210381
+        "rho": -0.022435457058167255,
+        "p": 0.280577741394756
       }
     }
   },
   "test_3_shuffled_mass": {
     "z_gt_8": {
       "n": 283,
-      "rho_observed": 0.5928581034360436,
-      "rho_shuffled_mean": 0.002084505983347646,
-      "rho_shuffled_std": 0.06393419828652129,
-      "z_score": 9.240337930025218,
+      "rho_observed": 0.6029791257884878,
+      "rho_shuffled_mean": -0.0004481085823262253,
+      "rho_shuffled_std": 0.06461049288605358,
+      "z_score": 9.339461864731666,
       "p_empirical": 0.0004997501249375312,
-      "signal_fraction_from_mass_ordering": 0.003516028491921454,
-      "unique_fraction_from_gamma_t_form": 0.9964839715080785,
+      "signal_fraction_from_mass_ordering": -0.0007431577034117964,
+      "unique_fraction_from_gamma_t_form": 1.0007431577034118,
       "n_shuffles": 2000,
-      "interpretation": "Observed rho = 0.593. After shuffling masses within z-bins: mean rho = 0.002 \u00b1 0.064. z-score = 9.2, p = 0.0005. The non-linear Gamma_t form captures 99.6% of the signal beyond what mass ordering within z-bins provides."
+      "interpretation": "Observed rho = 0.603. After shuffling masses within z-bins: mean rho = -0.000 \u00b1 0.065. z-score = 9.3, p = 0.0005. The non-linear Gamma_t form captures 100.1% of the signal beyond what mass ordering within z-bins provides."
     },
     "full_z4_10": {
       "n": 2315,
-      "rho_observed": -0.1177923670191006,
-      "rho_shuffled_mean": -0.18340873938539876,
-      "rho_shuffled_std": 0.01748991932659641,
-      "z_score": 3.751668097549041,
-      "p_empirical": 0.0004997501249375312,
-      "signal_fraction_from_mass_ordering": 1.5570511402972158,
-      "unique_fraction_from_gamma_t_form": -0.5570511402972158,
+      "rho_observed": -0.1986266500805318,
+      "rho_shuffled_mean": -0.2524065778123405,
+      "rho_shuffled_std": 0.015265400065633365,
+      "z_score": 3.5229949756038286,
+      "p_empirical": 0.0009995002498750624,
+      "signal_fraction_from_mass_ordering": 1.2707588720345633,
+      "unique_fraction_from_gamma_t_form": -0.2707588720345633,
       "n_shuffles": 2000,
-      "interpretation": "Observed rho = -0.118. After shuffling masses within z-bins: mean rho = -0.183 \u00b1 0.017. z-score = 3.8, p = 0.0005. The non-linear Gamma_t form captures -55.7% of the signal beyond what mass ordering within z-bins provides."
+      "interpretation": "Observed rho = -0.199. After shuffling masses within z-bins: mean rho = -0.252 \u00b1 0.015. z-score = 3.5, p = 0.0010. The non-linear Gamma_t form captures -27.1% of the signal beyond what mass ordering within z-bins provides."
     }
   },
   "overall_verdict": {
@@ -193,8 +193,8 @@
     "degeneracy_state": "narrowed_not_closed",
     "verdicts": [
       "Test 1 INCONCLUSIVE: environment density predicts dust at fixed mass/z but with the opposite sign to the field-dustier formulation (\u03c1=0.069, p=8.51e-04)",
-      "Test 2 PASS: nonparametric residual tests retain the z>8 signal after mass+z removal (LOWESS \u03c1=0.241; partial-rank \u03c1=0.262; partial-rank+interaction \u03c1=0.245)",
-      "Test 3 PASS: \u0393_t outperforms shuffled-mass \u0393_t (p=0.0005, unique fraction=99.6%)"
+      "Test 2 PASS: nonparametric residual tests retain the z>8 signal after mass+z removal (partial-rank \u03c1=0.278; partial-rank+interaction \u03c1=0.265)",
+      "Test 3 PASS: \u0393_t outperforms shuffled-mass \u0393_t (p=0.0005, unique fraction=100.1%)"
     ],
     "limitations": [
       "The environment-density branch remains inconclusive and sign-mixed.",

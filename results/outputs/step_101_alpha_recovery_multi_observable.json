@@ -5,45 +5,45 @@
   "n_observables": 4,
   "individual_fits": {
     "dust": {
-      "alpha_best": 0.5470537926706995,
-      "alpha_err": 0.32192180502263834,
-      "rho_best": 0.4855626952878356,
+      "alpha_best": 1.0284182757628273,
+      "alpha_err": 0.19997388077643732,
+      "rho_best": 0.428384530846886,
       "expected_sign": 1,
       "weight": 1.0
     },
     "age_ratio": {
-      "alpha_best": 1.0712153420322268,
-      "alpha_err": 0.3390773786228035,
-      "rho_best": 0.3261957626148341,
+      "alpha_best": 0.8689731405630776,
+      "alpha_err": 0.27887171822118945,
+      "rho_best": 0.2233223844417973,
       "expected_sign": 1,
       "weight": 1.0
     },
     "metallicity": {
-      "alpha_best": 1.2636805314412862,
-      "alpha_err": 0.3509595288206327,
-      "rho_best": 0.05303852057832884,
+      "alpha_best": 1.3003556640340959,
+      "alpha_err": 0.42972623000663396,
+      "rho_best": 0.04525015853580401,
       "expected_sign": 1,
       "weight": 0.5
     },
     "ssfr": {
-      "alpha_best": 1.316425993965525,
-      "alpha_err": 0.3747917058470957,
-      "rho_best": -0.40085655539167775,
+      "alpha_best": 0.9162021856924148,
+      "alpha_err": 0.22081575409009863,
+      "rho_best": -0.3315603873146853,
       "expected_sign": -1,
       "weight": 0.5
     }
   },
   "joint_fit": {
-    "alpha_0": 0.7478849957250335,
-    "alpha_0_err": 0.29190243953117023,
-    "tension_sigma": 0.5043455792801231,
+    "alpha_0": 1.0290521176915117,
+    "alpha_0_err": 0.20039097394312474,
+    "tension_sigma": 1.7511657887021745,
     "consistent_2sigma": true
   },
   "weighted_mean": {
-    "alpha_0": 1.0215379351015257,
-    "alpha_0_err": 0.17973041381263777,
-    "tension_sigma": 1.8349211577565814
+    "alpha_0": 0.9849207453320006,
+    "alpha_0_err": 0.13664925559629879,
+    "tension_sigma": 1.9244226439135474
   },
-  "improvement_over_dust_only": -0.13493878839573314,
+  "improvement_over_dust_only": -0.000633841928684431,
   "conclusion": "Joint \u03b1\u2080 is CONSISTENT with Cepheid calibration within 2\u03c3"
 }

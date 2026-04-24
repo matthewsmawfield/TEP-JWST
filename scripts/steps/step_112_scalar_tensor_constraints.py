@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-Step 135: Scalar-Tensor Constraint Comparison
+Step 112: Scalar-Tensor Constraint Comparison
 
 Compares TEP's α₀ = 0.58 ± 0.16 to other scalar-tensor constraints
 from Solar System tests, binary pulsars, and cosmology.
 
 Shows that TEP is compatible with all existing constraints due to
-the chameleon screening mechanism.
+the v0.7 Temporal Topology screening mechanism (field gradient flattening
+via Temporal Shear; Paper 0 / Jakarta).
 
 Author: TEP-JWST Pipeline
 """
@@ -122,7 +123,7 @@ def main():
             'name': 'Cepheid P-L (TEP-H0)',
             'omega_bd_limit': omega_bd_tep,
             'alpha_limit': ALPHA_0,
-            'reference': 'This work (Paper 12)',
+            'reference': 'TEP-H0 (Paper 11)',
             'environment': 'Galactic halos',
             'screened': False,  # Unscreened regime
         },

@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): 0.9s.
 """
-TEP-JWST Step 42: LRD Population Differential Temporal Shear Analysis
+TEP-JWST Step 42: LRD Population Differential Temporal Topology Analysis
 
-This step applies the differential temporal shear simulation to the full
+This step applies the differential temporal topology simulation to the full
 Kokorev et al. (2024) LRD population (N=260) to validate the mechanism
 at the population level.
 
 Inputs:
-- Step 41 simulation framework (differential shear calculation)
+- Step 41 simulation framework (differential topology calculation)
 
 Outputs:
 - results/outputs/step_042_lrd_population.json
@@ -34,7 +34,7 @@ from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Cen
 from scripts.utils.tep_model import compute_gamma_t as tep_gamma  # TEP model: Gamma_t = exp[alpha(z) * (2/3) * (log_Mh - log_Mh_ref) * z_factor]
 
 STEP_NUM = "042"  # Pipeline step number (sequential 001-176)
-STEP_NAME = "lrd_population"  # LRD population differential temporal shear: applies step_41 simulation to Kokorev+24 sample (N=260)
+STEP_NAME = "lrd_population"  # LRD population differential temporal topology: applies step_41 simulation to Kokorev+24 sample (N=260)
 
 OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
 LOGS_PATH = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
@@ -117,7 +117,7 @@ def estimate_halo_mass(log_mstar, z):
 def simulate_lrd_population():
     """Quarantine the legacy LRD population step in favor of the real-data validation path."""
     print_status("=" * 70, "INFO")
-    print_status(f"STEP {STEP_NUM}: LRD Population Differential Temporal Shear Analysis", "INFO")
+    print_status(f"STEP {STEP_NUM}: LRD Population Differential Temporal Topology Analysis", "INFO")
     print_status("=" * 70, "INFO")
 
     status = {

@@ -7,7 +7,7 @@ completely independent domains. If TEP is real, the SAME alpha parameter
 should work across:
 
 1. JWST high-z galaxies (this paper)
-2. SN Ia host galaxies (TEP-H0, alpha = 0.58)
+2. SN Ia host galaxies (TEP-H0, alpha_eff = 9.6e5 mag)
 3. Globular cluster pulsars (TEP-COS)
 
 This is the ultimate test: a single parameter explaining phenomena
@@ -31,10 +31,10 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
 from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma  # TEP model: Gamma_t = exp[alpha(z) * (2/3) * (log_Mh - log_Mh_ref) * z_factor]
+from scripts.utils.tep_model import ALPHA_0, compute_gamma_t as tep_gamma  # TEP model: alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), Gamma_t formula
 
 STEP_NUM = "055"  # Pipeline step number (sequential 001-176)
-STEP_NAME = "cross_domain"  # Cross-domain consistency: tests if alpha_0=0.58 works across JWST, SN Ia, and globular clusters (15 orders of magnitude)
+STEP_NAME = "cross_domain"  # Cross-domain consistency: tests if alpha_eff=9.6e5 mag works across JWST, SN Ia, and globular clusters (15 orders of magnitude)
 
 INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products (CSV format for step-to-step data flow)
 OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
@@ -94,7 +94,7 @@ def main():
         print_status(f"Maximum correlation: ρ = {optimal_rho:.3f}", "INFO")
         
         # Compare to TEP-H0 alpha
-        tep_h0_alpha = 0.58
+        tep_h0_alpha = ALPHA_0  # Legacy 0.58 maps to alpha_eff = 9.6e5 mag
         gamma_h0 = gamma_t_with_alpha(high_z['log_Mh'].values, high_z['z_phot'].values, tep_h0_alpha)
         rho_h0, p_h0 = spearmanr(gamma_h0, high_z['dust'])
         
@@ -133,7 +133,7 @@ def main():
                 'rho': float(rho),
                 'p': format_p_value(p)
             })
-            marker = "◆" if abs(alpha - 0.58) < 0.03 else ""
+            marker = "◆" if abs(alpha - ALPHA_0) < 0.03 else ""
             print_status(f"α = {alpha:.2f}: ρ = {rho:.3f} {marker}", "INFO")
         
         results['cross_domain']['alpha_sensitivity'] = alpha_results
@@ -269,10 +269,10 @@ def main():
     
     print_status(f"\nKey findings:", "INFO")
     print_status(f"  • JWST optimal alpha: {optimal_alpha:.3f}", "INFO")
-    print_status(f"  • TEP-H0 alpha: 0.58", "INFO")
-    print_status(f"  • Difference: {abs(optimal_alpha - 0.58):.3f} ({abs(optimal_alpha - 0.58)/0.58*100:.1f}%)", "INFO")
+    print_status(f"  • TEP-H0 alpha (legacy): {ALPHA_0}", "INFO")
+    print_status(f"  • Difference: {abs(optimal_alpha - ALPHA_0):.3f} ({abs(optimal_alpha - ALPHA_0)/ALPHA_0*100:.1f}%)", "INFO")
     
-    if abs(optimal_alpha - 0.58) / 0.58 < 0.2:
+    if abs(optimal_alpha - ALPHA_0) / ALPHA_0 < 0.2:
         print_status("\n✓ CROSS-DOMAIN CONSISTENCY CONFIRMED", "INFO")
         print_status("  The SAME alpha works across:", "INFO")
         print_status("  - JWST high-z galaxies (M_h ~ 10^10 M_sun)", "INFO")
@@ -281,9 +281,9 @@ def main():
     
     results['summary'] = {
         'jwst_alpha': float(optimal_alpha),
-        'tep_h0_alpha': 0.58,
-        'difference_percent': float(abs(optimal_alpha - 0.58)/0.58*100),
-        'consistent': bool(abs(optimal_alpha - 0.58) / 0.58 < 0.2)
+        'tep_h0_alpha': float(ALPHA_0),
+        'difference_percent': float(abs(optimal_alpha - ALPHA_0)/ALPHA_0*100),
+        'consistent': bool(abs(optimal_alpha - ALPHA_0) / ALPHA_0 < 0.2)
     }
     
     # Save

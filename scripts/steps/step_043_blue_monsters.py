@@ -45,7 +45,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import ALPHA_0, LOG_MH_REF, Z_REF, compute_gamma_t, stellar_to_halo_mass as tep_stellar_to_halo_mass  # TEP model: alpha_0=0.58, reference constants, Gamma_t formula, stellar-to-halo mass conversion
+from scripts.utils.tep_model import ALPHA_0, ALPHA_CLOCK_EFF, LOG_MH_REF, Z_REF, compute_gamma_t, stellar_to_halo_mass as tep_stellar_to_halo_mass  # TEP model: alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), reference constants, Gamma_t formula, stellar-to-halo mass conversion
 
 STEP_NUM = "043"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "blue_monsters_tep"  # Blue Monsters TEP analysis: quantifies TEP correction to SFE for massive z>5 galaxies (post-LRD cleaning)

@@ -18,19 +18,19 @@
     "median": 5.55
   },
   "temporal_enhancement": {
-    "mean_gamma_t": 9.352524050515754,
-    "median_gamma_t": 7.54960784999991
+    "mean_gamma_t": 10.94803086410702,
+    "median_gamma_t": 7.946943129435851
   },
   "sfe_analysis": {
     "mean_sfe_obs": 0.5,
-    "mean_sfe_true": 0.10875631279664226,
+    "mean_sfe_true": 0.11205876175892564,
     "mean_excess_obs": 2.5,
-    "mean_excess_corrected": 0.5437815639832113
+    "mean_excess_corrected": 0.5602938087946281
   },
   "anomaly_resolution": {
     "mean_pct_resolved": 100.0,
     "median_pct_resolved": 100.0,
     "fraction_still_anomalous": 0.0
   },
-  "conclusion": "TEP resolves 100% of the Blue Monster SFE anomaly on average. The residual ~0% excess (0.5x standard) may reflect genuine high-z physics (denser gas, faster cooling) operating in concert with TEP."
+  "conclusion": "TEP resolves 100% of the Blue Monster SFE anomaly on average. The residual ~0% excess (0.6x standard) may reflect genuine high-z physics (denser gas, faster cooling) operating in concert with TEP."
 }

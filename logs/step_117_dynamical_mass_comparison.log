@@ -1,21 +1,21 @@
-[17:00:21] ═══ =================================================================
-[17:00:21] ═══ STEP 117: TEP M*/M_dyn Correction — Real UNCOVER Data
-[17:00:21] ═══ =================================================================
-[17:00:21]     Loaded local object-level kinematic table: /Users/matthewsmawfield/www/TEP-JWST/data/interim/literature_kinematic_sample.json (N=5)
-[17:00:21]     Direct object-level sample loaded as supplementary; matched regime-level fallback remains primary.
-[17:00:21]     Direct object-level sample is marked authoritative for downstream beta propagation.
-[17:00:21] >>> Loaded UNCOVER TEP catalog: N = 2315
-[17:00:21] >>> Kinematic regime (z>4, log M*>9.5): N = 71
-[17:00:21]     Mean Gamma_t: 7.388 ± 18.222
-[17:00:21]     Mean mass correction factor: 2.119×
-[17:00:21]     Mean Δlog M* (SED − TEP): 0.256 dex
-[17:00:21]     Median Δlog M*: 0.170 dex
-[17:00:21]       z=4–5,  logM*=9.5–10.5: N=30, mean Γ_t=1.73, mean corr=1.31× (Δlog M*=0.11 dex)
-[17:00:21]       z=5–7,  logM*>9.5: N=20, mean Γ_t=2.93, mean corr=1.65× (Δlog M*=0.20 dex)
-[17:00:21]       z>7,    logM*>9.5: N=21, mean Γ_t=19.72, mean corr=3.73× (Δlog M*=0.51 dex)
-[17:00:21]     
+[14:25:15] ═══ =================================================================
+[14:25:15] ═══ STEP 117: TEP M*/M_dyn Correction — Real UNCOVER Data
+[14:25:15] ═══ =================================================================
+[14:25:15]     Loaded local object-level kinematic table: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/interim/literature_kinematic_sample.json (N=5)
+[14:25:15]     Direct object-level sample loaded as supplementary; matched regime-level fallback remains primary.
+[14:25:15]     Direct object-level sample is marked authoritative for downstream beta propagation.
+[14:25:15] >>> Loaded UNCOVER TEP catalog: N = 2315
+[14:25:15] >>> Kinematic regime (z>4, log M*>9.5): N = 71
+[14:25:15]     Mean Gamma_t: 1.497 ± 1.099
+[14:25:15]     Mean mass correction factor: 1.184×
+[14:25:15]     Mean Δlog M* (SED − TEP): 0.064 dex
+[14:25:15]     Median Δlog M*: 0.035 dex
+[14:25:15]       z=4–5,  logM*=9.5–10.5: N=30, mean Γ_t=1.25, mean corr=1.11× (Δlog M*=0.04 dex)
+[14:25:15]       z=5–7,  logM*>9.5: N=20, mean Γ_t=1.43, mean corr=1.16× (Δlog M*=0.06 dex)
+[14:25:15]       z>7,    logM*>9.5: N=21, mean Γ_t=1.92, mean corr=1.31× (Δlog M*=0.10 dex)
+[14:25:15]     
 --- Model Prediction vs Published Tension ---
-[17:00:21]     Published M*/M_dyn excess (de Graaff+24): ~0.15 dex
-[17:00:21]     TEP mean reduction in this regime: 0.40 dex
-[17:00:21] ✓   Resolution achieved: YES
-[17:00:21] ✓   Results saved to step_117_dynamical_mass_comparison.json
+[14:25:15]     Published M*/M_dyn excess (de Graaff+24): ~0.15 dex
+[14:25:15]     TEP mean reduction in this regime: 0.34 dex
+[14:25:15] ✓   Resolution achieved: YES
+[14:25:15] ✓   Results saved to step_117_dynamical_mass_comparison.json

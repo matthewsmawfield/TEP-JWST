@@ -262,10 +262,11 @@ def main():
         above_thresh = high_z[high_z['t_eff'] > 0.3]
         below_thresh = high_z[high_z['t_eff'] <= 0.3]
         
+        # Initialize means
+        mean_dust_above = above_thresh['dust'].mean() if len(above_thresh) > 0 else 0
+        mean_dust_below = below_thresh['dust'].mean() if len(below_thresh) > 0 else 0
+        
         if len(above_thresh) > 10 and len(below_thresh) > 10:
-            mean_dust_above = above_thresh['dust'].mean()
-            mean_dust_below = below_thresh['dust'].mean()
-            
             print_status(f"t_eff > 300 Myr: N = {len(above_thresh)}, <A_V> = {mean_dust_above:.3f}", "INFO")
             print_status(f"t_eff ≤ 300 Myr: N = {len(below_thresh)}, <A_V> = {mean_dust_below:.3f}", "INFO")
             print_status(f"Ratio: {mean_dust_above/mean_dust_below:.2f}×", "INFO")
@@ -277,8 +278,8 @@ def main():
         results['unique_predictions']['t_eff_threshold'] = {
             'n_above': int(len(above_thresh)),
             'n_below': int(len(below_thresh)),
-            'mean_dust_above': float(mean_dust_above) if len(above_thresh) > 0 else 0,
-            'mean_dust_below': float(mean_dust_below) if len(below_thresh) > 0 else 0
+            'mean_dust_above': float(mean_dust_above),
+            'mean_dust_below': float(mean_dust_below)
         }
     
     # ==========================================================================

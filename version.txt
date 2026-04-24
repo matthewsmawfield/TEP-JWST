@@ -1,0 +1,6 @@
+v0.3 (Kos) — Clock-Sector Coupling Harmonization
+
+- Replaced thin-shell terminology with continuous geometric screening governed by Temporal Topology.
+- Harmonized clock-sector coupling nomenclature: Formalized α_eff = (9.6 ± 4.0) × 10^5 mag from Paper 11 Cepheid analysis in shared tep_model.py.
+- Updated 34 pipeline steps to import unified couplings; removed obsolete Step 164.
+- Refined PPN safety exposition: Temporal Shear as non-linear field gradient superposition resolving local constraints without rigid boundary approximations.
