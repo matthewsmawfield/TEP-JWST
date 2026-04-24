@@ -1,17 +1,17 @@
-[17:00:12]     STEP 102: Literature anomaly resolution table
-[17:00:12]   Total JWST anomalies: 11
-[17:00:12]   Resolved by TEP: 11/11 (100%)
-[17:00:12]   Mean resolution fraction: 0.91
-[17:00:12]     [RESOLVED] Anomalous Galaxies (Labbe+2023)
-[17:00:12]     [RESOLVED] Dust Anomaly at z>4 (UNCOVER)
-[17:00:12]     [RESOLVED] sSFR Inversion at z>7 (UNCOVER)
-[17:00:12]     [RESOLVED] Red Monster / Dust Saturation Crisis
-[17:00:12]     [RESOLVED] Little Red Dots (Matthee+2024)
-[17:00:12]     [RESOLVED] Blue Core / Positive Color Gradient (Jin+2025)
-[17:00:12]     [RESOLVED] M* > M_dyn Crisis (de Graaff+2024)
-[17:00:12]     [RESOLVED] Environmental Reversal (EPOCHS+2025)
-[17:00:12]     [RESOLVED] Metallicity Gradient Flip (Ju+2025)
-[17:00:12]     [RESOLVED] Rapid Quenching at z~4 (multiple)
-[17:00:12]     [RESOLVED] Spin Asymmetry (Shamir+2025)
-[17:00:12] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_102_literature_anomaly_resolution.json
-[17:00:12]     Step 102 complete. 11/11 anomalies resolved.
+[14:25:05]     STEP 102: Literature anomaly resolution table
+[14:25:05]   Total JWST anomalies: 11
+[14:25:05]   Resolved by TEP: 11/11 (100%)
+[14:25:05]   Mean resolution fraction: 0.91
+[14:25:05]     [RESOLVED] Anomalous Galaxies (Labbe+2023)
+[14:25:05]     [RESOLVED] Dust Anomaly at z>4 (UNCOVER)
+[14:25:05]     [RESOLVED] sSFR Inversion at z>7 (UNCOVER)
+[14:25:05]     [RESOLVED] Red Monster / Dust Saturation Crisis
+[14:25:05]     [RESOLVED] Little Red Dots (Matthee+2024)
+[14:25:05]     [RESOLVED] Blue Core / Positive Color Gradient (Jin+2025)
+[14:25:05]     [RESOLVED] M* > M_dyn Crisis (de Graaff+2024)
+[14:25:05]     [RESOLVED] Environmental Reversal (EPOCHS+2025)
+[14:25:05]     [RESOLVED] Metallicity Gradient Flip (Ju+2025)
+[14:25:05]     [RESOLVED] Rapid Quenching at z~4 (multiple)
+[14:25:05]     [RESOLVED] Spin Asymmetry (Shamir+2025)
+[14:25:05] Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_102_literature_anomaly_resolution.json
+[14:25:05]     Step 102 complete. 11/11 anomalies resolved.

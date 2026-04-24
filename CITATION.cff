@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "The Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies"
+title: "Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies"
 message: "If you use this software, please cite it as below."
 type: article
 authors:
@@ -7,9 +7,9 @@ authors:
     given-names: "Matthew Lukin"
     orcid: "https://orcid.org/0009-0003-8219-3159"
 abstract: >
-  This work demonstrates that JWST's 'impossible' high-redshift galaxies are natural consequences of the Temporal Equivalence Principle (TEP). Galaxies formed in deep gravitational potentials experience enhanced proper time evolution, resolving the apparent age paradox without invoking exotic physics or systematic errors.
+  JWST has revealed a set of high-redshift anomalies that appear disparate in detail but share a common structure: star formation efficiencies exceeding LambdaCDM limits, overmassive black holes, and anomalous stellar-to-dynamical mass ratios all appear preferentially in the deepest gravitational potentials. This work tests whether that common pattern can arise from a single violation of the isochrony axiom. In the Temporal Equivalence Principle (TEP), a chameleon-screened scalar-tensor theory, proper time depends on environment in unscreened halos. Using the clock-sector coupling alpha_eff = (9.6 +/- 4.0) x 10^5 mag measured by Paper 11's Cepheid analysis, applied directly to the potential-linear Gamma_t formula (zero free JWST parameters), the framework fully resolves the Red Monster efficiency excess and provides a physical route to differential black-hole growth in Little Red Dots.
 license: CC-BY-4.0
-version: 0.2
+version: "0.3"
 date-released: 2026-03-22
 keywords:
   - jwst
@@ -24,7 +24,7 @@ doi: 10.5281/zenodo.19000827
 
 preferred-citation:
   type: article
-  title: "The Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies"
+  title: "Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies"
   authors:
     - family-names: Smawfield
       given-names: Matthew Lukin
@@ -37,4 +37,4 @@ preferred-citation:
     value: 10.5281/zenodo.19000827
     description: Pre-print DOI
   url: "https://doi.org/10.5281/zenodo.19000827"
-  notes: "Preprint, Version 0.2 (Kos)"
+  notes: "Preprint, Version 0.3 (Kos)"

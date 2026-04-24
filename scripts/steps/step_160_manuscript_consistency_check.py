@@ -32,7 +32,7 @@ set_step_logger(logger)
 ROOT = PROJECT_ROOT
 OUTPUT = ROOT / "results/outputs/step_160_manuscript_consistency_check.json"
 RUN_ALL = ROOT / "scripts/steps/run_all_steps.py"
-GENERATED_ROOT_MARKDOWN = ROOT / "13manuscript-tep-jwst.md"
+GENERATED_ROOT_MARKDOWN = ROOT / "12-TEP-JWST-v0.3-Kos.md"
 
 FILES = {
     "abstract": ROOT / "site/components/1_abstract.html",

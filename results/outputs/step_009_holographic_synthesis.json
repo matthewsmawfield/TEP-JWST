@@ -2,10 +2,10 @@
   "sfr_burstiness": {
     "test": "SFR Burstiness",
     "n": 2315,
-    "rho_raw": -0.16626848129900268,
-    "p_raw": 8.165148394248038e-16,
-    "rho_partial": 0.019083329523265597,
-    "p_partial": 0.358738500153842
+    "rho_raw": -0.24571848864654142,
+    "p_raw": 3.524285149170432e-33,
+    "rho_partial": 0.018024188080045335,
+    "p_partial": 0.3860374245189474
   },
   "quenching": {
     "test": "Quenching Timescale",
@@ -124,7 +124,7 @@
   "cross_domain": {
     "test": "Cross-Domain Consistency",
     "alpha_from_tep_h0": 0.58,
-    "rho_observed": 0.23346567688787442,
+    "rho_observed": 0.25993606395781466,
     "conclusion": "Consistent - same \u03b1 works across domains"
   },
   "density_proxy": {
@@ -132,13 +132,13 @@
     "mh_median": 9.944592600163167,
     "low_mh": {
       "n": 1157,
-      "rho": -0.15962274546518423,
-      "p": 4.7966869240463684e-08
+      "rho": -0.18952241585438023,
+      "p": 8.109075744320657e-11
     },
     "high_mh": {
       "n": 1158,
-      "rho": 0.13158647617788283,
-      "p": 7.038521123643619e-06
+      "rho": 0.1180447812041226,
+      "p": 5.65553028260583e-05
     }
   }
 }

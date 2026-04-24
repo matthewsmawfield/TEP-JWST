@@ -10,13 +10,12 @@ TEP formulation, without ad hoc adjustments.
 The Core Equation:
     dτ/dt = exp(α · Φ/c²)
     
-    For a halo: Γ_t = exp[α(z) · (2/3) · (log M_h - log M_ref) · z_factor]
+    For a halo: Γ_t = exp[ K * (Φ - Φ_ref)/c^2 * sqrt(1+z) ]
     
     where:
-    - α(z) = α_0 · √(1+z)
-    - α_0 = 0.58 (from Cepheid calibration, Paper 12)
-    - log M_ref = 12.0
-    - z_factor = (1+z)/(1+z_ref)
+    - K = 1.26e6 (clock-sector coupling)
+    - Φ = Potential depth (propto M_h^(2/3))
+    - Φ_ref = Reference potential depth
 
 Key Insight:
     For log M_h < 12: Γ_t < 1 (proper time accumulates slower)
@@ -41,7 +40,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging with structured severity levels (DEBUG/INFO/WARNING/ERROR)
 from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting (prevents floating-point underflow) & JSON serialiser for numpy/scipy types
-from scripts.utils.tep_model import ALPHA_0, LOG_MH_REF, Z_REF, compute_gamma_t as tep_gamma, compute_effective_time  # TEP model: alpha_0=0.58 from Cepheids, Gamma_t formula, t_eff = Gamma_t * t_cosmic
+from scripts.utils.tep_model import ALPHA_0, ALPHA_CLOCK_EFF, LOG_MH_REF, Z_REF, compute_gamma_t as tep_gamma, compute_effective_time  # TEP model: alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), Gamma_t formula, t_eff = Gamma_t * t_cosmic
 
 STEP_NUM = "003"  # Pipeline step number (sequential identifier for ordering)
 STEP_NAME = "first_principles"  # Logical identifier: derives TEP predictions from core equation dτ/dt = exp(α·Φ/c²)
@@ -74,11 +73,11 @@ def test_two_regimes(df):
     """
     Test the two Gamma_t regimes predicted by the TEP equation.
 
-    Because Gamma_t = exp[alpha(z) * (2/3) * (log_Mh - 12) * z_factor],
-    the sign of the exponent is determined by (log_Mh - 12):
-      - log_Mh < 12  =>  exponent < 0  =>  Gamma_t < 1  (suppressed)
-      - log_Mh > 12  =>  exponent > 0  =>  Gamma_t > 1  (enhanced)
-      - log_Mh = 12  =>  exponent = 0  =>  Gamma_t = 1  (reference)
+    Because Γ_t = exp[ K * (Φ - Φ_ref)/c^2 * sqrt(1+z) ],
+    the sign of the exponent is determined by (Φ - Φ_ref):
+      - Φ < Φ_ref  =>  exponent < 0  =>  Γ_t < 1  (suppressed)
+      - Φ > Φ_ref  =>  exponent > 0  =>  Γ_t > 1  (enhanced)
+      - Φ = Φ_ref  =>  exponent = 0  =>  Γ_t = 1  (reference)
 
     Most UNCOVER galaxies at z > 4 have log_Mh < 12, so the majority
     of the sample is in the suppressed regime. The enhanced regime
@@ -287,14 +286,14 @@ def test_mass_dependence(df):
 # =============================================================================
 
 def test_cross_domain():
-    """Verify cross-domain consistency of alpha_0 = 0.58.
+    """Verify cross-domain consistency of alpha_eff = 9.6e5 mag (alpha_0 = 0.58 legacy).
 
     The TEP coupling constant alpha_0 was derived independently from
     Cepheid period-luminosity observations in SN Ia host galaxies at
-    z ~ 0 (Paper 12, TEP-H0). Here it is applied unchanged to JWST
+    z ~ 0 (Paper 11, TEP-H0). Here it is applied unchanged to JWST
     galaxies at z = 4-10, a completely different observable domain.
 
-    The fact that a single parameter (alpha_0 = 0.58 +/- 0.16) produces
+    The fact that the Paper 11 coupling (alpha_eff = 9.6e5 mag, alpha_0 = 0.58 legacy) produces
     statistically significant correlations across 10 Gyr of cosmic time
     and across different physical observables (Cepheid periods vs stellar
     population properties) constitutes strong evidence for a single
@@ -305,7 +304,7 @@ def test_cross_domain():
     print_status("=" * 60, "INFO")
     
     print_status("\nCross-Domain Consistency:", "INFO")
-    print_status("  α₀ = 0.58 derived from Cepheids at z ~ 0", "INFO")
+    print_status("  α_eff = 9.6×10⁵ mag derived from Cepheids at z ~ 0", "INFO")
     print_status("  Applied to JWST galaxies at z = 4-10 with NO TUNING", "INFO")
     print_status("", "INFO")
     
@@ -314,12 +313,13 @@ def test_cross_domain():
     print_status("  - SH0ES Cepheid observations in 37 SN Ia hosts", "INFO")
     print_status("  - Correlation: H0 decreases with host σ", "INFO")
     print_status("  - Interpretation: Cepheid periods dilated in deep potentials", "INFO")
-    print_status("  - Best fit: α₀ = 0.58 ± 0.16", "INFO")
+    print_status("  - Best fit: α_eff = (9.6 ± 4.0) × 10⁵ mag", "INFO")
     print_status("", "INFO")
     
     # Show how it predicts JWST
     print_status("TEP-JWST Predictions (using same α):", "INFO")
-    print_status("  - Γ_t = exp[α(z) × (2/3) × (log M_h - 12) × z_factor]", "INFO")
+    print_status("    - Γ_t = exp[ K * (Φ - Φ_ref)/c^2 * sqrt(1+z) ]", "INFO")
+    print_status("    - K = 1.26e6 (from Cepheid calibration, Paper 11)", "INFO")
     print_status("  - α(z) = 0.58 × √(1+z)", "INFO")
     print_status("", "INFO")
     print_status("  At z = 8, log M_h = 12.5:", "INFO")
@@ -409,7 +409,7 @@ def main():
     print_status("=" * 70, "INFO")
     print_status("", "INFO")
     print_status("The Core Equation:", "INFO")
-    print_status("  Γ_t = exp[α(z) × (2/3) × (log M_h - 12) × z_factor]", "INFO")
+    print_status("  Γ_t = exp[ K * (Φ - Φ_ref)/c^2 * sqrt(1+z) ]", "INFO")
     print_status("", "INFO")
     print_status(f"  α₀ = {ALPHA_0} (from Cepheids)", "INFO")
     print_status(f"  log M_h,ref = {LOG_MH_REF}", "INFO")

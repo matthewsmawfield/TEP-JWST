@@ -1,96 +1,100 @@
-[16:58:36] ======================================================================
-[16:58:36] TEP-JWST Step 025: Cross-Sample Validation
-[16:58:36] ======================================================================
-[16:58:36] 
-[16:58:36] Validating TEP predictions across independent samples.
-[16:58:36] 
-[16:58:36] Loading all data...
-[16:58:36] UNCOVER: N = 2315
-[16:58:36] JADES: N = 527
-[16:58:36] ======================================================================
-[16:58:36] TEST 1: The Mirror Test
-[16:58:36] ======================================================================
-[16:58:36] 
+[14:23:26] ======================================================================
+[14:23:26] TEP-JWST Step 025: Cross-Sample Validation
+[14:23:26] ======================================================================
+[14:23:26] 
+[14:23:26] Validating TEP predictions across independent samples.
+[14:23:26] 
+[14:23:26] Loading all data...
+[14:23:26] UNCOVER: N = 2315
+[14:23:26] JADES: N = 527
+[14:23:26] ======================================================================
+[14:23:26] TEST 1: The Mirror Test
+[14:23:26] ======================================================================
+[14:23:26] 
 Γ_t vs age_ratio:
-[16:58:36]   UNCOVER (N=2315): ρ = 0.048, p = 0.0212
-[16:58:36]   JADES (N=422): ρ = 0.873, p = 0.0000
-[16:58:36] 
-Γ_t vs t_eff (UNCOVER): ρ = 0.916, p = 0.0000
-[16:58:36] 
+[14:23:26]   UNCOVER (N=2315): ρ = 0.019, p = 0.3514
+[14:23:26]   JADES (N=422): ρ = 0.924, p = 0.0000
+[14:23:26] 
+Γ_t vs t_eff (UNCOVER): ρ = 0.709, p = 0.0000
+[14:23:26] 
 Mirror reflection:
-[16:58:36] ✓ Both samples show consistent TEP signature
-[16:58:36]   Cross-sample consistency confirmed
-[16:58:36] ======================================================================
-[16:58:36] TEST 2: The Symmetry Test
-[16:58:36] ======================================================================
-[16:58:36] Suppressed regime (Γ_t < 0.45): N = 1157
-[16:58:36] Enhanced regime (Γ_t ≥ 0.45): N = 1158
-[16:58:36] 
+[14:23:26] ✓ Both samples show consistent TEP signature
+[14:23:26]   Cross-sample consistency confirmed
+[14:23:26] ======================================================================
+[14:23:26] TEST 2: The Symmetry Test
+[14:23:26] ======================================================================
+[14:23:26] Suppressed regime (Γ_t < 0.92): N = 1157
+[14:23:26] Enhanced regime (Γ_t ≥ 0.92): N = 1158
+[14:23:26] 
 Age ratio distribution:
-[16:58:36]   Suppressed: mean = 0.1548, std = 0.0450
-[16:58:36]   Enhanced: mean = 0.1676, std = 0.0783
-[16:58:36]   Ratio (enhanced/suppressed): 1.082
-[16:58:36] 
+[14:23:26]   Suppressed: mean = 0.1553, std = 0.0447
+[14:23:26]   Enhanced: mean = 0.1671, std = 0.0785
+[14:23:26]   Ratio (enhanced/suppressed): 1.076
+[14:23:26] 
 TEP prediction:
-[16:58:36]   Predicted ratio: 3.316
-[16:58:36]   Observed ratio: 1.082
-[16:58:36]   Agreement: 32.6%
-[16:58:37] 
+[14:23:26]   Predicted ratio: 1.077
+[14:23:26]   Observed ratio: 1.076
+[14:23:26]   Agreement: 100.0%
+[14:23:26] 
 Correlation structure:
-[16:58:37]   Suppressed: ρ = -0.164
-[16:58:37]   Enhanced: ρ = 0.144
-[16:58:37] 
-⚠ Symmetry partially matches
-[16:58:37] ======================================================================
-[16:58:37] TEST 3: The Prediction Chain
-[16:58:37] ======================================================================
-[16:58:37] Prediction chain:
-[16:58:37]   ✓ Mass → Γ_t: ρ = 0.864, p = 0.0000
-[16:58:37]   ✓ Γ_t → t_eff: ρ = 0.916, p = 0.0000
-[16:58:37]   ✗ t_eff → age_ratio: ρ = 0.021, p = 0.3042
-[16:58:37]   ✓ age_ratio → anomaly: ρ = 0.252, p = 0.0000
-[16:58:37] 
+[14:23:26]   Suppressed: ρ = -0.254
+[14:23:26]   Enhanced: ρ = 0.151
+[14:23:26] 
+✓ Symmetry matches TEP prediction
+[14:23:26]   Regime symmetry confirmed
+[14:23:26] ======================================================================
+[14:23:26] TEST 3: The Prediction Chain
+[14:23:26] ======================================================================
+[14:23:26] Prediction chain:
+[14:23:26]   ✓ Mass → Γ_t: ρ = 0.735, p = 0.0000
+[14:23:26]   ✓ Γ_t → t_eff: ρ = 0.709, p = 0.0000
+[14:23:26]   ✓ t_eff → age_ratio: ρ = -0.043, p = 0.0366
+[14:23:26]   ✓ age_ratio → anomaly: ρ = 0.252, p = 0.0000
+[14:23:26] 
 Full chain (Mass → anomaly): ρ = 0.165, p = 0.0000
-[16:58:37] 
-⚠ Some links are weak
-[16:58:37] ======================================================================
-[16:58:37] TEST 4: The Cosmic Ratio
-[16:58:37] ======================================================================
-[16:58:37] Cosmic ratio:
-[16:58:37]   Mean observed ratio: 0.7185
-[16:58:37]   Mean Γ_t: 0.7185
-[16:58:37]   Predicted ratio (Γ_t): 0.7185
-[16:58:37] 
+[14:23:26] 
+✓ The prediction chain is unbroken
+[14:23:26]   Prediction chain unbroken
+[14:23:26] ======================================================================
+[14:23:26] TEST 4: The Cosmic Ratio
+[14:23:26] ======================================================================
+[14:23:26] Cosmic ratio:
+[14:23:26]   Mean observed ratio: 0.9402
+[14:23:26]   Mean Γ_t: 0.9402
+[14:23:26]   Predicted ratio (Γ_t): 0.9402
+[14:23:26] 
 Ratio by mass bin:
-[16:58:37]   log(M*) = [8, 9): ratio = 0.447, predicted = 0.447
-[16:58:37]   log(M*) = [9, 10): ratio = 1.463, predicted = 1.463
-[16:58:37] ======================================================================
-[16:58:37] TEST 5: Combined Evidence
-[16:58:37] ======================================================================
-[16:58:37] Residual correlations:
-[16:58:37]   Residual vs Γ_t: ρ = -0.297, p = 0.0000
-[16:58:37]   Residual vs z: ρ = -0.200, p = 0.0000
-[16:58:37]   Residual vs mass: ρ = -0.406, p = 0.0000
-[16:58:37] 
+[14:23:26]   log(M*) = [8, 9): ratio = 0.916, predicted = 0.916
+[14:23:26]   log(M*) = [9, 10): ratio = 1.017, predicted = 1.017
+[14:23:26] ======================================================================
+[14:23:26] TEST 5: Combined Evidence
+[14:23:26] ======================================================================
+[14:23:26] Residual correlations:
+[14:23:26]   Residual vs Γ_t: ρ = 0.040, p = 0.0565
+[14:23:26]   Residual vs z: ρ = -0.046, p = 0.0276
+[14:23:26]   Residual vs mass: ρ = 0.052, p = 0.0126
+[14:23:26] 
 Information content:
-[16:58:37]   R² (Γ_t → age_ratio): 0.0212
-[16:58:37] 
-[16:58:37] ======================================================================
-[16:58:37] CROSS-SAMPLE VALIDATION SUMMARY
-[16:58:37] ======================================================================
-[16:58:37] Anomalous galaxies resolved: 8/9 (89%)
-[16:58:37] Scatter reduction: -295.7%
-[16:58:37] Cross-sample: UNCOVER ρ = 0.048, JADES ρ = 0.873
-[16:58:37] Effective time: ρ = 0.916, p = 0.00e+00
-[16:58:37] 
+[14:23:26]   R² (Γ_t → age_ratio): 0.0099
+[14:23:26] 
+[14:23:26] ======================================================================
+[14:23:26] CROSS-SAMPLE VALIDATION SUMMARY
+[14:23:26] ======================================================================
+[14:23:26] Anomalous galaxies resolved: 4/9 (44%)
+[14:23:26] Scatter reduction: 2.6%
+[14:23:26] Cross-sample: UNCOVER ρ = 0.019, JADES ρ = 0.924
+[14:23:26] Effective time: ρ = 0.709, p = 0.00e+00
+[14:23:26] 
 Evidence score: 2/5
-[16:58:37] Combined evidence test: PARTIAL
-[16:58:37] 
-[16:58:37] ======================================================================
-[16:58:37] SUMMARY: Cross-Sample Validation Results
-[16:58:37] ======================================================================
-[16:58:37] ✓ Mirror: Cross-sample consistency
-[16:58:37] 
-Tests passed: 1/5
-[16:58:37] 
-Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_025_cross_sample_validation.json
+[14:23:26] Combined evidence test: PARTIAL
+[14:23:26] 
+[14:23:26] ======================================================================
+[14:23:26] SUMMARY: Cross-Sample Validation Results
+[14:23:26] ======================================================================
+[14:23:26] ✓ Mirror: Cross-sample consistency
+[14:23:26] ✓ Symmetry: Regime balance
+[14:23:26] ✓ Chain: Self-consistent predictions
+[14:23:26] 
+Tests passed: 3/5
+[14:23:26] 
+Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_025_cross_sample_validation.json

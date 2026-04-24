@@ -42,10 +42,10 @@
         "std_residual_dex": 0.7146907466293976
       },
       "corrected_mstar_sigma_fit": {
-        "slope": 2.0825249258952208,
-        "intercept": 5.4578919133888215,
-        "r2": 0.4776459031447374,
-        "std_residual_dex": 0.7128922829621297
+        "slope": 1.734358765739121,
+        "intercept": 6.073487184910763,
+        "r2": 0.40124276926129,
+        "std_residual_dex": 0.6935295125976743
       },
       "observed_residual_z_trend": {
         "partial_rho_resid_z_given_sigma": -0.49733351384751323,
@@ -57,18 +57,18 @@
         ]
       },
       "corrected_residual_z_trend": {
-        "partial_rho_resid_z_given_sigma": -0.523307841663241,
-        "p": 3.856635634836061e-07,
+        "partial_rho_resid_z_given_sigma": -0.47659325831636273,
+        "p": 5.247662779082599e-06,
         "n": 83,
         "ci_95": [
-          -0.6495002347049144,
-          -0.34224773719605445
+          -0.6183169802144357,
+          -0.2899713607787759
         ]
       },
-      "z_trend_improved": false,
+      "z_trend_improved": true,
       "scatter_improved": true,
-      "scatter_change_fraction": 0.0025164222088360777,
-      "mean_tep_correction_dex": 0.05248692051440402
+      "scatter_change_fraction": 0.029608938035819432,
+      "mean_tep_correction_dex": 0.11358634797358233
     },
     "T2_fundamental_plane": {
       "n": 61,
@@ -81,36 +81,36 @@
         "std_residual_dex": 0.5995539487620688
       },
       "corrected_fp": {
-        "coeff_log_sigma": 1.5956868933703192,
-        "coeff_log_re": 1.2606413373880339,
-        "intercept": 6.4106133435927255,
-        "r2": 0.5259081885426131,
-        "std_residual_dex": 0.5970160411443389
+        "coeff_log_sigma": 1.221517888348723,
+        "coeff_log_re": 1.169104107192117,
+        "intercept": 7.099639381292508,
+        "r2": 0.4411274797986453,
+        "std_residual_dex": 0.5671663948981642
       },
       "r2_improved": false,
       "scatter_improved": true,
-      "scatter_change_fraction": 0.004232992915766842,
+      "scatter_change_fraction": 0.05401941548509004,
       "observed_resid_z_trend": {
         "partial_rho": -0.3000337091242585,
         "p": 0.018810500896570524,
         "n": 61
       },
       "corrected_resid_z_trend": {
-        "partial_rho": -0.32447211518587554,
-        "p": 0.01073482727863766,
+        "partial_rho": -0.2425808203831544,
+        "p": 0.05961058637617577,
         "n": 61
       },
-      "z_trend_improved": false
+      "z_trend_improved": true
     },
     "T3_gamma_sigma_only_prediction": {
       "n": 83,
       "description": "Does sigma-only Gamma_t add predictive power for M*_obs beyond log(sigma) and z? Positive partial = TEP-consistent z-dependent mass enhancement.",
-      "partial_rho_gamma_mstar_given_sigma_z": 0.3264727183166993,
-      "p_partial_gamma_mstar_given_sigma_z": 0.002593640803285009,
+      "partial_rho_gamma_mstar_given_sigma_z": 0.34360541127714217,
+      "p_partial_gamma_mstar_given_sigma_z": 0.0014709971912229057,
       "n_partial": 83,
       "ci_95_partial_gamma_mstar_given_sigma_z": [
-        0.10150783330479503,
-        0.5122135491832388
+        0.11840495842883729,
+        0.5385553945778664
       ],
       "partial_rho_z_mstar_given_sigma": -0.5122119755288399,
       "p_partial_z_mstar_given_sigma": 7.428872294652393e-07,
@@ -126,8 +126,8 @@
           "n": 41,
           "partial_rho_resid_z_given_sigma": -0.0352079843354728,
           "p_resid_z": 0.8270108099994259,
-          "partial_rho_gamma_mstar_given_sigma_z": 0.23441133937199607,
-          "p_gamma_mstar": 0.1401616029041073
+          "partial_rho_gamma_mstar_given_sigma_z": 0.13438735548466724,
+          "p_gamma_mstar": 0.40220073529941486
         },
         "Esdaile et al. 2021": {
           "n": 4,
@@ -144,8 +144,8 @@
           "n": 15,
           "partial_rho_resid_z_given_sigma": 0.15571023185481325,
           "p_resid_z": 0.5794805768598782,
-          "partial_rho_gamma_mstar_given_sigma_z": -0.42090080048875317,
-          "p_gamma_mstar": 0.1182082701125719
+          "partial_rho_gamma_mstar_given_sigma_z": 0.031159463261371492,
+          "p_gamma_mstar": 0.9122220676500441
         },
         "Tanaka et al. 2019": {
           "n": 1,
@@ -169,11 +169,11 @@
         -0.5305822036142415,
         -0.08264014625697694
       ],
-      "partial_rho_gamma_mstar_given_sigma_z": 0.3261587271078059,
-      "p_gamma_mstar": 0.01415944656068624,
+      "partial_rho_gamma_mstar_given_sigma_z": 0.258091060320722,
+      "p_gamma_mstar": 0.05479588100715019,
       "ci_95_gamma_mstar": [
-        0.07269505280749965,
-        0.5330337863378279
+        -0.014296269114818025,
+        0.4663248126454463
       ]
     }
   },

@@ -7,15 +7,15 @@
     {
       "survey": "CEERS",
       "n": 1499,
-      "rho": 0.7771715188853093,
-      "p": 1e-300,
+      "rho": 0.766888034835863,
+      "p": 1.2228074899694589e-290,
       "z_mean": 5.652591280952515,
       "z_std": 1.333167604888023
     },
     {
       "survey": "COSMOS-Web",
       "n": 49397,
-      "rho": 0.43827168970605085,
+      "rho": 0.4779985017478439,
       "p": 1e-300,
       "z_mean": 5.305976800210539,
       "z_std": 1.381676346437773
@@ -27,10 +27,10 @@
       "note": "no dust column"
     }
   ],
-  "rho_mean": 0.6077216042956801,
-  "rho_std": 0.16944991458962924,
+  "rho_mean": 0.6224432682918535,
+  "rho_std": 0.14444476654400953,
   "n_tracers": 2,
   "n_positive_rho": 2,
   "sign_consistent": true,
-  "conclusion": "All 2/2 tracers show rho(Gamma_t, dust) > 0 at z>4. Mean rho = 0.608 +/- 0.169 across surveys. Sign consistency confirms TEP signal is not survey-specific."
+  "conclusion": "All 2/2 tracers show rho(Gamma_t, dust) > 0 at z>4. Mean rho = 0.622 +/- 0.144 across surveys. Sign consistency confirms TEP signal is not survey-specific."
 }

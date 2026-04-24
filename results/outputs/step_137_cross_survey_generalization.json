@@ -16,32 +16,32 @@
     {
       "survey": "UNCOVER",
       "n": 283,
-      "rho_teff": 0.5987630920475109,
-      "p_teff": 6.408145622649582e-29,
+      "rho_teff": 0.23295876302851315,
+      "p_teff": 7.615313894022361e-05,
       "rho_mstar": 0.5594522703471411,
       "p_mstar": 1.046457458256734e-24,
       "poly_cv_r2": 0.47292457771092045,
-      "teff_cv_r2": -0.14353229348705332
+      "teff_cv_r2": -0.20329469748673423
     },
     {
       "survey": "CEERS",
       "n": 71,
-      "rho_teff": 0.7949027498323273,
-      "p_teff": 1.2710386126235556e-16,
+      "rho_teff": 0.5392689470154258,
+      "p_teff": 1.2206319575799313e-06,
       "rho_mstar": 0.7948692152917504,
       "p_mstar": 1.277456067602502e-16,
       "poly_cv_r2": 0.5567474188396808,
-      "teff_cv_r2": -517.5123293737463
+      "teff_cv_r2": -9.244284754499755e+20
     },
     {
       "survey": "COSMOS-Web",
       "n": 2340,
-      "rho_teff": 0.722268538393437,
-      "p_teff": 1e-300,
+      "rho_teff": 0.6648691321773063,
+      "p_teff": 1.4571680356762526e-298,
       "rho_mstar": 0.7062116183488133,
       "p_mstar": 1e-300,
       "poly_cv_r2": 0.5083586758881822,
-      "teff_cv_r2": 0.030378504538530082
+      "teff_cv_r2": -9.17952624373104
     }
   ],
   "leave_one_out": [
@@ -58,9 +58,9 @@
       "poly_r2_drop": 1.8606244341720255,
       "rho_poly_cross": 0.5423006424381943,
       "p_poly_cross": 4.882405868766994e-23,
-      "rho_teff_cross": 0.5987630920475109,
-      "p_teff_cross": 6.408145622649582e-29,
-      "teff_rho_advantage": 0.05646244960931657
+      "rho_teff_cross": 0.23295876302851315,
+      "p_teff_cross": 7.615313894022361e-05,
+      "teff_rho_advantage": -0.30934187940968116
     },
     {
       "test_survey": "CEERS",
@@ -75,9 +75,9 @@
       "poly_r2_drop": 0.3865724774925243,
       "rho_poly_cross": 0.788262910798122,
       "p_poly_cross": 3.3845001674988913e-16,
-      "rho_teff_cross": 0.7949027498323273,
-      "p_teff_cross": 1.2710386126235556e-16,
-      "teff_rho_advantage": 0.006639839034205286
+      "rho_teff_cross": 0.5392689470154258,
+      "p_teff_cross": 1.2206319575799313e-06,
+      "teff_rho_advantage": -0.24899396378269623
     },
     {
       "test_survey": "COSMOS-Web",
@@ -92,21 +92,21 @@
       "poly_r2_drop": 6.941435448962992,
       "rho_poly_cross": 0.7236493183486864,
       "p_poly_cross": 1e-300,
-      "rho_teff_cross": 0.722268538393437,
-      "p_teff_cross": 1e-300,
-      "teff_rho_advantage": -0.0013807799552494338
+      "rho_teff_cross": 0.6648691321773063,
+      "p_teff_cross": 1.4571680356762526e-298,
+      "teff_rho_advantage": -0.058780186171380144
     }
   ],
   "summary": {
     "n_tests": 3,
-    "mean_teff_rho_advantage": 0.02057383622942414,
-    "teff_rho_wins": 2,
+    "mean_teff_rho_advantage": -0.20570534312125252,
+    "teff_rho_wins": 0,
     "mean_poly_r2_drop": 3.062877453542514,
     "individual_advantages": {
-      "UNCOVER": 0.05646244960931657,
-      "CEERS": 0.006639839034205286,
-      "COSMOS-Web": -0.0013807799552494338
+      "UNCOVER": -0.30934187940968116,
+      "CEERS": -0.24899396378269623,
+      "COSMOS-Web": -0.058780186171380144
     },
-    "interpretation": "t_eff generalizes better cross-survey than polynomial (positive mean \u03c1 advantage = t_eff wins)."
+    "interpretation": "Polynomial generalizes comparably or better than t_eff."
   }
 }

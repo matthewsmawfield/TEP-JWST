@@ -1,3 +1,6 @@
-[17:04:39]     STEP 164: UNCOVER z=9-12 null audit
-[17:04:39] Saved: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_164_uncover_z9_null_audit.json
-[17:04:39]     The z=9-12 null is likely sensitivity-limited: the tail sample is smaller and/or the dust posteriors are more compressed or uncertain than in z=8-9.
+[14:29:30]     Step 164: UNCOVER z=9-12 Null Branch Audit
+[14:29:30]     Loaded UNCOVER DR4: N=2628
+[14:29:30]     z=9-12 sample: N=122
+[14:29:30] ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_164_uncover_z9_null_audit.json
+[14:29:30]     z=9-12: N=122, with dust=122, null_branch=False
+[14:29:30] ✓   Step 164 complete.

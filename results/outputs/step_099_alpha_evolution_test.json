@@ -10,7 +10,7 @@
       "n_galaxies": 1233,
       "alpha_0_best": 0.1,
       "alpha_0_err": 2.7755575615628914e-17,
-      "rho_best": 0.045831641375774154,
+      "rho_best": -1.0,
       "consistent_with_nominal": false
     },
     {
@@ -20,7 +20,7 @@
       "n_galaxies": 578,
       "alpha_0_best": 0.1,
       "alpha_0_err": 2.7755575615628914e-17,
-      "rho_best": -0.11236006691538962,
+      "rho_best": -1.0,
       "consistent_with_nominal": false
     },
     {
@@ -30,7 +30,7 @@
       "n_galaxies": 328,
       "alpha_0_best": 0.1,
       "alpha_0_err": 2.7755575615628914e-17,
-      "rho_best": 0.1798172619075958,
+      "rho_best": -1.0,
       "consistent_with_nominal": false
     },
     {
@@ -40,7 +40,7 @@
       "n_galaxies": 176,
       "alpha_0_best": 0.1,
       "alpha_0_err": 2.7755575615628914e-17,
-      "rho_best": 0.6458133392031696,
+      "rho_best": -1.0,
       "consistent_with_nominal": false
     }
   ],
@@ -52,7 +52,7 @@
       "n_galaxies": 328,
       "alpha_0_best": 0.1,
       "alpha_0_err": 2.7755575615628914e-17,
-      "rho_best": 0.1798172619075958,
+      "rho_best": -1.0,
       "consistent_with_nominal": false
     },
     {
@@ -62,7 +62,7 @@
       "n_galaxies": 176,
       "alpha_0_best": 0.1,
       "alpha_0_err": 2.7755575615628914e-17,
-      "rho_best": 0.6458133392031696,
+      "rho_best": -1.0,
       "consistent_with_nominal": false
     }
   ],

@@ -1,82 +1,82 @@
-[16:58:35] ======================================================================
-[16:58:35] TEP-JWST Step 23: Self-Consistency Tests
-[16:58:35] ======================================================================
-[16:58:35] 
-[16:58:35] Testing internal consistency of TEP predictions.
-[16:58:35] 
-[16:58:35] Loading UNCOVER data...
-[16:58:35] Loaded 2315 galaxies
-[16:58:35] ======================================================================
-[16:58:35] TEST 1: Self-Consistency Test
-[16:58:35] ======================================================================
-[16:58:35] 
-Optimal α for age_ratio: 0.108
-[16:58:35] 
-Optimal α for mwa_Gyr: 0.288
-[16:58:35] 
+[14:23:24] ======================================================================
+[14:23:24] TEP-JWST Step 23: Self-Consistency Tests
+[14:23:24] ======================================================================
+[14:23:24] 
+[14:23:24] Testing internal consistency of TEP predictions.
+[14:23:24] 
+[14:23:24] Loading UNCOVER data...
+[14:23:24] Loaded 2315 galaxies
+[14:23:24] ======================================================================
+[14:23:24] TEST 1: Self-Consistency Test
+[14:23:24] ======================================================================
+[14:23:24] 
+Optimal α for age_ratio: 1.197
+[14:23:24] 
+Optimal α for mwa_Gyr: 2.000
+[14:23:24] 
 Self-consistency:
-[16:58:35]   Mean α: 0.198
-[16:58:35]   Std α: 0.090
-[16:58:35]   CV: 0.453
-[16:58:35] ⚠ α varies across observables
-[16:58:35] ======================================================================
-[16:58:35] TEST 2: Prediction Inversion
-[16:58:35] ======================================================================
-[16:58:35] Forward (Γ_t → age_ratio): ρ = 0.048, p = 0.0212
-[16:58:35] 
+[14:23:24]   Mean α: 1.599
+[14:23:24]   Std α: 0.401
+[14:23:24]   CV: 0.251
+[14:23:24] ⚠ α varies across observables
+[14:23:24] ======================================================================
+[14:23:24] TEST 2: Prediction Inversion
+[14:23:24] ======================================================================
+[14:23:24] Forward (Γ_t → age_ratio): ρ = 0.019, p = 0.3514
+[14:23:24] 
 Inverse prediction (properties → Γ_t):
-[16:58:35]   Cross-validated R²: -0.925 ± 0.814
-[16:58:35]   Spearman ρ (actual vs predicted Γ_t): -0.279
-[16:58:35] ⚠ Weak inverse prediction
-[16:58:35] ======================================================================
-[16:58:35] TEST 3: Bootstrap Test
-[16:58:35] ======================================================================
-[16:58:35] Train set: N = 1157
-[16:58:35] Test set: N = 1158
-[16:58:35] 
+[14:23:24]   Cross-validated R²: -0.168 ± 0.185
+[14:23:24]   Spearman ρ (actual vs predicted Γ_t): 0.009
+[14:23:24] ⚠ Weak inverse prediction
+[14:23:24] ======================================================================
+[14:23:24] TEST 3: Bootstrap Test
+[14:23:24] ======================================================================
+[14:23:24] Train set: N = 1157
+[14:23:24] Test set: N = 1158
+[14:23:24] 
 Train set:
-[16:58:35]   Optimal α: 0.113
-[16:58:35]   Scatter (corrected): 0.3510
-[16:58:35] 
+[14:23:24]   Optimal α: 1.255
+[14:23:24]   Scatter (corrected): 0.3488
+[14:23:24] 
 Test set (using α from train):
-[16:58:35]   Scatter (no TEP): 0.0623
-[16:58:35]   Scatter (TEP-corrected): 0.0674
-[16:58:35]   Reduction: -8.2%
-[16:58:35] ⚠ TEP correction does not improve test set
-[16:58:35] ======================================================================
-[16:58:35] TEST 4: Redshift Ladder
-[16:58:35] ======================================================================
-[16:58:35] z = [7, 9): N = 400, α = 0.100
-[16:58:35] z = [9, 11): N = 104, α = 0.135
-[16:58:35] ======================================================================
-[16:58:35] TEST 5: Coherence Matrix
-[16:58:35] ======================================================================
-[16:58:35] Correlation matrix (Spearman):
-[16:58:35]            gamma_t  age_ratio  mwa_Gyr  t_eff_Gyr  log_Mstar
-gamma_t      1.000      0.048    0.383      0.916      0.864
-age_ratio    0.048      1.000    0.647      0.021      0.114
-mwa_Gyr      0.383      0.647    1.000      0.552      0.135
-t_eff_Gyr    0.916      0.021    0.552      1.000      0.655
-log_Mstar    0.864      0.114    0.135      0.655      1.000
-[16:58:35] 
+[14:23:24]   Scatter (no TEP): 0.0623
+[14:23:24]   Scatter (TEP-corrected): 0.0678
+[14:23:24]   Reduction: -8.8%
+[14:23:24] ⚠ TEP correction does not improve test set
+[14:23:24] ======================================================================
+[14:23:24] TEST 4: Redshift Ladder
+[14:23:24] ======================================================================
+[14:23:24] z = [7, 9): N = 400, α = 0.100
+[14:23:24] z = [9, 11): N = 104, α = 2.157
+[14:23:24] ======================================================================
+[14:23:24] TEST 5: Coherence Matrix
+[14:23:24] ======================================================================
+[14:23:24] Correlation matrix (Spearman):
+[14:23:24]            gamma_t  age_ratio  mwa_Gyr  t_eff_Gyr  log_Mstar
+gamma_t      1.000      0.019    0.493      0.709      0.735
+age_ratio    0.019      1.000    0.647     -0.043      0.114
+mwa_Gyr      0.493      0.647    1.000      0.654      0.135
+t_eff_Gyr    0.709     -0.043    0.654      1.000      0.170
+log_Mstar    0.735      0.114    0.135      0.170      1.000
+[14:23:24] 
 Γ_t correlations:
-[16:58:35]   age_ratio: ρ = 0.048
-[16:58:35]   mwa_Gyr: ρ = 0.383
-[16:58:35]   t_eff_Gyr: ρ = 0.916
-[16:58:35]   log_Mstar: ρ = 0.864
-[16:58:35] 
-Mean |ρ| with Γ_t: 0.553
-[16:58:35] ✓ 3/4 properties correlate with Γ_t
-[16:58:35]   Structured correlations detected
-[16:58:35] 
-First eigenvalue explains 57.9% of variance
-[16:58:35] ✓ Single dominant factor (consistent with TEP as hidden variable)
-[16:58:35] 
-[16:58:35] ======================================================================
-[16:58:35] SUMMARY: Self-Consistency Results
-[16:58:35] ======================================================================
-[16:58:35] ✓ Coherence matrix: Structured correlations
-[16:58:35] 
+[14:23:24]   age_ratio: ρ = 0.019
+[14:23:24]   mwa_Gyr: ρ = 0.493
+[14:23:24]   t_eff_Gyr: ρ = 0.709
+[14:23:24]   log_Mstar: ρ = 0.735
+[14:23:24] 
+Mean |ρ| with Γ_t: 0.489
+[14:23:24] ✓ 3/4 properties correlate with Γ_t
+[14:23:24]   Structured correlations detected
+[14:23:24] 
+First eigenvalue explains 51.5% of variance
+[14:23:24] ✓ Single dominant factor (consistent with TEP as hidden variable)
+[14:23:24] 
+[14:23:24] ======================================================================
+[14:23:24] SUMMARY: Self-Consistency Results
+[14:23:24] ======================================================================
+[14:23:24] ✓ Coherence matrix: Structured correlations
+[14:23:24] 
 Tests passed: 1/5
-[16:58:35] 
-Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_023_self_consistency.json
+[14:23:24] 
+Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_023_self_consistency.json

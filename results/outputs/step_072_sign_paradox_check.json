@@ -41,13 +41,13 @@
   "relative_analysis": {
     "alpha_0": 0.58,
     "z_ref": 5.5,
-    "log_Mh_ref": 12.0,
+    "log_Mh_ref": 11.0,
     "test_cases": [
       {
         "log_Mh": 10.5,
         "z": 8.0,
         "label": "Low-mass z=8",
-        "Gamma_t": 0.08988440983976732,
+        "Gamma_t": 0.9340650941145247,
         "enhancement": false,
         "suppression": true
       },
@@ -55,23 +55,23 @@
         "log_Mh": 11.5,
         "z": 8.0,
         "label": "Intermediate z=8",
-        "Gamma_t": 0.4479485382795505,
-        "enhancement": false,
-        "suppression": true
+        "Gamma_t": 1.164837595311376,
+        "enhancement": true,
+        "suppression": false
       },
       {
         "log_Mh": 12.0,
         "z": 8.0,
         "label": "Reference mass z=8",
-        "Gamma_t": 1.0,
-        "enhancement": false,
+        "Gamma_t": 1.6119813021961198,
+        "enhancement": true,
         "suppression": false
       },
       {
         "log_Mh": 12.5,
         "z": 8.0,
         "label": "High-mass z=8",
-        "Gamma_t": 2.232399292652521,
+        "Gamma_t": 3.2459299699704767,
         "enhancement": true,
         "suppression": false
       },
@@ -79,7 +79,7 @@
         "log_Mh": 13.0,
         "z": 8.0,
         "label": "Ultra-massive z=8",
-        "Gamma_t": 4.983606601835481,
+        "Gamma_t": 14.663659335416572,
         "enhancement": true,
         "suppression": false
       },
@@ -87,7 +87,7 @@
         "log_Mh": 12.5,
         "z": 5.5,
         "label": "High-mass z=5.5 (ref z)",
-        "Gamma_t": 1.637065352404311,
+        "Gamma_t": 2.719911127304422,
         "enhancement": true,
         "suppression": false
       }
@@ -99,31 +99,31 @@
       "id": "S1",
       "z": 5.3,
       "log_Mh": 12.8,
-      "Gamma_t": 2.1223641722834325,
-      "mass_correction_factor": 1.6934560657341762,
-      "sfe_reduction_pct": 40.94916188059104
+      "Gamma_t": 5.074881379363023,
+      "mass_correction_factor": 3.1174401670795904,
+      "sfe_reduction_pct": 67.92239958411785
     },
     {
       "id": "S2",
       "z": 5.5,
       "log_Mh": 12.6,
-      "Gamma_t": 1.8066716111466932,
-      "mass_correction_factor": 1.5129182241023662,
-      "sfe_reduction_pct": 33.902574239046345
+      "Gamma_t": 3.269965422445483,
+      "mass_correction_factor": 2.291818454711487,
+      "sfe_reduction_pct": 56.36652641729912
     },
     {
       "id": "S3",
       "z": 5.9,
       "log_Mh": 13.0,
-      "Gamma_t": 2.939367012665713,
-      "mass_correction_factor": 2.1270498643362097,
-      "sfe_reduction_pct": 52.98652764249743
+      "Gamma_t": 10.499195515040736,
+      "mass_correction_factor": 5.185721822707583,
+      "sfe_reduction_pct": 80.71628147076588
     }
   ],
   "theoretical_mapping": {
     "alpha_0": 0.58,
     "interpretation": "\u03b1\u2080 is a phenomenological coupling calibrated from Cepheid P-L residuals. It is NOT the same as the scalar-tensor coupling \u03b2 in the action.",
-    "relative_formulation": "TEP-JWST uses \u0393_t = exp[\u03b1(z) \u00d7 (2/3) \u00d7 \u0394log(M_h) \u00d7 (1+z)/(1+z_ref)], which is a RELATIVE enhancement compared to a reference environment.",
+    "relative_formulation": "TEP-JWST uses \u0393_t = exp[ K * (\u03a6 - \u03a6_ref)/c^2 * sqrt(1+z) ], which is a RELATIVE enhancement compared to a reference environment.",
     "sign_paradox_resolution": "The sign paradox arises from conflating CALIBRATED clock rates (which require 4\u03b2\u00b2 > 1 for enhancement) with RELATIVE enhancement (which is > 1 for M_h > M_ref by construction).",
     "physical_meaning": "\u0393_t > 1 means the galaxy experiences MORE effective time than the reference. This is a statement about differential evolution, not calibrated clock rates."
   }

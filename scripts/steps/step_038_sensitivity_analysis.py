@@ -5,7 +5,7 @@ TEP-JWST Step 38: Sensitivity Analysis
 
 This script quantifies the stability of the main TEP results against variations
 in the coupling parameter alpha_0. 
-The nominal value is alpha_0 = 0.58 +/- 0.16 (from Cepheids).
+The nominal value is alpha_eff = 9.6e5 +/- 4.0e5 mag (from Cepheids).
 We test a range from 0.0 to 1.0 to see where the signal peaks and if it is robust
 within the uncertainty window.
 
@@ -37,10 +37,10 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import ALPHA_0 as ALPHA_NOMINAL, ALPHA_UNCERTAINTY, compute_gamma_t as tep_gamma  # TEP model: nominal alpha_0=0.58, uncertainty=0.16, Gamma_t formula
+from scripts.utils.tep_model import ALPHA_0 as ALPHA_NOMINAL, ALPHA_CLOCK_EFF, ALPHA_CLOCK_UNCERTAINTY as ALPHA_UNCERTAINTY, compute_gamma_t as tep_gamma  # TEP model: alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), Gamma_t formula
 
 STEP_NUM = "038"  # Pipeline step number (sequential 001-176)
-STEP_NAME = "sensitivity_analysis"  # Sensitivity analysis: tests TEP signal stability vs alpha_0 variation (0.0 to 1.0, nominal 0.58±0.16)
+STEP_NAME = "sensitivity_analysis"  # Sensitivity analysis: tests TEP signal stability vs alpha variation (maps to alpha_eff range, nominal 9.6e5±4.0e5 mag)
 
 DATA_PATH = PROJECT_ROOT / "data"  # Raw catalogue directory (external datasets from Zenodo/MAST/TACC)
 INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products (CSV format for step-to-step data flow)

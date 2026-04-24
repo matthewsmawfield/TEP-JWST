@@ -1,16 +1,16 @@
 {
   "photoz_uncertainty": {
     "n_galaxies": 84291,
-    "spearman_rho": -0.07393165673666889,
-    "spearman_p": 1.7865678095334606e-102,
+    "spearman_rho": -0.38479918362240445,
+    "spearman_p": 1e-300,
     "tep_consistent": false
   },
   "spec_phot": null,
   "chi2_scaling": {
     "n_galaxies": 84291,
-    "spearman_rho": 0.04885640658913463,
-    "spearman_p": 1.0166392729195733e-45,
-    "tep_consistent": true
+    "spearman_rho": -0.12309168784689256,
+    "spearman_p": 8.038170477212053e-282,
+    "tep_consistent": false
   },
   "delta_chi2": null,
   "size_mass": null

@@ -442,7 +442,7 @@ def calculate_tep_prediction(df):
     logger.info(f"\nClock Acceleration (Period Contraction):")
     logger.info(f"  Implied Γ_t: {gamma_t_implied:.4f}")
     logger.info(f"  Period Contraction: {period_contraction_pct:.2f}%")
-    logger.info(f"  Matches 'Paper 12' phenomenology.")
+    logger.info(f"  Matches 'Paper 11' phenomenology.")
 
     return {
         'sigma_disk': sigma_disk,

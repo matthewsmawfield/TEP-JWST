@@ -2,43 +2,43 @@
   "n_total": 2315,
   "tests": {
     "raw_correlations": {
-      "rho_gamma_age": 0.38272920135121985,
-      "p_gamma_age": 1.2120147130898584e-81,
-      "rho_gamma_met": -0.07494024738548188,
-      "p_gamma_met": 0.00030757338015894903,
+      "rho_gamma_age": 0.49278875515226034,
+      "p_gamma_age": 6.406060018310156e-142,
+      "rho_gamma_met": -0.11378127149570984,
+      "p_gamma_met": 4.032988722568955e-08,
       "rho_age_met": 0.11601026413388518,
       "p_age_met": 2.1725923301480874e-08
     },
     "fixed_mass": {
-      "rho_gamma_age_resid": 0.30564762303084353,
-      "p_gamma_age_resid": 2.969724625696252e-51,
-      "rho_gamma_met_resid": -0.1185955309109595,
-      "p_gamma_met_resid": 1.0448389437179031e-08,
-      "decoupling_ratio": 2.577227157575787,
+      "rho_gamma_age_resid": 0.4257172531109715,
+      "p_gamma_age_resid": 1.440209236975626e-102,
+      "rho_gamma_met_resid": -0.14940715813442176,
+      "p_gamma_met_resid": 4.998151245579021e-13,
+      "decoupling_ratio": 2.8493765521458703,
       "decoupling_detected": true
     },
     "high_z": {
       "n": 504,
-      "gamma_median": 0.29294076245917333,
-      "age_diff": 0.00044403912693945224,
-      "met_diff": 0.01152974903344739,
-      "age_diff_sigma": 0.011182274296642621,
-      "met_diff_sigma": 0.03443545863390579,
-      "high_z_decoupling": false
+      "gamma_median": 0.8979588457137069,
+      "age_diff": 0.005684932686725305,
+      "met_diff": 0.021012565998359878,
+      "age_diff_sigma": 0.14316413307780448,
+      "met_diff_sigma": 0.0627574238719043,
+      "high_z_decoupling": true
     },
     "regime_comparison": {
-      "n_enhanced": 202,
-      "n_suppressed": 2113,
-      "rho_age_met_enhanced": 0.26151469642957237,
-      "p_enhanced": 0.00017032746243275337,
-      "rho_age_met_suppressed": 0.0965896218395333,
-      "p_suppressed": 8.677557446577336e-06,
+      "n_enhanced": 133,
+      "n_suppressed": 2182,
+      "rho_age_met_enhanced": 0.22110568143561074,
+      "p_enhanced": 0.010540273593904484,
+      "rho_age_met_suppressed": 0.09685776474143744,
+      "p_suppressed": 5.829632948942452e-06,
       "regime_decoupling": false
     }
   },
   "summary": {
-    "tests_passed": 1,
+    "tests_passed": 2,
     "tests_total": 3,
-    "overall_result": "PARTIAL"
+    "overall_result": "CONFIRMED"
   }
 }

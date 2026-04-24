@@ -1,7 +1,7 @@
 {
   "name": "tep-jwst-site",
-  "version": "0.2.0",
-  "description": "The Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies",
+  "version": "0.3.0",
+  "description": "Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies",
   "main": "index.html",
   "scripts": {
     "dev": "node dev-server.js",

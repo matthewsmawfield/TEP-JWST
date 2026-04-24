@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "The Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies"
+title: "Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies"
 message: "If you use this software, please cite it as below."
 type: article
 authors:
@@ -24,7 +24,7 @@ doi: 10.5281/zenodo.19000827
 
 preferred-citation:
   type: article
-  title: "The Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies"
+  title: "Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies"
   authors:
     - family-names: Smawfield
       given-names: Matthew Lukin

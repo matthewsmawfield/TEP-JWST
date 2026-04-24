@@ -5,33 +5,33 @@
   "description": "DJA-CEERS spectroscopic crossmatch and TEP validation",
   "source": "ceers_highz_sample.csv",
   "n_total": 10483,
-  "rho_gamma_t_logM": 0.8907264543357859,
+  "rho_gamma_t_logM": 0.6684917748843172,
   "p_gamma_t_logM": 1e-300,
-  "rho_gamma_t_dust": 0.7771715188853093,
-  "p_gamma_t_dust": 1e-300,
+  "rho_gamma_t_dust": 0.766888034835863,
+  "p_gamma_t_dust": 1.2228074899694589e-290,
   "n_dust": 1499,
   "bins": [
     {
       "z_lo": 4,
       "z_hi": 7,
       "n": 9037,
-      "rho_gamma_t_logM": 0.9421998679546105,
+      "rho_gamma_t_logM": 0.7383736041175502,
       "p": 1e-300
     },
     {
       "z_lo": 7,
       "z_hi": 9,
       "n": 939,
-      "rho_gamma_t_logM": 0.9861133170006519,
-      "p": 1e-300
+      "rho_gamma_t_logM": 0.8616664726901052,
+      "p": 2.844430346163513e-278
     },
     {
       "z_lo": 9,
       "z_hi": 15,
       "n": 507,
-      "rho_gamma_t_logM": 0.9676369242113325,
-      "p": 1e-300
+      "rho_gamma_t_logM": 0.6924554785798301,
+      "p": 1.2768435119202117e-73
     }
   ],
-  "conclusion": "CEERS z>4 sample (N=10,483): rho(Gamma_t, log M*)=0.891. rho(Gamma_t, dust)=0.777 (N=1499). Positive correlation confirms TEP signal in CEERS field."
+  "conclusion": "CEERS z>4 sample (N=10,483): rho(Gamma_t, log M*)=0.668. rho(Gamma_t, dust)=0.767 (N=1499). Positive correlation confirms TEP signal in CEERS field."
 }

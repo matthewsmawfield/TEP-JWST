@@ -3,8 +3,8 @@
   "tests": {
     "mstar_resid": {
       "n": 504,
-      "rho": -0.16859099996906823,
-      "p": 0.0001431196338705492
+      "rho": -0.36375579619876225,
+      "p": 3.2625425626176984e-17
     },
     "smhm": [
       {
@@ -35,30 +35,24 @@
     ],
     "mass_excess_sfr": {
       "n": 504,
-      "rho": 0.42666284237057633,
-      "p": 1.0305969859358808e-23
+      "rho": 0.4402021627894117,
+      "p": 2.6566165757341524e-25
     },
     "overmassive": {
       "n_overmassive": 126,
       "n_normal": 378,
-      "mean_gamma_overmassive": 2.618091464366592,
-      "mean_gamma_normal": 0.7211740390497622,
-      "ratio": 3.6303185120421944
-    },
-    "mass_function": {
-      "mean_mass_enhanced": 9.686837739448382,
-      "mean_mass_suppressed": 8.290667036731634,
-      "frac_massive_enhanced": 0.9696969696969697,
-      "frac_massive_suppressed": 0.0
+      "mean_gamma_overmassive": 1.0001993371764473,
+      "mean_gamma_normal": 0.9255959995253356,
+      "ratio": 1.0806003242120426
     },
     "ssfr_inversion": {
       "n": 504,
-      "rho": 0.030295829923804654,
-      "p": 0.49738710134516617
+      "rho": -0.023405067004854424,
+      "p": 0.6001327686130654
     }
   },
   "summary": {
-    "n_evidence": 4,
+    "n_evidence": 2,
     "evidence": [
       {
         "name": "smhm_z_trend",
@@ -67,18 +61,8 @@
       },
       {
         "name": "mass_excess_sfr",
-        "stat": 0.42666284237057633,
-        "p": 1.0305969859358808e-23
-      },
-      {
-        "name": "overmassive",
-        "stat": 3.6303185120421944,
-        "p": null
-      },
-      {
-        "name": "mass_function",
-        "stat": 96.96969696969697,
-        "p": null
+        "stat": 0.4402021627894117,
+        "p": 2.6566165757341524e-25
       }
     ]
   }

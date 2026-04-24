@@ -1,55 +1,57 @@
-[16:58:32]     ======================================================================
-[16:58:32]     STEP 20: PARAMETER VALIDATION
-[16:58:32]     ======================================================================
-[16:58:32] 
-[16:58:32]     Validating TEP parameter α₀ = 0.58
-[16:58:32]     
+[14:23:21]     ======================================================================
+[14:23:21]     STEP 20: PARAMETER VALIDATION
+[14:23:21]     ======================================================================
+[14:23:21] 
+[14:23:21]     Validating TEP coupling α_eff = 9.6×10⁵ mag
+[14:23:21]     
 Sample size: N = 2315
-[16:58:32]     
+[14:23:21]     
 ==================================================
-[16:58:32]     THE SEVEN CONFIRMATIONS
-[16:58:32]     ==================================================
-[16:58:32]     
-1. χ² anomaly: ρ = 0.159 (p = 1.52e-14) ✓
-[16:58:32]     4. Regime separation: KS = 0.170 (p = 1.33e-09) ✓
-[16:58:32]     7. t_eff threshold: 1.7× ratio (p = 2.70e-10) ✓
-[16:58:32]     
-Evidence confirmed: 3/7
-[16:58:32]     
+[14:23:21]     THE SEVEN CONFIRMATIONS
+[14:23:21]     ==================================================
+[14:23:21]     
+1. χ² anomaly: ρ = 0.213 (p = 2.89e-25) ✓
+[14:23:21]     2. Dust correlation: ρ = -0.084 (p = 5.01e-05) ✓
+[14:23:21]     4. Regime separation: KS = 0.237 (p = 3.74e-12) ✓
+[14:23:21]     5. Mass-independent: ρ = 0.154 (p = 1.33e-09) ✓
+[14:23:21]     
+Evidence confirmed: 4/7
+[14:23:21]     
 ==================================================
-[16:58:32]     ANOMALIES RESOLVED
-[16:58:32]     ==================================================
-[16:58:32]     
+[14:23:21]     ANOMALIES RESOLVED
+[14:23:21]     ==================================================
+[14:23:21]     
 1. 'Anomalous' massive galaxies at z > 8
-[16:58:32]        → Γ_t ~ 2 gives t_eff ~ 1000 Myr
-[16:58:32]     
+[14:23:21]        → Γ_t ~ 2 gives t_eff ~ 1000 Myr
+[14:23:21]     
 2. Elevated χ² in SED fitting
-[16:58:32]        → Isochrony assumption fails for high Γ_t
-[16:58:32]     
+[14:23:21]        → Isochrony assumption fails for high Γ_t
+[14:23:21]     
 3. Unexplained scatter in scaling relations
-[16:58:32]        → Γ_t is the hidden variable
-[16:58:32]     
+[14:23:21]        → Γ_t is the hidden variable
+[14:23:21]     
 4. Mass-dependent dust at high z
-[16:58:32]        → t_eff scales with mass via Γ_t
-[16:58:32]     
+[14:23:21]        → t_eff scales with mass via Γ_t
+[14:23:21]     
 5. Bimodality in galaxy properties
-[16:58:32]        → Enhanced vs suppressed regimes
-[16:58:32]     
+[14:23:21]        → Enhanced vs suppressed regimes
+[14:23:21]     
 ======================================================================
-[16:58:32]     PARAMETER VALIDATION SUMMARY
-[16:58:32]     ======================================================================
-[16:58:32] 
-[16:58:32]     Validated parameter: α₀ = 0.58
-[16:58:32] 
-[16:58:32]     This single number, calibrated from LOCAL Cepheids,
-[16:58:32]     accounts for multiple high-z observations.
-[16:58:32] 
-[16:58:32]     The TEP equation:
-[16:58:32] 
-[16:58:32]       Γ_t = exp[0.58 × √(1+z) × (2/3) × (log M_h - 12) × z_factor]
-[16:58:32] 
-[16:58:32]     Parameter validation complete.
-[16:58:32] 
-[16:58:32]     Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_020_parameter_validation.json
-[16:58:32] 
-[16:58:32]     Step 020 complete.
+[14:23:21]     PARAMETER VALIDATION SUMMARY
+[14:23:21]     ======================================================================
+[14:23:21] 
+[14:23:21]     Validated coupling: α_eff = 9.6×10⁵ mag
+[14:23:21] 
+[14:23:21]     This single number, calibrated from LOCAL Cepheids,
+[14:23:21]     accounts for multiple high-z observations.
+[14:23:21] 
+[14:23:21]     The TEP equation:
+[14:23:21] 
+[14:23:21]       Γ_t = exp[ K × (Φ - Φ_ref)/c² × √(1+z) ]
+[14:23:21]       where K = 1.26×10⁶ (from α_eff = 9.6×10⁵ mag)
+[14:23:21] 
+[14:23:21]     Parameter validation complete.
+[14:23:21] 
+[14:23:21]     Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_020_parameter_validation.json
+[14:23:21] 
+[14:23:21]     Step 020 complete.

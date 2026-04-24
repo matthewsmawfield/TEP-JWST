@@ -29,7 +29,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma, ALPHA_0  # TEP model: Gamma_t formula, alpha_0=0.58 (Cepheid-calibrated)
+from scripts.utils.tep_model import compute_gamma_t as tep_gamma, ALPHA_0, ALPHA_CLOCK_EFF  # TEP model: Gamma_t formula, alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy)
 
 STEP_NUM = "039"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "overmassive_bh"  # Overmassive BH simulation: "Time Bubble" hypothesis for Little Red Dots (LRDs) runaway growth

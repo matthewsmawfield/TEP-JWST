@@ -1,10 +1,10 @@
-[17:02:25]     STEP 151: DJA-CEERS spectroscopic crossmatch
-[17:02:25]   Loaded CEERS: N=10,483 from ceers_highz_sample.csv
-[17:02:25]   z>4 sample: N=10,483
-[17:02:25]   Overall rho(Gamma_t, log M*) = 0.891, p=0.00e+00
-[17:02:25]   rho(Gamma_t, dust) = 0.777, p=2.00e-303 (N=1499)
-[17:02:25]   z=4-7: N=9037, rho=0.942, p=0.00e+00
-[17:02:25]   z=7-9: N=939, rho=0.986, p=0.00e+00
-[17:02:25]   z=9-15: N=507, rho=0.968, p=3.74e-304
-[17:02:25] Results written to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_151_dja_ceers_crossmatch.json
-[17:02:25]     Step 151 complete. rho=0.891
+[14:27:39]     STEP 151: DJA-CEERS spectroscopic crossmatch
+[14:27:39]   Loaded CEERS: N=10,483 from ceers_highz_sample.csv
+[14:27:39]   z>4 sample: N=10,483
+[14:27:39]   Overall rho(Gamma_t, log M*) = 0.668, p=0.00e+00
+[14:27:39]   rho(Gamma_t, dust) = 0.767, p=1.22e-290 (N=1499)
+[14:27:39]   z=4-7: N=9037, rho=0.738, p=0.00e+00
+[14:27:39]   z=7-9: N=939, rho=0.862, p=2.84e-278
+[14:27:39]   z=9-15: N=507, rho=0.692, p=1.28e-73
+[14:27:39] Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_151_dja_ceers_crossmatch.json
+[14:27:39]     Step 151 complete. rho=0.668

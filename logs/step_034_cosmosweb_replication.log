@@ -1,48 +1,48 @@
-[16:58:44]     ======================================================================
-[16:58:44]     STEP 36: COSMOS-Web Independent Replication
-[16:58:44]     ======================================================================
-[16:58:44] 
-[16:58:44]     Third independent validation of the z>8 dust anomaly
-[16:58:44]     using COSMOS-Web DR1 (Shuntov et al. 2025)
-[16:58:44] 
-[16:58:44]     Loaded COSMOS-Web z>8 sample: N = 2606
-[16:58:44]     
+[14:23:33]     ======================================================================
+[14:23:33]     STEP 36: COSMOS-Web Independent Replication
+[14:23:33]     ======================================================================
+[14:23:33] 
+[14:23:33]     Third independent validation of the z>8 dust anomaly
+[14:23:33]     using COSMOS-Web DR1 (Shuntov et al. 2025)
+[14:23:33] 
+[14:23:34]     Loaded COSMOS-Web z>8 sample: N = 2606
+[14:23:34]     
 ============================================================
-[16:58:44]     MASS-DUST CORRELATION: COSMOS-Web z>8
-[16:58:44]     ============================================================
-[16:58:44]     Sample size (dust > 0): N = 918
-[16:58:44]     Redshift range: z = 8.0 - 12.0
-[16:58:44]     
+[14:23:34]     MASS-DUST CORRELATION: COSMOS-Web z>8
+[14:23:34]     ============================================================
+[14:23:34]     Sample size (dust > 0): N = 918
+[14:23:34]     Redshift range: z = 8.0 - 12.0
+[14:23:34]     
 Mass-Dust Correlation:
-[16:58:44]       ρ = 0.631 [0.585, 0.672]
-[16:58:44]       p = 3.19e-103
-[16:58:44]       Significance: 21.6σ
-[16:58:44]     
+[14:23:34]       ρ = 0.631 [0.585, 0.672]
+[14:23:34]       p = 3.19e-103
+[14:23:34]       Significance: 21.6σ
+[14:23:34]     
 Γ_t-DUST CORRELATION: COSMOS-Web z>8
-[16:58:44]       Raw: ρ(Γ_t, dust) = 0.629, p = 3.47e-102
-[16:58:44]       Partial (|M*): ρ = 0.012, p = 7.07e-01
-[16:58:44]     
+[14:23:34]       Raw: ρ(Γ_t, dust) = 0.629, p = 2.42e-102
+[14:23:34]       Partial (|M*): ρ = -0.002, p = 9.46e-01
+[14:23:34]     
 t_eff-DUST CORRELATION: COSMOS-Web z>8
-[16:58:44]       ρ(t_eff, dust) = 0.632, p = 2.38e-103
-[16:58:44]     
+[14:23:34]       ρ(t_eff, dust) = 0.516, p = 1.24e-63
+[14:23:34]     
 ============================================================
-[16:58:44]     CROSS-SURVEY COMPARISON (3 INDEPENDENT SURVEYS)
-[16:58:44]     ============================================================
-[16:58:44]     
+[14:23:34]     CROSS-SURVEY COMPARISON (3 INDEPENDENT SURVEYS)
+[14:23:34]     ============================================================
+[14:23:34]     
 UNCOVER z>8 (N=283): ρ = 0.559, p = 1.05e-24
-[16:58:44]     CEERS z>8 (N=82): ρ = 0.680, p = 2.03e-12
-[16:58:44]     
+[14:23:34]     CEERS z>8 (N=82): ρ = 0.680, p = 2.03e-12
+[14:23:34]     
 ======================================================================
-[16:58:44]     THREE-SURVEY REPLICATION SUMMARY
-[16:58:44]     ======================================================================
-[16:58:44]     
+[14:23:34]     THREE-SURVEY REPLICATION SUMMARY
+[14:23:34]     ======================================================================
+[14:23:34]     
 Mass-Dust Correlation at z>8:
-[16:58:44]       UNCOVER:    ρ = 0.559 (N = 283)
-[16:58:44]       CEERS:      ρ = 0.680 (N = 82)
-[16:58:44]       COSMOS-Web: ρ = 0.631 (N = 918)
-[16:58:44]     
+[14:23:34]       UNCOVER:    ρ = 0.559 (N = 283)
+[14:23:34]       CEERS:      ρ = 0.680 (N = 82)
+[14:23:34]       COSMOS-Web: ρ = 0.631 (N = 918)
+[14:23:34]     
 ✓ THIRD INDEPENDENT REPLICATION SUCCESSFUL
-[16:58:44]       The z>8 dust anomaly is confirmed in COSMOS-Web.
-[16:58:44]     
-Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_034_cosmosweb_replication.json
-[16:58:44]     Step 034 complete.
+[14:23:34]       The z>8 dust anomaly is confirmed in COSMOS-Web.
+[14:23:34]     
+Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_034_cosmosweb_replication.json
+[14:23:34]     Step 034 complete.

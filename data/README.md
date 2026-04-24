@@ -1,6 +1,6 @@
 # TEP-JWST Data
 
-This directory stores input data for the High-Redshift Galaxy analysis (Paper 13).
+This directory stores input data for the High-Redshift Galaxy analysis (Paper 12).
 
 ## Required Data
 

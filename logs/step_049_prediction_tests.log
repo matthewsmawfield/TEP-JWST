@@ -1,91 +1,77 @@
-[16:58:58]     ======================================================================
-[16:58:58]     STEP 049: Prediction Tests
-[16:58:58]     ======================================================================
-[16:58:58]     
+[14:23:48]     ======================================================================
+[14:23:48]     STEP 049: Prediction Tests
+[14:23:48]     ======================================================================
+[14:23:48]     
 Loaded N = 2315 galaxies
-[16:58:58]     
+[14:23:48]     
 ============================================================
-[16:58:58]     PREDICTION 1: The Anomalous Triangle
-[16:58:58]     ============================================================
-[16:58:58]     (Massive + Old + Dusty at z > 8 should have elevated Γ_t)
-[16:58:58]     Thresholds: M* > 8.64, Age > 0.114 Gyr, A_V > 1.01
-[16:58:58]     'Anomalous' galaxies: N = 17
-[16:58:58]       <Γ_t> anomalous = 9.212
-[16:58:58]       <Γ_t> normal = 1.280
-[16:58:58]       Ratio: 7.20×
-[16:58:58]     ✓ STRONG: 'Anomalous triangle' galaxies have elevated Γ_t
-[16:58:58]     
+[14:23:48]     PREDICTION 1: The Anomalous Triangle
+[14:23:48]     ============================================================
+[14:23:48]     (Massive + Old + Dusty at z > 8 should have elevated Γ_t)
+[14:23:49]     Thresholds: M* > 8.64, Age > 0.114 Gyr, A_V > 1.01
+[14:23:49]     'Anomalous' galaxies: N = 17
+[14:23:49]       <Γ_t> anomalous = 1.214
+[14:23:49]       <Γ_t> normal = 0.954
+[14:23:49]       Ratio: 1.27×
+[14:23:49]     
 ============================================================
-[16:58:58]     PREDICTION 2: Redshift Threshold
-[16:58:58]     ============================================================
-[16:58:58]     (TEP-Dust correlation should emerge above z ~ 6-7)
-[16:58:58]     z > 5: N = 1373, ρ = -0.053 (p = 4.99e-02) 
-[16:58:58]     z > 6: N = 876, ρ = 0.103 (p = 2.17e-03) 
-[16:58:58]     z > 7: N = 504, ρ = 0.394 (p = 3.80e-20) ✓
-[16:58:58]     z > 8: N = 283, ρ = 0.593 (p = 3.00e-28) ✓
-[16:58:58]     z > 9: N = 104, ρ = 0.732 (p = 1.08e-18) ✓
-[16:58:58]     
+[14:23:49]     PREDICTION 2: Redshift Threshold
+[14:23:49]     ============================================================
+[14:23:49]     (TEP-Dust correlation should emerge above z ~ 6-7)
+[14:23:49]     z > 5: N = 1373, ρ = -0.155 (p = 7.64e-09) 
+[14:23:49]     z > 6: N = 876, ρ = 0.001 (p = 9.73e-01) 
+[14:23:49]     z > 7: N = 504, ρ = 0.357 (p = 1.25e-16) ✓
+[14:23:49]     z > 8: N = 283, ρ = 0.603 (p = 2.09e-29) ✓
+[14:23:49]     z > 9: N = 104, ρ = 0.742 (p = 1.91e-19) ✓
+[14:23:49]     
 ✓ TEP-Dust correlation emerges at z > 7
-[16:58:58]     
+[14:23:49]     
 ============================================================
-[16:58:58]     PREDICTION 3: Mass Threshold
-[16:58:58]     ============================================================
-[16:58:58]     (TEP effect should be stronger in massive halos)
-[16:58:58]     log M_h > 9.5: N = 451, ρ = 0.365 (p = 1.12e-15) 
-[16:58:58]     log M_h > 10.0: N = 154, ρ = 0.462 (p = 1.62e-09) ✓
-[16:58:58]     log M_h > 10.5: N = 52, ρ = 0.647 (p = 2.22e-07) ✓
-[16:58:58]     log M_h > 11.0: N = 23, ρ = 0.410 (p = 5.20e-02) 
-[16:58:58]     
+[14:23:49]     PREDICTION 3: Mass Threshold
+[14:23:49]     ============================================================
+[14:23:49]     (TEP effect should be stronger in massive halos)
+[14:23:49]     log M_h > 9.5: N = 451, ρ = 0.318 (p = 4.54e-12) 
+[14:23:49]     log M_h > 10.0: N = 154, ρ = 0.366 (p = 2.94e-06) 
+[14:23:49]     log M_h > 10.5: N = 52, ρ = 0.594 (p = 3.40e-06) ✓
+[14:23:49]     log M_h > 11.0: N = 23, ρ = 0.611 (p = 1.97e-03) 
+[14:23:49]     
 ============================================================
-[16:58:58]     PREDICTION 4: Age Paradox Resolution
-[16:58:58]     ============================================================
-[16:58:58]     (Galaxies with age > 0.5 × t_cosmic should have high Γ_t)
-[16:58:58]     age_ratio > 0.3: N = 50, <Γ_t> = 3.86 (5.9× normal) ✓
-[16:58:58]     age_ratio > 0.4: N = 20, <Γ_t> = 7.84 (11.9× normal) ✓
-[16:58:58]     age_ratio > 0.5: N = 9, <Γ_t> = 14.36 (21.6× normal) ✓
-[16:58:58]     age_ratio > 0.6: N = 6, <Γ_t> = 19.96 (29.9× normal) ✓
-[16:58:58]     
-✓ STRONG: Age paradox resolved at threshold 0.6
-[16:58:58]     
+[14:23:49]     PREDICTION 4: Age Paradox Resolution
+[14:23:49]     ============================================================
+[14:23:49]     (Galaxies with age > 0.5 × t_cosmic should have high Γ_t)
+[14:23:49]     age_ratio > 0.3: N = 50, <Γ_t> = 1.13 (1.2× normal) 
+[14:23:49]     age_ratio > 0.4: N = 20, <Γ_t> = 1.32 (1.4× normal) 
+[14:23:49]     age_ratio > 0.5: N = 9, <Γ_t> = 1.47 (1.6× normal) 
+[14:23:49]     age_ratio > 0.6: N = 6, <Γ_t> = 1.67 (1.8× normal) 
+[14:23:49]     
 ============================================================
-[16:58:58]     PREDICTION 5: Dust Production Timescale
-[16:58:58]     ============================================================
-[16:58:58]     (Dust should require t_eff > 300 Myr for AGB production)
-[16:58:58]     t_eff > 0.3 Gyr: N = 1721, <A_V> = 0.378
-[16:58:58]     t_eff ≤ 0.3 Gyr: N = 594, <A_V> = 0.568
-[16:58:58]     Mann-Whitney p = 1.00e+00
-[16:58:58]     
+[14:23:49]     PREDICTION 5: Dust Production Timescale
+[14:23:49]     ============================================================
+[14:23:49]     (Dust should require t_eff > 300 Myr for AGB production)
+[14:23:49]     
 ============================================================
-[16:58:58]     PREDICTION 6: χ² Isochrony Violation
-[16:58:58]     ============================================================
-[16:58:58]     (High-Γ_t galaxies should have poor SED fits due to isochrony violation)
-[16:58:58]     At z > 7:
-[16:58:58]       Enhanced (Γ_t > 1): N = 45, <χ²> = 61.50
-[16:58:58]       Suppressed (Γ_t < 0.5): N = 402, <χ²> = 16.06
-[16:58:58]       Mann-Whitney p = 3.83e-10
-[16:58:58]     ✓ STRONG: Enhanced regime has worse SED fits (isochrony violation)
-[16:58:58]     
+[14:23:49]     PREDICTION 6: χ² Isochrony Violation
+[14:23:49]     ============================================================
+[14:23:49]     (High-Γ_t galaxies should have poor SED fits due to isochrony violation)
+[14:23:49]     
 ============================================================
-[16:58:58]     PREDICTION 7: Unified Anomaly Explanation
-[16:58:58]     ============================================================
-[16:58:58]     (Single Γ_t parameter should explain multiple anomalies)
-[16:58:58]     At z > 7 (N = 504):
-[16:58:58]       ρ(Γ_t, Dust) = 0.394 (p = 3.80e-20)
-[16:58:58]       ρ(Γ_t, Age) = -0.034 (p = 4.45e-01)
-[16:58:58]       ρ(Γ_t, χ²) = 0.149 (p = 8.05e-04)
-[16:58:58]     
+[14:23:49]     PREDICTION 7: Unified Anomaly Explanation
+[14:23:49]     ============================================================
+[14:23:49]     (Single Γ_t parameter should explain multiple anomalies)
+[14:23:49]     At z > 7 (N = 504):
+[14:23:49]       ρ(Γ_t, Dust) = 0.357 (p = 1.25e-16)
+[14:23:49]       ρ(Γ_t, Age) = 0.036 (p = 4.22e-01)
+[14:23:49]       ρ(Γ_t, χ²) = 0.130 (p = 3.47e-03)
+[14:23:49]     
 Significant correlations: 2/3
-[16:58:58]     ✓ STRONG: Γ_t provides unified explanation for multiple anomalies
-[16:58:58]     
+[14:23:49]     ✓ STRONG: Γ_t provides unified explanation for multiple anomalies
+[14:23:49]     
 ======================================================================
-[16:58:58]     SUMMARY: Strong Evidence Found
-[16:58:58]     ======================================================================
-[16:58:58]     
-Strong evidence items: 5
-[16:58:58]       • impossible_triangle: stat = 7.195
-[16:58:58]       • z_threshold: stat = 7.000
-[16:58:58]       • age_paradox: stat = 29.852
-[16:58:58]       • chi2_isochrony: stat = 3.831, p = 3.83e-10
-[16:58:58]       • unified_explanation: stat = 2.000
-[16:58:58]     
-Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_049_prediction_tests.json
+[14:23:49]     SUMMARY: Strong Evidence Found
+[14:23:49]     ======================================================================
+[14:23:49]     
+Strong evidence items: 2
+[14:23:49]       • z_threshold: stat = 7.000
+[14:23:49]       • unified_explanation: stat = 2.000
+[14:23:49]     
+Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_049_prediction_tests.json

@@ -1,73 +1,65 @@
-[16:58:40]     ======================================================================
-[16:58:40]     STEP 32: z>8 Dust Anomaly - Quantitative Prediction Test
-[16:58:40]     ======================================================================
-[16:58:40] 
-[16:58:40]     The z>8 dust anomaly is the paper's strongest evidence.
-[16:58:40]     This step provides rigorous quantitative tests.
-[16:58:40] 
-[16:58:40]     ======================================================================
-[16:58:40]     TEST 1: AGB Threshold Prediction
-[16:58:40]     ======================================================================
-[16:58:40] 
-[16:58:40]     z > 8 sample: N = 283
-[16:58:40]     Mean z: 8.83
-[16:58:40]     Mean t_cosmic: 562 Myr
-[16:58:40] 
-[16:58:40]     Galaxies with t_eff >= 300 Myr: N = 62
-[16:58:40]     Galaxies with t_eff < 300 Myr: N = 221
-[16:58:40] 
-[16:58:40]     RESULTS:
-[16:58:40]       Mean dust (t_eff >= 300 Myr): 1.317
-[16:58:40]       Mean dust (t_eff < 300 Myr): 0.646
-[16:58:40]       Ratio: 2.04×
-[16:58:40]       Mann-Whitney p-value: 4.78e-15
-[16:58:40]       Cohen's d: 1.08
-[16:58:40] 
-[16:58:40]     ✓ TEP PREDICTION CONFIRMED: t_eff > 300 Myr → more dust
-[16:58:40] 
-[16:58:40]     ======================================================================
-[16:58:40]     TEST 2: Controlling for Cosmic Time
-[16:58:40]     ======================================================================
-[16:58:40] 
-[16:58:40]     RESULTS:
-[16:58:40]       Raw correlation (t_eff vs dust): ρ = 0.599, p = 6.41e-29
-[16:58:40]       Partial correlation (t_eff vs dust | t_cosmic): ρ = 0.600, p = 5.01e-29
-[16:58:40] 
-[16:58:40]     ✓ t_eff predicts dust BEYOND what t_cosmic alone explains
-[16:58:40] 
-[16:58:40]     ======================================================================
-[16:58:40]     TEST 3: Mass Independence at z>8
-[16:58:40]     ======================================================================
-[16:58:40] 
-[16:58:40]     Mass median: log(M*) = 8.38
-[16:58:40]     Low-mass sample: N = 141
-[16:58:40]     High-mass sample: N = 142
-[16:58:40] 
-[16:58:40]     RESULTS:
-[16:58:40]       Low-mass: ρ(t_eff, dust) = 0.388, p = 1.94e-06
-[16:58:40]       High-mass: ρ(t_eff, dust) = 0.478, p = 1.72e-09
-[16:58:40] 
-[16:58:40]     ✓ t_eff-dust correlation is positive in BOTH mass bins
-[16:58:40] 
-[16:58:40]     ======================================================================
-[16:58:40]     TEST 4: Redshift Gradient
-[16:58:40]     ======================================================================
-[16:58:40] 
-[16:58:40]       z = [8, 8.5): N = 107, ρ = 0.325, p = 6.45e-04
-[16:58:40]       z = [8.5, 9): N = 72, ρ = 0.529, p = 1.74e-06
-[16:58:40]       z = [9, 10): N = 104, ρ = 0.716, p = 1.28e-17
-[16:58:40] 
-[16:58:40]     ✓ Mass-dust correlation STRENGTHENS with redshift
-[16:58:40] 
-[16:58:40]     ======================================================================
-[16:58:40]     SUMMARY
-[16:58:40]     ======================================================================
-[16:58:40]       ✓ agb_threshold: CONFIRMED
-[16:58:40]       ✓ cosmic_time_control: CONFIRMED
-[16:58:40]       ✓ mass_independence: CONFIRMED
-[16:58:40]       ✓ redshift_gradient: CONFIRMED
-[16:58:40] 
-[16:58:40]     Tests passed: 4/4
-[16:58:40]     
-Results saved to: /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_030_z8_dust_prediction.json
-[16:58:40]     Step 030 complete.
+[14:23:30]     ======================================================================
+[14:23:30]     STEP 32: z>8 Dust Anomaly - Quantitative Prediction Test
+[14:23:30]     ======================================================================
+[14:23:30] 
+[14:23:30]     The z>8 dust anomaly is the paper's strongest evidence.
+[14:23:30]     This step provides rigorous quantitative tests.
+[14:23:30] 
+[14:23:30]     ======================================================================
+[14:23:30]     TEST 1: AGB Threshold Prediction
+[14:23:30]     ======================================================================
+[14:23:30] 
+[14:23:30]     z > 8 sample: N = 283
+[14:23:30]     Mean z: 8.83
+[14:23:30]     Mean t_cosmic: 562 Myr
+[14:23:30] 
+[14:23:30]     Galaxies with t_eff >= 300 Myr: N = 283
+[14:23:30]     Galaxies with t_eff < 300 Myr: N = 0
+[14:23:30] 
+[14:23:30]     ⚠ Insufficient sample size for robust test
+[14:23:30] 
+[14:23:30]     ======================================================================
+[14:23:30]     TEST 2: Controlling for Cosmic Time
+[14:23:30]     ======================================================================
+[14:23:30] 
+[14:23:30]     RESULTS:
+[14:23:30]       Raw correlation (t_eff vs dust): ρ = 0.233, p = 7.62e-05
+[14:23:30]       Partial correlation (t_eff vs dust | t_cosmic): ρ = 0.439, p = 9.11e-15
+[14:23:30] 
+[14:23:30]     ✓ t_eff predicts dust BEYOND what t_cosmic alone explains
+[14:23:30] 
+[14:23:30]     ======================================================================
+[14:23:30]     TEST 3: Mass Independence at z>8
+[14:23:30]     ======================================================================
+[14:23:30] 
+[14:23:30]     Mass median: log(M*) = 8.38
+[14:23:30]     Low-mass sample: N = 141
+[14:23:30]     High-mass sample: N = 142
+[14:23:30] 
+[14:23:30]     RESULTS:
+[14:23:30]       Low-mass: ρ(t_eff, dust) = 0.416, p = 2.83e-07
+[14:23:30]       High-mass: ρ(t_eff, dust) = 0.077, p = 3.62e-01
+[14:23:30] 
+[14:23:30]     ✓ t_eff-dust correlation is positive in BOTH mass bins
+[14:23:30] 
+[14:23:30]     ======================================================================
+[14:23:30]     TEST 4: Redshift Gradient
+[14:23:30]     ======================================================================
+[14:23:30] 
+[14:23:30]       z = [8, 8.5): N = 107, ρ = 0.325, p = 6.45e-04
+[14:23:30]       z = [8.5, 9): N = 72, ρ = 0.529, p = 1.74e-06
+[14:23:30]       z = [9, 10): N = 104, ρ = 0.716, p = 1.28e-17
+[14:23:30] 
+[14:23:30]     ✓ Mass-dust correlation STRENGTHENS with redshift
+[14:23:30] 
+[14:23:30]     ======================================================================
+[14:23:30]     SUMMARY
+[14:23:30]     ======================================================================
+[14:23:30]       ✓ cosmic_time_control: CONFIRMED
+[14:23:30]       ✓ mass_independence: CONFIRMED
+[14:23:30]       ✓ redshift_gradient: CONFIRMED
+[14:23:30] 
+[14:23:30]     Tests passed: 3/3
+[14:23:30]     
+Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_030_z8_dust_prediction.json
+[14:23:30]     Step 030 complete.

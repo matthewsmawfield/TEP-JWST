@@ -1,61 +1,52 @@
-[16:58:55]     ======================================================================
-[16:58:55]     STEP 045: SFR-Age Consistency Test
-[16:58:55]     ======================================================================
-[16:58:55] 
-[16:58:55]     Standard Physics: High SFR → Young age (anticorrelation)
-[16:58:55]     TEP Prediction: High-Γ_t galaxies break this relationship
-[16:58:55]     
+[14:23:45]     ======================================================================
+[14:23:45]     STEP 045: SFR-Age Consistency Test
+[14:23:45]     ======================================================================
+[14:23:45] 
+[14:23:45]     Standard Physics: High SFR → Young age (anticorrelation)
+[14:23:45]     TEP Prediction: High-Γ_t galaxies break this relationship
+[14:23:45]     
 Loaded N = 2315 galaxies
-[16:58:55]     Valid sample: N = 2315
-[16:58:55]     
+[14:23:45]     Valid sample: N = 2315
+[14:23:45]     
 ==================================================
-[16:58:55]     TEST 1: Overall SFR-Age Correlation
-[16:58:55]     ==================================================
-[16:58:55]     
+[14:23:45]     TEST 1: Overall SFR-Age Correlation
+[14:23:45]     ==================================================
+[14:23:45]     
 ρ(log sSFR, log Age) = -0.953 (p = 0.00e+00)
-[16:58:55]       Expected: Strong negative (high sSFR → young)
-[16:58:55]     
+[14:23:45]       Expected: Strong negative (high sSFR → young)
+[14:23:45]     
 ==================================================
-[16:58:55]     TEST 2: SFR-Age by Γ_t Regime
-[16:58:55]     ==================================================
-[16:58:55]     
-Enhanced (Γ_t > 1): N = 202
-[16:58:55]     Suppressed (Γ_t < 0.5): N = 1383
-[16:58:55]     
-SFR-Age correlation:
-[16:58:55]       Enhanced: ρ = -0.924 (p = 2.79e-85)
-[16:58:55]       Suppressed: ρ = -0.946 (p = 0.00e+00)
-[16:58:55]     
-✓ WEAKER SFR-Age coupling in enhanced regime
-[16:58:55]       TEP explanation: Age is inflated independently of SFR
-[16:58:55]     
+[14:23:45]     TEST 2: SFR-Age by Γ_t Regime
+[14:23:45]     ==================================================
+[14:23:45]     
+Enhanced (Γ_t > 1): N = 133
+[14:23:45]     Suppressed (Γ_t < 0.5): N = 0
+[14:23:45]     
 ==================================================
-[16:58:55]     TEST 3: 'Old but Star-Forming' Population
-[16:58:55]     ==================================================
-[16:58:55]     
+[14:23:45]     TEST 3: 'Old but Star-Forming' Population
+[14:23:45]     ==================================================
+[14:23:45]     
 Age threshold (75th %ile): 0.212 Gyr
-[16:58:55]     sSFR threshold (median): 6.95e-09 yr⁻¹
-[16:58:55]     'Old but Star-Forming' galaxies: N = 0
-[16:58:55]     
+[14:23:45]     sSFR threshold (median): 6.95e-09 yr⁻¹
+[14:23:45]     'Old but Star-Forming' galaxies: N = 0
+[14:23:45]     
 ==================================================
-[16:58:55]     TEST 4: Age Residual at Fixed sSFR
-[16:58:55]     ==================================================
-[16:58:55]     
+[14:23:45]     TEST 4: Age Residual at Fixed sSFR
+[14:23:45]     ==================================================
+[14:23:45]     
 Age-sSFR relation: log(Age) = -0.798 × log(sSFR) + -7.372
-[16:58:55]     
-ρ(Γ_t, Age_resid|sSFR) = 0.280 (p = 6.68e-43)
-[16:58:55]     
+[14:23:45]     
+ρ(Γ_t, Age_resid|sSFR) = 0.402 (p = 1.62e-90)
+[14:23:45]     
 ✓ STRONG EVIDENCE: High-Γ_t galaxies are older than expected at fixed sSFR
-[16:58:55]       This is a unique TEP signature
-[16:58:55]     
+[14:23:45]       This is a unique TEP signature
+[14:23:45]     
 ======================================================================
-[16:58:55]     SUMMARY: SFR-Age Consistency
-[16:58:55]     ======================================================================
-[16:58:55]     
-Tests passed: 2/3
-[16:58:55]     
-✓ SFR-AGE DECOUPLING CONFIRMED
-[16:58:55]       High-Γ_t galaxies appear older than their SFR would suggest.
-[16:58:55]       This is a unique TEP signature.
-[16:58:55]     
-Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_045_sfr_age_consistency.json
+[14:23:45]     SUMMARY: SFR-Age Consistency
+[14:23:45]     ======================================================================
+[14:23:45]     
+Tests passed: 1/3
+[14:23:45]     
+⚠ PARTIAL EVIDENCE for SFR-Age decoupling
+[14:23:45]     
+Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_045_sfr_age_consistency.json

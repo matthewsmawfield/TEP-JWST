@@ -3,11 +3,11 @@
   "name": "causality_verification",
   "status": "SUCCESS",
   "description": "Causality constraint verification for scalar-tensor TEP theory",
-  "ppn_gamma": 0.9999993272002263,
-  "ppn_deviation": 6.727997736710734e-07,
+  "ppn_gamma": 0.9999851046040837,
+  "ppn_deviation": 1.4895395916258991e-05,
   "ppn_cassini_limit": 2.3e-05,
   "ppn_satisfied": true,
-  "omega_bd_effective": 1486324.3026159334,
+  "omega_bd_effective": 67132.8385514404,
   "gw_speed": {
     "c_scalar_over_c": 1.0,
     "c_tensor_over_c": 1.0,
@@ -22,7 +22,7 @@
       "z": 0.0,
       "r_virial_Mpc": 0.16263204980532864,
       "r_screen_Mpc": 0.19515845976639437,
-      "gamma_t": 1.0000387919338964
+      "gamma_t": 1.172612586212084
     },
     {
       "label": "Group halo",
@@ -30,7 +30,7 @@
       "z": 0.0,
       "r_virial_Mpc": 0.35038012981159306,
       "r_screen_Mpc": 0.42045615577391166,
-      "gamma_t": 1.0614280556461002
+      "gamma_t": 2.44873494735048
     },
     {
       "label": "Cluster halo",
@@ -38,7 +38,7 @@
       "z": 0.0,
       "r_virial_Mpc": 1.1079992570700974,
       "r_screen_Mpc": 1.3295991084841168,
-      "gamma_t": 1.1606496280943206
+      "gamma_t": 11412.07352758748
     },
     {
       "label": "Typical z=7 halo",
@@ -46,10 +46,10 @@
       "z": 7.0,
       "r_virial_Mpc": 0.020326646951247227,
       "r_screen_Mpc": 0.02439197634149667,
-      "gamma_t": 3.159374006037975
+      "gamma_t": 1.1547171035171246
     }
   ],
   "causality_violations": [],
   "causally_consistent": true,
-  "conclusion": "TEP theory is causally consistent: PPN gamma deviation (6.73e-07) < Cassini limit (2.30e-05); GW speed unchanged (c_T = c precisely). Screening mechanism confines TEP to cosmological scales."
+  "conclusion": "TEP theory is causally consistent: PPN gamma deviation (1.49e-05) < Cassini limit (2.30e-05); GW speed unchanged (c_T = c precisely). Screening mechanism confines TEP to cosmological scales."
 }

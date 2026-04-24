@@ -1,54 +1,54 @@
-[16:59:17]     ============================================================
-[16:59:17]     Step 90: Sign Paradox Resolution
-[16:59:17]     ============================================================
-[16:59:17]     
+[14:24:10]     ============================================================
+[14:24:10]     Step 90: Sign Paradox Resolution
+[14:24:10]     ============================================================
+[14:24:10]     
 --- Part 1: Calibrated Clock Rate Analysis ---
-[16:59:17]     This shows the 'naive' sign paradox when β < 0.5
-[16:59:17] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.4
-[16:59:17]   Deepest potential Φ/c²: -1.61e-06
-[16:59:17]     β = 0.4: 4β² = 0.64, Threshold met: False, Enhancement: False
-[16:59:17] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.5
-[16:59:17]   Deepest potential Φ/c²: -1.61e-06
-[16:59:17]     β = 0.5: 4β² = 1.00, Threshold met: False, Enhancement: False
-[16:59:17] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.6
-[16:59:17]   Deepest potential Φ/c²: -1.61e-06
-[16:59:17]     β = 0.6: 4β² = 1.44, Threshold met: True, Enhancement: False
-[16:59:17] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.8
-[16:59:17]   Deepest potential Φ/c²: -1.61e-06
-[16:59:17]     β = 0.8: 4β² = 2.56, Threshold met: True, Enhancement: False
-[16:59:17] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=1.0
-[16:59:17]   Deepest potential Φ/c²: -1.61e-06
-[16:59:17]     β = 1.0: 4β² = 4.00, Threshold met: True, Enhancement: False
-[16:59:17]     
+[14:24:10]     This shows the 'naive' sign paradox when β < 0.5
+[14:24:10] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.4
+[14:24:10]   Deepest potential Φ/c²: -1.61e-06
+[14:24:10]     β = 0.4: 4β² = 0.64, Threshold met: False, Enhancement: False
+[14:24:10] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.5
+[14:24:10]   Deepest potential Φ/c²: -1.61e-06
+[14:24:10]     β = 0.5: 4β² = 1.00, Threshold met: False, Enhancement: False
+[14:24:10] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.6
+[14:24:10]   Deepest potential Φ/c²: -1.61e-06
+[14:24:10]     β = 0.6: 4β² = 1.44, Threshold met: True, Enhancement: False
+[14:24:10] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.8
+[14:24:10]   Deepest potential Φ/c²: -1.61e-06
+[14:24:10]     β = 0.8: 4β² = 2.56, Threshold met: True, Enhancement: False
+[14:24:10] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=1.0
+[14:24:10]   Deepest potential Φ/c²: -1.61e-06
+[14:24:10]     β = 1.0: 4β² = 4.00, Threshold met: True, Enhancement: False
+[14:24:10]     
 --- Part 2: Relative Enhancement (TEP-JWST Method) ---
-[16:59:17]     This is the correct formulation used in the manuscript
-[16:59:17]     Low-mass z=8: Γ_t = 0.0899 (SUPPRESSED)
-[16:59:17]     Intermediate z=8: Γ_t = 0.4479 (SUPPRESSED)
-[16:59:17]     Reference mass z=8: Γ_t = 1.0000 (REFERENCE)
-[16:59:17]     High-mass z=8: Γ_t = 2.2324 (ENHANCED)
-[16:59:17]     Ultra-massive z=8: Γ_t = 4.9836 (ENHANCED)
-[16:59:17]     High-mass z=5.5 (ref z): Γ_t = 1.6371 (ENHANCED)
-[16:59:17]     
+[14:24:10]     This is the correct formulation used in the manuscript
+[14:24:10]     Low-mass z=8: Γ_t = 0.9341 (SUPPRESSED)
+[14:24:10]     Intermediate z=8: Γ_t = 1.1648 (ENHANCED)
+[14:24:10]     Reference mass z=8: Γ_t = 1.6120 (ENHANCED)
+[14:24:10]     High-mass z=8: Γ_t = 3.2459 (ENHANCED)
+[14:24:10]     Ultra-massive z=8: Γ_t = 14.6637 (ENHANCED)
+[14:24:10]     High-mass z=5.5 (ref z): Γ_t = 2.7199 (ENHANCED)
+[14:24:10]     
 --- Part 3: Red Monsters Validation ---
-[16:59:17]     S1 (z=5.3): Γ_t = 2.12, Mass correction = 1.69×
-[16:59:17]     S2 (z=5.5): Γ_t = 1.81, Mass correction = 1.51×
-[16:59:17]     S3 (z=5.9): Γ_t = 2.94, Mass correction = 2.13×
-[16:59:17]     
+[14:24:10]     S1 (z=5.3): Γ_t = 5.07, Mass correction = 3.12×
+[14:24:10]     S2 (z=5.5): Γ_t = 3.27, Mass correction = 2.29×
+[14:24:10]     S3 (z=5.9): Γ_t = 10.50, Mass correction = 5.19×
+[14:24:10]     
 --- Part 4: Theoretical Mapping ---
-[16:59:17]     
+[14:24:10]     
 Sign Paradox Resolution:
-[16:59:17]       The TEP-JWST formulation uses RELATIVE enhancement Γ_t
-[16:59:17]       Γ_t > 1 for M_h > M_ref (by construction)
-[16:59:17]       This does NOT require 4β² > 1 in the scalar-tensor action
-[16:59:17]       The phenomenological α₀ = 0.58 is an effective coupling, not β
-[16:59:17]     
-Results saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_072_sign_paradox.json
-[16:59:17] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.4
-[16:59:17]   Deepest potential Φ/c²: -1.61e-06
-[16:59:17] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.5
-[16:59:17]   Deepest potential Φ/c²: -1.61e-06
-[16:59:17] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.6
-[16:59:17]   Deepest potential Φ/c²: -1.61e-06
-[16:59:17] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.8
-[16:59:17]   Deepest potential Φ/c²: -1.61e-06
-[16:59:18]     Figure saved to /Users/matthewsmawfield/www/TEP-JWST/results/figures/step_072_sign_paradox_resolution.png
+[14:24:10]       The TEP-JWST formulation uses RELATIVE enhancement Γ_t
+[14:24:10]       Γ_t > 1 for M_h > M_ref (by construction)
+[14:24:10]       This does NOT require 4β² > 1 in the scalar-tensor action
+[14:24:10]       The phenomenological α₀ = 0.58 is an effective coupling, not β
+[14:24:10]     
+Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_072_sign_paradox.json
+[14:24:10] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.4
+[14:24:10]   Deepest potential Φ/c²: -1.61e-06
+[14:24:10] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.5
+[14:24:10]   Deepest potential Φ/c²: -1.61e-06
+[14:24:10] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.6
+[14:24:10]   Deepest potential Φ/c²: -1.61e-06
+[14:24:10] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.8
+[14:24:10]   Deepest potential Φ/c²: -1.61e-06
+[14:24:10]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/step_072_sign_paradox_resolution.png

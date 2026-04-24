@@ -128,7 +128,7 @@ def growth_ode(y, a, params):
         # NO, TEP says alpha(z) INCREASES with z.
         # This implies LESS screening at high z (lower density relative to critical?).
         # Wait, density goes as (1+z)^3. Critical density is constant?
-        # Paper 7 says rho_c ~ 20 g/cm^3.
+        # Paper 6 says rho_c ~ 20 g/cm^3.
         # Cosmic mean density is ~ 10^-30 g/cm^3.
         # So cosmic background is ALWAYS in the low-density (unscreened) regime?
         # If so, G_eff should be large?

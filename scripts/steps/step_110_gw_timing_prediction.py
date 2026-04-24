@@ -22,7 +22,7 @@ from datetime import datetime
 import sys
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
 from scripts.utils.p_value_utils import safe_json_default  # JSON serialiser for numpy types (handles NaN, inf, float32)
-from scripts.utils.tep_model import ALPHA_0, RHO_CRIT_G_CM3 as RHO_C  # TEP model: alpha_0=0.58, screening density rho_c=20 g/cm³
+from scripts.utils.tep_model import ALPHA_0, RHO_CRIT_G_CM3 as RHO_C, temporal_topology_suppression  # v0.7 TEP: alpha_0=0.58, rho_c=20 g/cm³, Temporal Topology screening
 RESULTS_DIR = PROJECT_ROOT / "results"
 OUTPUTS_DIR = RESULTS_DIR / "outputs"  # JSON output directory (machine-readable statistical results)
 FIGURES_DIR = RESULTS_DIR / "figures"  # Publication figures directory (PNG/PDF for manuscript)
@@ -51,11 +51,12 @@ def compute_gamma_t_compact(M_bh, r_isco):
     
     r_s = 2 * G * M_bh * M_sun / c**2
     
-    # Screening radius: where density > rho_c
-    # For a BH, this is approximately the photon sphere
-    r_screen = 1.5 * r_s
+    # Screening radius for BH: where extreme potential depth suppresses TEP
+    # In v0.7 Temporal Topology, screening is via field gradient flattening
+    # near massive objects. For BHs, this occurs near the photon sphere.
+    r_screen = 1.5 * r_s  # Photon sphere ~ 1.5 * Schwarzschild radius
     
-    # If ISCO is inside screening radius, Gamma_t = 1
+    # If ISCO is inside screening radius, Temporal Shear vanishes → Gamma_t = 1
     if r_isco < r_screen:
         return 1.0
     

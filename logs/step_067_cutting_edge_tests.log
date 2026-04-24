@@ -1,77 +1,76 @@
-[16:59:13]     ======================================================================
-[16:59:13]     STEP 067: Cutting-Edge Tests from Latest Literature
-[16:59:13]     ======================================================================
-[16:59:13]     
+[14:24:06]     ======================================================================
+[14:24:06]     STEP 067: Cutting-Edge Tests from Latest Literature
+[14:24:06]     ======================================================================
+[14:24:06]     
 Loaded N = 2315 galaxies
-[16:59:13]     
+[14:24:06]     
 ======================================================================
-[16:59:13]     TEST 1: Overmassive Black Hole Analog
-[16:59:13]     ======================================================================
-[16:59:13]     Literature: BH-to-stellar mass ratios are 10-100x higher than local.
-[16:59:13]     TEP predicts: High-Gamma_t galaxies have inflated stellar masses.
+[14:24:06]     TEST 1: Overmassive Black Hole Analog
+[14:24:06]     ======================================================================
+[14:24:06]     Literature: BH-to-stellar mass ratios are 10-100x higher than local.
+[14:24:06]     TEP predicts: High-Gamma_t galaxies have inflated stellar masses.
 
-[16:59:13]     ρ(Γ_t, SMHM) = -0.711 (p = 6.09e-79)
-[16:59:13]     High SMHM (top 10%): <Γ_t> = 0.16
-[16:59:13]     Low SMHM (bottom 50%): <Γ_t> = 2.11
-[16:59:13]     Ratio: 0.1×
-[16:59:13]     
+[14:24:06]     ρ(Γ_t, SMHM) = -0.846 (p = 2.63e-139)
+[14:24:06]     High SMHM (top 10%): <Γ_t> = 0.88
+[14:24:06]     Low SMHM (bottom 50%): <Γ_t> = 1.00
+[14:24:06]     Ratio: 0.9×
+[14:24:06]     
 ======================================================================
-[16:59:13]     TEST 2: Disk Morphology Proxy
-[16:59:13]     ======================================================================
-[16:59:13]     Literature: Unexpectedly high fraction of disk galaxies at high-z.
-[16:59:13]     TEP predicts: More effective time allows disk settling.
+[14:24:06]     TEST 2: Disk Morphology Proxy
+[14:24:06]     ======================================================================
+[14:24:06]     Literature: Unexpectedly high fraction of disk galaxies at high-z.
+[14:24:06]     TEP predicts: More effective time allows disk settling.
 
-[16:59:13]     'Disk-like' (smooth SFH): <Γ_t> = 2.54 (N = 80)
-[16:59:13]     'Irregular' (bursty SFH): <Γ_t> = 1.30 (N = 127)
-[16:59:13]     ✓ 'Disk-like' galaxies have higher Γ_t
-[16:59:13]     
+[14:24:06]     'Disk-like' (smooth SFH): <Γ_t> = 1.00 (N = 80)
+[14:24:06]     'Irregular' (bursty SFH): <Γ_t> = 0.97 (N = 127)
+[14:24:06]     ✓ 'Disk-like' galaxies have higher Γ_t
+[14:24:06]     
 ======================================================================
-[16:59:13]     TEST 3: Photon Budget Proxy
-[16:59:13]     ======================================================================
-[16:59:13]     Literature: Too many ionizing photons for reionization timeline.
-[16:59:13]     TEP predicts: Effective time is longer, so more photon production.
+[14:24:06]     TEST 3: Photon Budget Proxy
+[14:24:06]     ======================================================================
+[14:24:06]     Literature: Too many ionizing photons for reionization timeline.
+[14:24:06]     TEP predicts: Effective time is longer, so more photon production.
 
-[16:59:14]     Mean photon production ratio (TEP/cosmic): 1.76×
-[16:59:14]     High Γ_t galaxies: photon ratio = 12.66×
-[16:59:14]     
+[14:24:06]     Mean photon production ratio (TEP/cosmic): 0.97×
+[14:24:06]     High Γ_t galaxies: photon ratio = 2.01×
+[14:24:06]     
 ======================================================================
-[16:59:14]     TEST 4: Nitrogen Enrichment Proxy
-[16:59:14]     ======================================================================
-[16:59:14]     Literature: Anomalous N/O ratios at high-z.
-[16:59:14]     TEP predicts: More effective time for chemical enrichment.
+[14:24:06]     TEST 4: Nitrogen Enrichment Proxy
+[14:24:06]     ======================================================================
+[14:24:06]     Literature: Anomalous N/O ratios at high-z.
+[14:24:06]     TEP predicts: More effective time for chemical enrichment.
 
-[16:59:14]     ρ(t_cosmic, Metallicity) = -0.053 (p = 2.33e-01)
-[16:59:14]     ρ(t_eff, Metallicity) = 0.128 (p = 4.08e-03)
-[16:59:14]     Improvement: Δρ = +0.181
-[16:59:14]     ✓ t_eff predicts metallicity better than t_cosmic
-[16:59:14]     
+[14:24:06]     ρ(t_cosmic, Metallicity) = -0.053 (p = 2.33e-01)
+[14:24:06]     ρ(t_eff, Metallicity) = -0.021 (p = 6.37e-01)
+[14:24:06]     Improvement: Δρ = +0.032
+[14:24:06]     ✓ t_eff predicts metallicity better than t_cosmic
+[14:24:06]     
 ======================================================================
-[16:59:14]     TEST 5: Proto-Globular Cluster Proxy
-[16:59:14]     ======================================================================
-[16:59:14]     Literature: Massive star clusters at high-z.
-[16:59:14]     TEP predicts: More effective time for cluster formation.
+[14:24:06]     TEST 5: Proto-Globular Cluster Proxy
+[14:24:06]     ======================================================================
+[14:24:06]     Literature: Massive star clusters at high-z.
+[14:24:06]     TEP predicts: More effective time for cluster formation.
 
-[16:59:14]     Proto-GC hosts (high mass + high dust): N = 87
-[16:59:14]     <Γ_t> proto-GC: 5.48
-[16:59:14]     <Γ_t> normal: 0.40
-[16:59:14]     Ratio: 13.8×
-[16:59:14]     ✓ Proto-GC hosts have elevated Γ_t
-[16:59:14]     
+[14:24:06]     Proto-GC hosts (high mass + high dust): N = 87
+[14:24:06]     <Γ_t> proto-GC: 1.18
+[14:24:06]     <Γ_t> normal: 0.91
+[14:24:06]     Ratio: 1.3×
+[14:24:06]     
 ======================================================================
-[16:59:14]     TEST 6: The 'Anomalous' Reionization Test
-[16:59:14]     ======================================================================
-[16:59:14]     At z > 10, galaxies should be too young to produce enough photons.
-[16:59:14]     TEP predicts: Effective time allows sufficient photon production.
+[14:24:06]     TEST 6: The 'Anomalous' Reionization Test
+[14:24:06]     ======================================================================
+[14:24:06]     At z > 10, galaxies should be too young to produce enough photons.
+[14:24:06]     TEP predicts: Effective time allows sufficient photon production.
 
-[16:59:14]     
+[14:24:06]     
 ======================================================================
-[16:59:14]     SUMMARY: Cutting-Edge Tests
-[16:59:14]     ======================================================================
-[16:59:14]     
+[14:24:06]     SUMMARY: Cutting-Edge Tests
+[14:24:06]     ======================================================================
+[14:24:06]     
 Key findings from cutting-edge literature:
-[16:59:14]       • overmassive_bh: 0.1× elevation
-[16:59:14]       • photon_budget: 1.76× ratio
-[16:59:14]       • nitrogen_enrichment: Δρ = +0.181
-[16:59:14]       • proto_gc: 13.8× elevation
-[16:59:14]     
-Saved to /Users/matthewsmawfield/www/TEP-JWST/results/outputs/step_067_cutting_edge_tests.json
+[14:24:06]       • overmassive_bh: 0.9× elevation
+[14:24:06]       • photon_budget: 0.97× ratio
+[14:24:06]       • nitrogen_enrichment: Δρ = +0.032
+[14:24:06]       • proto_gc: 1.3× elevation
+[14:24:06]     
+Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_067_cutting_edge_tests.json

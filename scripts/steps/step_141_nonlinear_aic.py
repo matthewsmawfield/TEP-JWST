@@ -144,8 +144,14 @@ bic3 = bic(N, 2, rss3)
 # Fraction above/below threshold
 frac_above = np.mean(step_teff)
 mean_dust_above = np.mean(dust_av[step_teff == 1])
-mean_dust_below = np.mean(dust_av[step_teff == 0])
-dust_ratio = mean_dust_above / mean_dust_below
+
+# Handle edge case where all galaxies are above threshold
+if np.any(step_teff == 0):
+    mean_dust_below = np.mean(dust_av[step_teff == 0])
+    dust_ratio = mean_dust_above / mean_dust_below if mean_dust_below > 0 else float('inf')
+else:
+    mean_dust_below = 0.0
+    dust_ratio = float('inf')  # All galaxies above threshold
 
 # ── Model 4: Step-function M* (mass-matched quantile) ────────────────────────
 # Match the fraction above threshold to the t_eff step model
@@ -239,8 +245,8 @@ result = {
             "threshold_gyr": teff_threshold,
             "frac_above_threshold": round(float(frac_above), 3),
             "mean_dust_above": round(float(mean_dust_above), 3),
-            "mean_dust_below": round(float(mean_dust_below), 3),
-            "dust_ratio_above_below": round(float(dust_ratio), 2),
+            "mean_dust_below": round(float(mean_dust_below), 3) if not np.isinf(mean_dust_below) else "N/A (all above)",
+            "dust_ratio_above_below": round(float(dust_ratio), 2) if not np.isinf(dust_ratio) else "inf (all above)",
             "aic": round(aic3, 2),
             "bic": round(bic3, 2),
             "delta_aic": round(delta_aics["step_teff_agb"], 2),

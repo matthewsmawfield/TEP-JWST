@@ -88,12 +88,12 @@
     "significant": true
   },
   "partial_correlations": {
-    "rho_gamma_dust_given_mass": 0.26761038598290093,
-    "p_gamma_dust_given_mass": 4.982591950513189e-06,
-    "rho_gamma_dust_given_z": 0.5931150216770826,
-    "p_gamma_dust_given_z": 2.803935403120563e-28,
-    "rho_gamma_dust_given_mass_z": 0.2617505389865665,
-    "p_gamma_dust_given_mass_z": 8.124749057016333e-06
+    "rho_gamma_dust_given_mass": 0.2715658205163702,
+    "p_gamma_dust_given_mass": 3.558482545071351e-06,
+    "rho_gamma_dust_given_z": 0.6062234201847458,
+    "p_gamma_dust_given_z": 8.715863373075491e-30,
+    "rho_gamma_dust_given_mass_z": 0.2776986663472457,
+    "p_gamma_dust_given_mass_z": 2.0893484782566255e-06
   },
   "dust_by_mass": [
     {

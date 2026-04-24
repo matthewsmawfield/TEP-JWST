@@ -5,58 +5,58 @@
     {
       "name": "Dust-t_eff rank correlation (UNCOVER z>6)",
       "short": "Dust-t_eff",
-      "alpha0_best": 0.5626262626262626,
+      "alpha0_best": 0.3868686868686868,
       "alpha0_ci": [
-        0.5040404040404041,
-        0.7383838383838384
+        0.3429292929292929,
+        0.4747474747474747
       ],
-      "metric_best": 0.27919288339784154,
+      "metric_best": 0.32392202853404,
       "metric_name": "rho(dust, t_eff)",
       "n": 258
     },
     {
       "name": "AGB Threshold F1 (UNCOVER z>8)",
       "short": "AGB F1",
-      "alpha0_best": 0.591919191919192,
+      "alpha0_best": 0.05,
       "alpha0_ci": [
         0.05,
-        0.6065656565656565
+        0.05
       ],
-      "metric_best": 0.9312977099236641,
+      "metric_best": 0.9300567107750473,
       "metric_name": "F1",
       "n": 283
     },
     {
       "name": "sSFR Inversion Correction (UNCOVER M*>8.5)",
       "short": "sSFR Inversion",
-      "alpha0_best": 0.591919191919192,
+      "alpha0_best": 0.4161616161616161,
       "alpha0_ci": [
-        0.06464646464646465,
-        0.591919191919192
+        0.07929292929292929,
+        0.43080808080808075
       ],
-      "metric_best": 0.010524038122728924,
+      "metric_best": 0.0027798298590556436,
       "metric_name": "|delta_rho_corrected - rho_low|",
       "n": 159
     },
     {
       "name": "Cross-Survey Dust-t_eff R2 (CEERS + COSMOS-Web z>7.0)",
       "short": "Cross-Survey",
-      "alpha0_best": 0.5626262626262626,
+      "alpha0_best": 0.21111111111111108,
       "alpha0_ci": [
-        0.3136363636363636,
-        1.1947676767676767
+        0.21111111111111108,
+        1.0043636363636363
       ],
-      "metric_best": 0.23306687488446567,
+      "metric_best": 0.2314698691285324,
       "metric_name": "mean R2(dust, log t_eff)",
       "n": 4029
     },
     {
       "name": "Anomalous Galaxy Mass Limit Resolution (z>7)",
       "short": "Mass Limit",
-      "alpha0_best": 0.547979797979798,
+      "alpha0_best": 0.46010101010101007,
       "alpha0_ci": [
-        0.5333333333333333,
-        0.547979797979798
+        0.43080808080808075,
+        0.46010101010101007
       ],
       "metric_best": 0.0,
       "metric_name": "mass boundary excess loss",
@@ -64,40 +64,40 @@
     }
   ],
   "concordance": {
-    "alpha0_weighted_mean": 0.570221618985842,
-    "alpha0_weighted_sigma": 0.09745548872907688,
-    "chi2_concordance": 4.964337903388981,
+    "alpha0_weighted_mean": 0.05880573525882865,
+    "alpha0_weighted_sigma": 0.009868187214984328,
+    "chi2_concordance": 780.5256644070009,
     "ndof": 4,
-    "p_concordance": 0.2909762616936371,
-    "max_pairwise_tension_sigma": 0.16660240344211974,
-    "concordant": true,
+    "p_concordance": 1e-300,
+    "max_pairwise_tension_sigma": 27.99999999999998,
+    "concordant": false,
     "individual_alphas": [
-      0.5626262626262626,
-      0.591919191919192,
-      0.591919191919192,
-      0.5626262626262626,
-      0.547979797979798
+      0.3868686868686868,
+      0.05,
+      0.4161616161616161,
+      0.21111111111111108,
+      0.46010101010101007
     ],
     "individual_sigmas": [
-      0.11717171717171715,
-      0.27828282828282824,
-      0.26363636363636367,
-      0.44056565656565655,
-      0.007323232323232343
+      0.06590909090909089,
+      0.0,
+      0.17575757575757572,
+      0.39662626262626266,
+      0.014646464646464658
     ],
-    "jwst_recovered_alpha0": 0.570221618985842,
-    "jwst_recovered_sigma": 0.09745548872907688,
-    "cepheid_tension_sigma": 0.052194941714757484,
+    "jwst_recovered_alpha0": 0.05880573525882865,
+    "jwst_recovered_sigma": 0.009868187214984328,
+    "cepheid_tension_sigma": 3.251286159328258,
     "cepheid_reference": {
       "alpha0": 0.58,
       "sigma": 0.16
     },
-    "external_cepheid_tension_sigma": 0.052194941714757484,
+    "external_cepheid_tension_sigma": 3.251286159328258,
     "external_cepheid_reference": {
       "alpha0": 0.58,
       "sigma": 0.16
     },
-    "verdict": "PASS: All observables recover consistent \u03b1\u2080, compatible with the external Cepheid calibration"
+    "verdict": "FAIL: Observables do not agree on \u03b1\u2080"
   },
   "alpha0_grid": {
     "min": 0.05,

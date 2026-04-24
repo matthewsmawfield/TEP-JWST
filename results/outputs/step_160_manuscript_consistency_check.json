@@ -2,8 +2,8 @@
   "step": "step_160",
   "description": "Automated manuscript-to-JSON consistency checks for defensibility",
   "summary": {
-    "checks_total": 19,
-    "checks_passed": 18,
+    "checks_total": 21,
+    "checks_passed": 20,
     "checks_skipped": 1,
     "checks_failed": 0,
     "status": "PASS"
@@ -47,6 +47,20 @@
         "step_140_present": true,
         "step_164_before_step_140": true,
         "registered_steps": 159
+      },
+      "pass": true
+    },
+    {
+      "name": "canonical_registry_includes_nested_bayesian_step_before_final_synthesis",
+      "expected": {
+        "step_176_present": true,
+        "step_140_present": true,
+        "step_176_before_step_140": true
+      },
+      "found": {
+        "step_176_present": true,
+        "step_140_present": true,
+        "step_176_before_step_140": true
       },
       "pass": true
     },
@@ -141,6 +155,26 @@
         "stale_alpha0_phrase_hits": {},
         "external_prior_tokens_present": true,
         "jwst_recovery_tokens_present": true
+      },
+      "pass": true
+    },
+    {
+      "name": "nested_bayesian_step176_is_synced_to_synthesis_and_manuscript",
+      "expected": {
+        "step_140_nested_bayesian_status_live": true,
+        "step_140_bayes_factor_fields_match_step176": true,
+        "results_and_discussion_tokens_present": true,
+        "generated_root_tokens_present": true
+      },
+      "found": {
+        "step_140_status_live": true,
+        "step_140_joint_standard_matches": true,
+        "step_140_joint_agn_matches": true,
+        "step_140_residual_null_matches": true,
+        "step_140_residual_agn_matches": true,
+        "results_tokens_present": true,
+        "discussion_tokens_present": true,
+        "generated_root_tokens_present": true
       },
       "pass": true
     },
@@ -260,7 +294,7 @@
     },
     {
       "name": "step157_z9_13_partial_rho_present",
-      "expected": "-0.106",
+      "expected": "-0.088",
       "found": true,
       "pass": true
     },
@@ -272,8 +306,8 @@
     {
       "name": "step159_suppression_values_present_in_discussion",
       "expected": {
-        "rho_true": "0.435",
-        "rho_obs_beta07": "0.285"
+        "rho_true": "0.706",
+        "rho_obs_beta07": "0.504"
       },
       "found": {
         "rho_true": true,
@@ -284,8 +318,8 @@
     {
       "name": "step159_bootstrap_beta_ci_present_in_discussion",
       "expected": {
-        "beta_ci_low": "0.299",
-        "beta_ci_high": "1.005"
+        "beta_ci_low": "0.180",
+        "beta_ci_high": "0.563"
       },
       "found": {
         "beta_ci_low": true,

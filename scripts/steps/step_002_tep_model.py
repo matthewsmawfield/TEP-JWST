@@ -6,15 +6,14 @@ TEP-JWST Step 2: TEP Model and Gamma_t Calculation
 This step applies the TEP model to compute chronological enhancement
 factors (Gamma_t) for all galaxies in the sample.
 
-TEP Model (Exponential Form from Paper 1):
-    Gamma_t = exp[alpha(z) * (2/3) * (log_Mh - log_Mh_ref) * z_factor]
+TEP Model (Potential-Linear Form):
+    Gamma_t = exp[ K * (Phi - Phi_ref)/c^2 * sqrt(1+z) ]
     
     where:
-    - alpha(z) = alpha_0 * sqrt(1 + z)
-    - alpha_0 = 0.58 ± 0.16 (from Cepheid calibration, Paper 12)
-    - log_Mh_ref = 12.0 (reference halo mass)
-    - z_factor = (1 + z) / (1 + z_ref)
-    - z_ref = 5.5 (reference redshift)
+    - K = 1.26e6 (clock-sector coupling)
+    - Phi = Potential depth (propto M_h^(2/3))
+    - Phi_ref = Reference potential depth
+    - sqrt(1+z) = Background field evolution
     
     The exponential form ensures Gamma_t > 0 always:
     - Gamma_t > 1: Enhanced proper time (deeper potential)
@@ -70,7 +69,7 @@ set_step_logger(logger)  # Register as global step logger so print_status() rout
 # Mathematical constants imported from scripts/utils/tep_model.py:
 #
 # ALPHA_0 = 0.58  (dimensionless)
-#   - Coupling strength from Cepheid calibration (Paper 12)
+#   - Coupling strength from Cepheid calibration (Paper 11)
 #   - Represents the fractional strength of the scalar field coupling to the metric
 #   - Theoretical basis: alpha_0 arises from the conformal factor A(phi) = exp(alpha_0 * phi/M_pl)
 #
@@ -88,13 +87,13 @@ set_step_logger(logger)  # Register as global step logger so print_status() rout
 #   - At z != z_ref, alpha(z) = alpha_0 * sqrt((1+z)/(1+z_ref))
 #
 # tep_alpha(z)  ->  alpha_0 * sqrt((1+z)/(1+z_ref))
-#   - Redshift-dependent coupling from TEP theory (Paper 1, Eq. 3)
+#   - Redshift-dependent coupling from TEP theory (Paper 0, Eq. 3)
 #   - Derivation: scalar field kinetic term scaling with cosmic density
 #
-# compute_gamma_t(log_Mh, z)  ->  exp[alpha(z) * (2/3) * (log_Mh - log_Mh_ref) * ((1+z)/(1+z_ref))]
+# compute_gamma_t(log_Mh, z)  ->  exp[ K * (Phi - Phi_ref)/c^2 * sqrt(1+z) ]
 #   - Exponential form ensures Gamma_t > 0 always
-#   - The (2/3) factor comes from spherical collapse: t_dyn ~ 1/sqrt(G*rho) ~ M_h^(-1/2) * R^(3/2) ~ M_h^(2/3)
-#   - The z_factor accounts for higher coupling strength at early times
+#   - The potential Phi is computed from log_Mh via M_h^(2/3)
+#   - The sqrt(1+z) accounts for background field strength evolution
 #
 # isochrony_mass_bias(gamma_t, n_ML=0.7)  ->  n_ML * log10(gamma_t)
 #   - Predicted stellar mass bias from enhanced proper time
@@ -102,7 +101,7 @@ set_step_logger(logger)  # Register as global step logger so print_status() rout
 #   - Bias in dex: M*_obs / M*_true = Gamma_t^(n_ML)
 
 from scripts.utils.tep_model import (
-    ALPHA_0, ALPHA_UNCERTAINTY, LOG_MH_REF, Z_REF,
+    ALPHA_CLOCK_EFF, ALPHA_CLOCK_UNCERTAINTY, LOG_MH_REF, Z_REF,
     tep_alpha, compute_gamma_t as tep_gamma, isochrony_mass_bias
 )
 
@@ -120,13 +119,11 @@ def apply_tep_model(df):
        arises because the scalar field gradient scales with the expansion
        rate, which increases at earlier epochs.
 
-    2. Gamma_t = exp[ alpha(z) * (2/3) * (log_Mh - log_Mh_ref) * z_factor ]
+    2. Gamma_t = exp[ K * (Phi - Phi_ref) * sqrt(1+z) * z_scaling ]
        The chronological enhancement factor. Gamma_t encodes how much
        faster (>1) or slower (<1) proper time accumulates in a halo of
-       mass M_h relative to the reference mass M_h_ref = 10^12 Msun.
-       The (2/3) exponent maps halo mass to potential depth via the
-       virial relation Phi ~ M^(2/3). The z_factor = (1+z)/(1+z_ref)
-       accounts for the evolving NFW concentration at earlier epochs.
+       potential Phi relative to the reference potential Phi_ref.
+       The sqrt(1+z) factor accounts for the background field strength.
 
     3. t_eff = t_cosmic * Gamma_t
        The effective proper time experienced by stellar populations.
@@ -189,7 +186,7 @@ def main():
     print_status("", "INFO")
     
     print_status("TEP Model Parameters:", "INFO")
-    print_status(f"  alpha_0 = {ALPHA_0} ± {ALPHA_UNCERTAINTY}", "INFO")
+    print_status(f"  alpha_eff = {ALPHA_CLOCK_EFF} ± {ALPHA_CLOCK_UNCERTAINTY} mag", "INFO")
     print_status(f"  log_Mh_ref = {LOG_MH_REF}", "INFO")
     print_status(f"  z_ref = {Z_REF}", "INFO")
     print_status("", "INFO")
@@ -234,8 +231,8 @@ def main():
     print_status(f"Saved: step_{STEP_NUM}_uncover_multi_property_sample_tep.csv", "INFO")
     
     summary = {
-        "alpha_0": ALPHA_0,
-        "alpha_uncertainty": ALPHA_UNCERTAINTY,
+        "alpha_eff": ALPHA_CLOCK_EFF,
+        "alpha_uncertainty": ALPHA_CLOCK_UNCERTAINTY,
         "log_Mh_ref": LOG_MH_REF,
         "z_ref": Z_REF,
         "gamma_t_stats_full": {

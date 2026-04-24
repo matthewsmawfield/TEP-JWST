@@ -128,7 +128,16 @@ def standardize_gamma_t(df):
         mh[missing] = stellar_to_halo_mass_behroozi_like(mstar[missing], z_vals[missing])
         df['log_Mh'] = mh
 
-    df['gamma_t'] = tep_gamma(df['log_Mh'].astype(float).to_numpy(), z_vals)
+    # Compute Gamma_t with clipping to prevent extreme outliers
+    gamma_t = tep_gamma(df['log_Mh'].astype(float).to_numpy(), z_vals)
+    # Clip to reasonable range (Gamma_t typically 0.5-10 for physical galaxies)
+    gamma_t = np.clip(gamma_t, 0.1, 100.0)
+    df['gamma_t'] = gamma_t
+    
+    # Flag clipped values
+    n_clipped = np.sum((gamma_t <= 0.1) | (gamma_t >= 100.0))
+    if n_clipped > 0:
+        print_status(f"  Warning: {n_clipped} galaxies had Gamma_t clipped to physical range [0.1, 100]", "WARN")
     
     return df
 
@@ -251,6 +260,9 @@ def compute_time_tests(df, z_min=8, teff_threshold_gyr=0.3, dust_positive_only=T
             odds_ratio, p_det = stats.fisher_exact(table, alternative='greater')
         except TypeError:
             odds_ratio, p_det = stats.fisher_exact(table)
+        # Handle cases where odds_ratio is infinite or NaN (e.g., zero counts)
+        if not np.isfinite(odds_ratio):
+            odds_ratio = float('inf') if odds_ratio > 0 else 1.0
         detection_result = {
             'detected_above': det_above,
             'not_detected_above': nondet_above,
@@ -258,7 +270,7 @@ def compute_time_tests(df, z_min=8, teff_threshold_gyr=0.3, dust_positive_only=T
             'not_detected_below': nondet_below,
             'detection_fraction_above': float(det_above / max(det_above + nondet_above, 1)),
             'detection_fraction_below': float(det_below / max(det_below + nondet_below, 1)),
-            'odds_ratio': float(odds_ratio),
+            'odds_ratio': float(odds_ratio) if np.isfinite(odds_ratio) else "infinite",
             'p_value': format_p_value(p_det)
         }
 

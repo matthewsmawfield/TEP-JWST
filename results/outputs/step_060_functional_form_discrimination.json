@@ -3,37 +3,37 @@
   "temporal_inversion_test": {
     "dust": {
       "rho_cosmic": -0.006257604267814239,
-      "rho_eff": 0.5987630920475109,
-      "improvement": 0.6050206963153251,
+      "rho_eff": 0.23295876302851315,
+      "improvement": 0.2392163672963274,
       "winner": "t_eff"
     },
     "age": {
       "rho_cosmic": 0.1595151693561111,
-      "rho_eff": 0.027745981187478227,
-      "improvement": -0.13176918816863287,
-      "winner": "t_cosmic"
+      "rho_eff": 0.2163349996982118,
+      "improvement": 0.0568198303421007,
+      "winner": "t_eff"
     },
     "chi2": {
       "rho_cosmic": -0.21508919693637354,
-      "rho_eff": 0.11598619610301458,
-      "improvement": 0.33107539303938816,
+      "rho_eff": -0.06663165217906945,
+      "improvement": 0.1484575447573041,
       "winner": "t_eff"
     },
     "r2_dust": {
       "r2_cosmic": 0.0025600554653347762,
-      "r2_eff": 0.17758763923832133,
-      "improvement": 0.17502758377298655
+      "r2_eff": 0.18492490910502946,
+      "improvement": 0.18236485363969468
     },
     "verdict": {
-      "wins_teff": 2,
-      "wins_tcosmic": 1,
-      "total_improvement": 0.8043269011860803,
+      "wins_teff": 3,
+      "wins_tcosmic": 0,
+      "total_improvement": 0.4444937423957322,
       "verdict": "SUPPORTED"
     },
     "critical_signal": {
-      "delta_rho_dust": 0.6050206963153251,
+      "delta_rho_dust": 0.2392163672963274,
       "rho_cosmic": -0.006257604267814239,
-      "rho_eff": 0.5987630920475109
+      "rho_eff": 0.23295876302851315
     }
   }
 }

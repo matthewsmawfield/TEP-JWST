@@ -58,7 +58,7 @@
       "name": "Cepheid P-L (TEP-H0)",
       "omega_bd_limit": 0.9863258026159334,
       "alpha_limit": 0.58,
-      "reference": "This work (Paper 12)",
+      "reference": "TEP-H0 (Paper 11)",
       "environment": "Galactic halos",
       "screened": false
     }

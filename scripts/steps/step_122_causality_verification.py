@@ -16,9 +16,13 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
+from scripts.utils.tep_model import (
+    ALPHA_CLOCK_EFF, ALPHA_PHOTON_BOUND, RHO_CRIT_G_CM3, 
+    temporal_topology_suppression, compute_gamma_t
+)
 
 STEP_NUM  = "122"  # Pipeline step number (sequential 001-176)
-STEP_NAME = "causality_verification"  # Causality verification: PPN gamma parameter constraint |gamma_PPN - 1| < 2.3e-5 (Cassini), screening radius calculation for chameleon-type suppression
+STEP_NAME = "causality_verification"  # Causality verification: PPN gamma parameter constraint |gamma_PPN - 1| < 2.3e-5 (Cassini), screening radius calculation for Temporal Topology
 
 OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
 LOGS_PATH   = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
@@ -36,44 +40,45 @@ H0          = 67.4      # Hubble constant H_0 [km/s/Mpc] (Planck 2018)
 G_NEWTON    = 4.302e-3  # Gravitational constant G [pc Msun^-1 (km/s)^2]
 
 
-def ppn_gamma_parameter(alpha_0=ALPHA_0):
+def ppn_gamma_parameter(alpha_0=ALPHA_PHOTON_BOUND):
     """
     Compute PPN gamma parameter for TEP scalar-tensor theory.
-    TEP has chameleon-type screening: in high-density environments (solar system),
-    the effective coupling is suppressed to alpha_eff << alpha_0.
-    This drives gamma_PPN -> 1 (GR limit) inside the screening radius.
+    TEP has Temporal Topology screening: in high-density environments (solar system),
+    the effective coupling is suppressed via continuous field gradient flattening
+    (Temporal Shear), driving gamma_PPN -> 1 (GR limit) inside screened regions.
 
-    Screening factor: f_s = (rho_c / rho_local)^n, n~1 for chameleon.
-    At solar system densities rho ~ 1e6 rho_c -> f_s ~ 1e-6, alpha_eff << 1e-3.
-    => omega_eff_screened ~ 1 / (2 * alpha_eff^2) >> 1 => gamma_PPN -> 1.
+    Uses ALPHA_PHOTON_BOUND (v0.7 Paper 9) which describes the coupling in the 
+    photon sector, distinct from the clock sector (alpha_eff).
 
     Constraint: |gamma_PPN - 1| < 2.3e-5 (Cassini, Bertotti+2003)
     """
-    # Unscreened (cosmological) coupling
+    # 1. Background (unscreened) coupling
     omega_unscreened = (1.0 / alpha_0**2 - 3) / 2 if alpha_0 > 0 else float("inf")
-    gamma_unscreened = (1 + omega_unscreened) / (2 + omega_unscreened) if omega_unscreened > -2 else float("nan")
+    
+    # 2. Screening suppression in solar system (v0.7 Temporal Topology)
+    rho_solar = 1.4  # g/cm^3 (mean solar interior density)
+    alpha_eff = temporal_topology_suppression(rho_solar, RHO_CRIT_G_CM3, alpha_0)
 
-    # Screening suppression in solar system (chameleon mechanism)
-    # rho_solar_system / rho_cosmological_background ~ 1e6 (conservative)
-    # alpha_eff = alpha_0 / sqrt(rho_ss / rho_bg) (thin-shell approximation)
-    rho_ratio = 1e6  # solar system density / cosmological background
-    alpha_eff  = alpha_0 / np.sqrt(rho_ratio)  # screened coupling
-
-    # PPN parameter with screened coupling
+    # 3. PPN parameter with screened coupling
     omega_screened = (1.0 / alpha_eff**2 - 3) / 2 if alpha_eff > 0 else float("inf")
     gamma_ppn      = (1 + omega_screened) / (2 + omega_screened) if omega_screened > -2 else 1.0
-    # In practice omega_screened >> 1 so gamma_ppn -> 1
+    
     if omega_screened > 1e8:
         gamma_ppn = 1.0 - 1.0 / (2 * omega_screened)
 
     return float(omega_screened), float(gamma_ppn)
 
 
-def screening_radius(alpha_0=ALPHA_0, log_mh=12.0, z=0):
+def screening_radius(alpha_0=ALPHA_CLOCK_EFF, log_mh=12.0, z=0):
     """
     Screening radius lambda_s where TEP effect is suppressed.
-    r_s ~ sqrt(phi / (m_phi^2)) where m_phi from chameleon mechanism.
-    Approximation: r_s ~ R_virial * (alpha_0 / alpha_screen)^(1/2)
+    
+    In v0.7 Temporal Topology, screening occurs via continuous field gradient
+    flattening (Temporal Shear) rather than a discrete boundary. The screening
+    radius marks where suppression becomes significant (rho ~ rho_c).
+    
+    Uses the unified temporal_topology_suppression() for actual coupling values.
+    Approximation: r_s ~ R_virial * 1.2 (calibrated from Milky Way constraints)
     """
     # Virial radius approximation: R_vir ~ (M_h / (200 * rho_c))^(1/3)
     m_h_msun = 10**log_mh
@@ -111,7 +116,7 @@ def run():
     print_status(f"STEP {STEP_NUM}: Causality constraint verification for TEP", "INFO")
 
     # 1. PPN gamma parameter
-    omega_eff, gamma_ppn = ppn_gamma_parameter(ALPHA_0)
+    omega_eff, gamma_ppn = ppn_gamma_parameter(ALPHA_PHOTON_BOUND)
     cassini_limit = 2.3e-5
     ppn_deviation = abs(gamma_ppn - 1.0)
     ppn_satisfied = ppn_deviation < cassini_limit
@@ -130,9 +135,10 @@ def run():
         (14.5, "Cluster halo", 0.0),
         (11.5, "Typical z=7 halo", 7.0),
     ]:
-        r_vir, r_s = screening_radius(ALPHA_0, log_mh, z)
+        r_vir, r_s = screening_radius(ALPHA_CLOCK_EFF, log_mh, z)
         gt = float(compute_gamma_t(
-            np.array([log_mh]), np.array([z if z > 0 else 0.001])
+            np.array([log_mh]), np.array([z if z > 0 else 0.001]),
+            alpha_eff=ALPHA_CLOCK_EFF
         )[0])
         entry = {
             "label":        label,
@@ -144,6 +150,11 @@ def run():
         }
         screening_info.append(entry)
         logger.info(f"  {label}: R_vir={r_vir:.3f} Mpc, Gamma_t={gt:.3f}")
+    
+    # Note: Gamma_t values above are UNscreened theoretical maxima.
+    # At z~1e-3, massive clusters are fully screened (S(rho) ~ 0), so actual 
+    # Gamma_t ~ 1. The high values shown represent the coupling strength that
+    # would apply in the unscreened regime (relevant for high-z galaxies).
 
     # 4. Causality summary
     causal_violations = []
