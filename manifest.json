@@ -17,7 +17,7 @@
       "type": "image/png"
     }
   ],
-  "title": "The Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies",
+  "title": "Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies",
   "sections": [
     {
       "id": "section-abstract",
@@ -72,6 +72,12 @@
       "title": "Supplementary Material",
       "file": "9_supplementary.html",
       "order": 9
+    },
+    {
+      "id": "section-data-availability",
+      "title": "Data Availability & Reproducibility",
+      "file": "10_data_availability.html",
+      "order": 10
     }
   ]
 }

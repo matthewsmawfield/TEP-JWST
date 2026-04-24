@@ -1,7 +1,7 @@
 {
   "id": "smawfield2026jwst",
   "type": "article",
-  "title": "The Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies",
+  "title": "Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies",
   "author": [
     {
       "family": "Smawfield",
@@ -9,9 +9,9 @@
     }
   ],
   "issued": {
-    "date-parts": [[2026, 3, 13]]
+    "date-parts": [[2026, 3, 22]]
   },
-  "doi": "10.5281/zenodo.19000828",
+  "doi": "10.5281/zenodo.19000827",
   "URL": "https://matthewsmawfield.github.io/TEP-JWST/",
   "publisher": "Preprint",
   "keywords": [
@@ -21,5 +21,5 @@
     "Scalar-Tensor Gravity",
     "Chameleon Screening"
   ],
-  "note": "Preprint, Version 0.1 (Kos)"
+  "note": "Preprint, Version 0.2 (Kos)"
 }
