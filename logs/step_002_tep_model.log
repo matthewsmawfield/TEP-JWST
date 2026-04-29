@@ -1,26 +1,26 @@
-[14:22:56]     ============================================================
-[14:22:56]     STEP 2: TEP Model and Gamma_t Calculation
-[14:22:56]     ============================================================
-[14:22:56] 
-[14:22:56]     TEP Model Parameters:
-[14:22:56]       alpha_eff = 960000.0 ± 400000.0 mag
-[14:22:56]       log_Mh_ref = 11.0
-[14:22:56]       z_ref = 5.5
-[14:22:56] 
-[14:22:56]     Loaded full sample: N = 2315
-[14:22:56]     Loaded multi-property sample: N = 1108
-[14:22:56] 
-[14:22:56]     Applying TEP model...
-[14:22:56] 
-[14:22:56]     Gamma_t Statistics (Full Sample):
-[14:22:56]       Min: 0.878
-[14:22:56]       Max: 8.766
-[14:22:56]       Median: 0.918
-[14:22:56]       N with Gamma_t > 1: 133
-[14:22:56]       N with Gamma_t > 1.5: 13
-[14:22:56] 
-[14:22:56]     Saving outputs...
-[14:22:56]     Saved: step_002_uncover_full_sample_tep.csv
-[14:22:56]     Saved: step_002_uncover_multi_property_sample_tep.csv
-[14:22:56] 
-[14:22:56]     Step 002 complete.
+[10:01:16]     ============================================================
+[10:01:16]     STEP 2: TEP Model and Gamma_t Calculation
+[10:01:16]     ============================================================
+[10:01:16] 
+[10:01:16]     TEP Model Parameters:
+[10:01:16]       kappa_gal = 960000.0 ± 400000.0 mag (Observable Response Coefficient)
+[10:01:16]       log_Mh_ref = 12.0
+[10:01:16]       z_ref = 5.5
+[10:01:16] 
+[10:01:16]     Loaded full sample: N = 2315
+[10:01:16]     Loaded multi-property sample: N = 1108
+[10:01:16] 
+[10:01:16]     Applying TEP model...
+[10:01:16] 
+[10:01:16]     Gamma_t Statistics (Full Sample):
+[10:01:16]       Min: 0.518
+[10:01:16]       Max: 5.209
+[10:01:16]       Median: 0.620
+[10:01:16]       N with Gamma_t > 1: 12
+[10:01:16]       N with Gamma_t > 1.5: 5
+[10:01:16] 
+[10:01:16]     Saving outputs...
+[10:01:16]     Saved: step_002_uncover_full_sample_tep.csv
+[10:01:16]     Saved: step_002_uncover_multi_property_sample_tep.csv
+[10:01:16] 
+[10:01:16]     Step 002 complete.

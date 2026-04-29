@@ -44,6 +44,8 @@ from io import StringIO
 PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
+from scripts.utils.tep_model import KAPPA_GAL, KAPPA_GAL_UNCERTAINTY, compute_gamma_t_from_phi
+
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting
 
@@ -70,16 +72,23 @@ RESULTS_DIR = PROJECT_ROOT / "results" / "outputs"
 # =============================================================================
 # TEP PARAMETERS (from TEP-H0, Paper 11)
 # =============================================================================
-# ALPHA_TEP: coupling constant from the TEP-H0 Cepheid analysis.
-# Applied here to the MW GC system to predict age gradients.
-ALPHA_TEP = 0.58  # TEP coupling constant
-ALPHA_TEP_ERR = 0.16  # Bootstrap uncertainty
+# Canonical magnitude-sector response coefficient κ_gal = (9.6 ± 4.0) × 10⁵ mag
+# (Paper 11 v0.6). The MW Γ_t kernel is computed via compute_gamma_t_from_phi
+# from tep_model.py with explicit Temporal Topology screening (Paper 0 v0.8).
+#
+# S_MW_HALO is the dimensionless Temporal Topology suppression factor for the
+# MW halo+disk environment. The MW is a dense host, so the locally observable
+# response coefficient is reduced relative to the cosmological bare value.
+# Treated here as a phenomenological screening parameter; its value is what
+# this analysis effectively constrains via the observed MW GC age gradient.
+S_MW_HALO = 0.01
 
-# MW parameters
-# R_SUN: Solar galactocentric distance, used as a reference point.
-# M_MW_HALO: total MW halo mass from abundance matching / dynamics.
-R_SUN = 8.0  # kpc, Sun's galactocentric distance
-M_MW_HALO = 1e12  # Solar masses, approximate MW halo mass
+# MW potential parameters (logarithmic profile for flat rotation curve)
+V_CIRC_KMS = 220.0          # MW circular velocity (km/s)
+C_KMS = 299792.458          # speed of light (km/s)
+R_VIR_KPC = 200.0           # MW virial radius (kpc) used as zero-of-potential
+R_SUN = 8.0                 # kpc, Sun's galactocentric distance
+M_MW_HALO = 1e12            # Solar masses, approximate MW halo mass
 
 # =============================================================================
 # DATA LOADING
@@ -285,77 +294,67 @@ def load_gc_ages():
 
 def calculate_mw_potential(R_gc):
     """
-    Calculate the gravitational potential at galactocentric distance R_gc.
-    
-    We use a simple NFW-like profile for the MW halo:
-        Phi(R) ∝ -M(<R) / R
-    
-    For a flat rotation curve (v_c ~ 220 km/s):
-        M(<R) ∝ R
-        Phi(R) ~ constant (logarithmic potential)
-    
-    But the potential depth relative to infinity still varies:
-        |Phi(R)| ∝ ln(R_vir / R)
-    
-    For TEP, what matters is the LOCAL potential depth, which we approximate as:
-        Phi_local ∝ sigma^2 ∝ M(<R) / R
-    
-    For the MW disk+bulge+halo:
-        - Inner regions (R < 3 kpc): dominated by bulge, steep potential
-        - Outer regions (R > 10 kpc): dominated by halo, shallow potential
+    Physical MW gravitational potential depth at galactocentric distance R_gc,
+    expressed as |Φ|/c² (dimensionless).
+
+    For a logarithmic potential matching the flat MW rotation curve
+    (v_c ≈ 220 km/s):
+
+        |Φ(R_gc)| / c² = (v_c / c)² × ln(R_vir / R_gc)
+
+    A small core (R_core = 2 kpc) regularises the logarithm at the bulge.
+    Returns the *depth* (positive number); deeper potentials have larger values.
     """
-    # Simple model: potential depth scales as 1/R for R > R_core
-    R_core = 2.0  # kpc, approximate bulge scale
-    
-    # Effective potential depth (arbitrary normalization)
-    phi_depth = 1.0 / np.sqrt(R_gc**2 + R_core**2)
-    
-    return phi_depth
+    R_core = 2.0  # kpc, bulge regularisation scale
+    R_eff = np.sqrt(R_gc**2 + R_core**2)
+    return (V_CIRC_KMS / C_KMS) ** 2 * np.log(R_VIR_KPC / R_eff)
 
 
-def calculate_tep_age_correction(R_gc, alpha=ALPHA_TEP):
+def calculate_tep_age_correction(R_gc, kappa=KAPPA_GAL, s_screen=S_MW_HALO):
     """
-    Calculate the TEP age correction factor for a GC at galactocentric distance R_gc.
-    
-    IMPORTANT: The TEP effect on GC ages is MUCH smaller than the raw potential
-    scaling would suggest, for two reasons:
-    
-    1. GROUP HALO SCREENING: All MW GCs are embedded in the MW halo, which
-       provides a deep ambient potential that screens the TEP effect.
-       This is the same mechanism that explains why the SH0ES anchors
-       (LMC, NGC 4258, M31) show no TEP bias in TEP-H0.
-    
-    2. The α = 0.58 from TEP-H0 applies to DISTANCE MODULUS (magnitudes),
-       not directly to ages. The age effect is indirect and smaller.
-    
-    The expected age gradient is:
-        Δ(Age) / Age ~ 0.01-0.05 (1-5% effect)
-    
-    This corresponds to ~0.1-0.5 Gyr for a 12 Gyr GC.
-    
-    We use a physically motivated scaling:
-        Gamma_t = alpha * 0.01 * (Phi_depth / Phi_ref - 1)
-    
-    where the 0.01 factor accounts for:
-    - Screening by the MW halo
-    - The indirect nature of the age effect
+    Canonical TEP Γ_t age-correction factor for a MW GC at galactocentric
+    distance R_gc.
+
+    Uses the magnitude-sector kernel from tep_model.py (Paper 11 v0.6):
+
+        Γ_t = exp[ K_gal_eff · (Φ_local − Φ_ref) · √(1+z) ]
+
+    where K_gal_eff = κ_gal × S(ρ) × ln10 / (2.5 × n) and S(ρ) is the Temporal
+    Topology suppression factor for the MW halo environment (S_MW_HALO).
+
+    The reference potential is taken at R_gc = 50 kpc (outer-halo regime,
+    where TEP corrections are minimal). Inner GCs (small R_gc) sit in deeper
+    potentials and therefore have Γ_t > 1, appearing slightly older.
+
+    Returns
+    -------
+    gamma_t_excess : float
+        log(Γ_t) ≈ fractional age enhancement (small for screened MW)
+    correction_factor : float
+        Γ_t itself (multiplicative correction to true age)
+
+    Notes
+    -----
+    For unscreened TEP and physical MW potentials, the predicted gradient
+    would be O(1) — vastly larger than observed. The screening factor
+    S_MW_HALO = 0.01 reflects strong continuous geometric screening by
+    the MW halo+disk (Paper 0 v0.8 Jakarta), which is what this analysis
+    effectively constrains by comparing predicted to observed gradients.
     """
-    # Calculate potential depth
-    phi_depth = calculate_mw_potential(R_gc)
-    
-    # Reference potential (at large R_gc)
-    phi_ref = calculate_mw_potential(50.0)  # Outer halo reference
-    
-    # Gamma_t scales with potential depth
-    # The 0.01 factor accounts for MW halo screening
-    # This gives Gamma_t ~ 0.03 at R_gc = 2 kpc (bulge)
-    # Corresponding to ~0.4 Gyr age enhancement for a 12 Gyr GC
-    gamma_t = alpha * 0.01 * (phi_depth / phi_ref - 1)
-    
-    # Correction factor (exponential form)
-    correction_factor = np.exp(gamma_t)
-    
-    return gamma_t, correction_factor
+    phi_local = calculate_mw_potential(R_gc)
+    phi_ref = calculate_mw_potential(50.0)
+
+    # Canonical kernel evaluated at local and reference potentials, with
+    # screened response coefficient kappa_eff = kappa * S(rho).
+    kappa_eff = kappa * s_screen
+    gamma_t_local = compute_gamma_t_from_phi(phi_local, z=0.0, kappa=kappa_eff)
+    gamma_t_ref   = compute_gamma_t_from_phi(phi_ref,   z=0.0, kappa=kappa_eff)
+
+    # Differential enhancement relative to outer-halo reference
+    correction_factor = gamma_t_local / gamma_t_ref
+    gamma_t_excess = np.log(correction_factor)
+
+    return gamma_t_excess, correction_factor
 
 
 # =============================================================================

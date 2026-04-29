@@ -13,7 +13,7 @@ can learn ANY arbitrary function of it.
 
 The coup de grâce: train on UNCOVER, predict on CEERS and COSMOS-Web.
 The ML model will overfit to survey-specific systematics; Gamma_t
-(a physically motivated zero-parameter prediction) should generalise.
+(a physically motivated no-JWST-specific-refit prediction) should generalise.
 
 TESTS:
 1. Within-survey (UNCOVER): 5-fold CV, R²/RMSE with vs without Gamma_t

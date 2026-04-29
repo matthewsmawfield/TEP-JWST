@@ -47,7 +47,7 @@ RESULTS_DIR = (
 )  # JSON output directory (machine-readable statistical results)
 
 
-def derive_compton_wavelength(M_pl=2.435e18, beta=0.58, Lambda=2.3e-3):
+def derive_compton_wavelength(M_pl=2.435e18, beta=9.6e5, Lambda=2.3e-3):
     """
     Derive scalar field Compton wavelength from chameleon theory.
 
@@ -82,7 +82,7 @@ def derive_compton_wavelength(M_pl=2.435e18, beta=0.58, Lambda=2.3e-3):
     # in the background where the field can vary.
 
     # More realistic estimate: λ_C ~ 1-10 kpc comes from requiring
-    # that the field varies over galactic scales with β ~ 0.58
+    # that the field varies over galactic scales with β ~ 9.6e5
     # and ρ ~ 10^-23 g/cm³
 
     # Direct calculation gives ~kpc scale

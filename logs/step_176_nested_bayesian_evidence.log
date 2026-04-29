@@ -1,99 +1,99 @@
-[14:31:48]     ======================================================================
-[14:31:48]     STEP 176: Nested Bayesian Model Comparison
-[14:31:48]     ======================================================================
-[14:31:48]     Loaded 2315 galaxies from step_002_uncover_full_sample_tep.csv
-[14:31:48]     Valid multi-observable sample: N=504 at z >= 7
-[14:31:48]     
+[10:43:18]     ======================================================================
+[10:43:18]     STEP 176: Nested Bayesian Model Comparison
+[10:43:18]     ======================================================================
+[10:43:18]     Loaded 2315 galaxies from step_002_uncover_full_sample_tep.csv
+[10:43:18]     Valid multi-observable sample: N=504 at z >= 7
+[10:43:18]     
 ======================================================================
-[14:31:48]     A. MULTI-OBSERVABLE JOINT TEST (PRIMARY)
-[14:31:48]     ======================================================================
-[14:31:49]     
+[10:43:18]     A. MULTI-OBSERVABLE JOINT TEST (PRIMARY)
+[10:43:18]     ======================================================================
+[10:43:19]     
   Running nested sampling: TEP Joint (12 params)
-[14:31:49]         ndim=12, nlive=500
-[14:32:09]         ln(Z) = -2810.80 ± 0.51
-[14:32:09]     
+[10:43:19]         ndim=12, nlive=200
+[10:43:26]         ln(Z) = -2815.90 ± 0.67
+[10:43:26]     
   Running nested sampling: Standard Physics Joint (16 params)
-[14:32:09]         ndim=16, nlive=500
-[14:32:41]         ln(Z) = -2752.16 ± 0.54
-[14:32:41]     
+[10:43:26]         ndim=16, nlive=200
+[10:43:38]         ln(Z) = -2749.52 ± 0.83
+[10:43:38]     
   Running nested sampling: Bursty SF Joint (21 params)
-[14:32:41]         ndim=21, nlive=500
-[14:33:25]         ln(Z) = -2744.92 ± 0.57
-[14:33:25]     
+[10:43:38]         ndim=21, nlive=200
+[10:43:55]         ln(Z) = -2743.42 ± 0.75
+[10:43:55]     
   Running nested sampling: Varying IMF Joint (20 params)
-[14:33:25]         ndim=20, nlive=500
-[14:34:06]         ln(Z) = -2742.62 ± 0.54
-[14:34:06]     
+[10:43:55]         ndim=20, nlive=200
+[10:44:10]         ln(Z) = -2741.81 ± 0.81
+[10:44:10]     
   Running nested sampling: AGN Feedback Joint (14 params)
-[14:34:06]         ndim=14, nlive=500
-[14:34:32]         ln(Z) = -2711.33 ± 0.51
-[14:34:32]     
+[10:44:10]         ndim=14, nlive=200
+[10:44:20]         ln(Z) = -2710.14 ± 0.77
+[10:44:20]     
 --------------------------------------------------
-[14:34:32]     JOINT BAYES FACTORS (TEP vs Alternatives)
-[14:34:32]     --------------------------------------------------
-[14:34:32]       Standard_Physics: ln(BF)=-58.63 ± 0.74  |  Δparams=4  |  Decisive evidence for alternative
-[14:34:32]       Bursty_SF: ln(BF)=-65.87 ± 0.76  |  Δparams=9  |  Decisive evidence for alternative
-[14:34:32]       Varying_IMF: ln(BF)=-68.17 ± 0.74  |  Δparams=8  |  Decisive evidence for alternative
-[14:34:32]       AGN_Feedback: ln(BF)=-99.47 ± 0.72  |  Δparams=2  |  Decisive evidence for alternative
-[14:34:32]     
+[10:44:20]     JOINT BAYES FACTORS (TEP vs Alternatives)
+[10:44:20]     --------------------------------------------------
+[10:44:20]       Standard_Physics: ln(BF)=-66.38 ± 1.06  |  Δparams=4  |  Decisive evidence for alternative
+[10:44:20]       Bursty_SF: ln(BF)=-72.48 ± 1.00  |  Δparams=9  |  Decisive evidence for alternative
+[10:44:20]       Varying_IMF: ln(BF)=-74.10 ± 1.05  |  Δparams=8  |  Decisive evidence for alternative
+[10:44:20]       AGN_Feedback: ln(BF)=-105.77 ± 1.02  |  Δparams=2  |  Decisive evidence for alternative
+[10:44:20]     
 ======================================================================
-[14:34:32]     B. SINGLE-OBSERVABLE DUST TEST (SUPPLEMENTARY)
-[14:34:32]     ======================================================================
-[14:34:32]     
+[10:44:20]     B. SINGLE-OBSERVABLE DUST TEST (SUPPLEMENTARY)
+[10:44:20]     ======================================================================
+[10:44:20]     
   Running nested sampling: TEP Dust (3 params)
-[14:34:32]         ndim=3, nlive=500
-[14:34:35]         ln(Z) = -670.54 ± 0.29
-[14:34:35]     
+[10:44:20]         ndim=3, nlive=200
+[10:44:21]         ln(Z) = -671.71 ± 0.42
+[10:44:21]     
   Running nested sampling: Standard Dust (4 params)
-[14:34:35]         ndim=4, nlive=500
-[14:34:38]         ln(Z) = -625.18 ± 0.31
-[14:34:38]     
+[10:44:21]         ndim=4, nlive=200
+[10:44:22]         ln(Z) = -625.33 ± 0.47
+[10:44:22]     
   Running nested sampling: Varying IMF Dust (5 params)
-[14:34:38]         ndim=5, nlive=500
-[14:34:42]         ln(Z) = -619.99 ± 0.32
-[14:34:42]     
+[10:44:22]         ndim=5, nlive=200
+[10:44:24]         ln(Z) = -619.88 ± 0.48
+[10:44:24]     
   Running nested sampling: AGN Dust (5 params)
-[14:34:42]         ndim=5, nlive=500
-[14:34:47]         ln(Z) = -609.22 ± 0.30
-[14:34:47]     
+[10:44:24]         ndim=5, nlive=200
+[10:44:25]         ln(Z) = -609.40 ± 0.46
+[10:44:25]     
 --------------------------------------------------
-[14:34:47]     SINGLE-OBSERVABLE DUST BAYES FACTORS
-[14:34:47]     --------------------------------------------------
-[14:34:47]       Standard_Physics: ln(BF)=-45.36 ± 0.43  |  Δparams=1  |  Decisive evidence for alternative
-[14:34:47]       Varying_IMF: ln(BF)=-50.55 ± 0.43  |  Δparams=2  |  Decisive evidence for alternative
-[14:34:47]       AGN_Feedback: ln(BF)=-61.32 ± 0.42  |  Δparams=2  |  Decisive evidence for alternative
-[14:34:47]     
+[10:44:25]     SINGLE-OBSERVABLE DUST BAYES FACTORS
+[10:44:25]     --------------------------------------------------
+[10:44:25]       Standard_Physics: ln(BF)=-46.39 ± 0.63  |  Δparams=1  |  Decisive evidence for alternative
+[10:44:25]       Varying_IMF: ln(BF)=-51.83 ± 0.64  |  Δparams=2  |  Decisive evidence for alternative
+[10:44:25]       AGN_Feedback: ln(BF)=-62.31 ± 0.62  |  Δparams=2  |  Decisive evidence for alternative
+[10:44:25]     
 ======================================================================
-[14:34:47]     C. RESIDUAL-SPACE COMPARISON (MASS+Z-CONTROLLED)
-[14:34:47]     ======================================================================
-[14:34:47]     
+[10:44:25]     C. RESIDUAL-SPACE COMPARISON (MASS+Z-CONTROLLED)
+[10:44:25]     ======================================================================
+[10:44:25]     
   Running nested sampling: Residual TEP Joint (12 params)
-[14:34:47]         ndim=12, nlive=500
-[14:35:12]         ln(Z) = -2910.42 ± 0.53
-[14:35:12]     
+[10:44:25]         ndim=12, nlive=200
+[10:44:35]         ln(Z) = -2912.05 ± 0.80
+[10:44:35]     
   Running nested sampling: Residual Null (8 params)
-[14:35:12]         ndim=8, nlive=500
-[14:35:34]         ln(Z) = -2894.11 ± 0.41
-[14:35:34]     
+[10:44:35]         ndim=8, nlive=200
+[10:44:39]         ln(Z) = -2893.29 ± 0.59
+[10:44:39]     
   Running nested sampling: Residual Constrained AGN (10 params)
-[14:35:34]         ndim=10, nlive=500
-[14:36:09]         ln(Z) = -2850.74 ± 0.42
-[14:36:09]     
+[10:44:39]         ndim=10, nlive=200
+[10:44:48]         ln(Z) = -2850.72 ± 0.62
+[10:44:48]     
 --------------------------------------------------
-[14:36:09]     RESIDUAL-SPACE BAYES FACTORS (TEP vs Alternatives)
-[14:36:09]     --------------------------------------------------
-[14:36:09]       Residual_Null: ln(BF)=-16.31 ± 0.67  |  Δparams=-4  |  Decisive evidence for alternative
-[14:36:09]       Constrained_AGN: ln(BF)=-59.68 ± 0.67  |  Δparams=-2  |  Decisive evidence for alternative
-[14:36:09]     
+[10:44:48]     RESIDUAL-SPACE BAYES FACTORS (TEP vs Alternatives)
+[10:44:48]     --------------------------------------------------
+[10:44:48]       Residual_Null: ln(BF)=-18.76 ± 0.99  |  Δparams=-4  |  Decisive evidence for alternative
+[10:44:48]       Constrained_AGN: ln(BF)=-61.33 ± 1.01  |  Δparams=-2  |  Decisive evidence for alternative
+[10:44:48]     
 ======================================================================
-[14:36:09]     KEY FINDING
-[14:36:09]     ======================================================================
-[14:36:09]     Multi-observable joint nested Bayesian model comparison yields mixed results: 0/4 favour TEP while 4/4 favour alternatives. Mean ln(BF) across 4 alternatives = -73.0 (log10 = -31.7).  TEP achieves this with the fewest parameters, leveraging a single theory-fixed predictor (Gamma_t) across all observables.
-[14:36:09]     
+[10:44:48]     KEY FINDING
+[10:44:48]     ======================================================================
+[10:44:48]     Multi-observable joint nested Bayesian model comparison yields mixed results: 0/4 favour TEP while 4/4 favour alternatives. Mean ln(BF) across 4 alternatives = -79.7 (log10 = -34.6).  TEP achieves this with the fewest parameters, leveraging a single theory-fixed predictor (Gamma_t) across all observables.
+[10:44:48]     
 ======================================================================
-[14:36:09]     RESIDUAL-SPACE KEY FINDING
-[14:36:09]     ======================================================================
-[14:36:09]     Residual-space nested Bayesian comparison remains mixed after mass+z control because Constrained_AGN still competes with TEP. After removing linear mass+z trends from both observables and competing predictors, mean ln(BF) across 2 alternatives = -38.0 (log10 = -16.5).
-[14:36:09]     
+[10:44:48]     RESIDUAL-SPACE KEY FINDING
+[10:44:48]     ======================================================================
+[10:44:48]     Residual-space nested Bayesian comparison remains mixed after mass+z control because Constrained_AGN still competes with TEP. After removing linear mass+z trends from both observables and competing predictors, mean ln(BF) across 2 alternatives = -40.0 (log10 = -17.4).
+[10:44:48]     
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_176_nested_bayesian_evidence.json
-[14:36:09]     ======================================================================
+[10:44:48]     ======================================================================

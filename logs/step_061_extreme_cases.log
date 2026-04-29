@@ -1,100 +1,100 @@
-[14:24:00]     ======================================================================
-[14:24:00]     STEP 061: Extreme Cases Analysis
-[14:24:00]     ======================================================================
-[14:24:00]     
+[10:02:21]     ======================================================================
+[10:02:21]     STEP 061: Extreme Cases Analysis
+[10:02:21]     ======================================================================
+[10:02:21]     
 Loaded N = 2315 galaxies
-[14:24:00]     
+[10:02:21]     
 ======================================================================
-[14:24:00]     EXTREME CASE 1: The Oldest Galaxies
-[14:24:00]     ======================================================================
-[14:24:00]     Galaxies with age_ratio > 0.5 (age > 50% of cosmic age)
+[10:02:21]     EXTREME CASE 1: The Oldest Galaxies
+[10:02:21]     ======================================================================
+[10:02:21]     Galaxies with age_ratio > 0.5 (age > 50% of cosmic age)
 
-[14:24:00]     age_ratio > 0.3: N = 50, <Γ_t> = 1.13, ratio = 1.2×
-[14:24:00]     age_ratio > 0.4: N = 20, <Γ_t> = 1.32, ratio = 1.4×
-[14:24:00]     age_ratio > 0.5: N = 9, <Γ_t> = 1.47, ratio = 1.6×
-[14:24:00]     age_ratio > 0.6: N = 6, <Γ_t> = 1.67, ratio = 1.8×
-[14:24:00]     
+[10:02:21]     age_ratio > 0.3: N = 50, <Γ_t> = 0.73, ratio = 1.2×
+[10:02:21]     age_ratio > 0.4: N = 20, <Γ_t> = 0.84, ratio = 1.3×
+[10:02:21]     age_ratio > 0.5: N = 9, <Γ_t> = 0.90, ratio = 1.5×
+[10:02:21]     age_ratio > 0.6: N = 6, <Γ_t> = 1.03, ratio = 1.7×
+[10:02:21]     
 Top 10 oldest galaxies:
-[14:24:00]       ID 744: age_ratio = 0.934, Γ_t = 1.46, z = 9.93
-[14:24:00]       ID 588: age_ratio = 0.693, Γ_t = 3.43, z = 9.59
-[14:24:00]       ID 497: age_ratio = 0.692, Γ_t = 1.64, z = 9.84
-[14:24:00]       ID 688: age_ratio = 0.636, Γ_t = 1.18, z = 9.83
-[14:24:00]       ID 783: age_ratio = 0.612, Γ_t = 0.92, z = 4.71
-[14:24:00]       ID 1858: age_ratio = 0.604, Γ_t = 1.35, z = 4.03
-[14:24:00]       ID 1192: age_ratio = 0.552, Γ_t = 1.03, z = 9.74
-[14:24:00]       ID 287: age_ratio = 0.534, Γ_t = 1.17, z = 5.99
-[14:24:00]       ID 959: age_ratio = 0.514, Γ_t = 1.01, z = 9.34
-[14:24:00]       ID 926: age_ratio = 0.470, Γ_t = 1.06, z = 9.87
-[14:24:00]     
+[10:02:21]       ID 744: age_ratio = 0.934, Γ_t = 0.86, z = 9.93
+[10:02:21]       ID 588: age_ratio = 0.693, Γ_t = 2.04, z = 9.59
+[10:02:21]       ID 497: age_ratio = 0.692, Γ_t = 0.97, z = 9.84
+[10:02:21]       ID 688: age_ratio = 0.636, Γ_t = 0.70, z = 9.83
+[10:02:21]       ID 783: age_ratio = 0.612, Γ_t = 0.63, z = 4.71
+[10:02:21]       ID 1858: age_ratio = 0.604, Γ_t = 0.95, z = 4.03
+[10:02:21]       ID 1192: age_ratio = 0.552, Γ_t = 0.61, z = 9.74
+[10:02:21]       ID 287: age_ratio = 0.534, Γ_t = 0.77, z = 5.99
+[10:02:21]       ID 959: age_ratio = 0.514, Γ_t = 0.60, z = 9.34
+[10:02:21]       ID 926: age_ratio = 0.470, Γ_t = 0.63, z = 9.87
+[10:02:21]     
 ======================================================================
-[14:24:00]     EXTREME CASE 2: The Dustiest Galaxies at z > 9
-[14:24:00]     ======================================================================
-[14:24:00]     At z > 9, t_cosmic < 550 Myr. High dust is 'anomalous'.
+[10:02:21]     EXTREME CASE 2: The Dustiest Galaxies at z > 9
+[10:02:21]     ======================================================================
+[10:02:21]     At z > 9, t_cosmic < 550 Myr. High dust is 'anomalous'.
 
-[14:24:00]     z > 9 sample: N = 104
-[14:24:00]     Dusty (A_V > 0.5): N = 60
-[14:24:00]     <Γ_t> dusty: 1.12
-[14:24:00]     <Γ_t> not dusty: 0.89
-[14:24:00]     Ratio: 1.3×
-[14:24:00]     
+[10:02:21]     z > 9 sample: N = 104
+[10:02:21]     Dusty (A_V > 0.5): N = 60
+[10:02:21]     <Γ_t> dusty: 0.67
+[10:02:21]     <Γ_t> not dusty: 0.53
+[10:02:21]     Ratio: 1.3×
+[10:02:21]     
 ======================================================================
-[14:24:00]     EXTREME CASE 3: The Most Massive at z > 8
-[14:24:00]     ======================================================================
-[14:24:00]     Massive galaxies at high-z are 'anomalous' under standard physics.
+[10:02:21]     EXTREME CASE 3: The Most Massive at z > 8
+[10:02:21]     ======================================================================
+[10:02:21]     Massive galaxies at high-z are 'anomalous' under standard physics.
 
-[14:24:00]     z > 8 sample: N = 283
-[14:24:00]     Massive (log M* > 9.5): N = 16
-[14:24:00]     <Γ_t> massive: 2.14
-[14:24:00]     <Γ_t> not massive: 0.90
-[14:24:00]     Ratio: 2.4×
-[14:24:00]     
+[10:02:21]     z > 8 sample: N = 283
+[10:02:21]     Massive (log M* > 9.5): N = 16
+[10:02:21]     <Γ_t> massive: 1.28
+[10:02:21]     <Γ_t> not massive: 0.55
+[10:02:21]     Ratio: 2.3×
+[10:02:21]     
 <Dust> massive: 2.091
-[14:24:00]     <Dust> not massive: 0.715
-[14:24:00]     
+[10:02:21]     <Dust> not massive: 0.715
+[10:02:21]     
 ======================================================================
-[14:24:00]     EXTREME CASE 4: The Worst SED Fits
-[14:24:00]     ======================================================================
-[14:24:00]     High chi2 indicates isochrony violation (TEP signature).
+[10:02:21]     EXTREME CASE 4: The Worst SED Fits
+[10:02:21]     ======================================================================
+[10:02:21]     High chi2 indicates isochrony violation (TEP signature).
 
-[14:24:00]     z > 8 sample: N = 283
-[14:24:00]     Worst fits (top 10%): N = 29
-[14:24:00]     <Γ_t> worst fits: 1.27
-[14:24:00]     <Γ_t> good fits: 0.94
-[14:24:00]     Ratio: 1.4×
-[14:24:00]     
+[10:02:21]     z > 8 sample: N = 283
+[10:02:21]     Worst fits (top 10%): N = 29
+[10:02:21]     <Γ_t> worst fits: 0.77
+[10:02:21]     <Γ_t> good fits: 0.57
+[10:02:21]     Ratio: 1.4×
+[10:02:21]     
 ======================================================================
-[14:24:00]     EXTREME CASE 5: Multi-Extreme Galaxies
-[14:24:00]     ======================================================================
-[14:24:00]     Galaxies extreme in MULTIPLE properties simultaneously.
+[10:02:21]     EXTREME CASE 5: Multi-Extreme Galaxies
+[10:02:21]     ======================================================================
+[10:02:21]     Galaxies extreme in MULTIPLE properties simultaneously.
 
-[14:24:00]     Mean Γ_t by number of extreme properties:
-[14:24:00]       N_extreme = 0: <Γ_t> = 0.89 (N = 128)
-[14:24:00]       N_extreme = 1: <Γ_t> = 0.91 (N = 80)
-[14:24:00]       N_extreme = 2: <Γ_t> = 0.92 (N = 35)
-[14:24:00]       N_extreme = 3: <Γ_t> = 1.47 (N = 26)
-[14:24:00]       N_extreme = 4: <Γ_t> = 1.24 (N = 14)
-[14:24:00]     
-ρ(N_extreme, Γ_t) = 0.536 (p = 2.05e-22)
-[14:24:00]     
+[10:02:21]     Mean Γ_t by number of extreme properties:
+[10:02:21]       N_extreme = 0: <Γ_t> = 0.54 (N = 128)
+[10:02:21]       N_extreme = 1: <Γ_t> = 0.55 (N = 80)
+[10:02:21]       N_extreme = 2: <Γ_t> = 0.56 (N = 35)
+[10:02:21]       N_extreme = 3: <Γ_t> = 0.89 (N = 26)
+[10:02:21]       N_extreme = 4: <Γ_t> = 0.74 (N = 14)
+[10:02:21]     
+ρ(N_extreme, Γ_t) = 0.383 (p = 2.61e-11)
+[10:02:21]     
 ======================================================================
-[14:24:00]     EXTREME CASE 6: The 'Anomalous' Population
-[14:24:00]     ======================================================================
-[14:24:00]     Galaxies that violate multiple standard physics constraints.
+[10:02:21]     EXTREME CASE 6: The 'Anomalous' Population
+[10:02:21]     ======================================================================
+[10:02:21]     Galaxies that violate multiple standard physics constraints.
 
-[14:24:00]     z > 9 sample: N = 104
-[14:24:00]     'Anomalous' (age_ratio > 0.4 AND dust > 0.3): N = 10
-[14:24:00]     <Γ_t> anomalous: 1.37
-[14:24:00]     <Γ_t> possible: 0.99
-[14:24:00]     Ratio: 1.4×
-[14:24:00]     
+[10:02:21]     z > 9 sample: N = 104
+[10:02:21]     'Anomalous' (age_ratio > 0.4 AND dust > 0.3): N = 10
+[10:02:21]     <Γ_t> anomalous: 0.81
+[10:02:21]     <Γ_t> possible: 0.59
+[10:02:21]     Ratio: 1.4×
+[10:02:21]     
 ======================================================================
-[14:24:00]     SUMMARY: Extreme Cases Analysis
-[14:24:00]     ======================================================================
-[14:24:00]     
+[10:02:21]     SUMMARY: Extreme Cases Analysis
+[10:02:21]     ======================================================================
+[10:02:21]     
 Key findings:
-[14:24:00]       • dusty_z9: 1.3× elevation in Γ_t
-[14:24:00]       • massive_z8: 2.4× elevation in Γ_t
-[14:24:00]       • worst_fits: 1.4× elevation in Γ_t
-[14:24:00]       • anomalous: 1.4× elevation in Γ_t
-[14:24:00]     
+[10:02:21]       • dusty_z9: 1.3× elevation in Γ_t
+[10:02:21]       • massive_z8: 2.3× elevation in Γ_t
+[10:02:21]       • worst_fits: 1.4× elevation in Γ_t
+[10:02:21]       • anomalous: 1.4× elevation in Γ_t
+[10:02:21]     
 Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_061_extreme_cases.json

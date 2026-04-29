@@ -1,6 +1,8 @@
 {
   "name": "TEP-JWST",
   "short_name": "TEP-JWST",
+  "version": "v0.4 (Kos)",
+  "last_updated": "29 April 2026",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#1C2E4A",

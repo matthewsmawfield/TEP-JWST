@@ -17,7 +17,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 from scripts.utils.tep_model import (
-    ALPHA_CLOCK_EFF, ALPHA_PHOTON_BOUND, RHO_CRIT_G_CM3, 
+    KAPPA_GAL, ALPHA_PHOTON_BOUND, RHO_CRIT_G_CM3, 
     temporal_topology_suppression, compute_gamma_t
 )
 
@@ -40,7 +40,7 @@ H0          = 67.4      # Hubble constant H_0 [km/s/Mpc] (Planck 2018)
 G_NEWTON    = 4.302e-3  # Gravitational constant G [pc Msun^-1 (km/s)^2]
 
 
-def ppn_gamma_parameter(alpha_0=ALPHA_PHOTON_BOUND):
+def ppn_gamma_parameter(kappa=ALPHA_PHOTON_BOUND):
     """
     Compute PPN gamma parameter for TEP scalar-tensor theory.
     TEP has Temporal Topology screening: in high-density environments (solar system),
@@ -48,19 +48,21 @@ def ppn_gamma_parameter(alpha_0=ALPHA_PHOTON_BOUND):
     (Temporal Shear), driving gamma_PPN -> 1 (GR limit) inside screened regions.
 
     Uses ALPHA_PHOTON_BOUND (v0.7 Paper 9) which describes the coupling in the 
-    photon sector, distinct from the clock sector (alpha_eff).
+    photon sector, distinct from the clock sector (kappa).
 
     Constraint: |gamma_PPN - 1| < 2.3e-5 (Cassini, Bertotti+2003)
     """
-    # 1. Background (unscreened) coupling
-    omega_unscreened = (1.0 / alpha_0**2 - 3) / 2 if alpha_0 > 0 else float("inf")
+    # 1. Background (unscreened) coupling in the photon sector.
+    #    Do not use KAPPA_GAL here: it is a magnitude-sector response
+    #    coefficient and is not the dimensionless scalar-tensor coupling.
+    omega_unscreened = (1.0 / kappa**2 - 3) / 2 if kappa > 0 else float("inf")
     
     # 2. Screening suppression in solar system (v0.7 Temporal Topology)
     rho_solar = 1.4  # g/cm^3 (mean solar interior density)
-    alpha_eff = temporal_topology_suppression(rho_solar, RHO_CRIT_G_CM3, alpha_0)
+    kappa_eff = temporal_topology_suppression(rho_solar, RHO_CRIT_G_CM3, kappa)
 
     # 3. PPN parameter with screened coupling
-    omega_screened = (1.0 / alpha_eff**2 - 3) / 2 if alpha_eff > 0 else float("inf")
+    omega_screened = (1.0 / kappa_eff**2 - 3) / 2 if kappa_eff > 0 else float("inf")
     gamma_ppn      = (1 + omega_screened) / (2 + omega_screened) if omega_screened > -2 else 1.0
     
     if omega_screened > 1e8:
@@ -69,7 +71,7 @@ def ppn_gamma_parameter(alpha_0=ALPHA_PHOTON_BOUND):
     return float(omega_screened), float(gamma_ppn)
 
 
-def screening_radius(alpha_0=ALPHA_CLOCK_EFF, log_mh=12.0, z=0):
+def screening_radius(kappa=KAPPA_GAL, log_mh=12.0, z=0):
     """
     Screening radius lambda_s where TEP effect is suppressed.
     
@@ -135,10 +137,10 @@ def run():
         (14.5, "Cluster halo", 0.0),
         (11.5, "Typical z=7 halo", 7.0),
     ]:
-        r_vir, r_s = screening_radius(ALPHA_CLOCK_EFF, log_mh, z)
+        r_vir, r_s = screening_radius(KAPPA_GAL, log_mh, z)
         gt = float(compute_gamma_t(
             np.array([log_mh]), np.array([z if z > 0 else 0.001]),
-            alpha_eff=ALPHA_CLOCK_EFF
+            kappa=KAPPA_GAL
         )[0])
         entry = {
             "label":        label,

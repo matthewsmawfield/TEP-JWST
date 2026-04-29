@@ -7,60 +7,60 @@
     {
       "z": 6,
       "smf_excess_dex": 0.3,
-      "gamma_t_typical": 2.083046814311606,
-      "mass_correction_dex": 0.22308932126208703,
-      "delta_log_N": 0.33463398189313054,
-      "resolution_frac": 1.0,
-      "resolved": true,
+      "gamma_t_typical": 1.3671768618313012,
+      "mass_correction_dex": 0.09507728982753783,
+      "delta_log_N": 0.14261593474130674,
+      "resolution_frac": 0.4753864491376891,
+      "resolved": false,
       "ref": "Harikane+2022"
     },
     {
       "z": 7,
       "smf_excess_dex": 0.5,
-      "gamma_t_typical": 2.0494363358621444,
-      "mass_correction_dex": 0.2181441022904096,
-      "delta_log_N": 0.3272161534356144,
-      "resolution_frac": 0.6544323068712288,
-      "resolved": true,
+      "gamma_t_typical": 1.306572607752098,
+      "mass_correction_dex": 0.08129348428668948,
+      "delta_log_N": 0.12194022643003422,
+      "resolution_frac": 0.24388045286006843,
+      "resolved": false,
       "ref": "Labbe+2023"
     },
     {
       "z": 8,
       "smf_excess_dex": 0.8,
-      "gamma_t_typical": 2.0043966645732745,
-      "mass_correction_dex": 0.21138856996672928,
-      "delta_log_N": 0.3170828549500939,
-      "resolution_frac": 0.3963535686876174,
+      "gamma_t_typical": 1.2434366712830593,
+      "mass_correction_dex": 0.06623656996672977,
+      "delta_log_N": 0.09935485495009466,
+      "resolution_frac": 0.12419356868761833,
       "resolved": false,
       "ref": "Labbe+2023"
     },
     {
       "z": 9,
       "smf_excess_dex": 1.1,
-      "gamma_t_typical": 1.9518361393075279,
-      "mass_correction_dex": 0.20331034845690965,
-      "delta_log_N": 0.3049655226853645,
-      "resolution_frac": 0.27724138425942224,
+      "gamma_t_typical": 1.1799584726842112,
+      "mass_correction_dex": 0.0503067061473228,
+      "delta_log_N": 0.0754600592209842,
+      "resolution_frac": 0.06860005383725835,
       "resolved": false,
       "ref": "Boylan-Kolchin+2023"
     },
     {
       "z": 10,
       "smf_excess_dex": 1.4,
-      "gamma_t_typical": 1.8947137202130508,
-      "mass_correction_dex": 0.19428051999343943,
-      "delta_log_N": 0.29142077999015914,
-      "resolution_frac": 0.20815769999297082,
+      "gamma_t_typical": 1.1176311417387135,
+      "mass_correction_dex": 0.03380894613688312,
+      "delta_log_N": 0.050713419205324684,
+      "resolution_frac": 0.0362238708609462,
       "resolved": false,
       "ref": "estimate (Finkelstein+2023)"
     }
   ],
-  "mean_resolution": 0.5072369919622478,
+  "mean_resolution": 0.18965687907671608,
   "labbe_resolution": {
     "n_impossible": 9,
     "n_resolved_tep": 8,
     "resolution_frac": 0.8888888888888888,
     "method": "z-dependent Gamma_t mass bias correction"
   },
-  "conclusion": "TEP mass correction resolves 51% of the SMF excess on average. At z=9, correction of 0.20 dex resolves 28% of the 1.1 dex excess. Labbe+2023 anomalous galaxies: 8/9 resolved (89%)."
+  "conclusion": "TEP mass correction resolves 19% of the SMF excess on average. At z=9, correction of 0.05 dex resolves 7% of the 1.1 dex excess. Labbe+2023 anomalous galaxies: 8/9 resolved (89%)."
 }

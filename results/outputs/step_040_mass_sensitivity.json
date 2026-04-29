@@ -10,15 +10,15 @@
     "mass_dust_z8": "True",
     "gamma_dust_z8": "True",
     "gamma_age_z4": "False",
-    "chi2_separation": "True"
+    "chi2_separation": false
   },
   "signatures_surviving_10dex": {
     "mass_dust_z8": "True",
     "gamma_dust_z8": "True",
-    "gamma_age_z4": "False",
-    "chi2_separation": "True"
+    "gamma_age_z4": "True",
+    "chi2_separation": false
   },
-  "n_surviving_05dex": "3",
+  "n_surviving_05dex": "2",
   "n_surviving_10dex": "3",
-  "conclusion": "robust"
+  "conclusion": "sensitive"
 }

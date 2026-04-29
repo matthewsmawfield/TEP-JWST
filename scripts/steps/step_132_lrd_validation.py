@@ -41,7 +41,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 from scripts.utils.tep_model import (
-    ALPHA_CLOCK_EFF, ALPHA_CLOCK_UNCERTAINTY, 
+    KAPPA_GAL, KAPPA_GAL_UNCERTAINTY, 
     LOG_MH_REF, Z_REF, PHI_REF_0,
     get_phi_from_log_mh, compute_gamma_t_from_phi
 )
@@ -62,7 +62,7 @@ set_step_logger(logger)
 
 # =============================================================================
 # CONSTANTS & PARAMETERS
-# ALPHA_0, Z_REF, LOG_MH_REF imported from scripts.utils.tep_model
+# KAPPA_GAL, Z_REF, LOG_MH_REF imported from scripts.utils.tep_model
 # =============================================================================
 
 G = 4.301e-6  # kpc (km/s)^2 / M_sun
@@ -112,7 +112,7 @@ def load_lrd_catalog():
         'z_phot': 'z',
         'lbol': 'log_Lbol',
         'av': 'Av',
-        'r_eff_50_phys': 'Re_kpc',
+        'r_eff_50_phys': 'Re_pc',
         'muv': 'Muv',
     }
     df = df.rename(columns={k: v for k, v in col_map.items() if k in df.columns})
@@ -128,6 +128,15 @@ def load_lrd_catalog():
 # =============================================================================
 # TEP CALCULATIONS
 # =============================================================================
+
+MUV_REF = -19.5
+LOG_MSTAR_REF = 8.7
+ML_SLOPE = 0.4
+
+
+def muv_to_log_mstar(muv):
+    """Conservative UV-luminosity stellar-mass proxy for Kokorev LRDs."""
+    return -ML_SLOPE * (np.asarray(muv) - MUV_REF) + LOG_MSTAR_REF
 
 def estimate_halo_mass(log_Mstar, z):
     """
@@ -202,16 +211,24 @@ def analyze_lrd_population(df):
     for _, row in df.iterrows():
         z = row['z']
         
-        # Estimate halo mass
-        if pd.notna(row.get('log_Mstar')):
-            log_Mh = estimate_halo_mass(row['log_Mstar'], z)
+        # Estimate halo mass from object-level stellar-mass information when
+        # available. The Kokorev catalog does not ship stellar masses, so the
+        # canonical fallback is the same conservative MUV proxy used by step 142.
+        log_Mstar = row.get('log_Mstar', np.nan)
+        mass_source = 'catalog'
+        if not pd.notna(log_Mstar) and pd.notna(row.get('Muv')) and -30 < row.get('Muv') < 0:
+            log_Mstar = float(muv_to_log_mstar(row['Muv']))
+            mass_source = 'MUV_proxy'
+        if pd.notna(log_Mstar):
+            log_Mh = estimate_halo_mass(log_Mstar, z)
         else:
             log_Mh = 11.0  # Default for LRDs
+            mass_source = 'default_logMh'
         
         # Estimate concentration from compactness
         # LRDs are very compact, so concentration is high
-        if pd.notna(row.get('Re_kpc')) and row['Re_kpc'] > 0:
-            Re_pc = row['Re_kpc'] * 1000  # Already in kpc from catalog
+        if pd.notna(row.get('Re_pc')) and row['Re_pc'] > 0:
+            Re_pc = row['Re_pc']  # FITS unit is pc.
             # Smaller radius = higher concentration
             concentration = np.clip(500 / Re_pc, 5, 50)
         else:
@@ -227,7 +244,9 @@ def analyze_lrd_population(df):
             'id': row['id'],
             'field': row.get('field', 'unknown'),
             'z': z,
-            'log_Mstar': row.get('log_Mstar', np.nan),
+            'Muv': row.get('Muv', np.nan),
+            'log_Mstar': log_Mstar,
+            'mass_source': mass_source,
             'log_Mh': log_Mh,
             'Re_pc': Re_pc,
             'concentration': concentration,
@@ -359,11 +378,13 @@ def run_analysis():
         "data_source": "Kokorev et al. 2024 (arXiv:2401.09981)",
         "sample_size": len(df_results),
         "parameters": {
-            "alpha_eff": ALPHA_CLOCK_EFF,
-            "alpha_uncertainty": ALPHA_CLOCK_UNCERTAINTY,
+            "kappa_gal": KAPPA_GAL,
+            "kappa_gal_uncertainty": KAPPA_GAL_UNCERTAINTY,
             "z_ref": Z_REF,
             "t_salpeter_Gyr": T_SALPETER,
+            "stellar_mass_proxy": "MUV_proxy_if_catalog_log_Mstar_missing",
         },
+        "mass_sources": df_results["mass_source"].value_counts().to_dict(),
         "redshift_range": {
             "min": float(df_results['z'].min()),
             "max": float(df_results['z'].max()),
@@ -380,10 +401,11 @@ def run_analysis():
             "fraction_gt_1000x": float(significant / len(df_results)),
         },
         "conclusion": (
-            f"The Differential Temporal Topology mechanism is universal across the LRD population. "
+            "After correcting the Kokorev radius units and using an object-level "
+            "MUV stellar-mass proxy where catalog stellar masses are absent, "
             f"{100*significant/len(df_results):.0f}% of {len(df_results)} LRDs show >1000x "
-            f"differential BH growth boost, explaining the overmassive BH phenomenon "
-            f"without requiring exotic seeds or super-Eddington accretion."
+            "differential BH growth boost. This is a mechanism stress test, not "
+            "a calibrated resolution of the observed M_BH/M_* anomaly."
         ),
     }
     

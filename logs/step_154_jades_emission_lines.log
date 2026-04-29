@@ -1,8 +1,8 @@
-[14:28:23]     STEP 154: JADES DR4 emission line vs. Gamma_t analysis
-[14:28:24]   Loaded from ext 2: 948 rows with z+EL columns
-[14:28:24]   Emission line catalog: N=948
-[14:28:24]   H-alpha flux: N=721, rho=0.098, p=8.61e-03
-[14:28:24]   H-beta flux: N=805, rho=0.182, p=2.04e-07
-[14:28:24]   [OIII] flux: N=822, rho=0.180, p=1.90e-07
-[14:28:24] Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_154_jades_emission_lines.json
-[14:28:24]     Step 154 complete.
+[10:06:36]     STEP 154: JADES DR4 emission line vs. Gamma_t analysis
+[10:06:37]   Loaded from ext 2: 948 rows with z+EL columns
+[10:06:37]   Emission line catalog: N=948
+[10:06:37]   H-alpha flux: N=721, rho=0.098, p=8.61e-03
+[10:06:37]   H-beta flux: N=805, rho=0.182, p=2.04e-07
+[10:06:37]   [OIII] flux: N=822, rho=0.180, p=1.90e-07
+[10:06:37] Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_154_jades_emission_lines.json
+[10:06:37]     Step 154 complete.

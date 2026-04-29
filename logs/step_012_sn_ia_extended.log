@@ -1,73 +1,73 @@
-[14:23:10] ======================================================================
-[14:23:10] TEP-JWST Step 12: Extended SN Ia Analysis
-[14:23:10] ======================================================================
-[14:23:10] 
-[14:23:10] Exploring additional TEP signatures in Pantheon+ data
-[14:23:10] 
-[14:23:10] Loading Pantheon+ data from /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-H0/data/raw/Pantheon+SH0ES.dat
-[14:23:10] Loaded 1701 SN Ia observations
-[14:23:10] ======================================================================
-[14:23:10] ANALYSIS 1: Mass Step Redshift Evolution
-[14:23:10] ======================================================================
-[14:23:10] z = 0.01-0.03: N = 357, mass step = 0.0187 ± 0.0191 mag
-[14:23:10] z = 0.03-0.05: N = 177, mass step = -0.0192 ± 0.0228 mag
-[14:23:10] z = 0.05-0.08: N = 82, mass step = 0.0265 ± 0.0372 mag
-[14:23:10] z = 0.08-0.15: N = 99, mass step = 0.0070 ± 0.0253 mag
-[14:23:10] z = 0.15-0.30: N = 381, mass step = 0.0089 ± 0.0157 mag
-[14:23:10] z = 0.30-1.00: N = 469, mass step = 0.0231 ± 0.0132 mag
-[14:23:10] 
+[10:01:30] ======================================================================
+[10:01:30] TEP-JWST Step 12: Extended SN Ia Analysis
+[10:01:30] ======================================================================
+[10:01:30] 
+[10:01:30] Exploring additional TEP signatures in Pantheon+ data
+[10:01:30] 
+[10:01:30] Loading Pantheon+ data from /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-H0/data/raw/Pantheon+SH0ES.dat
+[10:01:30] Loaded 1701 SN Ia observations
+[10:01:31] ======================================================================
+[10:01:31] ANALYSIS 1: Mass Step Redshift Evolution
+[10:01:31] ======================================================================
+[10:01:31] z = 0.01-0.03: N = 357, mass step = 0.0187 ± 0.0191 mag
+[10:01:31] z = 0.03-0.05: N = 177, mass step = -0.0192 ± 0.0228 mag
+[10:01:31] z = 0.05-0.08: N = 82, mass step = 0.0265 ± 0.0372 mag
+[10:01:31] z = 0.08-0.15: N = 99, mass step = 0.0070 ± 0.0253 mag
+[10:01:31] z = 0.15-0.30: N = 381, mass step = 0.0089 ± 0.0157 mag
+[10:01:31] z = 0.30-1.00: N = 469, mass step = 0.0231 ± 0.0132 mag
+[10:01:31] 
 Mass step vs redshift correlation:
-[14:23:10]   Spearman ρ = 0.200, p = 0.7040
-[14:23:10] 
+[10:01:31]   Spearman ρ = 0.200, p = 0.7040
+[10:01:31] 
 ⚠ No significant redshift evolution detected
-[14:23:10] ======================================================================
-[14:23:10] ANALYSIS 2: Calibrator vs Hubble Flow Offset
-[14:23:10] ======================================================================
-[14:23:10] Calibrators: N = 77
-[14:23:10] Hubble flow (z > 0.01): N = 1580
-[14:23:10] 
+[10:01:31] ======================================================================
+[10:01:31] ANALYSIS 2: Calibrator vs Hubble Flow Offset
+[10:01:31] ======================================================================
+[10:01:31] Calibrators: N = 77
+[10:01:31] Hubble flow (z > 0.01): N = 1580
+[10:01:31] 
 Mean residuals:
-[14:23:10]   Calibrators: 0.1101 ± 0.0335 mag
-[14:23:10]   Hubble flow: -0.0030 ± 0.0039 mag
-[14:23:10]   Offset (Cal - HF): 0.1131 ± 0.0337 mag
-[14:23:10] 
+[10:01:31]   Calibrators: 0.1101 ± 0.0335 mag
+[10:01:31]   Hubble flow: -0.0030 ± 0.0039 mag
+[10:01:31]   Offset (Cal - HF): 0.1131 ± 0.0337 mag
+[10:01:31] 
 Mean host mass:
-[14:23:10]   Calibrators: log(M*) = 10.21
-[14:23:10]   Hubble flow: log(M*) = 9.82
-[14:23:10] 
+[10:01:31]   Calibrators: log(M*) = 10.21
+[10:01:31]   Hubble flow: log(M*) = 9.82
+[10:01:31] 
 TEP Interpretation:
-[14:23:10]   Calibrators are in screened environments (group halos)
-[14:23:10]   Hubble flow SNe are in mixed environments
-[14:23:10]   The offset reflects the differential TEP bias
-[14:23:10] ======================================================================
-[14:23:10] ANALYSIS 3: Hubble Residual Correlations
-[14:23:10] ======================================================================
-[14:23:10] Host stellar mass: ρ = 0.027, p = 0.2799
-[14:23:10] SN color: ρ = 0.012, p = 0.6415
-[14:23:10] SN stretch: ρ = -0.029, p = 0.2491
-[14:23:10] Redshift: ρ = -0.095, p = 0.0001
-[14:23:10] ======================================================================
-[14:23:10] ANALYSIS 4: High-z Mass Step (z > 0.1)
-[14:23:10] ======================================================================
-[14:23:10] High-z sample (z > 0.1): N = 960
-[14:23:10] Redshift range: 0.102 - 2.261
-[14:23:10] Low-mass hosts: N = 449
-[14:23:10] High-mass hosts: N = 511
-[14:23:10] 
+[10:01:31]   Calibrators are in screened environments (group halos)
+[10:01:31]   Hubble flow SNe are in mixed environments
+[10:01:31]   The offset reflects the differential TEP bias
+[10:01:31] ======================================================================
+[10:01:31] ANALYSIS 3: Hubble Residual Correlations
+[10:01:31] ======================================================================
+[10:01:31] Host stellar mass: ρ = 0.027, p = 0.2799
+[10:01:31] SN color: ρ = 0.012, p = 0.6415
+[10:01:31] SN stretch: ρ = -0.029, p = 0.2491
+[10:01:31] Redshift: ρ = -0.095, p = 0.0001
+[10:01:31] ======================================================================
+[10:01:31] ANALYSIS 4: High-z Mass Step (z > 0.1)
+[10:01:31] ======================================================================
+[10:01:31] High-z sample (z > 0.1): N = 960
+[10:01:31] Redshift range: 0.102 - 2.261
+[10:01:31] Low-mass hosts: N = 449
+[10:01:31] High-mass hosts: N = 511
+[10:01:31] 
 High-z mass step: 0.0139 ± 0.0095 mag
-[14:23:10] t-statistic: 1.47, p = 0.1428
-[14:23:10] 
+[10:01:31] t-statistic: 1.47, p = 0.1428
+[10:01:31] 
 Comparison:
-[14:23:10]   Full sample mass step: 0.0072 mag
-[14:23:10]   High-z mass step: 0.0139 mag
-[14:23:10]   Ratio (high-z / full): 1.93
-[14:23:10] 
+[10:01:31]   Full sample mass step: 0.0072 mag
+[10:01:31]   High-z mass step: 0.0139 mag
+[10:01:31]   Ratio (high-z / full): 1.93
+[10:01:31] 
 ✓ High-z mass step is LARGER (TEP-consistent)
-[14:23:10] 
-[14:23:10] ======================================================================
-[14:23:10] SUMMARY
-[14:23:10] ======================================================================
-[14:23:10] ⚠ No significant mass step evolution with redshift
-[14:23:10] ✓ High-z mass step is enhanced (TEP-consistent)
-[14:23:10] 
+[10:01:31] 
+[10:01:31] ======================================================================
+[10:01:31] SUMMARY
+[10:01:31] ======================================================================
+[10:01:31] ⚠ No significant mass step evolution with redshift
+[10:01:31] ✓ High-z mass step is enhanced (TEP-consistent)
+[10:01:31] 
 Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_012_sn_ia_extended.json

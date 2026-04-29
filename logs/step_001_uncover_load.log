@@ -1,15 +1,15 @@
-[14:22:55] ═══ STEP 01: Load UNCOVER DR4 Data
-[14:22:55] >>> Loading: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/uncover/UNCOVER_DR4_SPS_catalog.fits
-[14:22:55]     Total sources: 74020
-[14:22:55]     Extracted 25 columns
-[14:22:55]     Full sample after cuts: N = 2315
-[14:22:55]     Multi-property sample after cuts: N = 1108
-[14:22:55]     z > 8 sample after cuts: N = 283
-[14:22:56] >>> Saving outputs...
-[14:22:56]     Saved: step_001_uncover_full_sample.csv
-[14:22:56]     Saved: step_001_uncover_multi_property_sample.csv
-[14:22:56]     Saved: step_001_uncover_z8_sample.csv
-[14:22:56] ✓   Full sample: N = 2315
-[14:22:56] ✓   Multi-property: N = 1108
-[14:22:56] ✓   z > 8: N = 283
-[14:22:56] ✓   Step 001 complete.
+[10:01:14] ═══ STEP 01: Load UNCOVER DR4 Data
+[10:01:14] >>> Loading: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/uncover/UNCOVER_DR4_SPS_catalog.fits
+[10:01:14]     Total sources: 74020
+[10:01:14]     Extracted 25 columns
+[10:01:14]     Full sample after cuts: N = 2315
+[10:01:14]     Multi-property sample after cuts: N = 1108
+[10:01:15]     z > 8 sample after cuts: N = 283
+[10:01:15] >>> Saving outputs...
+[10:01:15]     Saved: step_001_uncover_full_sample.csv
+[10:01:15]     Saved: step_001_uncover_multi_property_sample.csv
+[10:01:15]     Saved: step_001_uncover_z8_sample.csv
+[10:01:15] ✓   Full sample: N = 2315
+[10:01:15] ✓   Multi-property: N = 1108
+[10:01:15] ✓   z > 8: N = 283
+[10:01:15] ✓   Step 001 complete.

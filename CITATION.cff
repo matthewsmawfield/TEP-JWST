@@ -7,10 +7,10 @@ authors:
     given-names: "Matthew Lukin"
     orcid: "https://orcid.org/0009-0003-8219-3159"
 abstract: >
-  JWST has revealed a set of high-redshift anomalies that appear disparate in detail but share a common structure: star formation efficiencies exceeding LambdaCDM limits, overmassive black holes, and anomalous stellar-to-dynamical mass ratios all appear preferentially in the deepest gravitational potentials. This work tests whether that common pattern can arise from a single violation of the isochrony axiom. In the Temporal Equivalence Principle (TEP), a chameleon-screened scalar-tensor theory, proper time depends on environment in unscreened halos. Using the clock-sector coupling alpha_eff = (9.6 +/- 4.0) x 10^5 mag measured by Paper 11's Cepheid analysis, applied directly to the potential-linear Gamma_t formula (zero free JWST parameters), the framework fully resolves the Red Monster efficiency excess and provides a physical route to differential black-hole growth in Little Red Dots.
+  JWST has revealed high-redshift anomalies whose strongest current TEP tests are the large-sample photometric lines, the direct kinematic comparison, and the structural selectivity of the Uniformity Paradox. Star formation efficiencies exceeding LambdaCDM limits and anomalous stellar-to-dynamical mass ratios both appear preferentially in deep gravitational potentials, while overmassive black holes in Little Red Dots are retained as an unresolved compact-core stress test rather than as a primary closure result.
 license: CC-BY-4.0
-version: "0.3"
-date-released: 2026-03-22
+version: "0.4"
+date-released: 2026-03-13
 keywords:
   - jwst
   - high-redshift-galaxies
@@ -37,4 +37,4 @@ preferred-citation:
     value: 10.5281/zenodo.19000827
     description: Pre-print DOI
   url: "https://doi.org/10.5281/zenodo.19000827"
-  notes: "Preprint, Version 0.3 (Kos)"
+  notes: "Preprint, Version 0.4 (Kos)"

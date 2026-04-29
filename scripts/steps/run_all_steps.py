@@ -68,7 +68,7 @@ STEPS = [
     # PHASE IV: STATISTICAL SYNTHESIS (steps 020-024)
     # Parameter validation and cosmological implications
     # =========================================================================
-    "step_020_parameter_validation.py",             # α₀ = 0.58 validation
+    "step_020_parameter_validation.py",             # κ_gal = 9.6e5 mag validation
     "step_021_scatter_reduction.py",                # Scatter reduction
     "step_022_extreme_population.py",               # Extreme population analysis
     "step_023_self_consistency.py",                  # Self-consistency tests
@@ -217,7 +217,7 @@ STEPS = [
     "step_120_screening_transition_profile.py",     # Screening transition profile
     "step_121_extended_modified_gravity_comparison.py", # Extended modified gravity comparison
     "step_122_causality_verification.py",           # Causality constraint verification
-    "step_123_alpha0_error_budget.py",              # Alpha_0 systematic error propagation
+    "step_123_kappa_error_budget.py",              # κ_gal systematic error propagation
     "step_124_timespace_coupling.py",               # Time-space coupling consistency test
     "step_125_multitracer_consistency.py",          # Multi-tracer redshift consistency
     "step_126_screening_scale.py",                  # Screening length scale self-consistency
@@ -244,6 +244,7 @@ STEPS = [
     "step_138_environmental_screening_steiger.py",  # Environmental screening Steiger Z-test
     "step_139_colour_gradient_steiger.py",          # Colour-gradient Steiger Z-test (t_eff vs M*)
     "step_141_nonlinear_aic.py",                    # Non-linear AIC: step-function t_eff vs M* (ΔAIC≈-5)
+    "step_142_lrd_mbh_mstar_prediction.py",         # LRD M_BH/Mstar prediction: TEP predicts BH growth in Little Red Dots
     "step_143_mass_proxy_breaker.py",               # Mass-proxy degeneracy breaker (3 independent tests)
     "step_144_adversarial_ml_attack.py",            # Adversarial ML attack: GBR/RF vs Gamma_t + cross-survey + CMI
     "step_145_phase_boundary_activation.py",        # AGB dust phase boundary + activation curve fit
@@ -335,6 +336,7 @@ def _validate_json_file(json_path: Path):
 
     problems = []
     _validate_json_obj(data, problems)
+    problems.extend(_semantic_json_status_problems(data))
     return problems
 
 
@@ -343,6 +345,25 @@ def _safe_read_json(json_path: Path):
         return json.loads(json_path.read_text())
     except Exception:
         return None
+
+
+def _semantic_json_status_problems(data):
+    """Treat explicit failed scientific/QA status payloads as guardrail failures."""
+    problems = []
+    if not isinstance(data, dict):
+        return problems
+
+    status = data.get("status")
+    if isinstance(status, str) and status.upper() in {"FAIL", "FAILED"}:
+        problems.append(("semantic_status_fail", "status", status))
+
+    summary = data.get("summary")
+    if isinstance(summary, dict):
+        summary_status = summary.get("status")
+        if isinstance(summary_status, str) and summary_status.upper() in {"FAIL", "FAILED"}:
+            problems.append(("semantic_status_fail", "summary.status", summary_status))
+
+    return problems
 
 
 def _format_run_at_label(run_at: str | None) -> str | None:

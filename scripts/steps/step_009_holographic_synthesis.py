@@ -33,7 +33,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import ALPHA_0, ALPHA_CLOCK_EFF, compute_gamma_t as tep_gamma  # TEP model: alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), Gamma_t formula
+from scripts.utils.tep_model import KAPPA_GAL, KAPPA_GAL, compute_gamma_t as tep_gamma  # TEP model: KAPPA_GAL=9.6e5 mag from Cepheids, Gamma_t formula
 from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents underflow at extreme significance)
 
 STEP_NUM = "009"  # Pipeline step number (sequential 001-176)
@@ -241,7 +241,7 @@ def test_z_evolution():
     """Test if TEP correlations strengthen with redshift.
 
     TEP prediction:
-      Because alpha(z) = alpha_0 * sqrt(1+z), the TEP coupling
+      Because alpha(z) = kappa_gal * sqrt(1+z), the TEP coupling
       strengthens at higher redshifts, producing a wider spread in
       Gamma_t values and hence stronger mass-property correlations.
 
@@ -280,16 +280,16 @@ def test_z_evolution():
             rho, p = spearmanr(df.loc[mask, 'log_Mstar'], 
                                df.loc[mask, 'age_ratio'])
             z_mid = (z_lo + z_hi) / 2
-            alpha_z = ALPHA_0 * np.sqrt(1 + z_mid)
+            response_z = KAPPA_GAL * np.sqrt(1 + z_mid)
             
-            print_status(f"{z_lo}-{z_hi}:      {n:5d}  {rho:+.3f}             {alpha_z:.2f}", "INFO")
+            print_status(f"{z_lo}-{z_hi}:      {n:5d}  {rho:+.3f}             {response_z:.2f}", "INFO")
             
             results.append({
                 "z_range": [z_lo, z_hi],
                 "n": int(n),
                 "rho": float(rho),
                 "p": format_p_value(p),
-                "alpha_z": float(alpha_z),
+                "response_z": float(response_z),
             })
     
     print_status("", "INFO")
@@ -311,14 +311,14 @@ def test_cross_domain():
     """Verify cross-domain consistency with TEP-H0.
 
     This test checks one of the strongest predictions of TEP: that
-    the coupling constant alpha_0, derived from Cepheid period-luminosity
+    the coupling constant kappa_gal, derived from Cepheid period-luminosity
     observations in SN Ia host galaxies at z ~ 0 (Paper 11), also
     produces statistically significant stellar-population correlations
     when applied unchanged to JWST galaxies at z = 4-10.
 
-    If alpha_0 were wrong by a factor of ~2, the predicted Gamma_t
+    If kappa_gal were wrong by a factor of ~2, the predicted Gamma_t
     values would be qualitatively different and the correlations would
-    vanish. The fact that the Paper 11 coupling (alpha_eff = 9.6e5 mag) works across 10 Gyr of cosmic
+    vanish. The fact that the Paper 11 coupling (kappa = 9.6e5 mag) works across 10 Gyr of cosmic
     time, different physical observables (Cepheid periods vs SED-fitted
     stellar populations), and different environments (SN Ia hosts vs
     high-z field galaxies) is strong evidence for a single underlying
@@ -345,7 +345,7 @@ def test_cross_domain():
     print_status("", "INFO")
     print_status("Cross-domain consistency:", "INFO")
     print_status("  - Same physics (TEP)", "INFO")
-    print_status("  - Same parameter (α = 0.58)", "INFO")
+    print_status("  - Same parameter (α = 9.6e5)", "INFO")
     print_status("  - Different observables (Cepheids vs stellar populations)", "INFO")
     print_status("  - Different redshifts (z ~ 0 vs z ~ 4-10)", "INFO")
     print_status("  - Different environments (SN hosts vs high-z field)", "INFO")
@@ -367,7 +367,7 @@ def test_cross_domain():
     
     return {
         "test": "Cross-Domain Consistency",
-        "alpha_from_tep_h0": ALPHA_0,
+        "alpha_from_tep_h0": KAPPA_GAL,
         "rho_observed": float(rho_obs),
         "conclusion": "Consistent - same α works across domains",
     }
@@ -482,7 +482,7 @@ def main():
     print_status("  ○ SFR Burstiness: Complex (downsizing confounds)", "INFO")
     print_status("  ○ Quenching: Few quenched galaxies at high-z", "INFO")
     print_status("  ○ z Evolution: Selection effects dominate", "INFO")
-    print_status("  ★ Cross-Domain: α = 0.58 works across domains", "INFO")
+    print_status("  ★ Cross-Domain: α = 9.6e5 works across domains", "INFO")
     print_status("  ○ Screening: Suggestive but needs larger sample", "INFO")
     print_status("", "INFO")
     print_status("Next Steps:", "INFO")

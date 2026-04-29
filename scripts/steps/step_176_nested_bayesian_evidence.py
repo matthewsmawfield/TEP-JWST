@@ -61,7 +61,7 @@ OBS_LABELS = {
     'met': 'Metallicity'
 }
 
-NLIVE = 500
+NLIVE = 200
 DLOGZ = 0.5
 RNG_SEED = 176
 
@@ -131,6 +131,7 @@ def _joint_tep_loglike(params, obs_arrays, log_gamma):
         resid = obs_arrays[k] - pred
         ll += -0.5 * np.sum((resid / sigma)**2 + np.log(2 * np.pi * sigma**2))
     return ll
+
 
 
 def _joint_tep_prior(u, K):
@@ -527,7 +528,9 @@ def main():
 
     mass = df_v['log_Mstar'].values
     z = df_v['z'].values
-    gamma_t = df_v['gamma_t'].values
+    from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like
+    log_mh = stellar_to_halo_mass_behroozi_like(mass, z)
+    gamma_t = compute_gamma_t(log_mh, z)
     log_gamma = np.log10(np.maximum(gamma_t, 0.01))
     obs_arrays_raw = [df_v[c].values for c in OBSERVABLES]
     K = len(OBSERVABLES)

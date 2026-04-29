@@ -1,30 +1,42 @@
 {
   "validated_parameter": {
-    "alpha_0": 0.58
+    "kappa_gal": 960000.0
   },
   "evidence": [
     {
       "test": "Chi2 anomaly",
-      "rho": 0.21347344961830955,
-      "p": 2.88514194384715e-25,
+      "rho": 0.23386125573919767,
+      "p": 3.969244622670581e-30,
       "passed": true
     },
     {
       "test": "Dust correlation",
-      "rho": -0.08418148955506724,
-      "p": 5.005757186893027e-05,
+      "rho": -0.2585141782349335,
+      "p": 1.1603641367207817e-36,
+      "passed": true
+    },
+    {
+      "test": "Metallicity correlation",
+      "rho": -0.13283787267238192,
+      "p": 1.3951363540321317e-10,
       "passed": true
     },
     {
       "test": "Regime separation",
-      "ks": 0.2370632900280899,
-      "p": 3.7447437088560854e-12,
+      "ks": 0.4295090674558009,
+      "p": 0.00024833857398009053,
       "passed": true
     },
     {
       "test": "Mass-independent",
-      "rho": 0.1543230248246239,
-      "p": 1.3289747298563717e-09,
+      "rho": 0.18026077282476152,
+      "p": 1.2585509857799346e-12,
+      "passed": true
+    },
+    {
+      "test": "t_eff threshold",
+      "ratio": 1.6723445775125885,
+      "p": 2.067852276156516e-06,
       "passed": true
     }
   ],
@@ -50,5 +62,5 @@
       "resolution": "Enhanced vs suppressed regimes"
     }
   ],
-  "evidence_count": 4
+  "evidence_count": 6
 }

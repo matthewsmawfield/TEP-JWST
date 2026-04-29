@@ -15,8 +15,8 @@
   },
   "beta_gamma": {
     "n_galaxies": 81,
-    "spearman_rho": -0.10124209575429087,
-    "spearman_p": 0.3684767761017289,
+    "spearman_rho": -0.10672990063233966,
+    "spearman_p": 0.34295051340238536,
     "tep_consistent": false
   }
 }

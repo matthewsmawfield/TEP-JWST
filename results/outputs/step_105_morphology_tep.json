@@ -9,8 +9,8 @@
   },
   "dust_proxy": {
     "n": 876,
-    "rho": 0.0011592089202873163,
-    "p_value": 0.9726694445776033,
+    "rho": -0.18272531111443344,
+    "p_value": 5.140817526971949e-08,
     "note": "Dust used as indirect compactness proxy"
   },
   "conclusion": "Insufficient morphology data for testing",

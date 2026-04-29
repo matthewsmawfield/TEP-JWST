@@ -35,7 +35,7 @@ from datetime import datetime
 from scipy import stats
 import sys
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import ALPHA_0, LOG_MH_REF, Z_REF, compute_gamma_t  # TEP model: alpha_0=0.58, log_Mh_ref=12.0, z_ref=5.5, Gamma_t formula
+from scripts.utils.tep_model import KAPPA_GAL, LOG_MH_REF, Z_REF, compute_gamma_t  # TEP model: KAPPA_GAL=9.6e5 mag, log_Mh_ref=12.0, z_ref=5.5, Gamma_t formula
 
 # Paths
 SCRIPT_DIR = Path(__file__).parent

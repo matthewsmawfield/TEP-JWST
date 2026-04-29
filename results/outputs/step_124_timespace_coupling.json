@@ -26,12 +26,13 @@
     },
     "quantitative_test": {
       "z": 5.5,
-      "M_h": 1000000000000.0,
-      "temporal_enhancement": 1.0,
+      "M_h": 3981071705534.969,
+      "log_Mh": 12.6,
+      "temporal_enhancement": 2.179320208106596,
       "spatial_effect": 1.0,
-      "ratio_t_s": 1.0,
-      "decoupling_confirmed": false
+      "ratio_t_s": 2.179320208106596,
+      "decoupling_confirmed": true
     }
   },
-  "conclusion": "TEP cleanly separates temporal and spatial observables; decoupling factor > 1.5x confirmed"
+  "conclusion": "TEP temporal/spatial decoupling confirmed for the massive-halo test case"
 }

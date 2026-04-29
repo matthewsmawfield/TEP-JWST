@@ -1,59 +1,59 @@
-[14:27:40]     ============================================================
-[14:27:40]     STEP 152: UNCOVER DR4 Full SPS Catalog (MegaScience)
-[14:27:40]     ============================================================
-[14:27:40] >>> Loading full DR4 SPS: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/uncover/UNCOVER_DR4_SPS_catalog.fits
-[14:27:40]     Full DR4 SPS: N = 74020
-[14:27:40]     After quality cuts (z>4.0, M*>8.0, use_phot): N = 2628
-[14:27:40]       z>5: N = 1690
-[14:27:40]       z>7: N = 860
-[14:27:40]       z>8: N = 731
-[14:27:40] >>> Applying TEP model (z from 'z_phot')...
-[14:27:41]     Gamma_t computed for 2628 sources
-[14:27:41]       Median Gamma_t: 0.931
-[14:27:41]     Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/interim/step_152_uncover_dr4_full_sps.csv (N=2628)
-[14:27:41] >>> Analyzing TEP signal (full photometric SPS)...
-[14:27:41]     ρ(Γ_t, dust2) [z_gt_4]: -0.074, p=0.0001561156829995304, N=2628
-[14:27:41]     ρ(Γ_t, dust2) [z_gt_5]: -0.007, p=0.7733010132993337, N=1690
-[14:27:41]     ρ(Γ_t, dust2) [z_gt_7]: 0.171, p=4.5931981547925604e-07, N=860
-[14:27:41]     ρ(Γ_t, dust2) [z_gt_8]: 0.168, p=4.639438885884817e-06, N=731
-[14:27:41]     ρ(Γ_t, mwa) [z_gt_4]: 0.314, p=2.7738294119570272e-61, N=2628
-[14:27:41]     ρ(Γ_t, mwa) [z_gt_7]: 0.124, p=0.0002570961238038973, N=860
-[14:27:41]     ρ(Γ_t, met) [z>4]: -0.055, p=0.005053575537082149, N=2628
-[14:27:41]     ρ_partial(Γ_t, dust2 | M*, z) [z>4]: 0.292, p=6.074712721774786e-53, N=2628
-[14:27:41]       z=4-5: ρ=0.023, p=0.48243949547892817, N=938
-[14:27:41]       z=5-6: ρ=0.010, p=0.825391148279182, N=505
-[14:27:41]       z=6-7: ρ=-0.052, p=0.351067207967384, N=325
-[14:27:41]       z=7-8: ρ=0.371, p=1.53724171485716e-05, N=129
-[14:27:41]       z=8-9: ρ=0.525, p=5.94742286188004e-06, N=66
-[14:27:41]       z=9-12: ρ=-0.001, p=0.991094128444326, N=122
-[14:27:41]     AGB threshold (t_eff>0.3 Gyr): dust2 ratio=0.50, p=1.0
-[14:27:41]     ----------------------------------------
-[14:27:41] >>> Loading DR4 zspec SPS: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/uncover/UNCOVER_DR4_SPS_zspec_catalog.fits
-[14:27:41]     DR4 zspec SPS: N = 668
-[14:27:41]     zspec after cuts (qual>=2, z>0.5, M*>8): N = 203
-[14:27:41]       z>4: N = 53
-[14:27:41]       z>5: N = 35
-[14:27:41]       z>7: N = 12
-[14:27:41] >>> Applying TEP model (z from 'z_spec')...
-[14:27:41]     Gamma_t computed for 203 sources
-[14:27:41]       Median Gamma_t: 0.968
-[14:27:41]     Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/interim/step_152_uncover_dr4_zspec.csv (N=203)
-[14:27:41] >>> Analyzing TEP signal (zspec SPS)...
-[14:27:41]     ρ(Γ_t, dust2) [zspec, z_gt_2]: 0.537, p=2.0557305408427664e-13, N=161
-[14:27:41]     ρ(Γ_t, dust2) [zspec, z_gt_4]: 0.576, p=6.5036109061840825e-06, N=53
-[14:27:41]     ρ(Γ_t, dust2) [zspec, z_gt_5]: 0.670, p=1.068987777122306e-05, N=35
-[14:27:41]     Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_152_uncover_dr4_full_sps.json
-[14:27:41]     ============================================================
-[14:27:41]     SUMMARY
-[14:27:41]       Full DR4 SPS (z>4, M*>8): N = 2628
-[14:27:41]       z>7: N = 860
-[14:27:41]       Upgrade vs step_01: 2628/2315 = 1.1×
-[14:27:41]       Zspec SPS (qual>=2): N = 203
-[14:27:41]       dust2_z_gt_4: ρ=-0.074, p=0.0001561156829995304, N=2628
-[14:27:41]       dust2_z_gt_5: ρ=-0.007, p=0.7733010132993337, N=1690
-[14:27:41]       dust2_z_gt_7: ρ=0.171, p=4.5931981547925604e-07, N=860
-[14:27:41]       dust2_z_gt_8: ρ=0.168, p=4.639438885884817e-06, N=731
-[14:27:41]       mwa_z_gt_4: ρ=0.314, p=2.7738294119570272e-61, N=2628
-[14:27:41]       mwa_z_gt_7: ρ=0.124, p=0.0002570961238038973, N=860
-[14:27:41]       met_z_gt_4: ρ=-0.055, p=0.005053575537082149, N=2628
-[14:27:41]     ============================================================
+[10:05:52]     ============================================================
+[10:05:52]     STEP 152: UNCOVER DR4 Full SPS Catalog (MegaScience)
+[10:05:52]     ============================================================
+[10:05:52] >>> Loading full DR4 SPS: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/uncover/UNCOVER_DR4_SPS_catalog.fits
+[10:05:52]     Full DR4 SPS: N = 74020
+[10:05:52]     After quality cuts (z>4.0, M*>8.0, use_phot): N = 2628
+[10:05:52]       z>5: N = 1690
+[10:05:52]       z>7: N = 860
+[10:05:52]       z>8: N = 731
+[10:05:52] >>> Applying TEP model (z from 'z_phot')...
+[10:05:52]     Gamma_t computed for 2628 sources
+[10:05:52]       Median Gamma_t: 0.626
+[10:05:52]     Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/interim/step_152_uncover_dr4_full_sps.csv (N=2628)
+[10:05:52] >>> Analyzing TEP signal (full photometric SPS)...
+[10:05:52]     ρ(Γ_t, dust2) [z_gt_4]: -0.155, p=1.3619751630539448e-15, N=2628
+[10:05:52]     ρ(Γ_t, dust2) [z_gt_5]: -0.053, p=0.030859563942036, N=1690
+[10:05:52]     ρ(Γ_t, dust2) [z_gt_7]: 0.170, p=5.328269504632924e-07, N=860
+[10:05:52]     ρ(Γ_t, dust2) [z_gt_8]: 0.194, p=1.2556043993348065e-07, N=731
+[10:05:52]     ρ(Γ_t, mwa) [z_gt_4]: 0.494, p=9.939829468580512e-162, N=2628
+[10:05:52]     ρ(Γ_t, mwa) [z_gt_7]: 0.369, p=3.772549917969857e-29, N=860
+[10:05:52]     ρ(Γ_t, met) [z>4]: -0.100, p=2.559400237018838e-07, N=2628
+[10:05:52]     ρ_partial(Γ_t, dust2 | M*, z) [z>4]: 0.292, p=9.890337111914125e-53, N=2628
+[10:05:52]       z=4-5: ρ=-0.018, p=0.5769545449693396, N=938
+[10:05:52]       z=5-6: ρ=0.002, p=0.9697844125146667, N=505
+[10:05:52]       z=6-7: ρ=-0.033, p=0.556780315950045, N=325
+[10:05:52]       z=7-8: ρ=0.319, p=0.000223628631295081, N=129
+[10:05:52]       z=8-9: ρ=0.631, p=1.3542627112908851e-08, N=66
+[10:05:52]       z=9-12: ρ=0.092, p=0.3150665794360357, N=122
+[10:05:52]     AGB threshold (t_eff>0.3 Gyr): dust2 ratio=0.50, p=1.0
+[10:05:52]     ----------------------------------------
+[10:05:52] >>> Loading DR4 zspec SPS: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/uncover/UNCOVER_DR4_SPS_zspec_catalog.fits
+[10:05:53]     DR4 zspec SPS: N = 668
+[10:05:53]     zspec after cuts (qual>=2, z>0.5, M*>8): N = 203
+[10:05:53]       z>4: N = 53
+[10:05:53]       z>5: N = 35
+[10:05:53]       z>7: N = 12
+[10:05:53] >>> Applying TEP model (z from 'z_spec')...
+[10:05:53]     Gamma_t computed for 203 sources
+[10:05:53]       Median Gamma_t: 0.719
+[10:05:53]     Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/interim/step_152_uncover_dr4_zspec.csv (N=203)
+[10:05:53] >>> Analyzing TEP signal (zspec SPS)...
+[10:05:53]     ρ(Γ_t, dust2) [zspec, z_gt_2]: 0.529, p=5.405897143614269e-13, N=161
+[10:05:53]     ρ(Γ_t, dust2) [zspec, z_gt_4]: 0.590, p=3.346100340763601e-06, N=53
+[10:05:53]     ρ(Γ_t, dust2) [zspec, z_gt_5]: 0.664, p=1.3760757544294391e-05, N=35
+[10:05:53]     Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_152_uncover_dr4_full_sps.json
+[10:05:53]     ============================================================
+[10:05:53]     SUMMARY
+[10:05:53]       Full DR4 SPS (z>4, M*>8): N = 2628
+[10:05:53]       z>7: N = 860
+[10:05:53]       Upgrade vs step_01: 2628/2315 = 1.1×
+[10:05:53]       Zspec SPS (qual>=2): N = 203
+[10:05:53]       dust2_z_gt_4: ρ=-0.155, p=1.3619751630539448e-15, N=2628
+[10:05:53]       dust2_z_gt_5: ρ=-0.053, p=0.030859563942036, N=1690
+[10:05:53]       dust2_z_gt_7: ρ=0.170, p=5.328269504632924e-07, N=860
+[10:05:53]       dust2_z_gt_8: ρ=0.194, p=1.2556043993348065e-07, N=731
+[10:05:53]       mwa_z_gt_4: ρ=0.494, p=9.939829468580512e-162, N=2628
+[10:05:53]       mwa_z_gt_7: ρ=0.369, p=3.772549917969857e-29, N=860
+[10:05:53]       met_z_gt_4: ρ=-0.100, p=2.559400237018838e-07, N=2628
+[10:05:53]     ============================================================

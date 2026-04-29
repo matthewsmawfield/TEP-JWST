@@ -1,17 +1,17 @@
 {
   "step": 95,
   "name": "Bayesian Model Comparison",
-  "timestamp": "2026-04-24T11:24:12",
+  "timestamp": "2026-04-29T07:02:33",
   "sample_size": 2315,
   "individual_bayes_factors": [
     {
       "observable": "Dust attenuation",
       "column": "Av",
       "n": 2315,
-      "rho": -0.1986266500805318,
-      "p_value": 5.0157487612587075e-22,
-      "bayes_factor": 4.5938568084655473e+18,
-      "log10_bf": 18.662177454014763,
+      "rho": -0.2876948588498302,
+      "p_value": 2.3218228874750027e-45,
+      "bayes_factor": 2.0911019252388238e+42,
+      "log10_bf": 42.32037520187074,
       "interpretation": "Decisive evidence for H1",
       "sign_matches_prediction": false
     },
@@ -19,10 +19,10 @@
       "observable": "Specific SFR",
       "column": "log_sSFR",
       "n": 2315,
-      "rho": -0.4012147218154523,
-      "p_value": 2.8985141165339874e-90,
-      "bayes_factor": 1.098231075964161e+89,
-      "log10_bf": 89.04069372850904,
+      "rho": -0.49865692331350686,
+      "p_value": 8.456949253506325e-146,
+      "bayes_factor": 3.9894228040143267e+99,
+      "log10_bf": 99.60091006582094,
       "interpretation": "Decisive evidence for H1",
       "sign_matches_prediction": true
     },
@@ -30,21 +30,21 @@
       "observable": "Age ratio",
       "column": "age_ratio",
       "n": 2315,
-      "rho": 0.019377853966021305,
-      "p_value": 0.35136822260136824,
-      "bayes_factor": 0.0321049194831004,
-      "log10_bf": -1.493428414926401,
+      "rho": -0.006035944296748368,
+      "p_value": 0.7716158733152128,
+      "bayes_factor": 0.02169188658564374,
+      "log10_bf": -1.663702674905855,
       "interpretation": "Strong evidence for H0",
-      "sign_matches_prediction": "True"
+      "sign_matches_prediction": false
     },
     {
       "observable": "Metallicity",
       "column": "metallicity",
       "n": 2315,
-      "rho": -0.11378127149570984,
-      "p_value": 4.032988722568955e-08,
-      "bayes_factor": 74855.10581913775,
-      "log10_bf": 4.874221428639668,
+      "rho": -0.14294768938357214,
+      "p_value": 4.858634605085108e-12,
+      "bayes_factor": 523337660.49201256,
+      "log10_bf": 8.718781988619574,
       "interpretation": "Decisive evidence for H1",
       "sign_matches_prediction": false
     },
@@ -52,10 +52,10 @@
       "observable": "SED fit chi2",
       "column": "chi2",
       "n": 2315,
-      "rho": 0.23981272921402189,
-      "p_value": 1.2243239452752007e-31,
-      "bayes_factor": 2.2328620685940413e+28,
-      "log10_bf": 28.348861896068012,
+      "rho": 0.2156893343983017,
+      "p_value": 9.017154076834769e-26,
+      "bayes_factor": 2.6625752150965404e+22,
+      "log10_bf": 22.425301885006416,
       "interpretation": "Decisive evidence for H1",
       "sign_matches_prediction": "True"
     }
@@ -64,15 +64,15 @@
     "n_observables": 5,
     "n_decisive_evidence": 4,
     "n_strong_evidence": 4,
-    "mean_log10_bf": 27.886505218461018
+    "mean_log10_bf": 34.28033329328236
   },
   "joint_bayes_factor": {
     "n_tests": 5,
     "n_effective": 2.5,
-    "log_bf_naive": 321.055256058645,
-    "log_bf_conservative": 160.5276280293225,
-    "bf_naive": 2.7072358490958496e+139,
-    "bf_conservative": 5.203110463074803e+69,
+    "log_bf_naive": 394.66692211989727,
+    "log_bf_conservative": 197.33346105994863,
+    "bf_naive": 2.5215435098181007e+171,
+    "bf_conservative": 5.021497296442666e+85,
     "interpretation_naive": "Decisive evidence for H1",
     "interpretation_conservative": "Decisive evidence for H1"
   },
@@ -91,7 +91,7 @@
     "interpretation": "Even with a skeptical prior (P(TEP) = 0.01), the posterior probability of TEP is 1.0000."
   },
   "key_finding": {
-    "statement": "Bayesian model comparison provides Decisive evidence for H1 for TEP over the null model. The conservative joint Bayes Factor is 5.20e+69 (log10 = 69.7). Even with a skeptical prior (P(TEP) = 10%), the posterior probability of TEP is 1.0000.",
+    "statement": "Bayesian model comparison provides Decisive evidence for H1 for TEP over the null model. The conservative joint Bayes Factor is 5.02e+85 (log10 = 85.7). Even with a skeptical prior (P(TEP) = 10%), the posterior probability of TEP is 1.0000.",
     "caveat": "The joint Bayes Factor applies a 50% correlation penalty to account for shared predictors across tests. This is conservative but not exact."
   }
 }

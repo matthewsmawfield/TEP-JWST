@@ -1,6 +1,8 @@
-v0.3 (Kos) — Clock-Sector Coupling Harmonization
+v0.4 (Kos) — Continuous Screening Terminology & Theory Alignment
 
-- Replaced thin-shell terminology with continuous geometric screening governed by Temporal Topology.
-- Harmonized clock-sector coupling nomenclature: Formalized α_eff = (9.6 ± 4.0) × 10^5 mag from Paper 11 Cepheid analysis in shared tep_model.py.
-- Updated 34 pipeline steps to import unified couplings; removed obsolete Step 164.
-- Refined PPN safety exposition: Temporal Shear as non-linear field gradient superposition resolving local constraints without rigid boundary approximations.
+- Replaced discrete thin-shell terminology with continuous geometric screening throughout manuscript, aligning with Temporal Topology framework.
+- Harmonized clock-sector coupling nomenclature: κ_gal = (9.6 ± 4.0) × 10^5 mag as Observable Response Coefficient (Paper 11 Cepheid prior).
+- Expanded methodology section with detailed SUSPENSE kinematic test protocol and mass-proxy circularity controls.
+- Refined PPN safety exposition: Temporal Shear as non-linear field gradient superposition ensuring local constraints.
+- Updated discussion with resolved-screening branch analysis and environmental screening interpretation.
+- Minor corrections to blue monster sample (N=3 verified Xiao+24 objects) and Gamma_t table values.

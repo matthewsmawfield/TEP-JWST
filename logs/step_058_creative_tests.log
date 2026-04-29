@@ -1,81 +1,80 @@
-[14:23:58]     ======================================================================
-[14:23:58]     STEP 058: Creative Tests
-[14:23:58]     ======================================================================
-[14:23:58]     
+[10:02:18]     ======================================================================
+[10:02:18]     STEP 058: Creative Tests
+[10:02:18]     ======================================================================
+[10:02:18]     
 Exploring creative, unconventional angles...
 
-[14:23:58]     Loaded N = 2315 galaxies
-[14:23:58]     
+[10:02:18]     Loaded N = 2315 galaxies
+[10:02:18]     
 ======================================================================
-[14:23:58]     CREATIVE TEST 1: The 'Twin' Test
-[14:23:58]     ======================================================================
-[14:23:58]     Galaxies with SIMILAR mass but DIFFERENT Gamma_t should differ in dust.
+[10:02:18]     CREATIVE TEST 1: The 'Twin' Test
+[10:02:18]     ======================================================================
+[10:02:18]     Galaxies with SIMILAR mass but DIFFERENT Gamma_t should differ in dust.
 
-[14:23:58]     Average dust ratio (high Γ_t / low Γ_t) at fixed mass: 1.30×
-[14:23:58]     
+[10:02:18]     Average dust ratio (high Γ_t / low Γ_t) at fixed mass: 1.25×
+[10:02:18]     
 ✓ Twins with higher Γ_t have more dust → Mass is not the only factor
-[14:23:58]     
+[10:02:18]     
 ======================================================================
-[14:23:58]     CREATIVE TEST 2: The 'Threshold' Test
-[14:23:58]     ======================================================================
-[14:23:58]     Is there a critical Gamma_t where TEP effects become significant?
+[10:02:18]     CREATIVE TEST 2: The 'Threshold' Test
+[10:02:18]     ======================================================================
+[10:02:18]     Is there a critical Gamma_t where TEP effects become significant?
 
-[14:23:58]     Γ_t > 1.0: N = 18, <Dust> = 1.945 vs 0.715 (p = 1.06e-07) ✓
-[14:23:58]     Γ_t > 1.5: N = 5, <Dust> = 2.762 vs 0.758 (p = 1.03e-08) ✓
-[14:23:58]     
+[10:02:18]     
 ======================================================================
-[14:23:58]     CREATIVE TEST 3: The 'Phase Space' Test
-[14:23:58]     ======================================================================
-[14:23:58]     Where in property space does TEP work best?
+[10:02:18]     CREATIVE TEST 3: The 'Phase Space' Test
+[10:02:18]     ======================================================================
+[10:02:18]     Where in property space does TEP work best?
 
-[14:23:58]     High mass: ρ = 0.473 (p = 3.28e-09) ✓
-[14:23:58]     Low mass: ρ = 0.431 (p = 8.39e-08) ✓
-[14:23:58]     High z: ρ = 0.725 (p = 2.63e-24) ✓
-[14:23:58]     Low z: ρ = 0.381 (p = 2.88e-06) ✓
-[14:23:58]     
+[10:02:18]     High mass: ρ = 0.319 (p = 1.16e-04) ✓
+[10:02:18]     Low mass: ρ = 0.437 (p = 5.38e-08) ✓
+[10:02:18]     High z: ρ = 0.724 (p = 3.93e-24) ✓
+[10:02:18]     Low z: ρ = 0.298 (p = 3.20e-04) 
+[10:02:18]     
 ======================================================================
-[14:23:58]     CREATIVE TEST 4: The 'Multi-Observable' Test
-[14:23:58]     ======================================================================
-[14:23:58]     Does Gamma_t predict MULTIPLE observables simultaneously?
+[10:02:18]     CREATIVE TEST 4: The 'Multi-Observable' Test
+[10:02:18]     ======================================================================
+[10:02:18]     Does Gamma_t predict MULTIPLE observables simultaneously?
 
-[14:23:58]     ρ(Γ_t, dust) = 0.603 (p = 2.09e-29) ✓
-[14:23:58]     ρ(Γ_t, mwa) = 0.040 (p = 5.06e-01) 
-[14:23:58]     ρ(Γ_t, chi2) = 0.102 (p = 8.62e-02) 
-[14:23:58]     
-Significant correlations: 1/3
-[14:23:58]     
+[10:02:18]     ρ(Γ_t, dust) = 0.471 (p = 4.72e-17) ✓
+[10:02:18]     ρ(Γ_t, mwa) = 0.219 (p = 2.09e-04) ✓
+[10:02:18]     ρ(Γ_t, chi2) = 0.022 (p = 7.18e-01) 
+[10:02:18]     
+Significant correlations: 2/3
+[10:02:18]     ✓ Gamma_t predicts multiple observables → Unified explanation
+[10:02:18]     
 ======================================================================
-[14:23:58]     CREATIVE TEST 5: The 'Rank Preservation' Test
-[14:23:58]     ======================================================================
-[14:23:58]     Do galaxies maintain their rank across different observables?
+[10:02:18]     CREATIVE TEST 5: The 'Rank Preservation' Test
+[10:02:18]     ======================================================================
+[10:02:18]     Do galaxies maintain their rank across different observables?
 
-[14:23:58]     Rank correlation (Γ_t vs Dust): 0.603
-[14:23:58]     Rank correlation (Γ_t vs Age): 0.040
-[14:23:58]     Rank correlation (Γ_t vs χ²): 0.102
-[14:23:58]     
+[10:02:18]     Rank correlation (Γ_t vs Dust): 0.471
+[10:02:18]     Rank correlation (Γ_t vs Age): 0.219
+[10:02:18]     Rank correlation (Γ_t vs χ²): 0.022
+[10:02:18]     
 ======================================================================
-[14:23:58]     CREATIVE TEST 6: The 'Extreme Concordance' Test
-[14:23:58]     ======================================================================
-[14:23:58]     Do the TOP galaxies in Gamma_t also top in dust, age, chi2?
+[10:02:18]     CREATIVE TEST 6: The 'Extreme Concordance' Test
+[10:02:18]     ======================================================================
+[10:02:18]     Do the TOP galaxies in Gamma_t also top in dust, age, chi2?
 
-[14:23:58]     Overlap (top 10% Γ_t ∩ top 10% Dust): 67.9%
-[14:23:58]     Overlap (top 10% Γ_t ∩ top 10% Age): 35.7%
-[14:23:58]     Overlap (top 10% Γ_t ∩ top 10% χ²): 46.4%
-[14:23:58]     
+[10:02:18]     Overlap (top 10% Γ_t ∩ top 10% Dust): 67.9%
+[10:02:18]     Overlap (top 10% Γ_t ∩ top 10% Age): 35.7%
+[10:02:18]     Overlap (top 10% Γ_t ∩ top 10% χ²): 46.4%
+[10:02:18]     
 ✓ High concordance between Γ_t and dust extremes
-[14:23:58]     
+[10:02:18]     
 ======================================================================
-[14:23:58]     CREATIVE TEST 7: The 'Residual Pattern' Test
-[14:23:58]     ======================================================================
-[14:23:58]     After removing Gamma_t effect, are residuals random?
+[10:02:18]     CREATIVE TEST 7: The 'Residual Pattern' Test
+[10:02:18]     ======================================================================
+[10:02:18]     After removing Gamma_t effect, are residuals random?
 
-[14:23:58]     Residual correlation with M*: ρ = 0.519 (p = 6.82e-21)
-[14:23:58]     Residual correlation with z: ρ = -0.010 (p = 8.61e-01)
-[14:23:58]     
+[10:02:18]     Residual correlation with M*: ρ = 0.519 (p = 6.66e-21)
+[10:02:18]     Residual correlation with z: ρ = 0.003 (p = 9.65e-01)
+[10:02:18]     
 ======================================================================
-[14:23:58]     SUMMARY: Creative Tests
-[14:23:58]     ======================================================================
-[14:23:58]     
+[10:02:18]     SUMMARY: Creative Tests
+[10:02:18]     ======================================================================
+[10:02:18]     
 Creative tests passed: 5/7
-[14:23:58]     
+[10:02:18]     
 Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_058_creative_tests.json

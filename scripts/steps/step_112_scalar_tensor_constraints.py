@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """
-Step 112: Scalar-Tensor Constraint Comparison
+Step 112: Scalar-Tensor Sector-Dictionary Constraint Check
 
-Compares TEP's α₀ = 0.58 ± 0.16 to other scalar-tensor constraints
-from Solar System tests, binary pulsars, and cosmology.
-
-Shows that TEP is compatible with all existing constraints due to
-the v0.7 Temporal Topology screening mechanism (field gradient flattening
-via Temporal Shear; Paper 0 / Jakarta).
+Keeps the TEP observable response coefficient κ_gal distinct from the bare
+dimensionless scalar couplings constrained by PPN, binary-pulsar, and
+cosmological tests. This step intentionally does not convert κ_gal into a
+Brans-Dicke omega value: that conversion is only valid for a microscopic
+dimensionless coupling such as α0 or β.
 
 Author: TEP-JWST Pipeline
 """
@@ -29,13 +28,13 @@ SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300) & JSON serialiser for numpy types
-from scripts.utils.tep_model import ALPHA_0, ALPHA_UNCERTAINTY as ALPHA_0_ERR  # TEP model: alpha_0=0.58 ± 0.16
+from scripts.utils.tep_model import KAPPA_GAL, KAPPA_GAL_UNCERTAINTY as KAPPA_GAL_ERR  # TEP model: KAPPA_GAL=9.6e5 ± 4.0e5 mag
 RESULTS_DIR = PROJECT_ROOT / "results"
 OUTPUTS_DIR = RESULTS_DIR / "outputs"  # JSON output directory (machine-readable statistical results)
 FIGURES_DIR = RESULTS_DIR / "figures"  # Publication figures directory (PNG/PDF for manuscript)
 
 STEP_NUM = "112"  # Pipeline step number (sequential 001-176)
-STEP_NAME = "scalar_tensor_constraints"  # Scalar-tensor constraint comparison: TEP alpha_0=0.58 vs Solar System (Cassini), binary pulsar, cosmology constraints with screening compatibility
+STEP_NAME = "scalar_tensor_constraints"  # Sector-dictionary check: KAPPA_GAL is an observable response coefficient, not a bare PPN coupling
 
 LOGS_DIR = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
 LOGS_DIR.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
@@ -60,16 +59,13 @@ def omega_bd_to_alpha(omega):
 
 def main():
     print_status("=" * 70)
-    print_status(f"STEP {STEP_NUM}: Scalar-Tensor Constraint Comparison")
+    print_status(f"STEP {STEP_NUM}: Scalar-Tensor Sector-Dictionary Check")
     print_status("=" * 70)
-    
-    # TEP coupling
-    omega_bd_tep = alpha_to_omega_bd(ALPHA_0)
-    
-    print_status(f"\nTEP coupling: α₀ = {ALPHA_0} ± {ALPHA_0_ERR}")
-    print_status(f"Equivalent Brans-Dicke: ω_BD ≈ {omega_bd_tep:.1f}")
-    
-    # Existing constraints (without screening)
+
+    print_status(f"\nObservable response coefficient: κ_gal = {KAPPA_GAL:.3e} ± {KAPPA_GAL_ERR:.3e} mag")
+    print_status("Bare PPN/photon-sector benchmark: α0, β ≲ 3e-3 (dimensionless)")
+
+    # Existing constraints on dimensionless bare/effective scalar couplings.
     constraints = [
         {
             'name': 'Cassini (Shapiro delay)',
@@ -121,41 +117,46 @@ def main():
         },
         {
             'name': 'Cepheid P-L (TEP-H0)',
-            'omega_bd_limit': omega_bd_tep,
-            'alpha_limit': ALPHA_0,
+            'omega_bd_limit': None,
+            'alpha_limit': None,
             'reference': 'TEP-H0 (Paper 11)',
             'environment': 'Galactic halos',
-            'screened': False,  # Unscreened regime
+            'screened': False,
+            'quantity': 'observable_response_kappa_gal_mag',
+            'kappa_gal': KAPPA_GAL,
+            'kappa_gal_err': KAPPA_GAL_ERR,
         },
     ]
-    
-    print_status("\n--- Scalar-Tensor Constraints ---")
+
+    print_status("\n--- Dimensionless Bare/Eff Coupling Constraints ---")
     print_status(f"{'Constraint':<30} {'ω_BD limit':>12} {'α limit':>10} {'Screened':>10}")
     print_status("-" * 70)
-    
+
     for c in constraints:
+        if c.get("alpha_limit") is None:
+            continue
         screened_str = "Yes" if c['screened'] else "No"
         print_status(f"{c['name']:<30} {c['omega_bd_limit']:>12.0f} {c['alpha_limit']:>10.4f} {screened_str:>10}")
-    
-    # Screening analysis
-    print_status("\n--- Screening Analysis ---")
-    print_status("\nWithout screening, TEP would be ruled out by:")
-    
-    ruled_out = []
-    for c in constraints:
-        if c['alpha_limit'] < ALPHA_0 - 2 * ALPHA_0_ERR:
-            tension = (ALPHA_0 - c['alpha_limit']) / ALPHA_0_ERR
-            ruled_out.append({
-                'name': c['name'],
-                'tension_sigma': float(tension),
-                'screened': c['screened'],
-            })
-            print_status(f"  - {c['name']}: {tension:.1f}σ tension")
-    
-    print_status("\nWith chameleon screening:")
-    print_status("  - Solar System tests: ρ >> ρ_c → α_eff → 0")
-    print_status("  - Binary pulsars: NS interior screened")
-    print_status("  - Galactic halos: ρ < ρ_c → α_eff = α₀")
+
+    sector_dictionary = {
+        "kappa_gal": {
+            "value": KAPPA_GAL,
+            "uncertainty": KAPPA_GAL_ERR,
+            "units": "mag",
+            "sector": "observable magnitude/stellar-population response",
+            "not_equivalent_to": ["bare beta", "PPN alpha0", "Brans-Dicke coupling"],
+        },
+        "bare_scalar_bound": {
+            "value": 0.003,
+            "units": "dimensionless",
+            "sector": "PPN/photon/fifth-force",
+            "source": "Cassini-style scalar-tensor mapping",
+        },
+    }
+
+    print_status("\n--- Sector Dictionary ---")
+    print_status("  κ_gal is not converted to ω_BD.")
+    print_status("  Compatibility is a transfer-function/screening requirement, not a direct κ_gal < α0 test.")
     
     # Screening threshold
     rho_c = 20  # g/cm^3
@@ -183,20 +184,21 @@ def main():
     print_status("=" * 70)
     
     print_status("\nKey findings:")
-    print_status(f"  1. TEP α₀ = {ALPHA_0} ± {ALPHA_0_ERR} (ω_BD ≈ {omega_bd_tep:.0f})")
-    print_status("  2. Without screening, this would be ruled out by Cassini (>100σ)")
-    print_status("  3. Chameleon screening resolves all Solar System constraints")
-    print_status("  4. TEP effects only manifest in unscreened environments (galactic halos)")
-    print_status("  5. High-z JWST galaxies are in the unscreened regime")
+    print_status("  1. κ_gal is an observable response coefficient in mag, not α0.")
+    print_status("  2. PPN/Brans-Dicke constraints apply to dimensionless bare/effective couplings.")
+    print_status("  3. A microscopic transfer calculation is required to map κ_gal to α0/β.")
+    print_status("  4. Screening statements must be phrased as sector compatibility, not direct equality.")
     
     # Compile results
     results = {
-        'step': f'Step {STEP_NUM}: Scalar-Tensor Constraint Comparison',
+        'step': f'Step {STEP_NUM}: Scalar-Tensor Sector-Dictionary Constraint Check',
         'tep_coupling': {
-            'alpha_0': ALPHA_0,
-            'alpha_0_err': ALPHA_0_ERR,
-            'omega_bd_equivalent': float(omega_bd_tep),
+            'kappa_gal': KAPPA_GAL,
+            'kappa_gal_err': KAPPA_GAL_ERR,
+            'omega_bd_equivalent': None,
+            'note': 'κ_gal is not a dimensionless bare scalar coupling; no Brans-Dicke conversion is performed.',
         },
+        'sector_dictionary': sector_dictionary,
         'constraints': constraints,
         'screening': {
             'mechanism': 'Chameleon',
@@ -204,16 +206,18 @@ def main():
             'environments': environments,
         },
         'compatibility': {
-            'solar_system': 'Compatible (screened)',
-            'binary_pulsars': 'Compatible (screened)',
-            'bbn': 'Compatible (different epoch)',
-            'cmb': 'Compatible (different epoch)',
-            'jwst_galaxies': 'Active (unscreened)',
+            'solar_system': 'Requires suppressed effective bare coupling in screened local regime',
+            'binary_pulsars': 'Requires compact-object screening/transfer calculation',
+            'bbn': 'Requires cosmological transfer calculation',
+            'cmb': 'Requires cosmological transfer calculation',
+            'jwst_galaxies': 'Uses κ_gal only as observable response prior',
         },
         'summary': {
-            'tep_compatible_with_all_constraints': True,
+            'direct_kappa_vs_ppn_comparison_valid': False,
+            'brans_dicke_conversion_performed': False,
+            'tep_compatible_with_all_constraints': None,
             'screening_required': True,
-            'key_insight': 'TEP effects only manifest in low-density environments',
+            'key_insight': 'Do not conflate observable response coefficients with bare scalar-tensor couplings.',
         },
     }
     
@@ -232,21 +236,20 @@ def main():
         fig, ax = plt.subplots(figsize=(10, 6))
         
         # Plot constraints
-        names = [c['name'] for c in constraints]
-        alphas = [c['alpha_limit'] for c in constraints]
-        colors = ['gray' if c['screened'] else 'blue' for c in constraints]
+        plotted = [c for c in constraints if c.get('alpha_limit') is not None]
+        names = [c['name'] for c in plotted]
+        alphas = [c['alpha_limit'] for c in plotted]
+        colors = ['gray' if c['screened'] else 'blue' for c in plotted]
         
         y_pos = np.arange(len(names))
         bars = ax.barh(y_pos, alphas, color=colors, alpha=0.7, edgecolor='black')
         
-        # TEP value
-        ax.axvline(ALPHA_0, color='red', linestyle='--', linewidth=2, label=f'TEP α₀ = {ALPHA_0}')
-        ax.axvspan(ALPHA_0 - ALPHA_0_ERR, ALPHA_0 + ALPHA_0_ERR, alpha=0.2, color='red')
+        ax.axvline(0.003, color='red', linestyle='--', linewidth=2, label='Bare α0 benchmark = 0.003')
         
         ax.set_yticks(y_pos)
         ax.set_yticklabels(names)
-        ax.set_xlabel('Coupling α', fontsize=12)
-        ax.set_title('Scalar-Tensor Constraints vs TEP\n(Gray = Screened, Blue = Unscreened)', fontsize=12)
+        ax.set_xlabel('Dimensionless bare/effective coupling α', fontsize=12)
+        ax.set_title('Scalar-Tensor Constraints\n(κ_gal is not plotted on this axis)', fontsize=12)
         ax.set_xscale('log')
         ax.set_xlim(1e-4, 1)
         ax.legend(loc='lower right')

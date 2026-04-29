@@ -10,18 +10,18 @@
   "tep_signal": {
     "full_sample": {
       "N": 1345,
-      "spearman_rho_gamma_t_vs_MUV": -0.6136695912201058,
-      "spearman_p": 5.4924329353937795e-140,
-      "p_formatted": 5.4924329353937795e-140,
-      "median_gamma_t": 0.9212635515745041,
+      "spearman_rho_gamma_t_vs_MUV": 0.04560561416411325,
+      "spearman_p": 0.09455072253811944,
+      "p_formatted": 0.09455072253811944,
+      "median_gamma_t": 0.6393847411103221,
       "median_MUV": -18.58910535961203
     },
     "z_gt_7": {
       "N": 114,
-      "spearman_rho_gamma_t_vs_MUV": -0.9643101597780523,
-      "spearman_p": 1.7952275123694444e-66,
-      "p_formatted": 1.7952275123694444e-66,
-      "median_gamma_t": 0.9075654576245291,
+      "spearman_rho_gamma_t_vs_MUV": -0.27692837326097086,
+      "spearman_p": 0.002856575954389816,
+      "p_formatted": 0.002856575954389816,
+      "median_gamma_t": 0.5672270005919648,
       "z_range": [
         7.001304483424567,
         10.603
@@ -29,10 +29,10 @@
     },
     "z_gt_8": {
       "N": 40,
-      "spearman_rho_gamma_t_vs_MUV": -0.9846153846153848,
-      "spearman_p": 2.118753374196875e-30,
-      "p_formatted": 2.118753374196875e-30,
-      "median_gamma_t": 0.908335368848625,
+      "spearman_rho_gamma_t_vs_MUV": -0.6395872420262665,
+      "spearman_p": 8.870034252915474e-06,
+      "p_formatted": 8.870034252915474e-06,
+      "median_gamma_t": 0.5555655265309483,
       "z_range": [
         8.063322460563588,
         10.603
@@ -56,16 +56,16 @@
   },
   "cross_survey": {
     "jades_gamma_t_vs_MUV": {
-      "rho": -0.6136695912201058,
-      "p": 5.4924329353937795e-140,
+      "rho": 0.04560561416411325,
+      "p": 0.09455072253811944,
       "N": 1345
     },
     "uncover_gamma_t_vs_dust": {
-      "rho": -0.1986266500805318,
-      "p": 5.0157487612587075e-22,
+      "rho": -0.2876948588498302,
+      "p": 2.3218228874750027e-45,
       "N": 2315
     },
-    "sign_consistent": true
+    "sign_consistent": false
   },
   "upgrade_vs_prior": {
     "prior_combined_specz": 147,

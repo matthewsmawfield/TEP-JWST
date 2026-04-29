@@ -1,55 +1,55 @@
-[14:23:05]     ============================================================
-[14:23:05]     STEP 9: Thread 5 - z > 8 Dust Anomaly
-[14:23:05]     ============================================================
-[14:23:05] 
-[14:23:05]     Loaded full sample: N = 2315
-[14:23:05] 
-[14:23:05]     Mass-Dust Correlation by Redshift:
-[14:23:05]     --------------------------------------------------
-[14:23:05]     z = 4-5: N =  942, rho = +0.037 [-0.027, +0.105] 
-[14:23:05]     z = 5-6: N =  497, rho = -0.026 [-0.116, +0.061] 
-[14:23:05]     z = 6-7: N =  372, rho = -0.118 [-0.218, -0.013] *
-[14:23:05]     z = 7-8: N =  221, rho = +0.099 [-0.038, +0.239] 
-[14:23:05]     z = 8-10: N =  283, rho = +0.559 [+0.459, +0.641] *
-[14:23:05] 
-[14:23:05]     ==================================================
-[14:23:05]     z > 8 DUST ANOMALY
-[14:23:05]     ==================================================
-[14:23:05] 
-[14:23:05]     N = 283
-[14:23:05]     rho(M*, dust) = 0.559 [0.459, 0.641]
-[14:23:05]     p = 1.05e-24
-[14:23:05] 
-[14:23:05]     ★ STATISTICALLY SIGNIFICANT: True
-[14:23:05] 
-[14:23:05]     Partial Correlation Analysis (z > 8):
-[14:23:05]     --------------------------------------------------
-[14:23:05]     rho(Γ_t, dust | M*) = 0.272, p = 3.56e-06
-[14:23:05]     rho(Γ_t, dust | z)  = 0.606, p = 8.72e-30
-[14:23:05]     rho(Γ_t, dust | M*, z) = 0.278, p = 2.09e-06
-[14:23:05] 
-[14:23:05]     Mean A_V by Mass at z > 8:
-[14:23:05]     ------------------------------
-[14:23:05]     log M* = 8-8.5: N = 180, <A_V> = 0.60 ± 0.37
-[14:23:05]     log M* = 8.5-9: N =  70, <A_V> = 0.89 ± 0.28
-[14:23:05]     log M* = 9-10: N =  24, <A_V> = 1.25 ± 0.52
-[14:23:05]     log M* = 10-12: N =   9, <A_V> = 2.70 ± 1.13
-[14:23:05] 
-[14:23:05]     PHYSICAL INTERPRETATION:
-[14:23:05]     --------------------------------------------------
-[14:23:05]     At z > 8, the universe is < 600 Myr old.
-[14:23:05]     Standard dust production (AGB stars) requires 100-300 Myr.
-[14:23:05] 
-[14:23:05]     Observed: Strong mass-dust correlation (rho = +0.56)
-[14:23:05]               Massive galaxies have A_V ~ 2.7 (heavily dust-obscured)
-[14:23:05] 
-[14:23:05]     This is inconsistent with standard timescales.
-[14:23:05] 
-[14:23:05]     TEP explanation:
-[14:23:05]       For log M* = 11 at z = 9, Gamma_t ~ 2.9
-[14:23:05]       Effective stellar age: 550 Myr * 2.9 ~ 1.6 Gyr
-[14:23:05]       Sufficient time for AGB dust production.
-[14:23:05] 
-[14:23:05]     Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_006_thread5_z8_dust.json
-[14:23:05] 
-[14:23:05]     Step 006 complete.
+[10:01:24]     ============================================================
+[10:01:24]     STEP 9: Thread 5 - z > 8 Dust Anomaly
+[10:01:24]     ============================================================
+[10:01:24] 
+[10:01:24]     Loaded full sample: N = 2315
+[10:01:24] 
+[10:01:24]     Mass-Dust Correlation by Redshift:
+[10:01:24]     --------------------------------------------------
+[10:01:24]     z = 4-5: N =  942, rho = +0.037 [-0.027, +0.105] 
+[10:01:24]     z = 5-6: N =  497, rho = -0.026 [-0.116, +0.061] 
+[10:01:24]     z = 6-7: N =  372, rho = -0.118 [-0.218, -0.013] *
+[10:01:24]     z = 7-8: N =  221, rho = +0.099 [-0.038, +0.239] 
+[10:01:25]     z = 8-10: N =  283, rho = +0.559 [+0.459, +0.641] *
+[10:01:25] 
+[10:01:25]     ==================================================
+[10:01:25]     z > 8 DUST ANOMALY
+[10:01:25]     ==================================================
+[10:01:25] 
+[10:01:25]     N = 283
+[10:01:25]     rho(M*, dust) = 0.559 [0.459, 0.641]
+[10:01:25]     p = 1.05e-24
+[10:01:25] 
+[10:01:25]     ★ STATISTICALLY SIGNIFICANT: True
+[10:01:25] 
+[10:01:25]     Partial Correlation Analysis (z > 8):
+[10:01:25]     --------------------------------------------------
+[10:01:25]     rho(Γ_t, dust | M*) = 0.222, p = 1.64e-04
+[10:01:25]     rho(Γ_t, dust | z)  = 0.568, p = 1.37e-25
+[10:01:25]     rho(Γ_t, dust | M*, z) = 0.212, p = 3.25e-04
+[10:01:25] 
+[10:01:25]     Mean A_V by Mass at z > 8:
+[10:01:25]     ------------------------------
+[10:01:25]     log M* = 8-8.5: N = 180, <A_V> = 0.60 ± 0.37
+[10:01:25]     log M* = 8.5-9: N =  70, <A_V> = 0.89 ± 0.28
+[10:01:25]     log M* = 9-10: N =  24, <A_V> = 1.25 ± 0.52
+[10:01:25]     log M* = 10-12: N =   9, <A_V> = 2.70 ± 1.13
+[10:01:25] 
+[10:01:25]     PHYSICAL INTERPRETATION:
+[10:01:25]     --------------------------------------------------
+[10:01:25]     At z > 8, the universe is < 600 Myr old.
+[10:01:25]     Standard dust production (AGB stars) requires 100-300 Myr.
+[10:01:25] 
+[10:01:25]     Observed: Strong mass-dust correlation (rho = +0.56)
+[10:01:25]               Massive galaxies have A_V ~ 2.7 (heavily dust-obscured)
+[10:01:25] 
+[10:01:25]     This is inconsistent with standard timescales.
+[10:01:25] 
+[10:01:25]     TEP explanation:
+[10:01:25]       For log M* = 11 at z = 9, Gamma_t ~ 2.9
+[10:01:25]       Effective stellar age: 550 Myr * 2.9 ~ 1.6 Gyr
+[10:01:25]       Sufficient time for AGB dust production.
+[10:01:25] 
+[10:01:25]     Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_006_thread5_z8_dust.json
+[10:01:25] 
+[10:01:25]     Step 006 complete.

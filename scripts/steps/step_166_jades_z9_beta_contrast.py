@@ -13,7 +13,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 from scripts.utils.p_value_utils import safe_json_default  # JSON serialiser for numpy types
-from scripts.utils.tep_model import ALPHA_0, compute_gamma_t as tep_gamma  # Shared TEP model
+from scripts.utils.tep_model import KAPPA_GAL, compute_gamma_t as tep_gamma  # Shared TEP model
 
 STEP_NUM = "166"  # Pipeline step number
 STEP_NAME = "jades_z9_beta_contrast"  # Used in log / output filenames
@@ -136,7 +136,7 @@ def calculate_gamma_t(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
     out["log_Mhalo"] = out["MUV"] / (-2.5) + 6.0
     out["log_Mhalo"] = np.clip(out["log_Mhalo"], 10.0, 14.0)
-    out["gamma_t"] = tep_gamma(out["log_Mhalo"].to_numpy(), out["z_best"].to_numpy(), alpha_0=ALPHA_0)
+    out["gamma_t"] = tep_gamma(out["log_Mhalo"].to_numpy(), out["z_best"].to_numpy(), kappa=KAPPA_GAL)
     return out
 
 

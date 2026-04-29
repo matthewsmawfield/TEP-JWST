@@ -13,19 +13,16 @@
         \tilde{g}_{\mu\nu}]$$
     </div>
     <p>
-        where $\tilde{g}_{\mu\nu} = A(\phi) g_{\mu\nu}$ is the Jordan-frame metric 
-        to which all non-gravitational matter couples. The conformal factor is 
-        $A(\phi) = \exp(2\beta\phi/M_{\rm Pl})$, where $\beta$ encodes the 
-        universal coupling. As demonstrated in Jakarta v0.7, the 
-        <strong>conformal invariance of Maxwell's action</strong> in 4D means 
-        photons effectively "ignore" the conformal factor $A(\phi)$, while 
-        stellar clocks (which depend on particle masses $m \propto A^{-1/2}$) 
-        are highly sensitive to it. This naturally decouples the clock-sector 
-        coupling ($\alpha_{\rm clock} \approx 800$) from the photon-sector 
-        PPN bounds ($\alpha_{\gamma} \approx 0.003$). The JWST analysis adopts 
-        the external Paper 11 clock-sector prior $\alpha_{\rm eff} = (9.6 \pm 4.0) 
-        \times 10^5$ mag, corresponding to a normalized coupling $\alpha_0 = 0.58 
-        \pm 0.16$.
+        where $\tilde{g}_{\mu\nu} = A^2(\phi) g_{\mu\nu}$ is the Jordan-frame metric 
+        to which all non-gravitational matter couples. The JWST response normalization
+        $K_{\rm gal}$ is informed by the Cepheid response scale $\kappa_{\rm Cep}$
+        measured in Paper 11. It is a transferred galaxy-sector effective normalization,
+        not the Cepheid coefficient itself and not a microscopic scalar coupling.
+        $K_{\rm gal}$ is not identified with bare couplings ($\beta$, $\kappa_{\rm Cep}$,
+        or $\alpha_{\rm clock}$). A microscopic mapping requires a solved transfer function
+        that absorbs stellar physics, environmental activation, and field gradients.
+        The JWST analysis adopts this observable response normalization for the
+        exponential $\Gamma_t$ kernel. No JWST-specific refit.
     </p>
     <p>The complete action in the Einstein frame is:</p>
     <div class="equation">$$S = S_{\rm grav} + S_\phi + S_{\rm matter}$$</div>
@@ -41,12 +38,12 @@
     <p>and matter couples to the Jordan-frame metric:</p>
     <div class="equation">
         $$S_{\rm matter} = S_{\rm matter}[\psi, \tilde{g}_{\mu\nu}], \quad
-        \tilde{g}_{\mu\nu} = A(\phi) g_{\mu\nu} + B(\phi) \nabla_\mu\phi
+        \tilde{g}_{\mu\nu} = A^2(\phi) g_{\mu\nu} + B(\phi) \nabla_\mu\phi
         \nabla_\nu\phi$$
     </div>
     <p>
-        The conformal factor $A(\phi) = \exp(2\beta\phi/M_{\rm Pl})$ controls 
-        the clock rate $d\tau/dt \propto A^{1/2}$. The disformal term $B(\phi)$ 
+        The conformal factor $A(\phi) = \exp(\beta\phi/M_{\rm Pl})$ controls 
+        the clock rate $d\tau/dt \propto A(\phi)$. The disformal term $B(\phi)$ 
         is constrained by GW170817 to be negligible at late times, ensuring 
         $c_\gamma \approx c_g$ in the cosmological background.
     </p>
@@ -79,24 +76,31 @@
     <h4>A.1.2 Screening Mechanism: Temporal Shear</h4>
     <p>
         TEP requires a screening mechanism to reconcile the large clock-sector 
-        coupling with Solar System precision tests. In the Jakarta v0.7 
+        response with Solar System precision tests. In the Jakarta v0.8 
         framework, this is achieved through Temporal Shear: the 
         suppression of field gradients in high-density environments. 
         Phenomenologically, the screening is characterized by a 
         density-dependent saturation profile:
     </p>
     <div class="equation">
-        $$\Gamma_t \to 1 \text{ for } \rho \gtrsim \rho_c$$
-    </div>
+        $$R_{\rm gal}(E) = \kappa_{\rm gal} \cdot \mathcal{S}_{\rm gal}(E)$$
+        The screening mechanism operates through the density-dependent
+        saturation of the observable response: $R_{\rm gal}(E) = \kappa_{\rm gal}
+        \cdot \mathcal{S}_{\rm gal}(E)$ where $\rho_T \approx 20$ g/cm³ is the
+        saturation scale and $E$ includes source structure, environment,
+        boundary conditions, and density. In the diffuse environments of
+        high-redshift galaxy halos ($\rho \ll \rho_T$), the response remains
+        near the bare value; in the dense central regions ($\rho \gg \rho_T$),
+        the response is attenuated toward GR.
+    </p>
     <p>
-        where $\rho_c \approx 20$ g/cm³ is the critical saturation density (Paper 6). 
-        In dense environments ($\rho \gg \rho_c$), such as the interiors of 
-        massive stars or the cores of galaxies, the field gradient is 
-        suppressed and GR is recovered. In diffuse environments ($\rho \ll \rho_c$), 
-        the scalar field is unscreened, modifying local proper time. This 
-        hierarchy ensures that TEP effects are maximum in the diffuse stellar 
-        halos of high-redshift galaxies where the Red Monster and LRD 
-        anomalies are observed.
+        where $\rho_T \approx 20$ g/cm³ is the Temporal Topology reference density (Paper 6).
+        The field gradient (Temporal Shear) varies continuously with ambient density:
+        as $\rho$ increases toward $\rho_T$, the gradient flattens smoothly and GR is
+        approached asymptotically; as $\rho$ decreases below $\rho_T$, the Temporal
+        Shear strengthens, modifying local proper time. This continuous hierarchy
+        ensures that TEP effects are maximum in the diffuse stellar halos of
+        high-redshift galaxies where the Red Monster and LRD anomalies are observed.
     </p>
 
     <h4>A.1.3 PPN Parameters</h4>
@@ -105,13 +109,12 @@
         $$\gamma - 1 = -\frac{2\alpha_{\rm photon}^2}{1 + \alpha_{\rm photon}^2}$$
     </div>
     <p>
-        For the unscreened coupling regime, this would give $|\gamma -
-        1| \approx 0.5$ (for $\alpha_0 \sim 0.6$), which would violate Cassini bounds by four orders of
-        magnitude. Near massive bodies, the suppression of Temporal Shear
-        (vanishing field gradient) reduces the effective coupling to
-        $\alpha_{\rm eff} \ll \alpha_0$, bringing $|\gamma - 1|_{\rm eff}
-        \lesssim 10^{-6}$ into compliance with observations without invoking
-        rigid thin-shell approximations.
+        For an unscreened bare coupling $\beta \sim 0.8$, this would give $|\gamma -
+        1| \approx 0.5$, which would violate Cassini bounds by four orders of
+        magnitude. Near massive bodies, the locally active PPN scalar charge is
+        suppressed by source/environment screening (Temporal Shear flattening), bringing
+        $|\gamma - 1|_{\rm eff} \lesssim 10^{-6}$ into compliance with observations
+        without invoking rigid thin-shell approximations.
     </p>
 
     <p>
@@ -138,75 +141,74 @@
     <p>
         The density-dependent screening hierarchy explains why precision tests
         of General Relativity show no deviation despite the large halo-scale
-        coupling. The five most precise GR tests all occur in regimes where
+        response. The five most precise GR tests all occur in regimes where
         screening is operative. For example, the Hulse-Taylor binary pulsar at
         density $\sim 10^{14}$ g/cm³ has a screening factor $S \approx
         33{,}000$, meaning the scalar field contributes less than 0.003% to
         orbital dynamics—consistent with GR verification to 0.2% precision.
-        Conversely, Earth at $\rho \approx 5.5$ g/cm³ sits just below $\rho_c$
+        Conversely, Earth at $\rho \approx 5.5$ g/cm³ sits just below $\rho_T$
         with $S \approx 0.66$, placing it in the narrow window where the scalar
         field is observable via GNSS clock comparisons but not yet fully
         screened.
     </p>
 
-    <h4>A.1.5b Physical Mapping of the $\Gamma_t$ Kernel</h4>
+    <h4>A.1.5b Observable Response Coefficient and the $\Gamma_t$ Kernel</h4>
     <p>
-        The $\Gamma_t$ kernel used in the JWST analysis is derived by mapping the 
-        Paper 11 magnitude residuals to the covariant scalar-tensor framework. 
-        The clock rate scales as $d\tau/dt = \exp(\beta\phi/M_{\rm Pl}) \approx 
-        \exp(2\alpha_{\rm clock}^2 |\Phi|/c^2)$ in the unscreened regime. 
-        Because $\phi$ and $\Phi$ have opposite signs ($T > 0$ source), 
-        clocks are faster ($\Gamma_t > 1$) in deep potentials.
+        The JWST response normalization $K_{\rm gal}$ is informed by the Cepheid response
+        scale $\kappa_{\rm Cep} = (9.6 \pm 4.0) \times 10^5$ mag measured in Paper 11.
+        It is a transferred galaxy-sector effective normalization, not the Cepheid coefficient
+        itself and not a microscopic scalar coupling. Paper 11 measures $\kappa_{\rm Cep}$
+        from Cepheid period-luminosity residuals. The conversion to the exponential
+        $\Gamma_t$ kernel defines $K_{\rm gal}$.
     </p>
-    
-    <p><strong>A.1.5b.1 Coupling Normalization.</strong>
-        The effective coupling constant $K$ in the $\Gamma_t = \exp[K \Delta\Phi/c^2]$ 
-        formula is defined by the observable magnitude correction:
+    <p>
+        The relationship between the magnitude correction $\Delta M$ and the 
+        exponential kernel follows from the stellar population scaling $M/L \propto t^n$ 
+        with $n \approx 0.7$:
     </p>
     <div class="equation">
         $$\Delta M = -2.5 \log_{10}(\Gamma_t^n) = \frac{2.5 n K}{\ln 10} \frac{\Delta\Phi}{c^2}$$
     </div>
     <p>
-        where $n \approx 0.7$ is the mass-to-light evolution index. Paper 11 
-        defines the effective coupling $\alpha_{\rm eff}$ such that 
-        $\Delta M = \alpha_{\rm eff} \Delta\Phi/c^2$. Equating the two yields:
+        Equating with $\Delta M = \kappa_{\rm gal} \Delta\Phi/c^2$ yields the 
+        response normalization:
     </p>
     <div class="equation">
-        $$K = \frac{\alpha_{\rm eff} \ln 10}{2.5 n} \approx 1.26 \times 10^6$$
+        $$K = \frac{\kappa_{\rm gal} \ln 10}{2.5 n} \approx 1.26 \times 10^6$$
     </div>
     <p>
-        Note: The factor $2.5/\ln 10 \approx 1.08$ converts between magnitude-scale 
-        $\alpha_{\rm eff}$ and natural-scale $K$. A positive $\alpha_{\rm eff}$ 
-        in Paper 11 corresponds to a positive $K$ and thus $\Gamma_t > 1$.
+        Here $\kappa_{\rm gal}$ denotes the derived galaxy-sector effective response
+        (not the Cepheid-measured coefficient $\kappa_{\rm Cep}$). <strong>Neither $K$
+        nor $\kappa_{\rm gal}$ is identified with $\beta$, $\kappa_{\rm Cep}$, or
+        $\alpha_{\rm clock}$.</strong> A microscopic mapping requires a solved transfer
+        function that absorbs stellar physics, environmental activation, and field
+        gradients, and is not assumed here. The JWST analysis adopts the externally
+        calibrated response normalization directly, with no JWST-specific refit.
     </p>
-    <p>
-        This value of $K$ corresponds to a clock-sector coupling $\alpha_{\rm clock} = 
-        \sqrt{K/2} \approx 794$. The JWST pipeline uses a normalized coupling 
-        $\alpha_0 = 0.58 \pm 0.16$, where $0.58$ is the Paper 11 anchor point. 
-        The zero-parameter consistency is maintained by keeping this anchor 
-        fixed throughout the high-redshift analysis.
-    </p>
-    
-    <p><strong>A.1.5b.2 Redshift Scaling.</strong>
-        The $\sqrt{1+z}$ scaling of the temporal enhancement coupling reflects the 
-        dynamical evolution of the background scalar field $\phi(z)$ in the 
-        Jakarta-v0.7 cosmology. It ensures that the temporal enhancement factor 
-        remains active during the peak epoch of galaxy assembly ($z \sim 2$–$6$).
+
+    <p><strong>A.1.5b.1 Redshift Scaling.</strong>
+        The $\sqrt{1+z}$ scaling reflects the weakening of cosmological screening 
+        at higher redshift due to lower background density. This scaling ensures 
+        that the temporal enhancement factor remains active during the peak epoch 
+        of galaxy assembly ($z \sim 2$–$6$).
     </p>
 
     <h4>A.1.6 Parameter Sensitivity: Red Monster Resolution</h4>
     <p>
-        The SFE anomaly resolution remains significant ($> 30\%$) over a broad
-        range of physically plausible couplings ($\alpha_0 \in [0.4, 0.8]$). At
-        $\alpha_0 = 0.42$ (lower $1\sigma$ bound), the correction is $\sim
-        22\%$; at $\alpha_0 = 0.74$ (upper $1\sigma$ bound), the correction is
-        $\sim 48\%$. The result is not a product of fine-tuning (see also §3.2).
+        The SFE anomaly resolution remains significant ($> 30\%$) over the
+        $1\sigma$ range of the externally calibrated galaxy-sector response
+        ($\kappa_{\rm gal} \in [5.6, 13.6] \times 10^5$ mag, derived from the
+        Paper 11 Cepheid prior $\kappa_{\rm Cep} = (9.6 \pm 4.0) \times 10^5$ mag).
+        At the lower bound ($\kappa_{\rm gal} = 5.6 \times 10^5$ mag), the correction is
+        $\sim 22\%$; at the upper bound ($\kappa_{\rm gal} = 13.6 \times 10^5$ mag),
+        the correction is $\sim 48\%$. The result is not a product of fine-tuning
+        (see also §3.2).
     </p>
 
     <h4>A.1.6.1 Structural Assumptions and Priors in the TEP Formula</h4>
     <p>
-        While the coupling constant is drawn from the
-        external Cepheid calibration (Paper 11, $\alpha_{\rm eff} = (9.6 \pm 4.0) \times 10^5$ mag; not tuned to JWST data), the $\Gamma_t$
+        While the response coefficient is drawn from the
+        external Cepheid calibration (Paper 11, $\kappa_{\rm Cep} = (9.6 \pm 4.0) \times 10^5$ mag; not tuned to JWST data), the $\Gamma_t$
         formula itself contains fixed structural choices that act as implicit
         priors. These choices constrain the functional form of the temporal
         enhancement and deserve explicit acknowledgment:
@@ -230,9 +232,9 @@
                     <td><strong>Functional form</strong></td>
                     <td>Exponential: $\Gamma_t = \exp[ K \frac{\Phi - \Phi_{\rm ref}}{c^2} \sqrt{1+z} ]$</td>
                     <td>
-                        Conformal coupling $\tilde{g}_{\mu\nu} = A(\phi)
+                        Conformal coupling $\tilde{g}_{\mu\nu} = A^2(\phi)
                         g_{\mu\nu}$ with $A(\phi) = \exp(\beta\phi/M_{\rm Pl})$
-                        implies proper time $d\tau \propto A(\phi)^{1/2} dt$
+                        implies proper time $d\tau \propto A(\phi) dt$
                     </td>
                     <td>
                         Power-law, logarithmic, or other monotonic functions of
@@ -241,15 +243,15 @@
                 </tr>
                 <tr>
                     <td><strong>Redshift scaling</strong></td>
-                    <td>$\alpha(z) = \alpha_0 \sqrt{1+z}$</td>
+                    <td>$K(z) = K_{\rm gal} \sqrt{1+z}$</td>
                     <td>
                         Screening weakens at high redshift due to lower
                         background density; $\sqrt{1+z}$ scaling emerges from
-                        soliton radius evolution with cosmic mean density
+                        Temporal Topology radius evolution with cosmic mean density
                     </td>
                     <td>
-                        $(1+z)^n$ with $n \neq 0.5$, or constant $\alpha(z) =
-                        \alpha_0$
+                        $(1+z)^n$ with $n \neq 0.5$, or constant $K(z) =
+                        K_{\rm gal}$
                     </td>
                 </tr>
                 <tr>
@@ -311,6 +313,14 @@
             [0.3, 0.7]$ would produce qualitatively similar results.
         </li>
         <li>
+            <strong>High-density stellar halos ($\rho \gg \rho_T$, host-dominated screening):</strong>
+            Here the observable response would need to be reduced by
+            $> 10^{15}$ to satisfy PPN constraints. The observed modulation in
+            $\Gamma_t$ relative to stellar mass is completely consistent with
+            this suppression, as the majority of the host's mass lies in the
+            screened central regions.
+        </li>
+        <li>
             <strong>Reference mass evolution:</strong> The $M \propto
             (1+z)^{-3/2}$ scaling maintains constant virial velocity, which is
             physically motivated but not uniquely determined. The exponent 1.5
@@ -333,12 +343,13 @@
 
     <p>
         <strong>How sensitive are the results to these choices?</strong>
-        Sensitivity analyses (§3.2, §A.1.6) show that varying $\alpha_0$ over
-        its $1\sigma$ range changes the Red Monster SFE correction from 22% to
-        48%, demonstrating robustness to the primary free parameter. The
-        structural choices above are harder to vary independently because they
-        are interconnected through the underlying scalar-tensor theory. However,
-        order-of-magnitude estimates suggest:
+        Sensitivity analyses (§3.2, §A.1.6) show that varying the galaxy-sector
+        response coefficient $\kappa_{\rm gal}$ (derived from the Cepheid prior
+        $\kappa_{\rm Cep}$) over its $1\sigma$ range changes the Red
+        Monster SFE correction from 22% to 48%, demonstrating robustness to the
+        primary free parameter. The structural choices above are harder to vary
+        independently because they are interconnected through the underlying model.
+        However, order-of-magnitude estimates suggest:
     </p>
     <ul>
         <li>
@@ -360,17 +371,19 @@
 
     <p>
         <strong>Why this matters for intellectual honesty.</strong> The claim
-        that TEP makes "zero-parameter predictions" refers to the fact that
-        $\alpha_0$ is drawn from an external calibration (Cepheid distances),
-        not tuned to JWST data. However, the $\Gamma_t$ formula itself embeds
-        structural assumptions about how temporal enhancement scales with mass,
-        redshift, and potential depth. These assumptions are theoretically
-        motivated (not arbitrary), but they are not uniquely determined by first
-        principles. A complete Bayesian analysis would marginalize over these
-        structural priors, though the computational cost is prohibitive for the
-        full JWST dataset. The current approach—adopting the simplest
-        theoretically consistent functional form and testing sensitivity to the
-        primary free parameter—is standard practice in phenomenological
+        that TEP preserves a no-JWST-specific-refit test of an externally calibrated response prior refers to the fact that
+        $\kappa_{\rm gal}$ is drawn from the external Cepheid calibration
+        ($\kappa_{\rm Cep}$ from Paper 11), not tuned to JWST data. The galaxy-sector
+        response $\kappa_{\rm gal}$ is informed by but not identical to the Cepheid
+        coefficient—there is a phenomenological transfer to the stellar-population
+        sector. However, the $\Gamma_t$ formula itself embeds structural assumptions
+        about how temporal enhancement scales with mass, redshift, and potential
+        depth. These assumptions are theoretically motivated (not arbitrary), but they
+        are not uniquely determined by first principles. A complete Bayesian analysis
+        would marginalize over these structural priors, though the computational cost
+        is prohibitive for the full JWST dataset. The current approach—adopting the
+        simplest theoretically consistent functional form and testing sensitivity to
+        the primary free parameter—is standard practice in phenomenological
         model-building, but it is important to acknowledge that the structural
         choices themselves carry implicit prior information.
     </p>
@@ -501,12 +514,12 @@
 
     <h4>A.1.9 Scale-Dependent Screening: A Quantitative Model</h4>
     <p>
-        The apparent tension between the halo-scale coupling (Cepheid prior from Paper 11)
+        The apparent tension between the halo-scale response (Cepheid-calibrated $\kappa_{\rm Cep}$ prior from Paper 11)
         and the $\sigma_8$ constraint ($\beta_{\rm eff}
         \lesssim 0.055$) is resolved by density-dependent screening. This
         section provides a quantitative model demonstrating how the required
         $\sim 10\times$ suppression arises naturally from the characteristic
-        screening length associated with $\rho_c$.
+        screening length associated with $\rho_T$.
     </p>
 
     <h5>A.1.9.1 The Screening Radius</h5>
@@ -514,14 +527,14 @@
         Screening arises when the scalar field configuration around a massive
         body saturates, suppressing the effective fifth force. The
         characteristic screening radius for a source of mass $M$ embedded in a
-        medium with saturation density $\rho_c$ is the soliton radius:
+        medium with saturation density $\rho_T$ is the Temporal Topology radius:
     </p>
     <div class="equation">
-        $$R_{\text{sol}} = \left(\frac{M}{\rho_c}\right)^{1/3}$$
+        $$R_T = \left(\frac{M}{\rho_T}\right)^{1/3}$$
     </div>
     <p>
         This scale describes the boundary of the saturated scalar field core.
-        The screening factor $S = R_{\text{sol}}/R_{\text{phys}}$ then
+        The screening factor $S = R_T/R_{\text{phys}}$ then
         determines the degree of suppression: when $S \gg 1$, the object is
         deeply screened and GR is recovered; when $S \ll 1$, the scalar field is
         active. The specific dynamical origin of this saturation—whether from a
@@ -532,8 +545,8 @@
 
     <h5>A.1.9.2 Numerical Estimates Across Environments</h5>
     <p>
-        Adopting the critical density $\rho_c \approx 20$ g/cm³, the soliton
-        radius and screening factor evaluate to:
+        Adopting the Temporal Topology reference density $\rho_T \approx 20$ g/cm³, the
+        saturation radius and screening factor evaluate to:
     </p>
     <div class="data-table">
         <table>
@@ -589,7 +602,7 @@
                     <td>Neutron star</td>
                     <td>$\sim 10^{14}$</td>
                     <td>$\sim 27{,}000$</td>
-                    <td>Fully screened (GR)</td>
+                    <td>Strongly screened (GR-like limit)</td>
                 </tr>
             </tbody>
         </table>
@@ -606,7 +619,7 @@
     </p>
     <div class="equation">
         $$S_{\text{cosmic}} =
-        \left(\frac{\rho_{\text{mean}}}{\rho_c}\right)^{1/3} \sim 10^{-10}$$
+        \left(\frac{\rho_{\text{mean}}}{\rho_T}\right)^{1/3} \sim 10^{-10}$$
     </div>
     <p>
         This extremely small screening factor indicates that on cosmological
@@ -635,17 +648,17 @@
         ($\rho \sim 10^{-26}$ g/cm³), the screening factor is:
     </p>
     <div class="equation">
-        $$S_{\text{halo}} = \left(\frac{\rho_{\text{halo}}}{\rho_c}\right)^{1/3}
+        $$S_{\text{halo}} = \left(\frac{\rho_{\text{halo}}}{\rho_T}\right)^{1/3}
         \sim 10^{-9} \ll 1$$
     </div>
     <p>
         This extremely small screening factor indicates that galaxy halos are
-        deeply in the unscreened regime. The soliton radius at halo density is
-        $R_{\text{sol}} \sim 10$ kpc, much smaller than the virial radius, so
+        deeply in the unscreened regime. The Temporal Topology radius at halo density is
+        $R_T \sim 10$ kpc, much smaller than the virial radius, so
         the scalar field does not saturate across the entire halo. The temporal
         enhancement $\Gamma_t$ depends on the scalar field value $\phi$, not the
         force. The field profile tracks the potential (Appendix A.1.3), and the
-        clock-rate modification $A(\phi)^{1/2}$ operates locally without
+        clock-rate modification $A(\phi)$ operates locally without
         requiring the object to be embedded within a saturated soliton core.
     </p>
 
@@ -669,39 +682,39 @@
     <p>
         <strong>Is this Scale Separation Fine-Tuned?</strong> A common critique
         of screened scalar-tensor theories is that they require fine-tuning to
-        simultaneously satisfy Solar System (fully screened), linear structure
+        simultaneously satisfy Solar System (strongly screened, GR-like limit), linear structure
         (suppressed), and galactic halo (unscreened) constraints. However, this
         scale separation is not an ad-hoc arrangement; it emerges mathematically
-        from the density-dependent soliton radius. Because the background cosmic
+        from the density-dependent Temporal Topology radius. Because the background cosmic
         density ($\rho_{\rm mean} \sim 10^{-30}$ g/cm³) is vastly lower than
         galactic halo densities ($\rho_{\rm halo} \sim 10^{-26}$ g/cm³), which
         are in turn vastly lower than compact object densities
         ($\rho_{\text{WD}} \sim 10^{6}$ g/cm³), the screening factor $S \propto
         \rho^{1/3}$ inherently spans over 15 orders of magnitude. The fact that
-        Earth ($\rho \approx 5.5$ g/cm³) sits near the critical density $\rho_c
+        Earth ($\rho \approx 5.5$ g/cm³) sits near the reference density $\rho_T
         \approx 20$ g/cm³ is what makes GNSS clock comparisons sensitive to the
         scalar field, while binary pulsars at $\rho \sim 10^{14}$ g/cm³ are
         fully screened. This hierarchy is a direct consequence of a single
-        parameter $\rho_c$, not multiple tuned scales.
+        parameter $\rho_T$, not multiple tuned scales.
     </p>
 
     <div class="callout callout-info">
         <p><strong>Summary: Resolving the $\sigma_8$ Tension</strong></p>
         <p>
-            The apparent conflict between halo-scale coupling (from Cepheid
-            prior) and $\beta_{\rm eff} \lesssim 0.055$ (Planck $\sigma_8$
-            bound) is resolved by:
+            The apparent conflict between halo-scale response (Cepheid-calibrated $\kappa_{\rm Cep}$ prior from Paper 11)
+            and $\beta_{\rm eff} \lesssim 0.055$ (Planck $\sigma_8$
+            constraint) is resolved by:
         </p>
         <ol>
             <li>
-                <strong>Density-dependent screening:</strong> The soliton radius
+                <strong>Density-dependent screening:</strong> The Temporal Topology radius
                 produces a screening factor $S \propto \rho^{1/3}$ that
                 suppresses the scalar force on linear scales by factors of $\sim
                 100$.
             </li>
             <li>
                 <strong>Local field tracking:</strong> The temporal enhancement
-                $\Gamma_t = A(\phi)^{1/2}$ depends on the local scalar field
+                $\Gamma_t = A(\phi)$ depends on the local scalar field
                 value, which tracks the gravitational potential within halos
                 regardless of the long-range force behavior.
             </li>
@@ -776,7 +789,7 @@
                     <td>$\beta_{\rm eff}$ at $k_8 = 0.79\,h$/Mpc</td>
                     <td>$0.005$</td>
                     <td>
-                        Bare $\beta = 0.58$ (external prior); suppression
+                        Bare $\kappa_{\rm gal} = 9.6 \times 10^5$ (external prior); suppression
                         $\times 100$
                     </td>
                 </tr>
@@ -809,7 +822,7 @@
         the characteristic screening length at cosmic mean density is
         sufficiently short that $\sigma_8$-scale fluctuations grow as in
         $\Lambda$CDM. The TEP temporal enhancement ($\Gamma_t$) operates through
-        the local scalar field value $A(\phi)^{1/2}$ within halos, not through
+        the local scalar field value $A(\phi)$ within halos, not through
         the long-range fifth force that drives structure growth.
     </p>
 
@@ -1065,38 +1078,38 @@
     <h4>A.1.10 Screening Length Scale Derivation</h4>
     <p>
         To provide a physical foundation for the screening threshold observed in
-        resolved core analysis, the soliton radius is derived from the
-        saturation density $\rho_c$. This addresses the concern that the
+        resolved core analysis, the Temporal Topology radius is derived from the
+        saturation density $\rho_T$. This addresses the concern that the
         screening scale might be treated as a free parameter rather than a
         theoretically justified prediction.
     </p>
 
     <h5>A.1.10.1 Theoretical Derivation</h5>
     <p>
-        For a scalar field with saturation density $\rho_c$, the soliton radius
+        For a scalar field with saturation density $\rho_T$, the Temporal Topology radius
         around a mass $M$ is:
     </p>
     <div class="equation">
-        $$R_{\text{sol}} = \left(\frac{M}{\rho_c}\right)^{1/3}$$
+        $$R_T = \left(\frac{M}{\rho_T}\right)^{1/3}$$
     </div>
     <p>
         This scaling arises from the condition that the scalar field saturates
-        when the enclosed mean density reaches $\rho_c$. The screening factor
+        when the enclosed mean density reaches $\rho_T$. The screening factor
         is:
     </p>
     <div class="equation">
-        $$S = \frac{R_{\text{sol}}}{R_{\text{phys}}} =
-        \left(\frac{M/\rho_c}{M/\rho}\right)^{1/3} =
-        \left(\frac{\rho}{\rho_c}\right)^{1/3}$$
+        $$S = \frac{R_T}{R_{\text{phys}}} =
+        \left(\frac{M/\rho_T}{M/\rho}\right)^{1/3} =
+        \left(\frac{\rho}{\rho_T}\right)^{1/3}$$
     </div>
 
     <h5>A.1.10.2 Numerical Evaluation</h5>
     <p>
-        Adopting the critical density $\rho_c \approx 20$ g/cm³ and a typical
+        Adopting the reference density $\rho_T \approx 20$ g/cm³ and a typical
         halo mass $M \sim 10^{12} M_{\odot}$:
     </p>
     <div class="equation">
-        $$R_{\text{sol}} = \left(\frac{10^{12} M_{\odot}}{20 \text{
+        $$R_T = \left(\frac{10^{12} M_{\odot}}{20 \text{
         g/cm}^3}\right)^{1/3} \sim 10 \text{ kpc}$$
     </div>
     <p>
@@ -1114,7 +1127,7 @@
 
     <h5>A.1.10.3 Observational Consistency</h5>
     <p>
-        The derived soliton radius $R_{\text{sol}} \sim 10$ kpc compares to the
+        The derived Temporal Topology radius $R_T \sim 10$ kpc compares to the
         observed resolved core screening scale:
     </p>
     <div class="data-table">
@@ -1131,9 +1144,9 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Theory (soliton)</td>
+                    <td>Theory (Temporal Topology)</td>
                     <td>10</td>
-                    <td>Soliton radius from $\rho_c$</td>
+                    <td>Reference radius from $\rho_T$</td>
                 </tr>
                 <tr>
                     <td>Observation (resolved cores)</td>
@@ -1153,7 +1166,7 @@
         and the observationally inferred screening scale supports the physical
         consistency of the TEP framework. The factor-of-several difference is
         expected given: (a) the simplified spherical symmetry assumption, (b)
-        the exact halo density profile, and (c) the mapping from soliton radius
+        the exact halo density profile, and (c) the mapping from Temporal Topology radius
         to observable screening transition in resolved color gradients.
     </p>
 
@@ -1161,24 +1174,24 @@
     <p>
         The phenomenological screening hierarchy presented in §A.1.2 and
         validated across 15 orders of magnitude in density (§A.1.5) is
-        characterized by a single parameter: the critical saturation density
-        $\rho_c \approx 20$ g/cm³. The soliton radius $R_{\text{sol}} =
-        (M/\rho_c)^{1/3}$ and the screening factor $S =
-        R_{\text{sol}}/R_{\text{phys}}$ are geometric consequences of this
-        saturation condition. All predictions in this work depend on $\rho_c$
-        and $\alpha_0$; they do not depend on the specific dynamical mechanism
+        characterized by a single parameter: the Temporal Topology reference density
+        $\rho_T \approx 20$ g/cm³. The Temporal Topology radius $R_T =
+        (M/\rho_T)^{1/3}$ and the screening factor $S =
+        R_T/R_{\text{phys}}$ are geometric consequences of this
+        saturation condition. All predictions in this work depend on $\rho_T$
+        and $\kappa_{\rm gal}$; they do not depend on the specific dynamical mechanism
         that produces the saturation.
     </p>
 
     <p>
-        Two candidate UV completions have been explored in the TEP program, each
+        Two candidate microscopic completions have been explored in the TEP program, each
         consistent with the phenomenological hierarchy:
     </p>
 
     <p>
         <strong>Temporal Topology screening</strong> (Smawfield 2025, Paper 0;
-        formerly described as chameleon-type) arises naturally from the canonical
-        TEP action (§A.1). A density-dependent effective potential
+        historically described using chameleon-like density-mass language, but now treated as a candidate density-mass realization of the effective Temporal Topology framework) is one candidate density-mass
+        realization of the effective Temporal Topology framework (§A.1). A density-dependent effective potential
         $V_{\text{eff}}(\phi;\rho) = V(\phi) + [A(\phi)-1]\rho$ produces a
         density-dependent effective mass $m_{\text{eff}}(\rho)$ that grows with
         ambient density. The scalar force is Yukawa-suppressed beyond the
@@ -1198,7 +1211,7 @@
         Dirac-Born-Infeld structure $P(X) = -\Lambda^4\sqrt{1 - 2X/\Lambda^4} +
         \Lambda^4 - V(\phi)$ enforces a maximum gradient $|\nabla\phi| \leq
         \Lambda^2$, producing gradient saturation in dense environments. This
-        identifies $\rho_c \equiv \Lambda^4 \approx 20$ g/cm³. The resulting
+        identifies $\rho_T \equiv \Lambda^4 \approx 20$ g/cm³. The resulting
         screening is sometimes described as "Vainshtein-like" in the literature,
         though strictly Vainshtein screening refers to Galileon-type derivative
         interactions rather than DBI kinetic terms.
@@ -1237,12 +1250,12 @@
                     <td>
                         Compton wavelength $\lambda_C = 1/m_{\text{eff}}(\rho)$
                     </td>
-                    <td>Soliton radius $R_{\text{sol}} = (M/\rho_c)^{1/3}$</td>
+                    <td>Soliton radius $R_T = (M/\rho_T)^{1/3}$</td>
                 </tr>
                 <tr>
                     <td>Free parameters</td>
                     <td>$\Lambda$, $n$ (potential shape)</td>
-                    <td>$\Lambda^4 = \rho_c$ (saturation scale)</td>
+                    <td>$\Lambda^4 = \rho_T$ (saturation scale)</td>
                 </tr>
                 <tr>
                     <td>Consistency with §A.1 action</td>
@@ -1256,10 +1269,10 @@
     <p>
         <strong>What the data constrain.</strong> The empirical screening
         hierarchy ($S$ vs $\rho$ across 26 astrophysical objects, $R^2 =
-        0.9999$) validates the existence of a single saturation density $\rho_c
+        0.9999$) validates the existence of a single saturation density $\rho_T
         \approx 20$ g/cm³. However, the observed $S \propto \rho^{1/3}$ scaling
         is a geometric identity given the definitions $S \equiv
-        R_{\text{sol}}/R_{\text{phys}}$ and $R_{\text{sol}} \propto M^{1/3}$; it
+        R_T/R_{\text{phys}}$ and $R_T \propto M^{1/3}$; it
         does not discriminate between Temporal Topology and kinetic screening. Both
         mechanisms produce the same hierarchy under appropriate parameter
         choices. The distinguishing observable would be the suppression profile
@@ -1274,23 +1287,21 @@
     </p>
     <ul>
         <li>
-            Conformal coupling: $\alpha_{\rm eff} = (9.6 \pm 4.0) \times 10^5$ mag (Cepheid calibration, Paper 11)
-            or $\alpha_0 \approx 0.57 \pm 0.10$ (JWST concordance, four smooth observables)
+            Observable Response Coefficient: $\kappa_{\rm Cep} = (9.6 \pm 4.0) \times 10^5$ mag (Cepheid calibration, Paper 11), transferred to galaxy sector through $K_{\rm gal}$
         </li>
-        <li>Temporal enhancement: $\Gamma_t = A(\phi)^{1/2}$</li>
+        <li>Temporal enhancement: $\Gamma_t = A(\phi)$</li>
         <li>
-            Environment-dependent proper time: $d\tau \propto A(\phi)^{1/2} dt$
+            Environment-dependent proper time: $d\tau \propto A(\phi) dt$
         </li>
         <li>
-            Screening hierarchy: GR recovered for $\rho \gg \rho_c$; scalar
-            effects observable for $\rho \ll \rho_c$
+            Screening hierarchy: The observable response is suppressed when the local shear/source-charge sector is screened; $\rho_T$ is a saturation scale, not a binary ambient-density switch.
         </li>
     </ul>
     <p>
         The screening mechanism affects only the quantitative predictions for
-        the transition regime ($\rho \sim \rho_c$) and the detailed mapping
+        the transition regime ($\rho \sim \rho_T$) and the detailed mapping
         between the scalar force range and precision Solar System tests. All
-        results in this work use the phenomenological $\rho_c$-based framework
+        results in this work use the phenomenological $\rho_T$-based framework
         and are valid under either UV completion.
     </p>
 
@@ -1305,7 +1316,7 @@
             screening mechanism "remains to be derived from first principles"
             and that the phenomenology "mimics chameleon or Vainshtein
             screening." This agnostic position is adopted here: the robust
-            empirical finding is the saturation density $\rho_c \approx 20$
+            empirical finding is the saturation density $\rho_T \approx 20$
             g/cm³ and the resulting screening hierarchy, not the specific
             Lagrangian realization. Distinguishing between the two candidate
             mechanisms is an important target for future precision tests in the
@@ -1323,7 +1334,7 @@
         <code>scripts/utils/tep_model.py</code>:
     </p>
     <div class="code-block">
-        <pre><code class="language-python">def calculate_gamma_t(log_Mh, z, alpha_0=0.58, z_ref=5.5, log_Mh_ref=12.0):
+        <pre><code class="language-python">def calculate_gamma_t(log_Mh, z, kappa_gal=9.6e5, z_ref=5.5, log_Mh_ref=12.0):
     """
     Calculate the Temporal Enhancement Factor Gamma_t.
 
@@ -1333,8 +1344,8 @@
         Log10 Halo Mass (Solar Masses)
     z : float or array
         Redshift
-    alpha_0 : float
-        Coupling constant at z=0 (Default: derived from Paper 11 Cepheid analysis)
+    kappa_gal : float
+        Observable Response Coefficient in mag (Default: 9.6e5 from Paper 11 Cepheid analysis)
     z_ref : float
         Reference redshift for screening (Default: 5.5)
 
@@ -1353,14 +1364,14 @@
 
     # 2. Calculate redshift-dependent coupling
     # Screening weakens as sqrt(1+z) due to lower background density
-    alpha_z = alpha_0 * np.sqrt(1 + z)
+    response_z = kappa_gal * np.sqrt(1 + z)  # redshift-scaled response coefficient
 
     # 3. Calculate screening efficiency factor
     # Deep potentials are screened less at high z
     z_factor = (1 + z) / (1 + z_ref)
 
     # 4. Combine into exponential form
-    exponent = alpha_z * potential_term * z_factor
+    exponent = response_z * potential_term * z_factor
     gamma_t = np.exp(exponent)
 
     return gamma_t</code></pre>
@@ -1618,7 +1629,7 @@
                     <td>161</td>
                     <td>$+0.473$</td>
                     <td>$2.4 \times 10^{-10}$</td>
-                    <td>Strong; spec-z precision eliminates photo-z scatter</td>
+                    <td>Strong; spec-z precision strongly constrains tested artifacts from photo-z scatter</td>
                 </tr>
                 <tr>
                     <td>Spec-z Prospector: dust2, $z &gt; 4$</td>

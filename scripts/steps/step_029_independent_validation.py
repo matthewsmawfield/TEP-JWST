@@ -22,7 +22,7 @@ import sys
 import numpy as np
 import pandas as pd
 from scipy import stats  # Hypothesis tests, correlation, regression
-from scipy.optimize import minimize_scalar  # (imported for potential α re-calibration; currently uses fixed ALPHA_0)
+from scipy.optimize import minimize_scalar  # (imported for potential α re-calibration; currently uses fixed KAPPA_GAL)
 from pathlib import Path
 import json
 
@@ -31,7 +31,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
 from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
-from scripts.utils.tep_model import ALPHA_0, ALPHA_CLOCK_EFF, compute_gamma_t as tep_gamma  # TEP model: alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), Gamma_t formula
+from scripts.utils.tep_model import KAPPA_GAL, KAPPA_GAL, compute_gamma_t as tep_gamma  # TEP model: KAPPA_GAL=9.6e5 mag from Cepheids, Gamma_t formula
 
 STEP_NUM = "029"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "independent_validation"  # Independent validation: train/test split (50/50) to test TEP predictive power on held-out data
@@ -76,7 +76,7 @@ def split_sample(df, seed=42):
 
 def calibrate_alpha_on_training(train_df):
     """
-    Use the FIXED Cepheid-calibrated α = 0.58.
+    Use the FIXED Cepheid-calibrated α = 9.6e5.
     
     This is the key test: does the parameter calibrated from LOCAL Cepheids
     provide predictive power for HIGH-Z galaxies?
@@ -85,7 +85,7 @@ def calibrate_alpha_on_training(train_df):
     Instead, we use the externally-calibrated value.
     """
     # Return the Cepheid-calibrated value (from Paper 11); no fitting performed
-    return ALPHA_0
+    return KAPPA_GAL
 
 
 def evaluate_predictions(test_df, alpha_calibrated):
@@ -95,7 +95,7 @@ def evaluate_predictions(test_df, alpha_calibrated):
     gamma_t_pred = tep_gamma(
         test_df['log_Mhalo'].values,
         test_df['z'].values,
-        alpha_0=alpha_calibrated,
+        kappa=alpha_calibrated,
     )
     
     # TEP prediction: dust should correlate with Γ_t
@@ -182,8 +182,8 @@ def main():
     
     alpha_cal = calibrate_alpha_on_training(train_df)
     print_status(f"\nCalibrated α (training only): {alpha_cal:.3f}", "INFO")
-    print_status(f"Reference α (from Cepheids): {ALPHA_0}", "INFO")
-    print_status(f"Difference: {abs(alpha_cal - ALPHA_0):.3f}", "INFO")
+    print_status(f"Reference α (from Cepheids): {KAPPA_GAL}", "INFO")
+    print_status(f"Difference: {abs(alpha_cal - KAPPA_GAL):.3f}", "INFO")
     
     eval_result = evaluate_predictions(test_df, alpha_cal)
     
@@ -251,7 +251,7 @@ def main():
     results = {
         'single_split': {
             'alpha_calibrated': float(alpha_cal),
-            'alpha_reference': float(ALPHA_0),
+            'alpha_reference': float(KAPPA_GAL),
             'rho_tep': float(eval_result['rho_tep']),
             'rho_mass': float(eval_result['rho_mass']),
             'rho_partial': float(eval_result['rho_partial']),

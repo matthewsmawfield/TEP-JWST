@@ -162,7 +162,7 @@ def main():
             'overmassive black holes, and stellar masses surpassing dynamical masses—all preferentially in deep '
             'gravitational potentials. This work tests whether this pattern arises from violation of the isochrony '
             'axiom via the Temporal Equivalence Principle (TEP), a chameleon-screened scalar-tensor theory where '
-            'proper time depends on environment. Using the external Cepheid prior α₀ = 0.58 ± 0.16 with no JWST '
+            'proper time depends on environment. Using the external Cepheid prior κ_gal = (9.6 ± 4.0) × 10⁵ mag with no JWST '
             'retuning, TEP predicts ~34% reduction of the Red Monster efficiency excess and provides a physical '
             'route to differential black-hole growth in Little Red Dots. The strongest direct test uses the '
             'JWST-SUSPENSE survey of massive quiescent galaxies at z = 1.2–2.3 (N=15) with dynamically measured '

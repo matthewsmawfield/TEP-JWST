@@ -14,7 +14,8 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import print_status  # Centralised logging
 from scripts.utils.rank_stats import bootstrap_partial_rank_ci, partial_rank_correlation  # Partial Spearman helpers
-from scripts.utils.tep_model import ALPHA_0 as TEP_ALPHA_0  # Shared TEP coupling constant
+from scripts.utils.tep_model import KAPPA_GAL as TEP_KAPPA_GAL  # Shared magnitude-sector response coefficient
+from scripts.utils.tep_model import compute_gamma_t  # Canonical Γ_t kernel
 
 STEP_NUM = 170  # Pipeline step number
 STEP_NAME = "kinematic_decisive_test"  # Used in log / output filenames
@@ -32,18 +33,29 @@ STEP171_JSON = OUTPUT_PATH / "step_171_sigma_kinematic_expansion.json"  # Sigma-
 H0 = 70.0
 OMEGA_M = 0.3
 OMEGA_L = 0.7
-ALPHA_0 = TEP_ALPHA_0  # from shared tep_model
-M_REF = 1e10  # power-law reference mass for dynamical-mass Gamma_t proxy
-# NOTE: This step uses a power-law form Gamma_t = (M_dyn / M_REF)^alpha_0 rather
-# than the full exponential model because the SUSPENSE inputs are dynamical masses
-# (not halo masses). Converting Mdyn -> Mhalo would introduce additional uncertainty.
-# For the ranking-based Steiger comparison, only the monotonic ordering matters,
-# and the z-dependent effects are absorbed by the partial correlations' z-control.
+KAPPA_GAL = TEP_KAPPA_GAL  # from shared tep_model
+MDYN_TO_MHALO_OFFSET_BASE_DEX = 1.5
+MDYN_TO_MHALO_SENSITIVITY_DEX = [1.0, 1.5, 2.0]
 N_BOOT = 2000
 N_MONTE_CARLO = 2000
 RNG_SEED = 170
 FLOAT_RE = re.compile(r"[-+]?\d+(?:\.\d+)?")
 MIN_DJA_BALMER_N_FOR_SUPPORTIVE_TALLY = 8
+
+
+def dynamical_to_halo_mass(log_mdyn, z, offset_base_dex=MDYN_TO_MHALO_OFFSET_BASE_DEX):
+    """Map object-level dynamical mass to a halo-mass proxy for Γ_t.
+
+    Incorporates redshift dependence to mirror empirical SMHM relations
+    rather than applying a flat scalar offset across all cosmic epochs.
+    SUSPENSE provides galaxy-scale dynamical masses, while compute_gamma_t
+    expects halo masses. The offset is exposed and stress-tested so this branch
+    is not silently treating M_dyn as M_h.
+    """
+    log_mdyn_arr = np.asarray(log_mdyn, dtype=float)
+    z_arr = np.asarray(z, dtype=float)
+    log_ratio = -offset_base_dex - 0.1 * (log_mdyn_arr - 10.0) + 0.05 * (z_arr - 5.0)
+    return log_mdyn_arr - log_ratio
 
 
 def get_age_universe(z):
@@ -405,8 +417,11 @@ def _uncertainty_monte_carlo(df):
         sim["log_Mdyn"] = _draw_asymmetric(sim["log_Mdyn"], sim["log_Mdyn_err_lo"], sim["log_Mdyn_err_hi"], rng)
         sim["log_Mstar_obs"] = _draw_asymmetric(sim["log_Mstar_obs"], sim["log_Mstar_err_lo"], sim["log_Mstar_err_hi"], rng)
         sim["age_gyr"] = np.maximum(_draw_asymmetric(sim["age_gyr"], sim["age_gyr_err_lo"], sim["age_gyr_err_hi"], rng), 1e-6)
-        sim["Gamma_t_dyn"] = np.power(10.0 ** sim["log_Mdyn"].to_numpy(dtype=float) / M_REF, ALPHA_0)
-        sim["Gamma_t_phot"] = np.power(10.0 ** sim["log_Mstar_obs"].to_numpy(dtype=float) / M_REF, ALPHA_0)
+        z_arr = sim["z"].to_numpy(dtype=float)
+        sim["log_Mh_dyn_proxy"] = dynamical_to_halo_mass(sim["log_Mdyn"].to_numpy(dtype=float), z_arr)
+        sim["log_Mh_phot_proxy"] = dynamical_to_halo_mass(sim["log_Mstar_obs"].to_numpy(dtype=float), z_arr)
+        sim["Gamma_t_dyn"] = compute_gamma_t(sim["log_Mh_dyn_proxy"].to_numpy(dtype=float), z_arr)
+        sim["Gamma_t_phot"] = compute_gamma_t(sim["log_Mh_phot_proxy"].to_numpy(dtype=float), z_arr)
         sim["t_tep"] = sim["t_univ"].to_numpy(dtype=float) * sim["Gamma_t_dyn"].to_numpy(dtype=float)
         metrics = _compute_metrics(sim, with_bootstrap=False)
         gamma_z.append(metrics["partial_rho_gamma_dyn_age_given_z"])
@@ -617,7 +632,7 @@ def _primary_suspense_branch(metrics, uncertainty_coverage, uncertainty_mc):
         "label": "SUSPENSE spectral-age decoupling",
         "branch_type": "primary_direct_kinematic_decoupling",
         "source": "Slob et al. 2025 SUSPENSE (JWST NIRSpec)",
-        "direct_predictor": "Gamma_t_dyn from M_dyn",
+        "direct_predictor": "Gamma_t_dyn from logMdyn mapped to a halo-mass proxy",
         "mass_predictor": "log_Mstar_obs",
         "outcome": "mass-weighted spectroscopic age",
         "n": metrics.get("n_partial_gamma_dyn_age_given_z"),
@@ -1063,10 +1078,44 @@ def _load_suspense_sample():
     df = df.dropna(subset=["z", "log_Mstar_obs", "log_Mdyn", "age_gyr"]).copy().reset_index(drop=True)
     df, uncertainty_coverage = _attach_published_uncertainties(df)
     df["t_univ"] = df["z"].apply(get_age_universe)
-    df["Gamma_t_dyn"] = np.power(10.0 ** df["log_Mdyn"].to_numpy(dtype=float) / M_REF, ALPHA_0)
-    df["Gamma_t_phot"] = np.power(10.0 ** df["log_Mstar_obs"].to_numpy(dtype=float) / M_REF, ALPHA_0)
+    z_arr = df["z"].to_numpy(dtype=float)
+    df["log_Mh_dyn_proxy"] = dynamical_to_halo_mass(df["log_Mdyn"].to_numpy(dtype=float), z_arr)
+    df["log_Mh_phot_proxy"] = dynamical_to_halo_mass(df["log_Mstar_obs"].to_numpy(dtype=float), z_arr)
+    df["Gamma_t_dyn"] = compute_gamma_t(df["log_Mh_dyn_proxy"].to_numpy(dtype=float), z_arr)
+    df["Gamma_t_phot"] = compute_gamma_t(df["log_Mh_phot_proxy"].to_numpy(dtype=float), z_arr)
     df["t_tep"] = df["t_univ"].to_numpy(dtype=float) * df["Gamma_t_dyn"].to_numpy(dtype=float)
     return df, uncertainty_coverage, None
+
+
+def _halo_proxy_sensitivity(df):
+    """Sensitivity of the primary statistic to plausible Mdyn->Mhalo offsets."""
+    sensitivity = {}
+    z_arr = df["z"].to_numpy(dtype=float)
+    for offset in MDYN_TO_MHALO_SENSITIVITY_DEX:
+        trial = df.copy()
+        trial["log_Mh_dyn_proxy"] = dynamical_to_halo_mass(
+            trial["log_Mdyn"].to_numpy(dtype=float),
+            z_arr,
+            offset_base_dex=offset,
+        )
+        trial["log_Mh_phot_proxy"] = dynamical_to_halo_mass(
+            trial["log_Mstar_obs"].to_numpy(dtype=float),
+            z_arr,
+            offset_base_dex=offset,
+        )
+        trial["Gamma_t_dyn"] = compute_gamma_t(trial["log_Mh_dyn_proxy"].to_numpy(dtype=float), z_arr)
+        trial["Gamma_t_phot"] = compute_gamma_t(trial["log_Mh_phot_proxy"].to_numpy(dtype=float), z_arr)
+        trial["t_tep"] = trial["t_univ"].to_numpy(dtype=float) * trial["Gamma_t_dyn"].to_numpy(dtype=float)
+        metrics = _compute_metrics(trial, with_bootstrap=False)
+        sensitivity[f"offset_{offset:.1f}_dex"] = {
+            "mdyn_to_mhalo_offset_dex": float(offset),
+            "partial_rho_gamma_dyn_age_given_z": metrics["partial_rho_gamma_dyn_age_given_z"],
+            "p_partial_gamma_dyn_age_given_z": metrics["p_partial_gamma_dyn_age_given_z"],
+            "partial_rho_gamma_dyn_age_given_mstar_z": metrics["partial_rho_gamma_dyn_age_given_mstar_z"],
+            "p_partial_gamma_dyn_age_given_mstar_z": metrics["p_partial_gamma_dyn_age_given_mstar_z"],
+            "delta_partial_rho_gamma_minus_mstar_given_z": metrics["delta_partial_rho_gamma_minus_mstar_given_z"],
+        }
+    return sensitivity
 
 
 def run():
@@ -1081,6 +1130,7 @@ def run():
     print_status(f"Running kinematic decoupling test on {len(df)} SUSPENSE galaxies", "INFO")
     metrics = _compute_metrics(df)
     uncertainty_mc = _uncertainty_monte_carlo(df)
+    halo_proxy_sensitivity = _halo_proxy_sensitivity(df)
     federated_direct_package = _build_federated_direct_package(metrics, uncertainty_coverage, uncertainty_mc)
     federated_assessment = federated_direct_package["summary"]["federated_assessment"]
 
@@ -1106,12 +1156,17 @@ def run():
     else:
         assessment = "insufficient_kinematic_support"
 
-    print_status(f"  rho(Age, M_star) = {metrics['rho_mstar_age']:.3f} (p={metrics['p_mstar_age']:.3e})", "INFO")
-    print_status(f"  rho(Age, Gamma_t_dyn) = {metrics['rho_gamma_dyn_age']:.3f} (p={metrics['p_gamma_dyn_age']:.3e})", "INFO")
-    print_status(f"  rho(Age, Gamma_t_dyn | z) = {metrics['partial_rho_gamma_dyn_age_given_z']:.3f} (p={metrics['p_partial_gamma_dyn_age_given_z']:.3e})", "INFO")
-    print_status(f"  rho(Age, M_star | z) = {metrics['partial_rho_mstar_age_given_z']:.3f} (p={metrics['p_partial_mstar_age_given_z']:.3e})", "INFO")
-    print_status(f"  rho(Age, Gamma_t_dyn | M_star, z) = {metrics['partial_rho_gamma_dyn_age_given_mstar_z']:.3f} (p={metrics['p_partial_gamma_dyn_age_given_mstar_z']:.3e})", "INFO")
-    print_status(f"  rho(Age, M_star | Gamma_t_dyn, z) = {metrics['partial_rho_mstar_age_given_gamma_dyn_z']:.3f} (p={metrics['p_partial_mstar_age_given_gamma_dyn_z']:.3e})", "INFO")
+    def fmt_rho_p(rho, p):
+        if rho is None:
+            return "N/A (p=N/A)"
+        return f"{rho:.3f} (p={p:.3e})" if p is not None else f"{rho:.3f} (p=N/A)"
+    
+    print_status(f"  rho(Age, M_star) = {fmt_rho_p(metrics['rho_mstar_age'], metrics['p_mstar_age'])}", "INFO")
+    print_status(f"  rho(Age, Gamma_t_dyn) = {fmt_rho_p(metrics['rho_gamma_dyn_age'], metrics['p_gamma_dyn_age'])}", "INFO")
+    print_status(f"  rho(Age, Gamma_t_dyn | z) = {fmt_rho_p(metrics['partial_rho_gamma_dyn_age_given_z'], metrics['p_partial_gamma_dyn_age_given_z'])}", "INFO")
+    print_status(f"  rho(Age, M_star | z) = {fmt_rho_p(metrics['partial_rho_mstar_age_given_z'], metrics['p_partial_mstar_age_given_z'])}", "INFO")
+    print_status(f"  rho(Age, Gamma_t_dyn | M_star, z) = {fmt_rho_p(metrics['partial_rho_gamma_dyn_age_given_mstar_z'], metrics['p_partial_gamma_dyn_age_given_mstar_z'])}", "INFO")
+    print_status(f"  rho(Age, M_star | Gamma_t_dyn, z) = {fmt_rho_p(metrics['partial_rho_mstar_age_given_gamma_dyn_z'], metrics['p_partial_mstar_age_given_gamma_dyn_z'])}", "INFO")
     if steiger["z_stat_gamma_dyn_better_than_mstar"] is not None:
         print_status(
             f"  Steiger(z-controlled ranks): Z={steiger['z_stat_gamma_dyn_better_than_mstar']:.3f} "
@@ -1151,12 +1206,16 @@ def run():
             "primary_controls": ["z"],
             "conditional_asymmetry_controls": ["competitor_predictor", "z"],
             "age_observable": "mass-weighted spectroscopic age",
+            "direct_predictor": "Gamma_t_dyn from a calibrated logMdyn->logMhalo proxy, not raw logMdyn",
+            "mdyn_to_mhalo_offset_dex": MDYN_TO_MHALO_OFFSET_BASE_DEX,
+            "mdyn_to_mhalo_sensitivity_offsets_dex": MDYN_TO_MHALO_SENSITIVITY_DEX,
             "direct_kinematic_package": "Primary SUSPENSE age-based comparison plus any available auxiliary direct object-level branches and contextual same-regime literature kinematic sample when available.",
         },
         "results": metrics,
         "robustness": {
             "published_uncertainty_coverage": uncertainty_coverage,
             "uncertainty_monte_carlo": uncertainty_mc,
+            "halo_proxy_sensitivity": halo_proxy_sensitivity,
         },
         "federated_direct_kinematic_package": federated_direct_package,
     }

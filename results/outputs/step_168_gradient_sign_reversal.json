@@ -13,237 +13,237 @@
   },
   "sample": {
     "n_total": 277,
-    "gamma_t_min": 0.8196755533256055,
-    "gamma_t_median": 0.8894971979489662,
-    "gamma_t_max": 1.1703158872986668,
-    "beta_debias_used": 0.3142781341571038,
+    "gamma_t_min": 0.38214323700958586,
+    "gamma_t_median": 0.5420687491826927,
+    "gamma_t_max": 0.6044196467438371,
+    "beta_debias_used": 0.38222773644735053,
     "beta_debias_source": "step_117_object_level_bootstrap",
-    "n_gamma_t_lt_1": 275,
-    "n_gamma_t_gt_1": 2,
-    "literal_gamma_gt1_vs_lt1_available": true,
+    "n_gamma_t_lt_1": 277,
+    "n_gamma_t_gt_1": 0,
+    "literal_gamma_gt1_vs_lt1_available": false,
     "note": "The corrected step_139 mapping now uses direct halo masses from the local JADES physical catalog when available. That yields a small literal Gamma_t > 1 tail, but the sample remains dominated by Gamma_t < 1 objects, so both literal and quantile screening contrasts are reported."
   },
   "contrasts": {
     "raw_q25_q75": {
       "n_high": 70,
       "n_low": 70,
-      "negative_fraction_high": 0.2714285714285714,
-      "negative_fraction_low": 0.34285714285714286,
+      "negative_fraction_high": 0.3142857142857143,
+      "negative_fraction_low": 0.3,
       "contingency_table": [
         [
-          19,
-          51
+          22,
+          48
         ],
         [
-          24,
-          46
+          21,
+          49
         ]
       ],
-      "odds_ratio_high_more_negative": 0.7140522875816994,
-      "fisher_p_one_sided": 0.8642072016527796,
+      "odds_ratio_high_more_negative": 1.0694444444444444,
+      "fisher_p_one_sided": 0.5000000000000001,
       "contrast_label": "quantile_0.250_0.750_colour_gradient",
-      "median_gradient_high": 0.123352778,
+      "median_gradient_high": 0.0907629275,
       "median_gradient_low": 0.5068099500000001,
-      "mean_gradient_high": 0.23507650123571427,
-      "mean_gradient_low": 0.4633236103142858,
-      "delta_mean_high_minus_low": -0.22824710907857154,
+      "mean_gradient_high": 0.11107820169285715,
+      "mean_gradient_low": 0.4810843598857143,
+      "delta_mean_high_minus_low": -0.37000615819285715,
       "bootstrap_ci_95": [
-        -0.4572544037263215,
-        0.006914827794107167
+        -0.5816044796110357,
+        -0.14334613386074999
       ],
-      "bootstrap_one_sided_p_high_less_than_low": 0.030242439390152462,
-      "mannwhitney_p_two_sided": 0.07756941335134024,
+      "bootstrap_one_sided_p_high_less_than_low": 0.000999750062484379,
+      "mannwhitney_p_two_sided": 0.0031498326025261973,
       "gamma_t_quantiles": [
         0.25,
         0.75
       ],
-      "gamma_t_threshold_low": 0.8829801801878647,
-      "gamma_t_threshold_high": 0.9013261461842007
+      "gamma_t_threshold_low": 0.5296348671403821,
+      "gamma_t_threshold_high": 0.5489147777871981
     },
     "raw_q33_q67": {
       "n_high": 93,
       "n_low": 93,
       "negative_fraction_high": 0.3225806451612903,
-      "negative_fraction_low": 0.3225806451612903,
+      "negative_fraction_low": 0.3333333333333333,
       "contingency_table": [
         [
           30,
           63
         ],
         [
-          30,
-          63
+          31,
+          62
         ]
       ],
-      "odds_ratio_high_more_negative": 1.0,
-      "fisher_p_one_sided": 0.5622756405925693,
+      "odds_ratio_high_more_negative": 0.9523809523809523,
+      "fisher_p_one_sided": 0.6225423895531201,
       "contrast_label": "quantile_0.333_0.667_colour_gradient",
-      "median_gradient_high": 0.097719654,
-      "median_gradient_low": 0.53122556,
-      "mean_gradient_high": 0.19684176125268818,
-      "mean_gradient_low": 0.491231328623656,
-      "delta_mean_high_minus_low": -0.2943895673709678,
+      "median_gradient_high": 0.09140779,
+      "median_gradient_low": 0.5017941,
+      "mean_gradient_high": 0.13220223544623655,
+      "mean_gradient_low": 0.4379978690537635,
+      "delta_mean_high_minus_low": -0.30579563360752693,
       "bootstrap_ci_95": [
-        -0.4934050761071504,
-        -0.09694568521884402
+        -0.5042124836820432,
+        -0.10683987369631692
       ],
-      "bootstrap_one_sided_p_high_less_than_low": 0.0029992501874531365,
-      "mannwhitney_p_two_sided": 0.006346492231323104,
+      "bootstrap_one_sided_p_high_less_than_low": 0.0014996250937265683,
+      "mannwhitney_p_two_sided": 0.0069473345782970946,
       "gamma_t_quantiles": [
         0.3333333333333333,
         0.6666666666666666
       ],
-      "gamma_t_threshold_low": 0.8847411168154985,
-      "gamma_t_threshold_high": 0.8961350287361356
+      "gamma_t_threshold_low": 0.5350239543381191,
+      "gamma_t_threshold_high": 0.5462520383289986
     },
     "raw_literal_gt1_lt1": null,
     "residual_q25_q75": {
       "n_high": 70,
       "n_low": 70,
-      "negative_fraction_high": 0.5428571428571428,
+      "negative_fraction_high": 0.6,
       "negative_fraction_low": 0.5,
       "contingency_table": [
         [
-          38,
-          32
+          42,
+          28
         ],
         [
           35,
           35
         ]
       ],
-      "odds_ratio_high_more_negative": 1.1875,
-      "fisher_p_one_sided": 0.36761295068619765,
+      "odds_ratio_high_more_negative": 1.5,
+      "fisher_p_one_sided": 0.15403359051138443,
       "contrast_label": "quantile_0.250_0.750_gradient_resid_mass_z",
-      "median_gradient_high": -0.02328785736333472,
-      "median_gradient_low": 0.020465254928431098,
-      "mean_gradient_high": 0.0791904411236888,
-      "mean_gradient_low": 0.020706290463678168,
-      "delta_mean_high_minus_low": 0.05848415066001063,
+      "median_gradient_high": -0.056892241091904404,
+      "median_gradient_low": 0.009222412350644832,
+      "mean_gradient_high": -0.031509998040113056,
+      "mean_gradient_low": 0.029938157189021427,
+      "delta_mean_high_minus_low": -0.06144815522913448,
       "bootstrap_ci_95": [
-        -0.16377858098168216,
-        0.2896350930036165
+        -0.2840297032086168,
+        0.15940340882167872
       ],
-      "bootstrap_one_sided_p_high_less_than_low": 0.6855786053486629,
-      "mannwhitney_p_two_sided": 0.7341148085918461,
+      "bootstrap_one_sided_p_high_less_than_low": 0.2891777055736066,
+      "mannwhitney_p_two_sided": 0.6126040203732666,
       "gamma_t_quantiles": [
         0.25,
         0.75
       ],
-      "gamma_t_threshold_low": 0.8829801801878647,
-      "gamma_t_threshold_high": 0.9013261461842007,
+      "gamma_t_threshold_low": 0.5296348671403821,
+      "gamma_t_threshold_high": 0.5489147777871981,
       "mass_control": "observed"
     },
     "residual_q33_q67": {
       "n_high": 93,
       "n_low": 93,
       "negative_fraction_high": 0.5913978494623656,
-      "negative_fraction_low": 0.46236559139784944,
+      "negative_fraction_low": 0.4946236559139785,
       "contingency_table": [
         [
           55,
           38
         ],
         [
-          43,
-          50
+          46,
+          47
         ]
       ],
-      "odds_ratio_high_more_negative": 1.6829865361077112,
-      "fisher_p_one_sided": 0.05298112172689834,
+      "odds_ratio_high_more_negative": 1.47883295194508,
+      "fisher_p_one_sided": 0.1194519091682315,
       "contrast_label": "quantile_0.333_0.667_gradient_resid_mass_z",
-      "median_gradient_high": -0.042838297817471754,
-      "median_gradient_low": 0.129746034909958,
-      "mean_gradient_high": 0.0356578011389245,
-      "mean_gradient_low": 0.09636771347858988,
-      "delta_mean_high_minus_low": -0.060709912339665384,
+      "median_gradient_high": -0.05610113567083379,
+      "median_gradient_low": 0.04005641688004519,
+      "mean_gradient_high": -0.02165112989016994,
+      "mean_gradient_low": 0.03607879357908654,
+      "delta_mean_high_minus_low": -0.05772992346925648,
       "bootstrap_ci_95": [
-        -0.26683364441561036,
-        0.1479723441030397
+        -0.2600790022282993,
+        0.13501504915303983
       ],
-      "bootstrap_one_sided_p_high_less_than_low": 0.2696825793551612,
-      "mannwhitney_p_two_sided": 0.47544069171213654,
+      "bootstrap_one_sided_p_high_less_than_low": 0.2839290177455636,
+      "mannwhitney_p_two_sided": 0.6047821222483909,
       "gamma_t_quantiles": [
         0.3333333333333333,
         0.6666666666666666
       ],
-      "gamma_t_threshold_low": 0.8847411168154985,
-      "gamma_t_threshold_high": 0.8961350287361356,
+      "gamma_t_threshold_low": 0.5350239543381191,
+      "gamma_t_threshold_high": 0.5462520383289986,
       "mass_control": "observed"
     },
     "residual_literal_gt1_lt1": null,
     "residual_debiased_q25_q75": {
       "n_high": 70,
       "n_low": 70,
-      "negative_fraction_high": 0.5428571428571428,
+      "negative_fraction_high": 0.6,
       "negative_fraction_low": 0.5,
       "contingency_table": [
         [
-          38,
-          32
+          42,
+          28
         ],
         [
           35,
           35
         ]
       ],
-      "odds_ratio_high_more_negative": 1.1875,
-      "fisher_p_one_sided": 0.36761295068619765,
+      "odds_ratio_high_more_negative": 1.5,
+      "fisher_p_one_sided": 0.15403359051138443,
       "contrast_label": "quantile_0.250_0.750_gradient_resid_debiased_mass_z",
-      "median_gradient_high": -0.023166891058299638,
-      "median_gradient_low": 0.020307511239059495,
-      "mean_gradient_high": 0.07914378125801196,
-      "mean_gradient_low": 0.02070651182063839,
-      "delta_mean_high_minus_low": 0.05843726943737357,
+      "median_gradient_high": -0.05681386475520057,
+      "median_gradient_low": 0.009589533150816426,
+      "mean_gradient_high": -0.03161710588655672,
+      "mean_gradient_low": 0.030089735689021017,
+      "delta_mean_high_minus_low": -0.06170684157557774,
       "bootstrap_ci_95": [
-        -0.1716031656232218,
-        0.29954364137724204
+        -0.2806636104694451,
+        0.15980919215596076
       ],
-      "bootstrap_one_sided_p_high_less_than_low": 0.6830792301924519,
-      "mannwhitney_p_two_sided": 0.7372558787853117,
+      "bootstrap_one_sided_p_high_less_than_low": 0.2924268932766808,
+      "mannwhitney_p_two_sided": 0.6096819744278847,
       "gamma_t_quantiles": [
         0.25,
         0.75
       ],
-      "gamma_t_threshold_low": 0.8829801801878647,
-      "gamma_t_threshold_high": 0.9013261461842007,
+      "gamma_t_threshold_low": 0.5296348671403821,
+      "gamma_t_threshold_high": 0.5489147777871981,
       "mass_control": "debiased"
     },
     "residual_debiased_q33_q67": {
       "n_high": 93,
       "n_low": 93,
-      "negative_fraction_high": 0.5913978494623656,
-      "negative_fraction_low": 0.46236559139784944,
+      "negative_fraction_high": 0.5806451612903226,
+      "negative_fraction_low": 0.4946236559139785,
       "contingency_table": [
         [
-          55,
-          38
+          54,
+          39
         ],
         [
-          43,
-          50
+          46,
+          47
         ]
       ],
-      "odds_ratio_high_more_negative": 1.6829865361077112,
-      "fisher_p_one_sided": 0.05298112172689834,
+      "odds_ratio_high_more_negative": 1.414715719063545,
+      "fisher_p_one_sided": 0.15163183301656663,
       "contrast_label": "quantile_0.333_0.667_gradient_resid_debiased_mass_z",
-      "median_gradient_high": -0.0427125326194327,
-      "median_gradient_low": 0.12946071822143695,
-      "mean_gradient_high": 0.035654002453947946,
-      "mean_gradient_low": 0.09633636018863716,
-      "delta_mean_high_minus_low": -0.06068235773468921,
+      "median_gradient_high": -0.05598094133112376,
+      "median_gradient_low": 0.0404265771293823,
+      "mean_gradient_high": -0.021727422056913,
+      "mean_gradient_low": 0.03616812698844449,
+      "delta_mean_high_minus_low": -0.057895549045357486,
       "bootstrap_ci_95": [
-        -0.2637185877773464,
-        0.14416312915923568
+        -0.24865729626800917,
+        0.14574253248590222
       ],
-      "bootstrap_one_sided_p_high_less_than_low": 0.27243189202699325,
-      "mannwhitney_p_two_sided": 0.47375758912975285,
+      "bootstrap_one_sided_p_high_less_than_low": 0.2884278930267433,
+      "mannwhitney_p_two_sided": 0.5990914458584412,
       "gamma_t_quantiles": [
         0.3333333333333333,
         0.6666666666666666
       ],
-      "gamma_t_threshold_low": 0.8847411168154985,
-      "gamma_t_threshold_high": 0.8961350287361356,
+      "gamma_t_threshold_low": 0.5350239543381191,
+      "gamma_t_threshold_high": 0.5462520383289986,
       "mass_control": "debiased"
     },
     "residual_debiased_literal_gt1_lt1": null
@@ -251,38 +251,38 @@
   "primary_contrast": {
     "n_high": 93,
     "n_low": 93,
-    "negative_fraction_high": 0.5913978494623656,
-    "negative_fraction_low": 0.46236559139784944,
+    "negative_fraction_high": 0.5806451612903226,
+    "negative_fraction_low": 0.4946236559139785,
     "contingency_table": [
       [
-        55,
-        38
+        54,
+        39
       ],
       [
-        43,
-        50
+        46,
+        47
       ]
     ],
-    "odds_ratio_high_more_negative": 1.6829865361077112,
-    "fisher_p_one_sided": 0.05298112172689834,
+    "odds_ratio_high_more_negative": 1.414715719063545,
+    "fisher_p_one_sided": 0.15163183301656663,
     "contrast_label": "quantile_0.333_0.667_gradient_resid_debiased_mass_z",
-    "median_gradient_high": -0.0427125326194327,
-    "median_gradient_low": 0.12946071822143695,
-    "mean_gradient_high": 0.035654002453947946,
-    "mean_gradient_low": 0.09633636018863716,
-    "delta_mean_high_minus_low": -0.06068235773468921,
+    "median_gradient_high": -0.05598094133112376,
+    "median_gradient_low": 0.0404265771293823,
+    "mean_gradient_high": -0.021727422056913,
+    "mean_gradient_low": 0.03616812698844449,
+    "delta_mean_high_minus_low": -0.057895549045357486,
     "bootstrap_ci_95": [
-      -0.2637185877773464,
-      0.14416312915923568
+      -0.24865729626800917,
+      0.14574253248590222
     ],
-    "bootstrap_one_sided_p_high_less_than_low": 0.27243189202699325,
-    "mannwhitney_p_two_sided": 0.47375758912975285,
+    "bootstrap_one_sided_p_high_less_than_low": 0.2884278930267433,
+    "mannwhitney_p_two_sided": 0.5990914458584412,
     "gamma_t_quantiles": [
       0.3333333333333333,
       0.6666666666666666
     ],
-    "gamma_t_threshold_low": 0.8847411168154985,
-    "gamma_t_threshold_high": 0.8961350287361356,
+    "gamma_t_threshold_low": 0.5350239543381191,
+    "gamma_t_threshold_high": 0.5462520383289986,
     "mass_control": "debiased"
   },
   "primary_selection": "quantile_33_67_debiased_mass_control",

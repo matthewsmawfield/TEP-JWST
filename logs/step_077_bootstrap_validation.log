@@ -1,23 +1,23 @@
-[14:24:13]     ======================================================================
-[14:24:13]     STEP 077: Bootstrap Validation and Confidence Intervals
-[14:24:13]     ======================================================================
-[14:24:13]     Loaded N = 2315 galaxies
-[14:24:13]     
+[10:02:35]     ======================================================================
+[10:02:35]     STEP 077: Bootstrap Validation and Confidence Intervals
+[10:02:35]     ======================================================================
+[10:02:35]     Loaded N = 2315 galaxies
+[10:02:35]     
 --- 1. Bootstrap Confidence Intervals ---
-[14:24:15]       z>8 Dust: ρ = 0.603 [0.511, 0.685]
-[14:24:19]       Mass-Age: ρ = 0.135 [0.094, 0.177]
-[14:24:23]       Γt-Dust (full): ρ = -0.199 [-0.242, -0.156]
-[14:24:23]     
+[10:02:37]       z>8 Dust: ρ = 0.471 [0.363, 0.569]
+[10:02:41]       Mass-Age: ρ = 0.135 [0.094, 0.177]
+[10:02:46]       Γt-Dust (full): ρ = -0.288 [-0.329, -0.246]
+[10:02:46]     
 --- 2. Permutation Tests ---
-[14:24:24]       z>8 Dust: p_perm = 1.00e-04, Z = 10.13
-[14:24:24]     
+[10:02:47]       z>8 Dust: p_perm = 1.00e-04, Z = 7.91
+[10:02:47]     
 --- 3. Effective Sample Size ---
-[14:24:24]       N_nominal = 283, N_eff = 183.2, DEFF = 1.54
-[14:24:24]     
+[10:02:47]       N_nominal = 283, N_eff = 187.7, DEFF = 1.51
+[10:02:47]     
 ======================================================================
-[14:24:24]     BOOTSTRAP VALIDATION SUMMARY
-[14:24:24]     ======================================================================
-[14:24:24]       All CIs exclude zero: True
-[14:24:24]       Permutation tests significant: True
-[14:24:24]     
+[10:02:47]     BOOTSTRAP VALIDATION SUMMARY
+[10:02:47]     ======================================================================
+[10:02:47]       All CIs exclude zero: True
+[10:02:47]       Permutation tests significant: True
+[10:02:47]     
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_077_bootstrap_validation.json

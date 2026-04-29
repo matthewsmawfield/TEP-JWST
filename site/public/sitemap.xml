@@ -5,13 +5,13 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
         <loc>https://matthewsmawfield.github.io/TEP-JWST/</loc>
-        <lastmod>2026-04-24</lastmod>
+        <lastmod>2026-04-29</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://matthewsmawfield.github.io/TEP-JWST/public/docs/Smawfield_2026_TEP-JWST_v0.3_Kos.pdf</loc>
-        <lastmod>2026-04-24</lastmod>
+        <loc>https://matthewsmawfield.github.io/TEP-JWST/public/docs/12-TEP-JWST-v0.4-Kos.pdf</loc>
+        <lastmod>2026-04-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>

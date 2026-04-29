@@ -20,7 +20,7 @@ CRITICAL THRESHOLD:
 - If 4β² < 1 (β < 0.5): Standard dilation (Γ < 1 in deep potentials)
 - If 4β² > 1 (β > 0.5): TEP enhancement (Γ > 1 in deep potentials)
 
-The phenomenological α₀ = 0.58 from Cepheid calibration maps to β via:
+The phenomenological KAPPA_GAL = 9.6e5 mag from Cepheid calibration maps to β via:
     α₀ = 2β² × (geometric factor)
     
 For the TEP-JWST application, we use the RELATIVE enhancement factor Γ_t,
@@ -44,7 +44,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma, ALPHA_0, ALPHA_CLOCK_EFF, Z_REF, LOG_MH_REF  # TEP model: Gamma_t formula, alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), reference constants
+from scripts.utils.tep_model import compute_gamma_t as tep_gamma, KAPPA_GAL, KAPPA_GAL, Z_REF, LOG_MH_REF  # TEP model: Gamma_t formula, KAPPA_GAL=9.6e5 mag from Cepheids, reference constants
 
 STEP_NUM = "072"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "sign_paradox_check"  # Sign paradox check: resolves GR time dilation vs TEP enhancement paradox via relative Gamma_t formulation (β coupling vs Newtonian potential Φ_N)
@@ -77,7 +77,7 @@ KPC_SI = 3.086e19
 # Let's stick to the proportionality:
 # phi_dim approx - 2 * beta * Phi_N (Newtonian potential)
 
-def compute_relative_gamma_t(log_Mh, z, alpha_0=ALPHA_0, z_ref=Z_REF, log_Mh_ref=LOG_MH_REF):
+def compute_relative_gamma_t(log_Mh, z, kappa=KAPPA_GAL, z_ref=Z_REF, log_Mh_ref=LOG_MH_REF):
     """
     Computes the RELATIVE temporal enhancement factor Γ_t as used in TEP-JWST.
     
@@ -94,7 +94,7 @@ def compute_relative_gamma_t(log_Mh, z, alpha_0=ALPHA_0, z_ref=Z_REF, log_Mh_ref
     z_arr = np.asarray(z, dtype=float)
 
     # The harmonized kernel compute_gamma_t handled the scaling.
-    return tep_gamma(log_mh, z_arr, alpha_0=alpha_0)
+    return tep_gamma(log_mh, z_arr, kappa=KAPPA_GAL)
 
 
 def solve_scalar_profile_absolute(halo_mass_Msun=1e12, concentration=10, beta=1.0):
@@ -202,7 +202,7 @@ def run_analysis():
     print_status("\n--- Part 2: Relative Enhancement (TEP-JWST Method) ---", "INFO")
     print_status("This is the correct formulation used in the manuscript", "INFO")
     
-    alpha_0 = ALPHA_0  # Cepheid-calibrated coupling
+    kappa=KAPPA_GAL  # Cepheid-calibrated coupling
     z_ref = Z_REF
     log_Mh_ref = LOG_MH_REF
     
@@ -221,7 +221,7 @@ def run_analysis():
         Gamma_t = compute_relative_gamma_t(
             log_Mh=case['log_Mh'],
             z=case['z'],
-            alpha_0=alpha_0,
+            kappa=KAPPA_GAL,
             z_ref=z_ref,
             log_Mh_ref=log_Mh_ref
         )
@@ -240,7 +240,7 @@ def run_analysis():
         print_status(f"{case['label']}: Γ_t = {Gamma_t:.4f} ({status})", "INFO")
     
     results['relative_analysis'] = {
-        'alpha_0': alpha_0,
+        'KAPPA_GAL': KAPPA_GAL,
         'z_ref': z_ref,
         'log_Mh_ref': log_Mh_ref,
         'test_cases': relative_results
@@ -262,7 +262,7 @@ def run_analysis():
         Gamma_t = compute_relative_gamma_t(
             log_Mh=rm['log_Mh'],
             z=rm['z'],
-            alpha_0=alpha_0,
+            kappa=KAPPA_GAL,
             z_ref=z_ref,
             log_Mh_ref=log_Mh_ref
         )
@@ -296,9 +296,9 @@ def run_analysis():
     # 2. The RELATIVE formulation (used in TEP-JWST) always gives enhancement for M_h > M_ref
     # 3. The physical interpretation is that we're comparing to a reference, not to infinity
     
-    # Estimate the effective β that would give the same enhancement as α₀ = 0.58
+    # Estimate the effective β that would give the same enhancement as κ_gal = 9.6e5
     # For a typical Red Monster with Δlog(M_h) = 1.0 at z = 5.5:
-    # Γ_t = exp(0.58 × √6.5 × (2/3) × 1.0 × 6.5/6.5) = exp(0.58 × 2.55 × 0.67) ≈ exp(0.99) ≈ 2.7
+    # Γ_t = exp(9.6e5 × √6.5 × (2/3) × 1.0 × 6.5/6.5) = exp(9.6e5 × 2.55 × 0.67) ≈ exp(0.99) ≈ 2.7
     # 
     # In the calibrated formulation with β, for the same potential depth:
     # Γ = exp(-4β² Φ_N) × √(1 + 2Φ_N)
@@ -308,9 +308,10 @@ def run_analysis():
     # that includes the virial scaling, redshift evolution, and reference normalization.
     
     theoretical_mapping = {
-        'alpha_0': 0.58,
-        'interpretation': 'α₀ is a phenomenological coupling calibrated from Cepheid P-L residuals. '
-                          'It is NOT the same as the scalar-tensor coupling β in the action.',
+        'KAPPA_GAL': 9.6e5,
+        'interpretation': 'κ_gal is the Observable Response Coefficient calibrated from Cepheid P-L residuals. '
+                          'It is NOT the same as the scalar-tensor coupling β in the action, '
+                          'and NOT the same as the WB-sector α₀ = 0.58 (Paper 13).',
         'relative_formulation': 'TEP-JWST uses Γ_t = exp[ K * (Φ - Φ_ref)/c^2 * sqrt(1+z) ], '
                                 'which is a RELATIVE enhancement compared to a reference environment.',
         'sign_paradox_resolution': 'The sign paradox arises from conflating CALIBRATED clock rates '
@@ -326,7 +327,7 @@ def run_analysis():
     print_status("  The TEP-JWST formulation uses RELATIVE enhancement Γ_t", "INFO")
     print_status("  Γ_t > 1 for M_h > M_ref (by construction)", "INFO")
     print_status("  This does NOT require 4β² > 1 in the scalar-tensor action", "INFO")
-    print_status("  The phenomenological α₀ = 0.58 is an effective coupling, not β", "INFO")
+    print_status("  The phenomenological κ_gal = 9.6e5 mag is an Observable Response Coefficient, not β", "INFO")
     
     # Save results
     with open(OUTPUT_PATH / "step_072_sign_paradox_check.json", "w") as f:
@@ -359,7 +360,7 @@ def run_analysis():
     ax2 = axes[1]
     log_Mh_range = np.linspace(9, 14, 100)
     for z in [4, 6, 8, 10]:
-        Gamma_t = compute_relative_gamma_t(log_Mh_range, z, alpha_0=ALPHA_0)
+        Gamma_t = compute_relative_gamma_t(log_Mh_range, z, kappa=KAPPA_GAL)
         ax2.plot(log_Mh_range, Gamma_t, label=f'z={z}')
     
     ax2.axhline(1.0, color='k', linestyle='--', label='Reference (Γ_t=1)')

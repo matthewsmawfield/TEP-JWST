@@ -2,13 +2,13 @@
 """
 Step 121: Alpha(z) Evolution Test
 
-Tests whether the TEP coupling constant alpha_0 is truly constant
+Tests whether the TEP coupling constant kappa_gal is truly constant
 or evolves with redshift.
 
-This is a core assumption of TEP: alpha(z) = alpha_0 * sqrt(1+z)
-where alpha_0 = 0.58 is fixed from local Cepheid calibration.
+This is a core assumption of TEP: alpha(z) = kappa_gal * sqrt(1+z)
+where KAPPA_GAL = 9.6e5 mag is fixed from local Cepheid calibration.
 
-If alpha_0 varies with z, it would suggest:
+If kappa_gal varies with z, it would suggest:
 - The TEP model needs modification
 - Or there are systematic effects in the data
 
@@ -37,11 +37,11 @@ RESULTS_DIR = PROJECT_ROOT / "results"  # Results root directory
 OUTPUTS_DIR = RESULTS_DIR / "outputs"  # JSON output directory (machine-readable statistical results)
 FIGURES_DIR = RESULTS_DIR / "figures"  # Publication figures directory (PNG/PDF for manuscript)
 INTERIM_DIR = RESULTS_DIR / "interim"  # Pre-processed intermediate products (CSV format from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import compute_gamma_t, ALPHA_0, LOG_MH_REF, Z_REF  # TEP model: Gamma_t formula, alpha_0=0.58, log_Mh_ref=12.0, z_ref=5.5
+from scripts.utils.tep_model import compute_gamma_t, KAPPA_GAL, LOG_MH_REF, Z_REF  # TEP model: Gamma_t formula, KAPPA_GAL=9.6e5 mag, log_Mh_ref=12.0, z_ref=5.5
 from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300) & JSON serialiser for numpy types
 
 STEP_NUM = "099"  # Pipeline step number (sequential 001-176)
-STEP_NAME = "alpha_evolution_test"  # Alpha(z) evolution test: fits alpha_0 per redshift bin maximizing rho(Gamma_t(alpha_0), dust), tests constancy assumption
+STEP_NAME = "alpha_evolution_test"  # Alpha(z) evolution test: fits kappa_gal per redshift bin maximizing rho(Gamma_t(kappa_gal), dust), tests constancy assumption
 
 LOGS_DIR = PROJECT_ROOT / "logs"  # Log directory (one plain-text log per step for debugging traceability)
 LOGS_DIR.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing; exist_ok=True allows safe re-runs
@@ -49,20 +49,23 @@ logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_DIR / f"step_{STEP_NUM
 set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
 # TEP constants
-ALPHA_0_NOMINAL = 0.58
-ALPHA_0_UNCERTAINTY = 0.16
+KAPPA_GAL_NOMINAL = KAPPA_GAL
+KAPPA_GAL_UNCERTAINTY = 4.0e5
 
 
 
 def fit_alpha_in_zbin(dust, log_mh, z, z_mean):
     """
-    Fit alpha_0 in a single redshift bin by maximizing
-    the correlation between Gamma_t(alpha_0) and dust.
+    Diagnostic-only fit in a single redshift bin.
+
+    Spearman rank correlations are nearly invariant under monotonic κ
+    rescaling, so this routine is retained for continuity but is not a
+    defensible κ-amplitude recovery method.
     """
-    def neg_correlation(alpha_0):
-        if alpha_0 <= 0 or alpha_0 > 2:
+    def neg_correlation(kappa):
+        if kappa <= 0 or kappa > 3e6:
             return 1.0  # Penalty for invalid values
-        gamma_t = compute_gamma_t(log_mh, z, alpha_0)
+        gamma_t = compute_gamma_t(log_mh, z, kappa=kappa)
         log_gamma = np.log10(np.maximum(gamma_t, 0.01))
         
         # Handle edge cases
@@ -75,10 +78,10 @@ def fit_alpha_in_zbin(dust, log_mh, z, z_mean):
         return -rho  # Negative because we minimize
     
     # Grid search for initial guess
-    alphas = np.linspace(0.1, 1.5, 15)
-    correlations = [-neg_correlation(a) for a in alphas]
+    kappas = np.linspace(1e5, 2e6, 20)
+    correlations = [-neg_correlation(k) for k in kappas]
     best_idx = np.argmax(correlations)
-    alpha_init = alphas[best_idx]
+    alpha_init = kappas[best_idx]
     
     # Refine with optimization
     result = minimize(neg_correlation, alpha_init, method='Nelder-Mead',
@@ -98,10 +101,10 @@ def fit_alpha_in_zbin(dust, log_mh, z, z_mean):
         log_mh_boot = log_mh[idx]
         z_boot = z[idx]
         
-        def neg_corr_boot(alpha_0):
-            if alpha_0 <= 0 or alpha_0 > 2:
+        def neg_corr_boot(kappa):
+            if kappa <= 0 or kappa > 3e6:
                 return 1.0
-            gamma_t = compute_gamma_t(log_mh_boot, z_boot, alpha_0)
+            gamma_t = compute_gamma_t(log_mh_boot, z_boot, kappa=kappa)
             log_gamma = np.log10(np.maximum(gamma_t, 0.01))
             if np.std(log_gamma) < 1e-6:
                 return 1.0
@@ -119,10 +122,10 @@ def fit_alpha_in_zbin(dust, log_mh, z, z_mean):
 
 def test_alpha_evolution(z_bins, alpha_fits):
     """
-    Test whether alpha_0 evolves with redshift.
+    Test whether kappa_gal evolves with redshift.
     
-    null model: alpha_0 is constant (no z dependence)
-    Alternative: alpha_0 = a + b*z
+    null model: kappa_gal is constant (no z dependence)
+    Alternative: kappa=a + b*z
     """
     z_centers = np.array([0.5 * (zb[0] + zb[1]) for zb in z_bins])
     alphas = np.array([a[0] for a in alpha_fits])
@@ -139,7 +142,7 @@ def test_alpha_evolution(z_bins, alpha_fits):
     
     try:
         popt, pcov = curve_fit(linear, z_centers, alphas, sigma=alpha_errs, 
-                               absolute_sigma=True, p0=[0.58, 0])
+                               absolute_sigma=True, p0=[9.6e5, 0])
         a_fit, b_fit = popt
         pcov_diag = np.diag(pcov)
         
@@ -153,7 +156,7 @@ def test_alpha_evolution(z_bins, alpha_fits):
                 z_boot = z_centers[idx]
                 alpha_boot = alphas[idx]
                 try:
-                    popt_boot, _ = curve_fit(linear, z_boot, alpha_boot, p0=[0.58, 0])
+                    popt_boot, _ = curve_fit(linear, z_boot, alpha_boot, p0=[9.6e5, 0])
                     a_boots.append(popt_boot[0])
                     b_boots.append(popt_boot[1])
                 except (RuntimeError, ValueError):
@@ -170,7 +173,7 @@ def test_alpha_evolution(z_bins, alpha_fits):
         
     except Exception as e:
         print_status(f"Curve fit failed: {e}", "WARNING")
-        a_fit, b_fit = ALPHA_0_NOMINAL, 0
+        a_fit, b_fit = KAPPA_GAL_NOMINAL, 0
         a_err, b_err = 0.1, 0.1
         p_value = 1.0
     
@@ -228,7 +231,7 @@ def main():
     # NOTE: TEP predicts the dust–Gamma_t signal only activates at z>8 where
     # alpha(z)*sqrt(1+z) is strong enough to push t_eff above the AGB threshold.
     # At z<7, both TEP and standard physics predict no dust–mass correlation
-    # (absent signal is the prediction, not a failure). Fitting alpha_0 in
+    # (absent signal is the prediction, not a failure). Fitting kappa_gal in
     # bins where the signal is absent by design gives uninformative results and
     # systematically biases the optimizer to the grid floor.
     # The meaningful recovery must be restricted to the HIGH-Z activation regime.
@@ -245,7 +248,7 @@ def main():
         (8.5, 10.0),
     ]
     
-    print_status(f"\nFitting alpha_0 in ALL redshift bins (for completeness):")
+    print_status(f"\nFitting kappa_gal in ALL redshift bins (for completeness):")
     print_status("-" * 60)
     z_bins = z_bins_all
     
@@ -279,14 +282,14 @@ def main():
             'z_max': z_max,
             'z_mean': float(z_mean),
             'n_galaxies': n_bin,
-            'alpha_0_best': float(alpha_best),
-            'alpha_0_err': float(alpha_err),
+            'kappa_gal_best': float(alpha_best),
+            'kappa_gal_err': float(alpha_err),
             'rho_best': float(rho_best),
-            'consistent_with_nominal': bool(abs(alpha_best - ALPHA_0_NOMINAL) < 2 * (alpha_err + ALPHA_0_UNCERTAINTY)),
+            'consistent_with_nominal': bool(abs(alpha_best - KAPPA_GAL_NOMINAL) < 2 * (alpha_err + KAPPA_GAL_UNCERTAINTY)),
         })
         
         consistent = "✓" if bin_results[-1]['consistent_with_nominal'] else "✗"
-        print_status(f"  z={z_min:.1f}-{z_max:.1f}: N={n_bin}, α₀={alpha_best:.2f}±{alpha_err:.2f}, "
+        print_status(f"  z={z_min:.1f}-{z_max:.1f}: N={n_bin}, κ={alpha_best:.2e}±{alpha_err:.2e}, "
                     f"ρ={rho_best:.2f} {consistent}")
     
     if len(alpha_fits) < 3:
@@ -299,13 +302,13 @@ def main():
 
     # -----------------------------------------------------------------------
     # HIGH-Z ONLY RECOVERY (z > 7 where TEP signal is active)
-    # This is the methodologically correct recovery: alpha_0 can only be
+    # This is the methodologically correct recovery: kappa_gal can only be
     # recovered from bins where the dust–Gamma_t signal is non-zero.
     # Low-z bins (z<7) have absent signal by TEP prediction, so including
     # them drives the optimizer to the grid floor.
     # -----------------------------------------------------------------------
     print_status("\n" + "=" * 70)
-    print_status("HIGH-Z ALPHA_0 RECOVERY (z > 7, signal-active bins only)")
+    print_status("HIGH-Z KAPPA_GAL RECOVERY (z > 7, signal-active bins only)")
     print_status("=" * 70)
 
     highz_fits = []
@@ -328,13 +331,13 @@ def main():
         highz_bin_results.append({
             'z_min': z_min, 'z_max': z_max, 'z_mean': float(z_mean),
             'n_galaxies': n_bin,
-            'alpha_0_best': float(alpha_best),
-            'alpha_0_err': float(alpha_err),
+            'kappa_gal_best': float(alpha_best),
+            'kappa_gal_err': float(alpha_err),
             'rho_best': float(rho_best),
-            'consistent_with_nominal': bool(abs(alpha_best - ALPHA_0_NOMINAL) < 2 * (alpha_err + ALPHA_0_UNCERTAINTY)),
+            'consistent_with_nominal': bool(abs(alpha_best - KAPPA_GAL_NOMINAL) < 2 * (alpha_err + KAPPA_GAL_UNCERTAINTY)),
         })
         consistent = "✓" if highz_bin_results[-1]['consistent_with_nominal'] else "✗"
-        print_status(f"  z={z_min:.1f}-{z_max:.1f}: N={n_bin}, α₀={alpha_best:.2f}±{alpha_err:.2f}, "
+        print_status(f"  z={z_min:.1f}-{z_max:.1f}: N={n_bin}, κ={alpha_best:.2e}±{alpha_err:.2e}, "
                     f"ρ={rho_best:.2f} {consistent}")
 
     # Weighted mean from high-z bins only
@@ -343,19 +346,19 @@ def main():
         hz_weights = 1 / np.array([a[1]**2 + 0.01 for a in highz_fits])
         hz_alpha_mean = np.sum(hz_alphas * hz_weights) / np.sum(hz_weights)
         hz_alpha_err = 1 / np.sqrt(np.sum(hz_weights))
-        hz_tension = abs(hz_alpha_mean - ALPHA_0_NOMINAL) / np.sqrt(hz_alpha_err**2 + ALPHA_0_UNCERTAINTY**2)
-        print_status(f"\nHigh-z weighted mean α₀ = {hz_alpha_mean:.2f} ± {hz_alpha_err:.2f}")
-        print_status(f"Tension with nominal (0.58): {hz_tension:.2f}σ")
+        hz_tension = abs(hz_alpha_mean - KAPPA_GAL_NOMINAL) / np.sqrt(hz_alpha_err**2 + KAPPA_GAL_UNCERTAINTY**2)
+        print_status(f"\nHigh-z weighted mean diagnostic κ = {hz_alpha_mean:.2e} ± {hz_alpha_err:.2e}")
+        print_status(f"Tension with nominal (9.6e5): {hz_tension:.2f}σ")
         highz_recovery = {
-            'alpha_0': float(hz_alpha_mean),
-            'alpha_0_err': float(hz_alpha_err),
+            'kappa_gal': float(hz_alpha_mean),
+            'kappa_gal_err': float(hz_alpha_err),
             'tension_with_nominal_sigma': float(hz_tension),
             'n_bins': len(highz_fits),
             'note': 'Recovery restricted to z>7 signal-active bins; z<7 excluded because TEP predicts absent signal there',
         }
     else:
-        hz_alpha_mean = ALPHA_0_NOMINAL
-        hz_alpha_err = ALPHA_0_UNCERTAINTY
+        hz_alpha_mean = KAPPA_GAL_NOMINAL
+        hz_alpha_err = KAPPA_GAL_UNCERTAINTY
         hz_tension = 0
         highz_recovery = {'note': 'Insufficient high-z galaxies'}
 
@@ -365,49 +368,48 @@ def main():
     print_status("=" * 70)
     
     if 'slope' in evolution_test:
-        print_status(f"\nLinear fit: α₀(z) = {evolution_test['intercept']:.2f} + "
+        print_status(f"\nLinear fit: diagnostic κ(z) = {evolution_test['intercept']:.2e} + "
                     f"{evolution_test['slope']:.3f} × z")
         print_status(f"Slope significance: p = {evolution_test['p_value_slope']:.3f}")
+
+    conclusion = (
+        "κ_gal redshift-evolution recovery is inconclusive in this step: "
+        "the Spearman rank objective is insensitive to monotonic κ rescaling. "
+        "Do not cite this as validation of constant κ_gal; use the scale-aware "
+        "multi-observable recovery in step_101 instead."
+    )
+    print_status(f"\n⚠ {conclusion}", "WARNING")
     
-    if evolution_test['consistent_with_constant']:
-        conclusion = "α₀ is CONSISTENT with being constant across redshift"
-        print_status(f"\n✓ {conclusion}")
-        print_status(f"  The TEP assumption α₀ = {ALPHA_0_NOMINAL} is validated")
-    else:
-        conclusion = "α₀ shows SIGNIFICANT evolution with redshift"
-        print_status(f"\n✗ {conclusion}")
-        print_status(f"  This may indicate systematic effects or model modification needed")
-    
-    # Compute weighted mean alpha_0 across all bins (including low-z — reported for completeness)
+    # Compute weighted mean kappa_gal across all bins (including low-z — reported for completeness)
     if alpha_fits:
         alphas = np.array([a[0] for a in alpha_fits])
         weights = 1 / np.array([a[1]**2 + 0.01 for a in alpha_fits])
         alpha_mean = np.sum(alphas * weights) / np.sum(weights)
         alpha_mean_err = 1 / np.sqrt(np.sum(weights))
         
-        print_status(f"\nAll-bins weighted mean α₀ = {alpha_mean:.2f} ± {alpha_mean_err:.2f}")
+        print_status(f"\nAll-bins weighted mean diagnostic κ = {alpha_mean:.2e} ± {alpha_mean_err:.2e}")
         print_status(f"  (LOW-Z BINS INCLUDED — methodologically incorrect, reported for completeness)")
-        print_status(f"High-z-only weighted mean α₀ = {hz_alpha_mean:.2f} ± {hz_alpha_err:.2f}")
-        print_status(f"Nominal value: α₀ = {ALPHA_0_NOMINAL} ± {ALPHA_0_UNCERTAINTY}")
+        print_status(f"High-z-only weighted mean diagnostic κ = {hz_alpha_mean:.2e} ± {hz_alpha_err:.2e}")
+        print_status(f"Nominal value: κ_gal = {KAPPA_GAL_NOMINAL} ± {KAPPA_GAL_UNCERTAINTY}")
         
-        tension = abs(alpha_mean - ALPHA_0_NOMINAL) / np.sqrt(alpha_mean_err**2 + ALPHA_0_UNCERTAINTY**2)
+        tension = abs(alpha_mean - KAPPA_GAL_NOMINAL) / np.sqrt(alpha_mean_err**2 + KAPPA_GAL_UNCERTAINTY**2)
         print_status(f"All-bins tension with nominal: {tension:.1f}σ  (high-z only: {hz_tension:.2f}σ)")
     else:
-        alpha_mean = ALPHA_0_NOMINAL
-        alpha_mean_err = ALPHA_0_UNCERTAINTY
+        alpha_mean = KAPPA_GAL_NOMINAL
+        alpha_mean_err = KAPPA_GAL_UNCERTAINTY
         tension = 0
     
     # Compile results
     results = {
         'step': f'Step {STEP_NUM}: Alpha(z) Evolution Test',
-        'nominal_alpha_0': ALPHA_0_NOMINAL,
-        'nominal_alpha_0_uncertainty': ALPHA_0_UNCERTAINTY,
+        'nominal_kappa_gal': KAPPA_GAL_NOMINAL,
+        'nominal_kappa_gal_uncertainty': KAPPA_GAL_UNCERTAINTY,
         'bin_results': bin_results,
         'highz_bin_results': highz_bin_results,
         'evolution_test': evolution_test,
         'weighted_mean_all_bins': {
-            'alpha_0': float(alpha_mean),
-            'alpha_0_err': float(alpha_mean_err),
+            'kappa_gal': float(alpha_mean),
+            'kappa_gal_err': float(alpha_mean_err),
             'tension_with_nominal_sigma': float(tension),
             'note': 'INCLUDES low-z bins where signal is absent by TEP prediction — methodologically biased low',
         },
@@ -415,6 +417,8 @@ def main():
         # Keep backward-compatible key pointing to the correct high-z result
         'weighted_mean': highz_recovery,
         'conclusion': conclusion,
+        'valid_kappa_evolution_test': False,
+        'assessment': 'inconclusive_rank_invariant; step_101 is the scale-aware κ recovery',
     }
     
     # Save results
@@ -434,17 +438,17 @@ def main():
         # Panel 1: Alpha vs redshift
         ax1 = axes[0]
         z_centers = [r['z_mean'] for r in bin_results]
-        alphas = [r['alpha_0_best'] for r in bin_results]
-        alpha_errs = [r['alpha_0_err'] for r in bin_results]
+        alphas = [r['kappa_gal_best'] for r in bin_results]
+        alpha_errs = [r['kappa_gal_err'] for r in bin_results]
         
         ax1.errorbar(z_centers, alphas, yerr=alpha_errs, fmt='o', markersize=10,
                     color='steelblue', capsize=5, capthick=2, elinewidth=2,
-                    markeredgecolor='black', label='Fitted α₀')
+                    markeredgecolor='black', label='Diagnostic fitted κ')
         
         # Nominal value band
-        ax1.axhline(ALPHA_0_NOMINAL, color='red', linestyle='-', linewidth=2, label='Nominal α₀ = 0.58')
-        ax1.axhspan(ALPHA_0_NOMINAL - ALPHA_0_UNCERTAINTY, 
-                   ALPHA_0_NOMINAL + ALPHA_0_UNCERTAINTY,
+        ax1.axhline(KAPPA_GAL_NOMINAL, color='red', linestyle='-', linewidth=2, label=f'Nominal κ = {KAPPA_GAL_NOMINAL:.1e}')
+        ax1.axhspan(KAPPA_GAL_NOMINAL - KAPPA_GAL_UNCERTAINTY, 
+                   KAPPA_GAL_NOMINAL + KAPPA_GAL_UNCERTAINTY,
                    color='red', alpha=0.2, label='±1σ uncertainty')
         
         # Evolution fit if available
@@ -455,10 +459,10 @@ def main():
                     label=f'Linear fit (slope p={evolution_test["p_value_slope"]:.2f})')
         
         ax1.set_xlabel('Redshift', fontsize=12)
-        ax1.set_ylabel('α₀ (fitted)', fontsize=12)
-        ax1.set_title('TEP Coupling Constant vs Redshift', fontsize=14)
+        ax1.set_ylabel('κ diagnostic (rank objective)', fontsize=12)
+        ax1.set_title('Reference-Only κ Diagnostic vs Redshift', fontsize=14)
         ax1.legend(loc='upper right', fontsize=9)
-        ax1.set_ylim(0, 1.5)
+        ax1.set_ylim(0, 2.5e6)
         ax1.grid(True, alpha=0.3)
         
         # Panel 2: Correlation strength vs redshift

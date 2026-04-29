@@ -1,53 +1,53 @@
-[14:23:41]     ======================================================================
-[14:23:41]     STEP 040: Mass Sensitivity Analysis
-[14:23:41]     Testing robustness against MIRI-indicated mass overestimation
-[14:23:41]     ======================================================================
-[14:23:41]     Loaded N = 2315 galaxies
-[14:23:41]     
+[10:02:02]     ======================================================================
+[10:02:02]     STEP 040: Mass Sensitivity Analysis
+[10:02:02]     Testing robustness against MIRI-indicated mass overestimation
+[10:02:02]     ======================================================================
+[10:02:02]     Loaded N = 2315 galaxies
+[10:02:02]     
 --- Mass Reduction: 0.0 dex ---
-[14:23:41]       Mass-Dust (z>8): rho=0.559, p=1.05e-24
-[14:23:41]       Gamma-Dust (z>8): rho=0.603, p=2.09e-29
-[14:23:41]       Gamma-Age (z>4): rho=0.019, p=3.51e-01
-[14:23:41]       Chi2 Separation: KS=0.243, p=5.52e-07
-[14:23:41]     
+[10:02:02]       Mass-Dust (z>8): rho=0.559, p=1.05e-24
+[10:02:02]       Gamma-Dust (z>8): rho=0.471, p=4.72e-17
+[10:02:02]       Gamma-Age (z>4): rho=-0.006, p=7.72e-01
+[10:02:02]       Chi2 Separation: KS=0.566, p=3.89e-04
+[10:02:02]     
 --- Mass Reduction: 0.3 dex ---
-[14:23:41]       Mass-Dust (z>8): rho=0.559, p=1.05e-24
-[14:23:41]       Gamma-Dust (z>8): rho=0.595, p=1.63e-28
-[14:23:41]       Gamma-Age (z>4): rho=0.008, p=7.10e-01
-[14:23:41]       Chi2 Separation: KS=0.309, p=2.32e-05
-[14:23:41]     
+[10:02:02]       Mass-Dust (z>8): rho=0.559, p=1.05e-24
+[10:02:02]       Gamma-Dust (z>8): rho=0.380, p=3.52e-11
+[10:02:02]       Gamma-Age (z>4): rho=-0.019, p=3.64e-01
+[10:02:02]       Chi2 Separation: KS=nan, p=nan
+[10:02:02]     
 --- Mass Reduction: 0.5 dex ---
-[14:23:41]       Mass-Dust (z>8): rho=0.559, p=1.05e-24
-[14:23:41]       Gamma-Dust (z>8): rho=0.574, p=3.24e-26
-[14:23:41]       Gamma-Age (z>4): rho=0.005, p=8.20e-01
-[14:23:41]       Chi2 Separation: KS=0.344, p=1.48e-04
-[14:23:41]     
+[10:02:02]       Mass-Dust (z>8): rho=0.559, p=1.05e-24
+[10:02:02]       Gamma-Dust (z>8): rho=0.330, p=1.32e-08
+[10:02:02]       Gamma-Age (z>4): rho=-0.027, p=1.95e-01
+[10:02:02]       Chi2 Separation: KS=nan, p=nan
+[10:02:02]     
 --- Mass Reduction: 0.7 dex ---
-[14:23:41]       Mass-Dust (z>8): rho=0.559, p=1.05e-24
-[14:23:41]       Gamma-Dust (z>8): rho=0.534, p=2.79e-22
-[14:23:41]       Gamma-Age (z>4): rho=0.000, p=9.86e-01
-[14:23:41]       Chi2 Separation: KS=0.415, p=6.44e-04
-[14:23:41]     
+[10:02:02]       Mass-Dust (z>8): rho=0.559, p=1.05e-24
+[10:02:02]       Gamma-Dust (z>8): rho=0.281, p=1.53e-06
+[10:02:02]       Gamma-Age (z>4): rho=-0.034, p=1.01e-01
+[10:02:02]       Chi2 Separation: KS=nan, p=nan
+[10:02:02]     
 --- Mass Reduction: 1.0 dex ---
-[14:23:41]       Mass-Dust (z>8): rho=0.559, p=1.05e-24
-[14:23:41]       Gamma-Dust (z>8): rho=0.445, p=3.79e-15
-[14:23:41]       Gamma-Age (z>4): rho=-0.009, p=6.67e-01
-[14:23:41]       Chi2 Separation: KS=0.566, p=3.89e-04
-[14:23:41]     
+[10:02:02]       Mass-Dust (z>8): rho=0.559, p=1.05e-24
+[10:02:02]       Gamma-Dust (z>8): rho=0.221, p=1.80e-04
+[10:02:02]       Gamma-Age (z>4): rho=-0.042, p=4.13e-02
+[10:02:02]       Chi2 Separation: KS=nan, p=nan
+[10:02:02]     
 ======================================================================
-[14:23:41]     SENSITIVITY SUMMARY
-[14:23:41]     ======================================================================
-[14:23:41]     Signatures surviving 0.5 dex reduction: 3/4
-[14:23:41]       mass_dust_z8: PASS
-[14:23:41]       gamma_dust_z8: PASS
-[14:23:41]       gamma_age_z4: FAIL
-[14:23:41]       chi2_separation: PASS
-[14:23:41]     
+[10:02:02]     SENSITIVITY SUMMARY
+[10:02:02]     ======================================================================
+[10:02:02]     Signatures surviving 0.5 dex reduction: 2/4
+[10:02:02]       mass_dust_z8: PASS
+[10:02:02]       gamma_dust_z8: PASS
+[10:02:02]       gamma_age_z4: FAIL
+[10:02:02]       chi2_separation: FAIL
+[10:02:02]     
 Signatures surviving 1.0 dex reduction: 3/4
-[14:23:41]       mass_dust_z8: PASS
-[14:23:41]       gamma_dust_z8: PASS
-[14:23:41]       gamma_age_z4: FAIL
-[14:23:41]       chi2_separation: PASS
-[14:23:41]     
+[10:02:02]       mass_dust_z8: PASS
+[10:02:02]       gamma_dust_z8: PASS
+[10:02:02]       gamma_age_z4: PASS
+[10:02:02]       chi2_separation: FAIL
+[10:02:02]     
 Saved results to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_040_mass_sensitivity.csv
-[14:23:41]     Saved summary to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_040_mass_sensitivity.json
+[10:02:02]     Saved summary to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_040_mass_sensitivity.json

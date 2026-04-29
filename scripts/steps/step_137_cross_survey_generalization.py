@@ -2,7 +2,7 @@
 """
 Step 137: Cross-Survey Generalization Test
 
-Tests whether t_eff (zero parameters) generalizes better across surveys
+Tests whether t_eff (no JWST-specific refits) generalizes better across surveys
 than a fitted polynomial (M*, z, M*×z) which may overfit to
 survey-specific SED systematics.
 

@@ -30,13 +30,13 @@
   "tep_prediction": {
     "sigma_disk": 40.0,
     "sigma_halo": 120.0,
-    "delta_mu_cepheid": -0.15917897750399274,
-    "delta_mu_trgb": 0.11755135023341143,
-    "predicted_offset": 0.27673032773740414,
+    "delta_mu_cepheid": -0.04339401977612476,
+    "delta_mu_trgb": 0.0933284191117439,
+    "predicted_offset": 0.13672243888786867,
     "observed_offset": 0.054374999999999396,
     "observed_err": 0.003531849137963604,
-    "ratio": 0.1964909319646277,
-    "gamma_t_implied": 1.2101895306700092,
-    "period_contraction_pct": 17.36831507322989
+    "ratio": 0.39770355504405847,
+    "gamma_t_implied": 1.098841016391219,
+    "period_contraction_pct": 8.995024295309772
   }
 }

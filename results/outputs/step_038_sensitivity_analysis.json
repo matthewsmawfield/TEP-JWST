@@ -1,8 +1,8 @@
 {
-  "best_alpha_dust": 0.024489795918367346,
-  "max_rho_dust": 0.6029791257884878,
-  "best_alpha_age": 0.024489795918367346,
-  "max_rho_age": 0.019377853966021305,
-  "nominal_rho_dust": 0.6029791257884878,
-  "robustness_1sigma": 0.98
+  "best_kappa_gal_dust": 100000.0,
+  "max_rho_dust": 0.4712708247076625,
+  "best_kappa_gal_age": 100000.0,
+  "max_rho_age": -0.006035944296748368,
+  "nominal_rho_dust": 0.4712708247076625,
+  "robustness_1sigma": 1.0
 }

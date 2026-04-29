@@ -1,50 +1,50 @@
-[14:25:14]     ======================================================================
-[14:25:14]     STEP 114: IMF Constraint from TEP
-[14:25:14]     ======================================================================
-[14:25:14]     
+[10:03:48]     ======================================================================
+[10:03:48]     STEP 114: IMF Constraint from TEP
+[10:03:48]     ======================================================================
+[10:03:48]     
 --- Red Monsters Analysis ---
-[14:25:14]     Galaxy        z    SFE_obs       Γₜ    SFE_TEP    IMF_req
-[14:25:14]     ------------------------------------------------------------
-[14:25:14]     RM1         5.3       0.50     1.81       0.37       0.54
-[14:25:14]     RM2         7.0       0.45     2.34       0.29       0.68
-[14:25:14]     RM3         9.0       0.55     2.94       0.32       0.62
-[14:25:14]     
+[10:03:48]     Galaxy        z    SFE_obs       Γₜ    SFE_TEP    IMF_req
+[10:03:48]     ------------------------------------------------------------
+[10:03:48]     RM1         5.3       0.50     1.81       0.37       0.54
+[10:03:48]     RM2         7.0       0.45     2.34       0.29       0.68
+[10:03:48]     RM3         9.0       0.55     2.94       0.32       0.62
+[10:03:48]     
 --- IMF Implications ---
-[14:25:14]     
+[10:03:48]     
 Without TEP (mean SFE = 0.50):
-[14:25:14]       Required IMF correction: 0.40
-[14:25:14]       This implies a top-heavy IMF with M/L reduced by 60%
-[14:25:14]     
+[10:03:48]       Required IMF correction: 0.40
+[10:03:48]       This implies a top-heavy IMF with M/L reduced by 60%
+[10:03:48]     
 With TEP (mean SFE = 0.33):
-[14:25:14]       Required IMF correction: 0.61
-[14:25:14]       Mild top-heavy IMF still needed
-[14:25:14]     
+[10:03:48]       Required IMF correction: 0.61
+[10:03:48]       Mild top-heavy IMF still needed
+[10:03:48]     
 --- IMF Slope Constraint ---
-[14:25:14]     
+[10:03:48]     
 IMF high-mass slope constraint:
-[14:25:14]       Without TEP: α > 1.5 (very top-heavy required)
-[14:25:14]       With TEP: α > 2.1 (near-standard acceptable)
-[14:25:14]       Chabrier/Salpeter: α ≈ 2.3-2.35
-[14:25:14]     
+[10:03:48]       Without TEP: α > 1.5 (very top-heavy required)
+[10:03:48]       With TEP: α > 2.1 (near-standard acceptable)
+[10:03:48]       Chabrier/Salpeter: α ≈ 2.3-2.35
+[10:03:48]     
 ======================================================================
-[14:25:14]     SUMMARY
-[14:25:14]     ======================================================================
-[14:25:14]     
+[10:03:48]     SUMMARY
+[10:03:48]     ======================================================================
+[10:03:48]     
 Key findings:
-[14:25:14]       1. Without TEP, Red Monsters require top-heavy IMF (α < 2.0)
-[14:25:14]       2. With TEP correction, standard IMF (α ≈ 2.3) is acceptable
-[14:25:14]       3. TEP removes the need for extreme IMF variations at high z
-[14:25:14]       4. Remaining SFE tension (57%) can be explained by:
-[14:25:14]          - Genuine high-z physics (faster cooling, higher gas fractions)
-[14:25:14]          - Mild IMF variation (α ≈ 2.1-2.2)
-[14:25:14]          - Model uncertainties in SED fitting
-[14:25:14]     
+[10:03:48]       1. Without TEP, Red Monsters require top-heavy IMF (α < 2.0)
+[10:03:48]       2. With TEP correction, standard IMF (α ≈ 2.3) is acceptable
+[10:03:48]       3. TEP removes the need for extreme IMF variations at high z
+[10:03:48]       4. Remaining SFE tension (57%) can be explained by:
+[10:03:48]          - Genuine high-z physics (faster cooling, higher gas fractions)
+[10:03:48]          - Mild IMF variation (α ≈ 2.1-2.2)
+[10:03:48]          - Model uncertainties in SED fitting
+[10:03:48]     
 Falsification:
-[14:25:14]       If spectroscopic ages confirm TEP but IMF indicators
-[14:25:14]       (e.g., [α/Fe], SN rates) require top-heavy IMF,
-[14:25:14]       this would indicate TEP alone is insufficient.
-[14:25:14]     
+[10:03:48]       If spectroscopic ages confirm TEP but IMF indicators
+[10:03:48]       (e.g., [α/Fe], SN rates) require top-heavy IMF,
+[10:03:48]       this would indicate TEP alone is insufficient.
+[10:03:48]     
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_114_imf_constraint.json
-[14:25:14]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_114_imf_constraint.png
-[14:25:14]     
+[10:03:48]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_114_imf_constraint.png
+[10:03:48]     
 Step 114 complete.

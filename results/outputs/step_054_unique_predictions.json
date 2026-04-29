@@ -13,13 +13,8 @@
     "chi2_monotonicity": [
       {
         "gamma_range": "0.5-1",
-        "n": 265,
-        "mean_chi2": 13.229385319998936
-      },
-      {
-        "gamma_range": "1-2",
-        "n": 14,
-        "mean_chi2": 66.8486823286707
+        "n": 279,
+        "mean_chi2": 15.919959363444832
       }
     ],
     "quiescent": {
@@ -28,23 +23,28 @@
       "fraction_quiescent": 0.01060070671378092
     },
     "t_eff_threshold": {
-      "n_above": 283,
-      "n_below": 0,
-      "mean_dust_above": 0.7929984042332551,
-      "mean_dust_below": 0.0
+      "n_above": 178,
+      "n_below": 105,
+      "mean_dust_above": 0.8791619441273731,
+      "mean_dust_below": 0.6469306889841783
     }
   },
   "summary": {
-    "n_unique_evidence": 2,
+    "n_unique_evidence": 3,
     "unique_evidence": [
       {
         "name": "metallicity_paradox",
-        "stat": 1.5749014320247114,
+        "stat": 1.569472387404292,
         "p": null
       },
       {
         "name": "quiescent_z8",
-        "stat": 2.2777116080799207,
+        "stat": 2.2277969464678806,
+        "p": null
+      },
+      {
+        "name": "t_eff_threshold",
+        "stat": 1.3589739350715428,
         "p": null
       }
     ]

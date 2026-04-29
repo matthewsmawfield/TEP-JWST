@@ -1,71 +1,73 @@
-[14:23:51]     ======================================================================
-[14:23:51]     STEP 052: Mass Discrepancy Test
-[14:23:51]     ======================================================================
-[14:23:51]     
+[10:02:12]     ======================================================================
+[10:02:12]     STEP 052: Mass Discrepancy Test
+[10:02:12]     ======================================================================
+[10:02:12]     
 Testing if SED masses are inflated relative to dynamical masses...
 
-[14:23:51]     Loaded N = 2315 galaxies
-[14:23:51]     
+[10:02:12]     Loaded N = 2315 galaxies
+[10:02:12]     
 ======================================================================
-[14:23:51]     TEST 1: Mass-to-Light Ratio as Mass Discrepancy Proxy
-[14:23:51]     ======================================================================
-[14:23:51]     M/L should be elevated for high-Gamma_t galaxies.
+[10:02:12]     TEST 1: Mass-to-Light Ratio as Mass Discrepancy Proxy
+[10:02:12]     ======================================================================
+[10:02:12]     M/L should be elevated for high-Gamma_t galaxies.
 
-[14:23:51]     N = 504
-[14:23:51]     ρ(Γ_t, M*_resid|M_h) = -0.364 (p = 3.26e-17)
-[14:23:51]     
+[10:02:12]     N = 504
+[10:02:12]     ρ(Γ_t, M*_resid|M_h) = -0.795 (p = 4.27e-111)
+[10:02:12]     
 ======================================================================
-[14:23:51]     TEST 2: Stellar-to-Halo Mass Ratio
-[14:23:51]     ======================================================================
-[14:23:51]     SMHM should be elevated at high-z if TEP inflates stellar masses.
+[10:02:12]     TEST 2: Stellar-to-Halo Mass Ratio
+[10:02:12]     ======================================================================
+[10:02:12]     SMHM should be elevated at high-z if TEP inflates stellar masses.
 
-[14:23:51]     z = 4-5: N = 942, <log(M*/M_h)> = -1.675
-[14:23:51]     z = 5-6: N = 497, <log(M*/M_h)> = -1.627
-[14:23:51]     z = 6-7: N = 372, <log(M*/M_h)> = -1.564
-[14:23:51]     z = 7-8: N = 221, <log(M*/M_h)> = -1.511
-[14:23:51]     z = 8-10: N = 283, <log(M*/M_h)> = -1.459
-[14:23:51]     
+[10:02:12]     z = 4-5: N = 942, <log(M*/M_h)> = -1.675
+[10:02:12]     z = 5-6: N = 497, <log(M*/M_h)> = -1.627
+[10:02:12]     z = 6-7: N = 372, <log(M*/M_h)> = -1.564
+[10:02:12]     z = 7-8: N = 221, <log(M*/M_h)> = -1.511
+[10:02:12]     z = 8-10: N = 283, <log(M*/M_h)> = -1.459
+[10:02:12]     
 Trend: ρ(z, SMHM) = 1.000 (p = 0.000)
-[14:23:51]     ✓ SMHM increases with z (TEP-consistent)
-[14:23:51]     
+[10:02:12]     ✓ SMHM increases with z (TEP-consistent)
+[10:02:12]     
 ======================================================================
-[14:23:51]     TEST 3: Mass Excess at Fixed SFR
-[14:23:51]     ======================================================================
-[14:23:51]     At fixed SFR, high-Gamma_t galaxies should have higher M*.
+[10:02:12]     TEST 3: Mass Excess at Fixed SFR
+[10:02:12]     ======================================================================
+[10:02:12]     At fixed SFR, high-Gamma_t galaxies should have higher M*.
 
-[14:23:51]     N = 504
-[14:23:51]     ρ(Γ_t, M*_resid|SFR) = 0.440 (p = 2.66e-25)
-[14:23:51]     ✓ High-Γ_t galaxies have excess mass at fixed SFR
-[14:23:51]     
+[10:02:13]     N = 504
+[10:02:13]     ρ(Γ_t, M*_resid|SFR) = 0.299 (p = 6.92e-12)
+[10:02:13]     ✓ High-Γ_t galaxies have excess mass at fixed SFR
+[10:02:13]     
 ======================================================================
-[14:23:51]     TEST 4: The 'Overmassive' Population
-[14:23:51]     ======================================================================
-[14:23:51]     Galaxies with M* > expected from SMHM relation should have high Gamma_t.
+[10:02:13]     TEST 4: The 'Overmassive' Population
+[10:02:13]     ======================================================================
+[10:02:13]     Galaxies with M* > expected from SMHM relation should have high Gamma_t.
 
-[14:23:51]     Overmassive (top 25%): N = 126, <Γ_t> = 1.000
-[14:23:51]     Normal: N = 378, <Γ_t> = 0.926
-[14:23:51]     Ratio: 1.08×
-[14:23:51]     
+[10:02:13]     Overmassive (top 25%): N = 126, <Γ_t> = 0.598
+[10:02:13]     Normal: N = 378, <Γ_t> = 0.576
+[10:02:13]     Ratio: 1.04×
+[10:02:13]     
 ======================================================================
-[14:23:51]     TEST 5: Mass Function Shape by Regime
-[14:23:51]     ======================================================================
-[14:23:51]     Enhanced regime should have more massive galaxies.
+[10:02:13]     TEST 5: Mass Function Shape by Regime
+[10:02:13]     ======================================================================
+[10:02:13]     Enhanced regime should have more massive galaxies.
 
-[14:23:51]     
+[10:02:13]     
 ======================================================================
-[14:23:51]     TEST 6: sSFR Inversion Test
-[14:23:51]     ======================================================================
-[14:23:51]     If M* is inflated by TEP, sSFR = SFR/M* should be LOWER.
+[10:02:13]     TEST 6: sSFR Inversion Test
+[10:02:13]     ======================================================================
+[10:02:13]     If M* is inflated by TEP, sSFR = SFR/M* should be LOWER.
 
-[14:23:51]     N = 504
-[14:23:51]     ρ(Γ_t, log sSFR) = -0.023 (p = 6.00e-01)
-[14:23:51]     
+[10:02:13]     N = 504
+[10:02:13]     ρ(Γ_t, log sSFR) = -0.162 (p = 2.55e-04)
+[10:02:13]     ✓ High-Γ_t galaxies have lower sSFR (mass inflation signature)
+[10:02:13]     
 ======================================================================
-[14:23:51]     SUMMARY: Mass Discrepancy Evidence
-[14:23:51]     ======================================================================
-[14:23:51]     
-Evidence items: 2
-[14:23:51]       • smhm_z_trend: stat = 1.000, p = 1.40e-24
-[14:23:51]       • mass_excess_sfr: stat = 0.440, p = 2.66e-25
-[14:23:51]     
+[10:02:13]     SUMMARY: Mass Discrepancy Evidence
+[10:02:13]     ======================================================================
+[10:02:13]     
+Evidence items: 3
+[10:02:13]       • smhm_z_trend: stat = 1.000, p = 1.40e-24
+[10:02:13]       • mass_excess_sfr: stat = 0.299, p = 6.92e-12
+[10:02:13]       • ssfr_inversion: stat = -0.162, p = 2.55e-04
+[10:02:13]     
 Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_052_mass_discrepancy.json

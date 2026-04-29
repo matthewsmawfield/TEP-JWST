@@ -37,7 +37,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma, ALPHA_0  # TEP model: Gamma_t formula, coupling constant alpha_0=0.58
+from scripts.utils.tep_model import compute_gamma_t as tep_gamma, KAPPA_GAL  # TEP model: Gamma_t formula, KAPPA_GAL=9.6e5 mag
 
 STEP_NUM = "095"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "lrd_core_halo_mass"  # LRD core-halo mass: derives Delta log M_h for Little Red Dots from Sersic profiles (Phi_cen/Phi_vir ~ (r_vir/r_e)^(1/n))
@@ -126,7 +126,7 @@ def compute_boost_factor(gamma_cen, gamma_halo, t_cosmic_gyr):
     """
     delta_gamma = gamma_cen - gamma_halo
     extra_efolds = delta_gamma * t_cosmic_gyr / T_SALPETER
-    return np.exp(extra_efolds)
+    return np.exp(np.clip(extra_efolds, -50, 50))
 
 
 def estimate_virial_radius(log_mh, z):
@@ -138,7 +138,7 @@ def estimate_virial_radius(log_mh, z):
     M_h = 10**log_mh  # Solar masses
     
     # Critical density at redshift z
-    H_z = cosmo.H(z).value  # km/s/Mpc
+    H_z = cosmo.H(z).value / 1000.0  # km/s/kpc
     rho_crit = 3 * H_z**2 / (8 * np.pi * 4.301e-6)  # M_sun / kpc^3
     
     # Virial radius (200 * rho_crit definition)
@@ -154,7 +154,7 @@ def run_analysis():
     
     results = {
         "step": f"Step {STEP_NUM}: LRD Core-Halo Mass from Resolved Photometry",
-        "alpha_0": ALPHA_0,
+        "kappa_gal": KAPPA_GAL,
         "t_salpeter_gyr": T_SALPETER
     }
     

@@ -1,49 +1,49 @@
 {
-  "step": "Step 101: Multi-Observable \u03b1\u2080 Recovery Test",
-  "nominal_alpha_0": 0.58,
-  "nominal_alpha_0_uncertainty": 0.16,
+  "step": "Step 101: Multi-Observable \u03ba_gal Recovery Test",
+  "nominal_kappa_gal": 960000.0,
+  "nominal_kappa_gal_uncertainty": 400000.0,
   "n_observables": 4,
   "individual_fits": {
     "dust": {
-      "alpha_best": 1.0284182757628273,
-      "alpha_err": 0.19997388077643732,
-      "rho_best": 0.428384530846886,
+      "kappa_gal": 1757900.3713374063,
+      "kappa_gal_err": 410962.7768426801,
+      "rho_best": 0.3901426887347675,
       "expected_sign": 1,
       "weight": 1.0
     },
     "age_ratio": {
-      "alpha_best": 0.8689731405630776,
-      "alpha_err": 0.27887171822118945,
-      "rho_best": 0.2233223844417973,
+      "kappa_gal": 1385658.3226181394,
+      "kappa_gal_err": 425721.9832388995,
+      "rho_best": 0.18057881962588684,
       "expected_sign": 1,
       "weight": 1.0
     },
     "metallicity": {
-      "alpha_best": 1.3003556640340959,
-      "alpha_err": 0.42972623000663396,
-      "rho_best": 0.04525015853580401,
+      "kappa_gal": 1072351.6045958414,
+      "kappa_gal_err": 431905.60465860704,
+      "rho_best": 0.016846797711161942,
       "expected_sign": 1,
       "weight": 0.5
     },
     "ssfr": {
-      "alpha_best": 0.9162021856924148,
-      "alpha_err": 0.22081575409009863,
-      "rho_best": -0.3315603873146853,
+      "kappa_gal": 441357.2670320274,
+      "kappa_gal_err": 410996.6657245087,
+      "rho_best": -0.3206751209784734,
       "expected_sign": -1,
       "weight": 0.5
     }
   },
   "joint_fit": {
-    "alpha_0": 1.0290521176915117,
-    "alpha_0_err": 0.20039097394312474,
-    "tension_sigma": 1.7511657887021745,
+    "kappa_gal": 398148.657210988,
+    "kappa_gal_err": 410437.840931173,
+    "tension_sigma": 0.9803489627884542,
     "consistent_2sigma": true
   },
   "weighted_mean": {
-    "alpha_0": 0.9849207453320006,
-    "alpha_0_err": 0.13664925559629879,
-    "tension_sigma": 1.9244226439135474
+    "kappa_gal": 1162707.6577424568,
+    "kappa_gal_err": 211169.38875537412,
+    "tension_sigma": 0.44815194895912785
   },
-  "improvement_over_dust_only": -0.000633841928684431,
-  "conclusion": "Joint \u03b1\u2080 is CONSISTENT with Cepheid calibration within 2\u03c3"
+  "improvement_over_dust_only": 236049.02854839433,
+  "conclusion": "Joint \u03ba_gal is CONSISTENT with Cepheid calibration within 2\u03c3"
 }

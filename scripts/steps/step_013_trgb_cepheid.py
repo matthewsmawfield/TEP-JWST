@@ -67,9 +67,16 @@ RESULTS_DIR = PROJECT_ROOT / "results" / "outputs"
 # =============================================================================
 # TEP PARAMETERS
 # =============================================================================
-from scripts.utils.tep_model import ALPHA_0 as ALPHA_TEP
+from scripts.utils.tep_model import KAPPA_GAL, KAPPA_GAL_UNCERTAINTY
 
-SIGMA_REF = 75.25  # km/s
+# Canonical magnitude-sector TEP correction (Paper 11 v0.6 KingstonUponHull):
+#   Δμ = κ_gal · S(ρ) · (σ² - σ_ref²) / c²
+# with κ_gal = (9.6 ± 4.0) × 10⁵ mag and σ_ref = 75.25 km/s defined by the
+# SH0ES anchor weighting. S(ρ) is the environmental Temporal Topology screening
+# factor (≤1); set to 1 here since TRGB and Cepheid hosts are similar regimes.
+SIGMA_REF = 75.25  # km/s (SH0ES anchor weighting)
+C_KMS = 299792.458  # speed of light in km/s
+S_SCREEN = 1.0     # environmental screening (unscreened limit for SH0ES-like hosts)
 
 # =============================================================================
 # TRGB-CEPHEID COMPARISON DATA
@@ -393,9 +400,9 @@ def calculate_tep_prediction(df):
     sigma_disk = 40.0   # km/s, Cepheid environment (thin disk)
     sigma_halo = 120.0  # km/s, TRGB environment (halo)
     
-    # TEP corrections
-    delta_mu_cepheid = ALPHA_TEP * np.log10(sigma_disk / SIGMA_REF)
-    delta_mu_trgb = ALPHA_TEP * np.log10(sigma_halo / SIGMA_REF)
+    # TEP corrections (Paper 11 v0.6 canonical magnitude-sector formula)
+    delta_mu_cepheid = KAPPA_GAL * S_SCREEN * (sigma_disk**2 - SIGMA_REF**2) / C_KMS**2
+    delta_mu_trgb    = KAPPA_GAL * S_SCREEN * (sigma_halo**2 - SIGMA_REF**2) / C_KMS**2
     
     # Predicted offset (TRGB - Cepheid)
     # Note: TEP makes Cepheids appear BRIGHTER (closer), so Cepheid distances are underestimated
@@ -404,7 +411,8 @@ def calculate_tep_prediction(df):
     predicted_offset = delta_mu_trgb - delta_mu_cepheid
     
     logger.info(f"TEP Parameters:")
-    logger.info(f"  α = {ALPHA_TEP}")
+    logger.info(f"  κ_gal = {KAPPA_GAL:.3e} ± {KAPPA_GAL_UNCERTAINTY:.3e} mag")
+    logger.info(f"  S_screen = {S_SCREEN}")
     logger.info(f"  σ_ref = {SIGMA_REF} km/s")
     logger.info(f"  σ_disk (Cepheids) = {sigma_disk} km/s")
     logger.info(f"  σ_halo (TRGB) = {sigma_halo} km/s")

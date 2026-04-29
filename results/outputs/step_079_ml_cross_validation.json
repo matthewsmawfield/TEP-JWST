@@ -4,56 +4,56 @@
       "fold": 0,
       "n_train": 227,
       "n_test": 56,
-      "n_optimal": 0.6936195911321703,
-      "rho_test": 0.7803144224196857,
-      "p_test": 1.3448218567742814e-12
+      "n_optimal": 0.9973510158160513,
+      "rho_test": 0.7606971975393029,
+      "p_test": 1.0282925099904029e-11
     },
     {
       "fold": 1,
       "n_train": 227,
       "n_test": 56,
-      "n_optimal": 0.7001586868479975,
-      "rho_test": 0.4453178400546822,
-      "p_test": 0.0005835616228938495
+      "n_optimal": 0.9907809891056509,
+      "rho_test": 0.507382091592618,
+      "p_test": 6.578081776556606e-05
     },
     {
       "fold": 2,
       "n_train": 227,
       "n_test": 56,
-      "n_optimal": 0.43035703793823665,
-      "rho_test": 0.5449077238550923,
-      "p_test": 1.4114825109228247e-05
+      "n_optimal": 0.9943020252656685,
+      "rho_test": 0.49282296650717705,
+      "p_test": 0.00011402748146932397
     },
     {
       "fold": 3,
       "n_train": 227,
       "n_test": 56,
-      "n_optimal": 0.6399243855273277,
-      "rho_test": 0.4959671907040327,
-      "p_test": 0.00010146656007666753
+      "n_optimal": 0.9896646871609333,
+      "rho_test": 0.11961722488038277,
+      "p_test": 0.3798879190735168
     },
     {
       "fold": 4,
       "n_train": 227,
       "n_test": 56,
-      "n_optimal": 0.4347841431270089,
-      "rho_test": 0.5753246753246753,
-      "p_test": 3.5143864349905795e-06
+      "n_optimal": 0.9886234656146835,
+      "rho_test": 0.4659603554340397,
+      "p_test": 0.0002955308597942741
     }
   ],
   "kfold_summary": {
-    "n_mean": 0.5797687689145483,
-    "n_std": 0.12199905519126406,
-    "rho_mean": 0.5683663704716337,
-    "rho_std": 0.11480704238057406,
+    "n_mean": 0.9921444365925975,
+    "n_std": 0.0032301405236638873,
+    "rho_mean": 0.46929596719070404,
+    "rho_std": 0.20455077547982645,
     "stable": true
   },
   "redshift_blind": {
-    "n_calibrated_low_z": 0.9464456339547431,
-    "n_optimal_high_z": 0.9907947288268306,
-    "n_difference": 0.04434909487208749,
-    "rho_high_z_with_low_z_n": 0.01177588603739398,
-    "p_high_z": 0.7278035336086672,
+    "n_calibrated_low_z": 0.9825223199097465,
+    "n_optimal_high_z": 0.9986603241341003,
+    "n_difference": 0.016138004224353852,
+    "rho_high_z_with_low_z_n": -0.1472109821107806,
+    "p_high_z": 1.2161034874700324e-05,
     "n_low_z": 1439,
     "n_high_z": 876,
     "generalization_success": false
@@ -61,50 +61,50 @@
   "sensitivity": [
     {
       "n": 0.3,
-      "rho": 0.603290444115713,
-      "p": 1.9215681292843544e-29,
+      "rho": 0.4970128265268628,
+      "p": 4.615359902829281e-19,
       "significant": true
     },
     {
       "n": 0.4,
-      "rho": 0.6033852161915179,
-      "p": 1.873341071385733e-29,
+      "rho": 0.5055010160201869,
+      "p": 9.194824584672591e-20,
       "significant": true
     },
     {
       "n": 0.5,
-      "rho": 0.6032867379451508,
-      "p": 1.9234787920000434e-29,
+      "rho": 0.5139643212254505,
+      "p": 1.75879446795405e-20,
       "significant": true
     },
     {
       "n": 0.6,
-      "rho": 0.6033354476153968,
-      "p": 1.8985161485782156e-29,
+      "rho": 0.5202266905697019,
+      "p": 5.019481974868728e-21,
       "significant": true
     },
     {
       "n": 0.7,
-      "rho": 0.6034879300613848,
-      "p": 1.8224209897950663e-29,
+      "rho": 0.5282362546075641,
+      "p": 9.717605458944359e-22,
       "significant": true
     },
     {
       "n": 0.8,
-      "rho": 0.6031051355876027,
-      "p": 2.0194339102748572e-29,
+      "rho": 0.5337235048513772,
+      "p": 3.0760379606389005e-22,
       "significant": true
     },
     {
       "n": 0.9,
-      "rho": 0.6033063277038366,
-      "p": 1.913400767139673e-29,
+      "rho": 0.5391196891899476,
+      "p": 9.721965024539974e-23,
       "significant": true
     },
     {
       "n": 1.0,
-      "rho": 0.603233792651405,
-      "p": 1.9509795549083327e-29,
+      "rho": 0.5454524757748808,
+      "p": 2.4496435814839145e-23,
       "significant": true
     }
   ],
@@ -112,24 +112,24 @@
     "significant_fraction": 1.0,
     "all_significant": true,
     "rho_range": [
-      0.6031051355876027,
-      0.6034879300613848
+      0.4970128265268628,
+      0.5454524757748808
     ],
-    "rho_mean": 0.603303878984001,
+    "rho_mean": 0.5229045973457465,
     "robust": true
   },
   "theoretical_consistency": {
-    "n_optimal_data": 0.6962272210294465,
+    "n_optimal_data": 0.9910003494348331,
     "n_ssp_solar": 0.7,
     "n_ssp_low_z": 0.5,
-    "consistent_with_low_z_ssp": true,
+    "consistent_with_low_z_ssp": false,
     "interpretation": "The optimal n at z>8 is consistent with low-metallicity SSP predictions, supporting the physical interpretation that high-z galaxies have lower metallicity and hence lower M/L power-law index."
   },
   "summary": {
     "kfold_stable": true,
     "generalizes_to_high_z": false,
     "robust_to_n_choice": true,
-    "theoretically_consistent": true,
+    "theoretically_consistent": false,
     "conclusion": "The TEP signal is robust to the choice of M/L power-law index n. Cross-validation confirms that n calibrated on one subset generalizes to holdout data. The optimal n is consistent with theoretical predictions for low-metallicity stellar populations at high redshift."
   }
 }

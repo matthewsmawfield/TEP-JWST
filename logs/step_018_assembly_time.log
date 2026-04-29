@@ -1,85 +1,94 @@
-[14:23:17] ======================================================================
-[14:23:17] TEP-JWST Step 018: Assembly Time Analysis
-[14:23:17] ======================================================================
-[14:23:17] 
-[14:23:17] This analysis examines assembly time correlations with the chronological enhancement factor.
-[14:23:17] 
-[14:23:17] Loading data...
-[14:23:17] UNCOVER: N = 2315
-[14:23:17] JADES: N = 527
-[14:23:17] ======================================================================
-[14:23:17] TEST 1: Assembly Time Scaling
-[14:23:17] ======================================================================
-[14:23:17] t_assembly_Myr not available in UNCOVER data — skipping Test 1.
-[14:23:17] ======================================================================
-[14:23:17] TEST 2: Effective Time Threshold Tests
-[14:23:17] ======================================================================
-[14:23:17] 
+[10:01:38] ======================================================================
+[10:01:38] TEP-JWST Step 018: Assembly Time Analysis
+[10:01:38] ======================================================================
+[10:01:38] 
+[10:01:38] This analysis examines assembly time correlations with the chronological enhancement factor.
+[10:01:38] 
+[10:01:38] Loading data...
+[10:01:38] UNCOVER: N = 2315
+[10:01:38] JADES: N = 527
+[10:01:38] ======================================================================
+[10:01:38] TEST 1: Assembly Time Scaling
+[10:01:38] ======================================================================
+[10:01:38] t_assembly_Myr not available in UNCOVER data — skipping Test 1.
+[10:01:38] ======================================================================
+[10:01:38] TEST 2: Effective Time Threshold Tests
+[10:01:38] ======================================================================
+[10:01:38] 
+agb_dust (threshold = 300 Myr):
+[10:01:38]   N above: 2210, N below: 105
+[10:01:38]   Mean age_ratio above: 0.159
+[10:01:38]   Mean age_ratio below: 0.202
+[10:01:38]   Ratio: 0.79×
+[10:01:38]   p-value: 1.18e-11
+[10:01:38] 
 quenching (threshold = 500 Myr):
-[14:23:17]   N above: 2203, N below: 112
-[14:23:17]   Mean age_ratio above: 0.159
-[14:23:17]   Mean age_ratio below: 0.197
-[14:23:17]   Ratio: 0.81×
-[14:23:17]   p-value: 1.54e-09
-[14:23:17] 
+[10:01:38]   N above: 1613, N below: 702
+[10:01:38]   Mean age_ratio above: 0.158
+[10:01:38]   Mean age_ratio below: 0.168
+[10:01:38]   Ratio: 0.94×
+[10:01:38]   p-value: 3.35e-04
+[10:01:38] 
 full_evolution (threshold = 1000 Myr):
-[14:23:17]   N above: 1202, N below: 1113
-[14:23:17]   Mean age_ratio above: 0.160
-[14:23:17]   Mean age_ratio below: 0.163
-[14:23:17]   Ratio: 0.98×
-[14:23:17]   p-value: 2.56e-01
-[14:23:17] ======================================================================
-[14:23:17] TEST 3: Redshift Scaling Verification
-[14:23:17] ======================================================================
-[14:23:17] 
+[10:01:38]   N above: 82, N below: 2233
+[10:01:38]   Mean age_ratio above: 0.206
+[10:01:38]   Mean age_ratio below: 0.160
+[10:01:38]   Ratio: 1.29×
+[10:01:38]   p-value: 1.25e-10
+[10:01:38]   ✓ Significant enhancement above threshold
+[10:01:38] ======================================================================
+[10:01:38] TEST 3: Redshift Scaling Verification
+[10:01:38] ======================================================================
+[10:01:38] 
 z = [7, 9): N = 400
-[14:23:17]   Slope (age_ratio vs Γ_t): -0.0567 ± 0.0106
-[14:23:17]   Expected α(z) scaling: (1+8.0)^0.5 = 3.00
-[14:23:17] 
+[10:01:38]   Slope (age_ratio vs Γ_t): -0.0973 ± 0.0175
+[10:01:38]   Expected α(z) scaling: (1+8.0)^0.5 = 3.00
+[10:01:38] 
 z = [9, 11): N = 104
-[14:23:17]   Slope (age_ratio vs Γ_t): 0.0296 ± 0.0162
-[14:23:17]   Expected α(z) scaling: (1+10.0)^0.5 = 3.32
-[14:23:17] 
+[10:01:38]   Slope (age_ratio vs Γ_t): 0.0494 ± 0.0272
+[10:01:38]   Expected α(z) scaling: (1+10.0)^0.5 = 3.32
+[10:01:38] 
 Slope vs z correlation: ρ = 1.000, p = 1.0000
-[14:23:17] ✓ Slope increases with z (TEP-consistent)
-[14:23:17] ======================================================================
-[14:23:17] TEST 4: Cross-Sample Consistency
-[14:23:17] ======================================================================
-[14:23:17] 
+[10:01:38] ✓ Slope increases with z (TEP-consistent)
+[10:01:38] ======================================================================
+[10:01:38] TEST 4: Cross-Sample Consistency
+[10:01:38] ======================================================================
+[10:01:38] 
 UNCOVER (N = 2315):
-[14:23:17]   age_ratio vs Γ_t: ρ = 0.019, p = 0.3514
-[14:23:17] 
+[10:01:38]   age_ratio vs Γ_t: ρ = -0.006, p = 0.7716
+[10:01:38] 
 JADES (N = 422):
-[14:23:17]   age_ratio vs Γ_t: ρ = 0.924, p = 0.0000
-[14:23:17] 
+[10:01:38]   age_ratio vs Γ_t: ρ = 0.707, p = 0.0000
+[10:01:38] 
 Consistency test:
-[14:23:17]   Δρ = -0.905
-[14:23:17]   z-test: p = 0.0000
-[14:23:17] ⚠ Correlations differ between samples
-[14:23:17] ======================================================================
-[14:23:17] TEST 5: Formation Epoch Test
-[14:23:17] ======================================================================
-[14:23:17] 
+[10:01:38]   Δρ = -0.713
+[10:01:38]   z-test: p = 0.0000
+[10:01:38] ⚠ Correlations differ between samples
+[10:01:38] ======================================================================
+[10:01:38] TEST 5: Formation Epoch Test
+[10:01:38] ======================================================================
+[10:01:38] 
 Apparent age = [0, 0.1) Gyr (N = 415):
-[14:23:17]   Γ_t vs t_form: ρ = 0.612, p = 0.0000
-[14:23:17]   ✓ High-Γ_t galaxies formed more recently (TEP-consistent)
-[14:23:17] 
+[10:01:38]   Γ_t vs t_form: ρ = 0.896, p = 0.0000
+[10:01:38]   ✓ High-Γ_t galaxies formed more recently (TEP-consistent)
+[10:01:38] 
 Apparent age = [0.1, 0.2) Gyr (N = 1230):
-[14:23:17]   Γ_t vs t_form: ρ = 0.682, p = 0.0000
-[14:23:17]   ✓ High-Γ_t galaxies formed more recently (TEP-consistent)
-[14:23:17] 
+[10:01:38]   Γ_t vs t_form: ρ = 0.904, p = 0.0000
+[10:01:38]   ✓ High-Γ_t galaxies formed more recently (TEP-consistent)
+[10:01:38] 
 Apparent age = [0.2, 0.5) Gyr (N = 660):
-[14:23:17]   Γ_t vs t_form: ρ = 0.026, p = 0.5012
-[14:23:17] 
-[14:23:17] ======================================================================
-[14:23:17] SUMMARY
-[14:23:17] ======================================================================
-[14:23:17] ⚠ Assembly time: Needs interpretation
-[14:23:17] ⚠ Time thresholds: 1/4 significant
-[14:23:17] ✓ Redshift scaling: TEP-consistent
-[14:23:17] ⚠ Cross-sample: Samples differ
-[14:23:17] ✓ Formation epoch: 2 bins TEP-consistent
-[14:23:17] 
-Tests passed: 2/5
-[14:23:17] 
+[10:01:38]   Γ_t vs t_form: ρ = 0.424, p = 0.0000
+[10:01:38]   ✓ High-Γ_t galaxies formed more recently (TEP-consistent)
+[10:01:38] 
+[10:01:38] ======================================================================
+[10:01:38] SUMMARY
+[10:01:38] ======================================================================
+[10:01:38] ⚠ Assembly time: Needs interpretation
+[10:01:38] ✓ Time thresholds: 3/4 significant
+[10:01:38] ✓ Redshift scaling: TEP-consistent
+[10:01:38] ⚠ Cross-sample: Samples differ
+[10:01:38] ✓ Formation epoch: 3 bins TEP-consistent
+[10:01:38] 
+Tests passed: 3/5
+[10:01:38] 
 Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_018_assembly_time.json

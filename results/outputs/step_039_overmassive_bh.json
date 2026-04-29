@@ -1,15 +1,15 @@
 {
   "test": "Step 41: Overmassive BH / Time Bubble",
   "parameters": {
-    "alpha_0": 0.58,
+    "kappa_gal": 960000.0,
     "log_Mh": 11.0,
     "concentration": 10.0
   },
   "z7_result": {
-    "gamma_halo": 1.0016839869931649,
-    "gamma_cen": 3.034556094816785,
-    "differential": 2.03287210782362,
-    "boost_factor": 835561946514706.4
+    "gamma_halo": 0.6386013735228381,
+    "gamma_cen": 1.9346138256628855,
+    "differential": 1.2960124521400473,
+    "boost_factor": 3259687738.115136
   },
   "conclusion": "Differential TEP creates a 'Time Bubble' allowing central BHs to grow >10^5x faster than the host galaxy at z>7."
 }

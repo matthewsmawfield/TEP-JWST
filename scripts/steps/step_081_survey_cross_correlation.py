@@ -598,8 +598,12 @@ def main():
             f"The z>8 dust-Γt correlation is replicated across {n_surveys} independent "
             f"JWST surveys with combined ρ = {meta['rho_combined']:.2f} (N = {meta['n_total']}). "
             + (
-                f"Heterogeneity is {hetero['interpretation'].lower()}, indicating consistent "
-                f"effect sizes across surveys."
+                (
+                    "Heterogeneity is high, so the surveys share the same-sign "
+                    "replication but not a common effect size."
+                )
+                if hetero and hetero['I2'] >= 0.75 else
+                f"Heterogeneity is {hetero['interpretation'].lower()}, indicating broadly consistent effect sizes."
                 if hetero else ""
             )
         ) if meta else "Insufficient data for meta-analysis"

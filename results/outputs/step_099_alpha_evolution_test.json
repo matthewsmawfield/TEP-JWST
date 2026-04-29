@@ -1,16 +1,16 @@
 {
   "step": "Step 099: Alpha(z) Evolution Test",
-  "nominal_alpha_0": 0.58,
-  "nominal_alpha_0_uncertainty": 0.16,
+  "nominal_kappa_gal": 960000.0,
+  "nominal_kappa_gal_uncertainty": 400000.0,
   "bin_results": [
     {
       "z_min": 4.0,
       "z_max": 5.5,
       "z_mean": 4.639038106140288,
       "n_galaxies": 1233,
-      "alpha_0_best": 0.1,
-      "alpha_0_err": 2.7755575615628914e-17,
-      "rho_best": -1.0,
+      "kappa_gal_best": 100000.0,
+      "kappa_gal_err": 0.0,
+      "rho_best": 0.019880578140169518,
       "consistent_with_nominal": false
     },
     {
@@ -18,9 +18,9 @@
       "z_max": 7.0,
       "z_mean": 6.232958763181157,
       "n_galaxies": 578,
-      "alpha_0_best": 0.1,
-      "alpha_0_err": 2.7755575615628914e-17,
-      "rho_best": -1.0,
+      "kappa_gal_best": 100000.0,
+      "kappa_gal_err": 0.0,
+      "rho_best": -0.059445404171830696,
       "consistent_with_nominal": false
     },
     {
@@ -28,9 +28,9 @@
       "z_max": 8.5,
       "z_mean": 7.7612472595176865,
       "n_galaxies": 328,
-      "alpha_0_best": 0.1,
-      "alpha_0_err": 2.7755575615628914e-17,
-      "rho_best": -1.0,
+      "kappa_gal_best": 100000.0,
+      "kappa_gal_err": 0.0,
+      "rho_best": 0.030332224490087413,
       "consistent_with_nominal": false
     },
     {
@@ -38,9 +38,9 @@
       "z_max": 10.0,
       "z_mean": 9.194988943806624,
       "n_galaxies": 176,
-      "alpha_0_best": 0.1,
-      "alpha_0_err": 2.7755575615628914e-17,
-      "rho_best": -1.0,
+      "kappa_gal_best": 100000.0,
+      "kappa_gal_err": 0.0,
+      "rho_best": 0.6954039181157825,
       "consistent_with_nominal": false
     }
   ],
@@ -50,9 +50,9 @@
       "z_max": 8.5,
       "z_mean": 7.7612472595176865,
       "n_galaxies": 328,
-      "alpha_0_best": 0.1,
-      "alpha_0_err": 2.7755575615628914e-17,
-      "rho_best": -1.0,
+      "kappa_gal_best": 100000.0,
+      "kappa_gal_err": 0.0,
+      "rho_best": 0.030332224490087413,
       "consistent_with_nominal": false
     },
     {
@@ -60,39 +60,41 @@
       "z_max": 10.0,
       "z_mean": 9.194988943806624,
       "n_galaxies": 176,
-      "alpha_0_best": 0.1,
-      "alpha_0_err": 2.7755575615628914e-17,
-      "rho_best": -1.0,
+      "kappa_gal_best": 100000.0,
+      "kappa_gal_err": 0.0,
+      "rho_best": 0.6954039181157825,
       "consistent_with_nominal": false
     }
   ],
   "evolution_test": {
-    "intercept": 0.10000000000000007,
-    "intercept_err": 0.05834517974948745,
-    "slope": -1.011181368605194e-17,
-    "slope_err": 0.009085576445032283,
-    "p_value_slope": 0.9999999999999992,
+    "intercept": 960000.0,
+    "intercept_err": 104535.11371783167,
+    "slope": 0.0,
+    "slope_err": 16278.324464016177,
+    "p_value_slope": 1.0,
     "consistent_with_constant": true
   },
   "weighted_mean_all_bins": {
-    "alpha_0": 0.1,
-    "alpha_0_err": 0.05,
-    "tension_with_nominal_sigma": 2.863439934105089,
+    "kappa_gal": 100000.0,
+    "kappa_gal_err": 0.05,
+    "tension_with_nominal_sigma": 2.149999999999983,
     "note": "INCLUDES low-z bins where signal is absent by TEP prediction \u2014 methodologically biased low"
   },
   "weighted_mean_highz_only": {
-    "alpha_0": 0.1,
-    "alpha_0_err": 0.07071067811865475,
-    "tension_with_nominal_sigma": 2.743977362280141,
+    "kappa_gal": 100000.0,
+    "kappa_gal_err": 0.07071067811865475,
+    "tension_with_nominal_sigma": 2.1499999999999666,
     "n_bins": 2,
     "note": "Recovery restricted to z>7 signal-active bins; z<7 excluded because TEP predicts absent signal there"
   },
   "weighted_mean": {
-    "alpha_0": 0.1,
-    "alpha_0_err": 0.07071067811865475,
-    "tension_with_nominal_sigma": 2.743977362280141,
+    "kappa_gal": 100000.0,
+    "kappa_gal_err": 0.07071067811865475,
+    "tension_with_nominal_sigma": 2.1499999999999666,
     "n_bins": 2,
     "note": "Recovery restricted to z>7 signal-active bins; z<7 excluded because TEP predicts absent signal there"
   },
-  "conclusion": "\u03b1\u2080 is CONSISTENT with being constant across redshift"
+  "conclusion": "\u03ba_gal redshift-evolution recovery is inconclusive in this step: the Spearman rank objective is insensitive to monotonic \u03ba rescaling. Do not cite this as validation of constant \u03ba_gal; use the scale-aware multi-observable recovery in step_101 instead.",
+  "valid_kappa_evolution_test": false,
+  "assessment": "inconclusive_rank_invariant; step_101 is the scale-aware \u03ba recovery"
 }

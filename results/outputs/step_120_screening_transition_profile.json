@@ -13,84 +13,84 @@
       "rho_90_g_cm3": 1.567455410205595,
       "rho_10_g_cm3": 252.58200269627795,
       "transition_width_decades": 2.2072072072072064,
-      "functional_form": "\u03b1_eff = \u03b1_0 / (1 + exp(log(\u03c1/\u03c1_c) / w))",
+      "functional_form": "\u03ba_eff = \u03ba_0 / (1 + exp(log(\u03c1/\u03c1_c) / w))",
       "width_parameter_w": 0.5
     },
     "reference_environments": {
       "cosmic_mean_z0": {
         "rho_g_cm3": 1e-30,
         "log_rho": -30.0,
-        "alpha_eff": 0.58,
+        "kappa_eff": 960000.0,
         "suppression_factor": 1.0,
         "regime": "unscreened"
       },
       "cosmic_mean_z8": {
         "rho_g_cm3": 1e-28,
         "log_rho": -28.0,
-        "alpha_eff": 0.58,
+        "kappa_eff": 960000.0,
         "suppression_factor": 1.0,
         "regime": "unscreened"
       },
       "galaxy_halo": {
         "rho_g_cm3": 1e-25,
         "log_rho": -25.0,
-        "alpha_eff": 0.58,
+        "kappa_eff": 960000.0,
         "suppression_factor": 1.0,
         "regime": "unscreened"
       },
       "galaxy_disk": {
         "rho_g_cm3": 1e-24,
         "log_rho": -24.0,
-        "alpha_eff": 0.58,
+        "kappa_eff": 960000.0,
         "suppression_factor": 1.0,
         "regime": "unscreened"
       },
       "molecular_cloud": {
         "rho_g_cm3": 1e-20,
         "log_rho": -20.0,
-        "alpha_eff": 0.58,
+        "kappa_eff": 960000.0,
         "suppression_factor": 1.0,
         "regime": "unscreened"
       },
       "stellar_atmosphere": {
         "rho_g_cm3": 1e-07,
         "log_rho": -7.0,
-        "alpha_eff": 0.5799999642525616,
-        "suppression_factor": 0.9999999383664856,
+        "kappa_eff": 959999.9408318263,
+        "suppression_factor": 0.9999999383664857,
         "regime": "unscreened"
       },
       "earth_crust": {
         "rho_g_cm3": 3.0,
         "log_rho": 0.47712125471966244,
-        "alpha_eff": 0.4863855980171585,
+        "kappa_eff": 805052.0243042625,
         "suppression_factor": 0.8385958586502734,
         "regime": "partially_screened"
       },
       "rho_c": {
         "rho_g_cm3": 20.0,
         "log_rho": 1.3010299956639813,
-        "alpha_eff": 0.29,
+        "kappa_eff": 480000.0,
         "suppression_factor": 0.5,
         "regime": "partially_screened"
       },
       "earth_core": {
         "rho_g_cm3": 13.0,
         "log_rho": 1.1139433523068367,
-        "alpha_eff": 0.34363086314473107,
+        "kappa_eff": 568768.3252050722,
         "suppression_factor": 0.5924670054219502,
         "regime": "partially_screened"
       },
       "white_dwarf": {
         "rho_g_cm3": 1000000.0,
         "log_rho": 6.0,
-        "alpha_eff": 4.8074913040058904e-05,
+        "kappa_eff": 79.57226985940784,
         "suppression_factor": 8.288778110354984e-05,
         "regime": "screened"
       },
       "neutron_star": {
         "rho_g_cm3": 100000000000000.0,
         "log_rho": 14.0,
-        "alpha_eff": 5.410567208436167e-12,
+        "kappa_eff": 8.955421586377104e-06,
         "suppression_factor": 9.32856415247615e-12,
         "regime": "screened"
       }
@@ -112,24 +112,24 @@
       {
         "model": "temporal_topology",
         "rho_50_g_cm3": 20.244465099768018,
-        "alpha_eff_earth": 0.4863855980171585,
-        "alpha_eff_halo": 0.58,
+        "kappa_eff_earth": 805052.0243042625,
+        "kappa_eff_halo": 960000.0,
         "suppression_earth": 0.8385958586502734,
         "suppression_halo": 1.0
       },
       {
         "model": "symmetron",
         "rho_50_g_cm3": 1e-10,
-        "alpha_eff_earth": 0.58,
-        "alpha_eff_halo": 0.58,
+        "kappa_eff_earth": 960000.0,
+        "kappa_eff_halo": 960000.0,
         "suppression_earth": 1.0,
         "suppression_halo": 1.0
       },
       {
         "model": "dilaton",
         "rho_50_g_cm3": 20.244465099768018,
-        "alpha_eff_earth": 0.5043478260869565,
-        "alpha_eff_halo": 0.58,
+        "kappa_eff_earth": 834782.6086956521,
+        "kappa_eff_halo": 960000.0,
         "suppression_earth": 0.8695652173913043,
         "suppression_halo": 1.0
       }

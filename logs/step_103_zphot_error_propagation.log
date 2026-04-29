@@ -1,7 +1,7 @@
-[14:25:06]     STEP 103: z_phot error propagation through Gamma_t
-[14:25:06] Sample: COSMOS-Web N=50,143 z>4
-[14:25:06]   Baseline rho(Gamma_t, dust): 0.4780
-[14:25:08]   After z_phot perturbation: rho_mean=0.4749 ± 0.0005
-[14:25:08]   Bias from z_phot errors: -0.0031 (-0.7% of baseline)
-[14:25:08] Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_103_zphot_error_propagation.json
-[14:25:08]     Step 103 complete. rho bias = -0.0031
+[10:03:38]     STEP 103: z_phot error propagation through Gamma_t
+[10:03:38] Sample: COSMOS-Web N=50,143 z>4
+[10:03:38]   Baseline rho(Gamma_t, dust): 0.4579
+[10:03:40]   After z_phot perturbation: rho_mean=0.4467 ± 0.0012
+[10:03:40]   Bias from z_phot errors: -0.0113 (-2.5% of baseline)
+[10:03:40] Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_103_zphot_error_propagation.json
+[10:03:40]     Step 103 complete. rho bias = -0.0113

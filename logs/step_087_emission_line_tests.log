@@ -1,66 +1,65 @@
-[14:24:35]     ======================================================================
-[14:24:35]     STEP 087: Emission Line and SED Tests
-[14:24:35]     ======================================================================
-[14:24:35]     
+[10:02:59]     ======================================================================
+[10:02:59]     STEP 087: Emission Line and SED Tests
+[10:02:59]     ======================================================================
+[10:02:59]     
 Loaded N = 2315 galaxies
-[14:24:35]     
+[10:02:59]     
 ======================================================================
-[14:24:35]     TEST 1: SFR Indicator Discrepancy
-[14:24:35]     ======================================================================
-[14:24:35]     Different SFR timescales should show different TEP effects.
+[10:02:59]     TEST 1: SFR Indicator Discrepancy
+[10:02:59]     ======================================================================
+[10:02:59]     Different SFR timescales should show different TEP effects.
 
-[14:24:35]     ρ(Γ_t, SFR10/SFR100) = -0.252 (p = 1.75e-05)
-[14:24:35]     ✓ High-Γ_t galaxies have declining SFR (more evolved)
-[14:24:35]     
+[10:02:59]     ρ(Γ_t, SFR10/SFR100) = -0.231 (p = 8.73e-05)
+[10:02:59]     ✓ High-Γ_t galaxies have declining SFR (more evolved)
+[10:02:59]     
 ======================================================================
-[14:24:35]     TEST 2: SED Fitting Quality
-[14:24:35]     ======================================================================
-[14:24:35]     TEP predicts: High-Gamma_t → isochrony violation → poor SED fits.
+[10:02:59]     TEST 2: SED Fitting Quality
+[10:02:59]     ======================================================================
+[10:02:59]     TEP predicts: High-Gamma_t → isochrony violation → poor SED fits.
 
-[14:24:35]     ρ(Γ_t, χ²) = 0.102 (p = 8.62e-02)
-[14:24:35]     
+[10:02:59]     ρ(Γ_t, χ²) = 0.022 (p = 7.18e-01)
+[10:02:59]     
 Binned χ² by Γ_t:
-[14:24:35]       Γ_t = 0.5-1: <χ²> = 13.2 (N = 265)
-[14:24:35]       Γ_t = 1-2: <χ²> = 66.8 (N = 14)
-[14:24:35]     
+[10:02:59]       Γ_t = 0.5-1: <χ²> = 15.9 (N = 279)
+[10:02:59]     
 ======================================================================
-[14:24:35]     TEST 3: Age Paradox Resolution
-[14:24:35]     ======================================================================
-[14:24:35]     Galaxies with age > cosmic age should have high Gamma_t.
+[10:02:59]     TEST 3: Age Paradox Resolution
+[10:02:59]     ======================================================================
+[10:02:59]     Galaxies with age > cosmic age should have high Gamma_t.
 
-[14:24:35]     'Anomalous' (age > 50% cosmic): N = 6
-[14:24:35]     <Γ_t> anomalous: 1.63
-[14:24:35]     <Γ_t> possible: 0.96
-[14:24:35]     Ratio: 1.7×
-[14:24:35]     
-TEP resolution: 2/6 paradoxes resolved
-[14:24:35]     
+[10:02:59]     'Anomalous' (age > 50% cosmic): N = 6
+[10:02:59]     <Γ_t> anomalous: 0.97
+[10:02:59]     <Γ_t> possible: 0.58
+[10:02:59]     Ratio: 1.7×
+[10:02:59]     
+TEP resolution: 1/6 paradoxes resolved
+[10:02:59]     
 ======================================================================
-[14:24:35]     TEST 4: Stellar Population Complexity
-[14:24:35]     ======================================================================
-[14:24:35]     Complex stellar populations should have high Gamma_t.
+[10:02:59]     TEST 4: Stellar Population Complexity
+[10:02:59]     ======================================================================
+[10:02:59]     Complex stellar populations should have high Gamma_t.
 
-[14:24:35]     Complex populations: N = 24
-[14:24:35]     <Γ_t> complex: 1.09
-[14:24:35]     <Γ_t> simple: 0.96
-[14:24:35]     Ratio: 1.1×
-[14:24:35]     
+[10:02:59]     Complex populations: N = 24
+[10:02:59]     <Γ_t> complex: 0.66
+[10:02:59]     <Γ_t> simple: 0.58
+[10:02:59]     Ratio: 1.1×
+[10:02:59]     
 ======================================================================
-[14:24:35]     TEST 5: Mass-Weighted vs Light-Weighted Age
-[14:24:35]     ======================================================================
-[14:24:35]     TEP predicts: MWA should be more affected than LWA.
+[10:02:59]     TEST 5: Mass-Weighted vs Light-Weighted Age
+[10:02:59]     ======================================================================
+[10:02:59]     TEP predicts: MWA should be more affected than LWA.
 
-[14:24:35]     Age columns found: ['mwa', 'mwa_16', 'mwa_84', 'age_ratio']
-[14:24:35]     ρ(Γ_t, MWA) = 0.040 (p = 5.06e-01)
-[14:24:35]     
+[10:02:59]     Age columns found: ['mwa', 'mwa_16', 'mwa_84', 'age_ratio']
+[10:02:59]     ρ(Γ_t, MWA) = 0.219 (p = 2.09e-04)
+[10:02:59]     
 ======================================================================
-[14:24:35]     SUMMARY: Emission Line and SED Tests
-[14:24:35]     ======================================================================
-[14:24:35]     
+[10:02:59]     SUMMARY: Emission Line and SED Tests
+[10:02:59]     ======================================================================
+[10:02:59]     
 Key findings:
-[14:24:35]       • sfr_discrepancy: ρ = -0.252
-[14:24:35]       • sed_quality: ρ = 0.102
-[14:24:35]       • age_paradox: 1.7× elevation
-[14:24:35]       • complex_pop: 1.1× elevation
-[14:24:35]     
+[10:02:59]       • sfr_discrepancy: ρ = -0.231
+[10:02:59]       • sed_quality: ρ = 0.022
+[10:02:59]       • age_paradox: 1.7× elevation
+[10:02:59]       • complex_pop: 1.1× elevation
+[10:02:59]     
 Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_087_emission_line_tests.json

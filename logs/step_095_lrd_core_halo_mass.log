@@ -1,41 +1,43 @@
-[14:24:57]     ======================================================================
-[14:24:57]     STEP 095: LRD Core-Halo Mass Derivation
-[14:24:57]     ======================================================================
-[14:24:57]     
+[10:03:22]     ======================================================================
+[10:03:22]     STEP 095: LRD Core-Halo Mass Derivation
+[10:03:22]     ======================================================================
+[10:03:22]     
 Using literature-based LRD parameters:
-[14:24:57]       Effective radius: 0.15 ± 0.10 kpc
-[14:24:57]       Sersic index: 2.5 ± 1.0
-[14:24:57]       Halo mass: 10^11.0 ± 0.3 M_sun
-[14:24:57]     
+[10:03:22]       Effective radius: 0.15 ± 0.10 kpc
+[10:03:22]       Sersic index: 2.5 ± 1.0
+[10:03:22]       Halo mass: 10^11.0 ± 0.3 M_sun
+[10:03:22]     
 Running Monte Carlo simulation (N=10000)...
-[14:24:58]     
+[10:03:23]     
 Derived Delta log M_h distribution:
-[14:24:58]       Median: 0.45
-[14:24:58]       Mean: 0.45
-[14:24:58]       Std: 0.00
-[14:24:58]       16-84%: [0.45, 0.45]
-[14:24:58]     
+[10:03:23]       Median: 1.02
+[10:03:23]       Mean: 1.02
+[10:03:23]       Std: 0.30
+[10:03:23]       16-84%: [0.71, 1.33]
+[10:03:23]     
 Derived boost factor distribution:
-[14:24:58]       Median log10(Boost): 0.99
-[14:24:58]       Mean log10(Boost): 1.20
-[14:24:58]       16-84%: [0.56, 1.78]
-[14:24:58]       Fraction with Boost > 10^3: 3.5%
-[14:24:58]       Fraction with Boost > 10^5: 0.4%
-[14:24:58]     
+[10:03:23]       Median log10(Boost): 2.83
+[10:03:23]       Mean log10(Boost): 5.31
+[10:03:23]       16-84%: [0.89, 10.16]
+[10:03:23]       Fraction with Boost > 10^3: 47.9%
+[10:03:23]       Fraction with Boost > 10^5: 31.9%
+[10:03:23]     
 Comparison with Step 41:
-[14:24:58]       Step 41 assumed: Delta log M_h = 1.50
-[14:24:58]       This analysis: Delta log M_h = 0.45 ± 0.00
-[14:24:58]       Consistent within 1σ: False
-[14:24:58]     
+[10:03:23]       Step 41 assumed: Delta log M_h = 1.50
+[10:03:23]       This analysis: Delta log M_h = 1.02 ± 0.30
+[10:03:23]       Consistent within 1σ: False
+[10:03:23]     
 Sensitivity analysis: Boost vs effective radius
-[14:24:58]       r_e = 0.05-0.10 kpc: log10(Boost) = 1.0, runaway fraction = 2.7%
-[14:24:58]       r_e = 0.10-0.15 kpc: log10(Boost) = 1.0, runaway fraction = 3.6%
-[14:24:58]       r_e = 0.15-0.20 kpc: log10(Boost) = 1.0, runaway fraction = 3.4%
-[14:24:58]       r_e = 0.20-0.30 kpc: log10(Boost) = 1.0, runaway fraction = 3.7%
-[14:24:58]       r_e = 0.30-0.50 kpc: log10(Boost) = 1.0, runaway fraction = 4.5%
-[14:24:58]       r_e = 0.50-0.80 kpc: log10(Boost) = 1.0, runaway fraction = 4.2%
-[14:24:58]     
+[10:03:23]       r_e = 0.05-0.10 kpc: log10(Boost) = 5.4, runaway fraction = 71.0%
+[10:03:23]       r_e = 0.10-0.15 kpc: log10(Boost) = 3.4, runaway fraction = 54.8%
+[10:03:23]       r_e = 0.15-0.20 kpc: log10(Boost) = 2.4, runaway fraction = 42.3%
+[10:03:23]       r_e = 0.20-0.30 kpc: log10(Boost) = 1.8, runaway fraction = 29.9%
+[10:03:23]       r_e = 0.30-0.50 kpc: log10(Boost) = 1.2, runaway fraction = 20.9%
+[10:03:23]       r_e = 0.50-0.80 kpc: log10(Boost) = 0.8, runaway fraction = 8.7%
+[10:03:23]     
+Critical radius for 50% runaway: r_e < 0.05 kpc
+[10:03:23]     
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_095_lrd_core_halo_mass.json
-[14:24:58] ⚠   Could not generate figure: unsupported format string passed to NoneType.__format__
-[14:24:58]     
+[10:03:24]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_095_lrd_core_halo_mass.png
+[10:03:24]     
 Step 095 complete.

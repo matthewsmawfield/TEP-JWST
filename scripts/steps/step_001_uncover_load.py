@@ -177,7 +177,7 @@ def apply_full_sample_cuts(df):
     - Valid MWA (not NaN)
 
     Rationale:
-      z > 4  : TEP effects scale as alpha(z) = alpha_0 * sqrt(1+z), so they
+      z > 4  : TEP effects scale as alpha(z) = kappa_gal * sqrt(1+z), so they
                become observationally significant only above z ~ 4.
       z < 10 : Upper bound of reliable UNCOVER photometric redshifts.
       M* > 10^8 Msun : Below this, the catalog becomes severely incomplete

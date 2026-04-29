@@ -1,85 +1,83 @@
-[14:23:55]     ======================================================================
-[14:23:55]     STEP 055: Cross-Domain Consistency
-[14:23:55]     ======================================================================
-[14:23:55]     
+[10:02:15]     ======================================================================
+[10:02:15]     STEP 055: Cross-Domain Consistency
+[10:02:15]     ======================================================================
+[10:02:15]     
 Testing if the SAME alpha works across all domains...
 
-[14:23:55]     Loaded N = 2315 galaxies
-[14:23:55]     
+[10:02:15]     Loaded N = 2315 galaxies
+[10:02:15]     
 ======================================================================
-[14:23:55]     TEST 1: Optimal Alpha from JWST Data
-[14:23:55]     ======================================================================
-[14:23:55]     Finding the alpha that maximizes Gamma_t-Dust correlation.
+[10:02:15]     TEST 1: Optimal Alpha from JWST Data
+[10:02:15]     ======================================================================
+[10:02:15]     Evaluating κ_gal transfer; Spearman rank tests cannot recover κ amplitude.
 
-[14:23:55]     Optimal alpha (JWST): 1.500
-[14:23:55]     Maximum correlation: ρ = 0.603
-[14:23:55]     
-With TEP-H0 alpha (0.58): ρ = 0.603
-[14:23:55]     Difference from optimal: 0.920
-[14:23:55]     
+[10:02:15]     Diagnostic κ at optimizer boundary/interior: 2.000e+06
+[10:02:15]     Maximum correlation: ρ = 0.471
+[10:02:15] ⚠   κ amplitude recovery is marked reference-only because the rank objective is nearly invariant under monotonic rescaling.
+[10:02:15]     
+With Cepheid prior κ_gal (9.600e+05 mag): ρ = 0.471
+[10:02:15]     
 ======================================================================
-[14:23:55]     TEST 2: Alpha Sensitivity
-[14:23:55]     ======================================================================
-[14:23:55]     Testing correlation strength across alpha values.
+[10:02:15]     TEST 2: Alpha Sensitivity
+[10:02:15]     ======================================================================
+[10:02:15]     Testing correlation strength across alpha values.
 
-[14:23:55]     α = 0.20: ρ = 0.603 
-[14:23:55]     α = 0.25: ρ = 0.603 
-[14:23:55]     α = 0.30: ρ = 0.603 
-[14:23:55]     α = 0.35: ρ = 0.603 
-[14:23:55]     α = 0.40: ρ = 0.603 
-[14:23:55]     α = 0.45: ρ = 0.603 
-[14:23:55]     α = 0.50: ρ = 0.603 
-[14:23:55]     α = 0.55: ρ = 0.603 ◆
-[14:23:55]     α = 0.60: ρ = 0.603 ◆
-[14:23:55]     α = 0.65: ρ = 0.603 
-[14:23:55]     α = 0.70: ρ = 0.603 
-[14:23:55]     α = 0.75: ρ = 0.603 
-[14:23:55]     α = 0.80: ρ = 0.603 
-[14:23:55]     α = 0.85: ρ = 0.603 
-[14:23:55]     α = 0.90: ρ = 0.603 
-[14:23:55]     α = 0.95: ρ = 0.603 
-[14:23:55]     α = 1.00: ρ = 0.603 
-[14:23:55]     
+[10:02:15]     κ = 4.80e+05: ρ = 0.471 
+[10:02:15]     κ = 5.40e+05: ρ = 0.471 
+[10:02:15]     κ = 6.00e+05: ρ = 0.471 
+[10:02:15]     κ = 6.60e+05: ρ = 0.471 
+[10:02:15]     κ = 7.20e+05: ρ = 0.471 
+[10:02:15]     κ = 7.80e+05: ρ = 0.471 
+[10:02:15]     κ = 8.40e+05: ρ = 0.471 
+[10:02:15]     κ = 9.00e+05: ρ = 0.471 
+[10:02:15]     κ = 9.60e+05: ρ = 0.471 ◆
+[10:02:15]     κ = 1.02e+06: ρ = 0.471 
+[10:02:15]     κ = 1.08e+06: ρ = 0.471 
+[10:02:15]     κ = 1.14e+06: ρ = 0.471 
+[10:02:15]     κ = 1.20e+06: ρ = 0.471 
+[10:02:15]     κ = 1.26e+06: ρ = 0.471 
+[10:02:15]     κ = 1.32e+06: ρ = 0.471 
+[10:02:15]     κ = 1.38e+06: ρ = 0.471 
+[10:02:15]     κ = 1.44e+06: ρ = 0.471 
+[10:02:15]     
 ======================================================================
-[14:23:55]     TEST 3: Redshift-Dependent Alpha
-[14:23:55]     ======================================================================
-[14:23:55]     Testing if optimal alpha varies with redshift.
+[10:02:15]     TEST 3: Redshift-Dependent Alpha
+[10:02:15]     ======================================================================
+[10:02:15]     Testing if optimal alpha varies with redshift.
 
-[14:23:55]     z = 6-7: optimal α = 1.50, ρ = -0.091
-[14:23:55]     z = 7-8: optimal α = 1.50, ρ = 0.052
-[14:23:55]     z = 8-9: optimal α = 1.50, ρ = 0.421
-[14:23:55]     z = 9-12: optimal α = 1.50, ρ = 0.742
-[14:23:55]     
-Alpha consistency: 1.50 ± 0.00
-[14:23:55]     ✓ Alpha is consistent across redshift bins
-[14:23:55]     
+[10:02:15]     z = 6-7: diagnostic κ = 2.00e+06, ρ = -0.016
+[10:02:15]     z = 7-8: diagnostic κ = 2.00e+06, ρ = 0.003
+[10:02:15]     z = 8-9: diagnostic κ = 2.00e+06, ρ = 0.220
+[10:02:15]     z = 9-12: diagnostic κ = 2.00e+06, ρ = 0.756
+[10:02:15]     
+Diagnostic κ spread: 2.00e+06 ± 0.00e+00 (reference-only)
+[10:02:15]     
 ======================================================================
-[14:23:55]     TEST 4: Mass Scale Invariance
-[14:23:55]     ======================================================================
-[14:23:55]     Testing if the effect works across different mass scales.
+[10:02:15]     TEST 4: Mass Scale Invariance
+[10:02:15]     ======================================================================
+[10:02:15]     Testing if the effect works across different mass scales.
 
-[14:23:55]     log M_h = 9-10: ρ = 0.445 (p = 1.47e-10) ✓
-[14:23:55]     log M_h = 10-11: ρ = 0.351 (p = 1.90e-03) ✓
-[14:23:55]     log M_h = 11-13: ρ = 0.740 (p = 4.47e-04) ✓
-[14:23:55]     
+[10:02:15]     log M_h = 9-10: ρ = 0.351 (p = 7.18e-07) ✓
+[10:02:15]     log M_h = 10-11: ρ = 0.083 (p = 4.74e-01) 
+[10:02:15]     log M_h = 11-13: ρ = 0.742 (p = 4.23e-04) ✓
+[10:02:15]     
 ======================================================================
-[14:23:55]     TEST 5: Cross-Survey Alpha Consistency
-[14:23:55]     ======================================================================
-[14:23:55]     Testing if CEERS gives the same optimal alpha.
+[10:02:15]     TEST 5: Cross-Survey Rank Diagnostic
+[10:02:15]     ======================================================================
+[10:02:15]     Testing if CEERS gives the same optimal alpha.
 
-[14:23:55]     CEERS optimal alpha: 1.500
-[14:23:55]     CEERS correlation: ρ = 0.680
-[14:23:55]     UNCOVER optimal alpha: 1.500
-[14:23:55]     Difference: 0.000
-[14:23:55]     ✓ CROSS-SURVEY: CEERS and UNCOVER give consistent alpha
-[14:23:55]     
+[10:02:15]     CEERS diagnostic κ: 2.000e+06
+[10:02:15]     CEERS correlation: ρ = 0.680
+[10:02:15]     UNCOVER diagnostic κ: 2.000e+06
+[10:02:15]     Difference is not interpreted as κ recovery because the objective is rank-invariant.
+[10:02:15]     
 ======================================================================
-[14:23:55]     SUMMARY: Cross-Domain Consistency
-[14:23:55]     ======================================================================
-[14:23:55]     
+[10:02:15]     SUMMARY: Cross-Domain Consistency
+[10:02:15]     ======================================================================
+[10:02:15]     
 Key findings:
-[14:23:55]       • JWST optimal alpha: 1.500
-[14:23:55]       • TEP-H0 alpha (legacy): 0.58
-[14:23:55]       • Difference: 0.920 (158.6%)
-[14:23:55]     
+[10:02:15]       • Cepheid prior κ_gal: 9.600e+05 mag
+[10:02:15]       • JWST rank diagnostic κ: 2.000e+06 (reference-only)
+[10:02:15]       • Cross-domain κ amplitude recovery is not claimed from this rank test.
+[10:02:15]     
 Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_055_cross_domain.json

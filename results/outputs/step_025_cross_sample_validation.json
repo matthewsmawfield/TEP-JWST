@@ -1,32 +1,32 @@
 {
   "mirror": {
-    "rho_uncover": 0.019377853966021305,
-    "rho_jades": 0.9242212551688173,
-    "same_sign": true,
-    "mirror": true
+    "rho_uncover": -0.006035944296748368,
+    "rho_jades": 0.7073020370044381,
+    "same_sign": false,
+    "mirror": false
   },
   "symmetry": {
-    "ratio_observed": 1.0763050481085883,
-    "ratio_predicted": 1.0766615216309066,
-    "agreement_pct": 99.96689084590129,
+    "ratio_observed": 1.0404313918853096,
+    "ratio_predicted": 1.1420489919836527,
+    "agreement_pct": 91.10216804956492,
     "symmetric": true
   },
   "chain": {
     "chain": [
       [
         "Mass \u2192 \u0393_t",
-        0.7352612334136677,
-        0.0
+        0.4184561825396153,
+        8.165599850618901e-99
       ],
       [
         "\u0393_t \u2192 t_eff",
-        0.709101480792379,
+        0.9205114428593865,
         0.0
       ],
       [
         "t_eff \u2192 age_ratio",
-        -0.043453285937025625,
-        0.036564916402607325
+        -0.04472411464721615,
+        0.03141385641782536
       ],
       [
         "age_ratio \u2192 anomaly",
@@ -39,13 +39,13 @@
     "full_chain_p": 1.6371426315929807e-15
   },
   "ratio": {
-    "mean_ratio": 0.9401959056936435,
-    "predicted_ratio": 0.9401959056936435,
+    "mean_ratio": 0.6224673579317754,
+    "predicted_ratio": 0.6224673579317754,
     "cosmic": false
   },
   "combined": {
-    "r2": 0.009929567423804454,
-    "random_residuals": true,
+    "r2": 0.006096107278411198,
+    "random_residuals": false,
     "evidence_score": 2,
     "combined_pass": false
   }

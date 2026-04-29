@@ -1,28 +1,28 @@
 {
   "age_excess": {
     "n_galaxies": 422,
-    "spearman_rho": -0.3747655967478932,
-    "spearman_p": 1.6115026041806137e-15,
+    "spearman_rho": -0.6668064419096342,
+    "spearman_p": 1.3395285145130893e-55,
     "tep_consistent": true
   },
   "photoz_scatter": {
     "n_galaxies": 84291,
-    "spearman_rho": -0.38479918362240445,
+    "spearman_rho": -0.4244846474633701,
     "spearman_p": 1e-300,
     "tep_consistent": false
   },
   "sed_quality": {
     "n_galaxies": 84291,
-    "spearman_rho": -0.12309168784689256,
-    "spearman_p": 8.038170477212053e-282,
+    "spearman_rho": -0.13294006208081668,
+    "spearman_p": 1e-300,
     "tep_consistent": false
   },
   "mass_to_light": {
     "n_galaxies": 422,
-    "spearman_rho": 0.9320507480496675,
-    "spearman_p": 2.774188523239386e-187,
-    "rho_partial": 0.8747462081904247,
-    "p_partial": 3.175897311684235e-134,
+    "spearman_rho": 0.9379119055540242,
+    "spearman_p": 3.0878073938569425e-195,
+    "rho_partial": 0.8123693335532911,
+    "p_partial": 2.0201573195193035e-100,
     "tep_consistent": true
   },
   "spec_phot": null

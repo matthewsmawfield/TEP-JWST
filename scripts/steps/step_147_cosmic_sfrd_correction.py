@@ -44,7 +44,7 @@ from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Cen
 from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting & JSON serialiser
 from scripts.utils.tep_model import (
     compute_gamma_t, stellar_to_halo_mass, _cosmic_time_gyr,
-    ALPHA_0  # Shared TEP model
+    KAPPA_GAL  # Shared TEP model
 )
 
 STEP_NUM = "147"  # Pipeline step number
@@ -186,7 +186,7 @@ def compute_sfrd_bins(df, z_bins, survey_name, area_arcmin2):
         # m = 0.5 for UV-based SFR (less affected than mass)
         m_sfr = 0.5
         log_Mh = stellar_to_halo_mass(sub["log_Mstar"].values, sub["z_phot"].values)
-        gamma_t = compute_gamma_t(log_Mh, sub["z_phot"].values, ALPHA_0)
+        gamma_t = compute_gamma_t(log_Mh, sub["z_phot"].values, KAPPA_GAL)
         sfr_correction = np.power(np.maximum(gamma_t, 0.01), m_sfr)
         sfr_corrected = sfr_linear / sfr_correction
         sfr_total_corr = np.sum(sfr_corrected)

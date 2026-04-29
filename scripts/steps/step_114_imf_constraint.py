@@ -24,7 +24,7 @@ from scipy import stats
 import sys
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
 from scripts.utils.p_value_utils import safe_json_default  # JSON serialiser for numpy types (handles NaN, inf, float32)
-from scripts.utils.tep_model import ALPHA_0  # TEP model: alpha_0=0.58
+from scripts.utils.tep_model import KAPPA_GAL  # TEP model: KAPPA_GAL=9.6e5 mag
 RESULTS_DIR = PROJECT_ROOT / "results"
 OUTPUTS_DIR = RESULTS_DIR / "outputs"  # JSON output directory (machine-readable statistical results)
 FIGURES_DIR = RESULTS_DIR / "figures"  # Publication figures directory (PNG/PDF for manuscript)
@@ -146,7 +146,7 @@ def main():
     alpha_salpeter = 2.35
     alpha_chabrier = 2.30
     
-    # Constraint: alpha > 2.0 (not extremely top-heavy)
+    # Constraint: alpha > 3e6 (not extremely top-heavy)
     alpha_min_without_tep = 1.5  # Would need very top-heavy
     alpha_min_with_tep = 2.1    # Mild variation acceptable
     

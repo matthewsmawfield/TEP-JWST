@@ -57,7 +57,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
 from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
 from scripts.utils.rank_stats import partial_rank_correlation  # Partial Spearman: residualization method to control for confounders
-from scripts.utils.tep_model import compute_gamma_t  # TEP model: Gamma_t = exp[alpha(z) * (2/3) * (log_Mh - log_Mh_ref) * z_factor]
+from scripts.utils.tep_model import compute_gamma_t  # TEP model: Gamma_t = exp[K_gal · (Phi − Phi_ref) · sqrt(1+z)], K_gal = kappa · ln10 / (2.5n)
 
 STEP_NUM = "017"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "ml_ratio"  # Mass-to-light ratio: tests TEP predictions for age excess, photo-z scatter, SED chi², M/L anomaly, spec-photo-z differences

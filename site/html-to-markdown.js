@@ -147,8 +147,8 @@ class HTMLToMarkdownConverter {
             // Build header with metadata
             const header = `# ${markdownTitle}
 **Matthew Lukin Smawfield**  
-Version: v0.3 (Kos)  
-First published: 13 March 2026 · Last updated: 24 April 2026  
+Version: v0.4 (Kos)  
+First published: 13 March 2026 · Last updated: 29 April 2026  
 DOI: 10.5281/zenodo.19000827
 
 ---
@@ -159,7 +159,7 @@ DOI: 10.5281/zenodo.19000827
             const cleanedMarkdown = this.stripLeadingWhitespace(rawMarkdown);
             const markdown = header + cleanedMarkdown;
             
-            const outputPath = path.join(__dirname, '..', '12-TEP-JWST-v0.3-Kos.md');
+            const outputPath = path.join(__dirname, '..', '12-TEP-JWST-v0.4-Kos.md');
             fs.writeFileSync(outputPath, markdown, 'utf8');
             console.log(`✅ Markdown saved to: ${outputPath} (${(markdown.length / 1024).toFixed(1)} KB)`);
         } catch (error) {
