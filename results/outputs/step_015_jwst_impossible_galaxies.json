@@ -12,21 +12,21 @@
     "n_normal": 2306
   },
   "correlation": {
-    "spearman_rho": 0.019377853966021305,
-    "spearman_p": 0.35136822260136824,
-    "pearson_r": 0.09964721483214896,
-    "pearson_p": 1.556501804111975e-06,
-    "slope": 0.02931055371193549,
-    "slope_err": 0.006085609586836651,
-    "intercept": 0.13362852823441163,
+    "spearman_rho": -0.006035944296748368,
+    "spearman_p": 0.7716158733152128,
+    "pearson_r": 0.07807757218568719,
+    "pearson_p": 0.000169661141610343,
+    "slope": 0.03658177590969333,
+    "slope_err": 0.009712317336005367,
+    "intercept": 0.1384152294290279,
     "tep_consistent": false
   },
   "resolution": {
     "n_impossible_raw": 9,
-    "n_resolved": 4,
-    "n_still_impossible": 5,
-    "reduction_pct": 44.44444444444444,
+    "n_resolved": 1,
+    "n_still_impossible": 8,
+    "reduction_pct": 11.11111111111111,
     "mean_age_ratio_raw": 0.6415049439240004,
-    "mean_age_ratio_corrected": 0.4903627838146096
+    "mean_age_ratio_corrected": 0.7887755971856744
   }
 }

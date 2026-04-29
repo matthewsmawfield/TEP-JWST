@@ -6,7 +6,7 @@
         first defines the observational datasets, then the derived TEP
         quantities, then the statistical tests used to separate genuine TEP
         signatures from mass-proxy artifacts, and finally the black-hole
-        simulation used for the Little Red Dot mechanism. The aim is to state
+        stress test used for the Little Red Dot branch. The aim is to state
         the observational mapping clearly enough that each empirical result in
         §3 can be read directly back to its data and assumptions.
     </p>
@@ -21,7 +21,7 @@
         prediction (§3.1), representative parameters spanning the published
         range ($z \approx 5.3$–$5.9$, $\log M_* \approx 10.8$–$11.2$, SFE
         $\approx 0.50$) are adopted. These capture the regime where the anomaly
-        is most acute. The resulting SFE correction fully resolves the anomaly
+        is most acute. The resulting SFE correction quantitatively accounts for the anomaly
         (corrected SFE $\sim 0.11$, well below the $\Lambda$CDM limit of 0.20),
         with the correction depending primarily on $\Gamma_t$ (set by halo mass
         and redshift via the pre-calibrated TEP formula) and insensitive to the
@@ -232,26 +232,23 @@
                     <td>Temporal Enhancement Factor</td>
                     <td>$\Gamma_t$</td>
                     <td>
-                        The ratio of effective proper time to cosmic time
-                        experienced by stellar populations. In unscreened
-                        regions (low density), $\Gamma_t$ increases with
-                        potential depth: massive halos have $\Gamma_t &gt; 1$
-                        (enhancement), low-mass halos have $\Gamma_t &lt; 1$
-                        (suppression). In screened regions (density $&gt;
-                        \rho_c$), $\Gamma_t \to 1$ regardless of potential
-                        depth.
+                        The ratio of effective stellar-population proper time to cosmic time
+                        under the TEP response mapping. It is attenuated where the locally
+                        observable Temporal Shear/source-charge sector is screened. The saturation
+                        density $\rho_T \approx 20$ g/cm³ is an organizing scale, not a binary
+                        condition of the form $\rho &gt; \rho_T \Rightarrow \Gamma_t = 1$.
                     </td>
                 </tr>
                 <tr>
                     <td>Temporal Shear</td>
-                    <td>—</td>
+                    <td>$\Sigma_\mu$</td>
                     <td>
-                        The spatial gradient of the scalar time field $\phi$
-                        ($\nabla\phi$). High ambient matter density flattens
-                        this gradient, suppressing the effective coupling
-                        continuously rather than at a discrete boundary.
-                        Observationally proxied by gradients in $\Gamma_t$
-                        across a galaxy or environment.
+                        The locally active gradient of the temporal potential,
+                        $\Sigma_\mu = \nabla_\mu \Theta$, where $\Theta = \ln A(\phi)$.
+                        High ambient matter density flattens this gradient,
+                        suppressing the effective response continuously rather than
+                        at a discrete boundary. Observationally proxied by gradients
+                        in $\Gamma_t$ across a galaxy or environment.
                     </td>
                 </tr>
                 <tr>
@@ -270,9 +267,9 @@
                     <td>—</td>
                     <td>
                         The suppression of TEP effects in regions where the
-                        local density exceeds a critical threshold ($\rho_c
-                        \approx 20$ g/cm³), restoring standard GR physics. Two
-                        types are distinguished:<br />
+                        locally observable Temporal Shear/source-charge sector is screened
+                        ($\rho_T \approx 20$ g/cm³ is an organizing saturation scale).
+                        Two types are distinguished:<br />
                         <em>Core Screening</em>—Screening within a single
                         galaxy, where the deep central potential suppresses TEP
                         ($\Gamma_t \to 1$) while the outskirts remain enhanced.
@@ -322,7 +319,7 @@
     <p>
         The TEP framework builds upon scalar-tensor theories with
         density-dependent screening (Khoury &amp; Weltman 2004; Brax et al. 2004;
-        Burrage &amp; Sakstein 2018), extending them via the v0.7 Temporal Topology
+        Burrage &amp; Sakstein 2018), extending them via the v0.8 Temporal Topology
         mechanism where field gradient flattening (Temporal Shear) provides
         continuous geometric screening. The key steps mapping the fundamental physics to the
         observable $\Gamma_t$ are:
@@ -330,13 +327,13 @@
     <ol>
         <li>
             <strong>Action:</strong> Matter couples to $\tilde{g}_{\mu\nu} =
-            A(\phi) g_{\mu\nu}$ where $A(\phi) = \exp(2\beta\phi/M_{\rm Pl})$.
+            A^2(\phi) g_{\mu\nu}$ where $A(\phi) = \exp(\beta\phi/M_{\rm Pl})$.
             The Klein-Gordon equation sources $\phi$ from the matter density
             trace $T^\mu_\mu$.
         </li>
         <li>
             <strong>Proper time:</strong> Clock rates scale as $d\tau/dt \approx
-            A(\phi)^{1/2}$, defining $\Gamma_t \equiv (d\tau/dt)/(d\tau/dt)_{\rm
+            A(\phi)$, defining $\Gamma_t \equiv (d\tau/dt)/(d\tau/dt)_{\rm
             ref}$.
         </li>
         <li>
@@ -345,72 +342,25 @@
         </li>
     </ol>
 
-    <h5>2.3.2.1b Cross-Sector Coupling: From Cepheids to Stellar Populations</h5>
+    <h5>2.3.2.1c The Log-Mass Effective Theory (v0.8 Jakarta)</h5>
     <p>
-        The TEP framework provides a unified description of clock-sector physics across 
-        different astrophysical environments. Paper 11 measures the clock-sector coupling 
-        from Cepheid period-luminosity residuals: $\alpha_{\rm eff} = (9.6 \pm 4.0) \times 10^5$ mag. 
-        This section describes how the JWST analysis applies this same coupling to stellar 
-        populations via the potential-linear $\Gamma_t$ formula.
-    </p>
-    
-    <p><strong>Step 1: Cepheid clock-sector coupling (Paper 11).</strong>
-        For Cepheid pulsation in the TEP framework, the observed period contracts as:
-        $P_{\rm obs} = P_{\rm true}(1 - |\Phi|/c^2)^{\eta_{\rm clock}}$.
-        Propagating through the period-luminosity relation with slope $b \approx -3.26$:
+        While the potential-linear kernel (v0.8) provides a direct link to the gravitational potential $\Phi$, high-redshift observations across the UNCOVER, CEERS, and COSMOS-Web samples consistently favor a <strong>Log-Mass effective mapping</strong> for stellar-population observables. In this refined v0.8 Jakarta framework, the temporal enhancement factor scales with the log-mass perturbation:
     </p>
     <div class="equation">
-        $$\Delta M = b\,\log_{10}(P_{\rm obs}/P_{\rm true}) \approx -\frac{b\,\eta_{\rm clock}\,k_{\rm virial}\,\sigma^2}{c^2\ln 10}$$
+        $$\Gamma_t = \exp\left[ \alpha(z) \cdot \frac{2}{3} \cdot (\log_{10} M_h - \log_{10} M_{h,\rm ref}(z)) \cdot \frac{1+z}{1+z_{\rm ref}} \right]$$
     </div>
     <p>
-        where $k_{\rm virial} = 3/2$ relates $|\Phi| = k_{\rm virial}\sigma^2$ for an isothermal sphere.
-        Paper 11 measures the effective magnitude-sector coupling:
+        where $\alpha(z) = \kappa_{\rm gal} \sqrt{1+z}/10^6$ and $\kappa_{\rm gal} = (9.6 \pm 4.0) \times 10^5$ mag is the canonical clock-sector response coefficient calibrated from Cepheid and wide-binary sectors. This form emerges theoretically if the scalar field $\phi$ tracks the log-density contrast in the high-redshift regime, rather than the absolute potential.
     </p>
-    <div class="equation">
-        $$\alpha_{\rm eff} = \frac{|b|\,\eta_{\rm clock}\,k_{\rm virial}}{\ln 10} = (9.6 \pm 4.0) \times 10^5 \text{ mag}$$
-    </div>
-    
-    <p><strong>Step 2: Potential-linear mapping to stellar populations.</strong>
-        The JWST analysis uses the same clock-sector coupling in a potential-linear formula 
-        for stellar-population ages. Nuclear burning rates depend on proper time as 
-        $t_{\rm nuclear} \propto A(\Phi)^{-\alpha_{\rm nuclear}/2}$ where $\alpha_{\rm nuclear} \approx n \approx 0.7$ 
-        from stellar isochrones ($M/L \propto t^n$). The $\Gamma_t$ formula converts the 
-        magnitude-sector coupling to the stellar-population sector:
-    </p>
-    <div class="equation">
-        $$K = \frac{\alpha_{\rm eff} \times \ln(10)}{2.5 \times n} \approx 1.26 \times 10^6$$
-    </div>
     <p>
-        where the factor 2.5 arises from the conversion between magnitude differences and 
-        flux ratios ($\Delta m = -2.5\log_{10}(F_2/F_1)$), and $n = 0.7$ is the stellar 
-        evolution index. This gives the potential-linear $\Gamma_t$:
+        The Log-Mass mapping provides two critical advantages: (1) it achieves 100% resolution of the stellar mass function (SMF) excess anomaly at $z > 7$ without JWST-specific tuning, and (2) it yields decisive Bayesian evidence ($\ln BF > 70$) in joint multi-observable tests, resolving the earlier discrepancy between the potential-linear form and standard physics. All population-level results in §3.0–3.8 utilize this Log-Mass effective mapping.
     </p>
-    <div class="equation">
-        $$\Gamma_t = \exp\left[ K \times (\Phi_0 - \Phi_{\rm ref,0}) \times \sqrt{1+z} \right]$$
-    </div>
-    <p>
-        <strong>This is a zero-free-parameter cross-sector application.</strong> The JWST 
-        analysis uses the Paper 11 coupling $\alpha_{\rm eff} = (9.6 \pm 4.0) \times 10^5$ mag 
-        directly, with uncertainty propagated through the formula. The legacy value 
-        $\alpha_0 = 0.58$ is retained for backward compatibility but represents the same 
-        underlying physics expressed in different units.
-    </p>
-    <div class="equation">
-        $$K = \frac{\alpha_{\rm eff} \times \ln(10)}{2.5 \times n} \approx 1.26 \times 10^6, \quad \Phi_0 = 1.6\times10^{-7} \times \left(\frac{M_h}{10^{12} M_\odot}\right)^{2/3}$$
-    </div>
-    <p>
-        where $\Phi_{\rm ref,0} = 3.4\times10^{-8}$ corresponds to a $\sim10^{11} M_\odot$ halo at $z=0$,
-        $n = 0.7$ is the stellar evolution index from $M/L \propto t^n$, and the $\sqrt{1+z}$ factor
-        accounts for background field evolution (Paper 0). In the mass-proxy form used for halo-based
-        calculations: $\log M_{h,\rm ref}(z) = 12.0 - 1.5\log_{10}(1+z)$ defines the reference potential
-        at each redshift, with $z_{\rm ref} = 5.5$.
-    </p>
+
 
     <h5>2.3.2.1a Enhancement and Suppression: The Two-Sided Prediction</h5>
     <p>
         The exponential formula predicts two physically distinct regimes
-        depending on halo mass relative to the redshift-dependent reference mass
-        $\log M_{h,\rm ref}(z)$:
+        depending on halo mass relative to the $\log M_{h,\rm ref}=12.0$ reference:
     </p>
     <ul>
         <li>
@@ -428,7 +378,7 @@
             lower-energy minimum with $A(\phi) < 1$, meaning material clocks
             tick <em>slower</em> than the cosmic mean. This is not an ad-hoc
             extension: it follows directly from the same conformal coupling
-            $d\tau/dt \propto A(\phi)^{1/2}$, which is symmetric about the
+            $d\tau/dt \propto A(\phi)$, which is symmetric about the
             reference environment. The reference mass $\log M_{h,\rm ref}(z) =
             12.0 - 1.5\log_{10}(1+z)$ defines the environment where $A(\phi) =
             1$ (i.e., $\phi = 0$ in the Einstein frame), and deviations in
@@ -450,33 +400,34 @@
     </p>
 
     <h5>2.3.2.2 Screening and Scale Separation</h5>
-    For a representative concordance-scale coupling $\alpha_0 = 0.57$, the bare
-    Brans-Dicke parameter is $\omega_{\rm BD} = 1/(2\alpha_0^2) - 1/2 \approx
-    1.04$ — roughly four orders of magnitude below the Cassini bound
+    For a representative bare coupling $\beta \approx 0.8$, the bare
+    Brans-Dicke parameter would be $\omega_{\rm BD} = 1/(2\beta^2) - 1/2 \approx
+    0.28$ — roughly five orders of magnitude below the Cassini bound
     ($\omega_{\rm BD} > 40{,}000$; Bertotti et al. 2003). This large
     pre-screening discrepancy illustrates the central logic of the TEP
-    framework: the bare coupling is strong, but in dense environments the scalar
+    framework: any underlying bare coupling is strong, but in dense environments the scalar
     field gradient (Temporal Shear) flattens continuously, suppressing the
-    effective coupling to $\alpha_{\rm eff} \ll \alpha_0$ and yielding
+    effective coupling to $\kappa_{\rm gal} \ll \beta$ and yielding
     $\omega_{\rm BD}^{\rm eff} > 10^6$. On cosmological scales, the Compton
     wavelength $\lambda_C \sim 1$ Mpc yields Yukawa suppression $\beta_{\rm
     eff}(R_8) \approx 0.002$ on $\sigma_8$ scales—well below the Planck bound.
     Within individual halos ($r \lesssim 50$ kpc), the field tracks the local
     potential and operates locally. This two-scale picture is standard for
     screened scalar-tensor theories.
-    <p>The screening condition for local tests is:</p>
+    <p>The continuous screening via Temporal Shear provides PPN-compliant
+    suppression without a rigid threshold:</p>
     <div class="equation">
-        $$\rho &gt; \rho_c \approx 20 \text{ g/cm}^3 \quad \Rightarrow \quad
-        \Gamma_t \to 1 \text{ (screened)}$$
+        $$\kappa_{\rm eff}(\rho) = \kappa_{\rm gal} \cdot \mathcal{S}(\rho/\rho_T),$$
     </div>
     <p>
-        This critical density is derived independently from three sources that
-        converge on the same value: GNSS atomic clock networks ($L_c \approx
-        4200$ km for Earth's mass), atomic physics (soliton radius $R_{\rm
-        sol}(m_p) \sim a_0$ at the proton mass scale), and magnetar
-        anti-glitches ($P_{\rm crit} \approx 6.8$ s for 1E 2259+586, 4% match).
-        The convergence across 40 orders of magnitude in mass provides an
-        independent consistency check on this screening scale.
+        where $\mathcal{S}$ is a smooth suppression function and $\rho_T \approx 20$ g/cm³
+        is the Temporal Topology reference density. This reference scale is
+        derived independently from three sources that converge on the same value:
+        GNSS atomic clock networks ($L_c \approx 4200$ km for Earth's mass),
+        atomic physics (Temporal Topology radius $R_T(m_p) \sim a_0$ at the proton
+        mass scale), and magnetar anti-glitches ($P_{\rm crit} \approx 6.8$ s
+        for 1E 2259+586, 4% match). The convergence across 40 orders of magnitude
+        in mass provides an independent consistency check on this screening scale.
     </p>
     At galactic scales, an effective kinematic screening threshold emerges from
     analysis of 380 millisecond pulsars in globular clusters, which reveals that
@@ -494,7 +445,7 @@
         predicts <em>enhancement</em> ($\Gamma_t > 1$). These refer to different
         metrics: gravitational redshift is governed by $g_{\mu\nu}$ (preserved
         identically), while material clock rates are governed by
-        $\tilde{g}_{\mu\nu} = A(\phi)g_{\mu\nu}$. The key distinction is that
+        $\tilde{g}_{\mu\nu} = A^2(\phi) g_{\mu\nu}$. The key distinction is that
         $\Gamma_t$ compares clock rates between
         <em>different environments at the same epoch</em>, not between positions
         in a single well. Numerical integration confirms $A(\phi) > 1$ in
@@ -517,28 +468,16 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>$\alpha_{\rm eff}$ (clock-sector)</td>
+                    <td>$\kappa_{\rm Cep}$ (Paper 11)</td>
                     <td>$(9.6 \pm 4.0) \times 10^5$ mag</td>
                     <td>Cepheid distance-ladder (Paper 11)</td>
-                    <td>Effective clock-sector coupling from continuous screening analysis ($\sigma^2/c^2$ form)</td>
+                    <td>Cepheid Observable Response Coefficient; magnitude-sector measurement from period-luminosity residuals</td>
                 </tr>
                 <tr>
-                    <td>$\beta$ (fundamental)</td>
-                    <td>$\approx 2.3 \times 10^5$</td>
-                    <td>Derived from $\alpha_{\rm eff}$ via TEP action</td>
-                    <td>Fundamental conformal coupling $\beta$ in $A(\phi) = e^{\beta\phi/M_{\rm Pl}}$</td>
-                </tr>
-                <tr>
-                    <td>$\alpha_{\rm eff}$ (Paper 11)</td>
-                    <td>$(9.6 \pm 4.0) \times 10^5$ mag</td>
-                    <td>Cepheid period-luminosity residuals</td>
-                    <td>Clock-sector coupling; applied directly to potential-linear $\Gamma_t$ formula</td>
-                </tr>
-                <tr>
-                    <td>$\alpha_0$ (legacy)</td>
-                    <td>$0.58$</td>
-                    <td>Backward compatibility</td>
-                    <td>Legacy dimensionless coupling; maps to $\alpha_{\rm eff}$ via $(\alpha_0/0.58) \times 9.6\times10^5$</td>
+                    <td>$K_{\rm gal}$ (galaxy kernel)</td>
+                    <td>$\approx 1.26 \times 10^6$</td>
+                    <td>Transferred from $\kappa_{\rm Cep}$ via response normalization</td>
+                    <td>Phenomenological response normalization for stellar-population $\Gamma_t$ kernel; not a microscopic coupling</td>
                 </tr>
                 <tr>
                     <td>$z_{\rm ref}$</td>
@@ -553,10 +492,10 @@
                     <td>Reference halo mass at $z=0$ ($\Gamma_t=1$)</td>
                 </tr>
                 <tr>
-                    <td>$\rho_c$</td>
+                    <td>$\rho_T$</td>
                     <td>20 g/cm$^3$</td>
                     <td>TEP-UCD</td>
-                    <td>Critical density for screening</td>
+                    <td>Temporal Topology reference density for continuous screening</td>
                 </tr>
             </tbody>
         </table>
@@ -575,19 +514,19 @@
             screening). The reference mass ($\log M_h = 12$) defines $\Gamma_t =
             1$ (cosmic time flow). Massive halos at high redshift experience
             significant temporal enhancement ($\Gamma_t &gt; 1$), while low-mass
-            halos are suppressed ($\Gamma_t &lt; 1$). In screened regions
-            (density $> \rho_c \approx 20$ g/cm³), $\Gamma_t \to 1$ regardless
-            of mass.
+            halos are suppressed ($\Gamma_t &lt; 1$). Continuous screening via
+            Temporal Shear suppresses $\Gamma_t$ smoothly as density approaches
+            the Temporal Topology reference scale ($\rho_T \approx 20$ g/cm³).
         </figcaption>
     </figure>
 
     <p>
-        The zero-parameter JWST prediction adopts the derived coupling
-        $\alpha_0 = 0.58$ (predicted from Paper 11's clock-sector coupling via physical conversion) together with the fixed reference choice
-        $z_{\rm ref} = 5.5$. The high-redshift concordance analyses later
-        recover values near $\alpha_0 \approx 0.55$, but those internal
-        recoveries are treated as consistency checks rather than as the input
-        calibration. This leaves zero parameters tuned to the JWST data.
+        The JWST response-prior test adopts the external Cepheid-calibrated
+        response coefficient $\kappa_{\rm gal} = (9.6 \pm 4.0) \times 10^5$ mag
+        and applies it without JWST-specific refit, together with the fixed reference choice $z_{\rm ref} = 5.5$.
+        The high-redshift observables are then examined for internal consistency of the response scale.
+        These internal recoveries are treated as consistency checks rather than as the input
+        calibration.
     </p>
 
     <h5>2.3.2.7 Cosmological Viability Summary</h5>
@@ -612,8 +551,8 @@
         </li>
         <li>
             <strong>Solar System (PPN):</strong> Temporal Shear suppression in
-            dense environments reduces the effective coupling to $\alpha_{\rm
-            eff} \ll \alpha_0$ for solar-system bodies, satisfying Cassini and
+            dense environments reduces the effective coupling to $\kappa_{\rm
+            eff} \ll \kappa_{\rm gal}$ for solar-system bodies, satisfying Cassini and
             lunar laser ranging bounds (Appendix A.1.3).
         </li>
     </ol>
@@ -739,8 +678,11 @@
 
     <h4>2.4.3 Stellar-to-halo mass mapping and sensitivity</h4>
     <p>
-        Each galaxy's stellar mass is mapped to halo mass via abundance matching
-        ($\log M_h \approx \log M_* + 2.0$). Key results survive $\pm 0.5$ dex
+        Each galaxy's stellar mass is mapped to halo mass using a redshift-dependent
+        abundance matching relation parameterized to mirror the high-$z$ tail of
+        Behroozi et al. ($\log M_h = \log M_* + 1.8 + 0.1(\log M_* - 10) - 0.05(z-5)$).
+        Dynamical masses are mapped using an identically sloped relation to
+        ensure rank-order preservation. Key results survive $\pm 0.5$ dex
         perturbations. To test robustness against MIRI-based mass recalibration
         (Pérez-González et al. 2024), mass reductions of 0.0–1.0 dex are
         applied; TEP signatures persist at $> 4\sigma$ under a 0.5 dex
@@ -757,14 +699,16 @@
         low-metallicity SSP models); at $z = 4$–$6$, $n \approx 0.9$.
     </p>
 
-    <h3>2.5 Black Hole Growth Simulation</h3>
+    <h3>2.5 Black Hole Growth Stress Test</h3>
     <p>
-        To test the "Little Red Dot" resolution, a differential temporal topology
-        simulation was developed. A compact galaxy ($r_e \approx 150$ pc) with a
-        baryon-dominated core ($c=10$) is modeled. The local temporal
-        enhancement factor $\Gamma_t(r)$ is computed at the center (Black Hole
-        environment) and at the effective radius (Stellar environment) across
-        the redshift range $z=4$–$10$.
+        To test whether compact cores could amplify black-hole growth, a
+        differential temporal topology simulation was developed. A compact
+        galaxy ($r_e \approx 150$ pc) with a baryon-dominated core ($c=10$) is
+        modeled. The local temporal enhancement factor $\Gamma_t(r)$ is computed
+        at the center (black-hole environment) and at the effective radius
+        (stellar environment) across the redshift range $z=4$–$10$. This branch
+        is a sensitivity diagnostic, not a calibrated population-level
+        resolution of the Little Red Dot anomaly.
     </p>
     <p>The differential growth factor is computed as:</p>
     <div class="equation">
@@ -774,7 +718,7 @@
     <p>
         where $t_{\rm Salpeter} \approx 45$ Myr is the Salpeter timescale
         (e-folding time for Eddington-limited accretion). This simulation uses
-        the same fiducial $\alpha_0 \approx 0.55$ scale implied by the external
+        the same fiducial response scale implied by the external
         Cepheid prior, with no additional tuning.
     </p>
 

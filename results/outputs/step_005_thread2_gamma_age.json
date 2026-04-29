@@ -1,21 +1,21 @@
 {
   "test": "Thread 2: \u0393_t vs Age Ratio",
   "n": 2315,
-  "raw_rho": 0.019377853966021305,
-  "raw_p": 0.35136822260136824,
-  "partial_rho": 0.07229474213217335,
-  "partial_p": 0.0004993618150221883,
+  "raw_rho": -0.006035944296748368,
+  "raw_p": 0.7716158733152128,
+  "partial_rho": 0.0888111567564881,
+  "partial_p": 1.8752440464814808e-05,
   "ci_95": [
-    0.02426834077873719,
-    0.11631712125628725
+    0.036753567558913555,
+    0.14045189223892135
   ],
-  "partial_rho_double": -0.07442210709326635,
-  "partial_p_double": 0.0003386117430860236,
+  "partial_rho_double": 0.005655432256096388,
+  "partial_p_double": 0.7856503102499947,
   "ci_95_double": [
-    -0.11897427191270338,
-    -0.030097982377421627
+    -0.045017639321153304,
+    0.05714122366531681
   ],
   "significant": true,
-  "significant_double": true,
+  "significant_double": false,
   "interpretation": "Enhanced time \u2192 older appearance"
 }

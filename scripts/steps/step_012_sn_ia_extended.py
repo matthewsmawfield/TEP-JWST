@@ -69,9 +69,11 @@ TEP_H0_DATA = PROJECT_ROOT.parent / "TEP-H0" / "data" / "raw" / "Pantheon+SH0ES.
 # Note: TEPLogger is initialized above via set_step_logger()
 
 # =============================================================================
-# TEP PARAMETERS (from TEP-H0)
+# TEP PARAMETERS (from TEP-H0, Paper 11 v0.6)
 # =============================================================================
-ALPHA_TEP = 0.58
+# Canonical magnitude-sector formula: Δμ = κ_gal · (σ² - σ_ref²) / c²
+# with κ_gal = (9.6 ± 4.0) × 10⁵ mag, σ_ref = 75.25 km/s (SH0ES anchors).
+# This step performs empirical tests; predictions use the canonical kernel.
 SIGMA_REF = 75.25  # km/s
 MASS_THRESHOLD = 10.0  # log(M*/Msun)
 
@@ -131,8 +133,8 @@ def analyze_mass_step_redshift_evolution(df):
     TEP prediction:
       At higher z, galaxies are on average denser and more compact,
       so velocity dispersions (and hence TEP corrections) are larger.
-      The mass step Delta_mu = alpha * log10(sigma_high / sigma_low)
-      should therefore INCREASE with redshift.
+      The mass step Δμ_step = (κ_gal/c²) · (σ_high² - σ_low²)
+      should therefore INCREASE with redshift (canonical Paper 11 v0.6).
 
     Method:
       Compute the binary mass step (high - low mass mean Hubble residual)

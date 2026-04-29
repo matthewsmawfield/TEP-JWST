@@ -31,7 +31,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
 from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300) & JSON serialiser for numpy types
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma, ALPHA_0  # TEP model: Gamma_t formula, alpha_0=0.58 (Cepheid-calibrated)
+from scripts.utils.tep_model import compute_gamma_t as tep_gamma, KAPPA_GAL  # TEP model: Gamma_t formula, KAPPA_GAL=9.6e5 mag (Cepheid-calibrated)
 
 STEP_NUM = "057"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "adversarial_tests"  # Adversarial tests: 5 null tests evaluating TEP robustness (random Gamma, wrong sign, shuffled z, alternative models, redshift confounding)
@@ -127,13 +127,13 @@ def main():
     
     if len(high_z) > 50:
         # Compute Gamma_t with negative alpha
-        gamma_wrong = tep_gamma(high_z['log_Mh'].values, high_z['z_phot'].values, alpha_0=-ALPHA_0)
+        gamma_wrong = tep_gamma(high_z['log_Mh'].values, high_z['z_phot'].values, kappa=-KAPPA_GAL)
         
         rho_wrong, p_wrong = spearmanr(gamma_wrong, high_z['dust'])
         rho_right, p_right = spearmanr(high_z['gamma_t'], high_z['dust'])
         
-        print_status(f"Correlation with theoretically motivated α = +{ALPHA_0:.2f}: ρ = {rho_right:.3f}", "INFO")
-        print_status(f"Correlation with inverted coupling α = -{ALPHA_0:.2f}: ρ = {rho_wrong:.3f}", "INFO")
+        print_status(f"Correlation with theoretically motivated α = +{KAPPA_GAL:.2f}: ρ = {rho_right:.3f}", "INFO")
+        print_status(f"Correlation with inverted coupling α = -{KAPPA_GAL:.2f}: ρ = {rho_wrong:.3f}", "INFO")
         
         if rho_wrong < 0 and rho_right > 0:
             print_status("\n-> The correlation responds predictably to structural model inversion.", "INFO")
@@ -156,7 +156,7 @@ def main():
         
         # Recompute Gamma_t with shuffled z
         shuffled_z = np.random.permutation(high_z['z_phot'].values)
-        gamma_shuffled = tep_gamma(high_z['log_Mh'].values, shuffled_z, alpha_0=ALPHA_0)
+        gamma_shuffled = tep_gamma(high_z['log_Mh'].values, shuffled_z, kappa=KAPPA_GAL)
         
         rho_shuffled, p_shuffled = spearmanr(gamma_shuffled, high_z['dust'])
         rho_real, p_real = spearmanr(high_z['gamma_t'], high_z['dust'])

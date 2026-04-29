@@ -1,14 +1,14 @@
-[14:23:37]     Loading Data...
-[14:23:37]     Loaded 34 sources.
-[14:23:37]     Bin        | N     | Rho      | P-value    | Mean AgeRatio   | Mean Gamma     
-[14:23:37]     --------------------------------------------------------------------------------
-[14:23:37]     z6_8       | 13    | +0.940    | 1.88e-06     | 0.359           | 0.901
-[14:23:37]     z8_plus    | 21    | +0.888    | 7.62e-08     | 0.330           | 0.890
-[14:23:37]     full       | 34    | +0.856    | 1.12e-10     | 0.341           | 0.894
-[14:23:37]     
+[10:01:58]     Loading Data...
+[10:01:58]     Loaded 34 sources.
+[10:01:58]     Bin        | N     | Rho      | P-value    | Mean AgeRatio   | Mean Gamma     
+[10:01:58]     --------------------------------------------------------------------------------
+[10:01:58]     z6_8       | 13    | +0.819    | 6.21e-04     | 0.359           | 0.561
+[10:01:58]     z8_plus    | 21    | +0.627    | 2.34e-03     | 0.330           | 0.544
+[10:01:58]     full       | 34    | +0.550    | 7.49e-04     | 0.341           | 0.550
+[10:01:58]     
 --- Checking Simpson's Paradox (Z-score Normalization) ---
-[14:23:37]     Global correlation (Raw): rho = 0.856
-[14:23:37]     Global correlation (Bin-Normalized): rho = 0.922, p = 9.68e-15
-[14:23:37]     
+[10:01:58]     Global correlation (Raw): rho = 0.550
+[10:01:58]     Global correlation (Bin-Normalized): rho = 0.710, p = 2.60e-06
+[10:01:58]     
 CONCLUSION: Mixed Signals.
-[14:23:37]     Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_036_spectroscopic_refinement.json
+[10:01:58]     Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_036_spectroscopic_refinement.json

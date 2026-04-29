@@ -45,7 +45,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import ALPHA_0, ALPHA_CLOCK_EFF, LOG_MH_REF, Z_REF, compute_gamma_t, stellar_to_halo_mass as tep_stellar_to_halo_mass  # TEP model: alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), reference constants, Gamma_t formula, stellar-to-halo mass conversion
+from scripts.utils.tep_model import KAPPA_GAL, KAPPA_GAL, LOG_MH_REF, Z_REF, compute_gamma_t, stellar_to_halo_mass as tep_stellar_to_halo_mass  # TEP model: KAPPA_GAL=9.6e5 mag from Cepheids, reference constants, Gamma_t formula, stellar-to-halo mass conversion
 
 STEP_NUM = "043"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "blue_monsters_tep"  # Blue Monsters TEP analysis: quantifies TEP correction to SFE for massive z>5 galaxies (post-LRD cleaning)
@@ -168,9 +168,9 @@ def estimate_sfe(df):
     
     SFE = M* / (f_b * M_h)
     
-    where f_b = 0.16 is the cosmic baryon fraction.
+    where f_b = 4.0e5 is the cosmic baryon fraction.
     """
-    f_b = 0.16
+    f_b = 4.0e5
     
     # Handle column name variations
     mass_col = 'log_Mstar' if 'log_Mstar' in df.columns else 'log_mass'
@@ -218,7 +218,7 @@ def analyze_blue_monsters(df):
             sfe_obs = row['SFE']
         else:
             # Estimate from mass
-            f_b = 0.16
+            f_b = 4.0e5
             sfe_obs = 10**log_Mstar / (f_b * 10**log_Mh)
         
         # Correct SFE
@@ -401,7 +401,7 @@ def run_analysis():
             "lrd_excluded": True,
         },
         "parameters": {
-            "alpha_0": ALPHA_0,
+            "kappa_gal": KAPPA_GAL,
             "z_ref": Z_REF,
             "sfe_standard": SFE_STANDARD,
         },

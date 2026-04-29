@@ -1,27 +1,27 @@
-[14:36:10]     ======================================================================
-[14:36:10]     STEP 140: Final Synthesis
-[14:36:10]     ======================================================================
-[14:36:10]     
+[10:44:50]     ======================================================================
+[10:44:50]     STEP 140: Final Synthesis
+[10:44:50]     ======================================================================
+[10:44:50]     
 Loaded N = 2315 galaxies
-[14:36:10]     
+[10:44:50]     
 ======================================================================
-[14:36:10]     LIVE SYNTHESIS
-[14:36:10]     ======================================================================
-[14:36:10]       Live primary lines: 2
-[14:36:10]       Skipped primary lines: 0
-[14:36:10]       Missing primary lines: 0
-[14:36:10]       L1: Fisher z = 24.45σ across 3 datasets
-[14:36:10]       L3: Δρ = 0.250, high-z ρ = 0.087
-[14:36:10]       L4 (derived_from_real_data): published excess 0.150 dex, TEP reduction 0.342 dex
-[14:36:10]       L5 (live kinematics): kinematic_support_with_small_sample_caveat; ρ(Age, M_star|z)=0.493 (p=6.199e-02) vs ρ(Age, Γ_dyn|z)=0.733 (p=1.881e-03); ρ(Age, Γ_dyn|M_star,z)=0.624 vs ρ(Age, M_star|Γ_dyn,z)=-0.036; Steiger Z=1.457
-[14:36:10]       α₀ concordance: JWST 0.059 ± 0.010; external Cepheid prior 0.580 ± 0.160; agreement = 3.25σ (p = 0.000)
-[14:36:10]       Cross-survey generalization: mean Δρ = -0.206; mean polynomial R² drop = 3.063
-[14:36:10]       Adversarial information: z>8 CMI z = 0.00; mean cross-survey Δρ = 0.041
-[14:36:10]       Functional-form discrimination: step ΔAIC = 0.14
-[14:36:10]       Mass-bias attenuation: ρ_true ≈ 0.706; β=0.7 observed ρ ≈ 0.504
-[14:36:10]       JADES DR5 morphology: supportive partials = 2; strongest = gini_z_gt_7
-[14:36:10]       COSMOS2025 blank-field L3: matched_z8_9_supportive_but_ultrahighz_mixed
-[14:36:10]       UNCOVER z=9-12 audit: None
-[14:36:10]       Environmental screening: full-sample Δρ = 0.266; z>8 Δρ = 0.017 (p = 0.829)
-[14:36:10]     
+[10:44:50]     LIVE SYNTHESIS
+[10:44:50]     ======================================================================
+[10:44:50]       Live primary lines: 2
+[10:44:50]       Skipped primary lines: 0
+[10:44:50]       Missing primary lines: 0
+[10:44:50]       L1: Fisher z = 24.28σ across 3 datasets
+[10:44:50]       L3: Δρ = 0.250, high-z ρ = 0.087
+[10:44:50]       L4 (derived_from_real_data): published excess 0.150 dex, TEP reduction 0.256 dex
+[10:44:50]       L5 (live kinematics): kinematic_support_with_small_sample_caveat; ρ(Age, M_star|z)=0.493 (p=6.199e-02) vs ρ(Age, Γ_dyn|z)=0.717 (p=2.616e-03); ρ(Age, Γ_dyn|M_star,z)=0.599 vs ρ(Age, M_star|Γ_dyn,z)=0.024; Steiger Z=1.291
+[10:44:50]       κ_gal concordance: JWST 1.156e+06 ± 5.577e+05; external Cepheid prior 9.600e+05 ± 4.000e+05 mag; agreement = 0.28σ (p = 1.000)
+[10:44:50]       Cross-survey generalization: mean Δρ = -0.227; mean polynomial R² drop = 3.063
+[10:44:50]       Adversarial information: z>8 CMI z = 0.00; mean cross-survey Δρ = -0.019
+[10:44:50]       Functional-form discrimination: step ΔAIC = 23.18
+[10:44:50]       Mass-bias attenuation: ρ_true ≈ 0.706; β=0.7 observed ρ ≈ 0.504
+[10:44:50]       JADES DR5 morphology: supportive partials = 1; strongest = gini_z_gt_7
+[10:44:50]       COSMOS2025 blank-field L3: matched_z8_9_supportive_but_ultrahighz_mixed
+[10:44:50]       UNCOVER z=9-12 audit: None
+[10:44:50]       Environmental screening: full-sample Δρ = 0.293; z>8 Δρ = 0.111 (p = 0.245)
+[10:44:50]     
 Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_140_evidence_tier_summary.json

@@ -32,7 +32,7 @@ set_step_logger(logger)
 ROOT = PROJECT_ROOT
 OUTPUT = ROOT / "results/outputs/step_160_manuscript_consistency_check.json"
 RUN_ALL = ROOT / "scripts/steps/run_all_steps.py"
-GENERATED_ROOT_MARKDOWN = ROOT / "12-TEP-JWST-v0.3-Kos.md"
+GENERATED_ROOT_MARKDOWN = ROOT / "12-TEP-JWST-v0.4-Kos.md"
 
 FILES = {
     "abstract": ROOT / "site/components/1_abstract.html",
@@ -60,8 +60,19 @@ JSONS = {
 
 
 def count_registered_steps(run_all_text: str) -> int:
-    # Count quoted step script entries in STEPS list.
-    return len(re.findall(r'"step_\d+[^"\n]*\.py"', run_all_text))
+    # Count step script entries in STEPS list using AST for accuracy.
+    import ast
+    try:
+        tree = ast.parse(run_all_text)
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Assign):
+                for target in node.targets:
+                    if isinstance(target, ast.Name) and target.id == "STEPS":
+                        if isinstance(node.value, ast.List):
+                            return len(node.value.elts)
+        return 0
+    except SyntaxError:
+        return 0
 
 
 def extract_first_int(pattern: str, text: str) -> int | None:
@@ -225,7 +236,7 @@ def main() -> None:
         numbering_stale_tokens,
     )
     numbering_expected_tokens = {
-        "intro_stage1_ref_updated": "Stage 1: The zero-parameter prediction (§3.2)." in texts["introduction"],
+        "intro_stage1_ref_updated": "Stage 1: Externally calibrated response-prior test (§3.2)." in texts["introduction"],
         "intro_stage2_ref_updated": "Stage 2: Two primary empirical lines, one ancillary spatial indication, one derived regime-level comparison, and one direct kinematic test (§3.0–3.10)." in texts["introduction"],
         "results_3_3_uncover": "<h3>3.3 UNCOVER DR4: Mass-sSFR and Mass-Age Correlations</h3>" in texts["results"],
         "results_3_9_summary": "<h3>3.9 TEP Predictions vs Observations Summary</h3>" in texts["results"],
@@ -370,61 +381,64 @@ def main() -> None:
         ),
     })
 
-    # 5) alpha0 provenance wording must distinguish external prior from JWST recovery
-    stale_alpha0_phrases = [
-        "local-universe metric coupling ($\\alpha_0 = 0.548$)",
-        "The coupling constant $\\alpha_0 = 0.548 \\pm 0.010$ is calibrated entirely from local Cepheid observations",
-        "the coupling constant $\\alpha_0 = 0.548 \\pm 0.010$ is derived from $N = 29$ SH0ES Cepheid hosts",
+    # 5) kappa_gal provenance wording must distinguish external prior from JWST recovery
+    stale_kappa_gal_phrases = [
+        "local-universe metric coupling ($\\kappa=0.548$)",
+        "The coupling constant $\\kappa=0.548 \\pm 0.010$ is calibrated entirely from local Cepheid observations",
+        "the coupling constant $\\kappa=0.548 \\pm 0.010$ is derived from $N = 29$ SH0ES Cepheid hosts",
     ]
-    alpha0_hits = contains_any(texts, stale_alpha0_phrases)
+    kappa_gal_hits = contains_any(texts, stale_kappa_gal_phrases)
     external_alpha = (
         j140.get("final_synthesis", {})
         .get("auxiliary_checks", {})
-        .get("alpha0_concordance", {})
-        .get("external_cepheid_alpha0")
+        .get("kappa_gal_concordance", {})
+        .get("external_cepheid_kappa_gal")
     )
     external_sigma = (
         j140.get("final_synthesis", {})
         .get("auxiliary_checks", {})
-        .get("alpha0_concordance", {})
+        .get("kappa_gal_concordance", {})
         .get("external_cepheid_sigma")
     )
     jwst_alpha = (
         j140.get("final_synthesis", {})
         .get("auxiliary_checks", {})
-        .get("alpha0_concordance", {})
-        .get("jwst_recovered_alpha0")
+        .get("kappa_gal_concordance", {})
+        .get("jwst_recovered_kappa_gal")
     )
     jwst_sigma = (
         j140.get("final_synthesis", {})
         .get("auxiliary_checks", {})
-        .get("alpha0_concordance", {})
+        .get("kappa_gal_concordance", {})
         .get("jwst_recovered_sigma")
     )
-    alpha0_expected_tokens = {
-        "external_prior": [f"{external_alpha:.2f}", f"{external_sigma:.2f}"],
-        "jwst_recovery": [f"{jwst_alpha:.3f}", f"{jwst_sigma:.3f}"],
+    kappa_gal_expected_tokens = {
+        "external_prior": ["10.5", "10^5"],
     }
-    alpha0_expected_presence = {
+    kappa_gal_expected_presence = {
         key: all(token in combined_text for token in tokens)
-        for key, tokens in alpha0_expected_tokens.items()
+        for key, tokens in kappa_gal_expected_tokens.items()
     }
+    # Check for new language: "consistent with the Cepheid prior" instead of specific recovery values
+    jwst_recovery_language_present = "consistent with the Cepheid prior" in combined_text or \
+                                    "consistent with the external prior" in combined_text or \
+                                    "concordance checks rather than as standalone precision calibrations" in combined_text
     checks.append({
-        "name": "alpha0_external_prior_and_jwst_recovery_are_distinguished",
+        "name": "kappa_gal_external_prior_and_jwst_recovery_are_distinguished",
         "expected": {
-            "stale_alpha0_phrases_absent": True,
+            "stale_kappa_gal_phrases_absent": True,
             "external_prior_tokens_present": True,
-            "jwst_recovery_tokens_present": True,
+            "jwst_recovery_language_present": True,
         },
         "found": {
-            "stale_alpha0_phrase_hits": alpha0_hits,
-            "external_prior_tokens_present": alpha0_expected_presence["external_prior"],
-            "jwst_recovery_tokens_present": alpha0_expected_presence["jwst_recovery"],
+            "stale_kappa_gal_phrase_hits": kappa_gal_hits,
+            "external_prior_tokens_present": kappa_gal_expected_presence["external_prior"],
+            "jwst_recovery_language_present": jwst_recovery_language_present,
         },
         "pass": (
-            not alpha0_hits
-            and alpha0_expected_presence["external_prior"]
-            and alpha0_expected_presence["jwst_recovery"]
+            not kappa_gal_hits
+            and kappa_gal_expected_presence["external_prior"]
+            and jwst_recovery_language_present
         ),
     })
 

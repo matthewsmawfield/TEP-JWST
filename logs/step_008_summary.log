@@ -1,24 +1,24 @@
-[14:23:06]     ============================================================
-[14:23:06]     STEP 11: Summary - The Seven Threads
-[14:23:06]     ============================================================
-[14:23:06] 
-[14:23:06]     Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_008_summary.json
-[14:23:06]     Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_008_seven_threads_summary.md
-[14:23:06] 
-[14:23:06]     ============================================================
-[14:23:06]     THE SEVEN THREADS
-[14:23:06]     ============================================================
-[14:23:06] 
-[14:23:06]       z > 7 Mass-sSFR Inversion: ✓
-[14:23:06]       Γ_t vs Age Ratio: ✓
-[14:23:06]       Γ_t vs Metallicity: ✓
-[14:23:06]       Γ_t vs Dust: ✓
-[14:23:06]       z > 8 Dust Anomaly: ✓
-[14:23:06]       Age-Metallicity Coherence: ✓
-[14:23:06]       Multi-Property Split: ✓
-[14:23:06] 
-[14:23:06]     Threads significant: 7/7
-[14:23:06] 
-[14:23:06]     ★ ALL THREADS CONFIRMED ★
-[14:23:06] 
-[14:23:06]     Step 008 complete.
+[10:01:26]     ============================================================
+[10:01:26]     STEP 11: Summary - The Seven Threads
+[10:01:26]     ============================================================
+[10:01:26] 
+[10:01:26]     Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_008_summary.json
+[10:01:26]     Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_008_seven_threads_summary.md
+[10:01:26] 
+[10:01:26]     ============================================================
+[10:01:26]     THE SEVEN THREADS
+[10:01:26]     ============================================================
+[10:01:26] 
+[10:01:26]       z > 7 Mass-sSFR Inversion: ✓
+[10:01:26]       Γ_t vs Age Ratio: ✓
+[10:01:26]       Γ_t vs Metallicity: ✓
+[10:01:26]       Γ_t vs Dust: ✓
+[10:01:26]       z > 8 Dust Anomaly: ✓
+[10:01:26]       Age-Metallicity Coherence: ✓
+[10:01:26]       Multi-Property Split: ✓
+[10:01:26] 
+[10:01:26]     Threads significant: 7/7
+[10:01:26] 
+[10:01:26]     ★ ALL THREADS CONFIRMED ★
+[10:01:26] 
+[10:01:26]     Step 008 complete.

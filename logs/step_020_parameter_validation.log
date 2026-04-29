@@ -1,57 +1,59 @@
-[14:23:21]     ======================================================================
-[14:23:21]     STEP 20: PARAMETER VALIDATION
-[14:23:21]     ======================================================================
-[14:23:21] 
-[14:23:21]     Validating TEP coupling α_eff = 9.6×10⁵ mag
-[14:23:21]     
+[10:01:42]     ======================================================================
+[10:01:42]     STEP 20: PARAMETER VALIDATION
+[10:01:42]     ======================================================================
+[10:01:42] 
+[10:01:42]     Validating TEP coupling α_eff = 9.6×10⁵ mag
+[10:01:42]     
 Sample size: N = 2315
-[14:23:21]     
+[10:01:42]     
 ==================================================
-[14:23:21]     THE SEVEN CONFIRMATIONS
-[14:23:21]     ==================================================
-[14:23:21]     
-1. χ² anomaly: ρ = 0.213 (p = 2.89e-25) ✓
-[14:23:21]     2. Dust correlation: ρ = -0.084 (p = 5.01e-05) ✓
-[14:23:21]     4. Regime separation: KS = 0.237 (p = 3.74e-12) ✓
-[14:23:21]     5. Mass-independent: ρ = 0.154 (p = 1.33e-09) ✓
-[14:23:21]     
-Evidence confirmed: 4/7
-[14:23:21]     
+[10:01:42]     THE SEVEN CONFIRMATIONS
+[10:01:42]     ==================================================
+[10:01:42]     
+1. χ² anomaly: ρ = 0.234 (p = 3.97e-30) ✓
+[10:01:42]     2. Dust correlation: ρ = -0.259 (p = 1.16e-36) ✓
+[10:01:42]     3. Metallicity correlation: ρ = -0.133 (p = 1.40e-10) ✓
+[10:01:42]     4. Regime separation: KS = 0.430 (p = 2.48e-04) ✓
+[10:01:42]     5. Mass-independent: ρ = 0.180 (p = 1.26e-12) ✓
+[10:01:42]     7. t_eff threshold: 1.7× ratio (p = 2.07e-06) ✓
+[10:01:42]     
+Evidence confirmed: 6/7
+[10:01:42]     
 ==================================================
-[14:23:21]     ANOMALIES RESOLVED
-[14:23:21]     ==================================================
-[14:23:21]     
+[10:01:42]     ANOMALIES RESOLVED
+[10:01:42]     ==================================================
+[10:01:42]     
 1. 'Anomalous' massive galaxies at z > 8
-[14:23:21]        → Γ_t ~ 2 gives t_eff ~ 1000 Myr
-[14:23:21]     
+[10:01:42]        → Γ_t ~ 2 gives t_eff ~ 1000 Myr
+[10:01:42]     
 2. Elevated χ² in SED fitting
-[14:23:21]        → Isochrony assumption fails for high Γ_t
-[14:23:21]     
+[10:01:42]        → Isochrony assumption fails for high Γ_t
+[10:01:42]     
 3. Unexplained scatter in scaling relations
-[14:23:21]        → Γ_t is the hidden variable
-[14:23:21]     
+[10:01:42]        → Γ_t is the hidden variable
+[10:01:42]     
 4. Mass-dependent dust at high z
-[14:23:21]        → t_eff scales with mass via Γ_t
-[14:23:21]     
+[10:01:42]        → t_eff scales with mass via Γ_t
+[10:01:42]     
 5. Bimodality in galaxy properties
-[14:23:21]        → Enhanced vs suppressed regimes
-[14:23:21]     
+[10:01:42]        → Enhanced vs suppressed regimes
+[10:01:42]     
 ======================================================================
-[14:23:21]     PARAMETER VALIDATION SUMMARY
-[14:23:21]     ======================================================================
-[14:23:21] 
-[14:23:21]     Validated coupling: α_eff = 9.6×10⁵ mag
-[14:23:21] 
-[14:23:21]     This single number, calibrated from LOCAL Cepheids,
-[14:23:21]     accounts for multiple high-z observations.
-[14:23:21] 
-[14:23:21]     The TEP equation:
-[14:23:21] 
-[14:23:21]       Γ_t = exp[ K × (Φ - Φ_ref)/c² × √(1+z) ]
-[14:23:21]       where K = 1.26×10⁶ (from α_eff = 9.6×10⁵ mag)
-[14:23:21] 
-[14:23:21]     Parameter validation complete.
-[14:23:21] 
-[14:23:21]     Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_020_parameter_validation.json
-[14:23:21] 
-[14:23:21]     Step 020 complete.
+[10:01:42]     PARAMETER VALIDATION SUMMARY
+[10:01:42]     ======================================================================
+[10:01:42] 
+[10:01:42]     Validated coupling: α_eff = 9.6×10⁵ mag
+[10:01:42] 
+[10:01:42]     This single number, calibrated from LOCAL Cepheids,
+[10:01:42]     accounts for multiple high-z observations.
+[10:01:42] 
+[10:01:42]     The TEP equation:
+[10:01:42] 
+[10:01:42]       Γ_t = exp[ K × (Φ - Φ_ref)/c² × √(1+z) ]
+[10:01:42]       where K = 1.26×10⁶ (from α_eff = 9.6×10⁵ mag)
+[10:01:42] 
+[10:01:42]     Parameter validation complete.
+[10:01:42] 
+[10:01:42]     Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_020_parameter_validation.json
+[10:01:42] 
+[10:01:42]     Step 020 complete.

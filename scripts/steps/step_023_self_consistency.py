@@ -46,7 +46,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
-from scripts.utils.tep_model import ALPHA_0, compute_gamma_t as tep_gamma  # Shared TEP model & coupling constant
+from scripts.utils.tep_model import KAPPA_GAL, compute_gamma_t as tep_gamma  # Shared TEP model & coupling constant
 
 STEP_NUM = "023"  # Pipeline step number
 STEP_NAME = "self_consistency"  # Used in log / output filenames
@@ -100,7 +100,7 @@ def analyze_self_consistency(df):
     valid = df.dropna(subset=['log_Mhalo', 'z', 'age_ratio', 'mwa_Gyr', 't_eff_Gyr'])
     
     def compute_gamma(alpha):
-        return tep_gamma(valid['log_Mhalo'].values, valid['z'].values, alpha_0=alpha)
+        return tep_gamma(valid['log_Mhalo'].values, valid['z'].values, kappa=alpha)
     
     # Optimize α to minimize scatter in different observables
     targets = {
@@ -237,7 +237,7 @@ def analyze_bootstrap_test(df):
     
     # Calibrate α on train set
     def compute_gamma(alpha, data):
-        return tep_gamma(data['log_Mhalo'].values, data['z'].values, alpha_0=alpha)
+        return tep_gamma(data['log_Mhalo'].values, data['z'].values, kappa=alpha)
     
     def objective(alpha):
         gamma = compute_gamma(alpha, train)
@@ -306,7 +306,7 @@ def analyze_redshift_ladder(df):
         bin_data = valid[(valid['z'] >= z_lo) & (valid['z'] < z_hi)]
         if len(bin_data) >= 100:
             def objective(alpha):
-                gamma = tep_gamma(bin_data['log_Mhalo'].values, bin_data['z'].values, alpha_0=alpha)
+                gamma = tep_gamma(bin_data['log_Mhalo'].values, bin_data['z'].values, kappa=alpha)
                 corrected = bin_data['age_ratio'] / gamma
                 if corrected.mean() == 0: return np.inf
                 return corrected.std() / np.abs(corrected.mean())
@@ -321,15 +321,15 @@ def analyze_redshift_ladder(df):
     
     if len(z_centers) >= 3:
         # Fit power law: α = α_0 × (1+z)^β
-        def power_law(z, alpha_0, beta):
-            return alpha_0 * (1 + z) ** beta
+        def power_law(z, kappa_gal, beta):
+            return kappa_gal * (1 + z) ** beta
         
         try:
             alpha_z_est = [a * np.sqrt(1 + zc) for a, zc in zip(optimal_alphas, z_centers)]
-            popt, pcov = curve_fit(power_law, z_centers, alpha_z_est, p0=[ALPHA_0, 0.5])
-            alpha_0_fit, beta_fit = popt
+            popt, pcov = curve_fit(power_law, z_centers, alpha_z_est, p0=[KAPPA_GAL, 0.5])
+            kappa_gal_fit, beta_fit = popt
             
-            logger.info(f"\nPower law fit: α(z) = {alpha_0_fit:.3f} × (1+z)^{beta_fit:.3f}")
+            logger.info(f"\nPower law fit: α(z) = {kappa_gal_fit:.3f} × (1+z)^{beta_fit:.3f}")
             logger.info(f"TEP prediction: α(z) = α_0 × (1+z)^0.5")
             
             # How close is β to 0.5?
@@ -346,7 +346,7 @@ def analyze_redshift_ladder(df):
             return {
                 'z_centers': z_centers,
                 'optimal_alphas': optimal_alphas,
-                'alpha_0_fit': alpha_0_fit,
+                'kappa_gal_fit': kappa_gal_fit,
                 'beta_fit': beta_fit,
                 'beta_error': beta_error,
                 'scaling_correct': scaling_correct

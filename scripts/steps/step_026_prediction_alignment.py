@@ -32,7 +32,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
 from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
-from scripts.utils.tep_model import ALPHA_0, ALPHA_CLOCK_EFF, compute_gamma_t as tep_gamma  # TEP model: alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), Gamma_t formula
+from scripts.utils.tep_model import KAPPA_GAL, KAPPA_GAL, compute_gamma_t as tep_gamma  # TEP model: KAPPA_GAL=9.6e5 mag from Cepheids, Gamma_t formula
 
 STEP_NUM = "026"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "prediction_alignment"  # Tests TEP prediction-observation alignment via convergence, significance, and correction tests
@@ -78,7 +78,7 @@ def load_data():
         print_status("ERROR: jades_highz_physical.csv not found. Run step_014 first.", "ERROR")
         return None, None
     jades = pd.read_csv(_jades_path)
-    jades['gamma_t'] = tep_gamma(jades['log_Mhalo'].values, jades['z_best'].values, alpha_0=ALPHA_0)
+    jades['gamma_t'] = tep_gamma(jades['log_Mhalo'].values, jades['z_best'].values, kappa=KAPPA_GAL)
     jades['age_ratio'] = jades['t_stellar_Gyr'] / jades['t_cosmic_Gyr']
     
     return uncover, jades
@@ -94,7 +94,7 @@ def convergence_test(df):
     
     # Method 1: Scatter minimization
     def scatter_obj(alpha):
-        gamma = tep_gamma(valid['log_Mhalo'].values, valid['z'].values, alpha_0=alpha)
+        gamma = tep_gamma(valid['log_Mhalo'].values, valid['z'].values, kappa=alpha)
         return (valid['age_ratio'] / gamma).std()
     
     r1 = minimize_scalar(scatter_obj, bounds=(0.1, 3.0), method='bounded')
@@ -102,7 +102,7 @@ def convergence_test(df):
     
     # Method 2: Correlation maximization
     def corr_obj(alpha):
-        gamma = tep_gamma(valid['log_Mhalo'].values, valid['z'].values, alpha_0=alpha)
+        gamma = tep_gamma(valid['log_Mhalo'].values, valid['z'].values, kappa=alpha)
         corrected = valid['age_ratio'] / gamma
         rho, _ = stats.spearmanr(valid['log_Mstar'], corrected)
         return -abs(rho)
@@ -112,10 +112,10 @@ def convergence_test(df):
     
     logger.info(f"Method 1 (scatter min): α = {alpha_1:.3f}")
     logger.info(f"Method 2 (corr max): α = {alpha_2:.3f}")
-    logger.info(f"Calibrated: α = {ALPHA_0:.3f}")
+    logger.info(f"Calibrated: α = {KAPPA_GAL:.3f}")
     
     # Check convergence
-    alphas = [alpha_1, alpha_2, ALPHA_0]
+    alphas = [alpha_1, alpha_2, KAPPA_GAL]
     mean_alpha = np.mean(alphas)
     std_alpha = np.std(alphas)
     cv = std_alpha / mean_alpha

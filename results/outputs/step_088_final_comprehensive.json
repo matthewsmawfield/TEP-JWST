@@ -5,19 +5,19 @@
       {
         "category": "CRITICAL SIGNAL",
         "name": "t_eff vs t_cosmic",
-        "metric": "\u0394\u03c1 = +0.239",
+        "metric": "\u0394\u03c1 = +0.223",
         "significance": "\u2605\u2605\u2605\u2605\u2605"
       },
       {
         "category": "EXTREME ELEVATION",
         "name": "Massive z>8",
-        "metric": "2.4\u00d7 \u0393_t elevation",
+        "metric": "2.3\u00d7 \u0393_t elevation",
         "significance": "\u2605\u2605\u2605"
       },
       {
         "category": "EXTREME ELEVATION",
         "name": "Age paradox (>60%)",
-        "metric": "1.8\u00d7 \u0393_t elevation",
+        "metric": "1.7\u00d7 \u0393_t elevation",
         "significance": "\u2605\u2605\u2605"
       },
       {
@@ -29,38 +29,38 @@
       {
         "category": "CORRELATION",
         "name": "\u0393_t-Dust (z>8)",
-        "metric": "\u03c1 = +0.603",
-        "significance": "\u2605\u2605\u2605\u2605"
+        "metric": "\u03c1 = +0.471",
+        "significance": "\u2605\u2605\u2605"
       },
       {
         "category": "ROBUSTNESS",
         "name": "z>8 Dust (Mass Control)",
-        "metric": "\u03c1_part = 0.272",
-        "significance": "\u2605\u2605\u2605\u2605\u2605"
+        "metric": "\u03c1_part = 0.222",
+        "significance": "\u2605\u2605\u2605"
       },
       {
         "category": "CORRELATION",
         "name": "Mass-\u0393_t (z>9)",
-        "metric": "\u03c1 = +0.977",
+        "metric": "\u03c1 = +0.897",
         "significance": "\u2605\u2605\u2605\u2605"
       },
       {
         "category": "CORRELATION",
         "name": "Metallicity",
-        "metric": "\u03c1 = +0.332",
+        "metric": "\u03c1 = +0.315",
         "significance": "\u2605\u2605\u2605"
       },
       {
         "category": "UNIQUE PREDICTION",
         "name": "Null zone (z=4-5)",
-        "metric": "\u03c1 = 0.024",
+        "metric": "\u03c1 = 0.021",
         "significance": "\u2605\u2605\u2605\u2605"
       },
       {
         "category": "FALSIFICATION TEST",
         "name": "Compactness Verification (LRDs)",
-        "metric": "0.76\u00d7 stronger signal vs Mass-only",
-        "significance": "\u2605\u2605"
+        "metric": "1.31\u00d7 stronger signal vs Mass-only",
+        "significance": "\u2605\u2605\u2605\u2605\u2605"
       },
       {
         "category": "GR COMPATIBILITY",

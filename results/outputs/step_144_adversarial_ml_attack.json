@@ -107,28 +107,28 @@
         "n_features": 10,
         "models": {
           "GBR": {
-            "R2_mean": 0.2291837009316287,
-            "R2_std": 0.12611013400276175,
-            "RMSE_mean": 0.41088740596047246,
-            "RMSE_std": 0.036697394482760465,
-            "rho_mean": 0.3469602184085795,
-            "rho_std": 0.026984158144873597
+            "R2_mean": 0.22688062727687708,
+            "R2_std": 0.1466605764625627,
+            "RMSE_mean": 0.4109458907469068,
+            "RMSE_std": 0.04087912329212074,
+            "rho_mean": 0.36395152276393433,
+            "rho_std": 0.028337705062115567
           },
           "RF": {
-            "R2_mean": 0.2903001188204838,
-            "R2_std": 0.11951666874994087,
-            "RMSE_mean": 0.39493725032441207,
-            "RMSE_std": 0.04572677887589502,
-            "rho_mean": 0.39810538578551824,
-            "rho_std": 0.04514948764364664
+            "R2_mean": 0.28805229846802566,
+            "R2_std": 0.11360448651177128,
+            "RMSE_mean": 0.39572219247109,
+            "RMSE_std": 0.04425324303565562,
+            "rho_mean": 0.39685648695485376,
+            "rho_std": 0.041881739788548346
           },
           "Ridge": {
-            "R2_mean": 0.23492949215225992,
-            "R2_std": 0.12954262951659698,
-            "RMSE_mean": 0.41223710181155787,
-            "RMSE_std": 0.06303766938518654,
-            "rho_mean": 0.3944796489724619,
-            "rho_std": 0.06666473866631141
+            "R2_mean": 0.23576896616373397,
+            "R2_std": 0.12785194612297074,
+            "RMSE_mean": 0.4120219867693006,
+            "RMSE_std": 0.06260642141174531,
+            "rho_mean": 0.3949294114688468,
+            "rho_std": 0.06664000519753138
           }
         }
       },
@@ -152,28 +152,28 @@
         "n_features": 14,
         "models": {
           "GBR": {
-            "R2_mean": 0.5460793855376261,
-            "R2_std": 0.10509391675648713,
-            "RMSE_mean": 0.3165668695472471,
-            "RMSE_std": 0.05553242843685889,
-            "rho_mean": 0.6829719435253059,
-            "rho_std": 0.016793547534016198
+            "R2_mean": 0.5484763186100992,
+            "R2_std": 0.09306457841542225,
+            "RMSE_mean": 0.31508794777437066,
+            "RMSE_std": 0.04666754480757241,
+            "rho_mean": 0.6796426894847025,
+            "rho_std": 0.025206487095130584
           },
           "RF": {
-            "R2_mean": 0.5368757858003149,
-            "R2_std": 0.0760973929718091,
-            "RMSE_mean": 0.31921450253521355,
-            "RMSE_std": 0.03824990368672569,
-            "rho_mean": 0.6861108065955028,
-            "rho_std": 0.016957254686278518
+            "R2_mean": 0.542529173351344,
+            "R2_std": 0.07902102304438635,
+            "RMSE_mean": 0.31691321017491336,
+            "RMSE_std": 0.036899207443187185,
+            "rho_mean": 0.6870170378925441,
+            "rho_std": 0.01682148266358618
           },
           "Ridge": {
-            "R2_mean": 0.2866458605668646,
-            "R2_std": 0.11630562942766291,
-            "RMSE_mean": 0.39771479009553035,
-            "RMSE_std": 0.05758508406514516,
-            "rho_mean": 0.46652954552708775,
-            "rho_std": 0.04652178489398974
+            "R2_mean": 0.28481899611127953,
+            "R2_std": 0.1185791615732333,
+            "RMSE_mean": 0.3982461006162226,
+            "RMSE_std": 0.05843102487806355,
+            "rho_mean": 0.4665135620319205,
+            "rho_std": 0.0466028724089898
           }
         }
       },
@@ -185,28 +185,28 @@
         "n_features": 2,
         "models": {
           "GBR": {
-            "R2_mean": -0.053210574633257623,
-            "R2_std": 0.047751358811033165,
-            "RMSE_mean": 0.4838865863291811,
-            "RMSE_std": 0.047183454718793615,
-            "rho_mean": 0.22908425947242975,
-            "rho_std": 0.04532073723982749
+            "R2_mean": -0.04889031446208749,
+            "R2_std": 0.11386266872449177,
+            "RMSE_mean": 0.48220475423445386,
+            "RMSE_std": 0.05420778906259744,
+            "rho_mean": 0.3280671767307854,
+            "rho_std": 0.048509490306134044
           },
           "RF": {
-            "R2_mean": 0.06205757062116533,
-            "R2_std": 0.03870181327757684,
-            "RMSE_mean": 0.4566232853681482,
-            "RMSE_std": 0.04453012683835017,
-            "rho_mean": 0.25647471419104045,
-            "rho_std": 0.04030136866083156
+            "R2_mean": 0.080576246173427,
+            "R2_std": 0.08412752527186164,
+            "RMSE_mean": 0.451685888491263,
+            "RMSE_std": 0.04864767540132765,
+            "rho_mean": 0.3493543850292765,
+            "rho_std": 0.05158935803132671
           },
           "Ridge": {
-            "R2_mean": -0.05839649175223989,
-            "R2_std": 0.22271973206702717,
-            "RMSE_mean": 0.48540075582437003,
-            "RMSE_std": 0.08726801904535222,
-            "rho_mean": -0.19969725664221827,
-            "rho_std": 0.04552328587322169
+            "R2_mean": -0.015124699384544704,
+            "R2_std": 0.05805403913574412,
+            "RMSE_mean": 0.47563050300134596,
+            "RMSE_std": 0.053899066316125954,
+            "rho_mean": 0.005047810236981287,
+            "rho_std": 0.29605712238168513
           }
         }
       },
@@ -277,22 +277,22 @@
     },
     "gamma_t_lift": {
       "R2_without_gamma_t": 0.5624697330275908,
-      "R2_with_gamma_t": 0.5460793855376261,
-      "delta_R2": -0.016390347489964707,
+      "R2_with_gamma_t": 0.5484763186100992,
+      "delta_R2": -0.01399341441749169,
       "assessment": "redundant_within_survey",
-      "interpretation": "Adding Gamma_t to GBR with 12 features changes R\u00b2 by -0.0164. Gamma_t is largely redundant for within-survey prediction once the flexible model already has many standard features, but this does not weigh against the cross-survey and conditional-information tests."
+      "interpretation": "Adding Gamma_t to GBR with 12 features changes R\u00b2 by -0.0140. Gamma_t is largely redundant for within-survey prediction once the flexible model already has many standard features, but this does not weigh against the cross-survey and conditional-information tests."
     },
     "single_feature_showdown": {
-      "gamma_t_only_R2": -0.053210574633257623,
+      "gamma_t_only_R2": -0.04889031446208749,
       "mass_only_R2": -0.14818175758530092,
       "z_only_R2": -0.04989087531991097,
-      "winner": "z"
+      "winner": "gamma_t"
     },
     "permutation_importance": {
-      "baseline_R2": 0.5382195165166976,
-      "mean_R2_drop": 0.03271856216123144,
-      "std_R2_drop": 0.034530953990926865,
-      "pct_95_R2_drop": 0.09010252249086559,
+      "baseline_R2": 0.4629306144212254,
+      "mean_R2_drop": 0.010044202759690049,
+      "std_R2_drop": 0.032914923103799315,
+      "pct_95_R2_drop": 0.07147954272795075,
       "n_repeats": 50,
       "n_gamma_features_permuted": 2
     }
@@ -309,13 +309,13 @@
         "n_features": 8
       },
       "mass_z_poly+gamma_t": {
-        "R2": -2.313454098300514,
-        "RMSE": 1.768222562686066,
-        "rho": -0.1465975743969038,
-        "p": 4.35381556847503e-49,
+        "R2": -2.708951323890727,
+        "RMSE": 1.8707769721971628,
+        "rho": -0.4745547052277458,
+        "p": 1e-300,
         "n_features": 10
       },
-      "gamma_t_cross_survey_lift": 0.27985589067629046
+      "gamma_t_cross_survey_lift": -0.11564133491392248
     },
     "UNCOVER_to_COSMOS-Web": {
       "n_train": 2315,
@@ -328,13 +328,13 @@
         "n_features": 8
       },
       "mass_z_poly+gamma_t": {
-        "R2": -0.015682368983757078,
-        "RMSE": 122.00372224958646,
-        "rho": -0.10369206032297709,
-        "p": 1.085457168610061e-119,
+        "R2": -0.015974840284363356,
+        "RMSE": 122.02128680521693,
+        "rho": -0.12756019002155117,
+        "p": 1.3497707363683058e-180,
         "n_features": 10
       },
-      "gamma_t_cross_survey_lift": 0.00011046385295765404
+      "gamma_t_cross_survey_lift": -0.00018200744764862442
     },
     "CEERS_to_UNCOVER": {
       "n_train": 9985,
@@ -347,13 +347,13 @@
         "n_features": 8
       },
       "mass_z_poly+gamma_t": {
-        "R2": -2.159557799399123,
-        "RMSE": 0.8424714485765816,
-        "rho": 0.11322405580185546,
-        "p": 4.698897630912697e-08,
+        "R2": -2.1817966293086344,
+        "RMSE": 0.8454311549564001,
+        "rho": 0.11067310212039438,
+        "p": 9.371575050756779e-08,
         "n_features": 10
       },
-      "gamma_t_cross_survey_lift": -0.00945222776338106
+      "gamma_t_cross_survey_lift": -0.0316910576728926
     },
     "CEERS_to_COSMOS-Web": {
       "n_train": 9985,
@@ -366,13 +366,13 @@
         "n_features": 8
       },
       "mass_z_poly+gamma_t": {
-        "R2": -0.011830125735093233,
-        "RMSE": 121.77213680752448,
-        "rho": 0.35540741358024047,
+        "R2": -0.011830306929167644,
+        "RMSE": 121.77214771073247,
+        "rho": 0.3541716913874125,
         "p": 1e-300,
         "n_features": 10
       },
-      "gamma_t_cross_survey_lift": 6.7953415532340244e-06
+      "gamma_t_cross_survey_lift": 6.614147478822829e-06
     },
     "COSMOS-Web_to_UNCOVER": {
       "n_train": 50057,
@@ -385,13 +385,13 @@
         "n_features": 8
       },
       "mass_z_poly+gamma_t": {
-        "R2": -87.58231967644197,
-        "RMSE": 4.460828878862126,
-        "rho": 0.22983716284879555,
-        "p": 3.9498148795414286e-29,
+        "R2": -88.0121483328957,
+        "RMSE": 4.471638438674393,
+        "rho": 0.2677860299534165,
+        "p": 2.6069701105314738e-39,
         "n_features": 10
       },
-      "gamma_t_cross_survey_lift": 3.6862070588368283
+      "gamma_t_cross_survey_lift": 3.256378402383092
     },
     "COSMOS-Web_to_CEERS": {
       "n_train": 50057,
@@ -404,49 +404,49 @@
         "n_features": 8
       },
       "mass_z_poly+gamma_t": {
-        "R2": -97985.50545242042,
-        "RMSE": 304.0742073553038,
-        "rho": 0.5470552873260138,
+        "R2": -102073.63645785206,
+        "RMSE": 310.35258674027426,
+        "rho": 0.5065004078357357,
         "p": 1e-300,
         "n_features": 10
       },
-      "gamma_t_cross_survey_lift": 2069.246524931121
+      "gamma_t_cross_survey_lift": -2018.884480500521
     }
   },
   "test_3_information_theory": {
     "z_gt_8": {
       "n": 283,
       "I_gamma_dust_given_mass_z": 0.0,
-      "I_mass_dust_given_gamma_z": 0.09667965693678213,
+      "I_mass_dust_given_gamma_z": 0.0016706354793601396,
       "null_mean": 0.0,
       "null_std": 0.0,
       "z_score": 0.0,
       "p_empirical": 1.0,
       "n_null_shuffles": 200,
-      "information_asymmetry": -0.09667965693678213,
-      "interpretation": "I(\u0393_t; dust | M*, z) = 0.0000 nats (null: 0.0000 \u00b1 0.0000, z = 0.0). I(M*; dust | \u0393_t, z) = 0.0967 nats. \u0393_t does not carry significant conditional information beyond mass and z."
+      "information_asymmetry": -0.0016706354793601396,
+      "interpretation": "I(\u0393_t; dust | M*, z) = 0.0000 nats (null: 0.0000 \u00b1 0.0000, z = 0.0). I(M*; dust | \u0393_t, z) = 0.0017 nats. \u0393_t does not carry significant conditional information beyond mass and z."
     },
     "full_z4_10": {
       "n": 2315,
-      "I_gamma_dust_given_mass_z": 0.0007259648880787467,
-      "I_mass_dust_given_gamma_z": 0.016308549319538783,
-      "null_mean": 2.764141337825504e-07,
-      "null_std": 3.899301206318484e-06,
-      "z_score": 186.10731398976003,
-      "p_empirical": 0.005,
+      "I_gamma_dust_given_mass_z": 0.0013880354099322619,
+      "I_mass_dust_given_gamma_z": 0.02295883193179302,
+      "null_mean": 0.00029785300654389525,
+      "null_std": 0.0007137699256218503,
+      "z_score": 1.5273582764622347,
+      "p_empirical": 0.075,
       "n_null_shuffles": 200,
-      "information_asymmetry": -0.015582584431460036,
-      "interpretation": "I(\u0393_t; dust | M*, z) = 0.0007 nats (null: 0.0000 \u00b1 0.0000, z = 186.1). I(M*; dust | \u0393_t, z) = 0.0163 nats. \u0393_t carries significant conditional information about dust beyond mass and redshift."
+      "information_asymmetry": -0.02157079652186076,
+      "interpretation": "I(\u0393_t; dust | M*, z) = 0.0014 nats (null: 0.0003 \u00b1 0.0007, z = 1.5). I(M*; dust | \u0393_t, z) = 0.0230 nats. \u0393_t does not carry significant conditional information beyond mass and z."
     }
   },
   "overall_verdict": {
     "verdicts": [
-      "WITHIN-SURVEY: \u0393_t lift is negligible once flexible survey-specific features are available (\u0394R\u00b2=-0.0164)",
-      "SINGLE-FEATURE: z wins (\u0393_t R\u00b2=-0.053, M* R\u00b2=-0.148, z R\u00b2=-0.050)",
-      "CROSS-SURVEY: \u0393_t \u0394\u03c1 positive in 6/6 pairs (mean \u0394\u03c1=+0.0409). All flexible transfer models fail cross-survey (R\u00b2 << 0), so the relevant comparison is retained rank information rather than within-survey fit quality.",
-      "PERMUTATION: joint \u0393_t feature permutation lowers GBR R\u00b2 by 0.0327 on average",
+      "WITHIN-SURVEY: \u0393_t lift is negligible once flexible survey-specific features are available (\u0394R\u00b2=-0.0140)",
+      "SINGLE-FEATURE: gamma_t wins (\u0393_t R\u00b2=-0.049, M* R\u00b2=-0.148, z R\u00b2=-0.050)",
+      "CROSS-SURVEY: \u0393_t \u0394\u03c1 positive in 3/6 pairs (mean \u0394\u03c1=-0.0188). All flexible transfer models fail cross-survey (R\u00b2 << 0), so the relevant comparison is retained rank information rather than within-survey fit quality.",
+      "PERMUTATION: joint \u0393_t feature permutation lowers GBR R\u00b2 by 0.0100 on average",
       "INFO THEORY: I(\u0393_t; dust | M*, z) not significant (z=0.0)"
     ],
-    "conclusion": "WITHIN-SURVEY: \u0393_t lift is negligible once flexible survey-specific features are available (\u0394R\u00b2=-0.0164) | SINGLE-FEATURE: z wins (\u0393_t R\u00b2=-0.053, M* R\u00b2=-0.148, z R\u00b2=-0.050) | CROSS-SURVEY: \u0393_t \u0394\u03c1 positive in 6/6 pairs (mean \u0394\u03c1=+0.0409). All flexible transfer models fail cross-survey (R\u00b2 << 0), so the relevant comparison is retained rank information rather than within-survey fit quality. | PERMUTATION: joint \u0393_t feature permutation lowers GBR R\u00b2 by 0.0327 on average | INFO THEORY: I(\u0393_t; dust | M*, z) not significant (z=0.0)"
+    "conclusion": "WITHIN-SURVEY: \u0393_t lift is negligible once flexible survey-specific features are available (\u0394R\u00b2=-0.0140) | SINGLE-FEATURE: gamma_t wins (\u0393_t R\u00b2=-0.049, M* R\u00b2=-0.148, z R\u00b2=-0.050) | CROSS-SURVEY: \u0393_t \u0394\u03c1 positive in 3/6 pairs (mean \u0394\u03c1=-0.0188). All flexible transfer models fail cross-survey (R\u00b2 << 0), so the relevant comparison is retained rank information rather than within-survey fit quality. | PERMUTATION: joint \u0393_t feature permutation lowers GBR R\u00b2 by 0.0100 on average | INFO THEORY: I(\u0393_t; dust | M*, z) not significant (z=0.0)"
   }
 }

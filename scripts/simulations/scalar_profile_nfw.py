@@ -51,7 +51,7 @@ def nfw_density_dimless(x, concentration):
     x = np.maximum(x, 1e-6)
     return 1.0 / (x * (1 + x)**2)
 
-def solve_scalar_profile_bvp(concentration=10.0, coupling_beta=0.58, vac_expectation=0.1):
+def solve_scalar_profile_bvp(concentration=10.0, coupling_beta=9.6e5, vac_expectation=0.1):
     """
     Solve the static spherical scalar field equation:
     phi'' + (2/x)phi' = dV_eff/dphi

@@ -1,58 +1,45 @@
-[14:25:13]     ======================================================================
-[14:25:13]     STEP 112: Scalar-Tensor Constraint Comparison
-[14:25:13]     ======================================================================
-[14:25:13]     
-TEP coupling: α₀ = 0.58 ± 0.16
-[14:25:13]     Equivalent Brans-Dicke: ω_BD ≈ 1.0
-[14:25:13]     
---- Scalar-Tensor Constraints ---
-[14:25:13]     Constraint                       ω_BD limit    α limit   Screened
-[14:25:13]     ----------------------------------------------------------------------
-[14:25:13]     Cassini (Shapiro delay)               40000     0.0035        Yes
-[14:25:13]     Lunar Laser Ranging                    1000     0.0223        Yes
-[14:25:13]     Binary Pulsar (Hulse-Taylor)            100     0.0702        Yes
-[14:25:13]     Binary Pulsar (Double Pulsar)           200     0.0498        Yes
-[14:25:13]     BBN (light element abundances)          500     0.0316         No
-[14:25:13]     CMB (Planck)                           1000     0.0223         No
-[14:25:13]     Cepheid P-L (TEP-H0)                      1     0.5800         No
-[14:25:13]     
---- Screening Analysis ---
-[14:25:13]     
-Without screening, TEP would be ruled out by:
-[14:25:13]       - Cassini (Shapiro delay): 3.6σ tension
-[14:25:13]       - Lunar Laser Ranging: 3.5σ tension
-[14:25:13]       - Binary Pulsar (Hulse-Taylor): 3.2σ tension
-[14:25:13]       - Binary Pulsar (Double Pulsar): 3.3σ tension
-[14:25:13]       - BBN (light element abundances): 3.4σ tension
-[14:25:13]       - CMB (Planck): 3.5σ tension
-[14:25:13]     
-With chameleon screening:
-[14:25:13]       - Solar System tests: ρ >> ρ_c → α_eff → 0
-[14:25:13]       - Binary pulsars: NS interior screened
-[14:25:13]       - Galactic halos: ρ < ρ_c → α_eff = α₀
-[14:25:13]     
+[10:03:47]     ======================================================================
+[10:03:47]     STEP 112: Scalar-Tensor Sector-Dictionary Check
+[10:03:47]     ======================================================================
+[10:03:47]     
+Observable response coefficient: κ_gal = 9.600e+05 ± 4.000e+05 mag
+[10:03:47]     Bare PPN/photon-sector benchmark: α0, β ≲ 3e-3 (dimensionless)
+[10:03:47]     
+--- Dimensionless Bare/Eff Coupling Constraints ---
+[10:03:47]     Constraint                       ω_BD limit    α limit   Screened
+[10:03:47]     ----------------------------------------------------------------------
+[10:03:47]     Cassini (Shapiro delay)               40000     0.0035        Yes
+[10:03:47]     Lunar Laser Ranging                    1000     0.0223        Yes
+[10:03:47]     Binary Pulsar (Hulse-Taylor)            100     0.0702        Yes
+[10:03:47]     Binary Pulsar (Double Pulsar)           200     0.0498        Yes
+[10:03:47]     BBN (light element abundances)          500     0.0316         No
+[10:03:47]     CMB (Planck)                           1000     0.0223         No
+[10:03:47]     
+--- Sector Dictionary ---
+[10:03:47]       κ_gal is not converted to ω_BD.
+[10:03:47]       Compatibility is a transfer-function/screening requirement, not a direct κ_gal < α0 test.
+[10:03:47]     
 Screening threshold: ρ_c ≈ 20 g/cm³
-[14:25:13]     Environment                ρ (g/cm³)   Screened
-[14:25:13]     --------------------------------------------------
-[14:25:13]     Solar core                  1.50e+02        Yes
-[14:25:13]     Earth core                  1.30e+01         No
-[14:25:13]     NS interior                 1.00e+15        Yes
-[14:25:13]     Milky Way disk              1.00e-24         No
-[14:25:13]     Galaxy cluster              1.00e-27         No
-[14:25:13]     High-z halo                 1.00e-26         No
-[14:25:13]     
+[10:03:47]     Environment                ρ (g/cm³)   Screened
+[10:03:47]     --------------------------------------------------
+[10:03:47]     Solar core                  1.50e+02        Yes
+[10:03:47]     Earth core                  1.30e+01         No
+[10:03:47]     NS interior                 1.00e+15        Yes
+[10:03:47]     Milky Way disk              1.00e-24         No
+[10:03:47]     Galaxy cluster              1.00e-27         No
+[10:03:47]     High-z halo                 1.00e-26         No
+[10:03:47]     
 ======================================================================
-[14:25:13]     SUMMARY
-[14:25:13]     ======================================================================
-[14:25:13]     
+[10:03:47]     SUMMARY
+[10:03:47]     ======================================================================
+[10:03:47]     
 Key findings:
-[14:25:13]       1. TEP α₀ = 0.58 ± 0.16 (ω_BD ≈ 1)
-[14:25:13]       2. Without screening, this would be ruled out by Cassini (>100σ)
-[14:25:13]       3. Chameleon screening resolves all Solar System constraints
-[14:25:13]       4. TEP effects only manifest in unscreened environments (galactic halos)
-[14:25:13]       5. High-z JWST galaxies are in the unscreened regime
-[14:25:13]     
+[10:03:47]       1. κ_gal is an observable response coefficient in mag, not α0.
+[10:03:47]       2. PPN/Brans-Dicke constraints apply to dimensionless bare/effective couplings.
+[10:03:47]       3. A microscopic transfer calculation is required to map κ_gal to α0/β.
+[10:03:47]       4. Screening statements must be phrased as sector compatibility, not direct equality.
+[10:03:47]     
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_112_scalar_tensor_constraints.json
-[14:25:13]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_112_scalar_tensor.png
-[14:25:13]     
+[10:03:47]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_112_scalar_tensor.png
+[10:03:47]     
 Step 112 complete.

@@ -1,101 +1,101 @@
-[14:23:57]     ======================================================================
-[14:23:57]     STEP 057: Adversarial Tests
-[14:23:57]     ======================================================================
-[14:23:57]     
+[10:02:17]     ======================================================================
+[10:02:17]     STEP 057: Adversarial Tests
+[10:02:17]     ======================================================================
+[10:02:17]     
 Subjecting the TEP framework to structural null tests...
 
-[14:23:57]     Loaded N = 2315 galaxies
-[14:23:57]     Isolating high-z (z>8) test sample: N = 283
-[14:23:57]     
+[10:02:17]     Loaded N = 2315 galaxies
+[10:02:18]     Isolating high-z (z>8) test sample: N = 283
+[10:02:18]     
 ======================================================================
-[14:23:57]     ADVERSARIAL TEST 1: Random Gamma Permutation
-[14:23:57]     ======================================================================
-[14:23:57]     Testing if the signal persists when Gamma_t values are randomly reassigned.
+[10:02:18]     ADVERSARIAL TEST 1: Random Gamma Permutation
+[10:02:18]     ======================================================================
+[10:02:18]     Testing if the signal persists when Gamma_t values are randomly reassigned.
 
-[14:23:57]     Observed true correlation: ρ(Γ_t, Dust) = 0.603
-[14:23:57]     Permuted null distribution: mean ρ = 0.000, std = 0.062
-[14:23:57]     Significance above null expectation: 9.7σ
-[14:23:57]     Permutation trials exceeding observed correlation: 0/1000 (0.0%)
-[14:23:57]     
+[10:02:18]     Observed true correlation: ρ(Γ_t, Dust) = 0.471
+[10:02:18]     Permuted null distribution: mean ρ = 0.001, std = 0.061
+[10:02:18]     Significance above null expectation: 7.7σ
+[10:02:18]     Permutation trials exceeding observed correlation: 0/1000 (0.0%)
+[10:02:18]     
 -> The structural association is strictly dependent on the specific pairing of galaxies to their TEP parameters.
-[14:23:57]     
+[10:02:18]     
 ======================================================================
-[14:23:57]     ADVERSARIAL TEST 2: Inverted Coupling Sign
-[14:23:57]     ======================================================================
-[14:23:57]     Testing model sensitivity to the sign of the coupling constant alpha.
+[10:02:18]     ADVERSARIAL TEST 2: Inverted Coupling Sign
+[10:02:18]     ======================================================================
+[10:02:18]     Testing model sensitivity to the sign of the coupling constant alpha.
 
-[14:23:57]     Correlation with theoretically motivated α = +0.58: ρ = 0.603
-[14:23:57]     Correlation with inverted coupling α = -0.58: ρ = -0.603
-[14:23:57]     
+[10:02:18]     Correlation with theoretically motivated α = +960000.00: ρ = 0.471
+[10:02:18]     Correlation with inverted coupling α = -960000.00: ρ = -0.471
+[10:02:18]     
 -> The correlation responds predictably to structural model inversion.
-[14:23:57]     
+[10:02:18]     
 ======================================================================
-[14:23:57]     ADVERSARIAL TEST 3: Shuffled Redshift
-[14:23:57]     ======================================================================
-[14:23:57]     Testing the necessity of the specific mass-redshift pairing by shuffling z.
+[10:02:18]     ADVERSARIAL TEST 3: Shuffled Redshift
+[10:02:18]     ======================================================================
+[10:02:18]     Testing the necessity of the specific mass-redshift pairing by shuffling z.
 
-[14:23:57]     Correlation with true redshift pairing: ρ = 0.603
-[14:23:57]     Correlation with shuffled redshift pairing: ρ = 0.546
-[14:23:57]     
+[10:02:18]     Correlation with true redshift pairing: ρ = 0.471
+[10:02:18]     Correlation with shuffled redshift pairing: ρ = 0.401
+[10:02:18]     
 ======================================================================
-[14:23:57]     ADVERSARIAL TEST 4: Pure Mass Scaling
-[14:23:57]     ======================================================================
-[14:23:57]     Evaluating if standard physical mass can fully account for the observed variance.
+[10:02:18]     ADVERSARIAL TEST 4: Pure Mass Scaling
+[10:02:18]     ======================================================================
+[10:02:18]     Evaluating if standard physical mass can fully account for the observed variance.
 
-[14:23:57]     Correlation with Gamma_t: ρ = 0.603
-[14:23:57]     Correlation with stellar mass: ρ = 0.559
-[14:23:57]     Correlation with halo mass: ρ = 0.575
-[14:23:57]     
+[10:02:18]     Correlation with Gamma_t: ρ = 0.471
+[10:02:18]     Correlation with stellar mass: ρ = 0.559
+[10:02:18]     Correlation with halo mass: ρ = 0.575
+[10:02:18]     
 ======================================================================
-[14:23:57]     ADVERSARIAL TEST 5: Redshift Confounding Control
-[14:23:57]     ======================================================================
-[14:23:57]     Testing whether the correlation is merely an artifact of redshift selection effects.
+[10:02:18]     ADVERSARIAL TEST 5: Redshift Confounding Control
+[10:02:18]     ======================================================================
+[10:02:18]     Testing whether the correlation is merely an artifact of redshift selection effects.
 
-[14:23:57]     z-bin [8, 8.5]: ρ = 0.306 (p = 1.37e-03) ✓
-[14:23:57]     z-bin [8.5, 9]: ρ = 0.531 (p = 1.58e-06) ✓
-[14:23:57]     z-bin [9, 10]: ρ = 0.742 (p = 1.91e-19) ✓
-[14:23:57]     
+[10:02:18]     z-bin [8, 8.5]: ρ = 0.216 (p = 2.51e-02) ✓
+[10:02:18]     z-bin [8.5, 9]: ρ = 0.432 (p = 1.51e-04) ✓
+[10:02:18]     z-bin [9, 10]: ρ = 0.756 (p = 1.79e-20) ✓
+[10:02:18]     
 -> The correlation persists at fixed redshift, demonstrating independence from purely z-dependent selection functions.
-[14:23:57]     
+[10:02:18]     
 ======================================================================
-[14:23:57]     ADVERSARIAL TEST 6: Magnitude Limit Malmquist Bias
-[14:23:57]     ======================================================================
-[14:23:57]     Evaluating potential spurious correlations induced by flux-limited survey selection.
+[10:02:18]     ADVERSARIAL TEST 6: Magnitude Limit Malmquist Bias
+[10:02:18]     ======================================================================
+[10:02:18]     Evaluating potential spurious correlations induced by flux-limited survey selection.
 
-[14:23:57]     Bright sub-sample (M* > median): ρ = 0.473 (p = 3.28e-09)
-[14:23:57]     Faint sub-sample (M* ≤ median): ρ = 0.431 (p = 8.39e-08)
-[14:23:57]     
+[10:02:18]     Bright sub-sample (M* > median): ρ = 0.319 (p = 1.16e-04)
+[10:02:18]     Faint sub-sample (M* ≤ median): ρ = 0.437 (p = 5.38e-08)
+[10:02:18]     
 -> Correlation robustness across flux regimes limits the viability of pure Malmquist bias explanations.
-[14:23:57]     
+[10:02:18]     
 ======================================================================
-[14:23:57]     ADVERSARIAL TEST 7: Photometric Redshift Error Sensitivity
-[14:23:57]     ======================================================================
-[14:23:57]     Testing if the signal is driven by galaxies with high photo-z uncertainties.
+[10:02:18]     ADVERSARIAL TEST 7: Photometric Redshift Error Sensitivity
+[10:02:18]     ======================================================================
+[10:02:18]     Testing if the signal is driven by galaxies with high photo-z uncertainties.
 
-[14:23:57]     Photometric redshift uncertainties not available in current dataset; skipping test.
-[14:23:57]     
+[10:02:18]     Photometric redshift uncertainties not available in current dataset; skipping test.
+[10:02:18]     
 ======================================================================
-[14:23:57]     ADVERSARIAL TEST 8: Parsimony Evaluation
-[14:23:57]     ======================================================================
-[14:23:57]     Evaluating the standard hypothesis: 'Massive galaxies are intrinsically dustier. No new physics required.'
+[10:02:18]     ADVERSARIAL TEST 8: Parsimony Evaluation
+[10:02:18]     ======================================================================
+[10:02:18]     Evaluating the standard hypothesis: 'Massive galaxies are intrinsically dustier. No new physics required.'
 
-[14:23:57]     Counter-evidence challenging the parsimonious standard interpretation:
-[14:23:57]       1. The mass-dust correlation systematically strengthens with redshift, contrary to standard evolutionary expectations.
-[14:23:57]       2. In the low-z control bin (z=4-5), ρ(M*, Dust) = 0.037 — significantly weaker than the high-z regime.
-[14:23:57]       3. SED fit residuals (χ²) correlate strongly with Γ_t (ρ = 0.102), implying standard templates fail precisely where TEP predicts age anomalies.
-[14:23:57]       4. Galaxies exhibiting severe age-universe tension (age ratio > 0.5) reside in halos with 1.6× higher Γ_t.
-[14:23:57]     
+[10:02:18]     Counter-evidence challenging the parsimonious standard interpretation:
+[10:02:18]       1. The mass-dust correlation systematically strengthens with redshift, contrary to standard evolutionary expectations.
+[10:02:18]       2. In the low-z control bin (z=4-5), ρ(M*, Dust) = 0.037 — significantly weaker than the high-z regime.
+[10:02:18]       3. SED fit residuals (χ²) correlate strongly with Γ_t (ρ = 0.022), implying standard templates fail precisely where TEP predicts age anomalies.
+[10:02:18]       4. Galaxies exhibiting severe age-universe tension (age ratio > 0.5) reside in halos with 1.5× higher Γ_t.
+[10:02:18]     
 -> A simple monotonic mass-dust scaling fails to reproduce these multifaceted structural patterns.
-[14:23:57]     
+[10:02:18]     
 ======================================================================
-[14:23:57]     SUMMARY: Adversarial Tests
-[14:23:57]     ======================================================================
-[14:23:57]     ✓ null model (Random Permutation) rejected
-[14:23:57]     ✓ Structural Sign Dependence confirmed
-[14:23:57]     ✓ Independence from Redshift Confounding confirmed
-[14:23:57]     ✓ Robustness to Magnitude Limit Bias confirmed
-[14:23:57]     ✓ Parsimony Evaluation highlights necessity of non-linear model
-[14:23:57]     
+[10:02:18]     SUMMARY: Adversarial Tests
+[10:02:18]     ======================================================================
+[10:02:18]     ✓ null model (Random Permutation) rejected
+[10:02:18]     ✓ Structural Sign Dependence confirmed
+[10:02:18]     ✓ Independence from Redshift Confounding confirmed
+[10:02:18]     ✓ Robustness to Magnitude Limit Bias confirmed
+[10:02:18]     ✓ Parsimony Evaluation highlights necessity of non-linear model
+[10:02:18]     
 Adversarial robustness criteria met: 6/7
-[14:23:57]     
+[10:02:18]     
 Saved adversarial test metrics to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_057_adversarial_tests.json

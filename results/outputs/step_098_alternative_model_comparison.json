@@ -18,11 +18,11 @@
     "tep": {
       "name": "TEP (Temporal Equivalence)",
       "description": "Dust depends on Gamma_t (temporal enhancement factor)",
-      "log_likelihood": -188.46091821783307,
+      "log_likelihood": -186.68536713047462,
       "n_params": 3,
-      "aic": 382.92183643566614,
-      "bic": 393.85817712859586,
-      "akaike_weight": 8.602976716298582e-23
+      "aic": 379.37073426094923,
+      "bic": 390.30707495387895,
+      "akaike_weight": 5.078796212859239e-22
     },
     "topheavy_imf": {
       "name": "Top-Heavy IMF",
@@ -80,40 +80,40 @@
     {
       "rank": 5,
       "model": "tep",
-      "aic": 382.92183643566614,
-      "delta_aic": 101.29395686758016
+      "aic": 379.37073426094923,
+      "delta_aic": 97.74285469286326
     }
   ],
   "comparisons_vs_tep": {
     "null": {
-      "bayes_factor": 4.436937116438148e+20,
+      "bayes_factor": 7.515731111193589e+19,
       "interpretation": "Very strong evidence for Model 2",
-      "delta_aic": -95.08333231927367,
-      "delta_bic": -91.43788542163043
+      "delta_aic": -91.53223014455676,
+      "delta_bic": -87.88678324691352
     },
     "topheavy_imf": {
-      "bayes_factor": 1.1154123993566602e+21,
+      "bayes_factor": 1.889397900321313e+20,
       "interpretation": "Very strong evidence for Model 2",
-      "delta_aic": -96.9270223085955,
-      "delta_bic": -89.63612851330902
+      "delta_aic": -93.3759201338786,
+      "delta_bic": -86.08502633859212
     },
     "stochastic_sf": {
-      "bayes_factor": 1.6322580625317832e+20,
+      "bayes_factor": 2.76488315703577e+19,
       "interpretation": "Very strong evidence for Model 2",
-      "delta_aic": -93.08333246094696,
-      "delta_bic": -85.79243866566048
+      "delta_aic": -89.53223028623006,
+      "delta_bic": -82.24133649094358
     },
     "agn": {
-      "bayes_factor": 9.901551686958268e+21,
+      "bayes_factor": 1.6772245833067803e+21,
       "interpretation": "Very strong evidence for Model 2",
-      "delta_aic": -101.29395686758016,
-      "delta_bic": -97.64850996993692
+      "delta_aic": -97.74285469286326,
+      "delta_bic": -94.09740779522002
     }
   },
   "conclusion": {
     "best_model": "agn",
     "tep_rank": 5,
-    "tep_akaike_weight": 8.602976716298582e-23,
+    "tep_akaike_weight": 5.078796212859239e-22,
     "interpretation": "TEP ranks #5 (Akaike weight = 0.0%)"
   }
 }

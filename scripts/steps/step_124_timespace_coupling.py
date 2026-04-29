@@ -22,6 +22,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
+from scripts.utils.tep_model import compute_gamma_t
 
 STEP_NUM  = "124"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "timespace_coupling"  # Time-space coupling consistency: verifies TEP affects temporal (clock rates) not spatial (ruler lengths) measurements - Jordan frame spatial metric remains standard
@@ -65,10 +66,11 @@ def test_temporal_spatial_decoupling():
     
     # Quantitative test: spatial vs temporal observables
     z = 5.5
-    M_h = 1e12
+    log_Mh = 12.6
+    M_h = 10**log_Mh
     
-    # Temporal: age appears shorter by Γ_t
-    gamma_t = np.exp(0.58 * np.sqrt(1+z) * 0.67 * (np.log10(M_h)-12) * (1+z)/6.5)
+    # Temporal: use the canonical shared Γ_t kernel.
+    gamma_t = float(compute_gamma_t(log_Mh, z))
     temporal_effect = gamma_t
     
     # Spatial: ruler length unchanged
@@ -81,6 +83,7 @@ def test_temporal_spatial_decoupling():
         'quantitative_test': {
             'z': z,
             'M_h': float(M_h),
+            'log_Mh': float(log_Mh),
             'temporal_enhancement': float(temporal_effect),
             'spatial_effect': float(spatial_effect),
             'ratio_t_s': float(ratio),
@@ -112,7 +115,11 @@ def main():
         'step': 147,
         'description': 'Time-Space Coupling Consistency Test',
         'results': results,
-        'conclusion': 'TEP cleanly separates temporal and spatial observables; decoupling factor > 1.5x confirmed'
+        'conclusion': (
+            'TEP temporal/spatial decoupling confirmed for the massive-halo test case'
+            if results['quantitative_test']['decoupling_confirmed']
+            else 'TEP temporal/spatial decoupling not confirmed for the selected quantitative test case'
+        )
     }
     
     output_path = RESULTS_DIR / "step_124_timespace_coupling.json"

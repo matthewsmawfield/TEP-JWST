@@ -62,9 +62,9 @@ z_BBN_start = T_BBN_start * 1e6 / (k_B * T_CMB)  # ~ 4e9
 z_BBN_end = T_BBN_end * 1e6 / (k_B * T_CMB)  # ~ 4e7
 
 # TEP parameters
-from scripts.utils.tep_model import ALPHA_0, RHO_CRIT_G_CM3
+from scripts.utils.tep_model import KAPPA_GAL, ALPHA_PHOTON_BOUND, RHO_CRIT_G_CM3
 
-alpha_0 = ALPHA_0  # Coupling constant from Cepheids
+kappa=KAPPA_GAL  # Coupling constant from Cepheids
 rho_c_screening = RHO_CRIT_G_CM3  # g/cm^3 (critical screening density)
 
 # =============================================================================
@@ -75,7 +75,7 @@ def hubble_standard(z):
     """Standard ΛCDM Hubble parameter."""
     return H0 * np.sqrt(Omega_r * (1 + z)**4 + Omega_m * (1 + z)**3 + Omega_Lambda)
 
-def hubble_tep(z, alpha=alpha_0):
+def hubble_tep(z, alpha=ALPHA_PHOTON_BOUND):
     """
     TEP-modified Hubble parameter.
     
@@ -96,9 +96,10 @@ def hubble_tep(z, alpha=alpha_0):
     rho_m = Omega_m * (1 + z)**3
     matter_fraction = rho_m / (rho_r + rho_m)
     
-    # TEP modification to G_eff (only active when matter dominates)
-    # In screened scalar-tensor theories, G_eff = G * (1 + 2*alpha^2) in unscreened limit
-    # But during radiation era, the scalar is frozen, so G_eff ≈ G
+    # TEP modification to G_eff (only active when matter dominates).
+    # Use the dimensionless photon/gravity-sector bound, not KAPPA_GAL.
+    # KAPPA_GAL is a magnitude-sector response coefficient and cannot be
+    # inserted into scalar-tensor expansion-rate formulas.
     delta_G = 2 * alpha**2 * matter_fraction**2  # Quadratic suppression in radiation era
     
     G_eff_ratio = 1 + delta_G
@@ -193,7 +194,7 @@ def main():
         'name': 'BBN Compatibility Analysis',
         'timestamp': datetime.now().isoformat(),
         'parameters': {
-            'alpha_0': alpha_0,
+            'KAPPA_GAL': KAPPA_GAL,
             'H0': H0,
             'Omega_r': Omega_r,
             'Omega_m': Omega_m,

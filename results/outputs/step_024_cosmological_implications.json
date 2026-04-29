@@ -2,53 +2,53 @@
   "formation_redshift": {
     "age_0_0.05": {
       "n": 70,
-      "rho": 0.1361035779896772,
-      "p": 0.261243043781072
+      "rho": 0.4612894759863529,
+      "p": 5.8434634042582505e-05
     },
     "age_0.05_0.1": {
       "n": 345,
-      "rho": 0.6358945510441447,
-      "p": 1.7308218217437219e-40
+      "rho": 0.9414282541482318,
+      "p": 5.3871577726080156e-164
     },
     "age_0.1_0.2": {
       "n": 1230,
-      "rho": 0.6824102277941305,
-      "p": 2.460509515895134e-169
+      "rho": 0.903605823218512,
+      "p": 1e-300
     },
     "age_0.2_0.5": {
       "n": 660,
-      "rho": 0.02622649814080465,
-      "p": 0.5011957945648122
+      "rho": 0.4235963476834095,
+      "p": 4.037586067891326e-30
     },
     "confirmed": true
   },
   "stellar_mass_density": {
     "total_raw": 1880468754526.9775,
-    "total_corrected": 1517957591239.7285,
-    "reduction_pct": 19.277702031185136,
-    "confirmed": true
+    "total_corrected": 2038413407216.6052,
+    "reduction_pct": -8.39921707337051,
+    "confirmed": false
   },
   "ssfr_floor": {
     "ssfr_floor_raw": 3.1533990317229823,
-    "ssfr_floor_corr": 3.090142629888132,
-    "floor_shift_pct": -2.005975177847621,
+    "ssfr_floor_corr": 2.1090948494126582,
+    "floor_shift_pct": -33.11677880930051,
     "confirmed": false
   },
   "age_metallicity": {
     "rho_raw": -0.9074559169974936,
-    "rho_corrected": -0.9021375436710605,
-    "confirmed": false
+    "rho_corrected": -0.9190883701308351,
+    "confirmed": true
   },
   "quenching_timescale": {
     "n_quenched": 50,
-    "rho": 0.22084033613445375,
-    "p": 0.12327347097156947,
-    "confirmed": false
+    "rho": 0.6222809123649461,
+    "p": 1.4038439509796027e-06,
+    "confirmed": true
   },
   "cosmic_variance": {
     "variance_raw": 0.004983839547515295,
-    "variance_corrected": 0.00512770870069686,
-    "reduction_pct": -2.8867131818738314,
+    "variance_corrected": 0.007486984960226918,
+    "reduction_pct": -50.22524077765651,
     "confirmed": null
   }
 }

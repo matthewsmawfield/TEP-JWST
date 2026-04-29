@@ -29,7 +29,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma, ALPHA_0, ALPHA_CLOCK_EFF  # TEP model: Gamma_t formula, alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy)
+from scripts.utils.tep_model import compute_gamma_t as tep_gamma, KAPPA_GAL, KAPPA_GAL  # TEP model: Gamma_t formula, KAPPA_GAL=9.6e5 mag from Cepheids
 
 STEP_NUM = "039"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "overmassive_bh"  # Overmassive BH simulation: "Time Bubble" hypothesis for Little Red Dots (LRDs) runaway growth
@@ -72,7 +72,7 @@ def run_simulation():
     print_status(f"Simulation Parameters:", "INFO")
     print_status(f"  Halo Mass: 10^{log_Mh} M_sun", "INFO")
     print_status(f"  Central Concentration Phi_cen/Phi_vir: {concentration_factor}", "INFO")
-    print_status(f"  Alpha_0: {ALPHA_0}", "INFO")
+    print_status(f"  κ_gal: {KAPPA_GAL:.3e} mag", "INFO")
     
     print_status("\nResults:", "INFO")
     print_status(f"{'z':^4} | {'Gamma_Halo':^10} | {'Gamma_Cen':^10} | {'Growth Boost':^12}", "INFO")
@@ -119,7 +119,7 @@ def run_simulation():
     summary = {
         "test": "Step 41: Overmassive BH / Time Bubble",
         "parameters": {
-            "alpha_0": ALPHA_0,
+            "kappa_gal": KAPPA_GAL,
             "log_Mh": log_Mh,
             "concentration": concentration_factor
         },

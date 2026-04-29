@@ -2,28 +2,27 @@
   "step": 171,
   "name": "sigma_kinematic_expansion",
   "status": "SUCCESS",
-  "assessment": "directionally_supportive_sigma_test",
-  "supportive": true,
+  "assessment": "mixed_sigma_test_opposite_primary_sign",
+  "supportive": false,
   "sample": {
-    "n_total": 83,
-    "n_with_mdyn": 83,
-    "n_exact_mdyn": 60,
-    "n_upper_limit_mdyn": 23,
+    "n_total": 75,
+    "n_with_mdyn": 75,
+    "n_exact_mdyn": 55,
+    "n_upper_limit_mdyn": 20,
     "z_min": 1.17,
     "z_max": 7.61,
-    "z_median": 4.17,
-    "sigma_min_kms": 22.0,
+    "z_median": 4.4,
+    "sigma_min_kms": 25.0,
     "sigma_max_kms": 387.0,
     "source_counts": {
       "SUSPENSE (Slob+25)": 15,
       "Esdaile+21 / Tanaka+19": 5,
       "de Graaff et al. 2024": 6,
       "Saldana-Lopez et al. 2025": 16,
-      "Danhaive et al. 2025": 33,
-      "Danhaive+25 (z<4 gold)": 8
+      "Danhaive et al. 2025": 33
     },
     "source_paper_breakdown": {
-      "Danhaive et al. 2025": 41,
+      "Danhaive et al. 2025": 33,
       "Saldana-Lopez et al. 2025": 16,
       "Slob et al. 2025": 15,
       "de Graaff et al. 2024": 6,
@@ -33,101 +32,101 @@
   },
   "tests": {
     "T1_mstar_sigma_evolution": {
-      "n": 83,
+      "n": 75,
       "description": "M*-sigma zero-point evolution test. Under TEP, the M*-sigma residual should increase with z (positive rho). After sigma-only TEP correction, this trend should weaken.",
       "observed_mstar_sigma_fit": {
-        "slope": 2.2720743482781254,
-        "intercept": 5.14197114814785,
-        "r2": 0.519916730325949,
-        "std_residual_dex": 0.7146907466293976
+        "slope": 2.480534862747797,
+        "intercept": 4.704710104593537,
+        "r2": 0.5919777320734596,
+        "std_residual_dex": 0.682999006754398
       },
       "corrected_mstar_sigma_fit": {
-        "slope": 1.734358765739121,
-        "intercept": 6.073487184910763,
-        "r2": 0.40124276926129,
-        "std_residual_dex": 0.6935295125976743
+        "slope": 1.9904215432445491,
+        "intercept": 5.557684955375533,
+        "r2": 0.4905874788847018,
+        "std_residual_dex": 0.672677855473213
       },
       "observed_residual_z_trend": {
-        "partial_rho_resid_z_given_sigma": -0.49733351384751323,
-        "p": 1.7268150004916833e-06,
-        "n": 83,
+        "partial_rho_resid_z_given_sigma": -0.46239442858894797,
+        "p": 2.9604271401459188e-05,
+        "n": 75,
         "ci_95": [
-          -0.6319712525420753,
-          -0.3022595743074974
+          -0.609443395995087,
+          -0.2728643164015865
         ]
       },
       "corrected_residual_z_trend": {
-        "partial_rho_resid_z_given_sigma": -0.47659325831636273,
-        "p": 5.247662779082599e-06,
-        "n": 83,
+        "partial_rho_resid_z_given_sigma": -0.4397093881886537,
+        "p": 7.910652190734434e-05,
+        "n": 75,
         "ci_95": [
-          -0.6183169802144357,
-          -0.2899713607787759
+          -0.5911076280447279,
+          -0.25709521182665857
         ]
       },
       "z_trend_improved": true,
       "scatter_improved": true,
-      "scatter_change_fraction": 0.029608938035819432,
-      "mean_tep_correction_dex": 0.11358634797358233
+      "scatter_change_fraction": 0.015111517263005858,
+      "mean_tep_correction_dex": 0.10269307096270906
     },
     "T2_fundamental_plane": {
-      "n": 61,
+      "n": 53,
       "description": "Fundamental plane scatter comparison (observed vs TEP-corrected M*).",
       "observed_fp": {
-        "coeff_log_sigma": 1.7904493367930538,
-        "coeff_log_re": 1.1852248584648317,
-        "intercept": 6.1000809070707644,
-        "r2": 0.5646422899463929,
-        "std_residual_dex": 0.5995539487620688
+        "coeff_log_sigma": 2.019754390812089,
+        "coeff_log_re": 0.9793841403929558,
+        "intercept": 5.658459179922516,
+        "r2": 0.6283895032137643,
+        "std_residual_dex": 0.5778696934595354
       },
       "corrected_fp": {
-        "coeff_log_sigma": 1.221517888348723,
-        "coeff_log_re": 1.169104107192117,
-        "intercept": 7.099639381292508,
-        "r2": 0.4411274797986453,
-        "std_residual_dex": 0.5671663948981642
+        "coeff_log_sigma": 1.4923475741351708,
+        "coeff_log_re": 0.9670672516194966,
+        "intercept": 6.59368000428444,
+        "r2": 0.513326247497309,
+        "std_residual_dex": 0.5622020356449295
       },
       "r2_improved": false,
       "scatter_improved": true,
-      "scatter_change_fraction": 0.05401941548509004,
+      "scatter_change_fraction": 0.027112786830553848,
       "observed_resid_z_trend": {
-        "partial_rho": -0.3000337091242585,
-        "p": 0.018810500896570524,
-        "n": 61
+        "partial_rho": -0.26029268345781414,
+        "p": 0.05978667874469207,
+        "n": 53
       },
       "corrected_resid_z_trend": {
-        "partial_rho": -0.2425808203831544,
-        "p": 0.05961058637617577,
-        "n": 61
+        "partial_rho": -0.21835295900198448,
+        "p": 0.11624111017265808,
+        "n": 53
       },
       "z_trend_improved": true
     },
     "T3_gamma_sigma_only_prediction": {
-      "n": 83,
+      "n": 75,
       "description": "Does sigma-only Gamma_t add predictive power for M*_obs beyond log(sigma) and z? Positive partial = TEP-consistent z-dependent mass enhancement.",
-      "partial_rho_gamma_mstar_given_sigma_z": 0.34360541127714217,
-      "p_partial_gamma_mstar_given_sigma_z": 0.0014709971912229057,
-      "n_partial": 83,
+      "partial_rho_gamma_mstar_given_sigma_z": 0.29427674002641324,
+      "p_partial_gamma_mstar_given_sigma_z": 0.010385466993835581,
+      "n_partial": 75,
       "ci_95_partial_gamma_mstar_given_sigma_z": [
-        0.11840495842883729,
-        0.5385553945778664
+        0.11001185695447206,
+        0.4693860942008988
       ],
-      "partial_rho_z_mstar_given_sigma": -0.5122119755288399,
-      "p_partial_z_mstar_given_sigma": 7.428872294652393e-07,
-      "partial_rho_sigma_mstar_given_z": 0.4546686711062544,
-      "p_partial_sigma_mstar_given_z": 1.5745389288403927e-05
+      "partial_rho_z_mstar_given_sigma": -0.4797807779280464,
+      "p_partial_z_mstar_given_sigma": 1.3278306867060304e-05,
+      "partial_rho_sigma_mstar_given_z": 0.4937349730580023,
+      "p_partial_sigma_mstar_given_z": 6.755183373981323e-06
     },
     "T4_cross_survey": {
       "description": "Per-survey M*-sigma residual vs z trend and Gamma_t prediction test.",
       "n_surveys_tested": 4,
-      "n_surveys_positive_resid_z": 3,
+      "n_surveys_positive_resid_z": 4,
       "per_survey": {
         "Danhaive et al. 2025": {
-          "n": 41,
-          "partial_rho_resid_z_given_sigma": -0.0352079843354728,
-          "p_resid_z": 0.8270108099994259,
-          "partial_rho_gamma_mstar_given_sigma_z": 0.13438735548466724,
-          "p_gamma_mstar": 0.40220073529941486
+          "n": 33,
+          "partial_rho_resid_z_given_sigma": 0.13771475536584266,
+          "p_resid_z": 0.44471263539193234,
+          "partial_rho_gamma_mstar_given_sigma_z": 0.07638998904507138,
+          "p_gamma_mstar": 0.6726418776060284
         },
         "Esdaile et al. 2021": {
           "n": 4,
@@ -135,15 +134,15 @@
         },
         "Saldana-Lopez et al. 2025": {
           "n": 16,
-          "partial_rho_resid_z_given_sigma": 0.16016014907931625,
-          "p_resid_z": 0.5535029716199762,
+          "partial_rho_resid_z_given_sigma": 0.2021320100697033,
+          "p_resid_z": 0.4528068839546807,
           "partial_rho_gamma_mstar_given_sigma_z": 0.12490644643169682,
           "p_gamma_mstar": 0.6448634951499225
         },
         "Slob et al. 2025": {
           "n": 15,
-          "partial_rho_resid_z_given_sigma": 0.15571023185481325,
-          "p_resid_z": 0.5794805768598782,
+          "partial_rho_resid_z_given_sigma": 0.10029949504448674,
+          "p_resid_z": 0.7220977138763776,
           "partial_rho_gamma_mstar_given_sigma_z": 0.031159463261371492,
           "p_gamma_mstar": 0.9122220676500441
         },
@@ -169,27 +168,26 @@
         -0.5305822036142415,
         -0.08264014625697694
       ],
-      "partial_rho_gamma_mstar_given_sigma_z": 0.258091060320722,
-      "p_gamma_mstar": 0.05479588100715019,
+      "partial_rho_gamma_mstar_given_sigma_z": 0.12531604284858547,
+      "p_gamma_mstar": 0.3574352561076989,
       "ci_95_gamma_mstar": [
-        -0.014296269114818025,
-        0.4663248126454463
+        -0.09095465892352242,
+        0.30704118596938207
       ]
     }
   },
   "methodology": {
-    "description": "Sigma-based mass-circularity-breaking test suite. Gamma_t is computed from velocity dispersion alone (sigma -> M_halo -> Gamma_t), with zero dependence on SED-fitted M* or size-based Mdyn. This avoids all shared-variable artifacts. The primary test (T1) asks whether the M*-sigma residual increases with z as TEP predicts. The secondary test (T3) asks whether the sigma-only Gamma_t adds predictive power for M*_obs beyond sigma and z individually.",
+    "description": "Sigma-based mass-circularity-breaking test suite. Gamma_t is computed from velocity dispersion alone (sigma -> M_halo -> Gamma_t), with zero dependence on SED-fitted M* or size-based Mdyn. This reduces mass-proxy circularity, while still depending on the sigma-to-halo calibration and sample mix. The primary test (T1) asks whether the M*-sigma residual increases with z as TEP predicts. The secondary test (T3) asks whether the sigma-only Gamma_t adds predictive power for M*_obs beyond sigma and z individually.",
     "gamma_t_derivation": "log(M_h) = 5.0 * log10(sigma / 200.0 km/s) + 12.5; Gamma_t = compute_gamma_t(log_Mh, z)",
     "mass_correction_model": "n_ML = 0.5",
-    "alpha_0": 0.58,
+    "kappa_gal": 960000.0,
     "combined_sample_sources": [
       "SUSPENSE (Slob+25)",
       "Esdaile+21 / Tanaka+19",
       "de Graaff et al. 2024",
       "Saldana-Lopez et al. 2025",
-      "Danhaive et al. 2025",
-      "Danhaive+25 (z<4 gold)"
+      "Danhaive et al. 2025"
     ],
-    "mass_proxy_independence": "Gamma_t_sigma_only is derived entirely from the velocity dispersion sigma (km/s) via a sigma\u2013M_halo mapping. It has zero dependence on SED-fitted M*, half-light radius R_e, or dynamical mass M_dyn. This completely breaks the mass-proxy circularity."
+    "mass_proxy_independence": "Gamma_t_sigma_only is derived entirely from the velocity dispersion sigma (km/s) via a sigma\u2013M_halo mapping. It has zero dependence on SED-fitted M*, half-light radius R_e, or dynamical mass M_dyn. This reduces the mass-proxy circularity but does not remove sensitivity to the adopted sigma\u2013M_halo mapping or sample composition."
   }
 }

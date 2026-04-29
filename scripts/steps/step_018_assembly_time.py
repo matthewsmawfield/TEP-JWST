@@ -47,7 +47,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting
-from scripts.utils.tep_model import ALPHA_0, compute_gamma_t as tep_gamma  # Shared TEP model
+from scripts.utils.tep_model import KAPPA_GAL, compute_gamma_t as tep_gamma  # Shared TEP model
 
 STEP_NUM = "018"  # Pipeline step number
 STEP_NAME = "assembly_time"  # Used in log / output filenames
@@ -108,7 +108,7 @@ def load_data():
     jades = pd.read_csv(_jades_path)
 
     # Calculate Γ_t for JADES using canonical implementation
-    jades['gamma_t'] = tep_gamma(jades['log_Mhalo'].values, jades['z_best'].values, alpha_0=ALPHA_0)
+    jades['gamma_t'] = tep_gamma(jades['log_Mhalo'].values, jades['z_best'].values, kappa=KAPPA_GAL)
     jades['age_ratio'] = jades['t_stellar_Gyr'] / jades['t_cosmic_Gyr']
 
     # Calculate age_ratio for UNCOVER
@@ -270,7 +270,7 @@ def analyze_redshift_scaling(uncover):
     """TEST 3: Verify the redshift scaling of the TEP coupling.
 
     The TEP model uses a redshift-dependent coupling:
-      alpha(z) = alpha_0 * sqrt(1 + z)
+      alpha(z) = kappa_gal * sqrt(1 + z)
 
     This predicts that the slope d(age_ratio)/d(Gamma_t) should
     *increase* with redshift, because alpha amplifies Gamma_t at

@@ -1,12 +1,12 @@
 {
   "sigma8_lcdm": 0.811,
-  "sigma8_tep": 3.397274553606928,
-  "enhancement_z0": 4.188994517394486,
-  "enhancement_z10": 1.9509302631527108,
-  "beta_unscreened": 0.58,
-  "geff_ratio_unscreened": 1.6728,
+  "sigma8_tep": 31.213749802931474,
+  "enhancement_z0": 38.487977562184305,
+  "enhancement_z10": 5.665154654546233,
+  "beta_unscreened": 1.0,
+  "geff_ratio_unscreened": 3.0,
   "sigma8_sigma_planck18": 0.006,
-  "beta_eff_max_2sigma": 0.055494334593754795,
-  "geff_ratio_max_2sigma": 1.006159242344007,
-  "suppression_factor_beta_2sigma": 0.09567988723061172
+  "beta_eff_max_2sigma": 0.05549433459375679,
+  "geff_ratio_max_2sigma": 1.0061592423440076,
+  "suppression_factor_beta_2sigma": 0.05549433459375679
 }

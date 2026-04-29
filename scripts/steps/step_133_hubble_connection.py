@@ -32,7 +32,7 @@ set_step_logger(logger)
 import numpy as np
 from scripts.utils.tep_model import (
     compute_gamma_t, stellar_to_halo_mass_behroozi_like,
-    ALPHA_0, ALPHA_UNCERTAINTY, Z_REF  # Shared TEP model
+    KAPPA_GAL, KAPPA_GAL_UNCERTAINTY, Z_REF  # Shared TEP model
 )
 
 # Observed H0 tension values
@@ -59,7 +59,7 @@ CEPHEID_Z            = 0.001  # local universe redshift
 LMC_HALO_MASS        = 11.5   # log Msun
 
 
-def h0_tep_prediction(alpha_0=ALPHA_0):
+def h0_tep_prediction(kappa=KAPPA_GAL):
     """
     Predict the TEP contribution to the H0 tension.
     H0_local / H0_global = mean(<Gamma_t>_Cepheid-hosts)
@@ -82,7 +82,7 @@ def h0_tep_prediction(alpha_0=ALPHA_0):
     return float(h0_tep), float(gt_mean), float(h0_correction)
 
 
-def s8_tep_prediction(alpha_0=ALPHA_0):
+def s8_tep_prediction(kappa=KAPPA_GAL):
     """
     Predict the TEP contribution to the S8 tension.
     TEP modifies the growth of structure via enhanced effective time,
@@ -121,9 +121,9 @@ def run():
     logger.info(f"  TEP prediction: S8_WL = {s8_tep:.3f}")
     logger.info(f"  S8 tension explained: {100*s8_explained_frac:.0f}%")
 
-    # Alpha_0 uncertainty propagation
-    h0_tep_hi, _, _ = h0_tep_prediction(ALPHA_0 + ALPHA_UNCERTAINTY)
-    h0_tep_lo, _, _ = h0_tep_prediction(ALPHA_0 - ALPHA_UNCERTAINTY)
+    # Kappa_gal uncertainty propagation
+    h0_tep_hi, _, _ = h0_tep_prediction(KAPPA_GAL + KAPPA_GAL_UNCERTAINTY)
+    h0_tep_lo, _, _ = h0_tep_prediction(KAPPA_GAL - KAPPA_GAL_UNCERTAINTY)
     h0_uncertainty = (h0_tep_hi - h0_tep_lo) / 2
 
     result = {

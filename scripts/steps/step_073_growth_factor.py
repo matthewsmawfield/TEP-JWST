@@ -91,11 +91,11 @@ def growth_ode(y, a, params):
     Om_a = Om0 * a**-3 / E**2
     
     # Effective G
-    # params['alpha0'] corresponds to TEP coupling
+    # params['kappa_gal'] corresponds to TEP coupling
     # G_eff/G = 1 + 2 * beta^2
     # We assume beta_eff(z) scales with alpha(z)?
     # Or constant?
-    # TEP: alpha(z) = alpha0 * sqrt(1+z)
+    # TEP: alpha(z) = kappa_gal * sqrt(1+z)
     # This alpha is in the exponent of A(phi).
     # It relates to beta. Let's assume enhancement scales with alpha^2.
     # G_eff_ratio = 1 + C * alpha(z)^2
@@ -107,11 +107,10 @@ def growth_ode(y, a, params):
         # Phenomenological enhancement
         # Assume scale-dependent growth is relevant, but for linear theory
         # we take an average effect.
-        # If alpha0 = 0.58, and it acts as a coupling:
+        # If we have an O(1) coupling:
         # G_eff = G * (1 + 2*beta^2)
-        # Let's assume modest enhancement consistent with alpha0.
-        # beta approx alpha0.
-        # But this would be HUGE (1 + 2*0.58^2 ~ 1.67).
+        # Let's assume modest enhancement.
+        # But this would be HUGE for beta=1 (1 + 2*1^2 = 3).
         # However, TEP says this is SCREENED in dense regions.
         # On linear scales (voids/average), is it screened?
         # Large scale structure is mostly unscreened?
@@ -137,9 +136,9 @@ def growth_ode(y, a, params):
         # So we turn on enhancement only in matter era.
         
         # Model: G_eff/G = 1 + epsilon * (a / a_eq) ?
-        # Let's assume the coupling strength calculated in Step 90:
-        # beta ~ 0.58.
-        # If fully unscreened on linear scales: G_eff ~ 1.67 G.
+        # Let's assume an O(1) coupling strength:
+        # beta ~ 1.0.
+        # If fully unscreened on linear scales: G_eff ~ 3.0 G.
         # This would break Sigma8 (too high).
         # We must assume the coupling relevant for structure formation is weaker,
         # or the scalar force is short-range (Yukawa).
@@ -147,7 +146,7 @@ def growth_ode(y, a, params):
         
         geff_ratio = params.get('geff_ratio', None)
         if geff_ratio is None:
-            beta = params.get('beta', params.get('alpha0', 0.0))
+            beta = params.get('beta', 0.0)
             geff_ratio = 1.0 + 2.0 * beta**2
     
     # Friction term
@@ -181,8 +180,8 @@ def run_growth_calculation():
     # We test a 5% enhancement in G_eff at z=0 scaling as (1+z)^0.5 ?
     # Let's test what 'epsilon' is needed to match high-z overabundance.
     # If JWST suggests 2x mass density, maybe we need faster growth?
-    # Let's try epsilon = 0.05 (5% enhancement).
-    beta_unscreened = 0.58
+    # Let's test a theoretical O(1) coupling to see what the sigma8 bounds constrain it to.
+    beta_unscreened = 1.0
     geff_ratio_unscreened = 1.0 + 2.0 * beta_unscreened**2
     params_tep = {'model': 'TEP', 'geff_ratio': geff_ratio_unscreened}
     sol_tep = odeint(growth_ode, y0, a_grid, args=(params_tep,))

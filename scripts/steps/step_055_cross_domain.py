@@ -7,7 +7,7 @@ completely independent domains. If TEP is real, the SAME alpha parameter
 should work across:
 
 1. JWST high-z galaxies (this paper)
-2. SN Ia host galaxies (TEP-H0, alpha_eff = 9.6e5 mag)
+2. SN Ia host galaxies (TEP-H0, kappa = 9.6e5 mag)
 3. Globular cluster pulsars (TEP-COS)
 
 This is the ultimate test: a single parameter explaining phenomena
@@ -31,10 +31,10 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
 from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
-from scripts.utils.tep_model import ALPHA_0, compute_gamma_t as tep_gamma  # TEP model: alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), Gamma_t formula
+from scripts.utils.tep_model import KAPPA_GAL, compute_gamma_t as tep_gamma  # TEP model: KAPPA_GAL=9.6e5 mag from Cepheids, Gamma_t formula
 
 STEP_NUM = "055"  # Pipeline step number (sequential 001-176)
-STEP_NAME = "cross_domain"  # Cross-domain consistency: tests if alpha_eff=9.6e5 mag works across JWST, SN Ia, and globular clusters (15 orders of magnitude)
+STEP_NAME = "cross_domain"  # Cross-domain consistency: tests if kappa=9.6e5 mag works across JWST, SN Ia, and globular clusters (15 orders of magnitude)
 
 INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products (CSV format for step-to-step data flow)
 OUTPUT_PATH = PROJECT_ROOT / "results" / "outputs"  # JSON output directory (machine-readable statistical results)
@@ -52,7 +52,7 @@ set_step_logger(logger)  # Register as global step logger so print_status() rout
 
 def gamma_t_with_alpha(log_Mh, z, alpha):
     """Compute Gamma_t with variable alpha."""
-    return tep_gamma(log_Mh, z, alpha_0=alpha)
+    return tep_gamma(log_Mh, z, kappa=alpha)
 
 def main():
     print_status("=" * 70, "INFO")
@@ -75,7 +75,7 @@ def main():
     print_status("\n" + "=" * 70, "INFO")
     print_status("TEST 1: Optimal Alpha from JWST Data", "INFO")
     print_status("=" * 70, "INFO")
-    print_status("Finding the alpha that maximizes Gamma_t-Dust correlation.\n", "INFO")
+    print_status("Evaluating κ_gal transfer; Spearman rank tests cannot recover κ amplitude.\n", "INFO")
     
     high_z = df[df['z_phot'] > 8].dropna(subset=['log_Mh', 'dust', 'z_phot'])
     
@@ -85,32 +85,31 @@ def main():
             rho, _ = spearmanr(gamma_t, high_z['dust'])
             return -rho  # Negative because we minimize
         
-        # Search for optimal alpha
-        result = minimize_scalar(neg_correlation, bounds=(0.1, 1.5), method='bounded')
+        # Search in the correct κ units for diagnostic purposes only.
+        # Spearman correlations are rank based, and Gamma_t is monotonic in κ
+        # for this sample, so this objective cannot identify the κ amplitude.
+        result = minimize_scalar(neg_correlation, bounds=(1.0e5, 2.0e6), method='bounded')
         optimal_alpha = result.x
         optimal_rho = -result.fun
         
-        print_status(f"Optimal alpha (JWST): {optimal_alpha:.3f}", "INFO")
+        print_status(f"Diagnostic κ at optimizer boundary/interior: {optimal_alpha:.3e}", "INFO")
         print_status(f"Maximum correlation: ρ = {optimal_rho:.3f}", "INFO")
+        print_status("κ amplitude recovery is marked reference-only because the rank objective is nearly invariant under monotonic rescaling.", "WARNING")
         
         # Compare to TEP-H0 alpha
-        tep_h0_alpha = ALPHA_0  # Legacy 0.58 maps to alpha_eff = 9.6e5 mag
+        tep_h0_alpha = KAPPA_GAL  # Legacy 9.6e5 maps to kappa = 9.6e5 mag
         gamma_h0 = gamma_t_with_alpha(high_z['log_Mh'].values, high_z['z_phot'].values, tep_h0_alpha)
         rho_h0, p_h0 = spearmanr(gamma_h0, high_z['dust'])
         
-        print_status(f"\nWith TEP-H0 alpha ({tep_h0_alpha}): ρ = {rho_h0:.3f}", "INFO")
-        print_status(f"Difference from optimal: {abs(optimal_alpha - tep_h0_alpha):.3f}", "INFO")
-        
-        # Check if TEP-H0 alpha is within 20% of optimal
-        if abs(optimal_alpha - tep_h0_alpha) / tep_h0_alpha < 0.2:
-            print_status("✓ CROSS-DOMAIN: JWST optimal alpha consistent with TEP-H0", "INFO")
+        print_status(f"\nWith Cepheid prior κ_gal ({tep_h0_alpha:.3e} mag): ρ = {rho_h0:.3f}", "INFO")
         
         results['cross_domain']['alpha_optimization'] = {
-            'optimal_alpha': float(optimal_alpha),
+            'diagnostic_kappa_optimizer': float(optimal_alpha),
             'optimal_rho': float(optimal_rho),
-            'tep_h0_alpha': tep_h0_alpha,
+            'tep_h0_kappa_gal': tep_h0_alpha,
             'tep_h0_rho': float(rho_h0),
-            'difference': float(abs(optimal_alpha - tep_h0_alpha))
+            'valid_kappa_recovery': False,
+            'note': 'Reference-only: Spearman rank objective is insensitive to monotonic κ rescaling; use step_101 for scale-aware κ recovery.'
         }
     
     # ==========================================================================
@@ -122,7 +121,7 @@ def main():
     print_status("Testing correlation strength across alpha values.\n", "INFO")
     
     if len(high_z) > 50:
-        alphas = np.linspace(0.2, 1.0, 17)
+        alphas = KAPPA_GAL * np.linspace(0.5, 1.5, 17)
         alpha_results = []
         
         for alpha in alphas:
@@ -133,8 +132,8 @@ def main():
                 'rho': float(rho),
                 'p': format_p_value(p)
             })
-            marker = "◆" if abs(alpha - ALPHA_0) < 0.03 else ""
-            print_status(f"α = {alpha:.2f}: ρ = {rho:.3f} {marker}", "INFO")
+            marker = "◆" if abs(alpha - KAPPA_GAL) / KAPPA_GAL < 0.01 else ""
+            print_status(f"κ = {alpha:.2e}: ρ = {rho:.3f} {marker}", "INFO")
         
         results['cross_domain']['alpha_sensitivity'] = alpha_results
     
@@ -159,7 +158,7 @@ def main():
                 rho, _ = spearmanr(gamma_t, bin_data['dust'])
                 return -rho
             
-            result = minimize_scalar(neg_corr, bounds=(0.1, 1.5), method='bounded')
+            result = minimize_scalar(neg_corr, bounds=(1.0e5, 2.0e6), method='bounded')
             opt_alpha = result.x
             opt_rho = -result.fun
             
@@ -169,18 +168,16 @@ def main():
                 'optimal_alpha': float(opt_alpha),
                 'optimal_rho': float(opt_rho)
             })
-            print_status(f"z = {z_lo}-{z_hi}: optimal α = {opt_alpha:.2f}, ρ = {opt_rho:.3f}", "INFO")
+            print_status(f"z = {z_lo}-{z_hi}: diagnostic κ = {opt_alpha:.2e}, ρ = {opt_rho:.3f}", "INFO")
     
-    # Check if alpha is consistent across z
+    # Diagnostic spread only; do not interpret as κ consistency because the
+    # rank objective is insensitive to the amplitude.
     if len(z_alpha_results) >= 3:
         alphas = [r['optimal_alpha'] for r in z_alpha_results]
         alpha_std = np.std(alphas)
         alpha_mean = np.mean(alphas)
         
-        print_status(f"\nAlpha consistency: {alpha_mean:.2f} ± {alpha_std:.2f}", "INFO")
-        
-        if alpha_std < 0.15:
-            print_status("✓ Alpha is consistent across redshift bins", "INFO")
+        print_status(f"\nDiagnostic κ spread: {alpha_mean:.2e} ± {alpha_std:.2e} (reference-only)", "INFO")
     
     results['cross_domain']['z_dependent_alpha'] = z_alpha_results
     
@@ -218,7 +215,7 @@ def main():
     # TEST 5: Cross-Survey Alpha Consistency
     # ==========================================================================
     print_status("\n" + "=" * 70, "INFO")
-    print_status("TEST 5: Cross-Survey Alpha Consistency", "INFO")
+    print_status("TEST 5: Cross-Survey Rank Diagnostic", "INFO")
     print_status("=" * 70, "INFO")
     print_status("Testing if CEERS gives the same optimal alpha.\n", "INFO")
     
@@ -241,23 +238,20 @@ def main():
                 rho, _ = spearmanr(gamma_t, ceers_valid['dust'])
                 return -rho
             
-            result = minimize_scalar(neg_corr_ceers, bounds=(0.1, 1.5), method='bounded')
+            result = minimize_scalar(neg_corr_ceers, bounds=(1.0e5, 2.0e6), method='bounded')
             ceers_alpha = result.x
             ceers_rho = -result.fun
             
-            print_status(f"CEERS optimal alpha: {ceers_alpha:.3f}", "INFO")
+            print_status(f"CEERS diagnostic κ: {ceers_alpha:.3e}", "INFO")
             print_status(f"CEERS correlation: ρ = {ceers_rho:.3f}", "INFO")
-            print_status(f"UNCOVER optimal alpha: {optimal_alpha:.3f}", "INFO")
-            print_status(f"Difference: {abs(ceers_alpha - optimal_alpha):.3f}", "INFO")
-            
-            if abs(ceers_alpha - optimal_alpha) < 0.2:
-                print_status("✓ CROSS-SURVEY: CEERS and UNCOVER give consistent alpha", "INFO")
+            print_status(f"UNCOVER diagnostic κ: {optimal_alpha:.3e}", "INFO")
+            print_status("Difference is not interpreted as κ recovery because the objective is rank-invariant.", "INFO")
             
             results['cross_domain']['ceers_alpha'] = {
-                'ceers_alpha': float(ceers_alpha),
+                'ceers_diagnostic_kappa': float(ceers_alpha),
                 'ceers_rho': float(ceers_rho),
-                'uncover_alpha': float(optimal_alpha),
-                'difference': float(abs(ceers_alpha - optimal_alpha))
+                'uncover_diagnostic_kappa': float(optimal_alpha),
+                'valid_kappa_recovery': False
             }
     
     # ==========================================================================
@@ -268,22 +262,16 @@ def main():
     print_status("=" * 70, "INFO")
     
     print_status(f"\nKey findings:", "INFO")
-    print_status(f"  • JWST optimal alpha: {optimal_alpha:.3f}", "INFO")
-    print_status(f"  • TEP-H0 alpha (legacy): {ALPHA_0}", "INFO")
-    print_status(f"  • Difference: {abs(optimal_alpha - ALPHA_0):.3f} ({abs(optimal_alpha - ALPHA_0)/ALPHA_0*100:.1f}%)", "INFO")
-    
-    if abs(optimal_alpha - ALPHA_0) / ALPHA_0 < 0.2:
-        print_status("\n✓ CROSS-DOMAIN CONSISTENCY CONFIRMED", "INFO")
-        print_status("  The SAME alpha works across:", "INFO")
-        print_status("  - JWST high-z galaxies (M_h ~ 10^10 M_sun)", "INFO")
-        print_status("  - SN Ia host galaxies (M_h ~ 10^12 M_sun)", "INFO")
-        print_status("  - Spanning 2 orders of magnitude in mass", "INFO")
+    print_status(f"  • Cepheid prior κ_gal: {KAPPA_GAL:.3e} mag", "INFO")
+    print_status(f"  • JWST rank diagnostic κ: {optimal_alpha:.3e} (reference-only)", "INFO")
+    print_status("  • Cross-domain κ amplitude recovery is not claimed from this rank test.", "INFO")
     
     results['summary'] = {
-        'jwst_alpha': float(optimal_alpha),
-        'tep_h0_alpha': float(ALPHA_0),
-        'difference_percent': float(abs(optimal_alpha - ALPHA_0)/ALPHA_0*100),
-        'consistent': bool(abs(optimal_alpha - ALPHA_0) / ALPHA_0 < 0.2)
+        'jwst_diagnostic_kappa': float(optimal_alpha),
+        'tep_h0_kappa_gal': float(KAPPA_GAL),
+        'valid_kappa_recovery': False,
+        'consistent': None,
+        'assessment': 'reference_only_rank_invariant; use step_101 for scale-aware κ recovery'
     }
     
     # Save

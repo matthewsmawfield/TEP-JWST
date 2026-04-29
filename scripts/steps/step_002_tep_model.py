@@ -68,14 +68,14 @@ set_step_logger(logger)  # Register as global step logger so print_status() rout
 #
 # Mathematical constants imported from scripts/utils/tep_model.py:
 #
-# ALPHA_0 = 0.58  (dimensionless)
-#   - Coupling strength from Cepheid calibration (Paper 11)
-#   - Represents the fractional strength of the scalar field coupling to the metric
-#   - Theoretical basis: alpha_0 arises from the conformal factor A(phi) = exp(alpha_0 * phi/M_pl)
+# KAPPA_GAL = 9.6e5 mag (Observable Response Coefficient)
+#   - Clock-sector coupling from Cepheid calibration (Paper 11)
+#   - Represents the astrophysical response in magnitude units
+#   - Distinct from bare coupling β; includes P-L slope and virial factors
 #
-# ALPHA_UNCERTAINTY = 0.16  (dimensionless)
+# KAPPA_GAL_UNCERTAINTY = 4.0e5 mag
 #   - 1-sigma uncertainty from Cepheid distance ladder analysis
-#   - Propagates to ~27% uncertainty in predicted Gamma_t at typical masses
+#   - Propagates to ~40% uncertainty in predicted Gamma_t at typical masses
 #
 # LOG_MH_REF = 12.0  (log10(M_halo/Msun))
 #   - Reference halo mass where Gamma_t = 1 by definition
@@ -83,10 +83,10 @@ set_step_logger(logger)  # Register as global step logger so print_status() rout
 #   - Mathematically: Gamma_t(M_h = M_ref, z = z_ref) = 1 exactly
 #
 # Z_REF = 5.5  (dimensionless)
-#   - Reference redshift where the coupling strength is calibrated
-#   - At z != z_ref, alpha(z) = alpha_0 * sqrt((1+z)/(1+z_ref))
+#   - Reference redshift for TEP calculations
+#   - Redshift scaling: alpha(z) = KAPPA_GAL * sqrt(1+z)
 #
-# tep_alpha(z)  ->  alpha_0 * sqrt((1+z)/(1+z_ref))
+# tep_alpha(z)  ->  KAPPA_GAL * sqrt(1+z)
 #   - Redshift-dependent coupling from TEP theory (Paper 0, Eq. 3)
 #   - Derivation: scalar field kinetic term scaling with cosmic density
 #
@@ -101,7 +101,7 @@ set_step_logger(logger)  # Register as global step logger so print_status() rout
 #   - Bias in dex: M*_obs / M*_true = Gamma_t^(n_ML)
 
 from scripts.utils.tep_model import (
-    ALPHA_CLOCK_EFF, ALPHA_CLOCK_UNCERTAINTY, LOG_MH_REF, Z_REF,
+    KAPPA_GAL, KAPPA_GAL_UNCERTAINTY, LOG_MH_REF, Z_REF,
     tep_alpha, compute_gamma_t as tep_gamma, isochrony_mass_bias
 )
 
@@ -114,7 +114,7 @@ def apply_tep_model(df):
 
     For each galaxy, this function computes:
 
-    1. alpha(z) = alpha_0 * sqrt(1+z)
+    1. alpha(z) = kappa_gal * sqrt(1+z)
        The redshift-dependent TEP coupling strength. The sqrt(1+z) factor
        arises because the scalar field gradient scales with the expansion
        rate, which increases at earlier epochs.
@@ -150,8 +150,8 @@ def apply_tep_model(df):
     
     df = df.copy()
     
-    # alpha(z) = alpha_0 * sqrt(1+z): redshift-dependent coupling strength
-    df['alpha_z'] = tep_alpha(df['z_phot'].values)
+    # alpha(z) = kappa_gal * sqrt(1+z): redshift-dependent coupling strength
+    df['response_z'] = tep_alpha(df['z_phot'].values)
     
     # Gamma_t: chronological enhancement factor from halo mass and redshift
     df['gamma_t'] = tep_gamma(df['log_Mh'].values, df['z_phot'].values)
@@ -186,7 +186,7 @@ def main():
     print_status("", "INFO")
     
     print_status("TEP Model Parameters:", "INFO")
-    print_status(f"  alpha_eff = {ALPHA_CLOCK_EFF} ± {ALPHA_CLOCK_UNCERTAINTY} mag", "INFO")
+    print_status(f"  kappa_gal = {KAPPA_GAL} ± {KAPPA_GAL_UNCERTAINTY} mag (Observable Response Coefficient)", "INFO")
     print_status(f"  log_Mh_ref = {LOG_MH_REF}", "INFO")
     print_status(f"  z_ref = {Z_REF}", "INFO")
     print_status("", "INFO")
@@ -231,8 +231,8 @@ def main():
     print_status(f"Saved: step_{STEP_NUM}_uncover_multi_property_sample_tep.csv", "INFO")
     
     summary = {
-        "alpha_eff": ALPHA_CLOCK_EFF,
-        "alpha_uncertainty": ALPHA_CLOCK_UNCERTAINTY,
+        "kappa_gal": KAPPA_GAL,
+        "kappa_gal_uncertainty": KAPPA_GAL_UNCERTAINTY,
         "log_Mh_ref": LOG_MH_REF,
         "z_ref": Z_REF,
         "gamma_t_stats_full": {

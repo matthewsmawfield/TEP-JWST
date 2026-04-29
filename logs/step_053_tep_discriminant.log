@@ -1,83 +1,83 @@
-[14:23:52]     ======================================================================
-[14:23:52]     STEP 053: TEP Discriminant
-[14:23:52]     ======================================================================
-[14:23:52]     
+[10:02:13]     ======================================================================
+[10:02:13]     STEP 053: TEP Discriminant
+[10:02:13]     ======================================================================
+[10:02:13]     
 Creating a comprehensive TEP discriminant...
 
-[14:23:52]     Loaded N = 2315 galaxies
-[14:23:52]     
+[10:02:13]     Loaded N = 2315 galaxies
+[10:02:13]     
 ======================================================================
-[14:23:52]     STEP 1: Create TEP Anomaly Score
-[14:23:52]     ======================================================================
-[14:23:52]     Combining multiple indicators into a single score.
+[10:02:13]     STEP 1: Create TEP Anomaly Score
+[10:02:13]     ======================================================================
+[10:02:13]     Combining multiple indicators into a single score.
 
-[14:23:52]     Overall: ρ(Γ_t, TEP_score) = 0.413 (p = 6.00e-96)
-[14:23:52]     z = 4-6: ρ = 0.267 (p = 5.75e-25) ✓
-[14:23:52]     z = 6-8: ρ = 0.192 (p = 2.41e-06) 
-[14:23:52]     z = 8-12: ρ = 0.415 (p = 3.54e-13) ✓
-[14:23:52]     
+[10:02:13]     Overall: ρ(Γ_t, TEP_score) = 0.438 (p = 5.01e-109)
+[10:02:13]     z = 4-6: ρ = 0.302 (p = 1.01e-31) ✓
+[10:02:13]     z = 6-8: ρ = 0.184 (p = 6.41e-06) 
+[10:02:13]     z = 8-12: ρ = 0.387 (p = 1.53e-11) ✓
+[10:02:13]     
 ======================================================================
-[14:23:52]     STEP 2: Fisher Combined Significance
-[14:23:52]     ======================================================================
-[14:23:52]     Combining p-values from independent tests.
+[10:02:13]     STEP 2: Fisher Combined Significance
+[10:02:13]     ======================================================================
+[10:02:13]     Combining p-values from independent tests.
 
-[14:23:52]     Γ_t-Dust: p = 2.09e-29
-[14:23:52]     Γ_t-χ²: p = 8.62e-02
-[14:23:52]     M*-Dust: p = 1.05e-24
-[14:23:52]     
-Fisher combined statistic: χ² = 247.4 (df = 6)
-[14:23:52]     Combined p-value: 1.47e-50
-[14:23:52]     Equivalent significance: 15.0σ
-[14:23:52]     
+[10:02:13]     Γ_t-Dust: p = 4.72e-17
+[10:02:13]     Γ_t-χ²: p = 7.18e-01
+[10:02:13]     M*-Dust: p = 1.05e-24
+[10:02:13]     
+Fisher combined statistic: χ² = 186.3 (df = 6)
+[10:02:13]     Combined p-value: 1.57e-37
+[10:02:13]     Equivalent significance: 12.8σ
+[10:02:13]     
 ======================================================================
-[14:23:52]     STEP 3: Bayes Factor Calculation
-[14:23:52]     ======================================================================
-[14:23:52]     Comparing TEP model to null model.
+[10:02:13]     STEP 3: Bayes Factor Calculation
+[10:02:13]     ======================================================================
+[10:02:13]     Comparing TEP model to null model.
 
-[14:23:52]     R² (Null model, M* only): 0.463
-[14:23:52]     R² (TEP model, M* + Γ_t): 0.463
-[14:23:52]     ΔBIC = -5.5
-[14:23:52]     Bayes Factor (TEP vs Null): 6.3e-02
-[14:23:52]     
+[10:02:13]     R² (Null model, M* only): 0.463
+[10:02:13]     R² (TEP model, M* + Γ_t): 0.463
+[10:02:13]     ΔBIC = -5.4
+[10:02:13]     Bayes Factor (TEP vs Null): 6.8e-02
+[10:02:13]     
 ======================================================================
-[14:23:52]     STEP 4: Cross-Validation Test
-[14:23:52]     ======================================================================
-[14:23:52]     Testing if TEP correlations hold in independent subsamples.
+[10:02:13]     STEP 4: Cross-Validation Test
+[10:02:13]     ======================================================================
+[10:02:13]     Testing if TEP correlations hold in independent subsamples.
 
-[14:23:52]     Half 1 (N = 141): ρ = 0.570 (p = 1.58e-13)
-[14:23:52]     Half 2 (N = 142): ρ = 0.647 (p = 3.37e-18)
-[14:23:52]     ✓ Correlation holds in both independent halves
-[14:23:52]     
+[10:02:13]     Half 1 (N = 141): ρ = 0.454 (p = 1.59e-08)
+[10:02:13]     Half 2 (N = 142): ρ = 0.493 (p = 4.40e-10)
+[10:02:13]     ✓ Correlation holds in both independent halves
+[10:02:13]     
 ======================================================================
-[14:23:52]     STEP 5: Predictive Accuracy Test
-[14:23:52]     ======================================================================
-[14:23:52]     Can Gamma_t predict which galaxies are anomalous?
+[10:02:13]     STEP 5: Predictive Accuracy Test
+[10:02:13]     ======================================================================
+[10:02:13]     Can Gamma_t predict which galaxies are anomalous?
 
-[14:23:52]     Anomalous galaxies: N = 28
-[14:23:52]     AUC (Γ_t predicting anomalous): 0.773
-[14:23:52]     ✓ Gamma_t is a good predictor of anomalous status
-[14:23:52]     
+[10:02:13]     Anomalous galaxies: N = 28
+[10:02:13]     AUC (Γ_t predicting anomalous): 0.701
+[10:02:13]     ✓ Gamma_t is a good predictor of anomalous status
+[10:02:13]     
 ======================================================================
-[14:23:52]     STEP 6: The Ultimate Discriminant
-[14:23:52]     ======================================================================
-[14:23:52]     Combining all evidence into a single discriminant.
+[10:02:13]     STEP 6: The Ultimate Discriminant
+[10:02:13]     ======================================================================
+[10:02:13]     Combining all evidence into a single discriminant.
 
-[14:23:52]     ✓ TEP score correlates positively with Γ_t
-[14:23:52]     ✓ Fisher combined p < 0.001
-[14:23:52]     ✓ Cross-validation holds
-[14:23:52]     ✓ Predictive accuracy > 0.7
-[14:23:52]     
+[10:02:13]     ✓ TEP score correlates positively with Γ_t
+[10:02:13]     ✓ Fisher combined p < 0.001
+[10:02:13]     ✓ Cross-validation holds
+[10:02:13]     ✓ Predictive accuracy > 0.7
+[10:02:13]     
 Ultimate Discriminant: 4/5 tests passed
-[14:23:52]     ✓ STRONG SUPPORT for TEP framework
-[14:23:52]     
+[10:02:13]     ✓ STRONG SUPPORT for TEP framework
+[10:02:13]     
 ======================================================================
-[14:23:52]     SUMMARY: TEP Discriminant Results
-[14:23:52]     ======================================================================
-[14:23:52]     
+[10:02:13]     SUMMARY: TEP Discriminant Results
+[10:02:13]     ======================================================================
+[10:02:13]     
 Key metrics:
-[14:23:52]       • TEP Score correlation: ρ = 0.413
-[14:23:52]       • Bayes Factor: 6.3e-02
-[14:23:52]       • Predictive AUC: 0.773
-[14:23:52]       • Ultimate: 4/5 tests passed
-[14:23:52]     
+[10:02:13]       • TEP Score correlation: ρ = 0.438
+[10:02:13]       • Bayes Factor: 6.8e-02
+[10:02:13]       • Predictive AUC: 0.701
+[10:02:13]       • Ultimate: 4/5 tests passed
+[10:02:13]     
 Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_053_tep_discriminant.json

@@ -218,7 +218,7 @@ def analyze_trgb_cepheid_constraint(df):
         logger.info(f"Ratio: {ratio:.2f}")
         
         # Infer effective environmental contrast
-        alpha = 0.58
+        alpha = 9.6e5
         sigma_ratio_max = 120 / 40  # = 3.0
         log_sigma_ratio_max = np.log10(sigma_ratio_max)
         

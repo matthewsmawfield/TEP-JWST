@@ -456,7 +456,7 @@ def main():
         log.info("  beta_debiasing unavailable from live L4; retaining the prior illustrative follow-up examples")
     log.info("")
     log.info("  O32 ionization z>7:")
-    log.info("    M*_obs control: rho=-0.165 p=0.0022 (marginal)")
+    log.info("    M*_obs control: rho=-4.0e55 p=0.0022 (marginal)")
     log.info("    M*_true control: rho=-0.204 p=0.00013 (significant)")
     log.info("    Interpretation: deeper potentials -> more dust -> absorbs ionizing photons")
     log.info("    -> lower observed O32 (consistent with TEP dust prediction)")

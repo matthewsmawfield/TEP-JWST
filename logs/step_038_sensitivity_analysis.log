@@ -1,18 +1,18 @@
-[14:23:39]     ======================================================================
-[14:23:39]     STEP 038: Sensitivity Analysis
-[14:23:39]     ======================================================================
-[14:23:39]     Loaded N = 2315 galaxies
-[14:23:39]     z > 8 Subset: N = 283
-[14:23:39]     
+[10:02:00]     ======================================================================
+[10:02:00]     STEP 038: Sensitivity Analysis
+[10:02:00]     ======================================================================
+[10:02:00]     Loaded N = 2315 galaxies
+[10:02:00]     z > 8 Subset: N = 283
+[10:02:00]     
 Running sensitivity sweep...
-[14:23:39]     --------------------------------------------------
-[14:23:39]     Nominal Alpha: 0.58 +/- 400000.0
-[14:23:39]     Range tested: 0.0 - 1.2
-[14:23:39]     --------------------------------------------------
-[14:23:39]     Peak Dust Correlation (z>8): rho=0.603 at alpha=0.02
-[14:23:39]     Peak Age Correlation (z>4):  rho=0.019  at alpha=0.02
-[14:23:39]     Nominal Performance:
-[14:23:39]       Dust Rho: 0.603 (p=2.1e-29)
-[14:23:39]       Age Rho:  0.019 (p=3.5e-01)
-[14:23:39]     Robustness (Dust): Signal significant (p<0.05) over 98% of 1-sigma parameter range
-[14:23:39]     Saved sensitivity data to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_038_sensitivity.csv
+[10:02:00]     --------------------------------------------------
+[10:02:00]     Nominal κ_gal: 9.600e+05 ± 4.000e+05 mag
+[10:02:00]     Range tested: 0.0 - 1.2
+[10:02:00]     --------------------------------------------------
+[10:02:00]     Peak Dust Correlation (z>8): rho=0.471 at κ_gal=1.00e+05 mag
+[10:02:00]     Peak Age Correlation (z>4):  rho=-0.006  at κ_gal=1.00e+05 mag
+[10:02:00]     Nominal Performance:
+[10:02:00]       Dust Rho: 0.471 (p=4.7e-17)
+[10:02:00]       Age Rho:  -0.006 (p=7.7e-01)
+[10:02:00]     Robustness (Dust): Signal significant (p<0.05) over 100% of 1-sigma parameter range
+[10:02:00]     Saved sensitivity data to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_038_sensitivity.csv

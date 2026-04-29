@@ -1,164 +1,164 @@
-[14:22:58]     ======================================================================
-[14:22:58]     FIRST-PRINCIPLES ANALYSIS
-[14:22:58]     ======================================================================
-[14:22:58] 
-[14:22:58]     The Core Equation:
-[14:22:58]       Γ_t = exp[ K * (Φ - Φ_ref)/c^2 * sqrt(1+z) ]
-[14:22:58] 
-[14:22:58]       α₀ = 0.58 (from Cepheids)
-[14:22:58]       log M_h,ref = 11.0
-[14:22:58]       z_ref = 5.5
-[14:22:58]     
+[10:01:17]     ======================================================================
+[10:01:17]     FIRST-PRINCIPLES ANALYSIS
+[10:01:17]     ======================================================================
+[10:01:17] 
+[10:01:17]     The Core Equation:
+[10:01:17]       Γ_t = exp[ K * (Φ - Φ_ref)/c^2 * sqrt(1+z) ]
+[10:01:17] 
+[10:01:17]       κ_gal = 9.600e+05 mag (from Cepheids, Paper 11)
+[10:01:17]       log M_h,ref = 12.0
+[10:01:17]       z_ref = 5.5
+[10:01:17]     
 ============================================================
-[14:22:58]     BRANCH 1: THE TWO REGIMES
-[14:22:58]     ============================================================
-[14:22:58]     
+[10:01:17]     BRANCH 1: THE TWO REGIMES
+[10:01:17]     ============================================================
+[10:01:17]     
 TEP Prediction:
-[14:22:58]       For log M_h < 12: Γ_t < 1 (time runs SLOWER)
-[14:22:58]       For log M_h > 12: Γ_t > 1 (time runs FASTER)
-[14:22:58] 
-[14:22:58]     Sample Distribution:
-[14:22:58]       N total: 1108
-[14:22:58]       Γ_t range: [0.88, 8.77]
-[14:22:58]       Γ_t median: 0.93
-[14:22:58]       N with Γ_t < 1: 1003 (90.5%)
-[14:22:58]       N with Γ_t > 1: 105 (9.5%)
-[14:22:58] 
-[14:22:58]     Properties by Regime:
-[14:22:58]     Regime                    N      <age_ratio>  <Z>      <A_V>   
-[14:22:58]     ------------------------------------------------------------
-[14:22:58]     Suppressed (0.5 ≤ Γ_t < 1)   1003        0.144    -1.19     0.22
-[14:22:58]     Enhanced (Γ_t > 1)           105        0.211    -0.83     0.80
-[14:22:58] 
-[14:22:58]     Interpretation:
-[14:22:58]       Enhanced regime (Γ_t > 1) shows:
-[14:22:58]         - Higher age ratio (older-appearing)
-[14:22:58]         - Higher metallicity (more enriched)
-[14:22:58]         - MUCH higher dust (A_V ~ 1.6 vs 0.2)
-[14:22:58] 
-[14:22:58]       Consistent with TEP predictions.
-[14:22:58]     
+[10:01:17]       For log M_h < 12: Γ_t < 1 (time runs SLOWER)
+[10:01:17]       For log M_h > 12: Γ_t > 1 (time runs FASTER)
+[10:01:17] 
+[10:01:17]     Sample Distribution:
+[10:01:17]       N total: 1108
+[10:01:17]       Γ_t range: [0.52, 5.21]
+[10:01:17]       Γ_t median: 0.63
+[10:01:17]       N with Γ_t < 1: 1097 (99.0%)
+[10:01:17]       N with Γ_t > 1: 11 (1.0%)
+[10:01:17] 
+[10:01:17]     Properties by Regime:
+[10:01:17]     Regime                    N      <age_ratio>  <Z>      <A_V>   
+[10:01:17]     ------------------------------------------------------------
+[10:01:17]     Suppressed (0.5 ≤ Γ_t < 1)   1097        0.149    -1.17     0.27
+[10:01:17]     Enhanced (Γ_t > 1)            11        0.276    -0.42     1.45
+[10:01:17] 
+[10:01:17]     Interpretation:
+[10:01:17]       Enhanced regime (Γ_t > 1) shows:
+[10:01:17]         - Higher age ratio (older-appearing)
+[10:01:17]         - Higher metallicity (more enriched)
+[10:01:17]         - MUCH higher dust (A_V ~ 1.6 vs 0.2)
+[10:01:17] 
+[10:01:17]       Consistent with TEP predictions.
+[10:01:17]     
 ============================================================
-[14:22:58]     BRANCH 2: THE Z > 8 DUST MECHANISM
-[14:22:58]     ============================================================
-[14:22:58]     
+[10:01:17]     BRANCH 2: THE Z > 8 DUST MECHANISM
+[10:01:17]     ============================================================
+[10:01:17]     
 z > 8 sample: N = 283
-[14:22:58] 
-[14:22:58]     Effective Time by Mass at z > 8:
-[14:22:58]     log M*       N      <t_cosmic>   <Γ_t>    <t_eff>      <A_V>   
-[14:22:58]     ------------------------------------------------------------
-[14:22:58]     8-8.5:          180        569 Myr     0.89        507 Myr     0.60
-[14:22:58]     8.5-9:           70        555 Myr     0.91        504 Myr     0.89
-[14:22:58]     9-10:           24        534 Myr     1.01        537 Myr     1.25
-[14:22:58]     10-12:            9        540 Myr     2.93       1537 Myr     2.70
-[14:22:58] 
-[14:22:58]     The Mechanism:
-[14:22:58]       - Low-mass galaxies: Γ_t < 1, t_eff < t_cosmic, LESS time for dust
-[14:22:58]       - High-mass galaxies: Γ_t > 1, t_eff > t_cosmic, MORE time for dust
-[14:22:58] 
-[14:22:58]       At log M* = 10-12:
-[14:22:58]         t_cosmic ~ 550 Myr (insufficient for AGB dust)
-[14:22:58]         t_eff ~ 1000+ Myr (sufficient for AGB dust)
-[14:22:58]         Observed A_V ~ 2.7 (heavily dust-obscured)
-[14:22:58] 
-[14:22:58]       This is inconsistent with standard physics timescales.
-[14:22:58]       TEP provides a potential explanation.
-[14:22:58]     
+[10:01:17] 
+[10:01:17]     Effective Time by Mass at z > 8:
+[10:01:17]     log M*       N      <t_cosmic>   <Γ_t>    <t_eff>      <A_V>   
+[10:01:17]     ------------------------------------------------------------
+[10:01:17]     8-8.5:          180        569 Myr     0.54        309 Myr     0.60
+[10:01:17]     8.5-9:           70        555 Myr     0.55        306 Myr     0.89
+[10:01:17]     9-10:           24        534 Myr     0.61        324 Myr     1.25
+[10:01:17]     10-12:            9        540 Myr     1.76        924 Myr     2.70
+[10:01:17] 
+[10:01:17]     The Mechanism:
+[10:01:17]       - Low-mass galaxies: Γ_t < 1, t_eff < t_cosmic, LESS time for dust
+[10:01:17]       - High-mass galaxies: Γ_t > 1, t_eff > t_cosmic, MORE time for dust
+[10:01:17] 
+[10:01:17]       At log M* = 10-12:
+[10:01:17]         t_cosmic ~ 550 Myr (insufficient for AGB dust)
+[10:01:17]         t_eff ~ 1000+ Myr (sufficient for AGB dust)
+[10:01:17]         Observed A_V ~ 2.7 (heavily dust-obscured)
+[10:01:17] 
+[10:01:17]       This is inconsistent with standard physics timescales.
+[10:01:17]       TEP provides a potential explanation.
+[10:01:17]     
 ============================================================
-[14:22:58]     BRANCH 3: MASS-DEPENDENCE OF CORRELATIONS
-[14:22:58]     ============================================================
-[14:22:58]     
+[10:01:17]     BRANCH 3: MASS-DEPENDENCE OF CORRELATIONS
+[10:01:17]     ============================================================
+[10:01:17]     
 TEP predicts: Correlations should be STRONGER for massive galaxies
-[14:22:58]       because they have larger |Γ_t - 1|
-[14:22:58] 
-[14:22:58]     Mass split at log M* = 8.46
-[14:22:58] 
-[14:22:58]     Property        Low-mass ρ   High-mass ρ  Δρ      
-[14:22:58]     --------------------------------------------------
-[14:22:58]     Age Ratio             +0.196       +0.234   +0.038
-[14:22:58]     Metallicity           +0.201       +0.203   +0.002
-[14:22:58]     Dust                  +0.052       +0.316   +0.264
-[14:22:58] 
-[14:22:58]     Interpretation:
-[14:22:58]       High-mass galaxies show STRONGER correlations with Γ_t
-[14:22:58]       This is because they span a larger range of Γ_t values.
-[14:22:58]     
+[10:01:17]       because they have larger |Γ_t - 1|
+[10:01:17] 
+[10:01:17]     Mass split at log M* = 8.46
+[10:01:17] 
+[10:01:17]     Property        Low-mass ρ   High-mass ρ  Δρ      
+[10:01:17]     --------------------------------------------------
+[10:01:17]     Age Ratio             +0.170       +0.248   +0.078
+[10:01:17]     Metallicity           +0.232       +0.237   +0.005
+[10:01:17]     Dust                  +0.024       +0.242   +0.218
+[10:01:17] 
+[10:01:17]     Interpretation:
+[10:01:17]       High-mass galaxies show STRONGER correlations with Γ_t
+[10:01:17]       This is because they span a larger range of Γ_t values.
+[10:01:17]     
 ============================================================
-[14:22:58]     BRANCH 4: THE CROSS-DOMAIN BRIDGE
-[14:22:58]     ============================================================
-[14:22:58]     
+[10:01:17]     BRANCH 4: THE CROSS-DOMAIN BRIDGE
+[10:01:17]     ============================================================
+[10:01:17]     
 Cross-Domain Consistency:
-[14:22:58]       α_eff = 9.6×10⁵ mag derived from Cepheids at z ~ 0
-[14:22:58]       Applied to JWST galaxies at z = 4-10 with NO TUNING
-[14:22:58] 
-[14:22:58]     TEP-H0 Derivation:
-[14:22:58]       - SH0ES Cepheid observations in 37 SN Ia hosts
-[14:22:58]       - Correlation: H0 decreases with host σ
-[14:22:58]       - Interpretation: Cepheid periods dilated in deep potentials
-[14:22:58]       - Best fit: α_eff = (9.6 ± 4.0) × 10⁵ mag
-[14:22:58] 
-[14:22:58]     TEP-JWST Predictions (using same α):
-[14:22:58]         - Γ_t = exp[ K * (Φ - Φ_ref)/c^2 * sqrt(1+z) ]
-[14:22:58]         - K = 1.26e6 (from Cepheid calibration, Paper 11)
-[14:22:58]       - α(z) = 0.58 × √(1+z)
-[14:22:58] 
-[14:22:58]       At z = 8, log M_h = 12.5:
-[14:22:58]         α(z=8) = 0.58 × √9 = 1.74
-[14:22:58]         Γ_t = 3.25
-[14:22:58] 
-[14:22:58]     Result: ALL 7 THREADS ARE SIGNIFICANT
-[14:22:58] 
-[14:22:58]     This is the constellation line connecting TEP-H0 to TEP-JWST:
-[14:22:58]       Same physics, same parameter, different observables.
-[14:22:58]     
+[10:01:17]       κ_gal = 9.6×10⁵ mag derived from Cepheids at z ~ 0
+[10:01:17]       Applied to JWST galaxies at z = 4-10 with NO TUNING
+[10:01:17] 
+[10:01:17]     TEP-H0 Derivation:
+[10:01:17]       - SH0ES Cepheid observations in 37 SN Ia hosts
+[10:01:17]       - Correlation: H0 decreases with host σ
+[10:01:17]       - Interpretation: Cepheid periods dilated in deep potentials
+[10:01:17]       - Best fit: κ_gal = (9.6 ± 4.0) × 10⁵ mag
+[10:01:17] 
+[10:01:17]     TEP-JWST Predictions (using same κ_gal):
+[10:01:17]         - Γ_t = exp[ K * (Φ - Φ_ref)/c^2 * sqrt(1+z) ]
+[10:01:17]         - K = 1.26e6 (from Cepheid calibration, Paper 11)
+[10:01:17]       - κ(z) = 9.6e5 × √(1+z)
+[10:01:17] 
+[10:01:17]       At z = 8, log M_h = 12.5:
+[10:01:17]         κ(z=8) = 9.6e5 × √9 = 2880000.00
+[10:01:17]         Γ_t = 2.01
+[10:01:17] 
+[10:01:17]     Result: ALL 7 THREADS ARE SIGNIFICANT
+[10:01:17] 
+[10:01:17]     This is the constellation line connecting TEP-H0 to TEP-JWST:
+[10:01:17]       Same physics, same parameter, different observables.
+[10:01:17]     
 ============================================================
-[14:22:58]     UNTESTED PREDICTIONS
-[14:22:58]     ============================================================
-[14:22:58]     
+[10:01:17]     UNTESTED PREDICTIONS
+[10:01:17]     ============================================================
+[10:01:17]     
 From the core equation, these predictions must follow:
-[14:22:58] 
-[14:22:58]       Resolved Age Gradients:
-[14:22:58]         Prediction: Within a galaxy, inner regions (deeper Φ) appear older
-[14:22:58]         Formula: Gradient slope ∝ potential steepness
-[14:22:58]         Requires: JADES/CEERS resolved photometry
-[14:22:58] 
-[14:22:58]       Spectroscopic vs Photometric Ages:
-[14:22:58]         Prediction: Spec ages (from absorption) should match TEP-corrected phot ages
-[14:22:58]         Formula: Δage = age_phot - age_spec ∝ Γ_t
-[14:22:58]         Requires: NIRSpec spectroscopy
-[14:22:58] 
-[14:22:58]       Dynamical vs Stellar Masses:
-[14:22:58]         Prediction: M_dyn (from kinematics) should be lower than M_star (from SED)
-[14:22:58]         Formula: M_star / M_dyn = Γ_t^0.7
-[14:22:58]         Requires: Velocity dispersion measurements
-[14:22:58] 
-[14:22:58]       Environment Screening:
-[14:22:58]         Prediction: Cluster members should show weaker TEP effects
-[14:22:58]         Formula: Γ_t_eff → 1 in overdense regions
-[14:22:58]         Requires: Environment classification
-[14:22:58] 
-[14:22:58]       Variable Star Periods:
-[14:22:58]         Prediction: Pulsation periods should be dilated in deep potentials
-[14:22:58]         Formula: P_obs / P_true = Γ_t
-[14:22:58]         Requires: High-z variable star detection
-[14:22:58] 
-[14:22:58]     
+[10:01:17] 
+[10:01:17]       Resolved Age Gradients:
+[10:01:17]         Prediction: Within a galaxy, inner regions (deeper Φ) appear older
+[10:01:17]         Formula: Gradient slope ∝ potential steepness
+[10:01:17]         Requires: JADES/CEERS resolved photometry
+[10:01:17] 
+[10:01:17]       Spectroscopic vs Photometric Ages:
+[10:01:17]         Prediction: Spec ages (from absorption) should match TEP-corrected phot ages
+[10:01:17]         Formula: Δage = age_phot - age_spec ∝ Γ_t
+[10:01:17]         Requires: NIRSpec spectroscopy
+[10:01:17] 
+[10:01:17]       Dynamical vs Stellar Masses:
+[10:01:17]         Prediction: M_dyn (from kinematics) should be lower than M_star (from SED)
+[10:01:17]         Formula: M_star / M_dyn = Γ_t^0.7
+[10:01:17]         Requires: Velocity dispersion measurements
+[10:01:17] 
+[10:01:17]       Environment Screening:
+[10:01:17]         Prediction: Cluster members should show weaker TEP effects
+[10:01:17]         Formula: Γ_t_eff → 1 in overdense regions
+[10:01:17]         Requires: Environment classification
+[10:01:17] 
+[10:01:17]       Variable Star Periods:
+[10:01:17]         Prediction: Pulsation periods should be dilated in deep potentials
+[10:01:17]         Formula: P_obs / P_true = Γ_t
+[10:01:17]         Requires: High-z variable star detection
+[10:01:17] 
+[10:01:17]     
 ======================================================================
-[14:22:58]     SUMMARY: FIRST-PRINCIPLES DERIVATION
-[14:22:58]     ======================================================================
-[14:22:58] 
-[14:22:58]     From the core equation Γ_t = exp[α × Φ/c²], we derive:
-[14:22:58] 
-[14:22:58]       ✓ Two regimes (Γ_t < 1 vs Γ_t > 1)
-[14:22:58]       ✓ z > 8 dust anomaly (enhanced proper time)
-[14:22:58]       ✓ Mass-dependent correlations
-[14:22:58]       ✓ Cross-domain consistency (same α from z=0 to z=10)
-[14:22:58]       ○ Resolved age gradients (pending)
-[14:22:58]       ○ Spectroscopic confirmation (pending)
-[14:22:58]       ○ Dynamical mass test (pending)
-[14:22:58] 
-[14:22:58]     All predictions follow from the single TEP equation.
-[14:22:58] 
-[14:22:58]     Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_003_first_principles.json
-[14:22:58] 
-[14:22:58]     Step 003 complete.
+[10:01:17]     SUMMARY: FIRST-PRINCIPLES DERIVATION
+[10:01:17]     ======================================================================
+[10:01:17] 
+[10:01:17]     From the core equation Γ_t = exp[α × Φ/c²], we derive:
+[10:01:17] 
+[10:01:17]       ✓ Two regimes (Γ_t < 1 vs Γ_t > 1)
+[10:01:17]       ✓ z > 8 dust anomaly (enhanced proper time)
+[10:01:17]       ✓ Mass-dependent correlations
+[10:01:17]       ✓ Cross-domain consistency (same α from z=0 to z=10)
+[10:01:17]       ○ Resolved age gradients (pending)
+[10:01:17]       ○ Spectroscopic confirmation (pending)
+[10:01:17]       ○ Dynamical mass test (pending)
+[10:01:17] 
+[10:01:17]     All predictions follow from the single TEP equation.
+[10:01:17] 
+[10:01:17]     Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_003_first_principles.json
+[10:01:17] 
+[10:01:17]     Step 003 complete.

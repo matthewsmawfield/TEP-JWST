@@ -2,7 +2,7 @@
 """
 TEP-JWST Step 20: Parameter Validation
 
-This script validates that the single TEP coupling α_eff = 9.6e5 mag (α₀ = 0.58 legacy),
+This script validates that the single TEP coupling KAPPA_GAL = 9.6e5 mag,
 calibrated from local Cepheids, explains high-z observations.
 
 This single number, calibrated from local Cepheids,
@@ -36,10 +36,10 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import ALPHA_0, ALPHA_CLOCK_EFF, compute_gamma_t as tep_gamma, compute_effective_time  # TEP model: alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), Gamma_t formula, t_eff = Gamma_t * t_cosmic
+from scripts.utils.tep_model import KAPPA_GAL, KAPPA_GAL, compute_gamma_t as tep_gamma, compute_effective_time  # TEP model: KAPPA_GAL=9.6e5 mag from Cepheids, Gamma_t formula, t_eff = Gamma_t * t_cosmic
 
 STEP_NUM = "020"  # Pipeline step number (sequential 001-176)
-STEP_NAME = "parameter_validation"  # Validates single TEP coupling (alpha_eff=9.6e5 mag) explains 7 high-z observables
+STEP_NAME = "parameter_validation"  # Validates single TEP coupling (kappa=9.6e5 mag) explains 7 high-z observables
 
 DATA_PATH = PROJECT_ROOT / "data"  # Top-level data directory (raw external catalogs)
 INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products (CSV format for step-to-step data flow)
@@ -68,7 +68,7 @@ def fix_byteorder(arr):
 # =============================================================================
 
 def main():
-    """Validate that the single TEP coupling alpha_eff = 9.6e5 mag, calibrated
+    """Validate that the single TEP coupling kappa = 9.6e5 mag, calibrated
     from local Cepheids (TEP-H0 Paper 11), is sufficient to explain
     seven independent high-z observables from UNCOVER DR4.
 
@@ -114,7 +114,7 @@ def main():
     # Halo mass: log(M_h) = log(M*) + 2.0 (abundance matching approximation)
     log_Mh = mstar + 2.0
     # Gamma_t: chronological enhancement factor from shared canonical model
-    gamma_t = tep_gamma(log_Mh, z, alpha_0=ALPHA_0)
+    gamma_t = tep_gamma(log_Mh, z, kappa=KAPPA_GAL)
     # t_cosmic: age of the universe at each galaxy's redshift (Gyr)
     t_cosmic = cosmo.age(z).value
     # t_eff: effective proper time = t_cosmic * Gamma_t (Gyr)
@@ -124,7 +124,7 @@ def main():
     
     print_status(f"\nSample size: N = {len(z)}", "INFO")
     
-    results = {"validated_parameter": {"alpha_0": ALPHA_0}, "evidence": [], "anomalies_resolved": []}
+    results = {"validated_parameter": {"kappa_gal": KAPPA_GAL}, "evidence": [], "anomalies_resolved": []}
     
     # =========================================================================
     # THE SEVEN CONFIRMATIONS

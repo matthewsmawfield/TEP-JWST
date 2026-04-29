@@ -5,7 +5,7 @@
     "TEP": {
       "full_name": "Temporal Equivalence Principle",
       "mechanism": "Scalar-tensor with chameleon screening",
-      "key_parameter": "\u03b1\u2080 = 0.58 \u00b1 0.16",
+      "key_parameter": "\u03ba_gal = (9.6 \u00b1 4.0) \u00d7 10\u2075 mag",
       "screening": "Chameleon (density-dependent)",
       "predictions": {
         "high_z_dust_correlation": "Strong positive (\u03c1 > 0.5)",

@@ -150,10 +150,14 @@ All predictions derive from:
 Γ_t(M_h, z) = exp[ α(z) × (2/3) × (log M_h − 12) ]
 ```
 
-where `α(z) = α₀ × (1+z) / (1+z_ref)`, with:
-- `α₀ = 0.58 ± 0.16` (from Cepheid calibration)
+where the kernel uses `K_gal = κ_gal × ln10 / (2.5 × n)` and:
+- `κ_gal = (9.6 ± 4.0) × 10⁵ mag` (Observable Response Coefficient from Paper 11 Cepheid P-L residuals)
 - `z_ref = 0.0`
 - `log M_h` = log halo mass (from stellar-to-halo mass relation)
+
+Note: `κ_gal` is the magnitude-sector response coefficient (Observable Response Coefficient
+from Paper 11 Cepheid analysis). It is distinct from the bare conformal coupling `β ≲ 3×10⁻³`
+(Cassini PPN bound).
 
 Implemented in `scripts/utils/tep_model.py`.
 

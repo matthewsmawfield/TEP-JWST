@@ -1,25 +1,25 @@
-[14:31:48]     =================================================================
-[14:31:48]     Step 174: Stellar Mass Function — Mass Threshold Counts
-[14:31:48]     =================================================================
-[14:31:48] Loading three-survey data...
-[14:31:48]   UNCOVER: loaded 2315 galaxies
-[14:31:48]   CEERS: loaded 3224 galaxies (z=4-12)
-[14:31:48]   COSMOS-Web: loaded 41120 galaxies (z=4-12)
-[14:31:48] Total: 46659 galaxies across 3 surveys
-[14:31:48]   z=[7,8), logM*>10.0: N_obs=119, N_corr=97, reduction=18%
-[14:31:48]   z=[7,8), logM*>10.5: N_obs=41, N_corr=0, reduction=100%
-[14:31:48]   z=[8,9), logM*>10.0: N_obs=113, N_corr=89, reduction=21%
-[14:31:48]   z=[8,9), logM*>10.5: N_obs=34, N_corr=0, reduction=100%
-[14:31:48]   z=[9,10), logM*>10.0: N_obs=54, N_corr=46, reduction=15%
-[14:31:48]   z=[9,10), logM*>10.5: N_obs=17, N_corr=0, reduction=100%
-[14:31:48]     
+[10:43:17]     =================================================================
+[10:43:17]     Step 174: Stellar Mass Function — Mass Threshold Counts
+[10:43:17]     =================================================================
+[10:43:17] Loading three-survey data...
+[10:43:17]   UNCOVER: loaded 2315 galaxies
+[10:43:17]   CEERS: loaded 3224 galaxies (z=4-12)
+[10:43:18]   COSMOS-Web: loaded 41120 galaxies (z=4-12)
+[10:43:18] Total: 46659 galaxies across 3 surveys
+[10:43:18]   z=[7,8), logM*>10.0: N_obs=119, N_corr=156, reduction=-31%
+[10:43:18]   z=[7,8), logM*>10.5: N_obs=41, N_corr=30, reduction=27%
+[10:43:18]   z=[8,9), logM*>10.0: N_obs=113, N_corr=138, reduction=-22%
+[10:43:18]   z=[8,9), logM*>10.5: N_obs=34, N_corr=19, reduction=44%
+[10:43:18]   z=[9,10), logM*>10.0: N_obs=54, N_corr=73, reduction=-35%
+[10:43:18]   z=[9,10), logM*>10.5: N_obs=17, N_corr=9, reduction=47%
+[10:43:18]     
 Table 15 (n_ml = 0.7):
-[14:31:48]     Redshift     Threshold     N_obs  N_corr  Reduction
-[14:31:48]     z=7-8        logM*>10.0      119      97        18%
-[14:31:48]     z=7-8        logM*>10.5       41       0       100%
-[14:31:48]     z=8-9        logM*>10.0      113      89        21%
-[14:31:48]     z=8-9        logM*>10.5       34       0       100%
-[14:31:48]     z=9-10       logM*>10.0       54      46        15%
-[14:31:48]     z=9-10       logM*>10.5       17       0       100%
-[14:31:48] Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_174_smf_mass_threshold_counts.json
-[14:31:48]     Step 174 complete.
+[10:43:18]     Redshift     Threshold     N_obs  N_corr  Reduction
+[10:43:18]     z=7-8        logM*>10.0      119     156       -31%
+[10:43:18]     z=7-8        logM*>10.5       41      30        27%
+[10:43:18]     z=8-9        logM*>10.0      113     138       -22%
+[10:43:18]     z=8-9        logM*>10.5       34      19        44%
+[10:43:18]     z=9-10       logM*>10.0       54      73       -35%
+[10:43:18]     z=9-10       logM*>10.5       17       9        47%
+[10:43:18] Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_174_smf_mass_threshold_counts.json
+[10:43:18]     Step 174 complete.

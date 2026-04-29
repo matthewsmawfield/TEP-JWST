@@ -2,23 +2,23 @@
   "n_total": 2315,
   "web_inspired": {
     "compactness": {
-      "rho_gamma_dust": 0.6029791257884878,
-      "p": 2.0887757926899666e-29
+      "rho_gamma_dust": 0.4712708247076625,
+      "p": 4.718450634589153e-17
     },
     "quenching_timescale": {
       "n_quenching": 15,
-      "mean_gamma_quenching": 1.2369536170894644,
-      "mean_gamma_all": 0.9442468339381135
+      "mean_gamma_quenching": 0.7456871974611281,
+      "mean_gamma_all": 0.581504178021387
     },
     "red_dots": {
       "n_red_dots": 75,
-      "mean_gamma_rd": 1.199545687404427,
-      "mean_gamma_normal": 0.8996141672481985,
-      "ratio": 1.3334001742921409
+      "mean_gamma_rd": 0.7264790619495681,
+      "mean_gamma_normal": 0.5561589185933832,
+      "ratio": 1.306243661050968
     },
     "balmer_break": {
-      "rho_gamma_mwa": 0.03582531215348176,
-      "rho_teff_mwa": 0.03582531215348176
+      "rho_gamma_mwa": 0.2180024051822962,
+      "rho_teff_mwa": 0.2180024051822962
     }
   }
 }

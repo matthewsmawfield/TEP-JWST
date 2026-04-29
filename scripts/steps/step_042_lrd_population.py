@@ -31,7 +31,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma  # TEP model: Gamma_t = exp[alpha(z) * (2/3) * (log_Mh - log_Mh_ref) * z_factor]
+from scripts.utils.tep_model import compute_gamma_t as tep_gamma  # TEP model: Gamma_t = exp[K_gal · (Phi − Phi_ref) · sqrt(1+z)], K_gal = kappa · ln10 / (2.5n)
 
 STEP_NUM = "042"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "lrd_population"  # LRD population differential temporal topology: applies step_41 simulation to Kokorev+24 sample (N=260)

@@ -445,17 +445,17 @@ def main():
     if s162:
         conc = s162.get('concordance', {})
         external_ref = conc.get('external_cepheid_reference', conc.get('cepheid_reference', {}))
-        auxiliary_checks['alpha0_concordance'] = {
+        auxiliary_checks['kappa_gal_concordance'] = {
             'status': 'live',
-            'alpha0_weighted_mean': conc.get('alpha0_weighted_mean'),
-            'alpha0_weighted_sigma': conc.get('alpha0_weighted_sigma'),
-            'jwst_recovered_alpha0': conc.get('jwst_recovered_alpha0', conc.get('alpha0_weighted_mean')),
-            'jwst_recovered_sigma': conc.get('jwst_recovered_sigma', conc.get('alpha0_weighted_sigma')),
+            'kappa_gal_weighted_mean': conc.get('kappa_gal_weighted_mean'),
+            'kappa_gal_weighted_sigma': conc.get('kappa_gal_weighted_sigma'),
+            'jwst_recovered_kappa_gal': conc.get('jwst_recovered_kappa_gal', conc.get('kappa_gal_weighted_mean')),
+            'jwst_recovered_sigma': conc.get('jwst_recovered_sigma', conc.get('kappa_gal_weighted_sigma')),
             'p_concordance': conc.get('p_concordance'),
             'max_pairwise_tension_sigma': conc.get('max_pairwise_tension_sigma'),
             'cepheid_tension_sigma': conc.get('cepheid_tension_sigma'),
             'external_cepheid_tension_sigma': conc.get('external_cepheid_tension_sigma', conc.get('cepheid_tension_sigma')),
-            'external_cepheid_alpha0': external_ref.get('alpha0'),
+            'external_cepheid_kappa_gal': external_ref.get('kappa_gal'),
             'external_cepheid_sigma': external_ref.get('sigma'),
             'verdict': conc.get('verdict'),
         }
@@ -649,7 +649,7 @@ def main():
                 'mass_measurement_bias',
                 'cross_survey_generalization',
                 'functional_form_discrimination',
-                'alpha0_concordance',
+                'kappa_gal_concordance',
                 'jades_dr5_morphology',
                 'cosmos2025_blank_field_l3',
                 'uncover_z9_null_audit',
@@ -701,18 +701,18 @@ def main():
             f"ρ(Age, Γ_dyn|z)={l5['partial_rho_gamma_dyn_age_given_z']:.3f} (p={l5['p_partial_gamma_dyn_age_given_z']:.3e}); "
             f"ρ(Age, Γ_dyn|M_star,z)={l5['partial_rho_gamma_dyn_age_given_mstar_z']:.3f} vs "
             f"ρ(Age, M_star|Γ_dyn,z)={l5['partial_rho_mstar_age_given_gamma_dyn_z']:.3f}; "
-            f"Steiger Z={steiger.get('z_stat_gamma_dyn_better_than_mstar', float('nan')):.3f}",
+            f"Steiger Z={(steiger.get('z_stat_gamma_dyn_better_than_mstar') if steiger.get('z_stat_gamma_dyn_better_than_mstar') is not None else float('nan')):.3f}",
             "INFO"
         )
 
-    if 'alpha0_concordance' in auxiliary_checks:
+    if 'kappa_gal_concordance' in auxiliary_checks:
         print_status(
-            f"  α₀ concordance: JWST {auxiliary_checks['alpha0_concordance']['jwst_recovered_alpha0']:.3f} ± "
-            f"{auxiliary_checks['alpha0_concordance']['jwst_recovered_sigma']:.3f}; "
-            f"external Cepheid prior {auxiliary_checks['alpha0_concordance']['external_cepheid_alpha0']:.3f} ± "
-            f"{auxiliary_checks['alpha0_concordance']['external_cepheid_sigma']:.3f}; "
-            f"agreement = {auxiliary_checks['alpha0_concordance']['external_cepheid_tension_sigma']:.2f}σ "
-            f"(p = {auxiliary_checks['alpha0_concordance']['p_concordance']:.3f})",
+            f"  κ_gal concordance: JWST {auxiliary_checks['kappa_gal_concordance']['jwst_recovered_kappa_gal']:.3e} ± "
+            f"{auxiliary_checks['kappa_gal_concordance']['jwst_recovered_sigma']:.3e}; "
+            f"external Cepheid prior {auxiliary_checks['kappa_gal_concordance']['external_cepheid_kappa_gal']:.3e} ± "
+            f"{auxiliary_checks['kappa_gal_concordance']['external_cepheid_sigma']:.3e} mag; "
+            f"agreement = {auxiliary_checks['kappa_gal_concordance']['external_cepheid_tension_sigma']:.2f}σ "
+            f"(p = {auxiliary_checks['kappa_gal_concordance']['p_concordance']:.3f})",
             "INFO",
         )
     if 'cross_survey_generalization' in auxiliary_checks:

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): 0.7s.
 """
-Step 142: Blind Validation Protocol
+Step 119: Blind Validation Protocol
 
 Implements time-split and field-split blind validation using REAL survey
 data from UNCOVER, CEERS, and COSMOS-Web to test whether TEP signatures
@@ -29,7 +29,7 @@ from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Saf
 from scripts.utils.tep_model import (
     compute_gamma_t as tep_compute_gamma_t,  # TEP model: Gamma_t formula
     stellar_to_halo_mass as tep_stellar_to_halo_mass,  # Stellar-to-halo mass from abundance matching
-    ALPHA_0, ALPHA_UNCERTAINTY,  # TEP coupling constant alpha_0=0.58 & its uncertainty
+    KAPPA_GAL, KAPPA_GAL_UNCERTAINTY,  # TEP coupling KAPPA_GAL=9.6e5 mag & its uncertainty
 )
 
 STEP_NUM  = "119"  # Pipeline step number (sequential 001-176)
@@ -74,7 +74,7 @@ def load_real_surveys():
             lambda r: float(tep_stellar_to_halo_mass(r['log_Mstar'], r['z'])), axis=1
         )
         df['gamma_t'] = df.apply(
-            lambda r: float(tep_compute_gamma_t(r['log_Mh'], r['z'], alpha_0=ALPHA_0)), axis=1
+            lambda r: float(tep_compute_gamma_t(r['log_Mh'], r['z'], kappa=KAPPA_GAL)), axis=1
         )
         df = df.dropna(subset=['z', 'log_Mstar', 'dust', 'gamma_t'])
         surveys['CEERS'] = df
@@ -92,7 +92,7 @@ def load_real_surveys():
             lambda r: float(tep_stellar_to_halo_mass(r['log_Mstar'], r['z'])), axis=1
         )
         df['gamma_t'] = df.apply(
-            lambda r: float(tep_compute_gamma_t(r['log_Mh'], r['z'], alpha_0=ALPHA_0)), axis=1
+            lambda r: float(tep_compute_gamma_t(r['log_Mh'], r['z'], kappa=KAPPA_GAL)), axis=1
         )
         df = df.dropna(subset=['z', 'log_Mstar', 'dust', 'gamma_t'])
         surveys['COSMOS-Web'] = df
@@ -134,7 +134,7 @@ def run_analysis():
     """Run blind validation analysis on REAL survey data."""
 
     print("=" * 60)
-    print("Step 142: Blind Validation Protocol (Real Data)")
+    print("Step 119: Blind Validation Protocol (Real Data)")
     print("=" * 60)
 
     surveys = load_real_surveys()
@@ -276,7 +276,7 @@ def run_analysis():
     print(f"Interpretation: {interp}")
 
     output = {
-        'step': 142,
+        'step': 119,
         'description': 'Blind Validation Protocol (Real Survey Data)',
         'results': results,
         'summary': summary,

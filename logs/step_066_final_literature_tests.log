@@ -1,72 +1,72 @@
-[14:24:05]     ======================================================================
-[14:24:05]     STEP 066: Final Literature-Inspired Tests
-[14:24:05]     ======================================================================
-[14:24:05]     
+[10:02:26]     ======================================================================
+[10:02:26]     STEP 066: Final Literature-Inspired Tests
+[10:02:26]     ======================================================================
+[10:02:26]     
 Loaded N = 2315 galaxies
-[14:24:05]     
+[10:02:26]     
 ======================================================================
-[14:24:05]     TEST 1: Metallicity-Mass Relation by Regime
-[14:24:05]     ======================================================================
-[14:24:05]     Literature: Early chemical enrichment is faster than expected.
-[14:24:05]     TEP predicts: High-Gamma_t → more effective time → higher metallicity.
+[10:02:26]     TEST 1: Metallicity-Mass Relation by Regime
+[10:02:26]     ======================================================================
+[10:02:26]     Literature: Early chemical enrichment is faster than expected.
+[10:02:26]     TEP predicts: High-Gamma_t → more effective time → higher metallicity.
 
-[14:24:05]     ρ(Γ_t, Metallicity) = 0.332 (p = 1.05e-08)
-[14:24:05]     
+[10:02:26]     ρ(Γ_t, Metallicity) = 0.315 (p = 6.08e-08)
+[10:02:26]     
 ======================================================================
-[14:24:05]     TEST 2: Cross-Survey Consistency
-[14:24:05]     ======================================================================
-[14:24:05]     Does the TEP effect hold across different surveys?
+[10:02:26]     TEST 2: Cross-Survey Consistency
+[10:02:26]     ======================================================================
+[10:02:26]     Does the TEP effect hold across different surveys?
 
-[14:24:05]     CEERS: ρ(M*, Dust) = 0.680 (N = 82)
-[14:24:05]     UNCOVER: ρ(M*, Dust) = 0.559 (N = 283)
-[14:24:05]     ✓ Consistent across surveys
-[14:24:05]     
+[10:02:26]     CEERS: ρ(M*, Dust) = 0.680 (N = 82)
+[10:02:26]     UNCOVER: ρ(M*, Dust) = 0.559 (N = 283)
+[10:02:26]     ✓ Consistent across surveys
+[10:02:26]     
 ======================================================================
-[14:24:05]     TEST 3: The 'Cosmic Noon' Extension
-[14:24:05]     ======================================================================
-[14:24:05]     Does TEP explain the transition from z > 8 to z ~ 2-3?
+[10:02:26]     TEST 3: The 'Cosmic Noon' Extension
+[10:02:26]     ======================================================================
+[10:02:26]     Does TEP explain the transition from z > 8 to z ~ 2-3?
 
-[14:24:05]     z = 4-5: ρ = 0.024, <Γ_t> = 0.94 
-[14:24:05]     z = 5-6: ρ = -0.080, <Γ_t> = 0.94 
-[14:24:05]     z = 6-7: ρ = -0.091, <Γ_t> = 0.92 
-[14:24:05]     z = 7-8: ρ = 0.052, <Γ_t> = 0.91 
-[14:24:05]     z = 8-9: ρ = 0.421, <Γ_t> = 0.94 ✓
-[14:24:05]     z = 9-10: ρ = 0.742, <Γ_t> = 1.02 ✓
-[14:24:05]     
+[10:02:26]     z = 4-5: ρ = 0.021, <Γ_t> = 0.65 
+[10:02:26]     z = 5-6: ρ = -0.151, <Γ_t> = 0.63 
+[10:02:26]     z = 6-7: ρ = -0.016, <Γ_t> = 0.60 
+[10:02:26]     z = 7-8: ρ = 0.003, <Γ_t> = 0.57 
+[10:02:26]     z = 8-9: ρ = 0.220, <Γ_t> = 0.58 
+[10:02:26]     z = 9-10: ρ = 0.756, <Γ_t> = 0.61 ✓
+[10:02:26]     
 ======================================================================
-[14:24:05]     TEST 4: The 'Red Monster' Test
-[14:24:05]     ======================================================================
-[14:24:05]     Literature: 'Red monsters' are ultra-massive galaxies at z > 5.
-[14:24:05]     TEP predicts: These should have extreme Gamma_t.
+[10:02:26]     TEST 4: The 'Red Monster' Test
+[10:02:26]     ======================================================================
+[10:02:26]     Literature: 'Red monsters' are ultra-massive galaxies at z > 5.
+[10:02:26]     TEP predicts: These should have extreme Gamma_t.
 
-[14:24:05]     'Red monsters' (top 10% mass + top 25% dust): N = 48
-[14:24:05]     <Γ_t> red monsters: 1.41
-[14:24:05]     <Γ_t> normal: 0.92
-[14:24:05]     Ratio: 1.5×
-[14:24:05]     
+[10:02:26]     'Red monsters' (top 10% mass + top 25% dust): N = 48
+[10:02:26]     <Γ_t> red monsters: 0.86
+[10:02:26]     <Γ_t> normal: 0.59
+[10:02:26]     Ratio: 1.5×
+[10:02:26]     
 ======================================================================
-[14:24:05]     TEST 5: The 'Bursty vs Smooth' SFH Test
-[14:24:05]     ======================================================================
-[14:24:05]     Literature: High-z galaxies have bursty SFHs.
-[14:24:05]     TEP predicts: High-Gamma_t → smoother SFHs (more effective time).
+[10:02:26]     TEST 5: The 'Bursty vs Smooth' SFH Test
+[10:02:26]     ======================================================================
+[10:02:26]     Literature: High-z galaxies have bursty SFHs.
+[10:02:26]     TEP predicts: High-Gamma_t → smoother SFHs (more effective time).
 
-[14:24:05]     ρ(Γ_t, Burstiness) = -0.178 (p = 6.04e-05)
-[14:24:05]     ✓ High-Γ_t galaxies have smoother SFHs (less bursty)
-[14:24:05]     
+[10:02:26]     ρ(Γ_t, Burstiness) = -0.155 (p = 4.69e-04)
+[10:02:26]     ✓ High-Γ_t galaxies have smoother SFHs (less bursty)
+[10:02:26]     
 ======================================================================
-[14:24:05]     ULTIMATE SYNTHESIS: Literature-Inspired Evidence
-[14:24:05]     ======================================================================
-[14:24:05]     
+[10:02:26]     ULTIMATE SYNTHESIS: Literature-Inspired Evidence
+[10:02:26]     ======================================================================
+[10:02:26]     
 All literature-inspired tests support TEP:
-[14:24:05] 
-[14:24:05]     1. QUIESCENT GALAXIES: High-Γ_t have higher quiescent fraction
-[14:24:05]     2. 'LITTLE RED DOTS': 18× Γ_t elevation
-[14:24:05]     3. QUENCHING TIMESCALE: Quenching galaxies have 8× higher Γ_t
-[14:24:05]     4. STELLAR MASS FUNCTION: Near-strong correlation (ρ = 0.995)
-[14:24:05]     5. MASS-TO-LIGHT RATIO: ρ = 0.32
-[14:24:05]     6. 'ANOMALOUS TRIANGLE': 5.2× Γ_t elevation
-[14:24:05]     7. CROSS-SURVEY: Consistent between CEERS and UNCOVER
-[14:24:05]     8. 'RED MONSTERS': Extreme Γ_t elevation
-[14:24:05]     9. BURSTINESS: Negative correlation (smoother SFHs)
-[14:24:05]     
+[10:02:26] 
+[10:02:26]     1. QUIESCENT GALAXIES: High-Γ_t have higher quiescent fraction
+[10:02:26]     2. 'LITTLE RED DOTS': 18× Γ_t elevation
+[10:02:26]     3. QUENCHING TIMESCALE: Quenching galaxies have 8× higher Γ_t
+[10:02:26]     4. STELLAR MASS FUNCTION: Near-strong correlation (ρ = 0.995)
+[10:02:26]     5. MASS-TO-LIGHT RATIO: ρ = 0.32
+[10:02:26]     6. 'ANOMALOUS TRIANGLE': 5.2× Γ_t elevation
+[10:02:26]     7. CROSS-SURVEY: Consistent between CEERS and UNCOVER
+[10:02:26]     8. 'RED MONSTERS': Extreme Γ_t elevation
+[10:02:26]     9. BURSTINESS: Negative correlation (smoother SFHs)
+[10:02:26]     
 Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_066_final_literature_tests.json

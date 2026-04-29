@@ -4,8 +4,8 @@
 TEP-JWST Step 38: Sensitivity Analysis
 
 This script quantifies the stability of the main TEP results against variations
-in the coupling parameter alpha_0. 
-The nominal value is alpha_eff = 9.6e5 +/- 4.0e5 mag (from Cepheids).
+in the coupling parameter KAPPA_GAL.
+The nominal value is KAPPA_GAL = 9.6e5 +/- 4.0e5 mag (from Cepheids).
 We test a range from 0.0 to 1.0 to see where the signal peaks and if it is robust
 within the uncertainty window.
 
@@ -37,10 +37,10 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
-from scripts.utils.tep_model import ALPHA_0 as ALPHA_NOMINAL, ALPHA_CLOCK_EFF, ALPHA_CLOCK_UNCERTAINTY as ALPHA_UNCERTAINTY, compute_gamma_t as tep_gamma  # TEP model: alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), Gamma_t formula
+from scripts.utils.tep_model import KAPPA_GAL, KAPPA_GAL_UNCERTAINTY, compute_gamma_t as tep_gamma  # TEP model: KAPPA_GAL=9.6e5 mag from Cepheids, Gamma_t formula
 
 STEP_NUM = "038"  # Pipeline step number (sequential 001-176)
-STEP_NAME = "sensitivity_analysis"  # Sensitivity analysis: tests TEP signal stability vs alpha variation (maps to alpha_eff range, nominal 9.6e5±4.0e5 mag)
+STEP_NAME = "sensitivity_analysis"  # Sensitivity analysis: tests TEP signal stability vs alpha variation (maps to kappa range, nominal 9.6e5±4.0e5 mag)
 
 DATA_PATH = PROJECT_ROOT / "data"  # Raw catalogue directory (external datasets from Zenodo/MAST/TACC)
 INTERIM_PATH = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate products (CSV format for step-to-step data flow)
@@ -98,22 +98,22 @@ def main():
     df_chi2 = df[mask_chi2].copy()
     
     # Parameter range
-    alphas = np.linspace(0.0, 1.2, 50)
+    kappa_gal_range = np.linspace(1e5, 20e5, 50)
     
     results = []
     
     print_status("\nRunning sensitivity sweep...", "INFO")
     
-    for alpha in alphas:
+    for kappa_gal in kappa_gal_range:
         # Recompute Gamma_t for relevant subsets
         
         # 1. Dust Anomaly (z > 8)
-        # Gamma_t depends on alpha. 
+        # Gamma_t depends on kappa_gal. 
         # Metric: Spearman Rho(Gamma_t, Dust) 
-        # Note: If alpha=0, Gamma_t=1 everywhere. Rho is undefined or 0? 
+        # Note: If kappa_gal=0, Gamma_t=1 everywhere. Rho is undefined or 0? 
         # Gamma_t is constant 1. So correlation is 0.
         
-        if alpha < 0.001:
+        if kappa_gal < 0.001:
             rho_dust = 0.0
             p_dust = 1.0
             
@@ -124,16 +124,16 @@ def main():
             p_sep = 1.0
         else:
             # 1. Dust
-            g_z8 = tep_gamma(df_z8['log_Mh'], df_z8['z_phot'], alpha_0=alpha)
+            g_z8 = tep_gamma(df_z8['log_Mh'], df_z8['z_phot'], kappa=kappa_gal)
             rho_dust, p_dust = spearmanr(g_z8, df_z8['dust'])
             
             # 2. Age Ratio
             # Here we correlate Gamma_t with observed age ratio
-            g_z4 = tep_gamma(df_z4['log_Mh'], df_z4['z_phot'], alpha_0=alpha)
+            g_z4 = tep_gamma(df_z4['log_Mh'], df_z4['z_phot'], kappa=kappa_gal)
             rho_age, p_age = spearmanr(g_z4, df_z4['age_ratio'])
             
             # 3. Regime Separation (Chi2)
-            g_chi2 = tep_gamma(df_chi2['log_Mh'], df_chi2['z_phot'], alpha_0=alpha)
+            g_chi2 = tep_gamma(df_chi2['log_Mh'], df_chi2['z_phot'], kappa=kappa_gal)
             enhanced = g_chi2 > 1.0
             suppressed = g_chi2 < 1.0
             if enhanced.sum() > 10 and suppressed.sum() > 10:
@@ -143,7 +143,7 @@ def main():
                 p_sep = 1.0
         
         results.append({
-            'alpha': alpha,
+            'kappa_gal': kappa_gal,
             'rho_dust_z8': rho_dust,
             'p_dust_z8': p_dust,
             'rho_age_z4': rho_age,
@@ -158,34 +158,34 @@ def main():
     # Find peaks
     # Dust
     idx_max_dust = res_df['rho_dust_z8'].idxmax()
-    best_alpha_dust = res_df.loc[idx_max_dust, 'alpha']
+    best_kappa_gal_dust = res_df.loc[idx_max_dust, 'kappa_gal']
     max_rho_dust = res_df.loc[idx_max_dust, 'rho_dust_z8']
     
     # Age
     idx_max_age = res_df['rho_age_z4'].idxmax()
-    best_alpha_age = res_df.loc[idx_max_age, 'alpha']
+    best_kappa_gal_age = res_df.loc[idx_max_age, 'kappa_gal']
     max_rho_age = res_df.loc[idx_max_age, 'rho_age_z4']
-    
+
     print_status("-" * 50, "INFO")
-    print_status(f"Nominal Alpha: {ALPHA_NOMINAL} +/- {ALPHA_UNCERTAINTY}", "INFO")
+    print_status(f"Nominal κ_gal: {KAPPA_GAL:.3e} ± {KAPPA_GAL_UNCERTAINTY:.3e} mag", "INFO")
     print_status(f"Range tested: 0.0 - 1.2", "INFO")
     print_status("-" * 50, "INFO")
-    print_status(f"Peak Dust Correlation (z>8): rho={max_rho_dust:.3f} at alpha={best_alpha_dust:.2f}", "INFO")
-    print_status(f"Peak Age Correlation (z>4):  rho={max_rho_age:.3f}  at alpha={best_alpha_age:.2f}", "INFO")
+    print_status(f"Peak Dust Correlation (z>8): rho={max_rho_dust:.3f} at κ_gal={best_kappa_gal_dust:.2e} mag", "INFO")
+    print_status(f"Peak Age Correlation (z>4):  rho={max_rho_age:.3f}  at κ_gal={best_kappa_gal_age:.2e} mag", "INFO")
     
     # Check if nominal is within "good" range
     # Define "good" as > 90% of peak signal ? 
     # Or just check nominal signal
     
-    nominal_res = res_df.iloc[(res_df['alpha'] - ALPHA_NOMINAL).abs().argsort()[:1]].iloc[0]
+    nominal_res = res_df.iloc[(res_df['kappa_gal'] - KAPPA_GAL).abs().argsort()[:1]].iloc[0]
     print_status(f"Nominal Performance:", "INFO")
     print_status(f"  Dust Rho: {nominal_res['rho_dust_z8']:.3f} (p={nominal_res['p_dust_z8']:.1e})", "INFO")
     print_status(f"  Age Rho:  {nominal_res['rho_age_z4']:.3f} (p={nominal_res['p_age_z4']:.1e})", "INFO")
     
     # Calculate robustness
     # Fraction of 1-sigma interval (0.42 - 0.74) where p < 0.01
-    sigma_range = res_df[(res_df['alpha'] >= ALPHA_NOMINAL - ALPHA_UNCERTAINTY) & 
-                         (res_df['alpha'] <= ALPHA_NOMINAL + ALPHA_UNCERTAINTY)]
+    sigma_range = res_df[(res_df['kappa_gal'] >= KAPPA_GAL - KAPPA_GAL_UNCERTAINTY) & 
+                         (res_df['kappa_gal'] <= KAPPA_GAL + KAPPA_GAL_UNCERTAINTY)]
     
     robust_fraction = (sigma_range['p_dust_z8'] < 0.05).mean()
     print_status(f"Robustness (Dust): Signal significant (p<0.05) over {robust_fraction*100:.0f}% of 1-sigma parameter range", "INFO")
@@ -196,9 +196,9 @@ def main():
     
     json_path = OUTPUT_PATH / f"step_{STEP_NUM}_sensitivity_analysis.json"
     summary = {
-        'best_alpha_dust': float(best_alpha_dust),
+        'best_kappa_gal_dust': float(best_kappa_gal_dust),
         'max_rho_dust': float(max_rho_dust),
-        'best_alpha_age': float(best_alpha_age),
+        'best_kappa_gal_age': float(best_kappa_gal_age),
         'max_rho_age': float(max_rho_age),
         'nominal_rho_dust': float(nominal_res['rho_dust_z8']),
         'robustness_1sigma': float(robust_fraction)

@@ -42,7 +42,7 @@ def run_analysis():
         'TEP': {
             'full_name': 'Temporal Equivalence Principle',
             'mechanism': 'Scalar-tensor with chameleon screening',
-            'key_parameter': 'α₀ = 0.58 ± 0.16',
+            'key_parameter': 'κ_gal = (9.6 ± 4.0) × 10⁵ mag',
             'screening': 'Chameleon (density-dependent)',
             'predictions': {
                 'high_z_dust_correlation': 'Strong positive (ρ > 0.5)',

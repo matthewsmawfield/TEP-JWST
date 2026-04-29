@@ -5,11 +5,11 @@
     "theoretical_prediction": {
       "M_pl_GeV": 2.435e+18,
       "Lambda_dark_energy": 2.3e-12,
-      "beta_coupling": 0.58,
+      "beta_coupling": 960000.0,
       "halo_density_gev4": 1e-11,
-      "m_eff_gev": 1.1753805797216738e-15,
-      "lambda_gev_inv": 850788261481057.2,
-      "lambda_kpc_derived": 0.016790768926012577,
+      "m_eff_gev": 1.94545751126346e-09,
+      "lambda_gev_inv": 514017907.97813874,
+      "lambda_kpc_derived": 1.0144422892799264e-08,
       "lambda_kpc_physical": 2.5,
       "expected_range_kpc": [
         0.5,

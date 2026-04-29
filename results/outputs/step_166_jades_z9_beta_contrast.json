@@ -20,8 +20,8 @@
     "median_z": 9.46
   },
   "raw_correlation": {
-    "rho_gamma_t_vs_beta": 0.013683634373289545,
-    "p": 0.9449029783807149
+    "rho_gamma_t_vs_beta": 0.004378762999452655,
+    "p": 0.9823570994002738
   },
   "contrasts": {
     "q33_q67": {
@@ -29,12 +29,12 @@
         0.3333333333333333,
         0.6666666666666666
       ],
-      "gamma_t_threshold_low": 64.1757258163234,
-      "gamma_t_threshold_high": 689.4143647020702,
+      "gamma_t_threshold_low": 38.670340563170264,
+      "gamma_t_threshold_high": 416.1490878574439,
       "n_low": 9,
       "n_high": 10,
-      "median_gamma_t_low": 23.689832327160453,
-      "median_gamma_t_high": 1819.4083403590234,
+      "median_gamma_t_low": 14.025068522458488,
+      "median_gamma_t_high": 1090.8232545440328,
       "median_beta_low": -2.5169509795495166,
       "median_beta_high": -2.49638839115154,
       "weighted_beta_low": -2.6643782259154127,
@@ -52,12 +52,12 @@
         0.25,
         0.75
       ],
-      "gamma_t_threshold_low": 33.25520227655525,
-      "gamma_t_threshold_high": 812.0864948789942,
+      "gamma_t_threshold_low": 19.241544204519265,
+      "gamma_t_threshold_high": 483.6959062663954,
       "n_low": 7,
       "n_high": 7,
-      "median_gamma_t_low": 23.234662738527884,
-      "median_gamma_t_high": 3841.101256166178,
+      "median_gamma_t_low": 14.000773220956697,
+      "median_gamma_t_high": 2311.6426991097046,
       "median_beta_low": -2.1974647603941806,
       "median_beta_high": -2.394605106087663,
       "weighted_beta_low": -2.661510444006633,
@@ -76,12 +76,12 @@
       0.25,
       0.75
     ],
-    "gamma_t_threshold_low": 33.25520227655525,
-    "gamma_t_threshold_high": 812.0864948789942,
+    "gamma_t_threshold_low": 19.241544204519265,
+    "gamma_t_threshold_high": 483.6959062663954,
     "n_low": 7,
     "n_high": 7,
-    "median_gamma_t_low": 23.234662738527884,
-    "median_gamma_t_high": 3841.101256166178,
+    "median_gamma_t_low": 14.000773220956697,
+    "median_gamma_t_high": 2311.6426991097046,
     "median_beta_low": -2.1974647603941806,
     "median_beta_high": -2.394605106087663,
     "weighted_beta_low": -2.661510444006633,

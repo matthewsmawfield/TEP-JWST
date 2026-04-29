@@ -1,42 +1,42 @@
-[14:25:11]     ======================================================================
-[14:25:11]     STEP 109: ΛCDM Tension Quantification
-[14:25:11]     ======================================================================
-[14:25:11]     Loaded 2315 galaxies
-[14:25:11]     
+[10:03:45]     ======================================================================
+[10:03:45]     STEP 109: ΛCDM Tension Quantification
+[10:03:45]     ======================================================================
+[10:03:45]     Loaded 2315 galaxies
+[10:03:45]     
 --- Stellar Mass Density Comparison ---
-[14:25:11]     z bin      ΛCDM         Observed     TEP-corr     Tension (obs)   Tension (TEP)  
-[14:25:11]     --------------------------------------------------------------------------------
-[14:25:12]     Bin z=7-8 (Gamma=1.31):
-[14:25:12]       ΛCDM pred : 1.60 (at z=7.50)
-[14:25:12]       Observed  : 5.27 -> Tension: 12.2σ
-[14:25:12]       TEP corr  : < LCDM -> Tension: 0.0σ
-[14:25:12]     Bin z=8-9 (Gamma=1.43):
-[14:25:12]       ΛCDM pred : 0.80 (at z=8.50)
-[14:25:12]       Observed  : 6.47 -> Tension: 18.9σ
-[14:25:12]       TEP corr  : 6.1308323807655105 -> Tension: 17.8σ
-[14:25:12]     Bin z=9-10 (Gamma=2.54):
-[14:25:12]       ΛCDM pred : 0.00 (at z=9.50)
-[14:25:12]       Observed  : 6.68 -> Tension: 22.3σ
-[14:25:12]       TEP corr  : 6.237568623379012 -> Tension: 20.8σ
-[14:25:12]     
+[10:03:45]     z bin      ΛCDM         Observed     TEP-corr     Tension (obs)   Tension (TEP)  
+[10:03:45]     --------------------------------------------------------------------------------
+[10:03:45]     Bin z=7-8 (Gamma=0.82):
+[10:03:45]       ΛCDM pred : 1.60 (at z=7.50)
+[10:03:45]       Observed  : 5.27 -> Tension: 12.2σ
+[10:03:45]       TEP corr  : 5.8682985519155135 -> Tension: 14.2σ
+[10:03:45]     Bin z=8-9 (Gamma=0.89):
+[10:03:45]       ΛCDM pred : 0.80 (at z=8.50)
+[10:03:45]       Observed  : 6.47 -> Tension: 18.9σ
+[10:03:45]       TEP corr  : 6.3627286628897215 -> Tension: 18.5σ
+[10:03:45]     Bin z=9-10 (Gamma=1.51):
+[10:03:45]       ΛCDM pred : 0.00 (at z=9.50)
+[10:03:45]       Observed  : 6.68 -> Tension: 22.3σ
+[10:03:45]       TEP corr  : 6.465615389458199 -> Tension: 21.6σ
+[10:03:45]     
 ======================================================================
-[14:25:12]     SUMMARY
-[14:25:12]     ======================================================================
-[14:25:12]     
+[10:03:45]     SUMMARY
+[10:03:45]     ======================================================================
+[10:03:45]     
 Mean tension (observed vs ΛCDM): 17.8σ
-[14:25:12]     Mean tension (TEP-corrected vs ΛCDM): 12.9σ
-[14:25:12]     Mean tension reduction: 38%
-[14:25:12]     Mean mass reduction: 0.39 dex (2.5×)
-[14:25:12]     
-✓ TEP reduces ΛCDM tension from 17.8σ to 12.9σ
-[14:25:12]       Status: PARTIALLY SUPPORTED
-[14:25:12]     
+[10:03:45]     Mean tension (TEP-corrected vs ΛCDM): 18.1σ
+[10:03:45]     Mean tension reduction: -4%
+[10:03:45]     Mean mass reduction: -0.09 dex (0.8×)
+[10:03:45]     
+✓ -> TEP does not measurably reduce ΛCDM tension
+[10:03:45]       Status: NOT SUPPORTED
+[10:03:45]     
 --- Implications ---
-[14:25:12]       1. Observed stellar mass density at z > 7 is 2.5× higher than ΛCDM
-[14:25:12]       2. TEP correction reduces this excess by 38%
-[14:25:12]       3. Remaining tension (12.9σ) may be genuine early structure formation
-[14:25:12]     
+[10:03:45]       1. Observed stellar mass density at z > 7 is 0.8× higher than ΛCDM
+[10:03:45]       2. TEP correction reduces this excess by -4%
+[10:03:45]       3. Remaining tension (18.1σ) may be genuine early structure formation
+[10:03:45]     
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_109_lcdm_tension_quantification.json
-[14:25:12]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_109_lcdm_tension.png
-[14:25:12]     
+[10:03:46]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_109_lcdm_tension.png
+[10:03:46]     
 Step 109 complete.

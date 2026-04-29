@@ -108,7 +108,7 @@ def fit_topheavy_imf_model(dust, mass, z):
     """
     Top-heavy IMF model: massive galaxies have more dust due to IMF variation.
     
-    Assumes IMF slope varies with mass: alpha_IMF = alpha_0 + delta * (mass - 10)
+    Assumes IMF slope varies with mass: alpha_IMF = kappa_gal + delta * (mass - 10)
     This produces more massive stars -> more dust per unit stellar mass.
     
     dust = a + b*mass + c*mass^2 + d*z + noise

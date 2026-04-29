@@ -145,16 +145,16 @@
       "pass": true
     },
     {
-      "name": "alpha0_external_prior_and_jwst_recovery_are_distinguished",
+      "name": "kappa_gal_external_prior_and_jwst_recovery_are_distinguished",
       "expected": {
-        "stale_alpha0_phrases_absent": true,
+        "stale_kappa_gal_phrases_absent": true,
         "external_prior_tokens_present": true,
-        "jwst_recovery_tokens_present": true
+        "jwst_recovery_language_present": true
       },
       "found": {
-        "stale_alpha0_phrase_hits": {},
+        "stale_kappa_gal_phrase_hits": {},
         "external_prior_tokens_present": true,
-        "jwst_recovery_tokens_present": true
+        "jwst_recovery_language_present": true
       },
       "pass": true
     },
@@ -294,7 +294,7 @@
     },
     {
       "name": "step157_z9_13_partial_rho_present",
-      "expected": "-0.088",
+      "expected": "-0.073",
       "found": true,
       "pass": true
     },
@@ -318,8 +318,8 @@
     {
       "name": "step159_bootstrap_beta_ci_present_in_discussion",
       "expected": {
-        "beta_ci_low": "0.180",
-        "beta_ci_high": "0.563"
+        "beta_ci_low": "0.221",
+        "beta_ci_high": "0.690"
       },
       "found": {
         "beta_ci_low": true,

@@ -1,5 +1,5 @@
 {
-  "step": 142,
+  "step": 119,
   "description": "Blind Validation Protocol (Real Survey Data)",
   "results": {
     "time_split": [
@@ -11,32 +11,32 @@
         "train_p": null,
         "test_n": 926,
         "test_n_z8": 283,
-        "test_rho": 0.6029791257884878,
-        "test_p": 2.0887757926899666e-29,
+        "test_rho": 0.4712708247076625,
+        "test_p": 4.718450634589153e-17,
         "generalization": "success"
       },
       {
         "survey": "CEERS",
         "train_n": 49,
         "train_n_z8": 49,
-        "train_rho": 0.7657142857142856,
-        "train_p": 1.46257894085238e-10,
+        "train_rho": 0.7555102040816326,
+        "train_p": 3.5197417582605e-10,
         "test_n": 33,
         "test_n_z8": 33,
-        "test_rho": 0.5738636363636364,
-        "test_p": 0.0004799823708413385,
+        "test_rho": 0.4933155080213904,
+        "test_p": 0.003532292336140902,
         "generalization": "success"
       },
       {
         "survey": "COSMOS-Web",
         "train_n": 1563,
         "train_n_z8": 1563,
-        "train_rho": 0.6799511817031703,
-        "train_p": 1.3730271312354527e-212,
+        "train_rho": 0.6934788673567956,
+        "train_p": 1.617390995582751e-224,
         "test_n": 1043,
         "test_n_z8": 1043,
-        "test_rho": 0.575283849745799,
-        "test_p": 6.068332312864911e-93,
+        "test_rho": 0.5649701635494919,
+        "test_p": 5.367461579612064e-89,
         "generalization": "success"
       }
     ],
@@ -45,36 +45,36 @@
         "survey": "UNCOVER",
         "east_n": 1157,
         "east_n_z8": 192,
-        "east_rho": 0.5621812522041072,
-        "east_p": 2.1617153064231954e-17,
+        "east_rho": 0.3037361310799447,
+        "east_p": 1.845315350011842e-05,
         "west_n": 1158,
         "west_n_z8": 91,
-        "west_rho": 0.7137601528905878,
-        "west_p": 2.0102787992729044e-15,
+        "west_rho": 0.686000955566173,
+        "west_p": 6.208231612163596e-14,
         "consistency": "consistent"
       },
       {
         "survey": "CEERS",
         "east_n": 41,
         "east_n_z8": 41,
-        "east_rho": 0.6717770034843208,
-        "east_p": 1.5191246891991132e-06,
+        "east_rho": 0.6040069686411151,
+        "east_p": 2.8982661159435883e-05,
         "west_n": 41,
         "west_n_z8": 41,
-        "west_rho": 0.6951219512195123,
-        "west_p": 4.578675659873296e-07,
+        "west_rho": 0.749303135888502,
+        "west_p": 1.739038476407842e-08,
         "consistency": "consistent"
       },
       {
         "survey": "COSMOS-Web",
         "east_n": 1303,
         "east_n_z8": 1303,
-        "east_rho": 0.6425809766752071,
-        "east_p": 1.1982952930713669e-152,
+        "east_rho": 0.6796999439308986,
+        "east_p": 2.4551462448657737e-177,
         "west_n": 1303,
         "west_n_z8": 1303,
-        "west_rho": 0.7038089515930488,
-        "west_p": 1.9667840753651703e-195,
+        "west_rho": 0.7132228951793698,
+        "west_p": 5.245358202922011e-203,
         "consistency": "consistent"
       }
     ],
@@ -86,10 +86,10 @@
           "COSMOS-Web"
         ],
         "train_n_z8": 283,
-        "train_rho": 0.6029791257884878,
-        "train_p": 2.0887757926899666e-29,
+        "train_rho": 0.4712708247076625,
+        "train_p": 4.718450634589153e-17,
         "test_n_z8": 2688,
-        "test_rho": 0.6695286293259457,
+        "test_rho": 0.6840741611448095,
         "test_p": 1e-300,
         "generalization": "success"
       },
@@ -100,11 +100,11 @@
           "COSMOS-Web"
         ],
         "train_n_z8": 82,
-        "train_rho": 0.6675047071755859,
-        "train_p": 7.452862921299102e-12,
+        "train_rho": 0.6452585409388231,
+        "train_p": 5.998049948343623e-11,
         "test_n_z8": 2889,
-        "test_rho": 0.3887501104565544,
-        "test_p": 7.343355848033394e-105,
+        "test_rho": 0.6157002436614771,
+        "test_p": 1e-300,
         "generalization": "success"
       },
       {
@@ -114,11 +114,11 @@
           "CEERS"
         ],
         "train_n_z8": 2606,
-        "train_rho": 0.6749725609824263,
+        "train_rho": 0.6970395179497609,
         "train_p": 1e-300,
         "test_n_z8": 365,
-        "test_rho": 0.3507984492489321,
-        "test_p": 5.219165440232827e-12,
+        "test_rho": 0.43697593670645557,
+        "test_p": 1.8795441644959942e-18,
         "generalization": "success"
       }
     ]

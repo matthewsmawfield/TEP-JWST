@@ -40,7 +40,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging with structured severity levels (DEBUG/INFO/WARNING/ERROR)
 from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting (prevents floating-point underflow) & JSON serialiser for numpy/scipy types
-from scripts.utils.tep_model import ALPHA_0, ALPHA_CLOCK_EFF, LOG_MH_REF, Z_REF, compute_gamma_t as tep_gamma, compute_effective_time  # TEP model: alpha_eff=9.6e5 mag from Cepheids (alpha_0=0.58 legacy), Gamma_t formula, t_eff = Gamma_t * t_cosmic
+from scripts.utils.tep_model import KAPPA_GAL, LOG_MH_REF, Z_REF, compute_gamma_t as tep_gamma, compute_effective_time  # TEP model: KAPPA_GAL=9.6e5 mag from Cepheids, Gamma_t formula, t_eff = Gamma_t * t_cosmic
 
 STEP_NUM = "003"  # Pipeline step number (sequential identifier for ordering)
 STEP_NAME = "first_principles"  # Logical identifier: derives TEP predictions from core equation dτ/dt = exp(α·Φ/c²)
@@ -286,14 +286,14 @@ def test_mass_dependence(df):
 # =============================================================================
 
 def test_cross_domain():
-    """Verify cross-domain consistency of alpha_eff = 9.6e5 mag (alpha_0 = 0.58 legacy).
+    """Verify cross-domain consistency of KAPPA_GAL = 9.6e5 mag.
 
-    The TEP coupling constant alpha_0 was derived independently from
+    The TEP coupling constant kappa_gal was derived independently from
     Cepheid period-luminosity observations in SN Ia host galaxies at
     z ~ 0 (Paper 11, TEP-H0). Here it is applied unchanged to JWST
     galaxies at z = 4-10, a completely different observable domain.
 
-    The fact that the Paper 11 coupling (alpha_eff = 9.6e5 mag, alpha_0 = 0.58 legacy) produces
+    The fact that the Paper 11 coupling (KAPPA_GAL = 9.6e5 mag) produces
     statistically significant correlations across 10 Gyr of cosmic time
     and across different physical observables (Cepheid periods vs stellar
     population properties) constitutes strong evidence for a single
@@ -304,7 +304,7 @@ def test_cross_domain():
     print_status("=" * 60, "INFO")
     
     print_status("\nCross-Domain Consistency:", "INFO")
-    print_status("  α_eff = 9.6×10⁵ mag derived from Cepheids at z ~ 0", "INFO")
+    print_status("  κ_gal = 9.6×10⁵ mag derived from Cepheids at z ~ 0", "INFO")
     print_status("  Applied to JWST galaxies at z = 4-10 with NO TUNING", "INFO")
     print_status("", "INFO")
     
@@ -313,20 +313,20 @@ def test_cross_domain():
     print_status("  - SH0ES Cepheid observations in 37 SN Ia hosts", "INFO")
     print_status("  - Correlation: H0 decreases with host σ", "INFO")
     print_status("  - Interpretation: Cepheid periods dilated in deep potentials", "INFO")
-    print_status("  - Best fit: α_eff = (9.6 ± 4.0) × 10⁵ mag", "INFO")
+    print_status("  - Best fit: κ_gal = (9.6 ± 4.0) × 10⁵ mag", "INFO")
     print_status("", "INFO")
     
     # Show how it predicts JWST
-    print_status("TEP-JWST Predictions (using same α):", "INFO")
+    print_status("TEP-JWST Predictions (using same κ_gal):", "INFO")
     print_status("    - Γ_t = exp[ K * (Φ - Φ_ref)/c^2 * sqrt(1+z) ]", "INFO")
     print_status("    - K = 1.26e6 (from Cepheid calibration, Paper 11)", "INFO")
-    print_status("  - α(z) = 0.58 × √(1+z)", "INFO")
+    print_status("  - κ(z) = 9.6e5 × √(1+z)", "INFO")
     print_status("", "INFO")
     print_status("  At z = 8, log M_h = 12.5:", "INFO")
     z = 8
     log_Mh = 12.5
     gamma = tep_gamma(log_Mh, z)
-    print_status(f"    α(z=8) = 0.58 × √9 = {0.58 * 3:.2f}", "INFO")
+    print_status(f"    κ(z=8) = 9.6e5 × √9 = {KAPPA_GAL * 3:.2f}", "INFO")
     print_status(f"    Γ_t = {gamma:.2f}", "INFO")
     print_status("", "INFO")
     
@@ -337,7 +337,7 @@ def test_cross_domain():
     
     return {
         "test": "Cross-Domain Bridge",
-        "alpha_0": ALPHA_0,
+        "kappa_gal": KAPPA_GAL,
         "derived_from": "Cepheid P-L relation at z ~ 0",
         "applied_to": "JWST galaxies at z = 4-10",
         "result": "All 7 threads significant with zero tuning"
@@ -411,7 +411,7 @@ def main():
     print_status("The Core Equation:", "INFO")
     print_status("  Γ_t = exp[ K * (Φ - Φ_ref)/c^2 * sqrt(1+z) ]", "INFO")
     print_status("", "INFO")
-    print_status(f"  α₀ = {ALPHA_0} (from Cepheids)", "INFO")
+    print_status(f"  κ_gal = {KAPPA_GAL:.3e} mag (from Cepheids, Paper 11)", "INFO")
     print_status(f"  log M_h,ref = {LOG_MH_REF}", "INFO")
     print_status(f"  z_ref = {Z_REF}", "INFO")
     

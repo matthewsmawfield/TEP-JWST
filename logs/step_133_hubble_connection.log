@@ -1,9 +1,9 @@
-[14:25:22]     STEP 133: TEP connection to Hubble and S8 tensions
-[14:25:22]   H0 tension: 67.4 -> 73.04 km/s/Mpc (5.0 sigma)
-[14:25:22]   TEP prediction: H0_local = 73.40 km/s/Mpc
-[14:25:22]   H0 tension explained: 94%
-[14:25:22]   S8 tension: 0.832 (CMB) vs 0.766 (KiDS)
-[14:25:22]   TEP prediction: S8_WL = 0.818
-[14:25:22]   S8 tension explained: 22%
-[14:25:22] Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_133_hubble_connection.json
-[14:25:22]     Step 133 complete. H0_TEP=73.4 km/s/Mpc
+[10:03:58]     STEP 133: TEP connection to Hubble and S8 tensions
+[10:03:58]   H0 tension: 67.4 -> 73.04 km/s/Mpc (5.0 sigma)
+[10:03:58]   TEP prediction: H0_local = 67.78 km/s/Mpc
+[10:03:58]   H0 tension explained: 7%
+[10:03:58]   S8 tension: 0.832 (CMB) vs 0.766 (KiDS)
+[10:03:58]   TEP prediction: S8_WL = 0.863
+[10:03:58]   S8 tension explained: -48%
+[10:03:58] Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_133_hubble_connection.json
+[10:03:58]     Step 133 complete. H0_TEP=67.8 km/s/Mpc

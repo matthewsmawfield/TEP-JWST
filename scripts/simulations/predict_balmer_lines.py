@@ -5,12 +5,12 @@ import pandas as pd
 from astropy.cosmology import Planck18
 import astropy.units as u
 
-def effective_time_factor(log_mh, z, alpha0=0.58, z_ref=5.5):
+def effective_time_factor(log_mh, z, kappa_gal=9.6e5, z_ref=5.5):
     """
     Compute Gamma_t based on halo mass and redshift.
     """
     # TEP coupling scaling
-    alpha = alpha0 * np.sqrt(1 + z)
+    alpha = kappa_gal * np.sqrt(1 + z)
     
     # Potential depth proxy relative to reference
     # Reference mass log_mh = 12

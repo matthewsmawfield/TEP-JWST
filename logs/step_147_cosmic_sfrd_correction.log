@@ -1,49 +1,49 @@
-[14:27:05]     =================================================================
-[14:27:05]     Step 147: Cosmic SFRD Correction at z > 6
-[14:27:05]     =================================================================
-[14:27:05]     Loading SFR data...
-[14:27:05]       UNCOVER: 2315 galaxies with SFR
-[14:27:05]       CEERS: 10477 galaxies with SFR
-[14:27:05]     
+[10:05:40]     =================================================================
+[10:05:40]     Step 147: Cosmic SFRD Correction at z > 6
+[10:05:40]     =================================================================
+[10:05:40]     Loading SFR data...
+[10:05:40]       UNCOVER: 2315 galaxies with SFR
+[10:05:40]       CEERS: 10477 galaxies with SFR
+[10:05:40]     
 Computing SFRD per survey...
-[14:27:05]       UNCOVER:
-[14:27:05]         z=[6,7): N=372, log SFRD_obs=-1.90, log SFRD_corr=-1.90, reduction=0%
-[14:27:05]         z=[7,8): N=221, log SFRD_obs=-2.07, log SFRD_corr=-2.07, reduction=0%
-[14:27:05]         z=[8,9): N=179, log SFRD_obs=-1.60, log SFRD_corr=-1.60, reduction=0%
-[14:27:05]         z=[9,10): N=104, log SFRD_obs=-1.80, log SFRD_corr=-1.80, reduction=0%
-[14:27:05]       CEERS:
-[14:27:05]         z=[6,7): N=1835, log SFRD_obs=-0.82, log SFRD_corr=-0.82, reduction=0%
-[14:27:05]         z=[7,8): N=554, log SFRD_obs=-1.37, log SFRD_corr=-1.37, reduction=0%
-[14:27:05]         z=[8,9): N=382, log SFRD_obs=-1.87, log SFRD_corr=-1.87, reduction=0%
-[14:27:05]         z=[9,10): N=236, log SFRD_obs=-1.68, log SFRD_corr=-1.68, reduction=0%
-[14:27:05]         z=[10,12): N=269, log SFRD_obs=-1.97, log SFRD_corr=-1.97, reduction=0%
-[14:27:05]     
+[10:05:40]       UNCOVER:
+[10:05:40]         z=[6,7): N=372, log SFRD_obs=-1.90, log SFRD_corr=-1.84, reduction=-14%
+[10:05:40]         z=[7,8): N=221, log SFRD_obs=-2.07, log SFRD_corr=-1.98, reduction=-23%
+[10:05:40]         z=[8,9): N=179, log SFRD_obs=-1.60, log SFRD_corr=-1.66, reduction=12%
+[10:05:40]         z=[9,10): N=104, log SFRD_obs=-1.80, log SFRD_corr=-1.98, reduction=33%
+[10:05:40]       CEERS:
+[10:05:40]         z=[6,7): N=1835, log SFRD_obs=-0.82, log SFRD_corr=-1.26, reduction=63%
+[10:05:40]         z=[7,8): N=554, log SFRD_obs=-1.37, log SFRD_corr=-1.47, reduction=21%
+[10:05:40]         z=[8,9): N=382, log SFRD_obs=-1.87, log SFRD_corr=-1.86, reduction=-1%
+[10:05:40]         z=[9,10): N=236, log SFRD_obs=-1.68, log SFRD_corr=-1.74, reduction=13%
+[10:05:40]         z=[10,12): N=269, log SFRD_obs=-1.97, log SFRD_corr=-1.96, reduction=-3%
+[10:05:40]     
 Combined SFRD (volume-weighted):
-[14:27:05]       z=[6,7): N=2207, log SFRD_obs=-0.97, log SFRD_corr=-0.97, excess_obs=5.1×, excess_corr=5.1×, reduction=0%
-[14:27:05]       z=[7,8): N=775, log SFRD_obs=-1.49, log SFRD_corr=-1.49, excess_obs=3.4×, excess_corr=3.4×, reduction=0%
-[14:27:05]       z=[8,9): N=561, log SFRD_obs=-1.77, log SFRD_corr=-1.77, excess_obs=4.0×, excess_corr=4.0×, reduction=0%
-[14:27:05]       z=[9,10): N=340, log SFRD_obs=-1.72, log SFRD_corr=-1.72, excess_obs=10.2×, excess_corr=10.2×, reduction=0%
-[14:27:05]       z=[10,12): N=269, log SFRD_obs=-1.97, log SFRD_corr=-1.97, excess_obs=18.9×, excess_corr=18.9×, reduction=0%
-[14:27:05]     
+[10:05:40]       z=[6,7): N=2207, log SFRD_obs=-0.97, log SFRD_corr=-1.37, excess_obs=5.1×, excess_corr=2.0×, reduction=60%
+[10:05:40]       z=[7,8): N=775, log SFRD_obs=-1.49, log SFRD_corr=-1.58, excess_obs=3.4×, excess_corr=2.8×, reduction=17%
+[10:05:40]       z=[8,9): N=561, log SFRD_obs=-1.77, log SFRD_corr=-1.79, excess_obs=4.0×, excess_corr=3.8×, reduction=5%
+[10:05:40]       z=[9,10): N=340, log SFRD_obs=-1.72, log SFRD_corr=-1.80, excess_obs=10.2×, excess_corr=8.3×, reduction=18%
+[10:05:40]       z=[10,12): N=269, log SFRD_obs=-1.97, log SFRD_corr=-1.96, excess_obs=18.9×, excess_corr=19.5×, reduction=-3%
+[10:05:40]     
 =================================================================
-[14:27:05]     SUMMARY
-[14:27:05]     =================================================================
-[14:27:05]       z>8 mean SFRD reduction: 0%
-[14:27:05]       z>8 mean excess (observed): 11.0× ΛCDM
-[14:27:05]       z>8 mean excess (TEP-corrected): 11.0× ΛCDM
-[14:27:05]       z>8 max excess: 18.9× → 18.9×
-[14:27:05]       Overall mean SFRD reduction: 0%
-[14:27:05]     
+[10:05:40]     SUMMARY
+[10:05:40]     =================================================================
+[10:05:40]       z>8 mean SFRD reduction: 6%
+[10:05:40]       z>8 mean excess (observed): 11.0× ΛCDM
+[10:05:40]       z>8 mean excess (TEP-corrected): 10.6× ΛCDM
+[10:05:40]       z>8 max excess: 18.9× → 19.5×
+[10:05:40]       Overall mean SFRD reduction: 19%
+[10:05:40]     
   Sensitivity to SFR bias index m:
-[14:27:05]         z=[8,9): m=0.5 → log SFRD=-1.77, m=0.7 → log SFRD=-1.77
-[14:27:05]         z=[9,10): m=0.5 → log SFRD=-1.72, m=0.7 → log SFRD=-1.72
-[14:27:05]         z=[10,12): m=0.5 → log SFRD=-1.97, m=0.7 → log SFRD=-1.97
-[14:27:05]     
+[10:05:40]         z=[8,9): m=0.5 → log SFRD=-1.79, m=0.7 → log SFRD=-1.79
+[10:05:40]         z=[9,10): m=0.5 → log SFRD=-1.80, m=0.7 → log SFRD=-1.82
+[10:05:40]         z=[10,12): m=0.5 → log SFRD=-1.96, m=0.7 → log SFRD=-1.95
+[10:05:40]     
 Generating figure...
-[14:27:30]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_147_cosmic_sfrd_correction.png
-[14:27:30]     
+[10:05:41]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_147_cosmic_sfrd_correction.png
+[10:05:41]     
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_147_cosmic_sfrd_correction.json
-[14:27:30]     
+[10:05:41]     
 =================================================================
-[14:27:30]     HEADLINE: TEP reduces cosmic SFRD at z>8 by 0%, cutting the ΛCDM excess from 11.0× to 11.0×.
-[14:27:30]     =================================================================
+[10:05:41]     HEADLINE: TEP reduces cosmic SFRD at z>8 by 6%, cutting the ΛCDM excess from 11.0× to 10.6×.
+[10:05:41]     =================================================================

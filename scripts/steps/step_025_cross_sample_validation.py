@@ -42,7 +42,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
-from scripts.utils.tep_model import ALPHA_0, compute_gamma_t as tep_gamma  # Shared TEP model & coupling constant
+from scripts.utils.tep_model import KAPPA_GAL, compute_gamma_t as tep_gamma  # Shared TEP model & coupling constant
 
 STEP_NUM = "025"  # Pipeline step number
 STEP_NAME = "cross_sample_validation"  # Used in log / output filenames
@@ -90,7 +90,7 @@ def load_all_data():
         print_status("ERROR: jades_highz_physical.csv not found. Run step_014 first.", "ERROR")
         return None, None
     jades = pd.read_csv(_jades_path)
-    jades['gamma_t'] = tep_gamma(jades['log_Mhalo'].values, jades['z_best'].values, alpha_0=ALPHA_0)
+    jades['gamma_t'] = tep_gamma(jades['log_Mhalo'].values, jades['z_best'].values, kappa=KAPPA_GAL)
     jades['age_ratio'] = jades['t_stellar_Gyr'] / jades['t_cosmic_Gyr']
     jades['source'] = 'JADES'
     

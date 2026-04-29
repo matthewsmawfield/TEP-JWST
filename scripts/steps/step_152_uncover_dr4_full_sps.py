@@ -233,7 +233,7 @@ def apply_tep(df, z_col='z_phot'):
     log_mh = np.full(len(df), np.nan)
     ml_bias = np.full(len(df), np.nan)
     log_mstar_true = np.full(len(df), np.nan)
-    alpha_z = np.full(len(df), np.nan)
+    response_z = np.full(len(df), np.nan)
 
     for i, row in df.iterrows():
         z = row[z_col]
@@ -245,13 +245,13 @@ def apply_tep(df, z_col='z_phot'):
             gt = tep_gamma(lmh, z)
             az = tep_alpha(z)
             te = cosmo.age(z).to(u.Gyr).value * gt
-            bias = isochrony_mass_bias(lmh, z)
+            bias = isochrony_mass_bias(gt)  # Linear ratio M_obs/M_true = Gamma_t^n
             gamma_t[i] = gt
             t_eff[i] = te
             log_mh[i] = lmh
             ml_bias[i] = bias
-            log_mstar_true[i] = lms - bias
-            alpha_z[i] = az
+            log_mstar_true[i] = lms - np.log10(bias)  # Convert linear ratio to dex correction
+            response_z[i] = az
         except Exception:
             pass
 
@@ -260,7 +260,7 @@ def apply_tep(df, z_col='z_phot'):
     df['log_Mh'] = log_mh
     df['ml_bias'] = ml_bias
     df['log_Mstar_true'] = log_mstar_true
-    df['alpha_z'] = alpha_z
+    df['response_z'] = response_z
 
     n_valid = np.sum(np.isfinite(df['gamma_t']))
     print_status(f"Gamma_t computed for {n_valid} sources", "INFO")

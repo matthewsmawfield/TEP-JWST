@@ -1,98 +1,98 @@
-[14:23:49]     ======================================================================
-[14:23:49]     STEP 050: Critical Evidence Tests
-[14:23:49]     ======================================================================
-[14:23:49]     
+[10:02:11]     ======================================================================
+[10:02:11]     STEP 050: Critical Evidence Tests
+[10:02:11]     ======================================================================
+[10:02:11]     
 Searching for evidence that is ANOMALOUS under standard physics...
 
-[14:23:49]     Loaded N = 2315 galaxies
-[14:23:49]     
+[10:02:11]     Loaded N = 2315 galaxies
+[10:02:11]     
 ======================================================================
-[14:23:49]     CRITICAL TEST 1: Sign Consistency Test
-[14:23:49]     ======================================================================
-[14:23:49]     TEP predicts SPECIFIC SIGNS for all correlations.
-[14:23:49]     If even ONE sign is wrong, TEP is falsified.
+[10:02:11]     CRITICAL TEST 1: Sign Consistency Test
+[10:02:11]     ======================================================================
+[10:02:11]     TEP predicts SPECIFIC SIGNS for all correlations.
+[10:02:11]     If even ONE sign is wrong, TEP is falsified.
 
-[14:23:49]     Dust (z>8): predicted +, observed ρ = 0.603 → ✓ CORRECT
-[14:23:49]     Chi2 (z>7): predicted +, observed ρ = 0.130 → ✓ CORRECT
-[14:23:49]     Burstiness: predicted -, observed ρ = -0.289 → ✓ CORRECT
-[14:23:49]     sSFR: predicted -, observed ρ = -0.401 → ✓ CORRECT
-[14:23:49]     
+[10:02:11]     Dust (z>8): predicted +, observed ρ = 0.471 → ✓ CORRECT
+[10:02:11]     Chi2 (z>7): predicted +, observed ρ = 0.077 → ✓ CORRECT
+[10:02:11]     Burstiness: predicted -, observed ρ = -0.294 → ✓ CORRECT
+[10:02:11]     sSFR: predicted -, observed ρ = -0.499 → ✓ CORRECT
+[10:02:11]     
 Sign consistency: 4/4 predictions correct
-[14:23:49]     ✓ PASSED: ALL predicted signs are correct
-[14:23:49]     
+[10:02:11]     ✓ PASSED: ALL predicted signs are correct
+[10:02:11]     
 ======================================================================
-[14:23:49]     CRITICAL TEST 2: Predictive Power Test
-[14:23:49]     ======================================================================
-[14:23:49]     Gamma_t is calculated from halo mass ALONE.
-[14:23:49]     It should predict MULTIPLE independent observables.
+[10:02:11]     CRITICAL TEST 2: Predictive Power Test
+[10:02:11]     ======================================================================
+[10:02:11]     Gamma_t is calculated from halo mass ALONE.
+[10:02:11]     It should predict MULTIPLE independent observables.
 
-[14:23:49]     ρ(Γ_t, Dust) = 0.357 (p = 1.25e-16) ✓
-[14:23:49]     ρ(Γ_t, Chi2) = 0.130 (p = 3.47e-03) ✓
-[14:23:49]     ρ(Γ_t, Age) = 0.036 (p = 4.22e-01) ✗
-[14:23:49]     
+[10:02:11]     ρ(Γ_t, Dust) = 0.148 (p = 8.31e-04) ✓
+[10:02:11]     ρ(Γ_t, Chi2) = 0.077 (p = 8.31e-02) ✗
+[10:02:11]     ρ(Γ_t, Age) = 0.218 (p = 7.75e-07) ✓
+[10:02:11]     
 Gamma_t predicts 2/3 observables at z > 7
-[14:23:49]     ✓ CRITICAL: Single parameter predicts multiple observables
-[14:23:49]     
+[10:02:11]     ✓ CRITICAL: Single parameter predicts multiple observables
+[10:02:11]     
 ======================================================================
-[14:23:49]     CRITICAL TEST 3: Quantitative Match Test
-[14:23:49]     ======================================================================
-[14:23:49]     TEP predicts SPECIFIC MAGNITUDES, not just correlations.
-[14:23:49]     The effective time should be t_eff = t_cosmic × Gamma_t.
+[10:02:11]     CRITICAL TEST 3: Quantitative Match Test
+[10:02:11]     ======================================================================
+[10:02:11]     TEP predicts SPECIFIC MAGNITUDES, not just correlations.
+[10:02:11]     The effective time should be t_eff = t_cosmic × Gamma_t.
 
-[14:23:49]     t_eff = 0.3-0.5 Gyr: N = 112, <A_V> = 0.657
-[14:23:49]     t_eff = 0.5-1.0 Gyr: N = 388, <A_V> = 0.773
-[14:23:49]     
+[10:02:11]     t_eff = 0.2-0.3 Gyr: N = 105, <A_V> = 0.647
+[10:02:11]     t_eff = 0.3-0.5 Gyr: N = 392, <A_V> = 0.754
+[10:02:11]     
 ======================================================================
-[14:23:49]     CRITICAL TEST 4: The 'Anomalous Becomes Possible' Test
-[14:23:49]     ======================================================================
-[14:23:49]     Under standard physics, age > t_cosmic is ANOMALOUS.
-[14:23:49]     Under TEP, it becomes POSSIBLE with high Gamma_t.
+[10:02:11]     CRITICAL TEST 4: The 'Anomalous Becomes Possible' Test
+[10:02:11]     ======================================================================
+[10:02:11]     Under standard physics, age > t_cosmic is ANOMALOUS.
+[10:02:11]     Under TEP, it becomes POSSIBLE with high Gamma_t.
 
-[14:23:49]     
+[10:02:11]     
 ======================================================================
-[14:23:49]     CRITICAL TEST 5: The 'Null Zone' Test
-[14:23:49]     ======================================================================
-[14:23:49]     At z < 5, cosmic time is sufficient for all processes.
-[14:23:49]     TEP predicts NO correlation between Gamma_t and dust.
+[10:02:11]     CRITICAL TEST 5: The 'Null Zone' Test
+[10:02:11]     ======================================================================
+[10:02:11]     At z < 5, cosmic time is sufficient for all processes.
+[10:02:11]     TEP predicts NO correlation between Gamma_t and dust.
 
-[14:23:49]     z = 4-5 (null zone): ρ = 0.024 (p = 4.61e-01)
-[14:23:49]     z > 8 (TEP zone): ρ = 0.603 (p = 2.09e-29)
-[14:23:49]     Difference: Δρ = 0.579
-[14:23:49]     ✓ PASSED: Correlation emerges only at high-z as predicted
-[14:23:49]     
+[10:02:11]     z = 4-5 (null zone): ρ = 0.021 (p = 5.14e-01)
+[10:02:11]     z > 8 (TEP zone): ρ = 0.471 (p = 4.72e-17)
+[10:02:11]     Difference: Δρ = 0.450
+[10:02:11]     ✓ PASSED: Correlation emerges only at high-z as predicted
+[10:02:11]     
 ======================================================================
-[14:23:49]     CRITICAL TEST 6: The 'Scaling Relation' Test
-[14:23:49]     ======================================================================
-[14:23:49]     TEP predicts: log(Gamma_t) ∝ alpha × log(M_h/M_ref)
-[14:23:49]     This should produce a SPECIFIC slope in the Gamma_t-M_h relation.
+[10:02:11]     CRITICAL TEST 6: The 'Scaling Relation' Test
+[10:02:11]     ======================================================================
+[10:02:11]     TEP predicts: log(Gamma_t) ∝ alpha × log(M_h/M_ref)
+[10:02:11]     This should produce a SPECIFIC slope in the Gamma_t-M_h relation.
 
-[14:23:49]     Fitted relation: log(Γ_t) = 0.060 × log(M_h) + -0.635
-[14:23:49]     R² = 0.475, p = 0.00e+00
-[14:23:49]     Expected slope (from TEP-H0): 0.58
-[14:23:49]     Observed slope: 0.060
-[14:23:49]     
+[10:02:11]     Fitted relation: log(Γ_t) = 0.068 × log(M_h) + -0.891
+[10:02:11]     R² = 0.466, p = 8.71e-318
+[10:02:11]     Expected slope (from TEP-H0): 960000.00
+[10:02:11]     Observed slope: 0.068
+[10:02:11]     
 ======================================================================
-[14:23:49]     CRITICAL TEST 7: The 'Cross-Domain' Test
-[14:23:49]     ======================================================================
-[14:23:49]     If TEP is real, the SAME alpha should work across domains:
-[14:23:49]     - JWST high-z galaxies
-[14:23:49]     - SN Ia host galaxies (TEP-H0)
-[14:23:49]     - Globular cluster pulsars (TEP-COS)
+[10:02:11]     CRITICAL TEST 7: The 'Cross-Domain' Test
+[10:02:11]     ======================================================================
+[10:02:11]     If TEP is real, the SAME alpha should work across domains:
+[10:02:11]     - JWST high-z galaxies
+[10:02:11]     - SN Ia host galaxies (TEP-H0)
+[10:02:11]     - Globular cluster pulsars (TEP-COS)
 
-[14:23:49]     Alpha from TEP-H0 (SN Ia): 0.58 (legacy, maps to alpha_eff = 9.6e5 mag)
-[14:23:49]     Alpha used in JWST analysis: 0.58 (consistent with legacy mapping)
-[14:23:49]     Correlations observed: YES (multiple)
-[14:23:49]     
+[10:02:11]     Alpha from TEP-H0 (SN Ia): 960000.0 (legacy, maps to kappa = 9.6e5 mag)
+[10:02:11]     Alpha used in JWST analysis: 960000.0 (consistent with legacy mapping)
+[10:02:11]     Correlations observed: YES (multiple)
+[10:02:11]     
 ✓ PASSED: Same alpha works across 15 orders of magnitude in mass
-[14:23:49]     
+[10:02:11]     
 ======================================================================
-[14:23:49]     SUMMARY: Critical Evidence
-[14:23:49]     ======================================================================
-[14:23:49]     
+[10:02:11]     SUMMARY: Critical Evidence
+[10:02:11]     ======================================================================
+[10:02:11]     
 Signatures found: 4
-[14:23:49]       • sign_consistency: stat = 1.000
-[14:23:49]       • predictive_power: stat = 2.000
-[14:23:49]       • null_zone: stat = 0.579
-[14:23:49]       • cross_domain: stat = 0.580
-[14:23:49]     
+[10:02:11]       • sign_consistency: stat = 1.000
+[10:02:11]       • predictive_power: stat = 2.000
+[10:02:11]       • null_zone: stat = 0.450
+[10:02:11]       • cross_domain: stat = 960000.000
+[10:02:11]     
 Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_050_critical_evidence.json

@@ -1,9 +1,29 @@
 {
-  "step": "Step 112: Scalar-Tensor Constraint Comparison",
+  "step": "Step 112: Scalar-Tensor Sector-Dictionary Constraint Check",
   "tep_coupling": {
-    "alpha_0": 0.58,
-    "alpha_0_err": 0.16,
-    "omega_bd_equivalent": 0.9863258026159334
+    "kappa_gal": 960000.0,
+    "kappa_gal_err": 400000.0,
+    "omega_bd_equivalent": null,
+    "note": "\u03ba_gal is not a dimensionless bare scalar coupling; no Brans-Dicke conversion is performed."
+  },
+  "sector_dictionary": {
+    "kappa_gal": {
+      "value": 960000.0,
+      "uncertainty": 400000.0,
+      "units": "mag",
+      "sector": "observable magnitude/stellar-population response",
+      "not_equivalent_to": [
+        "bare beta",
+        "PPN alpha0",
+        "Brans-Dicke coupling"
+      ]
+    },
+    "bare_scalar_bound": {
+      "value": 0.003,
+      "units": "dimensionless",
+      "sector": "PPN/photon/fifth-force",
+      "source": "Cassini-style scalar-tensor mapping"
+    }
   },
   "constraints": [
     {
@@ -56,11 +76,14 @@
     },
     {
       "name": "Cepheid P-L (TEP-H0)",
-      "omega_bd_limit": 0.9863258026159334,
-      "alpha_limit": 0.58,
+      "omega_bd_limit": null,
+      "alpha_limit": null,
       "reference": "TEP-H0 (Paper 11)",
       "environment": "Galactic halos",
-      "screened": false
+      "screened": false,
+      "quantity": "observable_response_kappa_gal_mag",
+      "kappa_gal": 960000.0,
+      "kappa_gal_err": 400000.0
     }
   ],
   "screening": {
@@ -100,15 +123,17 @@
     ]
   },
   "compatibility": {
-    "solar_system": "Compatible (screened)",
-    "binary_pulsars": "Compatible (screened)",
-    "bbn": "Compatible (different epoch)",
-    "cmb": "Compatible (different epoch)",
-    "jwst_galaxies": "Active (unscreened)"
+    "solar_system": "Requires suppressed effective bare coupling in screened local regime",
+    "binary_pulsars": "Requires compact-object screening/transfer calculation",
+    "bbn": "Requires cosmological transfer calculation",
+    "cmb": "Requires cosmological transfer calculation",
+    "jwst_galaxies": "Uses \u03ba_gal only as observable response prior"
   },
   "summary": {
-    "tep_compatible_with_all_constraints": true,
+    "direct_kappa_vs_ppn_comparison_valid": false,
+    "brans_dicke_conversion_performed": false,
+    "tep_compatible_with_all_constraints": null,
     "screening_required": true,
-    "key_insight": "TEP effects only manifest in low-density environments"
+    "key_insight": "Do not conflate observable response coefficients with bare scalar-tensor couplings."
   }
 }

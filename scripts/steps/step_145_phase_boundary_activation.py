@@ -47,7 +47,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 from scripts.utils.tep_model import (
     compute_gamma_t, stellar_to_halo_mass_behroozi_like,
-    compute_t_eff, ALPHA_0,  # Shared TEP model
+    compute_t_eff, KAPPA_GAL,  # Shared TEP model
 )
 from scripts.utils.p_value_utils import safe_json_default  # JSON serialiser for numpy types
 

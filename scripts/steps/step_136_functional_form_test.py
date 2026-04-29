@@ -45,7 +45,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
-from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like  # Shared TEP model
+from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like, KAPPA_GAL  # Shared TEP model
 from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting & JSON serialiser
 
 STEP_NUM = "136"  # Pipeline step number
@@ -379,7 +379,7 @@ def analyze_redshift_evolution(df):
         # Within a z-bin, gamma_t is monotonic in M*, so rho should be similar
         # The test is: does the MAGNITUDE change with z as TEP predicts?
         z_mid = (z_lo + z_hi) / 2
-        alpha_predicted = 0.58 * np.sqrt(1 + z_mid)
+        alpha_predicted = KAPPA_GAL * np.sqrt(1 + z_mid)
 
         results.append({
             "z_range": [z_lo, z_hi],

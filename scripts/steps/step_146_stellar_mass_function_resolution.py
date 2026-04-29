@@ -31,7 +31,7 @@ set_step_logger(logger)
 import numpy as np
 from scripts.utils.tep_model import (
     compute_gamma_t, stellar_to_halo_mass_behroozi_like,
-    correct_stellar_mass, isochrony_mass_bias, ALPHA_0  # Shared TEP model
+    correct_stellar_mass, isochrony_mass_bias, KAPPA_GAL  # Shared TEP model
 )
 
 # SMF excess: observed vs LCDM at various redshifts
@@ -53,10 +53,14 @@ N_IMPOSSIBLE_LABBE = 9      # Labbe+2023 reported 9 anomalous galaxies
 def tep_mass_correction_at_z(z, log_mstar=10.5):
     """Compute TEP mass correction at a given z for typical massive galaxy."""
     log_mh   = stellar_to_halo_mass_behroozi_like(np.array([log_mstar]), np.array([z]))[0]
-    gamma_t  = compute_gamma_t(np.array([log_mh]), np.array([z]))[0]
-    bias_n   = isochrony_mass_bias(gamma_t)  # returns mass bias (dex)
-    log_m_corr = correct_stellar_mass(log_mstar, gamma_t)  # true log M*
-    return float(gamma_t), float(log_m_corr), float(bias_n)
+    # Use the canonical potential-linear Gamma_t form (v0.7+ harmonized)
+    from scripts.utils.tep_model import compute_gamma_t
+    gamma_t  = float(compute_gamma_t(log_mh, z))
+    bias_n   = isochrony_mass_bias(gamma_t)  # returns linear ratio M_obs/M_true = Gamma_t^n
+    correction_dex = float(np.log10(bias_n))  # convert to dex correction
+    log_m_corr = log_mstar - correction_dex  # true log M*
+    return float(gamma_t), float(log_m_corr), correction_dex
+
 
 
 def smf_resolution_fraction(excess_dex, correction_dex):

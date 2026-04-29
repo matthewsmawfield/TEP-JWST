@@ -29,8 +29,6 @@ OUTPUT_PATH.mkdir(parents=True, exist_ok=True)  # Create directory tree if missi
 # =============================================================================
 # PHYSICS CONSTANTS & PARAMETERS
 # =============================================================================
-from scripts.utils.tep_model import RHO_CRIT_G_CM3
-
 # Critical Density for Screening (from TEP-UCD / Paper 6)
 RHO_CRIT = RHO_CRIT_G_CM3 * u.g / u.cm**3
 
@@ -68,7 +66,7 @@ def check_screening():
     # GR prediction is verified to 0.1%. TEP needs scalar radiation to be < 0.1% of quadrupole.
     # Scalar dipole radiation Power_scalar ~ (Delta alpha)^2 * Power_quadrupole? 
     # Actually P_dipole ~ (alpha_1 - alpha_2)^2. 
-    # If both are screened, alpha_eff -> 0.
+    # If both are screened, kappa_eff -> 0.
     # We need suppression_factor < 1e-3?
     
     # Actually, suppression is extreme here (~1e-14).

@@ -33,7 +33,7 @@ OUTPUTS_DIR = RESULTS_DIR / "outputs"  # JSON output directory (machine-readable
 FIGURES_DIR = RESULTS_DIR / "figures"  # Publication figures directory (PNG/PDF for manuscript)
 INTERIM_DIR = RESULTS_DIR / "interim"  # Pre-processed intermediate products (CSV format from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
 from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
-from scripts.utils.tep_model import compute_gamma_t, ALPHA_0, LOG_MH_REF, Z_REF  # TEP model: Gamma_t formula, alpha_0=0.58, log_Mh_ref=12.0, z_ref=5.5
+from scripts.utils.tep_model import compute_gamma_t, KAPPA_GAL, LOG_MH_REF, Z_REF  # TEP model: Gamma_t formula, KAPPA_GAL=9.6e5 mag, log_Mh_ref=12.0, z_ref=5.5
 
 STEP_NUM = "105"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "morphology_tep"  # Morphology-TEP correlation: tests if Sérsic index and r_e correlate with Gamma_t (compact galaxies should have higher Gamma_t from deeper potentials)

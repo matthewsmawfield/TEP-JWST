@@ -48,7 +48,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 from scripts.utils.tep_model import (
-    ALPHA_0, ALPHA_UNCERTAINTY, Z_REF, ALPHA_CLOCK_EFF, 
+    KAPPA_GAL, KAPPA_GAL_UNCERTAINTY, Z_REF, 
     compute_gamma_t_from_phi, get_phi_from_log_mh
 )  # Shared TEP model constants
 
@@ -73,7 +73,7 @@ set_step_logger(logger)
 G = 4.301e-6            # kpc (km/s)^2 / M_sun
 T_SALPETER = 0.045      # Gyr — Salpeter e-folding time at Eddington limit
 PHI_REF_VIR = 360.0**2  # Reference potential depth (V_vir^2 for M=10^12 at z=5.5)
-LOCAL_MBH_MSTAR = 1e-3  # Local M_BH/M_* baseline (Kormendy & Ho 2013)
+LOCAL_MBH_MSTAR = 1e-3  # Local M_BH/M_* reference ratio (Kormendy & Ho 2013)
 CONCENTRATION_FACTOR = 10.0  # Phi_cen / Phi_vir for compact LRDs (step_132)
 LRD_CATALOG_PATH = DATA_PATH / "kokorev_lrd_catalog_v1.1.fits"
 CEERS_HIGHZ_SAMPLE_PATH = DATA_INTERIM_PATH / "ceers_highz_sample.csv"
@@ -134,6 +134,23 @@ def _maybe_scalar(value):
 
 def muv_to_log_mstar(muv):
     return -ML_SLOPE * (np.asarray(muv) - MUV_REF) + LOG_MSTAR_REF
+
+
+def clean_empirical_features(df, features):
+    cleaned = df.copy()
+    for feature in features:
+        cleaned[feature] = pd.to_numeric(cleaned[feature], errors="coerce")
+        cleaned.loc[cleaned[feature] <= -90, feature] = np.nan
+    return cleaned
+
+
+def in_training_domain(df, training_feature_ranges):
+    mask = np.ones(len(df), dtype=bool)
+    for feature, bounds in training_feature_ranges.items():
+        mask &= pd.notna(df[feature])
+        mask &= df[feature] >= bounds["min"]
+        mask &= df[feature] <= bounds["max"]
+    return mask
 
 
 def load_real_lrd_sample():
@@ -210,7 +227,8 @@ def build_ceers_direct_mass_subset(df_lrd, match_radius_arcsec=DIRECT_MASS_MATCH
 
 def fit_empirical_mass_calibration(df_direct):
     features = ["Muv", "Av", "log_Lbol", "z"]
-    df_fit = df_direct.dropna(subset=features + ["log_Mstar"]).copy()
+    df_fit = clean_empirical_features(df_direct, features)
+    df_fit = df_fit.dropna(subset=features + ["log_Mstar"]).copy()
     if len(df_fit) < 10:
         return None
 
@@ -252,12 +270,12 @@ def fit_empirical_mass_calibration(df_direct):
 # =============================================================================
 
 from scripts.utils.tep_model import (
-    ALPHA_0, ALPHA_UNCERTAINTY, Z_REF, ALPHA_CLOCK_EFF, 
+    KAPPA_GAL, KAPPA_GAL_UNCERTAINTY, Z_REF, 
     compute_gamma_t_from_phi, get_phi_from_log_mh
 )  # Shared TEP model constants
 
 
-def calculate_differential_topology(z, log_Mh, concentration, alpha_eff=ALPHA_CLOCK_EFF):
+def calculate_differential_topology(z, log_Mh, concentration, kappa=KAPPA_GAL):
     """
     Compute differential temporal topology between galactic centre and halo.
     Uses the harmonized potential-linear form.
@@ -269,10 +287,10 @@ def calculate_differential_topology(z, log_Mh, concentration, alpha_eff=ALPHA_CL
     
     # 2. Central potential (deeper well in LRD cores)
     # Concentration here is Phi_cen / Phi_halo
-    Phi_cen = Phi_halo * (concentration / 5.0) # Adjusted for Disk-to-Center ratio
+    Phi_cen = Phi_halo * concentration
 
-    gamma_halo = compute_gamma_t_from_phi(Phi_halo, z, alpha_eff=alpha_eff)
-    gamma_cen  = compute_gamma_t_from_phi(Phi_cen, z, alpha_eff=alpha_eff)
+    gamma_halo = compute_gamma_t_from_phi(Phi_halo, z, kappa=kappa)
+    gamma_cen  = compute_gamma_t_from_phi(Phi_cen, z, kappa=kappa)
 
     t_cosmic = cosmo.age(z).value  # Gyr
     delta_gamma = gamma_cen - gamma_halo
@@ -290,9 +308,9 @@ def compute_mbh_mstar(delta_gamma, t_cosmic_Gyr, M_seed, M_star, f_Edd,
     """
     Compute predicted M_BH/M_* for a given scenario.
 
-    BH grows as: M_BH = M_seed * exp(f_Edd * Delta_Gamma * t_cosmic / t_Salpeter)
+    BH grows as: M_BH = M_seed * exp(f_Edd * Delta_Gamma * t_cosmic / t_Salpeter),
     where Delta_Gamma is the differential temporal topology (centre minus halo).
-    Without TEP, Delta_Gamma = 0 and M_BH = M_seed (no differential boost).
+    Without TEP, Delta_Gamma = 0 and the same seed-based baseline is used.
 
     The *stellar* mass M_* is the observed value (already TEP-inflated if TEP is
     active, but we compare to observed ratios so this is the right quantity).
@@ -300,12 +318,8 @@ def compute_mbh_mstar(delta_gamma, t_cosmic_Gyr, M_seed, M_star, f_Edd,
     delta_gamma = np.asarray(delta_gamma, dtype=float)
     t_cosmic_Gyr = np.asarray(t_cosmic_Gyr, dtype=float)
     M_star = np.asarray(M_star, dtype=float)
-    if not use_tep:
-        ratio = np.full(np.broadcast(delta_gamma, t_cosmic_Gyr, M_star).shape,
-                        LOCAL_MBH_MSTAR, dtype=float)
-        extra_efolds = np.zeros_like(ratio)
-        return _maybe_scalar(ratio), _maybe_scalar(extra_efolds)
-    extra_efolds = f_Edd * delta_gamma * t_cosmic_Gyr / T_SALPETER
+    delta = delta_gamma if use_tep else np.zeros_like(delta_gamma, dtype=float)
+    extra_efolds = f_Edd * delta * t_cosmic_Gyr / T_SALPETER
     extra_efolds_clipped = np.clip(extra_efolds, None, 50.0)
     M_BH = M_seed * np.exp(extra_efolds_clipped)
     ratio = np.divide(
@@ -314,8 +328,42 @@ def compute_mbh_mstar(delta_gamma, t_cosmic_Gyr, M_seed, M_star, f_Edd,
         out=np.full_like(M_BH, np.nan, dtype=float),
         where=M_star > 0,
     )
-    ratio = np.minimum(ratio, 1.0)
     return _maybe_scalar(ratio), _maybe_scalar(extra_efolds)
+
+
+def compute_local_reference_ratio(M_star):
+    """Local mature-galaxy M_BH/Mstar reference, separate from seed scenarios."""
+    M_star = np.asarray(M_star, dtype=float)
+    ratio = np.full(M_star.shape, LOCAL_MBH_MSTAR, dtype=float)
+    return _maybe_scalar(ratio)
+
+
+def classify_mass_model_stability(scenarios, mc_results):
+    """Classify whether a mass model closes, undercloses, overshoots, or is unstable."""
+    deterministic_offsets = [
+        value["offset_from_observed_median_dex"]
+        for key, value in scenarios.items()
+        if SCENARIOS[key]["use_tep"]
+    ]
+    mc_spans = [
+        value["ci_95_hi"] - value["ci_95_lo"]
+        for value in mc_results.values()
+    ]
+    median_offset = float(np.median(deterministic_offsets)) if deterministic_offsets else np.nan
+    max_ci_span = float(np.max(mc_spans)) if mc_spans else np.nan
+    if np.isfinite(max_ci_span) and max_ci_span > 4.0:
+        stability = "unstable_exponential_mass_sensitivity"
+    elif np.isfinite(median_offset) and median_offset > 0.5:
+        stability = "overshoots_observed_regime"
+    elif np.isfinite(median_offset) and median_offset < -0.5:
+        stability = "undercloses_observed_regime"
+    else:
+        stability = "near_observed_regime"
+    return {
+        "classification": stability,
+        "median_tep_offset_dex": median_offset,
+        "max_mc_ci_span_dex": max_ci_span,
+    }
 
 
 # =============================================================================
@@ -416,6 +464,7 @@ def run():
 
     scenario_results = {}
     M_star_arr = np.power(10.0, df_topology["log_Mstar"].to_numpy(dtype=float))
+    local_reference_log_ratio = float(np.median(np.log10(compute_local_reference_ratio(M_star_arr))))
     for skey, spar in SCENARIOS.items():
         ratios, extra_efolds = compute_mbh_mstar(
             df_topology["delta_gamma"].to_numpy(dtype=float),
@@ -466,8 +515,8 @@ def run():
     n_mc = 5000
     rng = np.random.default_rng(42)
 
-    alpha_samples = rng.normal(ALPHA_0, ALPHA_UNCERTAINTY, n_mc)
-    alpha_samples = np.clip(alpha_samples, 0.1, 1.5)
+    alpha_samples = rng.normal(KAPPA_GAL, KAPPA_GAL_UNCERTAINTY, n_mc)
+    alpha_samples = np.clip(alpha_samples, 1.0, None)
     z_arr = df_topology["z"].to_numpy(dtype=float)
     log_mh_arr = df_topology["log_Mh"].to_numpy(dtype=float)
     concentration_arr = df_topology["concentration"].to_numpy(dtype=float)
@@ -485,8 +534,8 @@ def run():
         spar = SCENARIOS[skey]
         mc_log_ratios = []
         for a0 in alpha_samples:
-            gamma_halo_mc = compute_gamma_t_from_phi(phi_vir_arr, z_arr, alpha_0=a0)
-            gamma_cen_mc = compute_gamma_t_from_phi(phi_cen_arr, z_arr, alpha_0=a0)
+            gamma_halo_mc = compute_gamma_t_from_phi(phi_vir_arr, z_arr, kappa=a0)
+            gamma_cen_mc = compute_gamma_t_from_phi(phi_cen_arr, z_arr, kappa=a0)
             dg_mc = gamma_cen_mc - gamma_halo_mc
             ratio_mc, _ = compute_mbh_mstar(
                 dg_mc, t_cosmic_arr, spar["M_seed"], M_star_arr, spar["f_Edd"], True)
@@ -537,160 +586,177 @@ def run():
             key: value for key, value in empirical_mass_calibration.items()
             if key != "model"
         }
-        df_lrd_empirical = df_lrd.dropna(subset=empirical_features + ["Re_pc"]).copy()
-        df_lrd_empirical["log_Mstar_empirical"] = np.clip(
-            empirical_model.predict(df_lrd_empirical[empirical_features].to_numpy(dtype=float)),
-            7.0,
-            12.0,
+        df_lrd_empirical = clean_empirical_features(df_lrd, empirical_features)
+        df_lrd_empirical = df_lrd_empirical.dropna(subset=empirical_features + ["Re_pc"]).copy()
+        in_domain_mask = in_training_domain(
+            df_lrd_empirical,
+            empirical_calibration_output["training_feature_ranges"],
         )
-
-        empirical_rows = []
-        for _, row in df_lrd_empirical.iterrows():
-            z = float(row["z"])
-            log_Mstar = float(row["log_Mstar_empirical"])
-            log_Mh = estimate_halo_mass(log_Mstar, z)
-            concentration = float(np.clip(500.0 / row["Re_pc"], 5.0, 50.0))
-            g_halo, g_cen, dg, t_cos = calculate_differential_topology(z, log_Mh, concentration)
-            empirical_rows.append({
-                "id": row["id"],
-                "field": row.get("field", "unknown"),
-                "z": z,
-                "Muv": float(row["Muv"]) if pd.notna(row["Muv"]) else np.nan,
-                "Av": float(row["Av"]) if pd.notna(row["Av"]) else np.nan,
-                "log_Lbol": float(row["log_Lbol"]) if pd.notna(row["log_Lbol"]) else np.nan,
-                "log_Mstar_empirical": log_Mstar,
-                "log_Mstar_muv_proxy": float(row["log_Mstar"]),
-                "Re_pc": float(row["Re_pc"]),
-                "concentration": concentration,
-                "log_Mh": log_Mh,
-                "delta_gamma": dg,
-                "t_cosmic_Gyr": t_cos,
-            })
-
-        df_empirical_topology = pd.DataFrame(empirical_rows)
-        M_star_empirical = np.power(10.0, df_empirical_topology["log_Mstar_empirical"].to_numpy(dtype=float))
-        empirical_scenarios = {}
-        for skey, spar in SCENARIOS.items():
-            ratios_emp, extra_efolds_emp = compute_mbh_mstar(
-                df_empirical_topology["delta_gamma"].to_numpy(dtype=float),
-                df_empirical_topology["t_cosmic_Gyr"].to_numpy(dtype=float),
-                spar["M_seed"],
-                M_star_empirical,
-                spar["f_Edd"],
-                spar["use_tep"],
+        empirical_calibration_output["full_sample_candidate_size"] = int(len(df_lrd_empirical))
+        empirical_calibration_output["full_sample_in_domain_size"] = int(np.sum(in_domain_mask))
+        empirical_calibration_output["full_sample_ood_size"] = int(np.sum(~in_domain_mask))
+        df_lrd_empirical = df_lrd_empirical.loc[in_domain_mask].copy()
+        if len(df_lrd_empirical) == 0:
+            empirical_mass_calibration = None
+            empirical_full_sample = None
+        else:
+            df_lrd_empirical["log_Mstar_empirical"] = np.clip(
+                empirical_model.predict(df_lrd_empirical[empirical_features].to_numpy(dtype=float)),
+                7.0,
+                12.0,
             )
-            ratios_emp = np.asarray(ratios_emp, dtype=float)
-            extra_efolds_emp = np.asarray(extra_efolds_emp, dtype=float)
-            log_ratios_emp = np.log10(np.maximum(ratios_emp, 1e-20))
-            in_observed_emp = (
-                (log_ratios_emp >= OBSERVED_LOG_MBH_MSTAR_LO) &
-                (log_ratios_emp <= OBSERVED_LOG_MBH_MSTAR_HI)
+            empirical_rows = []
+            for _, row in df_lrd_empirical.iterrows():
+                z = float(row["z"])
+                log_Mstar = float(row["log_Mstar_empirical"])
+                log_Mh = estimate_halo_mass(log_Mstar, z)
+                concentration = float(np.clip(500.0 / row["Re_pc"], 5.0, 50.0))
+                g_halo, g_cen, dg, t_cos = calculate_differential_topology(z, log_Mh, concentration)
+                empirical_rows.append({
+                    "id": row["id"],
+                    "field": row.get("field", "unknown"),
+                    "z": z,
+                    "Muv": float(row["Muv"]) if pd.notna(row["Muv"]) else np.nan,
+                    "Av": float(row["Av"]) if pd.notna(row["Av"]) else np.nan,
+                    "log_Lbol": float(row["log_Lbol"]) if pd.notna(row["log_Lbol"]) else np.nan,
+                    "log_Mstar_empirical": log_Mstar,
+                    "log_Mstar_muv_proxy": float(row["log_Mstar"]),
+                    "Re_pc": float(row["Re_pc"]),
+                    "concentration": concentration,
+                    "log_Mh": log_Mh,
+                    "delta_gamma": dg,
+                    "t_cosmic_Gyr": t_cos,
+                })
+
+            df_empirical_topology = pd.DataFrame(empirical_rows)
+            M_star_empirical = np.power(10.0, df_empirical_topology["log_Mstar_empirical"].to_numpy(dtype=float))
+            empirical_scenarios = {}
+            for skey, spar in SCENARIOS.items():
+                ratios_emp, extra_efolds_emp = compute_mbh_mstar(
+                    df_empirical_topology["delta_gamma"].to_numpy(dtype=float),
+                    df_empirical_topology["t_cosmic_Gyr"].to_numpy(dtype=float),
+                    spar["M_seed"],
+                    M_star_empirical,
+                    spar["f_Edd"],
+                    spar["use_tep"],
+                )
+                ratios_emp = np.asarray(ratios_emp, dtype=float)
+                extra_efolds_emp = np.asarray(extra_efolds_emp, dtype=float)
+                log_ratios_emp = np.log10(np.maximum(ratios_emp, 1e-20))
+                in_observed_emp = (
+                    (log_ratios_emp >= OBSERVED_LOG_MBH_MSTAR_LO) &
+                    (log_ratios_emp <= OBSERVED_LOG_MBH_MSTAR_HI)
+                )
+                empirical_scenarios[skey] = {
+                    "median_log_mbh_mstar": float(np.median(log_ratios_emp)),
+                    "offset_from_observed_median_dex": float(np.median(log_ratios_emp) - OBSERVED_LOG_MBH_MSTAR_MEDIAN),
+                    "fraction_objects_in_observed_regime": float(np.mean(in_observed_emp)),
+                    "median_extra_efolds": float(np.median(extra_efolds_emp)),
+                    "p16_log_mbh_mstar": float(np.percentile(log_ratios_emp, 16)),
+                    "p84_log_mbh_mstar": float(np.percentile(log_ratios_emp, 84)),
+                }
+
+            z_emp = df_empirical_topology["z"].to_numpy(dtype=float)
+            log_mh_emp = df_empirical_topology["log_Mh"].to_numpy(dtype=float)
+            conc_emp = df_empirical_topology["concentration"].to_numpy(dtype=float)
+            t_emp = df_empirical_topology["t_cosmic_Gyr"].to_numpy(dtype=float)
+            phi_vir_emp = get_phi_from_log_mh(log_mh_emp)
+            phi_cen_emp = phi_vir_emp * conc_emp
+
+            empirical_mc_results = {}
+            for skey in [
+                "S2_tep_intermediate_seed",
+                "S3_tep_mild_super_eddington",
+                "S4_tep_combined",
+            ]:
+                spar = SCENARIOS[skey]
+                mc_emp = []
+                for a0 in alpha_samples:
+                    gamma_halo_mc = compute_gamma_t_from_phi(phi_vir_emp, z_emp, kappa=a0)
+                    gamma_cen_mc = compute_gamma_t_from_phi(phi_cen_emp, z_emp, kappa=a0)
+                    dg_mc = gamma_cen_mc - gamma_halo_mc
+                    ratio_mc, _ = compute_mbh_mstar(
+                        dg_mc, t_emp, spar["M_seed"], M_star_empirical, spar["f_Edd"], True)
+                    valid_ratio = np.asarray(ratio_mc, dtype=float)
+                    valid_ratio = valid_ratio[np.isfinite(valid_ratio) & (valid_ratio > 0)]
+                    if len(valid_ratio) > 0:
+                        mc_emp.append(np.median(np.log10(np.maximum(valid_ratio, 1e-20))))
+                    else:
+                        mc_emp.append(np.nan)
+
+                mc_emp = np.asarray(mc_emp, dtype=float)
+                empirical_mc_results[skey] = {
+                    "n_draws": n_mc,
+                    "sample_size": int(len(df_empirical_topology)),
+                    "statistic": "population_median_log_mbh_mstar",
+                    "median_log_mbh_mstar_population": float(np.median(mc_emp)),
+                    "ci_95_lo": float(np.percentile(mc_emp, 2.5)),
+                    "ci_95_hi": float(np.percentile(mc_emp, 97.5)),
+                    "fraction_in_observed_range": float(np.mean(
+                        (mc_emp >= OBSERVED_LOG_MBH_MSTAR_LO) &
+                        (mc_emp <= OBSERVED_LOG_MBH_MSTAR_HI)
+                    )),
+                    "median_in_observed_range": bool(
+                        OBSERVED_LOG_MBH_MSTAR_LO <= np.median(mc_emp) <= OBSERVED_LOG_MBH_MSTAR_HI
+                    ),
+                }
+
+            empirical_plausible_keys = [
+                key for key, value in empirical_scenarios.items()
+                if SCENARIOS[key]["use_tep"] and abs(value["offset_from_observed_median_dex"]) < 0.5
+            ]
+            empirical_robust_keys = [
+                key for key, value in empirical_mc_results.items()
+                if value["median_in_observed_range"]
+            ]
+            empirical_stability = classify_mass_model_stability(
+                empirical_scenarios,
+                empirical_mc_results,
             )
-            empirical_scenarios[skey] = {
-                "median_log_mbh_mstar": float(np.median(log_ratios_emp)),
-                "offset_from_observed_median_dex": float(np.median(log_ratios_emp) - OBSERVED_LOG_MBH_MSTAR_MEDIAN),
-                "fraction_objects_in_observed_regime": float(np.mean(in_observed_emp)),
-                "median_extra_efolds": float(np.median(extra_efolds_emp)),
-                "p16_log_mbh_mstar": float(np.percentile(log_ratios_emp, 16)),
-                "p84_log_mbh_mstar": float(np.percentile(log_ratios_emp, 84)),
-            }
 
-        z_emp = df_empirical_topology["z"].to_numpy(dtype=float)
-        log_mh_emp = df_empirical_topology["log_Mh"].to_numpy(dtype=float)
-        conc_emp = df_empirical_topology["concentration"].to_numpy(dtype=float)
-        t_emp = df_empirical_topology["t_cosmic_Gyr"].to_numpy(dtype=float)
-        # Use dimensionless phi from get_phi_from_log_mh (Phi/c^2 units)
-        phi_vir_emp = get_phi_from_log_mh(log_mh_emp)
-        phi_cen_emp = phi_vir_emp * conc_emp
-
-        empirical_mc_results = {}
-        for skey in [
-            "S2_tep_intermediate_seed",
-            "S3_tep_mild_super_eddington",
-            "S4_tep_combined",
-        ]:
-            spar = SCENARIOS[skey]
-            mc_emp = []
-            for a0 in alpha_samples:
-                gamma_halo_mc = compute_gamma_t_from_phi(phi_vir_emp, z_emp, alpha_0=a0)
-                gamma_cen_mc = compute_gamma_t_from_phi(phi_cen_emp, z_emp, alpha_0=a0)
-                dg_mc = gamma_cen_mc - gamma_halo_mc
-                ratio_mc, _ = compute_mbh_mstar(
-                    dg_mc, t_emp, spar["M_seed"], M_star_empirical, spar["f_Edd"], True)
-                # Filter valid positive values before log10 to avoid NaN
-                valid_ratio = np.asarray(ratio_mc, dtype=float)
-                valid_ratio = valid_ratio[np.isfinite(valid_ratio) & (valid_ratio > 0)]
-                if len(valid_ratio) > 0:
-                    mc_emp.append(np.median(np.log10(np.maximum(valid_ratio, 1e-20))))
-                else:
-                    mc_emp.append(np.nan)
-
-            mc_emp = np.asarray(mc_emp, dtype=float)
-            empirical_mc_results[skey] = {
-                "n_draws": n_mc,
+            empirical_full_sample = {
                 "sample_size": int(len(df_empirical_topology)),
-                "statistic": "population_median_log_mbh_mstar",
-                "median_log_mbh_mstar_population": float(np.median(mc_emp)),
-                "ci_95_lo": float(np.percentile(mc_emp, 2.5)),
-                "ci_95_hi": float(np.percentile(mc_emp, 97.5)),
-                "fraction_in_observed_range": float(np.mean(
-                    (mc_emp >= OBSERVED_LOG_MBH_MSTAR_LO) &
-                    (mc_emp <= OBSERVED_LOG_MBH_MSTAR_HI)
-                )),
-                "median_in_observed_range": bool(
-                    OBSERVED_LOG_MBH_MSTAR_LO <= np.median(mc_emp) <= OBSERVED_LOG_MBH_MSTAR_HI
+                "median_z": float(df_empirical_topology["z"].median()),
+                "median_log_mstar_empirical": float(df_empirical_topology["log_Mstar_empirical"].median()),
+                "median_log_mstar_muv_proxy": float(df_empirical_topology["log_Mstar_muv_proxy"].median()),
+                "median_mass_offset_empirical_minus_muv": float(
+                    (df_empirical_topology["log_Mstar_empirical"] - df_empirical_topology["log_Mstar_muv_proxy"]).median()
                 ),
+                "median_delta_gamma": float(df_empirical_topology["delta_gamma"].median()),
+                "median_concentration": float(df_empirical_topology["concentration"].median()),
+                "mass_calibration": empirical_calibration_output,
+                "scenarios": empirical_scenarios,
+                "monte_carlo_population": empirical_mc_results,
+                "stability_diagnostic": empirical_stability,
+                "plausible_closure_scenarios": empirical_plausible_keys,
+                "robust_closure_scenarios": empirical_robust_keys,
             }
 
-        empirical_plausible_keys = [
-            key for key, value in empirical_scenarios.items()
-            if SCENARIOS[key]["use_tep"] and abs(value["offset_from_observed_median_dex"]) < 0.5
-        ]
-        empirical_robust_keys = [
-            key for key, value in empirical_mc_results.items()
-            if value["median_in_observed_range"]
-        ]
-
-        empirical_full_sample = {
-            "sample_size": int(len(df_empirical_topology)),
-            "median_z": float(df_empirical_topology["z"].median()),
-            "median_log_mstar_empirical": float(df_empirical_topology["log_Mstar_empirical"].median()),
-            "median_log_mstar_muv_proxy": float(df_empirical_topology["log_Mstar_muv_proxy"].median()),
-            "median_mass_offset_empirical_minus_muv": float(
-                (df_empirical_topology["log_Mstar_empirical"] - df_empirical_topology["log_Mstar_muv_proxy"]).median()
-            ),
-            "median_delta_gamma": float(df_empirical_topology["delta_gamma"].median()),
-            "median_concentration": float(df_empirical_topology["concentration"].median()),
-            "mass_calibration": empirical_calibration_output,
-            "scenarios": empirical_scenarios,
-            "monte_carlo_population": empirical_mc_results,
-            "plausible_closure_scenarios": empirical_plausible_keys,
-            "robust_closure_scenarios": empirical_robust_keys,
-        }
-
-        print_status(
-            f"\nEmpirical CEERS-calibrated branch: N={len(df_empirical_topology)}, "
-            f"LOO MAE={empirical_calibration_output['loo_mae_dex']:.2f} dex, "
-            f"median log_M*={empirical_full_sample['median_log_mstar_empirical']:.2f}, "
-            f"median ΔΓ={empirical_full_sample['median_delta_gamma']:.3f}",
-            "INFO",
-        )
-        for skey in ["S1_tep_only", "S2_tep_intermediate_seed", "S3_tep_mild_super_eddington", "S4_tep_combined"]:
-            item = empirical_scenarios[skey]
             print_status(
-                f"  {SCENARIOS[skey]['label']:50s}  "
-                f"median log(M_BH/M*)={item['median_log_mbh_mstar']:+.2f}  "
-                f"offset={item['offset_from_observed_median_dex']:+.2f} dex",
+                f"\nEmpirical CEERS-calibrated branch: N={len(df_empirical_topology)}, "
+                f"LOO MAE={empirical_calibration_output['loo_mae_dex']:.2f} dex, "
+                f"in-domain={empirical_calibration_output['full_sample_in_domain_size']}/"
+                f"{empirical_calibration_output['full_sample_candidate_size']}, "
+                f"median log_M*={empirical_full_sample['median_log_mstar_empirical']:.2f}, "
+                f"median ΔΓ={empirical_full_sample['median_delta_gamma']:.3f}",
                 "INFO",
             )
-        for skey in ["S2_tep_intermediate_seed", "S3_tep_mild_super_eddington", "S4_tep_combined"]:
-            item = empirical_mc_results[skey]
-            print_status(
-                f"  MC {SCENARIOS[skey]['label']:43s} median={item['median_log_mbh_mstar_population']:.2f}, "
-                f"95% CI [{item['ci_95_lo']:.2f}, {item['ci_95_hi']:.2f}], "
-                f"in-range={item['fraction_in_observed_range']:.1%}",
-                "INFO",
-            )
+            for skey in ["S1_tep_only", "S2_tep_intermediate_seed", "S3_tep_mild_super_eddington", "S4_tep_combined"]:
+                item = empirical_scenarios[skey]
+                print_status(
+                    f"  {SCENARIOS[skey]['label']:50s}  "
+                    f"median log(M_BH/M*)={item['median_log_mbh_mstar']:+.2f}  "
+                    f"offset={item['offset_from_observed_median_dex']:+.2f} dex",
+                    "INFO",
+                )
+            for skey in ["S2_tep_intermediate_seed", "S3_tep_mild_super_eddington", "S4_tep_combined"]:
+                item = empirical_mc_results[skey]
+                print_status(
+                    f"  MC {SCENARIOS[skey]['label']:43s} median={item['median_log_mbh_mstar_population']:.2f}, "
+                    f"95% CI [{item['ci_95_lo']:.2f}, {item['ci_95_hi']:.2f}], "
+                    f"in-range={item['fraction_in_observed_range']:.1%}",
+                    "INFO",
+                )
 
     ceers_direct_subset = None
     if len(df_lrd_ceers_direct) > 0:
@@ -762,6 +828,7 @@ def run():
                 "INFO",
             )
 
+    conservative_stability = classify_mass_model_stability(scenario_results, mc_results)
     s1_offset = scenario_results["S1_tep_only"]["offset_from_observed_median_dex"]
     plausible_closure_keys = [
         key for key, value in scenario_results.items()
@@ -843,35 +910,48 @@ def run():
                 "INFO",
             )
 
-    if empirical_best_robust_key is not None:
-        assessment = "mass_model_sensitive_real_sample_empirical_calibration_supports_closure"
+    empirical_stability_class = (
+        empirical_full_sample.get("stability_diagnostic", {}).get("classification")
+        if empirical_full_sample is not None else None
+    )
+    if empirical_best_robust_key is not None and empirical_stability_class == "near_observed_regime":
+        assessment = "mass_model_sensitive_real_sample_empirical_calibration_candidate_only"
         conclusion_text = (
-            "The upgraded real-sample analysis shows that LRD gap closure is "
+            "The upgraded real-sample analysis shows that the LRD branch is "
             "dominated by stellar-mass estimation. Under the conservative MUV-only "
             f"mass proxy, the full Kokorev population undercloses badly (TEP-only {s1_offset:+.1f} dex). "
             "But a CEERS direct-mass calibration trained on matched real LRDs "
             f"(N={empirical_mass_calibration['training_sample_size']}, leave-one-out MAE "
             f"{empirical_mass_calibration['loo_mae_dex']:.2f} dex) shifts the full real "
-            "sample into population-median near-closure, with Monte Carlo support "
-            f"strongest for {SCENARIOS[empirical_best_robust_key]['label']}."
+            "sample toward the observed regime, with Monte Carlo support "
+            f"strongest for {SCENARIOS[empirical_best_robust_key]['label']}. "
+            "This would remain a calibration-sensitive candidate, not a primary evidence line."
         )
-    elif empirical_best_plausible_key is not None:
-        assessment = "mass_model_sensitive_real_sample_empirical_calibration_identifies_plausible_closure"
+    elif empirical_best_plausible_key is not None and empirical_stability_class == "near_observed_regime":
+        assessment = "mass_model_sensitive_real_sample_empirical_calibration_candidate_only"
         conclusion_text = (
             "The upgraded real-sample analysis shows a sharp mass-model sensitivity. "
             f"The conservative MUV-only branch undercloses (TEP-only {s1_offset:+.1f} dex), "
             "while the CEERS-calibrated empirical-mass branch yields deterministic "
-            f"near-closure for {SCENARIOS[empirical_best_plausible_key]['label']}. "
-            "The honest interpretation is that real-sample closure becomes plausible "
-            "once the LRD stellar-mass proxy is anchored to direct masses, but the "
-            "result remains calibration-dependent."
+            f"movement toward the observed regime for {SCENARIOS[empirical_best_plausible_key]['label']}. "
+            "The honest interpretation is that the branch remains calibration-dependent "
+            "and should be treated as a compact-core sensitivity diagnostic."
+        )
+    elif empirical_stability_class == "unstable_exponential_mass_sensitivity":
+        assessment = "lrd_branch_mass_model_unstable_no_robust_closure"
+        conclusion_text = (
+            "The LRD branch remains mass-model sensitive. The conservative MUV-only "
+            f"branch undercloses relative to the observed M_BH/M_* regime (TEP-only {s1_offset:+.1f} dex), "
+            "while the CEERS-calibrated empirical-mass branch is exponentially unstable "
+            "and tends to overshoot with broad Monte Carlo intervals. This is best "
+            "interpreted as a sensitivity diagnostic rather than a calibrated closure "
+            "of the LRD anomaly."
         )
     else:
-        assessment = "combined_model_narrows_gap_under_conservative_mass_proxy"
+        assessment = "combined_model_does_not_close_lrd_gap"
         conclusion_text = (
-            "The combined TEP + accretion model narrows the M_BH/M_* gap "
-            f"from {abs(s1_offset):.1f} dex under TEP-only "
-            "but does not fully close it under the tested parameters."
+            "The tested TEP + accretion scenarios do not robustly close the "
+            f"LRD M_BH/M_* gap under the conservative MUV-only branch (TEP-only {s1_offset:+.1f} dex)."
         )
 
     print_status(f"\nAssessment: {assessment}", "INFO")
@@ -888,8 +968,8 @@ def run():
         "step":       STEP_NUM,
         "name":       STEP_NAME,
         "status":     "complete",
-        "alpha_0":    float(ALPHA_0),
-        "alpha_uncertainty": float(ALPHA_UNCERTAINTY),
+        "kappa_gal":    float(KAPPA_GAL),
+        "kappa_gal_uncertainty": float(KAPPA_GAL_UNCERTAINTY),
         "real_sample": {
             "catalog": str(LRD_CATALOG_PATH.name),
             "sample_size": int(len(df_topology)),
@@ -909,8 +989,14 @@ def run():
             "median_delta_gamma": median_dg,
             "median_t_cosmic_Gyr": median_t,
         },
+        "local_mature_relation_reference": {
+            "log_mbh_mstar": local_reference_log_ratio,
+            "offset_from_observed_median_dex": local_reference_log_ratio - OBSERVED_LOG_MBH_MSTAR_MEDIAN,
+            "note": "Reference local mature-galaxy scaling relation, not used as the seed-based no-TEP scenario baseline.",
+        },
         "scenarios": scenario_results,
         "monte_carlo_population_muv_proxy": mc_results,
+        "conservative_mass_model_stability": conservative_stability,
         "gap_closure": {
             "conservative_muv_proxy": {
                 "tep_only_offset_dex": s1_offset,
@@ -934,7 +1020,11 @@ def run():
                 ),
                 "plausible_closure_scenarios": empirical_full_sample["plausible_closure_scenarios"],
                 "robust_closure_scenarios": empirical_full_sample["robust_closure_scenarios"],
-                "gap_closed_population_median": bool(empirical_best_robust_key is not None),
+                "stability_diagnostic": empirical_full_sample["stability_diagnostic"],
+                "gap_closed_population_median": bool(
+                    empirical_best_robust_key is not None
+                    and empirical_stability_class == "near_observed_regime"
+                ),
             },
         },
         "assessment": assessment,

@@ -46,7 +46,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting
-from scripts.utils.tep_model import ALPHA_0, compute_gamma_t as tep_gamma  # Shared TEP constants & Γ_t calculator
+from scripts.utils.tep_model import KAPPA_GAL, compute_gamma_t as tep_gamma  # Shared TEP constants & Γ_t calculator
 
 STEP_NUM = "022"  # Pipeline step number
 STEP_NAME = "extreme_population"  # Used in log / output filenames
@@ -362,12 +362,12 @@ def analyze_parameter_recovery(df):
     
     def compute_scatter(alpha):
         """Compute scatter in age_ratio after TEP correction with given α."""
-        gamma_t_test = tep_gamma(valid['log_Mhalo'].values, valid['z'].values, alpha_0=alpha)
+        gamma_t_test = tep_gamma(valid['log_Mhalo'].values, valid['z'].values, kappa=alpha)
         age_corrected = valid['age_ratio'] / gamma_t_test
         return age_corrected.std()
     
     # Grid search for optimal α
-    alphas = np.linspace(0.1, 1.5, 50)
+    alphas = np.linspace(1e5, 2e6, 20)
     scatters = [compute_scatter(a) for a in alphas]
     
     # Find minimum
@@ -375,17 +375,17 @@ def analyze_parameter_recovery(df):
     alpha_optimal = alphas[min_idx]
     scatter_optimal = scatters[min_idx]
     
-    # Also compute scatter at α = 0 (no TEP) and α = 0.58 (calibrated)
+    # Also compute scatter at α = 0 (no TEP) and α = 9.6e5 (calibrated)
     scatter_no_tep = compute_scatter(0.0)
-    scatter_calibrated = compute_scatter(ALPHA_0)
+    scatter_calibrated = compute_scatter(KAPPA_GAL)
     
     logger.info(f"Scatter minimization:")
     logger.info(f"  No TEP (α → 0): σ = {scatter_no_tep:.4f}")
-    logger.info(f"  Calibrated (α = 0.58): σ = {scatter_calibrated:.4f}")
+    logger.info(f"  Calibrated (α = 9.6e5): σ = {scatter_calibrated:.4f}")
     logger.info(f"  Optimal: α = {alpha_optimal:.2f}, σ = {scatter_optimal:.4f}")
     
     # How close is optimal to calibrated?
-    alpha_ratio = alpha_optimal / ALPHA_0
+    alpha_ratio = alpha_optimal / KAPPA_GAL
     logger.info(f"\nOptimal / Calibrated ratio: {alpha_ratio:.2f}")
     
     if 0.5 < alpha_ratio < 2.0:
@@ -401,7 +401,7 @@ def analyze_parameter_recovery(df):
     
     return {
         'alpha_optimal': alpha_optimal,
-        'alpha_calibrated': float(ALPHA_0),
+        'alpha_calibrated': float(KAPPA_GAL),
         'alpha_ratio': alpha_ratio,
         'scatter_no_tep': scatter_no_tep,
         'scatter_calibrated': scatter_calibrated,

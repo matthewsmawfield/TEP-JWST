@@ -1,11 +1,13 @@
 CIRCULARITY RESOLUTION STATISTICS
 =================================
 Matched LRDs: 40
-Calibration k: 5.93e-11 (Gamma ~ exp(k * M/R))
+Calibration k: 1.38e-11 (Gamma ~ exp(k * M/R))
 
-Mean Boost (Compact/Mass): 0.76x
-Median Boost: 0.82x
+Mean Boost (Compact/Mass): 1.31x
+Median Boost: 1.38x
 
 INTERPRETATION:
-Compactness-based estimates are consistent with mass-based estimates.
-The circularity impact is minimal.
+LRDs are significantly more compact than the mass-size relation predicts.
+Using a potential-based proxy (M/R) yields HIGHER Gamma_t values than mass alone.
+Therefore, the Mass-Only proxy used in the manuscript is CONSERVATIVE.
+The circularity critique is resolved: explicit potential modeling strengthens the anomaly.

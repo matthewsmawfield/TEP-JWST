@@ -56,7 +56,7 @@ from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Cen
 from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting & JSON serialiser
 from scripts.utils.downloader import smart_download  # Robust HTTP download utility
 from scripts.utils.tep_model import (
-    ALPHA_0, LOG_MH_REF, Z_REF,
+    KAPPA_GAL, LOG_MH_REF, Z_REF,
     tep_alpha, compute_gamma_t as tep_gamma, isochrony_mass_bias  # Shared TEP model
 )
 
@@ -247,7 +247,7 @@ def apply_tep_model(df):
     # Compute Gamma_t
     gamma_t = np.full(len(df), np.nan)
     t_eff = np.full(len(df), np.nan)
-    alpha_z = np.full(len(df), np.nan)
+    response_z = np.full(len(df), np.nan)
     n_ml = np.full(len(df), np.nan)
     ml_bias = np.full(len(df), np.nan)
     log_mstar_true = np.full(len(df), np.nan)
@@ -261,12 +261,12 @@ def apply_tep_model(df):
             gt = tep_gamma(lmh, z)
             az = tep_alpha(z)
             te = row['t_cosmic'] * gt
-            bias = isochrony_mass_bias(lmh, z)
-            lms_true = lms - bias if np.isfinite(lms) else np.nan
+            bias = isochrony_mass_bias(gt)  # Linear ratio M_obs/M_true = Gamma_t^n
+            lms_true = lms - np.log10(bias) if np.isfinite(lms) else np.nan  # log10 to dex
 
             gamma_t[df.index.get_loc(idx)] = gt
             t_eff[df.index.get_loc(idx)] = te
-            alpha_z[df.index.get_loc(idx)] = az
+            response_z[df.index.get_loc(idx)] = az
             n_ml[df.index.get_loc(idx)] = bias
             ml_bias[df.index.get_loc(idx)] = bias
             log_mstar_true[df.index.get_loc(idx)] = lms_true
@@ -275,7 +275,7 @@ def apply_tep_model(df):
 
     df['gamma_t'] = gamma_t
     df['t_eff'] = t_eff
-    df['alpha_z'] = alpha_z
+    df['response_z'] = response_z
     df['n_ml'] = n_ml
     df['ml_bias'] = ml_bias
     df['log_Mstar_true'] = log_mstar_true

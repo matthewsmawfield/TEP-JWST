@@ -6,15 +6,15 @@
   "h0_planck": 67.4,
   "h0_shoes": 73.04,
   "h0_tension_sigma": 5.0,
-  "h0_tep_prediction": 73.40151300450864,
+  "h0_tep_prediction": 67.7840847375241,
   "h0_tep_uncertainty": 0.0,
-  "h0_tension_explained_frac": 0.9359019495552061,
-  "gamma_t_cepheid_hosts": 1.1860151342688257,
-  "h0_correction_factor": 1.0890432196514634,
+  "h0_tension_explained_frac": 0.06810013076668286,
+  "gamma_t_cepheid_hosts": 1.0114296471096529,
+  "h0_correction_factor": 1.0056985866101498,
   "s8_planck": 0.832,
   "s8_kids": 0.766,
-  "s8_tep_prediction": 0.817650883983159,
-  "s8_tension_explained_frac": 0.21741084874001482,
-  "gamma_t_field_z03": 1.059704354518311,
-  "conclusion": "TEP predicts H0_local = 73.4 +/- 0.0 km/s/Mpc, explaining 94% of the H0 tension. S8 tension partially resolved: S8_WL(TEP) = 0.818 vs KiDS = 0.766."
+  "s8_tep_prediction": 0.8633971052124095,
+  "s8_tension_explained_frac": -0.47571371533953943,
+  "gamma_t_field_z03": 0.8838443571732699,
+  "conclusion": "TEP predicts H0_local = 67.8 +/- 0.0 km/s/Mpc, explaining 7% of the H0 tension. S8 tension partially resolved: S8_WL(TEP) = 0.863 vs KiDS = 0.766."
 }

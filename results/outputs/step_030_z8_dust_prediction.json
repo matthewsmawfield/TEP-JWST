@@ -1,23 +1,32 @@
 {
-  "agb_threshold": null,
+  "agb_threshold": {
+    "n_above": 178,
+    "n_below": 105,
+    "mean_dust_above": 0.8791619441273731,
+    "mean_dust_below": 0.6469306889841783,
+    "ratio": 1.3589739350715428,
+    "p_value": 0.009215020635440333,
+    "cohens_d": 0.4334594132472328,
+    "status": "confirmed"
+  },
   "cosmic_time_control": {
-    "rho_raw": 0.23295876302851315,
-    "p_raw": 7.615313894022361e-05,
-    "rho_partial": 0.4390896106322486,
-    "p_partial": 9.105805343379653e-15,
+    "rho_raw": 0.21624922832234364,
+    "p_raw": 0.0002471101718732487,
+    "rho_partial": 0.4297412250655638,
+    "p_partial": 3.795294856877563e-14,
     "status": "confirmed"
   },
   "mass_independence": {
     "mass_median": 8.3810337157992,
     "low_mass": {
       "n": 141,
-      "rho": 0.4163234727514019,
-      "p": 2.8271573292638994e-07
+      "rho": 0.41536024658589826,
+      "p": 3.0305406155070346e-07
     },
     "high_mass": {
       "n": 142,
-      "rho": 0.07699432721908,
-      "p": 0.36243411258626523
+      "rho": 0.053640994905603846,
+      "p": 0.5260722170883896
     },
     "both_positive": true,
     "status": "confirmed"
@@ -46,8 +55,8 @@
     "status": "confirmed"
   },
   "summary": {
-    "tests_passed": 3,
-    "total_tests": 3,
+    "tests_passed": 4,
+    "total_tests": 4,
     "overall_status": "strong"
   }
 }

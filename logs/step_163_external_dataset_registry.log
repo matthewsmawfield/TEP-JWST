@@ -1,13 +1,13 @@
-[14:29:29]     STEP 163: External dataset registry
-[14:29:29]   [PRESENT] UNCOVER DR4 Full SPS Catalog
-[14:29:29]   [PRESENT] UNCOVER DR4 Spec-z SPS Catalog
-[14:29:29]   [PRESENT] CEERS NIRCam Photometric Catalog v1.0
-[14:29:29]   [PRESENT] COSMOS-Web LePHARE Catalog v1 (COSMOS2025)
-[14:29:29]   [PRESENT] JADES GOODS-S Deep Photometry v2.0
-[14:29:29]   [PRESENT] JADES DR4 Spectroscopic Catalog
-[14:29:29]   [PRESENT] JADES DR5 GOODS-S Photometric Catalog v5.0
-[14:29:29]   [PRESENT] Kokorev LRD Catalog v1.1
-[14:29:29]   [PRESENT] Labbe et al. (2023) Massive Galaxy Sample
-[14:29:29]   [PRESENT] DJA NIRSpec Merged v4.4
-[14:29:29] Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_163_external_dataset_registry.json
-[14:29:29]     Step 163 complete. 10/10 datasets available locally.
+[10:42:50]     STEP 163: External dataset registry
+[10:42:50]   [PRESENT] UNCOVER DR4 Full SPS Catalog
+[10:42:50]   [PRESENT] UNCOVER DR4 Spec-z SPS Catalog
+[10:42:50]   [PRESENT] CEERS NIRCam Photometric Catalog v1.0
+[10:42:50]   [PRESENT] COSMOS-Web LePHARE Catalog v1 (COSMOS2025)
+[10:42:50]   [PRESENT] JADES GOODS-S Deep Photometry v2.0
+[10:42:50]   [PRESENT] JADES DR4 Spectroscopic Catalog
+[10:42:50]   [PRESENT] JADES DR5 GOODS-S Photometric Catalog v5.0
+[10:42:50]   [PRESENT] Kokorev LRD Catalog v1.1
+[10:42:50]   [PRESENT] Labbe et al. (2023) Massive Galaxy Sample
+[10:42:50]   [PRESENT] DJA NIRSpec Merged v4.4
+[10:42:50] Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_163_external_dataset_registry.json
+[10:42:50]     Step 163 complete. 10/10 datasets available locally.

@@ -41,7 +41,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 from scripts.utils.p_value_utils import safe_json_default  # JSON serialiser for numpy types
-from scripts.utils.tep_model import ALPHA_0, RHO_CRIT_G_CM3  # TEP coupling constant & screening density
+from scripts.utils.tep_model import KAPPA_GAL, RHO_CRIT_G_CM3  # TEP coupling constant & screening density
 
 STEP_NUM = "135"  # Pipeline step number
 STEP_NAME = "scale_dependent_growth"  # Used in log / output filenames
@@ -65,8 +65,8 @@ sigma8_planck = 0.811
 sigma8_err = 0.006
 ns = 0.9649  # spectral index
 
-# TEP parameters (ALPHA_0 imported from scripts.utils.tep_model)
-BETA = ALPHA_0  # conformal coupling β ≈ α₀
+# TEP parameters
+BETA = 1.0  # O(1) theoretical test coupling for linear growth
 RHO_CRIT_SCREENING = RHO_CRIT_G_CM3  # g/cm³ — halo screening threshold
 
 
@@ -408,7 +408,7 @@ def run():
     # RSD data points (compilation from Planck 2018 + recent surveys)
     rsd_data = [
         {'survey': '6dFGS', 'z': 0.067, 'fsig8': 0.423, 'err': 0.055},
-        {'survey': 'SDSS-MGS', 'z': 0.15, 'fsig8': 0.53, 'err': 0.16},
+        {'survey': 'SDSS-MGS', 'z': 0.15, 'fsig8': 0.53, 'err': 4.0e5},
         {'survey': 'BOSS-LOWZ', 'z': 0.32, 'fsig8': 0.427, 'err': 0.056},
         {'survey': 'BOSS-CMASS', 'z': 0.57, 'fsig8': 0.426, 'err': 0.029},
         {'survey': 'eBOSS-LRG', 'z': 0.70, 'fsig8': 0.473, 'err': 0.041},
@@ -454,7 +454,7 @@ def run():
         'description': 'Scale-dependent growth factor with chameleon Yukawa suppression',
         'tep_parameters': {
             'beta': float(BETA),
-            'alpha_0': float(ALPHA_0),
+            'kappa_gal': float(KAPPA_GAL),
             'n_potential': 1,
         },
         'best_fit': {

@@ -34,7 +34,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import print_status
 from scripts.utils.rank_stats import bootstrap_partial_rank_ci, partial_rank_correlation
-from scripts.utils.tep_model import ALPHA_0, compute_gamma_t
+from scripts.utils.tep_model import KAPPA_GAL, compute_gamma_t
 
 STEP_NUM = 171
 STEP_NAME = "sigma_kinematic_expansion"
@@ -614,6 +614,10 @@ def _classify_sigma_test(t1, t2, t3, t5):
       (b) T1: TEP correction reduces or removes the z trend.
       (c) T2: Fundamental-plane scatter decreases after correction.
       (d) T3: Gamma_t adds predictive power for M* beyond sigma + z.
+
+    Opposite-sign T1 evidence is never labelled supportive.  A significant
+    Gamma_t correlation can still be useful context, but it is mixed if the
+    primary sign test points the wrong way.
     """
     resid_rho = t1.get("observed_residual_z_trend", {}).get("partial_rho_resid_z_given_sigma")
     resid_p = t1.get("observed_residual_z_trend", {}).get("p")
@@ -622,23 +626,36 @@ def _classify_sigma_test(t1, t2, t3, t5):
     fp_scatter_improved = t2.get("scatter_improved", False) if isinstance(t2, dict) else False
     gamma_rho = t3.get("partial_rho_gamma_mstar_given_sigma_z")
     gamma_p = t3.get("p_partial_gamma_mstar_given_sigma_z")
+    highz_gamma_rho = t5.get("partial_rho_gamma_mstar_given_sigma_z") if isinstance(t5, dict) else None
+    highz_gamma_p = t5.get("p_gamma_mstar") if isinstance(t5, dict) else None
+
+    t1_positive = resid_rho is not None and resid_rho > 0
+    t1_significant = t1_positive and resid_p is not None and resid_p < 0.05
+    gamma_significant = gamma_rho is not None and gamma_rho > 0 and gamma_p is not None and gamma_p < 0.05
+    gamma_directional = gamma_rho is not None and gamma_rho > 0 and gamma_p is not None and gamma_p < 0.10
+    highz_gamma_significant = (
+        highz_gamma_rho is not None and highz_gamma_rho > 0
+        and highz_gamma_p is not None and highz_gamma_p < 0.05
+    )
 
     strong = (
-        resid_rho is not None and resid_rho > 0 and resid_p is not None and resid_p < 0.05
+        t1_significant
         and z_trend_improved
-        and gamma_rho is not None and gamma_rho > 0 and gamma_p is not None and gamma_p < 0.05
+        and gamma_significant
     )
     moderate = (
-        resid_rho is not None and resid_rho > 0 and resid_p is not None and resid_p < 0.10
-    ) or (
-        gamma_rho is not None and gamma_rho > 0 and gamma_p is not None and gamma_p < 0.10
+        t1_positive and resid_p is not None and resid_p < 0.10
+        and (z_trend_improved or scatter_improved or fp_scatter_improved)
     )
-    directional = (resid_rho is not None and resid_rho > 0) or (gamma_rho is not None and gamma_rho > 0)
+    secondary_only = gamma_significant or highz_gamma_significant or gamma_directional
+    directional = t1_positive or (gamma_rho is not None and gamma_rho > 0)
 
     if strong:
         return "sigma_based_tep_support", True
-    elif moderate and (z_trend_improved or scatter_improved or fp_scatter_improved):
+    elif moderate:
         return "directionally_supportive_sigma_test", True
+    elif not t1_positive and secondary_only:
+        return "mixed_sigma_test_opposite_primary_sign", False
     elif directional:
         return "weakly_directional_sigma_test", False
     else:
@@ -729,8 +746,9 @@ def run():
             "description": (
                 "Sigma-based mass-circularity-breaking test suite. Gamma_t is computed "
                 "from velocity dispersion alone (sigma -> M_halo -> Gamma_t), with zero "
-                "dependence on SED-fitted M* or size-based Mdyn. This avoids all shared-"
-                "variable artifacts. The primary test (T1) asks whether the M*-sigma "
+                "dependence on SED-fitted M* or size-based Mdyn. This reduces mass-proxy "
+                "circularity, while still depending on the sigma-to-halo calibration and "
+                "sample mix. The primary test (T1) asks whether the M*-sigma "
                 "residual increases with z as TEP predicts. The secondary test (T3) asks "
                 "whether the sigma-only Gamma_t adds predictive power for M*_obs beyond "
                 "sigma and z individually."
@@ -740,13 +758,14 @@ def run():
                 "Gamma_t = compute_gamma_t(log_Mh, z)"
             ),
             "mass_correction_model": f"n_ML = {N_ML}",
-            "alpha_0": ALPHA_0,
+            "kappa_gal": KAPPA_GAL,
             "combined_sample_sources": list(metadata["source_counts"].keys()),
             "mass_proxy_independence": (
                 "Gamma_t_sigma_only is derived entirely from the velocity dispersion "
                 "sigma (km/s) via a sigma–M_halo mapping. It has zero dependence on "
                 "SED-fitted M*, half-light radius R_e, or dynamical mass M_dyn. This "
-                "completely breaks the mass-proxy circularity."
+                "reduces the mass-proxy circularity but does not remove sensitivity to "
+                "the adopted sigma–M_halo mapping or sample composition."
             ),
         },
     }

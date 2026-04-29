@@ -27,11 +27,11 @@
         gradient (Temporal Shear) flattens as ambient density rises, suppressing
         scalar-mediated forces continuously rather than at a discrete boundary.
         Although the mean solar density ($\rho_\odot \sim 1.4$ g/cm³) is below
-        the core saturation density $\rho_c \approx 20$ g/cm³, the Sun's deep
+        the core saturation density $\rho_T \approx 20$ g/cm³, the Sun's deep
         Newtonian potential ($\Phi_N \sim 10^{-6}$) ensures that the field
         gradient vanishes in the interior, with only a narrow outer region
         contributing to the scalar force. The effective coupling is suppressed
-        to $\alpha_{\rm eff} \ll \alpha_0$, reducing $\alpha_{\rm eff}$ to
+        to $\kappa_{\rm eff} \ll \beta$, reducing $\kappa_{\rm eff}$ to
         $\lesssim 10^{-6}$ and satisfying all solar system bounds without
         invoking a rigid thin-shell approximation.
     </p>
@@ -54,7 +54,7 @@
         preserves this agreement through the continuous suppression of Temporal
         Shear. Neutron stars are objects of extreme density ($\rho \sim 10^{14}$
         g/cm³), orders of magnitude above the critical saturation density
-        $\rho_c \approx 20$ g/cm³ (Paper 6). Consequently, they are fully
+        $\rho_T \approx 20$ g/cm³ (Paper 6). Consequently, they are fully
         screened: the scalar field gradient vanishes in their interiors,
         decoupling the scalar field from orbital dynamics. This ensures that
         binary pulsars do not emit significant scalar dipole radiation, reducing
@@ -63,8 +63,8 @@
 
     <h4>C.1.4 Screening Threshold Verification from JWST Data</h4>
     <p>
-        While $\rho_c$ is calibrated from Paper 6, the JWST data provide an
-        ancillary real-data indication of screening via the Core Screening signature (§3.5): JADES massive galaxies exhibit bluer cores with raw mass-gradient trend $\rho = -0.166$ ($p = 5.7 \times 10^{-3}$; $N = 277$). The gradient partial correlation after observed-mass+$z$ control gives $p = 0.20$, and after debiased-mass+$z$ control gives $p = 0.20$, consistent at raw level with a suppression of the effective coupling in the deepest central regions. The stronger live ancillary support now comes from the
+        While $\rho_T$ is calibrated from Paper 6, the JWST data provide an
+        ancillary real-data indication of screening via the Core Screening signature (§3.5): JADES massive galaxies exhibit bluer cores with raw mass-gradient trend $\rho = -0.166$ ($p = 5.7 \times 10^{-3}$; $N = 277$). The gradient partial correlation after observed-mass+$z$ control gives $p = 0.54$, and after debiased-mass+$z$ control gives $p = 0.54$, consistent at raw level with a suppression of the effective coupling in the deepest central regions. The stronger live ancillary support now comes from the
         preferred JADES DR5 direct-mass morphology sample, where two
         half-light-radius proxies, Gini, and $\sigma_\star$ remain supportive
         after mass+$z$ control for $N = 384$. However, this branch is not
@@ -315,10 +315,10 @@
                     <td>✓ Pass</td>
                 </tr>
                 <tr>
-                    <td>$\alpha_0$ Error Budget</td>
+                    <td>$\kappa_{\rm gal}$ Error Budget</td>
                     <td>
-                        $\Gamma_t$ uncertainty $\pm 4.2\%$ ($\sigma_{\alpha_0} =
-                        0.05$)
+                        $\Gamma_t$ uncertainty $\pm 4.2\%$ ($\sigma_{\kappa} =
+                        4.0 \times 10^5$ mag)
                     </td>
                     <td>✓ Pass</td>
                 </tr>
@@ -387,9 +387,9 @@
                 <tr>
                     <td>Mass-Proxy Breaker</td>
                     <td>
-                        2/3 tests pass; z&gt;8 LOWESS $\rho = 0.098$,
-                        partial-rank $\rho = 0.278$, shuffled-mass $Z = 9.3$,
-                        unique fraction 100.1%
+                        2/3 tests pass; z&gt;8 LOWESS $\rho = 0.165$,
+                        partial-rank $\rho = 0.212$, shuffled-mass $Z = 8.9$,
+                        unique fraction 102.2%
                     </td>
                     <td>
                         $\Gamma_t$ carries information beyond mass+$z$ ordering
@@ -440,8 +440,8 @@
         <strong>Mass proxy and systematics:</strong> The canonical robustness
         package no longer relies on the retired selection-function Monte Carlo
         branch. Instead, the live evidence comes from the mass-proxy breaker and
-        cross-survey systematics checks: at $z > 8$, non-parametric residual tests retain the dust–$\Gamma_t$ signal after mass+$z$ removal (LOWESS $\rho = 0.098$, $p = 0.10$; partial-rank $\rho = 0.278$, $p = 2.1 \times 10^{-6}$), and shuffled-mass null tests show the observed correlation exceeds mass-ordering expectations by $Z = 9.3$, with 100.1% of the signal attributable to the non-linear $\Gamma_t$ form
-        rather than to mass ordering alone. Cross-survey dust correlations show
+        cross-survey systematics checks: at $z > 8$, non-parametric residual tests retain the dust–$\Gamma_t$ signal after mass+$z$ removal (LOWESS $\rho = 0.165$, $p = 5.4 \times 10^{-3}$; partial-rank $\rho = 0.212$, $p = 3.3 \times 10^{-4}$), and shuffled-mass null tests show the observed correlation exceeds mass-ordering expectations by $Z = 8.9$, with 102.2% of the signal attributable to the non-linear $\Gamma_t$ form
+        rather than to mass ordering alone. The live mass-to-light validation gives best-fit $n = 0.3$, k-fold $n = 0.99$, k-fold $\rho = 0.47$, and a redshift-blind high-$z$ holdout $\rho = -0.15$. Cross-survey dust correlations show
         low scatter ($\rho_{\rm std} = 0.025$), arguing against survey-specific
         artifacts.
     </p>
@@ -460,12 +460,25 @@
 
     <h3>C.4 Black Hole Growth: Detailed Analysis</h3>
 
-    <h4>C.4.1 Error Propagation on the Boost Factor</h4>
+    <h4>C.4.1 Single-Object Sensitivity: Theoretical Boost Potential</h4>
     <p>
-        Monte Carlo propagation yields a boost factor of $6 \times 10^5$ (68%
-        CI: $8 \times 10^4$ to $5 \times 10^6$). Even at the lower bound, the
-        boost is sufficient to grow a $10^2 M_\odot$ seed to $10^6 M_\odot$
-        within 600 Myr.
+        <strong>Historical note:</strong> Early single-object calculations suggested
+        that compact cores could yield exponential boost factors of order $10^5$
+        to $10^6$, sufficient to grow a $10^2 M_\odot$ seed to $10^6 M_\odot$
+        within 600 Myr. This subsection retains that theoretical sensitivity
+        analysis as a compact-core mechanism demonstration, not as a validated
+        population-level result.
+    </p>
+    <p>
+        <strong>Current status:</strong> The corrected population-level analysis
+        (Step 132) finds a median $\log_{10}({\rm boost}) = 0.58$ across 260
+        Kokorev-catalog LRDs, with only 4.6% of objects exceeding $10^3$ in the
+        conservative mass-proxy branch. Step 142 classifies the LRD branch as
+        "mass-model unstable with no robust closure" — the conservative
+        MUV-proxy branch undercloses by 3–4 dex, while CEERS-calibrated masses
+        drive exponential overshoot. The theoretical sensitivity demonstrated
+        here remains valid for compact-core systems in principle, but the
+        real-data population does not achieve the single-object ideal.
     </p>
 
     <div class="data-table">
@@ -483,9 +496,9 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>$\alpha_0$</td>
-                    <td>0.55</td>
-                    <td>$\pm 0.16$ (28%)</td>
+                    <td>$\kappa_{\rm gal}$</td>
+                    <td>$9.6 \times 10^5$ mag</td>
+                    <td>$\pm 4.0$ (42%)</td>
                     <td>Dominant</td>
                 </tr>
                 <tr>
@@ -512,11 +525,12 @@
 
     <h4>C.4.2 Sensitivity Analysis: Boost vs. Compactness</h4>
     <p>
-        The differential temporal topology mechanism relies on the galaxy having a compact
-        core. Runaway growth (Boost $&gt; 100$) requires $r_e \lesssim 800$ pc.
-        Extended galaxies ($r_e &gt; 1$ kpc) lie in the regime of negligible
-        differential topology, explaining why "Red Monsters" (extended) do not host
-        overmassive black holes while "Little Red Dots" (compact) do.
+        The differential temporal topology mechanism is most sensitive to
+        compact cores. The corrected analysis treats this as a stress test
+        rather than as a population-level closure claim: extended systems
+        remain in the weak differential-topology regime, while compact LRD-like
+        systems can amplify the response sharply if their stellar and halo
+        masses are high enough.
     </p>
 
     <figure>
@@ -531,19 +545,22 @@
         </figcaption>
     </figure>
 
-    <h4>C.4.3 Population-Level Validation: 260 Little Red Dots</h4>
+    <h4>C.4.3 Population-Level Stress Test: 260 Little Red Dots</h4>
     <p>
         Across 260 Kokorev-catalog LRDs with measured photometric redshifts and
         compactness estimates, the differential temporal topology calculation
-        yields a broad distribution of growth boosts. A substantial majority
-        exceed $10^3$, but not all objects do so; the mechanism therefore
-        appears common rather than universal in the present real-data catalog.
+        yields a broad distribution of growth boosts after correcting the
+        catalog radius units and replacing the all-object default halo mass with
+        an object-level $M_{\rm UV}$ proxy where direct stellar masses are
+        absent. Only a small minority exceed $10^3$ in the conservative branch,
+        so the result is a compact-core mechanism stress test rather than a
+        validation of LRD population-level black-hole closure.
     </p>
 
     <div class="data-table">
         <table>
             <caption>
-                Table C6: LRD Population Differential Temporal Topology Analysis
+                Table C6: LRD Population Differential Temporal Topology Stress Test
                 ($N = 260$)
             </caption>
             <thead>
@@ -561,18 +578,18 @@
                 </tr>
                 <tr>
                     <td>Median $\Delta\Gamma$</td>
-                    <td>$0.328$</td>
-                    <td>Differential topology</td>
+                    <td>$0.060$</td>
+                    <td>Conservative UV-mass branch</td>
                 </tr>
                 <tr>
                     <td>Median $\log_{10}$(Boost)</td>
-                    <td>$3.24$</td>
-                    <td>$\sim 1{,}700\times$ growth</td>
+                    <td>$0.58$</td>
+                    <td>$\sim 3.8\times$ growth</td>
                 </tr>
                 <tr>
                     <td>Fraction with Boost $&gt; 10^3$</td>
-                    <td>$70\%$</td>
-                    <td>Majority show runaway</td>
+                    <td>$4.6\%$</td>
+                    <td>Small minority show runaway</td>
                 </tr>
             </tbody>
         </table>

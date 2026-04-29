@@ -13,11 +13,11 @@
   "tep_correction": {
     "rho_raw": 0.05343130544098231,
     "p_raw": 0.6930328692641015,
-    "rho_corrected": 0.6267626231818504,
-    "p_corrected": 1.8306102857630223e-07,
+    "rho_corrected": 0.25845246416492856,
+    "p_corrected": 0.052238325627245355,
     "std_raw": 0.5545155260871234,
-    "std_corrected": 0.6350209924938557,
-    "scatter_reduction_pct": -14.51816272392048,
+    "std_corrected": 0.5508519429229531,
+    "scatter_reduction_pct": 0.6606818009266435,
     "correlation_reduced": false
   },
   "inner_outer": {
@@ -32,7 +32,7 @@
     "t_statistic": -0.16256319602585065,
     "p_value": 0.8716808421688016,
     "significance_sigma": 0.16163730587460723,
-    "predicted_delta": 0.7205568314359097,
+    "predicted_delta": 0.12225404243513277,
     "tep_consistent": false
   },
   "interpretation": "screened"

@@ -1,3 +1,3 @@
-[14:29:39] Loaded JADES data from /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/interim/jades_resolved_gradients.csv (277 rows)
-[14:29:39]     Primary residual gradient contrast Δ=-0.061 with 95% CI [-0.264, 0.144]
-[14:29:39]     The resolved sign test is directionally consistent with TEP after converting the problem into a high-vs-low screening comparison, but the effect remains short of a decisive inversion detection.
+[10:43:01] Loaded JADES data from /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/interim/jades_resolved_gradients.csv (277 rows)
+[10:43:02]     Primary residual gradient contrast Δ=-0.058 with 95% CI [-0.249, 0.146]
+[10:43:02]     The resolved sign test is directionally consistent with TEP after converting the problem into a high-vs-low screening comparison, but the effect remains short of a decisive inversion detection.

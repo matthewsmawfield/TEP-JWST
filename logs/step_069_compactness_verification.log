@@ -1,13 +1,13 @@
-[14:24:08] ═══ STEP 069: Compactness Verification
-[14:24:08] >>> Loading LRD Catalog (Kokorev)...
-[14:24:08]     Loaded 260 LRDs with valid sizes.
-[14:24:08] >>> Loading Survey Catalogs...
-[14:24:08]     Loaded CEERS: 10483
-[14:24:08] >>> Matching LRDs to CEERS...
-[14:24:08]     Found 40 matches in CEERS
-[14:24:08] ✓   Total matched LRDs with Mass: 40
-[14:24:08]     Calibrated k (Phi->Gamma): 5.93e-11
-[14:24:09] ✓   Saved figure to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/circularity_check_compactness.png
-[14:24:09] ✓   Report saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/circularity_resolution_stats.txt
-[14:24:09] ✓   JSON results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_069_compactness_verification.json
-[14:24:09] ✓   Step 069 complete.
+[10:02:29] ═══ STEP 069: Compactness Verification
+[10:02:29] >>> Loading LRD Catalog (Kokorev)...
+[10:02:29]     Loaded 260 LRDs with valid sizes.
+[10:02:29] >>> Loading Survey Catalogs...
+[10:02:29]     Loaded CEERS: 10483
+[10:02:29] >>> Matching LRDs to CEERS...
+[10:02:29]     Found 40 matches in CEERS
+[10:02:29] ✓   Total matched LRDs with Mass: 40
+[10:02:29]     Calibrated k (Phi->Gamma): 1.38e-11
+[10:02:29] ✓   Saved figure to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/circularity_check_compactness.png
+[10:02:29] ✓   Report saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/circularity_resolution_stats.txt
+[10:02:29] ✓   JSON results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_069_compactness_verification.json
+[10:02:29] ✓   Step 069 complete.

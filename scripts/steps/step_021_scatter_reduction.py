@@ -49,7 +49,7 @@ sys.path.insert(0, str(PROJECT_ROOT))  # Add project root to Python path
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging utilities
 from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (handles None / edge cases)
-from scripts.utils.tep_model import ALPHA_0, compute_gamma_t as tep_gamma  # Shared TEP model: coupling constant and Γ_t calculator
+from scripts.utils.tep_model import KAPPA_GAL, compute_gamma_t as tep_gamma  # Shared TEP model: coupling constant and Γ_t calculator
 
 STEP_NUM = "021"  # Pipeline step number
 STEP_NAME = "scatter_reduction"  # Descriptive label used for log and output filenames

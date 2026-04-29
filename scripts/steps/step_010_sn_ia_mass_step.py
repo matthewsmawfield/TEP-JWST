@@ -14,7 +14,7 @@ luminosity overestimation and distance underestimation.
 The mass step magnitude should scale as:
     Δm ∝ α × (M_host / M_ref)^(1/3)
 
-Using α = 0.58 from TEP-H0, we predict Δm ~ 0.05-0.08 mag for typical host
+Using α = 9.6e5 from TEP-H0, we predict Δm ~ 0.05-0.08 mag for typical host
 mass ranges—matching the observed ~0.06 mag step.
 
 This script tests the TEP prediction against Pantheon+ data.
@@ -62,15 +62,15 @@ RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 # Note: TEPLogger is initialized above via set_step_logger()
 
 # =============================================================================
-# TEP PARAMETERS (from TEP-H0, Paper 11)
-# Exact values from tep_correction_results.json
+# TEP PARAMETERS (from TEP-H0, Paper 11 v0.6)
 # =============================================================================
-# ALPHA_TEP: The TEP coupling constant, derived from the slope of the
-# H0-vs-host-sigma relation in the SH0ES Cepheid sample. It quantifies
-# how strongly proper-time dilation scales with gravitational potential.
-# The TEP-H0 correction formula is: Delta_mu = alpha * log10(sigma / sigma_ref)
-ALPHA_TEP = 0.58  # Optimal coupling constant (0.5798828125)
-ALPHA_TEP_ERR = 0.16  # Bootstrap uncertainty
+# Canonical magnitude-sector TEP correction:
+#   Δμ = κ_gal · S(ρ) · (σ² - σ_ref²) / c²
+# with κ_gal = (9.6 ± 4.0) × 10⁵ mag (Cepheid P-L residual analysis,
+# Paper 11 KingstonUponHull) and σ_ref = 75.25 km/s (SH0ES anchor weighting).
+C_KMS = 299792.458  # speed of light in km/s
+KAPPA_GAL_LOCAL = 9.6e5  # mag (Observable Response Coefficient from Paper 11)
+KAPPA_GAL_LOCAL_ERR = 4.0e5
 # SIGMA_REF: The effective velocity dispersion of the calibrator environment.
 # Cepheid calibrators (LMC, NGC 4258, MW) reside in relatively low-sigma
 # environments; this sets the zero-point for the TEP distance correction.
@@ -330,26 +330,26 @@ def analyze_continuous_correlation(df):
 # =============================================================================
 # TEP PREDICTION
 # =============================================================================
-def tep_mass_step_prediction(sigma_low, sigma_high, alpha=ALPHA_TEP, sigma_ref=SIGMA_REF):
+def tep_mass_step_prediction(sigma_low, sigma_high, kappa_gal=KAPPA_GAL_LOCAL, sigma_ref=SIGMA_REF):
     """
-    Calculate TEP-predicted mass step using EXACT TEP-H0 formula.
-    
-    From TEP-H0 (Paper 11):
-    - Correction formula: Δμ = α * log10(σ / σ_ref)
-    - α = 0.58 ± 0.16 (optimized to minimize H0-σ slope)
-    - σ_ref = 75.25 km/s (effective calibrator environment)
-    
-    The mass step is the DIFFERENCE in TEP bias between high and low mass bins:
+    Calculate TEP-predicted SN Ia mass step using the canonical Paper 11 v0.6
+    magnitude-sector formula:
+
+        Δμ = κ_gal · (σ² - σ_ref²) / c²
+
+    with κ_gal = (9.6 ± 4.0) × 10⁵ mag and σ_ref = 75.25 km/s.
+
+    The mass step is the difference in TEP bias between high- and low-mass
+    bins:
         Δμ_step = Δμ_high - Δμ_low
-                = α * [log10(σ_high/σ_ref) - log10(σ_low/σ_ref)]
-                = α * log10(σ_high / σ_low)
-    
-    GROUP HALO SCREENING (TEP-H0 v0.3):
+                = (κ_gal/c²) · (σ_high² - σ_low²)
+
+    GROUP HALO SCREENING (Paper 11 v0.6):
     - Galaxies in group environments are screened by ambient potential
     - SN Ia hosts are biased toward FIELD environments (unscreened)
     - Anchors (LMC, NGC 4258, M31) are in groups (screened)
     - This explains why anchors show no TEP bias but hosts do
-    
+
     For the mass step prediction, we assume:
     - Low-mass hosts: Mix of field and group (partial screening)
     - High-mass hosts: More likely in groups (more screening)
@@ -358,11 +358,10 @@ def tep_mass_step_prediction(sigma_low, sigma_high, alpha=ALPHA_TEP, sigma_ref=S
     # Apply high-sigma screening (from TEP-COS)
     sigma_high_screened = min(sigma_high, SIGMA_SCREEN)
     sigma_low_screened = min(sigma_low, SIGMA_SCREEN)
-    
-    # TEP correction: Δμ = α * log10(σ / σ_ref)
-    # This is the EXACT formula from TEP-H0
-    delta_mu_low = alpha * np.log10(sigma_low_screened / sigma_ref)
-    delta_mu_high = alpha * np.log10(sigma_high_screened / sigma_ref)
+
+    # Canonical Paper 11 v0.6 magnitude-sector formula
+    delta_mu_low = kappa_gal * (sigma_low_screened**2 - sigma_ref**2) / C_KMS**2
+    delta_mu_high = kappa_gal * (sigma_high_screened**2 - sigma_ref**2) / C_KMS**2
     
     # The mass step is the difference
     delta_mu_predicted = delta_mu_high - delta_mu_low
@@ -391,7 +390,7 @@ def tep_mass_step_prediction(sigma_low, sigma_high, alpha=ALPHA_TEP, sigma_ref=S
         "sigma_low_screened": sigma_low_screened,
         "sigma_high_screened": sigma_high_screened,
         "sigma_ref": sigma_ref,
-        "alpha": alpha,
+        "kappa_gal": kappa_gal,
         "delta_mu_low": delta_mu_low,
         "delta_mu_high": delta_mu_high,
         "delta_mu_predicted_no_group": delta_mu_predicted,
@@ -451,8 +450,8 @@ def test_tep_prediction(df, observed_step):
     # TEP prediction using MEDIAN masses (overestimates step)
     prediction_median = tep_mass_step_prediction(sigma_low_median, sigma_high_median)
     
-    logger.info(f"\nTEP Prediction using MEDIAN masses (α = {ALPHA_TEP}, σ_ref = {SIGMA_REF} km/s):")
-    logger.info(f"  Formula: Δμ = α * log10(σ / σ_ref)  [EXACT from TEP-H0]")
+    logger.info(f"\nTEP Prediction using MEDIAN masses (κ_gal = {KAPPA_GAL_LOCAL:.3e} mag, σ_ref = {SIGMA_REF} km/s):")
+    logger.info(f"  Formula: Δμ = κ_gal · (σ² - σ_ref²) / c²  [Paper 11 v0.6]")
     logger.info(f"  Predicted (no group screening): {prediction_median['delta_mu_predicted_no_group']:.4f} mag")
     if GROUP_SCREENING_ENABLED:
         logger.info(f"  Predicted (with group screening): {prediction_median['delta_mu_predicted']:.4f} mag")
@@ -553,9 +552,9 @@ def binned_mass_analysis(df, n_bins=5):
         std_residual = bin_data['hubble_residual'].std()
         sem_residual = std_residual / np.sqrt(len(bin_data))
         
-        # TEP prediction for this bin using exact TEP-H0 formula
+        # TEP prediction for this bin using canonical Paper 11 v0.6 formula
         sigma_bin = stellar_mass_to_sigma(mean_mass)
-        delta_mu_bin = ALPHA_TEP * np.log10(sigma_bin / SIGMA_REF)
+        delta_mu_bin = KAPPA_GAL_LOCAL * (sigma_bin**2 - SIGMA_REF**2) / C_KMS**2
         
         bin_results.append({
             "bin": i,

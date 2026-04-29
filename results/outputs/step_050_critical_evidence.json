@@ -6,25 +6,25 @@
         {
           "observable": "Dust (z>8)",
           "predicted_sign": "positive",
-          "observed_rho": 0.6029791257884878,
+          "observed_rho": 0.4712708247076625,
           "correct": true
         },
         {
           "observable": "Chi2 (z>7)",
           "predicted_sign": "positive",
-          "observed_rho": 0.1299660781187463,
+          "observed_rho": 0.07725809218240769,
           "correct": true
         },
         {
           "observable": "Burstiness",
           "predicted_sign": "negative",
-          "observed_rho": -0.2894421086829666,
+          "observed_rho": -0.293598625795052,
           "correct": true
         },
         {
           "observable": "sSFR",
           "predicted_sign": "negative",
-          "observed_rho": -0.4012147218154523,
+          "observed_rho": -0.49865692331350686,
           "correct": true
         }
       ],
@@ -36,21 +36,21 @@
       "results": [
         {
           "observable": "Dust",
-          "rho": 0.35738590615664817,
-          "p": 1.2490652198264947e-16,
+          "rho": 0.1484178380916763,
+          "p": 0.000831090033145766,
           "significant": true
         },
         {
           "observable": "Chi2",
-          "rho": 0.1299660781187463,
-          "p": 0.003467959916204647,
-          "significant": true
+          "rho": 0.07725809218240769,
+          "p": 0.08314477473383318,
+          "significant": false
         },
         {
           "observable": "Age",
-          "rho": 0.03582531215348176,
-          "p": 0.4222424558674338,
-          "significant": false
+          "rho": 0.2180024051822962,
+          "p": 7.750527034285916e-07,
+          "significant": true
         }
       ],
       "n_predicted": 2,
@@ -58,31 +58,31 @@
     },
     "quantitative_match": [
       {
-        "t_eff_range": "0.3-0.5",
-        "n": 112,
-        "mean_dust": 0.6571899362534221
+        "t_eff_range": "0.2-0.3",
+        "n": 105,
+        "mean_dust": 0.6469306889841783
       },
       {
-        "t_eff_range": "0.5-1.0",
-        "n": 388,
-        "mean_dust": 0.7725223940858776
+        "t_eff_range": "0.3-0.5",
+        "n": 392,
+        "mean_dust": 0.754465604969431
       }
     ],
     "null_zone": {
-      "rho_low_z": 0.024044483163458242,
-      "rho_high_z": 0.6029791257884878,
-      "difference": 0.5789346426250296
+      "rho_low_z": 0.021308070801434417,
+      "rho_high_z": 0.4712708247076625,
+      "difference": 0.4499627539062281
     },
     "scaling_relation": {
-      "slope": 0.060072925999259584,
-      "intercept": -0.6350120112051524,
-      "r_squared": 0.4746405394581484,
+      "slope": 0.06769986057805213,
+      "intercept": -0.8913156436514897,
+      "r_squared": 0.4663683812028637,
       "p": 1e-300,
-      "expected_alpha": 0.58
+      "expected_alpha": 960000.0
     },
     "cross_domain": {
-      "alpha_tep_h0": 0.58,
-      "alpha_jwst": 0.58,
+      "alpha_tep_h0": 960000.0,
+      "alpha_jwst": 960000.0,
       "consistent": true
     }
   },
@@ -101,12 +101,12 @@
       },
       {
         "name": "null_zone",
-        "stat": 0.5789346426250296,
+        "stat": 0.4499627539062281,
         "p": null
       },
       {
         "name": "cross_domain",
-        "stat": 0.58,
+        "stat": 960000.0,
         "p": null
       }
     ]

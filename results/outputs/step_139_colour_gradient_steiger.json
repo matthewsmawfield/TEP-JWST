@@ -3,55 +3,55 @@
   "n_total": 277,
   "tep_prediction": "Core Screening predicts bluer cores in massive galaxies (negative gradient). t_eff should outperform M* as a predictor because it captures the true temporal scale of central enrichment.",
   "mass_debiasing": {
-    "beta_debias_used": 0.3142781341571038,
+    "beta_debias_used": 0.38222773644735053,
     "beta_debias_source": "step_117_object_level_bootstrap"
   },
   "raw_correlations": {
     "rho_gradient_mass": -0.16561160112876575,
     "p_gradient_mass": 0.005727857723798489,
-    "rho_gradient_gamma_t": -0.15098654085678245,
-    "p_gradient_gamma_t": 0.011869737444784416,
-    "rho_gradient_t_eff": -0.1967836498341744,
-    "p_gradient_t_eff": 0.0009927438256186363,
+    "rho_gradient_gamma_t": -0.1922899288480062,
+    "p_gradient_gamma_t": 0.0013002072639831084,
+    "rho_gradient_t_eff": -0.1953749510201915,
+    "p_gradient_t_eff": 0.0010810456854433033,
     "rho_gradient_t_cosmic": -0.1863660453388268,
     "p_gradient_t_cosmic": 0.0018390828404250548,
     "note": "Negative rho means more massive / higher t_eff -> bluer core (consistent with TEP Core Screening)"
   },
   "steiger_tests": {
     "t_eff_vs_mass": {
-      "rho_gradient_t_eff": -0.1967836498341744,
+      "rho_gradient_t_eff": -0.1953749510201915,
       "rho_gradient_mass": -0.16561160112876575,
-      "r_cross": 0.49102385020252515,
-      "Z": -0.5223378596532073,
-      "p": 0.6014351134581462,
+      "r_cross": 0.4767815946583496,
+      "Z": -0.4918714839444252,
+      "p": 0.6228101982936254,
       "n": 277,
       "interpretation": "No significant difference between t_eff and M*",
       "Z_bootstrap_ci_95": [
-        -2.3949915373864727,
-        1.5571637374583465
+        -2.3525488411019295,
+        1.5824599520298486
       ]
     },
     "t_eff_vs_t_cosmic": {
-      "rho_gradient_t_eff": -0.1967836498341744,
+      "rho_gradient_t_eff": -0.1953749510201915,
       "rho_gradient_t_cosmic": -0.1863660453388268,
-      "r_cross": 0.986398855711406,
-      "Z": -1.0654199407811682,
-      "p": 0.28668593694680533,
+      "r_cross": 0.989654130689904,
+      "Z": -1.0562179094408184,
+      "p": 0.2908686703254957,
       "n": 277,
       "interpretation": "Gamma_t scaling does not significantly improve over t_cosmic"
     }
   },
   "partial_correlations": {
-    "beta_debias_used": 0.3142781341571038,
+    "beta_debias_used": 0.38222773644735053,
     "beta_debias_source": "step_117_object_level_bootstrap",
-    "rho_gradient_gamma_t_given_mass_z": 0.07751049318907884,
-    "p_gradient_gamma_t_given_mass_z": 0.19839635177056295,
-    "rho_gradient_mass_given_gamma_z": -0.10398655607985126,
-    "p_gradient_mass_given_gamma_z": 0.08407049307428692,
-    "rho_gradient_gamma_t_given_debiased_mass_z": 0.07659325337848893,
-    "p_gradient_gamma_t_given_debiased_mass_z": 0.2037752857579977,
-    "rho_gradient_debiased_mass_given_gamma_z": -0.1033016235763539,
-    "p_gradient_debiased_mass_given_gamma_z": 0.08614356578940081,
+    "rho_gradient_gamma_t_given_mass_z": 0.03717068045415023,
+    "p_gradient_gamma_t_given_mass_z": 0.5378556899171846,
+    "rho_gradient_mass_given_gamma_z": -0.08642934077935654,
+    "p_gradient_mass_given_gamma_z": 0.1513862903344031,
+    "rho_gradient_gamma_t_given_debiased_mass_z": 0.036828208262062005,
+    "p_gradient_gamma_t_given_debiased_mass_z": 0.5416108410915993,
+    "rho_gradient_debiased_mass_given_gamma_z": -0.086423536897313,
+    "p_gradient_debiased_mass_given_gamma_z": 0.1514138621579403,
     "preferred_gamma_gradient_mass_control": "observed_mass_z",
     "asymmetry_confirmed": false,
     "interpretation": "No asymmetry detected"
@@ -70,25 +70,25 @@
     {
       "z_range": "8-10",
       "n": 217,
-      "rho_gradient_gamma_t": -0.06222489982478145,
-      "p": 0.3616528199421244,
-      "ci_95_low": -0.2098626288830309,
-      "ci_95_high": 0.08660491542277828
+      "rho_gradient_gamma_t": -0.0758865448122625,
+      "p": 0.265696484391321,
+      "ci_95_low": -0.22057513675191479,
+      "ci_95_high": 0.06455639885134445
     }
   ],
   "summary": {
-    "primary_rho_gradient_gamma_t": -0.15098654085678245,
-    "primary_p": 0.011869737444784416,
-    "steiger_Z_t_eff_vs_mass": -0.5223378596532073,
-    "steiger_p_t_eff_vs_mass": 0.6014351134581462,
-    "partial_rho_given_mass_z": 0.07751049318907884,
-    "partial_p_given_mass_z": 0.19839635177056295,
-    "partial_rho_given_debiased_mass_z": 0.07659325337848893,
-    "partial_p_given_debiased_mass_z": 0.2037752857579977,
-    "beta_debias_used": 0.3142781341571038,
+    "primary_rho_gradient_gamma_t": -0.1922899288480062,
+    "primary_p": 0.0013002072639831084,
+    "steiger_Z_t_eff_vs_mass": -0.4918714839444252,
+    "steiger_p_t_eff_vs_mass": 0.6228101982936254,
+    "partial_rho_given_mass_z": 0.03717068045415023,
+    "partial_p_given_mass_z": 0.5378556899171846,
+    "partial_rho_given_debiased_mass_z": 0.036828208262062005,
+    "partial_p_given_debiased_mass_z": 0.5416108410915993,
+    "beta_debias_used": 0.38222773644735053,
     "beta_debias_source": "step_117_object_level_bootstrap",
     "tep_confirmed": false,
-    "conclusion": "Colour gradient correlates with Gamma_t at rho = -0.151 (p = 1.19e-02). Steiger Z-test (t_eff vs M*): Z = -0.52, p = 0.6014. Partial rho after observed-mass+z control: 0.078 (p = 0.1984); after debiased-mass+z control: 0.077 (p = 0.2038). Real JADES resolved photometry shows a raw core-screening correlation, but the Steiger and partial-correlation tests do not yet establish unique TEP discrimination.",
+    "conclusion": "Colour gradient correlates with Gamma_t at rho = -0.192 (p = 1.30e-03). Steiger Z-test (t_eff vs M*): Z = -0.49, p = 0.6228. Partial rho after observed-mass+z control: 0.037 (p = 0.5379); after debiased-mass+z control: 0.037 (p = 0.5416). Real JADES resolved photometry shows a raw core-screening correlation, but the Steiger and partial-correlation tests do not yet establish unique TEP discrimination.",
     "interpretation": "Real-data ancillary indication only: the raw gradient-Gamma_t correlation is present, but t_eff does not significantly outperform M* and the residual Gamma_t signal remains non-significant under both observed-mass and debiased-mass control."
   }
 }

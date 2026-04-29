@@ -1,8 +1,0 @@
-{
-  "obs_rho": 0.5594522703471411,
-  "prior_mean": 0.3752871807323795,
-  "prior_std": 0.0441390571182255,
-  "prior_p95": 0.4437821236382727,
-  "z_score": 4.172383862244257,
-  "conclusion": "The observed correlation (+0.56) is significantly stronger than selection effects alone (+0.38). Data drives the signal."
-}

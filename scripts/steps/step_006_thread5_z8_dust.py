@@ -112,7 +112,7 @@ def main():
     
     # Measure rho(M*, dust) in redshift bins to track evolution.
     # TEP predicts the correlation should strengthen toward higher z because:
-    #   (a) alpha(z) = alpha_0 * sqrt(1+z) increases, widening the Gamma_t range
+    #   (a) alpha(z) = kappa_gal * sqrt(1+z) increases, widening the Gamma_t range
     #   (b) the shorter cosmic age at high-z makes the "extra time" from TEP
     #       relatively more important for dust production
     z_bins = [(4, 5), (5, 6), (6, 7), (7, 8), (8, 10)]

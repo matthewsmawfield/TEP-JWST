@@ -1,16 +1,16 @@
-[14:23:38]     Loading Data...
-[14:23:38]     Loading JADES_z_gt_8_Candidates_Hainline_et_al.fits...
-[14:23:38]     Loaded 94000 rows from JADES_z_gt_8_Candidates_Hainline_et_al.fits [CIRC_CONV]
-[14:23:38]     Matching catalogs by JADES ID...
-[14:23:38]     Matched 527 sources.
-[14:23:38]     Sources with valid fluxes: 328
-[14:23:38]     Saved resolved gradients to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/interim/jades_resolved_gradients.csv
-[14:23:38]     
+[10:02:00]     Loading Data...
+[10:02:00]     Loading JADES_z_gt_8_Candidates_Hainline_et_al.fits...
+[10:02:00]     Loaded 94000 rows from JADES_z_gt_8_Candidates_Hainline_et_al.fits [CIRC_CONV]
+[10:02:00]     Matching catalogs by JADES ID...
+[10:02:00]     Matched 527 sources.
+[10:02:00]     Sources with valid fluxes: 328
+[10:02:00]     Saved resolved gradients to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/interim/jades_resolved_gradients.csv
+[10:02:00]     
 --- Gradient Correlations ---
-[14:23:38]     N = 277 (final sample z>4)
-[14:23:38]     rho(Mass, Gradient) = -0.166, p = 5.73e-03
-[14:23:38]     rho(z, Gradient) = +0.186, p = 1.84e-03
-[14:23:38]     rho(Mass, Compactness) = -0.099, p = 1.01e-01
-[14:23:38]     Mass 7-8.5: N=228, <Grad>=+0.201 +/- 0.043
-[14:23:38]     Mass 8.5-9.5: N=9, <Grad>=+0.107 +/- 0.072
-[14:23:38]     Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_037_resolved_gradients.json
+[10:02:00]     N = 277 (final sample z>4)
+[10:02:00]     rho(Mass, Gradient) = -0.166, p = 5.73e-03
+[10:02:00]     rho(z, Gradient) = +0.186, p = 1.84e-03
+[10:02:00]     rho(Mass, Compactness) = -0.099, p = 1.01e-01
+[10:02:00]     Mass 7-8.5: N=228, <Grad>=+0.201 +/- 0.043
+[10:02:00]     Mass 8.5-9.5: N=9, <Grad>=+0.107 +/- 0.072
+[10:02:00]     Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_037_resolved_gradients.json

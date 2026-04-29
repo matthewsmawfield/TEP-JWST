@@ -1,21 +1,21 @@
 {
   "test": "Thread 4: \u0393_t vs Dust",
   "n": 1108,
-  "raw_rho": 0.2963386267314608,
-  "raw_p": 6.755190101338364e-24,
-  "partial_rho": 0.32679299230787867,
-  "partial_p": 5.480455424318636e-29,
+  "raw_rho": 0.2116301857565652,
+  "raw_p": 1.1008664763423664e-12,
+  "partial_rho": 0.31848044532977515,
+  "partial_p": 1.5407772480270278e-27,
   "ci_95": [
-    0.2637508394304225,
-    0.38046259116473136
+    0.26009508849206914,
+    0.3712639523339773
   ],
-  "partial_rho_double": 0.05407061962695971,
-  "partial_p_double": 0.07200071524477553,
+  "partial_rho_double": 0.09691743401577572,
+  "partial_p_double": 0.0012378151527462826,
   "ci_95_double": [
-    -0.014374771231933836,
-    0.11979799546468099
+    0.029054705522114716,
+    0.15748908830143563
   ],
   "significant": true,
-  "significant_double": false,
+  "significant_double": true,
   "interpretation": "Enhanced time \u2192 more dust processing"
 }

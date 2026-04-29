@@ -41,7 +41,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
 from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma  # TEP model: Gamma_t = exp[alpha(z) * (2/3) * (log_Mh - log_Mh_ref) * z_factor]
+from scripts.utils.tep_model import compute_gamma_t as tep_gamma  # TEP model: Gamma_t = exp[K_gal · (Phi − Phi_ref) · sqrt(1+z)], K_gal = kappa · ln10 / (2.5n)
 
 STEP_NUM = "027"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "multi_angle_validation"  # Multi-angle validation: extreme test, stratification, robustness, residual, multi-angle TEP tests

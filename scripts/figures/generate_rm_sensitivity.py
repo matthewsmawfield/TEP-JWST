@@ -9,6 +9,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.style import set_pub_style, COLORS, FIG_SIZE
+from scripts.utils.tep_model import KAPPA_GAL, KAPPA_GAL_UNCERTAINTY
 
 def plot_rm_sensitivity():
     # Red Monster Data (from step_90_sign_paradox.json)
@@ -16,11 +17,11 @@ def plot_rm_sensitivity():
     # S2: z=5.5, log_Mh=12.6, Gamma=1.81
     # S3: z=5.9, log_Mh=13.0, Gamma=2.94
     
-    # We can infer the exponent K_i for each galaxy where Gamma_i = exp(alpha0 * K_i)
-    # K_i = ln(Gamma_i) / 0.58
+    # We can infer the exponent K_i for each galaxy where Gamma_i = exp(kappa_gal * K_i)
+    # K_i = ln(Gamma_i) / 9.6e5
     
     gammas_nominal = np.array([2.12, 1.81, 2.94])
-    alpha_nominal = 0.58
+    alpha_nominal = KAPPA_GAL
     K_factors = np.log(gammas_nominal) / alpha_nominal
     
     sfe_obs = np.array([0.50, 0.48, 0.52])
@@ -67,18 +68,18 @@ def plot_rm_sensitivity():
     ax.plot(alphas, resolved_fractions, color=COLORS['primary'], linewidth=2, label='Red Monsters (Mean)')
     
     # Add error band for alpha
-    ax.axvspan(0.58 - 0.16, 0.58 + 0.16, color=COLORS['gray'], alpha=0.2, label=r'Cepheid $\alpha_0$ ($1\sigma$)')
-    ax.axvline(0.58, color=COLORS['text'], linestyle='--', label=r'Nominal $\alpha_0 = 0.58$')
+    ax.axvspan(KAPPA_GAL - KAPPA_GAL_UNCERTAINTY, KAPPA_GAL + KAPPA_GAL_UNCERTAINTY, color=COLORS['gray'], alpha=0.2, label=r'Cepheid $\kappa_gal$ ($1\sigma$)')
+    ax.axvline(KAPPA_GAL, color=COLORS['text'], linestyle='--', label=rf'Nominal $\kappa={KAPPA_GAL:.2f}$')
     
-    ax.set_xlabel(r'Coupling Constant $\alpha_0$')
+    ax.set_xlabel(r'Coupling Constant $\kappa_gal$')
     ax.set_ylabel('Anomaly Resolved (%)')
-    ax.set_title(r'Red Monster SFE Anomaly Resolution vs $\alpha_0$')
+    ax.set_title(r'Red Monster SFE Anomaly Resolution vs $\kappa_gal$')
     ax.set_ylim(-20, 120)
     ax.set_xlim(0, 1.2)
     
-    # Highlight the value at 0.58
-    val_nom = np.interp(0.58, alphas, resolved_fractions)
-    ax.scatter([0.58], [val_nom], color=COLORS['highlight'], zorder=5)
+    # Highlight the value at KAPPA_GAL
+    val_nom = np.interp(KAPPA_GAL, alphas, resolved_fractions)
+    ax.scatter([KAPPA_GAL], [val_nom], color=COLORS['highlight'], zorder=5)
     ax.text(0.60, val_nom - 10, f"{val_nom:.1f}%", color=COLORS['highlight'], fontweight='bold')
     
     ax.axhline(0, color=COLORS['text'], linewidth=0.5)

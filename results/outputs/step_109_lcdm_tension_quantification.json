@@ -5,53 +5,53 @@
       "z_min": 7,
       "z_max": 8,
       "z_mid": 7.5,
-      "median_gamma_t": 1.313128560664175,
+      "median_gamma_t": 0.8152187864826856,
       "lcdm_prediction": 1.5999999999999996,
       "observed": 5.274813467393272,
-      "tep_corrected": null,
+      "tep_corrected": 5.8682985519155135,
       "tension_observed_sigma": 12.249378224644241,
-      "tension_tep_sigma": 0.0,
-      "tension_reduction_pct": 100.0,
-      "mass_reduction_dex": null
+      "tension_tep_sigma": 14.22766183971838,
+      "tension_reduction_pct": -16.15007373267384,
+      "mass_reduction_dex": -0.5934850845222419
     },
     {
       "z_min": 8,
       "z_max": 9,
       "z_mid": 8.5,
-      "median_gamma_t": 1.434454239427002,
+      "median_gamma_t": 0.8863243257859043,
       "lcdm_prediction": 0.7999999999999998,
       "observed": 6.473431870162698,
-      "tep_corrected": 6.1308323807655105,
+      "tep_corrected": 6.3627286628897215,
       "tension_observed_sigma": 18.911439567208994,
-      "tension_tep_sigma": 17.76944126921837,
-      "tension_reduction_pct": 6.0386640262477105,
-      "mass_reduction_dex": 0.34259948939718754
+      "tension_tep_sigma": 18.542428876299073,
+      "tension_reduction_pct": 1.9512564847245013,
+      "mass_reduction_dex": 0.11070320727297656
     },
     {
       "z_min": 9,
       "z_max": 10,
       "z_mid": 9.5,
-      "median_gamma_t": 2.5371213099500607,
+      "median_gamma_t": 1.5084428643595398,
       "lcdm_prediction": 0.0,
       "observed": 6.678972017485173,
-      "tep_corrected": 6.237568623379012,
+      "tep_corrected": 6.465615389458199,
       "tension_observed_sigma": 22.263240058283913,
-      "tension_tep_sigma": 20.791895411263376,
-      "tension_reduction_pct": 6.60885227473018,
-      "mass_reduction_dex": 0.44140339410616125
+      "tension_tep_sigma": 21.552051298193998,
+      "tension_reduction_pct": 3.1944530905118134,
+      "mass_reduction_dex": 0.21335662802697453
     }
   ],
   "summary": {
     "mean_tension_observed_sigma": 17.80801928337905,
-    "mean_tension_tep_sigma": 12.853778893493915,
-    "mean_tension_reduction_pct": 37.54917210032597,
-    "mean_mass_reduction_dex": 0.3920014417516744,
-    "status": "PARTIALLY SUPPORTED"
+    "mean_tension_tep_sigma": 18.107380671403817,
+    "mean_tension_reduction_pct": -3.6681213858125084,
+    "mean_mass_reduction_dex": -0.08980841640743027,
+    "status": "NOT SUPPORTED"
   },
-  "conclusion": "TEP reduces \u039bCDM tension from 17.8\u03c3 to 12.9\u03c3",
+  "conclusion": "-> TEP does not measurably reduce \u039bCDM tension",
   "implications": [
-    "Observed stellar mass density at z > 7 is 2.5\u00d7 higher than \u039bCDM",
-    "TEP correction reduces this excess by 38%",
-    "Remaining tension (12.9\u03c3) may be genuine early structure formation"
+    "Observed stellar mass density at z > 7 is 0.8\u00d7 higher than \u039bCDM",
+    "TEP correction reduces this excess by -4%",
+    "Remaining tension (18.1\u03c3) may be genuine early structure formation"
   ]
 }
