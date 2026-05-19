@@ -1,9 +1,12 @@
 {
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
-  "@type": "ScholarlyArticle",
+  "@type": [
+    "ScholarlyArticle",
+    "SoftwareSourceCode"
+  ],
   "identifier": "https://doi.org/10.5281/zenodo.19000827",
   "name": "Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies",
-  "description": "JWST has revealed high-redshift anomalies whose strongest current TEP tests are the large-sample photometric lines, the direct kinematic comparison, and the structural selectivity of the Uniformity Paradox. Star formation efficiencies exceeding $\\Lambda$CDM limits and anomalous stellar-to-dynamical mass ratios both appear preferentially in deep gravitational potentials, while overmassive black holes in Little Red Dots are retained as an unresolved compact-core stress test rather than as a primary closure result. Using the Observable Response Coefficient \\kappa_{\\rm gal} = (9.6 \\pm 4.0) \\times 10^5 mag measured by Paper 11's Cepheid analysis, applied directly to the potential-linear \\Gamma_t formula with no JWST-specific refit, the framework quantitatively accounts for the leading excess under the TEP response mapping. Keywords: Cosmology: early universe \u2013 Galaxies: high-redshift \u2013 Galaxies: evolution \u2013 Gravitation \u2013 Temporal Topology \u2013 Infrared: galaxies",
+  "description": "JWST has revealed high-redshift anomalies whose strongest current TEP tests are the large-sample photometric lines, the direct kinematic comparison, and the structural selectivity of the Uniformity Paradox. Star formation efficiencies exceeding $\\Lambda$CDM limits and anomalous stellar-to-dynamical mass ratios both appear preferentially in deep gravitational potentials, while overmassive black holes in Little Red Dots are retained as an unresolved compact-core stress test rather than as a primary closure result. Using the Observable Response Coefficient \\kappa_{\\rm gal} = (9.6 \\pm 4.0) \\times 10^5 mag measured by Paper 11's Cepheid analysis, applied directly to the potential-linear \\Gamma_t formula with no JWST-specific refit, the framework quantitatively accounts for the leading excess under the TEP response mapping. Keywords: Cosmology: early universe – Galaxies: high-redshift – Galaxies: evolution – Gravitation – Temporal Topology – Infrared: galaxies",
   "author": [
     {
       "@type": "Person",
@@ -17,7 +20,7 @@
   "version": "0.4",
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "codeRepository": "https://github.com/matthewsmawfield/TEP-JWST",
-  "url": "https://matthewsmawfield.github.io/TEP-JWST/",
+  "url": "https://mlsmawfield.com/tep/jwst/",
   "keywords": [
     "JWST",
     "High-Redshift Galaxies",
@@ -26,5 +29,8 @@
     "Temporal Shear",
     "Cosmology",
     "Temporal Topology"
-  ]
+  ],
+  "developmentStatus": "active",
+  "runtimePlatform": "Python",
+  "applicationCategory": "Scientific/Research"
 }
