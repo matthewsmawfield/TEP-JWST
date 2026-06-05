@@ -6,7 +6,7 @@
 ![JWST Galaxy Age Resolution](site/public/image.webp)
 
 **Author:** Matthew Lukin Smawfield  
-**Version:** v0.4 (Kos)  
+**Version:** v0.5 (Kos)  
 **Date:** 13 March 2026 (first release) – 29 April 2026 (last updated)  
 **Status:** Preprint (Open for Collaboration)  
 **DOI:** [10.5281/zenodo.19000827](https://doi.org/10.5281/zenodo.19000827)  
@@ -108,7 +108,7 @@ See `data/DATA_PROVENANCE.md` for acquisition details and provenance notes.
   journal={Zenodo},
   year={2026},
   doi={10.5281/zenodo.19000827},
-  note={Preprint v0.4 (Kos)}
+  note={Preprint v0.5 (Kos)}
 }
 ```
 

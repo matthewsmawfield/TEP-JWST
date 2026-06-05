@@ -68,3 +68,5 @@ research
 .windsurf
 # IDE files
 *.code-workspace
+
+.devin

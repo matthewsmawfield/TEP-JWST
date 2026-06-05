@@ -1,6 +1,7 @@
 {
-  "version": "0.4",
+  "version": "0.5",
   "codename": "Kos",
-  "date": "2026-04-29",
-  "description": "Paper 12: Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies"
+  "date": "2026-06-05",
+  "description": "Paper 12: Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies",
+  "previous_version": "0.4"
 }

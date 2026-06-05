@@ -15,9 +15,17 @@ Author: Matthew L. Smawfield
 Date: April 2026
 """
 
+import sys
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 from scipy import integrate
+
+_REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+from core import constants as tep_const
 
 # =============================================================================
 # 1. UNIVERSAL COUPLINGS & CONSTANTS
@@ -43,8 +51,8 @@ LOG_MH_REF = 12.0
 PHI_REF_0 = 1.6e-7    # Dimensionless Phi/c^2 for 10^12 Msun halo at z=0
 Z_REF = 5.5
 
-# SCREENING SCALES
-RHO_CRIT_G_CM3 = 20.0  # Temporal Topology saturation scale (g/cm^3)
+# SCREENING SCALES (from core.constants)
+RHO_CRIT_G_CM3 = tep_const.RHO_C
 
 # PHYSICAL CONSTANTS
 C_LIGHT_KM_S = 2.99792458e5

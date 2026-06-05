@@ -18,7 +18,7 @@
         $K_{\rm gal}$ is informed by the Cepheid response scale $\kappa_{\rm Cep}$
         measured in Paper 11. It is a transferred galaxy-sector effective normalization,
         not the Cepheid coefficient itself and not a microscopic scalar coupling.
-        $K_{\rm gal}$ is not identified with bare couplings ($\beta$, $\kappa_{\rm Cep}$,
+        $K_{\rm gal}$ is not identified with bare couplings ($\beta_A$, $\kappa_{\rm Cep}$,
         or $\alpha_{\rm clock}$). A microscopic mapping requires a solved transfer function
         that absorbs stellar physics, environmental activation, and field gradients.
         The JWST analysis adopts this observable response normalization for the
@@ -42,7 +42,7 @@
         \nabla_\nu\phi$$
     </div>
     <p>
-        The conformal factor $A(\phi) = \exp(\beta\phi/M_{\rm Pl})$ controls 
+        The conformal factor $A(\phi) = \exp(\beta_A\phi/M_{\rm Pl})$ controls 
         the clock rate $d\tau/dt \propto A(\phi)$. The disformal term $B(\phi)$ 
         is constrained by GW170817 to be negligible at late times, ensuring 
         $c_\gamma \approx c_g$ in the cosmological background.
@@ -139,7 +139,7 @@
 
     <h4>A.1.5 Screening Hierarchy Validation</h4>
     <p>
-        The density-dependent screening hierarchy explains why precision tests
+        The environment-dependent screening hierarchy explains why precision tests
         of General Relativity show no deviation despite the large halo-scale
         response. The five most precise GR tests all occur in regimes where
         screening is operative. For example, the Hulse-Taylor binary pulsar at
@@ -178,15 +178,15 @@
     </div>
     <p>
         Here $\kappa_{\rm gal}$ denotes the derived galaxy-sector effective response
-        (not the Cepheid-measured coefficient $\kappa_{\rm Cep}$). <strong>Neither $K$
+        (not the Cepheid-measured coefficient $\kappa_{\rm Cep}$). Neither $K$
         nor $\kappa_{\rm gal}$ is identified with $\beta$, $\kappa_{\rm Cep}$, or
-        $\alpha_{\rm clock}$.</strong> A microscopic mapping requires a solved transfer
+        $\alpha_{\rm clock}$. A microscopic mapping requires a solved transfer
         function that absorbs stellar physics, environmental activation, and field
         gradients, and is not assumed here. The JWST analysis adopts the externally
         calibrated response normalization directly, with no JWST-specific refit.
     </p>
 
-    <p><strong>A.1.5b.1 Redshift Scaling.</strong>
+    <p>A.1.5b.1 Redshift Scaling.
         The $\sqrt{1+z}$ scaling reflects the weakening of cosmological screening 
         at higher redshift due to lower background density. This scaling ensures 
         that the temporal enhancement factor remains active during the peak epoch 
@@ -233,7 +233,7 @@
                     <td>Exponential: $\Gamma_t = \exp[ K \frac{\Phi - \Phi_{\rm ref}}{c^2} \sqrt{1+z} ]$</td>
                     <td>
                         Conformal coupling $\tilde{g}_{\mu\nu} = A^2(\phi)
-                        g_{\mu\nu}$ with $A(\phi) = \exp(\beta\phi/M_{\rm Pl})$
+                        g_{\mu\nu}$ with $A(\phi) = \exp(\beta_A\phi/M_{\rm Pl})$
                         implies proper time $d\tau \propto A(\phi) dt$
                     </td>
                     <td>
@@ -306,7 +306,7 @@
         </li>
         <li>
             <strong>$\sqrt{1+z}$ scaling:</strong> Motivated by the
-            density-dependent screening hierarchy (§A.1.2), but the exact
+            environment-dependent screening hierarchy (§A.1.2), but the exact
             exponent 0.5 is a simplification. The full screening evolution
             depends on the time-dependent background density and the scalar
             field equation of motion. Alternative scalings $(1+z)^n$ with $n \in
@@ -516,7 +516,7 @@
     <p>
         The apparent tension between the halo-scale response (Cepheid-calibrated $\kappa_{\rm Cep}$ prior from Paper 11)
         and the $\sigma_8$ constraint ($\beta_{\rm eff}
-        \lesssim 0.055$) is resolved by density-dependent screening. This
+        \lesssim 0.055$) is resolved by environment-dependent screening. This
         section provides a quantitative model demonstrating how the required
         $\sim 10\times$ suppression arises naturally from the characteristic
         screening length associated with $\rho_T$.
@@ -636,7 +636,7 @@
     </div>
     <p>
         This is well below the Planck 2$\sigma$ bound of $\beta_{\rm eff}
-        \lesssim 0.055$, demonstrating that the density-dependent screening
+        \lesssim 0.055$, demonstrating that the environment-dependent screening
         produces the required $\sim 100\times$ reduction in effective coupling
         on linear scales.
     </p>
@@ -707,7 +707,7 @@
         </p>
         <ol>
             <li>
-                <strong>Density-dependent screening:</strong> The Temporal Topology radius
+                <strong>Environment-dependent screening:</strong> The Temporal Topology radius
                 produces a screening factor $S \propto \rho^{1/3}$ that
                 suppresses the scalar force on linear scales by factors of $\sim
                 100$.
