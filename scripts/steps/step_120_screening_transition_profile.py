@@ -60,7 +60,7 @@ FIGURES_DIR = (
 
 
 def temporal_topology_screening_profile(
-    rho, rho_c=RHO_CRIT_G_CM3, beta=KAPPA_GAL, transition_width=0.5
+    rho, rho_c=RHO_CRIT_G_CM3, transition_width=0.5
 ):
     """
     Compute the Temporal Topology screening suppression factor (v0.7 TEP).
@@ -71,8 +71,6 @@ def temporal_topology_screening_profile(
         Local density in g/cm³
     rho_c : float
         Critical screening density in g/cm³
-    beta : float
-        Coupling strength (α₀)
     transition_width : float
         Width of transition in log(rho) units
 

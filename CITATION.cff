@@ -1,4 +1,4 @@
-cff-version: 0.4
+cff-version: 1.2.0
 title: 'Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift
   Anomalies'
 message: If you use this software, please cite it as below.
@@ -17,7 +17,7 @@ abstract: 'JWST has revealed high-redshift anomalies whose strongest current TEP
 
   '
 license: CC-BY-4.0
-version: '0.4'
+version: v0.5 (Kos)
 date-released: 2026-06-05
 keywords:
 - Temporal Equivalence Principle
