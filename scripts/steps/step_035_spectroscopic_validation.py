@@ -98,10 +98,10 @@ def test_correlations(df, sample_name):
     # Gamma_t vs age_ratio
     rho, p = stats.spearmanr(df['gamma_t'], df['age_ratio'])
     # Bootstrap 95% CI
-    np.random.seed(42)
+    rng = np.random.default_rng(42)
     boot_rhos = []
     for _ in range(2000):
-        idx = np.random.choice(len(df), size=len(df), replace=True)
+        idx = rng.choice(len(df), size=len(df), replace=True)
         br, _ = stats.spearmanr(df['gamma_t'].iloc[idx], df['age_ratio'].iloc[idx])
         boot_rhos.append(br)
     ci_lo, ci_hi = np.percentile(boot_rhos, [2.5, 97.5])
@@ -204,12 +204,12 @@ def main():
         print_status(f"  rho(Gamma_t, age_ratio) = {rho:+.3f}, p = {p:.4f}", "INFO")
         
         if p is not None and p < 0.05:
-            print_status(f"\n✓ SPECTROSCOPIC VALIDATION SUCCESSFUL", "INFO")
-            print_status(f"  TEP prediction confirmed in spectroscopically validated sample", "INFO")
+            print_status(f"\n✓ SPECTROSCOPIC VALIDATION: correlation significant", "INFO")
+            print_status(f"  rho(Gamma_t, age_ratio) = {rho:+.3f}, p = {p:.4f} in spectroscopically validated sample (N = {full_results['n']})", "INFO")
             results['validation_status'] = 'confirmed'
         else:
             print_status(f"\n⚠ SPECTROSCOPIC VALIDATION INCONCLUSIVE", "INFO")
-            print_status(f"  Correlation not significant at p < 0.05", "INFO")
+            print_status(f"  Correlation not significant at p < 0.05 (rho = {rho:+.3f}, p = {p:.4f})", "INFO")
             results['validation_status'] = 'inconclusive'
     
     # Save results

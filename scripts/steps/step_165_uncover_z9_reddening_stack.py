@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import json
 import sys
 from pathlib import Path
@@ -136,7 +138,7 @@ def _assessment(primary: dict | None) -> str:
 
 
 def run():
-    print_status(f"STEP {STEP_NUM}: UNCOVER z=9-12 stacked reddening surrogate", "INFO")
+    print_status(f"STEP {STEP_NUM}: UNCOVER z=9-12 stacked reddening surrogate", "TITLE")
     if not INPUT_CSV.exists():
         result = {
             "step": STEP_NUM,
@@ -155,11 +157,16 @@ def run():
     df["sigma_dust2"] = np.clip(df["sigma_dust2"], 1e-3, None)
     df["posterior_broad"] = df["sigma_dust2"] >= float(df["sigma_dust2"].median())
 
+    print_status(f"Selected N={len(df)} galaxies at z=9-12 with dust2 posteriors", "INFO")
+    print_status(f"  Posterior-broad subset: N={int(df['posterior_broad'].sum())}, median σ_dust2={float(df['sigma_dust2'].median()):.3f}", "INFO")
+
     full_q33 = _build_contrast(df, "all_objects_q33_q67", 1.0 / 3.0, 2.0 / 3.0)
     full_q25 = _build_contrast(df, "all_objects_q25_q75", 0.25, 0.75)
     broad = df[df["posterior_broad"]].copy()
     broad_q33 = _build_contrast(broad, "posterior_broad_q33_q67", 1.0 / 3.0, 2.0 / 3.0)
     broad_q25 = _build_contrast(broad, "posterior_broad_q25_q75", 0.25, 0.75)
+
+    print_status(f"Built 4 contrasts: full q33/q67, full q25/q75, broad q33/q67, broad q25/q75", "INFO")
 
     null_audit = None
     if INPUT_NULL_AUDIT.exists():

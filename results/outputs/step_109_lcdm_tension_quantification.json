@@ -7,11 +7,11 @@
       "z_mid": 7.5,
       "median_gamma_t": 0.8152187864826856,
       "lcdm_prediction": 1.5999999999999996,
-      "observed": 5.274813467393272,
-      "tep_corrected": 5.8682985519155135,
-      "tension_observed_sigma": 12.249378224644241,
-      "tension_tep_sigma": 14.22766183971838,
-      "tension_reduction_pct": -16.15007373267384,
+      "observed": 5.274813467393269,
+      "tep_corrected": 5.868298551915511,
+      "tension_observed_sigma": 12.249378224644232,
+      "tension_tep_sigma": 14.22766183971837,
+      "tension_reduction_pct": -16.15007373267385,
       "mass_reduction_dex": -0.5934850845222419
     },
     {
@@ -42,13 +42,13 @@
     }
   ],
   "summary": {
-    "mean_tension_observed_sigma": 17.80801928337905,
-    "mean_tension_tep_sigma": 18.107380671403817,
-    "mean_tension_reduction_pct": -3.6681213858125084,
+    "mean_tension_observed_sigma": 17.808019283379046,
+    "mean_tension_tep_sigma": 18.107380671403813,
+    "mean_tension_reduction_pct": -3.668121385812512,
     "mean_mass_reduction_dex": -0.08980841640743027,
-    "status": "NOT SUPPORTED"
+    "status": "tension_not_reduced"
   },
-  "conclusion": "-> TEP does not measurably reduce \u039bCDM tension",
+  "conclusion": "TEP does not measurably reduce \u039bCDM tension (17.8\u03c3 \u2192 18.1\u03c3)",
   "implications": [
     "Observed stellar mass density at z > 7 is 0.8\u00d7 higher than \u039bCDM",
     "TEP correction reduces this excess by -4%",

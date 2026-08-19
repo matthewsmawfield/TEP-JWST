@@ -270,7 +270,7 @@ def main():
     print_status("", "INFO")
     
     if summary["overall"]["all_significant"]:
-        print_status("★ ALL THREADS CONFIRMED ★", "INFO")
+        print_status(f"★ All {summary['overall']['threads_total']} threads significant ★", "INFO")
     
     print_status("", "INFO")
     print_status(f"Step {STEP_NUM} complete.", "INFO")

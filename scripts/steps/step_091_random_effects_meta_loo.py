@@ -316,23 +316,41 @@ def make_figure(effects, fixed, random, out_path: Path):
         except ImportError:
             pass
     except ImportError:
-
-        ax.axvline(0.0, color='0.6', lw=1)
-
-        for i in range(len(rows)):
-            ax.plot(xs[i], y[i], 'o', color='steelblue' if i < len(rows) - 2 else 'darkorange')
-            ax.hlines(y[i], lo[i], hi[i], color='steelblue' if i < len(rows) - 2 else 'darkorange', lw=2)
-
-        ax.set_yticks(y)
-        ax.set_yticklabels(labels)
-        ax.set_xlabel('Spearman ρ (dust vs Γ_t)')
-        ax.set_title('Cross-survey meta-analysis (z > 8, dust > 0)')
-
-        fig.savefig(out_path, dpi=200)
-        plt.close(fig)
-        return True
-    except Exception:
         return False
+
+    try:
+        set_pub_style()
+    except NameError:
+        pass
+
+    rows = []
+    for name, info in effects.items():
+        rows.append((name, info['rho'], info['ci_rho_lower'], info['ci_rho_upper']))
+    rows.append(('Fixed-effects', fixed['rho_fixed'], fixed['ci_rho_lower'], fixed['ci_rho_upper']))
+    rows.append(('Random-effects', random['rho_random'], random['ci_rho_lower'], random['ci_rho_upper']))
+
+    labels = [r[0] for r in rows]
+    y = list(range(len(rows)))
+    lo = [r[2] for r in rows]
+    hi = [r[3] for r in rows]
+    xs = [r[1] for r in rows]
+
+    fig, ax = plt.subplots(figsize=(7, 0.5 * len(rows) + 1))
+
+    ax.axvline(0.0, color='0.6', lw=1)
+
+    for i in range(len(rows)):
+        ax.plot(xs[i], y[i], 'o', color='steelblue' if i < len(rows) - 2 else 'darkorange')
+        ax.hlines(y[i], lo[i], hi[i], color='steelblue' if i < len(rows) - 2 else 'darkorange', lw=2)
+
+    ax.set_yticks(y)
+    ax.set_yticklabels(labels)
+    ax.set_xlabel('Spearman ρ (dust vs Γ_t)')
+    ax.set_title('Cross-survey meta-analysis (z > 8, dust > 0)')
+
+    fig.savefig(out_path, dpi=200)
+    plt.close(fig)
+    return True
 
 
 def main():
@@ -349,6 +367,8 @@ def main():
         return
 
     print_status(f"Surveys loaded: {list(surveys.keys())}", "INFO")
+    print_status(f"Config: z_min={config['z_min']}, dust_positive_only={config['dust_positive_only']}", "INFO")
+    print_status("", "INFO")
 
     effects = {}
     for name, df in surveys.items():
@@ -357,6 +377,7 @@ def main():
         if eff is None:
             continue
         effects[name] = eff
+        print_status(f"  {name}: N={eff['n']}, ρ={eff['rho']:.3f}, z={eff['fisher_z']:.2f}", "INFO")
 
     if len(effects) < 2:
         print_status("Insufficient surveys with valid effects (need >= 2).", "ERROR")
@@ -366,6 +387,13 @@ def main():
     het = heterogeneity(effects, fe)
     re = random_effects_meta(effects, het['tau2'])
     loo = leave_one_out(effects)
+
+    print_status("", "INFO")
+    print_status(f"Fixed-effects: ρ={fe['rho_fixed']:.3f}, z={fe['z_stat']:.2f}, p={fe['p']:.3e}", "INFO")
+    print_status(f"Random-effects: ρ={re['rho_random']:.3f}, z={re['z_stat']:.2f}, p={re['p']:.3e}", "INFO")
+    print_status(f"Heterogeneity: Q={het['Q']:.1f}, I²={het['I2']:.1%}, τ²={het['tau2']:.4f}", "INFO")
+    print_status("", "INFO")
+    print_status("Leave-one-out influence:", "INFO")
 
     influence = {}
     for name, e in effects.items():
@@ -385,6 +413,9 @@ def main():
                 else None
             ),
         }
+        loo_rho = influence[name].get('loo_rho_random')
+        loo_delta = influence[name].get('loo_delta_rho_random')
+        print_status(f"  Drop {name}: ρ_random={loo_rho:.3f} (Δ={loo_delta:+.3f})" if loo_rho is not None else f"  Drop {name}: N/A", "INFO")
 
     results = {
         'config': config,

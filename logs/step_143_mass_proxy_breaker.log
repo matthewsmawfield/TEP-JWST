@@ -1,19 +1,19 @@
-[10:04:19] ======================================================================
-[10:04:19] Step 143: Mass-Proxy Degeneracy Breaker
-[10:04:19] ======================================================================
-[10:04:19] Loaded 2315 galaxies
-[10:04:19]     TEST 1: Environment-density residual test
-[10:04:19]       Computing 5-NN density (z-windowed)...
-[10:04:19]       N with density: 2315
-[10:04:19]     TEST 2: Non-parametric double-residual test
-[10:04:19]     TEST 3: Shuffled-mass null test (2000 shuffles)
-[10:04:20] Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_143_mass_proxy_breaker.json
-[10:04:21] Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_143_mass_proxy_breaker.png
-[10:04:21]     ============================================================
-[10:04:21]     MASS-PROXY BREAKER RESULTS
-[10:04:21]     ============================================================
-[10:04:21]       Test 1 INCONCLUSIVE: environment density predicts dust at fixed mass/z but with the opposite sign to the field-dustier formulation (ρ=0.069, p=8.51e-04)
-[10:04:21]       Test 2 PASS: nonparametric residual tests retain the z>8 signal after mass+z removal (LOWESS ρ=0.165; partial-rank ρ=0.212; partial-rank+interaction ρ=0.219)
-[10:04:21]       Test 3 PASS: Γ_t outperforms shuffled-mass Γ_t (p=0.0005, unique fraction=102.2%)
-[10:04:21]     
+[22:39:51] INFO    ======================================================================
+[22:39:51] INFO    Step 143: Mass-Proxy Degeneracy Breaker
+[22:39:51] INFO    ======================================================================
+[22:39:51] INFO    Loaded 2315 galaxies
+[22:39:51] INFO        TEST 1: Environment-density residual test
+[22:39:51] INFO          Computing 5-NN density (z-windowed)...
+[22:39:51] INFO          N with density: 2315
+[22:39:51] INFO        TEST 2: Non-parametric double-residual test
+[22:39:52] INFO        TEST 3: Shuffled-mass null test (2000 shuffles)
+[22:39:54] INFO    Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_143_mass_proxy_breaker.json
+[22:39:55] INFO    Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_143_mass_proxy_breaker.png
+[22:39:55] INFO        ============================================================
+[22:39:55] INFO        MASS-PROXY BREAKER RESULTS
+[22:39:55] INFO        ============================================================
+[22:39:55] INFO          Test 1 INCONCLUSIVE: environment density predicts dust at fixed mass/z but with the opposite sign to the field-dustier formulation (ρ=0.069, p=8.51e-04)
+[22:39:55] INFO          Test 2 PASS: nonparametric residual tests retain the z>8 signal after mass+z removal (LOWESS ρ=0.165; partial-rank ρ=0.212; partial-rank+interaction ρ=0.219)
+[22:39:55] INFO          Test 3 PASS: Γ_t outperforms shuffled-mass Γ_t (p=0.0005, unique fraction=102.2%)
+[22:39:55] INFO        
 Overall: 2/3 mass-proxy breaking tests passed. The current test set substantially narrows the mass-proxy degeneracy, especially in the z>8 residual and shuffled-null branches, but it does not close the case without direct mass-independent kinematic calibration.

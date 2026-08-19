@@ -255,7 +255,7 @@ def main():
         conclusion = "Signal is CONSISTENT across independent fields"
         print_status(f"\n✓ {conclusion}")
         print_status(f"  All {n_fields} fields show positive dust-Γₜ correlation")
-        print_status(f"  This rules out cosmic variance as the explanation")
+        print_status(f"  This disfavours cosmic variance as the primary explanation")
     else:
         conclusion = "Signal consistency across fields is uncertain"
         print_status(f"\n⚠ {conclusion}")

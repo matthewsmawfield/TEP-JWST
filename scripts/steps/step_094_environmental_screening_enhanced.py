@@ -183,7 +183,13 @@ def test_screening_hypothesis(df, density_col, dust_col='dust', gamma_col='gamma
         "delta_rho_ci_high": float(ci_high),
         "tep_prediction": "rho_low > rho_high (screening suppresses in dense regions)",
         "tep_confirmed": bool(tep_confirmed),
-        "interpretation": "SUPPORTS TEP" if tep_confirmed else "INCONCLUSIVE or CONTRADICTS"
+        "interpretation": (
+            f"Consistent with TEP screening prediction (delta_rho = {delta_rho:+.3f}, "
+            f"95% CI [{ci_low:+.3f}, {ci_high:+.3f}])"
+            if tep_confirmed else
+            f"Inconclusive or inconsistent with TEP screening prediction (delta_rho = {delta_rho:+.3f}, "
+            f"95% CI [{ci_low:+.3f}, {ci_high:+.3f}])"
+        )
     }
 
 
@@ -390,9 +396,9 @@ def main():
     print_status(f"Tests supporting TEP screening: {n_support}/{n_tests}", "INFO")
     
     if n_support >= n_tests / 2:
-        print_status("RESULT: Evidence SUPPORTS environmental screening hypothesis", "INFO")
+        print_status(f"Result: {n_support}/{n_tests} density estimators show the predicted screening pattern", "INFO")
     else:
-        print_status("RESULT: Evidence is INCONCLUSIVE for environmental screening", "INFO")
+        print_status(f"Result: {n_support}/{n_tests} density estimators show the predicted screening pattern (inconclusive)", "INFO")
     
     # Save results
     output_file = OUTPUT_PATH / f"step_{STEP_NUM}_{STEP_NAME}.json"

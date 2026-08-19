@@ -2,6 +2,8 @@
 
 import numpy as np
 import pandas as pd
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from astropy.io import fits
 from astropy.coordinates import SkyCoord
@@ -252,6 +254,7 @@ def run():
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
     plt.savefig(PATHS["output_fig"])
+    plt.close()
     print_status(f"Saved figure to {PATHS['output_fig']}", "SUCCESS")
     
     # 4. Statistics
@@ -286,7 +289,7 @@ def run():
         f.write(report)
         
     print_status(f"Report saved to {PATHS['output_report']}", "SUCCESS")
-    print(report)
+    print_status(report, "INFO")
 
     # Save JSON results for Step 85 integration
     import json

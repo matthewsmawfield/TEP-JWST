@@ -1,3 +1,10 @@
-[10:04:16]     N = 283 valid z>8 galaxies loaded.
-[10:04:16]     Rho(mass, dust) = 0.559
-[10:04:16]     Rho(t_eff, dust) = 0.216
+[22:39:46] INFO        N = 283 valid z>8 galaxies loaded.
+[22:39:46] INFO        Rho(mass, dust) = 0.559
+[22:39:46] INFO        Rho(t_eff, dust) = 0.216
+[22:39:46] INFO    ✓   Step 141 complete.
+[22:39:46] INFO        Best AIC model: polynomial_mass_z
+[22:39:46] INFO        Step t_eff vs step M* ΔAIC: 23.18
+[22:39:46] INFO        Step t_eff wins AIC: False
+[22:39:46] INFO        Step t_eff wins BIC: False
+[22:39:46] INFO        Dust ratio above/below t_eff threshold: 1.36x
+[22:39:46] INFO        Output: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_141_nonlinear_aic.json

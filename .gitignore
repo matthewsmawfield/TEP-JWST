@@ -69,4 +69,4 @@ research
 # IDE files
 *.code-workspace
 
-.devin
+.devin/

@@ -324,8 +324,13 @@ def run_screening_steiger(df, label, z_min=None, z_max=None):
         "n_quintiles_tested": len(mass_matched_deltas),
         "tep_prediction": "rho_field > rho_dense (screening suppresses in dense regions)",
         "tep_confirmed": tep_confirmed,
-        "interpretation": "SUPPORTS TEP" if tep_confirmed else (
-            "MARGINAL" if delta_rho > 0 else "INCONCLUSIVE or CONTRADICTS"
+        "interpretation": (
+            f"Consistent with TEP screening (delta_rho = {delta_rho:+.3f}, Z = {Z_indep:.2f}, p = {p_indep:.4f})"
+            if tep_confirmed else (
+                f"Marginal: delta_rho positive but not significant (delta_rho = {delta_rho:+.3f}, p = {p_indep:.4f})"
+                if delta_rho > 0 else
+                f"Inconclusive or inconsistent (delta_rho = {delta_rho:+.3f}, Z = {Z_indep:.2f}, p = {p_indep:.4f})"
+            )
         ),
     }
 

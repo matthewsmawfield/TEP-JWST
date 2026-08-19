@@ -406,7 +406,7 @@ def main():
         'tests_total': n_total,
         'pass_rate': float(n_passed / n_total) if n_total > 0 else 0,
         'all_passed': n_passed == n_total,
-        'verdict': 'TEP SUPPORTED' if n_passed >= n_total - 1 else 'TEP CHALLENGED'
+        'verdict': f'{n_passed}/{n_total} falsification tests passed' if n_passed >= n_total - 1 else f'{n_passed}/{n_total} falsification tests passed (challenged)'
     }
     
     results['summary'] = summary

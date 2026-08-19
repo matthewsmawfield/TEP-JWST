@@ -22,7 +22,6 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 import json
 import numpy as np
-np.random.seed(42)  # Fixed seed for reproducible optimisation
 import pandas as pd
 from pathlib import Path
 from datetime import datetime
@@ -146,8 +145,9 @@ def fit_alpha_single_observable(observable, log_mh, z, obs_name, expected_sign=1
     n = len(obs_valid)
     n_boot = 200
     kappa_boots = []
+    rng = np.random.default_rng(42)
     for _ in range(n_boot):
-        idx = np.random.choice(n, n, replace=True)
+        idx = rng.choice(n, n, replace=True)
         obs_b = obs_valid[idx]
         lmh_b = log_mh_valid[idx]
         z_b = z_valid[idx]
@@ -223,8 +223,9 @@ def fit_alpha_joint(observables_dict, log_mh, z):
     n = np.sum(valid)
     n_boot = 200
     kappa_boots = []
+    rng = np.random.default_rng(42)
     for _ in range(n_boot):
-        idx = np.random.choice(n, n, replace=True)
+        idx = rng.choice(n, n, replace=True)
         lmh_b = log_mh_valid[idx]
         z_b = z_valid[idx]
         obs_b = {k: (v[idx], s, w) for k, (v, s, w) in obs_arrays.items()}

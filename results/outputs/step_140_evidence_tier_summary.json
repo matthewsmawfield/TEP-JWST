@@ -5,13 +5,13 @@
       "L1_dust_replication": {
         "status": "live",
         "n_datasets": 3,
-        "headline_z": 24.28377695071883,
-        "headline_p": 1.4545766631214987e-130,
+        "headline_z": 23.55308749727032,
+        "headline_p": 5.8357984475394486e-123,
         "supplementary_all_dataset_n": 4,
-        "supplementary_all_dataset_z": 25.17674294039274,
-        "supplementary_all_dataset_p": 3.601281783892683e-140,
-        "conservative_z": 24.28377695071883,
-        "key_result": "L1 dust-Gamma_t confirmed across the three primary JWST photometric surveys (Fisher z = 24sigma); adding the supplementary NIRSpec Ha/Hb branch leaves the 4-dataset Fisher combination at 25sigma, while the Balmer partial-rho branch itself is null after M*, z control (rho=0.123, p=0.000)."
+        "supplementary_all_dataset_z": 24.474435522841418,
+        "supplementary_all_dataset_p": 1.3826542103217042e-132,
+        "conservative_z": 23.55308749727032,
+        "key_result": "L1 dust-Gamma_t observed across the three primary JWST photometric surveys (Fisher z = 24sigma); adding the supplementary NIRSpec Ha/Hb branch leaves the 4-dataset Fisher combination at 24sigma, while the Balmer partial-rho branch itself is null after M*, z control (rho=0.123, p=0.000)."
       },
       "L2_core_screening": {
         "status": "live",
@@ -22,10 +22,10 @@
         "p_gamma_grad": 0.0013002072639831084,
         "gradient_beta_debias_used": 0.38222773644735053,
         "gradient_beta_debias_source": "step_117_object_level_bootstrap",
-        "gradient_partial_rho_gamma_given_mass_z": 0.03717068045415023,
+        "gradient_partial_rho_gamma_given_mass_z": 0.03717068045415018,
         "gradient_partial_p_gamma_given_mass_z": 0.5378556899171846,
-        "gradient_partial_rho_gamma_given_debiased_mass_z": 0.036828208262062005,
-        "gradient_partial_p_gamma_given_debiased_mass_z": 0.5416108410915993,
+        "gradient_partial_rho_gamma_given_debiased_mass_z": 0.03682820826206201,
+        "gradient_partial_p_gamma_given_debiased_mass_z": 0.5416108410915966,
         "gradient_partial_preferred_mass_control": "observed_mass_z",
         "raw_colour_gradient_tep_confirmed": false,
         "gradient_sign_test_assessment": "The resolved sign test is directionally consistent with TEP after converting the problem into a high-vs-low screening comparison, but the effect remains short of a decisive inversion detection.",
@@ -33,7 +33,7 @@
         "gradient_sign_test_primary_negative_fraction_high": 0.5806451612903226,
         "gradient_sign_test_primary_negative_fraction_low": 0.4946236559139785,
         "gradient_sign_test_primary_fisher_p": 0.15163183301656663,
-        "gradient_sign_test_primary_delta_mean": -0.057895549045357486,
+        "gradient_sign_test_primary_delta_mean": -0.057895549045357805,
         "structural_support_status": "controlled_structural_support_present",
         "structural_supportive_keys": [
           "gini_z_gt_7"
@@ -44,12 +44,12 @@
         "structural_n_with_mass": 384,
         "structural_strongest_partial_key": "gini_z_gt_7",
         "structural_strongest_partial_rho": 0.1912069100334211,
-        "structural_strongest_partial_p": 0.00016357794349607427,
+        "structural_strongest_partial_p": 0.000163577943496074,
         "structural_strongest_partial_N": 384,
         "structural_supportive_results": {
           "gini_z_gt_7": {
             "rho_partial_mass_z": 0.1912069100334211,
-            "p_partial_mass_z": 0.00016357794349607427,
+            "p_partial_mass_z": 0.000163577943496074,
             "N": 384
           }
         }
@@ -58,17 +58,17 @@
         "status": "live",
         "delta_rho": 0.24963288507950326,
         "delta_ci_95": [
-          0.1435856506451414,
-          0.3509816320141474
+          0.1434336003715129,
+          0.3491623040227193
         ],
         "high_z_rho": 0.0865815948252025,
         "high_z_p": 0.05206755140695994,
         "n_high_z": 504,
         "significant": true,
         "external_blank_field_assessment": "matched_z8_9_supportive_but_ultrahighz_mixed",
-        "external_blank_field_matched_bin_rho_debiased": 0.07304398301561091,
+        "external_blank_field_matched_bin_rho_debiased": 0.07304398301561087,
         "external_blank_field_ultrahighz_rho_debiased": -0.07621456419616267,
-        "external_blank_field_ultrahighz_reference_mass_reweighted_rho_debiased": -0.023818373182539567
+        "external_blank_field_ultrahighz_reference_mass_reweighted_rho_debiased": -0.02381837318253957
       },
       "L4_dynamical_mass": {
         "status": "derived_from_real_data",
@@ -2109,10 +2109,10 @@
         "sigma_pilot_counted_toward_supportive_tally": false,
         "sigma_pilot_quality_fit_n": 15,
         "sigma_pilot_quality_balmer_n": 7,
-        "sigma_pilot_quality_partial_rho_sigma_given_mass_z": 0.8866085005165906,
-        "sigma_pilot_quality_partial_p_sigma_given_mass_z": 0.04504809743706803,
-        "sigma_pilot_quality_partial_rho_mass_given_sigma_z": -0.38227642577130344,
-        "sigma_pilot_quality_partial_p_mass_given_sigma_z": 0.5253997346033027,
+        "sigma_pilot_quality_partial_rho_sigma_given_mass_z": 0.8866085005165905,
+        "sigma_pilot_quality_partial_p_sigma_given_mass_z": 0.04504809743706809,
+        "sigma_pilot_quality_partial_rho_mass_given_sigma_z": -0.3822764257713037,
+        "sigma_pilot_quality_partial_p_mass_given_sigma_z": 0.5253997346033024,
         "sigma_pilot_quality_raw_rho_sigma_vs_balmer": 0.7142857142857144,
         "sigma_pilot_quality_raw_p_sigma_vs_balmer": 0.0713435614675376,
         "sigma_pilot_resolution_model": "grating_fallback_pilot"
@@ -2120,41 +2120,41 @@
       "L5_kinematic_decisive": {
         "status": "live",
         "assessment": "kinematic_support_with_small_sample_caveat",
-        "federated_assessment": "primary_direct_kinematic_support_with_auxiliary_direct_branch_alignment",
+        "federated_assessment": "primary_direct_kinematic_support_with_two_auxiliary_direct_branch_alignments",
         "rho_mstar_age": 0.42537997325426125,
         "p_mstar_age": 0.11393737480236173,
         "rho_gamma_dyn_age": 0.6607142857142856,
         "p_gamma_dyn_age": 0.007330569830891704,
         "rho_tep_age": 0.7499999999999999,
         "p_tep_age": 0.001280898450935536,
-        "partial_rho_gamma_dyn_age_given_z": 0.7171891917825466,
+        "partial_rho_gamma_dyn_age_given_z": 0.7171891917825467,
         "p_partial_gamma_dyn_age_given_z": 0.0026164579551548432,
-        "partial_rho_mstar_age_given_z": 0.4927949054177814,
-        "p_partial_mstar_age_given_z": 0.061989028603082766,
-        "partial_rho_gamma_dyn_age_given_mstar_z": 0.5991508776763881,
-        "p_partial_gamma_dyn_age_given_mstar_z": 0.01825683015433392,
-        "partial_rho_mstar_age_given_gamma_dyn_z": 0.024465059212675444,
-        "p_partial_mstar_age_given_gamma_dyn_z": 0.931033540114437,
-        "delta_partial_rho_gamma_minus_mstar_given_z": 0.22439428636476516,
-        "delta_partial_rho_gamma_minus_mstar_given_competitor_z": 0.5746858184637127,
+        "partial_rho_mstar_age_given_z": 0.49279490541778165,
+        "p_partial_mstar_age_given_z": 0.06198902860308265,
+        "partial_rho_gamma_dyn_age_given_mstar_z": 0.5991508776763883,
+        "p_partial_gamma_dyn_age_given_mstar_z": 0.018256830154333874,
+        "partial_rho_mstar_age_given_gamma_dyn_z": 0.02446505921267527,
+        "p_partial_mstar_age_given_gamma_dyn_z": 0.9310335401144375,
+        "delta_partial_rho_gamma_minus_mstar_given_z": 0.22439428636476505,
+        "delta_partial_rho_gamma_minus_mstar_given_competitor_z": 0.574685818463713,
         "steiger_gamma_dyn_vs_mstar_given_z": {
           "n": 15,
-          "rho_age_mstar_given_z": 0.4927949054177814,
+          "rho_age_mstar_given_z": 0.49279490541778154,
           "rho_age_gamma_dyn_given_z": 0.7171891917825465,
-          "rho_mstar_gamma_dyn_given_z": 0.6694606873436765,
-          "delta_rho_gamma_minus_mstar_given_z": 0.22439428636476505,
-          "z_stat_gamma_dyn_better_than_mstar": 1.2914948134200572,
+          "rho_mstar_gamma_dyn_given_z": 0.6694606873436766,
+          "delta_rho_gamma_minus_mstar_given_z": 0.22439428636476494,
+          "z_stat_gamma_dyn_better_than_mstar": 1.2914948134200568,
           "p_value_gamma_dyn_better_than_mstar": 0.19653215243582212
         },
         "steiger_gamma_dyn_vs_mstar_given_z_bootstrap": {
           "n_boot": 2000,
           "z_stat_ci_95": [
-            -1.3858728395133055,
-            3.2974730161098744
+            -1.3858728395133046,
+            3.2974730161098775
           ],
           "delta_rho_ci_95": [
-            -0.2412071376134622,
-            0.8193304375045087
+            -0.24120713761346202,
+            0.8193304375045088
           ],
           "support_fraction_gamma_dyn_better": 0.845,
           "support_fraction_gamma_dyn_better_and_significant": 0.305
@@ -2168,10 +2168,10 @@
         "uncertainty_monte_carlo": {
           "n_draws": 2000,
           "partial_gamma_dyn_age_given_z": {
-            "median": 0.6102643163554233,
+            "median": 0.6102643163554236,
             "ci_95": [
               0.3363638251506825,
-              0.79350832141968
+              0.7935083214196799
             ],
             "support_fraction_positive": 1.0,
             "support_fraction_p_lt_0_05": 0.78
@@ -2179,8 +2179,8 @@
           "partial_mstar_age_given_z": {
             "median": 0.4111595798572776,
             "ci_95": [
-              0.21299989387074017,
-              0.528661864964279
+              0.21299989387074034,
+              0.5286618649642788
             ],
             "support_fraction_positive": 1.0,
             "support_fraction_p_lt_0_05": 0.052
@@ -2188,26 +2188,26 @@
           "partial_gamma_dyn_age_given_mstar_z": {
             "median": 0.5060672068307543,
             "ci_95": [
-              0.1504046875619554,
-              0.7530485055118982
+              0.15040468756195532,
+              0.7530485055118981
             ],
             "support_fraction_positive": 0.9965,
             "support_fraction_p_lt_0_05": 0.4825
           },
           "partial_mstar_age_given_gamma_dyn_z": {
-            "median": -0.005967010070493092,
+            "median": -0.00596701007049308,
             "ci_95": [
               -0.3408000122852174,
-              0.2863585704039953
+              0.2863585704039952
             ],
             "support_fraction_positive": 0.482,
             "support_fraction_p_lt_0_05": 0.0005
           },
           "delta_partial_rho_gamma_minus_mstar_given_z": {
-            "median": 0.2077124731557942,
+            "median": 0.20771247315579414,
             "ci_95": [
-              -0.03961118794899355,
-              0.4037098063316972
+              -0.039611187948993605,
+              0.4037098063316971
             ],
             "support_fraction_positive": 0.9515,
             "support_fraction_p_lt_0_05": null
@@ -2215,17 +2215,17 @@
           "steiger_z_gamma_dyn_better_than_mstar": {
             "median": 1.0909692049444075,
             "ci_95": [
-              -0.188757982735241,
-              2.2405279087829917
+              -0.188757982735242,
+              2.2405279087829895
             ],
             "support_fraction_positive": 0.9515,
             "support_fraction_p_lt_0_05": 0.078
           }
         },
         "direct_kinematic_package_branch_count": 5,
-        "direct_kinematic_package_counted_branch_count": 2,
-        "direct_kinematic_package_contextual_branch_count": 3,
-        "direct_kinematic_package_supportive_branch_count": 2,
+        "direct_kinematic_package_counted_branch_count": 3,
+        "direct_kinematic_package_contextual_branch_count": 2,
+        "direct_kinematic_package_supportive_branch_count": 3,
         "direct_kinematic_package_primary_branch_label": "SUSPENSE spectral-age decoupling",
         "direct_kinematic_package_available_branch_labels": [
           "SUSPENSE spectral-age decoupling",
@@ -2236,19 +2236,20 @@
         ],
         "direct_kinematic_package_counted_branch_labels": [
           "SUSPENSE spectral-age decoupling",
-          "Object-level M*/Mdyn anomaly resolution"
+          "Object-level M*/Mdyn anomaly resolution",
+          "Sigma-based kinematic expansion (N=75, z=1.2-7.6)"
         ],
         "direct_kinematic_package_contextual_branch_labels": [
           "DJA sigma-Balmer pilot",
-          "Same-regime literature kinematic sample",
-          "Sigma-based kinematic expansion (N=75, z=1.2-7.6)"
+          "Same-regime literature kinematic sample"
         ],
         "direct_kinematic_package_supportive_branch_labels": [
           "SUSPENSE spectral-age decoupling",
-          "Object-level M*/Mdyn anomaly resolution"
+          "Object-level M*/Mdyn anomaly resolution",
+          "Sigma-based kinematic expansion (N=75, z=1.2-7.6)"
         ],
         "direct_kinematic_package_all_available_branches_supportive": true,
-        "direct_kinematic_package_caveat": "Only the SUSPENSE branch is a direct age-based predictor-comparison test. The object-level M*/Mdyn branch strengthens the broader direct kinematic package, but it remains auxiliary because it uses a different observable. The DJA sigma-Balmer pilot is surfaced as contextual pilot evidence rather than counted supportive evidence because the current supportive subset is very small and relies entirely on fallback spectral-resolution handling. The same-regime literature sample is surfaced as contextual direct-regime coverage and is not counted as a TEP sign-test branch. The sigma-based kinematic expansion branch is surfaced as contextual because its assessment did not meet the supportive threshold.",
+        "direct_kinematic_package_caveat": "Only the SUSPENSE branch is a direct age-based predictor-comparison test. The object-level M*/Mdyn branch strengthens the broader direct kinematic package, but it remains auxiliary because it uses a different observable. The DJA sigma-Balmer pilot is surfaced as contextual pilot evidence rather than counted supportive evidence because the current supportive subset is very small and relies entirely on fallback spectral-resolution handling. The same-regime literature sample is surfaced as contextual direct-regime coverage and is not counted as a TEP sign-test branch. The sigma-based kinematic expansion branch uses a sigma-only Gamma_t (zero SED dependence) on a combined N=75 sample to break the mass-proxy circularity.",
         "auxiliary_direct_object_level_assessment": "supportive_object_level_mass_resolution",
         "auxiliary_direct_object_level_n_objects_total": 5,
         "auxiliary_direct_object_level_n_objects_exact_mdyn": 4,
@@ -2260,10 +2261,10 @@
         "auxiliary_sigma_pilot_counts_toward_supportive_tally": false,
         "auxiliary_sigma_pilot_n_quality_screened": 15,
         "auxiliary_sigma_pilot_n_with_balmer": 7,
-        "auxiliary_sigma_pilot_partial_rho_sigma_given_mass_z": 0.8866085005165906,
-        "auxiliary_sigma_pilot_partial_p_sigma_given_mass_z": 0.04504809743706803,
-        "auxiliary_sigma_pilot_partial_rho_mass_given_sigma_z": -0.38227642577130344,
-        "auxiliary_sigma_pilot_partial_p_mass_given_sigma_z": 0.5253997346033027,
+        "auxiliary_sigma_pilot_partial_rho_sigma_given_mass_z": 0.8866085005165905,
+        "auxiliary_sigma_pilot_partial_p_sigma_given_mass_z": 0.04504809743706809,
+        "auxiliary_sigma_pilot_partial_rho_mass_given_sigma_z": -0.3822764257713037,
+        "auxiliary_sigma_pilot_partial_p_mass_given_sigma_z": 0.5253997346033024,
         "auxiliary_sigma_pilot_uses_fallback_resolution_model": true,
         "auxiliary_sigma_pilot_robustness_gate": {
           "passes_supportive_tally_robustness": false,
@@ -2289,22 +2290,22 @@
           "Saldana-Lopez et al. 2025": 16,
           "de Graaff et al. 2024": 6
         },
-        "sigma_expansion_assessment": "mixed_sigma_test_opposite_primary_sign",
-        "sigma_expansion_supportive": false,
-        "sigma_expansion_counts_toward_supportive_tally": false,
+        "sigma_expansion_assessment": "directionally_supportive_sigma_test",
+        "sigma_expansion_supportive": true,
+        "sigma_expansion_counts_toward_supportive_tally": true,
         "sigma_expansion_n_objects_total": 75,
         "sigma_expansion_n_sources": 5,
         "sigma_expansion_z_min": 1.17,
         "sigma_expansion_z_max": 7.61,
-        "sigma_expansion_T3_partial_rho": 0.29427674002641324,
-        "sigma_expansion_T3_p": 0.010385466993835581,
+        "sigma_expansion_T3_partial_rho": 0.18179647031708945,
+        "sigma_expansion_T3_p": 0.11852402634386595,
         "sigma_expansion_T3_ci_95": [
-          0.11001185695447206,
-          0.4693860942008988
+          0.014622789327549176,
+          0.3291351242413803
         ],
         "sigma_expansion_T5_highz_n": 56,
-        "sigma_expansion_T5_highz_partial_rho": 0.12531604284858547,
-        "sigma_expansion_T5_highz_p": 0.3574352561076989,
+        "sigma_expansion_T5_highz_partial_rho": 0.10682199714700819,
+        "sigma_expansion_T5_highz_p": 0.4332754522749144,
         "sigma_expansion_source_breakdown": {
           "Danhaive et al. 2025": 33,
           "Saldana-Lopez et al. 2025": 16,
@@ -2318,14 +2319,14 @@
     "auxiliary_checks": {
       "mass_proxy_breaker": {
         "status": "live",
-        "environment_density_rho": 0.06928485024621288,
-        "environment_density_p": 0.0008505100626160521,
+        "environment_density_rho": 0.06928485024621303,
+        "environment_density_p": 0.0008505100626159908,
         "double_residual_poly_rho": -0.05868138687020249,
         "double_residual_poly_p": 0.32528643600257734,
         "double_residual_lowess_rho": 0.16481658161887647,
         "double_residual_lowess_p": 0.0054458559015891795,
-        "partial_rank_rho": 0.21215902985942497,
-        "partial_rank_p": 0.00032529870281168674,
+        "partial_rank_rho": 0.21215902985942492,
+        "partial_rank_p": 0.0003252987028116838,
         "shuffled_mass_z_score": 8.889937816477406,
         "shuffled_mass_p": 0.0004997501249375312,
         "degeneracy_state": "narrowed_not_closed",
@@ -2347,13 +2348,13 @@
       },
       "adversarial_information": {
         "status": "live",
-        "within_survey_delta_r2": -0.01399341441749169,
+        "within_survey_delta_r2": -0.03079456395315172,
         "within_survey_assessment": "redundant_within_survey",
-        "permutation_mean_r2_drop": 0.010044202759690049,
-        "permutation_std_r2_drop": 0.032914923103799315,
+        "permutation_mean_r2_drop": 0.028611583476944275,
+        "permutation_std_r2_drop": 0.030956008489123953,
         "cross_survey_positive_pairs": 3,
         "cross_survey_pairs_total": 6,
-        "cross_survey_mean_delta_rho": -0.018785172852973462,
+        "cross_survey_mean_delta_rho": -0.03560854718476442,
         "z_gt_8_cmi": 0.0,
         "z_gt_8_cmi_z_score": 0.0,
         "z_gt_8_information_asymmetry": -0.0016706354793601396
@@ -2377,7 +2378,7 @@
         "n_tests": 3,
         "mean_teff_rho_advantage": -0.22684194114922027,
         "teff_rho_wins": 0,
-        "mean_poly_r2_drop": 3.062877453542514,
+        "mean_poly_r2_drop": 3.0628774535426495,
         "interpretation": "Polynomial generalizes comparably or better than t_eff."
       },
       "environmental_screening": {
@@ -2406,12 +2407,12 @@
         "status": "live",
         "beta_ml": 0.7,
         "beta_empirical_from_l4": 0.38222773644735053,
-        "rho_true_unbiased": 0.7060912407289124,
-        "rho_partial_obs_beta07": 0.504321103335211,
-        "suppression_fraction_beta07": 0.7142435343265128,
-        "correction_factor_beta07": 1.400082677602308,
-        "uncover_corrected_rho": 0.3640214961766001,
-        "cosmos_z9_13_corrected_rho": 0.44456237735159015
+        "rho_true_unbiased": 0.715617600004176,
+        "rho_partial_obs_beta07": 0.5131878239358783,
+        "suppression_fraction_beta07": 0.7171257721063367,
+        "correction_factor_beta07": 1.394455531925463,
+        "uncover_corrected_rho": 0.3625584383006204,
+        "cosmos_z9_13_corrected_rho": 0.4427756133984171
       },
       "jades_dr5_morphology": {
         "status": "live",
@@ -2437,16 +2438,16 @@
           "n": 1121,
           "raw_rho": -0.49906402734685645,
           "raw_p": 1.195791869785534e-71,
-          "partial_rho": 0.08383840807112862,
-          "partial_p": 0.004972085923853012,
-          "ci_lo": 0.018332186623961463,
-          "ci_hi": 0.14313144903723773,
-          "partial_rho_debiased_mass": 0.07304398301561091,
-          "partial_p_debiased_mass": 0.014439091528390088,
-          "ci_lo_debiased_mass": 0.0018559260691466935,
-          "ci_hi_debiased_mass": 0.13535404670683487,
-          "weighted_partial_rho_debiased_mass": 0.11254472122826326,
-          "weighted_partial_p_debiased_mass": 0.0011132421470806321,
+          "partial_rho": 0.0838384080711287,
+          "partial_p": 0.004972085923852931,
+          "ci_lo": 0.018332186623961515,
+          "ci_hi": 0.14313144903723782,
+          "partial_rho_debiased_mass": 0.07304398301561087,
+          "partial_p_debiased_mass": 0.014439091528390062,
+          "ci_lo_debiased_mass": 0.0018559260691467234,
+          "ci_hi_debiased_mass": 0.1353540467068351,
+          "weighted_partial_rho_debiased_mass": 0.11254472122826324,
+          "weighted_partial_p_debiased_mass": 0.0011132421470806343,
           "weighted_partial_n_eff": 835.064682744647,
           "reference_mass_reweighted_partial_rho_debiased_mass": null,
           "reference_mass_reweighted_partial_p_debiased_mass": null,
@@ -2463,18 +2464,18 @@
           "n": 1467,
           "raw_rho": -0.6666273693721042,
           "raw_p": 3.448144377608761e-189,
-          "partial_rho": -0.07346727958369503,
-          "partial_p": 0.004873038745915007,
-          "ci_lo": -0.13527421806913054,
-          "ci_hi": -0.030114986448537072,
+          "partial_rho": -0.07346727958369496,
+          "partial_p": 0.004873038745915068,
+          "ci_lo": -0.1352742180691306,
+          "ci_hi": -0.03011498644853714,
           "partial_rho_debiased_mass": -0.07621456419616267,
-          "partial_p_debiased_mass": 0.003490352659943446,
-          "ci_lo_debiased_mass": -0.13801152516162754,
-          "ci_hi_debiased_mass": -0.03316199626695029,
-          "weighted_partial_rho_debiased_mass": -0.015215273773548465,
-          "weighted_partial_p_debiased_mass": 0.6311101032933844,
+          "partial_p_debiased_mass": 0.003490352659943415,
+          "ci_lo_debiased_mass": -0.1380115251616277,
+          "ci_hi_debiased_mass": -0.033161996266950315,
+          "weighted_partial_rho_debiased_mass": -0.01521527377354845,
+          "weighted_partial_p_debiased_mass": 0.6311101032933848,
           "weighted_partial_n_eff": 998.7592390155423,
-          "reference_mass_reweighted_partial_rho_debiased_mass": -0.023818373182539567,
+          "reference_mass_reweighted_partial_rho_debiased_mass": -0.02381837318253957,
           "reference_mass_reweighted_partial_p_debiased_mass": 0.44253812716368546,
           "reference_mass_reweighted_n_eff": 1042.0512635417754,
           "reference_mass_reweight_source": "z=8-9 log_Mstar distribution",
@@ -2491,7 +2492,7 @@
       },
       "nested_bayesian_model_comparison": {
         "status": "live",
-        "sample_size": 504,
+        "sample_size": 283,
         "n_observables": 4,
         "observables": [
           "dust",
@@ -2499,24 +2500,37 @@
           "chi2",
           "met"
         ],
-        "joint_key_finding": "Multi-observable joint nested Bayesian model comparison yields mixed results: 0/4 favour TEP while 4/4 favour alternatives. Mean ln(BF) across 4 alternatives = -79.7 (log10 = -34.6).  TEP achieves this with the fewest parameters, leveraging a single theory-fixed predictor (Gamma_t) across all observables.",
-        "joint_mean_ln_BF": -79.68334992098653,
-        "joint_mean_log10_BF": -34.60603917025036,
-        "joint_hardest_alternative": "AGN_Feedback",
-        "joint_hardest_ln_BF": -105.76933017687134,
-        "joint_n_strong_for_TEP": 0,
+        "joint_key_finding": "Multi-observable joint nested Bayesian model comparison yields mixed results: 5/9 favour TEP while 4/9 favour alternatives. Mean ln(BF) across 9 alternatives = -14.9 (log10 = -6.5).  TEP achieves this with the fewest parameters, leveraging a single theory-fixed predictor (Gamma_t) across all observables.",
+        "joint_mean_ln_BF": -14.927545565123031,
+        "joint_mean_log10_BF": -6.4829506672922905,
+        "joint_hardest_alternative": "Corrected_AGN_Feedback",
+        "joint_hardest_ln_BF": -92.7036729474894,
+        "joint_n_strong_for_TEP": 5,
         "joint_n_favour_alternative": 4,
-        "joint_ln_BF_standard_physics": -66.38392104310469,
-        "joint_ln_BF_bursty_sf": -72.48102851339581,
-        "joint_ln_BF_varying_imf": -74.09911995057428,
-        "joint_ln_BF_agn_feedback": -105.76933017687134,
-        "residual_key_finding": "Residual-space nested Bayesian comparison remains mixed after mass+z control because Constrained_AGN still competes with TEP. After removing linear mass+z trends from both observables and competing predictors, mean ln(BF) across 2 alternatives = -40.0 (log10 = -17.4).",
-        "residual_mean_ln_BF": -40.04790069781666,
-        "residual_mean_log10_BF": -17.39258228487116,
-        "residual_n_decisive_for_TEP": 0,
-        "residual_n_favour_alternative": 2,
-        "residual_ln_BF_null": -18.764513791092213,
-        "residual_ln_BF_constrained_agn": -61.3312876045411
+        "joint_ln_BF_standard_physics": 43.03286338900534,
+        "joint_ln_BF_bursty_sf": -52.28750070884348,
+        "joint_ln_BF_varying_imf": 8.111871051901971,
+        "joint_ln_BF_agn_feedback": -90.21612545092376,
+        "joint_ln_BF_corrected_standard": 43.25994300565662,
+        "joint_ln_BF_corrected_bursty": -41.423595142502336,
+        "joint_ln_BF_corrected_imf": 6.970824562327607,
+        "joint_ln_BF_corrected_agn": -92.7036729474894,
+        "correction_key_finding": "Applying the TEP mass correction (M_true = M_obs - 0.7*log10(Gamma_t)) has a mixed effect on astrophysical model fits (2 improved, 1 worsened, mean ln(BF) = -1.9).  Per-model results: Standard_Physics: ln(BF)=-0.2; Bursty_SF: ln(BF)=-10.9; Varying_IMF: ln(BF)=1.1; AGN_Feedback: ln(BF)=2.5.",
+        "correction_verdict": "TEP mass correction has mixed effect on model fits",
+        "correction_mean_ln_BF": -1.8655977992131056,
+        "correction_n_improves": 2,
+        "correction_n_hurts": 1,
+        "correction_ln_BF_standard": -0.22707961665128096,
+        "correction_ln_BF_bursty": -10.863905566341145,
+        "correction_ln_BF_imf": 1.1410464895743644,
+        "correction_ln_BF_agn": 2.4875474965656394,
+        "residual_key_finding": "Residual-space nested Bayesian comparison remains mixed after mass+z control because Constrained_AGN still competes with TEP. After removing linear mass+z trends from both observables and competing predictors, mean ln(BF) across 2 alternatives = 22.4 (log10 = 9.7).",
+        "residual_mean_ln_BF": 22.4440800394068,
+        "residual_mean_log10_BF": 9.74734011250929,
+        "residual_n_decisive_for_TEP": 1,
+        "residual_n_favour_alternative": 1,
+        "residual_ln_BF_null": 99.5627814679849,
+        "residual_ln_BF_constrained_agn": -54.67462138917131
       }
     },
     "availability": {

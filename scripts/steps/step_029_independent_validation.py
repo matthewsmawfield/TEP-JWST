@@ -65,9 +65,9 @@ def load_data():
 
 def split_sample(df, seed=42):
     """Split into training and test sets."""
-    np.random.seed(seed)
+    rng = np.random.default_rng(seed)
     n = len(df)
-    idx = np.random.permutation(n)
+    idx = rng.permutation(n)
     train_idx = idx[:n//2]
     test_idx = idx[n//2:]
     

@@ -31,6 +31,8 @@ We will solve the ODE for δ(z) and compute fσ8(z).
 """
 
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 from astropy.cosmology import Planck18
@@ -262,7 +264,8 @@ def run_growth_calculation():
     plt.grid(True)
     plt.legend()
     plt.savefig(FIGURES_PATH / "step_073_growth_ratio.png")
-    
+    plt.close()
+
     return results
 
 if __name__ == "__main__":

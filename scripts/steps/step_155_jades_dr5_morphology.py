@@ -42,13 +42,7 @@ import pandas as pd
 from astropy.io import fits
 from scipy.stats import spearmanr
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="[%(asctime)s] [%(levelname)s] %(message)s",
-    datefmt="%H:%M:%S",
-    stream=sys.stdout,
-)
-log = logging.getLogger(__name__)
+# TEPLogger is initialised above; use print_status for all log output
 
 ROOT = Path(__file__).resolve().parents[2]
 DR4_PATH = ROOT / "data/raw/jades_hainline/JADES_DR4_spectroscopic_catalog.fits"
@@ -106,7 +100,7 @@ def run_assoc(label, mask, gamma, predictor, controls, expected_sign):
         m &= np.isfinite(ctrl)
     n = int(m.sum())
     if n < 20:
-        log.info(f"  {label}: N={n} (skip)")
+        print_status(f"  {label}: N={n} (skip)", "INFO")
         return None
     rho_raw, p_raw = spearmanr(gamma[m], predictor[m])
     try:
@@ -117,9 +111,10 @@ def run_assoc(label, mask, gamma, predictor, controls, expected_sign):
         )
     except Exception:
         rho_partial, p_partial = np.nan, np.nan
-    log.info(
+    print_status(
         f"  {label}: raw ρ={rho_raw:.3f}, p={p_raw:.4g}; "
-        f"partial ρ={rho_partial:.3f}, p={p_partial:.4g}; N={n}"
+        f"partial ρ={rho_partial:.3f}, p={p_partial:.4g}; N={n}",
+        "INFO",
     )
     return {
         "expected_sign": expected_sign,
@@ -135,6 +130,18 @@ def run_assoc(label, mask, gamma, predictor, controls, expected_sign):
 
 def evaluate_sample(sample_name, matched_z, log_mstar, gt, matched_rhalf277, matched_rhalf444, matched_q, matched_gini, control_variables, mass_source):
     valid_mass = np.isfinite(log_mstar)
+    n_excluded = int((~valid_mass).sum())
+    if n_excluded > 0:
+        from astropy.cosmology import FlatLambdaCDM as _LCDM
+        _cosmo = _LCDM(H0=H0, Om0=OM)
+        z_inc = matched_z[valid_mass]
+        z_exc = matched_z[~valid_mass]
+        print_status(
+            f"  {sample_name}: {n_excluded}/{len(matched_z)} galaxies excluded "
+            f"(missing stellar mass). Included z median={np.nanmedian(z_inc):.2f}, "
+            f"excluded z median={np.nanmedian(z_exc):.2f}.",
+            "INFO",
+        )
     from astropy.cosmology import FlatLambdaCDM
     cosmo = FlatLambdaCDM(H0=H0, Om0=OM)
     da_mpc = np.array([cosmo.angular_diameter_distance(z).value for z in matched_z], dtype=float)
@@ -215,14 +222,14 @@ def evaluate_sample(sample_name, matched_z, log_mstar, gt, matched_rhalf277, mat
 
 
 def main():
-    log.info("=" * 60)
-    log.info("step_155: JADES DR5 morphology × DR4 spec-z TEP test")
-    log.info("=" * 60)
+    print_status("=" * 60, "TITLE")
+    print_status("step_155: JADES DR5 morphology × DR4 spec-z TEP test", "TITLE")
+    print_status("=" * 60, "TITLE")
 
     # --- Load DR4 spec-z ---
-    log.info("Loading JADES DR4 spectroscopic catalog...")
+    print_status("Loading JADES DR4 spectroscopic catalog...", "PROCESS")
     if not DR4_PATH.exists():
-        log.error(f"Missing: {DR4_PATH} — run step_149 (JADES DR4 ingestion) first. Aborting.")
+        print_status(f"Missing: {DR4_PATH} — run step_149 (JADES DR4 ingestion) first. Aborting.", "ERROR")
         return {"status": "aborted", "reason": "missing JADES_DR4_spectroscopic_catalog.fits"}
     with fits.open(DR4_PATH) as f:
         obs = f["Obs_info"].data
@@ -238,7 +245,7 @@ def main():
         & (z_spec > 0)
         & (dr4_id > 0)
     )
-    log.info(f"DR4 good spec-z with DR5 ID: N = {good.sum()}")
+    print_status(f"DR4 good spec-z with DR5 ID: N = {good.sum()}", "INFO")
 
     dr4_proxy_df = pd.DataFrame(
         {
@@ -249,11 +256,11 @@ def main():
     )
 
     # --- Load DR5 morphology ---
-    log.info("Loading JADES DR5 photometry (SIZE HDU)...")
+    print_status("Loading JADES DR5 photometry (SIZE HDU)...", "PROCESS")
     dr5_path = resolve_dr5_catalog()
     if dr5_path is None:
-        log.warning(f"JADES DR5 file not found: {DR5_PATH}")
-        log.warning("Skipping step_155 — download jades_dr5_goods_s_photometry.fits to enable.")
+        print_status(f"JADES DR5 file not found: {DR5_PATH}", "WARNING")
+        print_status("Skipping step_155 — download jades_dr5_goods_s_photometry.fits to enable.", "WARNING")
         result = {"status": "skipped", "reason": "JADES DR5 photometry file not available",
                   "file_expected": str(DR5_PATH)}
         OUTPUT.parent.mkdir(parents=True, exist_ok=True)
@@ -274,12 +281,12 @@ def main():
     ).drop_duplicates(subset="ID")
 
     # --- Cross-match ---
-    log.info("Cross-matching DR4 spec-z with DR5 morphology...")
+    print_status("Cross-matching DR4 spec-z with DR5 morphology...", "PROCESS")
     dr4_matched = dr4_proxy_df.merge(dr5_df, on="ID", how="inner")
     dr4_matched = dr4_matched[
         np.isfinite(dr4_matched["rhalf_f277"]) & (dr4_matched["rhalf_f277"] > 0)
     ].copy()
-    log.info(f"DR4 proxy sample with valid F277W_RHALF: N = {len(dr4_matched)}")
+    print_status(f"DR4 proxy sample with valid F277W_RHALF: N = {len(dr4_matched)}", "INFO")
 
     matched_muv = dr4_matched["MUV"].to_numpy(dtype=float)
     log_mstar_proxy = np.where(np.isfinite(matched_muv), -0.35 * (matched_muv + 20.0) + 9.0, np.nan)
@@ -303,7 +310,7 @@ def main():
     preferred_sample_name = "dr4_spec_muv_proxy"
 
     if PHYSICAL_PATH.exists():
-        log.info("Loading JADES physical catalog for direct-mass morphology control...")
+        print_status("Loading JADES physical catalog for direct-mass morphology control...", "PROCESS")
         physical_df = pd.read_csv(PHYSICAL_PATH)
         if {"ID", "z_best", "log_Mstar"}.issubset(physical_df.columns):
             physical_df = physical_df.copy()
@@ -324,7 +331,7 @@ def main():
             physical_matched = physical_matched[
                 np.isfinite(physical_matched["rhalf_f277"]) & (physical_matched["rhalf_f277"] > 0)
             ].copy()
-            log.info(f"Physical-mass sample with valid F277W_RHALF: N = {len(physical_matched)}")
+            print_status(f"Physical-mass sample with valid F277W_RHALF: N = {len(physical_matched)}", "INFO")
             if len(physical_matched) > 0:
                 matched_z_direct = physical_matched["z_use"].to_numpy(dtype=float)
                 log_mstar_direct = physical_matched["log_Mstar"].to_numpy(dtype=float)
@@ -362,20 +369,22 @@ def main():
 
     preferred_sample = samples[preferred_sample_name]
 
-    log.info("=" * 60)
-    log.info("SUMMARY")
-    log.info(f"  Preferred sample: {preferred_sample_name}")
+    print_status("=" * 60, "TITLE")
+    print_status("SUMMARY", "TITLE")
+    print_status(f"  Preferred sample: {preferred_sample_name}", "INFO")
     for sample_name, sample in samples.items():
-        log.info(
+        print_status(
             f"  {sample_name}: N_matched={sample['n_matched']}, N_with_mass={sample['n_with_mass']}, "
-            f"supportive={sample['headline']['n_structural_proxies_supportive_after_mass_z_control']}"
+            f"supportive={sample['headline']['n_structural_proxies_supportive_after_mass_z_control']}",
+            "INFO",
         )
         for k, v in sample["results"].items():
-            log.info(
+            print_status(
                 f"  {sample_name}.{k}: raw ρ={v['rho_raw']:.3f}, partial ρ={v['rho_partial_mass_z']:.3f}, "
-                f"N={v['N']}"
+                f"N={v['N']}",
+                "INFO",
             )
-    log.info("=" * 60)
+    print_status("=" * 60, "TITLE")
 
     result = {
         "step": STEP_NUM,
@@ -393,7 +402,7 @@ def main():
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT, "w") as f:
         json.dump(result, f, indent=2)
-    log.info(f"Saved: {OUTPUT}")
+    print_status(f"Saved: {OUTPUT}", "SUCCESS")
 
 
 if __name__ == "__main__":

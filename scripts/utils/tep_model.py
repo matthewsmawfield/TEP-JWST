@@ -34,8 +34,8 @@ from core import constants as tep_const
 # CANONICAL OBSERVABLE RESPONSE COEFFICIENT (Paper 11)
 # Measured from Cepheid period-luminosity residuals.
 # Units: Magnitudes [mag]
-KAPPA_GAL = 9.6e5
-KAPPA_GAL_UNCERTAINTY = 4.0e5
+KAPPA_GAL = tep_const.KAPPA_GAL
+KAPPA_GAL_UNCERTAINTY = tep_const.KAPPA_GAL_UNCERTAINTY
 
 # PHOTON-SECTOR BOUND (Paper 9 / Cassini PPN)
 # This is a dimensionless photon-sector coupling bound. It is deliberately
@@ -44,12 +44,12 @@ ALPHA_PHOTON_BOUND = 0.003
 
 # STELLAR EVOLUTION INDEX
 # M/L ~ t^n from stellar isochrones.
-ALPHA_NUCLEAR = 0.7
+ALPHA_NUCLEAR = tep_const.ALPHA_NUCLEAR
 
 # POTENTIAL PARAMETERS
-LOG_MH_REF = 12.0
-PHI_REF_0 = 1.6e-7    # Dimensionless Phi/c^2 for 10^12 Msun halo at z=0
-Z_REF = 5.5
+LOG_MH_REF = tep_const.LOG_MH_REF
+PHI_REF_0 = tep_const.PHI_REF_0    # Dimensionless Phi/c^2 for 10^12 Msun halo at z=0
+Z_REF = tep_const.Z_REF
 
 # SCREENING SCALES (from core.constants)
 RHO_CRIT_G_CM3 = tep_const.RHO_C

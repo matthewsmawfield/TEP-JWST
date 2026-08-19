@@ -517,7 +517,7 @@ def run_assembly_time_analysis():
     
     if results['cross_sample'].get('consistent'):
         tests_passed += 1
-        logger.info("✓ Cross-sample consistency: Confirmed")
+        logger.info("✓ Cross-sample consistency: verified")
     else:
         logger.info("⚠ Cross-sample: Samples differ")
     

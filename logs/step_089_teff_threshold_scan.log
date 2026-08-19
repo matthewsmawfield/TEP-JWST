@@ -1,6 +1,6 @@
-[10:03:01] ═══ STEP 089: t_eff Threshold Scan
-[10:03:01]     Surveys loaded: ['UNCOVER', 'CEERS', 'COSMOS-Web']
-[10:03:02]     UNCOVER: best t_eff≈0.26 Gyr, Δf_det=+0.00
-[10:03:02]     CEERS: best t_eff≈0.24 Gyr, Δf_det=+0.00
-[10:03:03]     COSMOS-Web: best t_eff≈0.64 Gyr, Δf_det=+0.66
-[10:03:04] ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_089_teff_threshold_scan.json
+[22:37:17] INFO    ═══ STEP 089: t_eff Threshold Scan
+[22:37:17] INFO        Surveys loaded: ['UNCOVER', 'CEERS', 'COSMOS-Web']
+[22:37:18] INFO        UNCOVER: best t_eff≈0.26 Gyr, Δf_det=+0.00
+[22:37:18] INFO        CEERS: best t_eff≈0.24 Gyr, Δf_det=+0.00
+[22:37:20] INFO        COSMOS-Web: best t_eff≈0.64 Gyr, Δf_det=+0.66
+[22:37:23] INFO    ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_089_teff_threshold_scan.json

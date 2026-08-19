@@ -1,0 +1,26 @@
+[22:36:31] INFO    ═══ STEP 071: BBN Compatibility Analysis
+[22:36:31] INFO        Validating that TEP scalar-tensor modifications preserve BBN yields within 1%.
+[22:36:31] INFO    
+[22:36:31] INFO    >>> 1. Computing expansion rate deviation during BBN...
+[22:36:31] INFO           Redshift range: z = 4.26e+07 to 4.26e+09
+[22:36:31] INFO           Max |ΔH/H|: 1.13e-16
+[22:36:31] INFO           Mean |ΔH/H|: 1.13e-19
+[22:36:31] INFO           RMS ΔH/H: 3.57e-18
+[22:36:31] INFO    >>> 2. Computing He-4 yield shift...
+[22:36:31] INFO           Y_p (standard): 0.2470
+[22:36:31] INFO           Y_p (TEP): 0.247000
+[22:36:31] INFO           Fractional shift: 0.0000%
+[22:36:31] INFO    >>> 3. Computing D/H shift...
+[22:36:31] INFO           D/H (standard): 2.50e-05
+[22:36:31] INFO           D/H (TEP): 2.50e-05
+[22:36:31] INFO           Fractional shift: -0.0000%
+[22:36:31] INFO    
+[22:36:31] INFO        Maximum yield shift: 0.0000%
+[22:36:31] INFO    ✓   Within 1% threshold: YES
+[22:36:31] INFO    
+[22:36:31] INFO        Physical mechanism:
+[22:36:31] INFO           During radiation domination, the trace of the stress-energy tensor
+[22:36:31] INFO           vanishes (T^μ_μ = 0 for relativistic matter). This freezes the scalar
+[22:36:31] INFO           field, preventing TEP modifications to the expansion rate during BBN.
+[22:36:31] INFO           The coupling only becomes active when matter dominates (z < 3400).
+[22:36:31] INFO    ✓   Results saved to: step_071_bbn_analysis.json

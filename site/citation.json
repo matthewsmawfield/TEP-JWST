@@ -12,13 +12,13 @@
     "date-parts": [
       [
         2026,
-        3,
-        13
+        8,
+        17
       ]
     ]
   },
   "doi": "10.5281/zenodo.19000827",
-  "URL": "https://matthewsmawfield.github.io/TEP-JWST/",
+  "URL": "https://mlsmawfield.com/tep/jwst",
   "publisher": "Preprint",
   "keywords": [
     "JWST",
@@ -27,5 +27,5 @@
     "Scalar-Tensor Gravity",
     "Chameleon Screening"
   ],
-  "note": "Preprint, Version 0.5 (Kos)"
+  "note": "Preprint v0.6 (Kos)"
 }

@@ -1,3 +1,5 @@
-[10:42:55]     STEP 167: Protocluster switch sign-reversal test
-[10:43:00]     Primary dense-field beta residual contrast Δ=0.086 with 95% CI [-0.019, 0.188]
-[10:43:00]     The current protocluster-switch implementation is mixed or null with existing local data: no clean dense-younger-than-field reversal emerges after matched controls.
+[23:45:42] INFO    ═══ STEP 167: Protocluster switch sign-reversal test
+[23:45:49] INFO        DJA beta: N=1238, within_footprint=True
+[23:45:49] INFO        JADES MWA companion: N=11
+[23:45:49] INFO        Primary dense-field beta residual contrast Δ=0.097 with 95% CI [-0.009, 0.206]
+[23:45:49] INFO        The current protocluster-switch implementation is mixed or null with existing local data: no clean dense-younger-than-field reversal emerges after matched controls.

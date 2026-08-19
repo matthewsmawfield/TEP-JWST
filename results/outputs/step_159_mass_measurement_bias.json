@@ -14,53 +14,53 @@
       0.6895680390555466
     ]
   },
-  "rho_true_unbiased": 0.7060912407289124,
+  "rho_true_unbiased": 0.715617600004176,
   "suppression_by_beta": {
     "beta_0.0": {
       "beta": 0.0,
-      "rho_partial_obs": 0.7060912407289124,
-      "rho_partial_true": 0.7060912407289124,
+      "rho_partial_obs": 0.715617600004176,
+      "rho_partial_true": 0.715617600004176,
       "suppression_fraction": 1.0
     },
     "beta_0.3": {
       "beta": 0.3,
-      "rho_partial_obs": 0.6248526748405268,
-      "rho_partial_true": 0.7060912407289124,
-      "suppression_fraction": 0.884946078916768
+      "rho_partial_obs": 0.6349190223011902,
+      "rho_partial_true": 0.715617600004176,
+      "suppression_fraction": 0.8872322624506234
     },
     "beta_0.5": {
       "beta": 0.5,
-      "rho_partial_obs": 0.5621192122971922,
-      "rho_partial_true": 0.7060912407289124,
-      "suppression_fraction": 0.7960999653768613
+      "rho_partial_obs": 0.5717477208534772,
+      "rho_partial_true": 0.715617600004176,
+      "suppression_fraction": 0.7989570419315299
     },
     "beta_0.7": {
       "beta": 0.7,
-      "rho_partial_obs": 0.504321103335211,
-      "rho_partial_true": 0.7060912407289124,
-      "suppression_fraction": 0.7142435343265128
+      "rho_partial_obs": 0.5131878239358783,
+      "rho_partial_true": 0.715617600004176,
+      "suppression_fraction": 0.7171257721063367
     },
     "beta_1.0": {
       "beta": 1.0,
-      "rho_partial_obs": 0.43141708146617086,
-      "rho_partial_true": 0.7060912407289124,
-      "suppression_fraction": 0.6109933909119312
+      "rho_partial_obs": 0.43870945775509457,
+      "rho_partial_true": 0.715617600004176,
+      "suppression_fraction": 0.6130501230720632
     },
     "beta_1.2": {
       "beta": 1.2,
-      "rho_partial_obs": 0.39143248399432484,
-      "rho_partial_true": 0.7060912407289124,
-      "suppression_fraction": 0.5543653021247524
+      "rho_partial_obs": 0.39761571281215713,
+      "rho_partial_true": 0.715617600004176,
+      "suppression_fraction": 0.5556259555520111
     }
   },
-  "correction_factor_beta07": 1.400082677602308,
-  "correction_factor_beta_empirical_from_L4": 1.1786642837080967,
+  "correction_factor_beta07": 1.394455531925463,
+  "correction_factor_beta_empirical_from_L4": 1.175172500140512,
   "correction_factor_posterior_from_L4_beta": {
-    "median": 1.1786642837080967,
-    "std": 0.07249504361924541,
+    "median": 1.175172500140512,
+    "std": 0.07158426336112636,
     "ci_95": [
-      1.092702140488021,
-      1.3917629765004678
+      1.0906930385546827,
+      1.3862048974790706
     ]
   },
   "l4_live_regime_calibration": {
@@ -2099,62 +2099,62 @@
     "UNCOVER_dust_z4_10": {
       "rho_obs": 0.26,
       "p_obs": 7.4e-06,
-      "rho_corrected_estimate_linear": 0.3640214961766001,
-      "rho_corrected_estimate_bounded": 0.3640214961766001,
+      "rho_corrected_estimate_linear": 0.3625584383006204,
+      "rho_corrected_estimate_bounded": 0.3625584383006204,
       "saturation_applied": false,
-      "rho_corrected_estimate_linear_empirical_beta": 0.30645271376410516,
-      "rho_corrected_estimate_bounded_empirical_beta": 0.30645271376410516,
-      "correction_factor_empirical_beta": 1.1786642837080967,
+      "rho_corrected_estimate_linear_empirical_beta": 0.30554485003653314,
+      "rho_corrected_estimate_bounded_empirical_beta": 0.30554485003653314,
+      "correction_factor_empirical_beta": 1.175172500140512,
       "rho_corrected_ci_95_unbounded": [
-        0.2841025565268855,
-        0.36185837389012165
+        0.2835801900242175,
+        0.36041327334455836
       ],
       "rho_corrected_ci_95_bounded": [
-        0.2841025565268855,
-        0.36185837389012165
+        0.2835801900242175,
+        0.36041327334455836
       ],
       "saturation_probability": 0.0,
-      "correction_factor": 1.400082677602308
+      "correction_factor": 1.394455531925463
     },
     "COSMOS2025_dust_z9_13": {
-      "rho_obs": 0.3175258036281966,
-      "p_obs": 1.0146048874467185e-35,
-      "rho_corrected_estimate_linear": 0.44456237735159015,
-      "rho_corrected_estimate_bounded": 0.44456237735159015,
+      "rho_obs": 0.31752580362819666,
+      "p_obs": 1.0146048874467187e-35,
+      "rho_corrected_estimate_linear": 0.4427756133984171,
+      "rho_corrected_estimate_bounded": 0.4427756133984171,
       "saturation_applied": false,
-      "rho_corrected_estimate_linear_empirical_beta": 0.37425632389226615,
-      "rho_corrected_estimate_bounded_empirical_beta": 0.37425632389226615,
-      "correction_factor_empirical_beta": 1.1786642837080967,
+      "rho_corrected_estimate_linear_empirical_beta": 0.37314759250887314,
+      "rho_corrected_estimate_bounded_empirical_beta": 0.37314759250887314,
+      "correction_factor_empirical_beta": 1.175172500140512,
       "rho_corrected_ci_95_unbounded": [
-        0.34696112528470946,
-        0.4419206575732819
+        0.3463231835787553,
+        0.44015582406538384
       ],
       "rho_corrected_ci_95_bounded": [
-        0.34696112528470946,
-        0.4419206575732819
+        0.3463231835787553,
+        0.44015582406538384
       ],
       "saturation_probability": 0.0,
-      "correction_factor": 1.400082677602308
+      "correction_factor": 1.394455531925463
     },
     "DJA_balmer_z_gt_2": {
-      "rho_obs": 0.12297637389436425,
-      "p_obs": 1.861391255574771e-12,
-      "rho_corrected_estimate_linear": 0.17217709084384408,
-      "rho_corrected_estimate_bounded": 0.17217709084384408,
+      "rho_obs": 0.12297637389436439,
+      "p_obs": 1.861391255574857e-12,
+      "rho_corrected_estimate_linear": 0.17148508487313052,
+      "rho_corrected_estimate_bounded": 0.17148508487313052,
       "saturation_applied": false,
-      "rho_corrected_estimate_linear_empirical_beta": 0.1449478596492199,
-      "rho_corrected_estimate_bounded_empirical_beta": 0.1449478596492199,
-      "correction_factor_empirical_beta": 1.1786642837080967,
+      "rho_corrected_estimate_linear_empirical_beta": 0.1445184527676546,
+      "rho_corrected_estimate_bounded_empirical_beta": 0.1445184527676546,
+      "correction_factor_empirical_beta": 1.175172500140512,
       "rho_corrected_ci_95_unbounded": [
-        0.134376546983827,
-        0.1711539641704548
+        0.13412947491328106,
+        0.17047045176658523
       ],
       "rho_corrected_ci_95_bounded": [
-        0.134376546983827,
-        0.1711539641704548
+        0.13412947491328106,
+        0.17047045176658523
       ],
       "saturation_probability": 0.0,
-      "correction_factor": 1.400082677602308
+      "correction_factor": 1.394455531925463
     }
   },
   "gt_typical_l4_kinematic_regime": 3.246125436136424

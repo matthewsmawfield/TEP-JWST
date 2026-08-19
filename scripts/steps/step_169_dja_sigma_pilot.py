@@ -535,7 +535,8 @@ def _pilot_target_records(result_df):
 
 
 def run():
-    print_status(f"STEP {STEP_NUM}: DJA sigma pilot", "INFO")
+    print_status(f"STEP {STEP_NUM}: DJA sigma pilot", "TITLE")
+    print_status(f"Config: max_targets={MAX_TARGETS}, min_z={MIN_TARGET_Z}, max_z={MAX_TARGET_Z}, min_logM*={MIN_TARGET_LOG_MSTAR}", "INFO")
     df, error = _load_catalog()
     if df is None:
         result = {
@@ -547,6 +548,10 @@ def run():
         out_json = OUTPUT_PATH / f"step_{STEP_NUM}_{STEP_NAME}.json"
         out_json.write_text(json.dumps(result, indent=2))
         return result
+
+    print_status(f"Loaded {len(df)} candidates from DJA catalog", "INFO")
+    if "has_balmer" in df.columns:
+        print_status(f"  With Balmer lines: {int(df['has_balmer'].sum())}/{len(df)}", "INFO")
 
     rows = []
     fetch_stats = {
@@ -623,6 +628,9 @@ def run():
     if "sigma_kms" in result_df.columns:
         fit_mask &= pd.to_numeric(result_df["sigma_kms"], errors="coerce").notna()
     fit_df = result_df[fit_mask].copy()
+
+    print_status(f"Spectrum fetch: local={fetch_stats['n_local_existing']}, downloaded={fetch_stats['n_downloaded']}, failed={fetch_stats['n_download_failed']}, missing={fetch_stats['n_missing_with_download_disabled']}", "INFO")
+    print_status(f"Line fits: {len(fit_df)}/{len(result_df)} successful", "INFO")
     if len(fit_df) > 0:
         fit_df = _coerce_numeric(
             fit_df,
@@ -645,6 +653,12 @@ def run():
     quality_df = fit_df[fit_df["quality_screen_pass"]].copy() if len(fit_df) else pd.DataFrame()
     all_fit_test, balmer_df = _run_balmer_sigma_test(fit_df)
     quality_fit_test, quality_balmer_df = _run_balmer_sigma_test(quality_df)
+
+    print_status(f"Quality screen: {len(quality_df)}/{len(fit_df)} passed", "INFO")
+    if all_fit_test:
+        print_status(f"Balmer-σ test (all): ρ={all_fit_test.get('rho', 0):.3f}, p={all_fit_test.get('p', 1):.3e}", "INFO")
+    if quality_fit_test:
+        print_status(f"Balmer-σ test (quality): ρ={quality_fit_test.get('rho', 0):.3f}, p={quality_fit_test.get('p', 1):.3e}", "INFO")
 
     out_csv = INTERIM_PATH / f"step_{STEP_NUM}_{STEP_NAME}.csv"
     result_df.to_csv(out_csv, index=False)

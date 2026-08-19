@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import json
 import sys
 from pathlib import Path
@@ -175,8 +177,9 @@ def _select_primary_contrast(
 
 
 def run():
-    print_status(f"STEP {STEP_NUM}: Resolved gradient sign-reversal test", "INFO")
+    print_status(f"STEP {STEP_NUM}: Resolved gradient sign-reversal test", "TITLE")
     beta_debias, beta_debias_source = _load_beta_debias()
+    print_status(f"Beta debiasing: β={beta_debias:.3f} (source: {beta_debias_source})", "INFO")
     try:
         df = _load_resolved_with_tep()
     except FileNotFoundError as exc:
@@ -189,8 +192,12 @@ def run():
         (OUTPUT_PATH / f"step_{STEP_NUM}_{STEP_NAME}.json").write_text(json.dumps(result, indent=2))
         return result
 
+    set_step_logger(logger)
+
+    print_status(f"Loaded N={len(df)} galaxies with resolved gradients", "INFO")
     literal_gamma_lt1 = int((df["gamma_t"] < 1).sum())
     literal_gamma_gt1 = int((df["gamma_t"] > 1).sum())
+    print_status(f"  Γt<1: {literal_gamma_lt1}, Γt>1: {literal_gamma_gt1}", "INFO")
     df["log_gamma_t"] = np.log10(np.clip(df["gamma_t"].to_numpy(dtype=float), 1e-9, None))
     df["log_mstar_debiased"] = (
         df["log_mstar"].to_numpy(dtype=float) - beta_debias * df["log_gamma_t"].to_numpy(dtype=float)

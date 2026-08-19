@@ -1,3 +1,5 @@
-[10:42:54]     STEP 166: JADES z=9-12 beta contrast
-[10:42:55]     Primary beta contrast Δ=0.470 with 95% CI [-0.346, 1.005]
-[10:42:55]     The JADES z=9-12 beta sample is directionally supportive but remains a lower-power photometric companion rather than a decisive standalone test.
+[23:45:40] INFO    ═══ STEP 166: JADES z=9-12 beta contrast
+[23:45:40] INFO        Selected N=28 JADES galaxies at z=9-12 with quality beta
+[23:45:40] INFO        Raw correlation: ρ(Γt, β)=0.004, p=9.824e-01
+[23:45:41] INFO        Primary beta contrast Δ=0.470 with 95% CI [-0.346, 1.005]
+[23:45:41] INFO        The JADES z=9-12 beta sample is directionally supportive but remains a lower-power photometric companion rather than a decisive standalone test.

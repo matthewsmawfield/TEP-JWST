@@ -1,0 +1,10 @@
+[22:36:37] INFO    ═══ STEP 076: M/L Scaling Justification
+[22:36:37] INFO    >>> Computing theoretical SSP M/L ~ t^n scaling and empirical validation...
+[22:36:37] INFO        Theoretical SSP: best n=N/A
+[22:36:37] INFO        TEP modification applied
+[22:36:37] INFO        Loaded UNCOVER data: N=2315 from step_002_uncover_full_sample_tep.csv
+[22:36:37] INFO        Empirical validation: best_n=0.30, best_ρ=0.1183
+[22:36:37] INFO          z=4-6: N=1439, best_n=1.00, ρ=0.1634
+[22:36:37] INFO          z=6-8: N=593, best_n=1.00, ρ=-0.0009
+[22:36:37] INFO          z=8-10: N=283, best_n=0.30, ρ=0.0201
+[22:36:37] INFO    ✓   Step 076 complete. Results saved to step_076_ml_scaling_justification.json

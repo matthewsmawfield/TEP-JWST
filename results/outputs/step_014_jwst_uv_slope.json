@@ -2,7 +2,7 @@
   "beta_mass": {
     "n_galaxies": 81,
     "spearman_rho": 0.1197831978319783,
-    "spearman_p": 0.2868155576736439,
+    "spearman_p": 0.28681555767364386,
     "tep_consistent": false
   },
   "z_evolution": {

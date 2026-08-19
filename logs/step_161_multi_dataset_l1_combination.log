@@ -1,0 +1,27 @@
+[22:45:40] INFO    ═══ STEP 161: Multi-Dataset L1 Combination
+[22:45:40] INFO        Combining all independent L1 dust-Gamma_t confirmations
+[22:45:40] INFO    
+[22:45:40] INFO        Individual dataset significance:
+[22:45:40] INFO          UNCOVER z>8: rho=0.4713, N=283, z=8.3σ
+[22:45:40] INFO          CEERS z>8: rho=0.6453, N=82, z=6.4σ
+[22:45:40] INFO          COSMOS-Web z>8: rho=0.6260, N=918, z=21.3σ
+[22:45:40] INFO          NIRSpec Balmer z>2: rho=0.1230, N=3259, z=6.9σ [partial] [SPECTROSCOPIC — no SED fitting]
+[22:45:40] INFO    
+[22:45:40] INFO        Fisher combination (4 independent datasets, 8 dof):
+[22:45:40] INFO          chi2 = 638.3,  p = 1.383e-132
+[22:45:40] INFO          Combined significance: z = 24.5σ
+[22:45:40] INFO          Stouffer Z = 21.5σ
+[22:45:40] INFO    
+[22:45:40] INFO        Conservative (3 photometric surveys z>8 only):
+[22:45:40] INFO          z = 23.6σ
+[22:45:40] INFO        Spectroscopic-only (NIRSpec Balmer, immune to SED systematics):
+[22:45:40] INFO          partial-rho branch is null after M*, z control (rho=0.123, p=0.000)
+[22:45:40] INFO    
+[22:45:40] INFO        Independence rationale:
+[22:45:40] INFO          4 distinct sky fields (COSMOS, EGS, GOODS-N, multi-field)
+[22:45:40] INFO          3 photometric SED pipelines (Prospector, EAZY, LePhare)
+[22:45:40] INFO          2 dust estimators in reproducible combination
+[22:45:40] INFO          Spectroscopic test is immune to SED-fitting systematics
+[22:45:40] INFO          Between-field p-values: no within-field clustering correction needed
+[22:45:40] INFO        Results saved to results/outputs/step_161_multi_dataset_l1_combination.json
+[22:45:40] INFO        Step 161 complete.

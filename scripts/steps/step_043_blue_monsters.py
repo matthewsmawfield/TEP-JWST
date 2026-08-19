@@ -34,6 +34,8 @@ import pandas as pd
 from astropy.cosmology import Planck18 as cosmo  # Planck 2018 cosmology (age/distance)
 from pathlib import Path
 import json
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt  # Figure generation for SFE correction plot
 from scipy import stats  # Hypothesis tests and correlation
 

@@ -46,7 +46,7 @@
         "step_164_present": true,
         "step_140_present": true,
         "step_164_before_step_140": true,
-        "registered_steps": 159
+        "registered_steps": 129
       },
       "pass": true
     },
@@ -79,9 +79,8 @@
       "found": {
         "stale_numbering_token_hits": {},
         "updated_numbering_token_presence": {
-          "intro_stage1_ref_updated": true,
-          "intro_stage2_ref_updated": true,
-          "results_3_3_uncover": true,
+          "intro_three_stages_ref": true,
+          "results_3_2_uncover": true,
           "results_3_9_summary": true,
           "results_3_9_1_adversarial": true,
           "results_3_9_2_falsification": true,
@@ -137,8 +136,6 @@
           "introduction_l5_direct_test": true,
           "results_l1_dust": true,
           "results_l5_direct": true,
-          "discussion_l5_direct": true,
-          "conclusion_l5_direct": true,
           "generated_root_l5_direct": true
         }
       },
@@ -236,12 +233,12 @@
         "stale_overclaim_phrase_hits": {},
         "updated_token_presence": {
           "conclusion": {
-            "materially_narrows_phrase": true,
-            "derived_regime_phrase": true
+            "narrows_phrase": true,
+            "derived_comparison_phrase": true
           },
           "generated_root_markdown_exists": true,
           "generated_root_markdown": {
-            "materially_narrows_phrase": true,
+            "narrows_phrase": true,
             "five_object_phrase": true,
             "upper_limit_phrase": true
           }
@@ -306,8 +303,8 @@
     {
       "name": "step159_suppression_values_present_in_discussion",
       "expected": {
-        "rho_true": "0.706",
-        "rho_obs_beta07": "0.504"
+        "rho_true": "0.716",
+        "rho_obs_beta07": "0.513"
       },
       "found": {
         "rho_true": true,

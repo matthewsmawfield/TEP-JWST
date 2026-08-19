@@ -3,7 +3,7 @@
     "rho_raw": -0.006035944296748368,
     "p_raw": 0.7716158733152128,
     "rho_corrected": -0.2194228464571008,
-    "p_corrected": 1.233912939419804e-26,
+    "p_corrected": 1.2339129394198039e-26,
     "delta_rho": -0.21338690216035244,
     "tep_consistent": true,
     "within_bin_correlations": [
@@ -48,14 +48,14 @@
     "rho_controlled": 0.11981084757092053,
     "p_controlled": 7.366053945735522e-09,
     "rho_gamma_controlled": 0.034085486971101385,
-    "p_gamma_controlled": 0.10108940161821708,
+    "p_gamma_controlled": 0.10108940161821711,
     "selection_robust": true
   },
   "prediction_precision": {
     "coefficients": {
-      "a": 0.04980419423532872,
-      "b": 0.00612957416601252,
-      "c": 0.09447539171102302
+      "a": 0.04980419195503469,
+      "b": 0.006129574032011089,
+      "c": 0.09447539393989084
     },
     "rmse": 0.06329209194561412,
     "r2": 0.02680874006874412,

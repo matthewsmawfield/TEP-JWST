@@ -21,7 +21,7 @@
     "n_galaxies": 422,
     "spearman_rho": 0.9379119055540242,
     "spearman_p": 3.0878073938569425e-195,
-    "rho_partial": 0.8123693335532911,
+    "rho_partial": 0.812369333553291,
     "p_partial": 2.0201573195193035e-100,
     "tep_consistent": true
   },

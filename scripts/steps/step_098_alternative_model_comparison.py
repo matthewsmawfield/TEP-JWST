@@ -79,26 +79,27 @@ def fit_null_model(dust, mass, z):
 
 def fit_tep_model(dust, mass, z, gamma_t):
     """
-    TEP model: dust depends on Gamma_t (which encodes mass and z).
+    TEP model: dust depends on mass, redshift, AND Gamma_t.
     
-    dust = a + b*log(Gamma_t) + noise
+    Tests whether Gamma_t adds explanatory power beyond mass and z.
+    dust = a + b*mass + c*z + d*log(Gamma_t) + noise
     """
     from scipy.optimize import minimize
     
     log_gamma = np.log10(np.maximum(gamma_t, 0.01))
     
     def neg_log_likelihood(params):
-        a, b, log_sigma = params
+        a, b, c, d, log_sigma = params
         sigma = np.exp(log_sigma)
-        pred = a + b * log_gamma
+        pred = a + b * mass + c * z + d * log_gamma
         residuals = dust - pred
         ll = -0.5 * np.sum((residuals / sigma)**2 + np.log(2 * np.pi * sigma**2))
         return -ll
     
-    x0 = [0.5, 0.3, np.log(0.4)]
+    x0 = [0, 0.1, 0, 0.3, np.log(0.4)]
     result = minimize(neg_log_likelihood, x0, method='Nelder-Mead')
     
-    n_params = 3  # a, b, sigma
+    n_params = 5  # a, b, c, d, sigma
     log_likelihood = -result.fun
     
     return log_likelihood, n_params, result.x
@@ -307,7 +308,7 @@ def main():
     aic_tep, bic_tep = compute_aic_bic(ll_tep, k_tep, n_data)
     models['tep'] = {
         'name': 'TEP (Temporal Equivalence)',
-        'description': 'Dust depends on Gamma_t (temporal enhancement factor)',
+        'description': 'Dust depends on mass, redshift, AND Gamma_t (tests whether TEP adds explanatory power beyond standard predictors)',
         'log_likelihood': ll_tep,
         'n_params': k_tep,
         'aic': aic_tep,
@@ -416,7 +417,7 @@ def main():
     
     # Key discriminating features
     print_status("\nKey discriminating features:")
-    print_status("  - TEP uses fewer parameters (3) than alternatives (4-5)")
+    print_status("  - TEP model includes mass, z, AND Gamma_t — tests whether temporal enhancement adds explanatory power")
     print_status("  - TEP's Gamma_t encodes physics (potential depth) rather than ad-hoc correlations")
     print_status("  - TEP makes testable predictions for screening and spectroscopy")
     

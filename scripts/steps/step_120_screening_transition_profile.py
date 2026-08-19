@@ -164,9 +164,9 @@ def compute_effective_coupling(
 def run_analysis():
     """Run screening transition profile analysis."""
 
-    print("=" * 60)
-    print("Step 143: Screening Transition Profile Analysis")
-    print("=" * 60)
+    print_status("STEP 120: Screening Transition Profile Analysis", "TITLE")
+    print_status("Characterising the TEP scalar field screening transition across density regimes.", "INFO")
+    print_status("")
 
     # Parameters (from tep_model.py)
     rho_c = RHO_CRIT_G_CM3  # g/cm³ (from Paper 6)
@@ -290,23 +290,28 @@ def run_analysis():
     results["model_comparison"] = model_comparison
 
     # Print results
-    print("\nCritical Screening Density:")
-    print(f"  ρ_c = {rho_c} g/cm³ (log ρ_c = {np.log10(rho_c):.1f})")
+    print_status("")
+    print_status("Critical Screening Density:", "PROCESS")
+    print_status(f"  rho_c = {rho_c} g/cm^3 (log rho_c = {np.log10(rho_c):.1f})", "INFO")
 
-    print("\nTransition Profile (Temporal Topology):")
-    print(f"  90% coupling at ρ = {rho_90:.2e} g/cm³")
-    print(f"  10% coupling at ρ = {rho_10:.2e} g/cm³")
-    print(f"  Transition width: {transition_width_decades:.1f} decades")
+    print_status("")
+    print_status("Transition Profile (Temporal Topology):", "PROCESS")
+    print_status(f"  90% coupling at rho = {rho_90:.2e} g/cm^3", "INFO")
+    print_status(f"  10% coupling at rho = {rho_10:.2e} g/cm^3", "INFO")
+    print_status(f"  Transition width: {transition_width_decades:.1f} decades", "INFO")
 
-    print("\nEffective Coupling at Reference Environments:")
+    print_status("")
+    print_status("Effective Coupling at Reference Environments:", "PROCESS")
     for name, data in reference_couplings.items():
-        print(f"  {name}: κ_eff = {data['kappa_eff']:.3f} ({data['regime']})")
+        print_status(f"  {name}: kappa_eff = {data['kappa_eff']:.3f} ({data['regime']})", "INFO")
 
-    print("\nModel Comparison:")
+    print_status("")
+    print_status("Model Comparison:", "PROCESS")
     for mc in model_comparison:
-        print(
+        print_status(
             f"  {mc['model']}: Earth suppression = {mc['suppression_earth']:.2e}, "
-            f"Halo suppression = {mc['suppression_halo']:.2f}"
+            f"Halo suppression = {mc['suppression_halo']:.2f}",
+            "INFO"
         )
 
     # Interpretation
@@ -320,7 +325,8 @@ def run_analysis():
     )
 
     results["interpretation"] = interpretation
-    print(f"\nInterpretation: {interpretation}")
+    print_status("")
+    print_status(f"Interpretation: {interpretation}", "INFO")
 
     # Save results
     output = {
@@ -337,7 +343,7 @@ def run_analysis():
     output_path = RESULTS_DIR / "step_120_screening_transition_profile.json"
     with open(output_path, "w") as f:
         json.dump(output, f, indent=2, default=safe_json_default)
-    print(f"\nResults saved to {output_path}")
+    print_status(f"Results saved to {output_path.name}", "SUCCESS")
 
     return output
 

@@ -70,7 +70,7 @@
     "intercept": 960000.0,
     "intercept_err": 104535.11371783167,
     "slope": 0.0,
-    "slope_err": 16278.324464016177,
+    "slope_err": 16278.324464016176,
     "p_value_slope": 1.0,
     "consistent_with_constant": true
   },

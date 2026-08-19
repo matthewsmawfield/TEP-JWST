@@ -1,0 +1,32 @@
+[22:39:02] INFO    ═══ STEP 120: Screening Transition Profile Analysis
+[22:39:02] INFO        Characterising the TEP scalar field screening transition across density regimes.
+[22:39:02] INFO    
+[22:39:02] INFO    
+[22:39:02] INFO    >>> Critical Screening Density:
+[22:39:02] INFO          rho_c = 20.0 g/cm^3 (log rho_c = 1.3)
+[22:39:02] INFO    
+[22:39:02] INFO    >>> Transition Profile (Temporal Topology):
+[22:39:02] INFO          90% coupling at rho = 1.57e+00 g/cm^3
+[22:39:02] INFO          10% coupling at rho = 2.53e+02 g/cm^3
+[22:39:02] INFO          Transition width: 2.2 decades
+[22:39:02] INFO    
+[22:39:02] INFO    >>> Effective Coupling at Reference Environments:
+[22:39:02] INFO          cosmic_mean_z0: kappa_eff = 960000.000 (unscreened)
+[22:39:02] INFO          cosmic_mean_z8: kappa_eff = 960000.000 (unscreened)
+[22:39:02] INFO          galaxy_halo: kappa_eff = 960000.000 (unscreened)
+[22:39:02] INFO          galaxy_disk: kappa_eff = 960000.000 (unscreened)
+[22:39:02] INFO          molecular_cloud: kappa_eff = 960000.000 (unscreened)
+[22:39:02] INFO          stellar_atmosphere: kappa_eff = 959999.941 (unscreened)
+[22:39:02] INFO          earth_crust: kappa_eff = 805052.024 (partially_screened)
+[22:39:02] INFO          rho_c: kappa_eff = 480000.000 (partially_screened)
+[22:39:02] INFO          earth_core: kappa_eff = 568768.325 (partially_screened)
+[22:39:02] INFO          white_dwarf: kappa_eff = 79.572 (screened)
+[22:39:02] INFO          neutron_star: kappa_eff = 0.000 (screened)
+[22:39:02] INFO    
+[22:39:02] INFO    >>> Model Comparison:
+[22:39:02] INFO          temporal_topology: Earth suppression = 8.39e-01, Halo suppression = 1.00
+[22:39:02] INFO          symmetron: Earth suppression = 1.00e+00, Halo suppression = 1.00
+[22:39:02] INFO          dilaton: Earth suppression = 8.70e-01, Halo suppression = 1.00
+[22:39:02] INFO    
+[22:39:02] INFO        Interpretation: The Temporal Topology screening mechanism transitions over ~2.2 decades in density around ρ_c = 20.0 g/cm³. At Earth's surface (ρ ~ 3 g/cm³), the coupling is suppressed by a factor of ~0.84, satisfying solar system constraints. At galaxy halo densities (ρ ~ 10^-25 g/cm³), the coupling is essentially unscreened (suppression ~ 1.00), allowing TEP effects to manifest in high-z galaxy observations.
+[22:39:02] INFO    ✓   Results saved to step_120_screening_transition_profile.json

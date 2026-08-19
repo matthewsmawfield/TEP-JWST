@@ -30,6 +30,8 @@ from astropy.io import fits
 from pathlib import Path
 import json
 import urllib.request
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 # =============================================================================
@@ -230,7 +232,7 @@ def analyze_lrd_population(df):
         if pd.notna(row.get('Re_pc')) and row['Re_pc'] > 0:
             Re_pc = row['Re_pc']  # FITS unit is pc.
             # Smaller radius = higher concentration
-            concentration = np.clip(500 / Re_pc, 5, 50)
+            concentration = np.clip(500 / Re_pc, 1.0, 5.0)
         else:
             Re_pc = R_E_TYPICAL_PC
             concentration = CONCENTRATION_FACTOR

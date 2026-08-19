@@ -1,42 +1,42 @@
-[10:03:26]     ======================================================================
-[10:03:26]     STEP 099: Alpha(z) Evolution Test
-[10:03:26]     ======================================================================
-[10:03:26]     Loaded 2315 galaxies
-[10:03:26]     
+[22:38:01] INFO        ======================================================================
+[22:38:01] INFO        STEP 099: Alpha(z) Evolution Test
+[22:38:01] INFO        ======================================================================
+[22:38:01] INFO        Loaded 2315 galaxies
+[22:38:01] INFO        
 Fitting kappa_gal in ALL redshift bins (for completeness):
-[10:03:26]     ------------------------------------------------------------
-[10:03:27]       z=4.0-5.5: N=1233, κ=1.00e+05±0.00e+00, ρ=0.02 ✗
-[10:03:28]       z=5.5-7.0: N=578, κ=1.00e+05±0.00e+00, ρ=-0.06 ✗
-[10:03:29]       z=7.0-8.5: N=328, κ=1.00e+05±0.00e+00, ρ=0.03 ✗
-[10:03:29]       z=8.5-10.0: N=176, κ=1.00e+05±0.00e+00, ρ=0.70 ✗
-[10:03:29]       z=10.0-12.0: N=0 (too few, skipping)
-[10:03:29]     Used bootstrap for uncertainty (covariance matrix singular)
-[10:03:29]     
+[22:38:01] INFO        ------------------------------------------------------------
+[22:38:03] INFO          z=4.0-5.5: N=1233, κ=1.00e+05±0.00e+00, ρ=0.02 ✗
+[22:38:05] INFO          z=5.5-7.0: N=578, κ=1.00e+05±0.00e+00, ρ=-0.06 ✗
+[22:38:06] INFO          z=7.0-8.5: N=328, κ=1.00e+05±0.00e+00, ρ=0.03 ✗
+[22:38:08] INFO          z=8.5-10.0: N=176, κ=1.00e+05±0.00e+00, ρ=0.70 ✗
+[22:38:08] INFO          z=10.0-12.0: N=0 (too few, skipping)
+[22:38:08] INFO        Used bootstrap for uncertainty (covariance matrix singular)
+[22:38:08] INFO        
 ======================================================================
-[10:03:29]     HIGH-Z KAPPA_GAL RECOVERY (z > 7, signal-active bins only)
-[10:03:29]     ======================================================================
-[10:03:30]       z=7.0-8.5: N=328, κ=1.00e+05±0.00e+00, ρ=0.03 ✗
-[10:03:31]       z=8.5-10.0: N=176, κ=1.00e+05±0.00e+00, ρ=0.70 ✗
-[10:03:31]     
+[22:38:08] INFO        HIGH-Z KAPPA_GAL RECOVERY (z > 7, signal-active bins only)
+[22:38:08] INFO        ======================================================================
+[22:38:09] INFO          z=7.0-8.5: N=328, κ=1.00e+05±0.00e+00, ρ=0.03 ✗
+[22:38:11] INFO          z=8.5-10.0: N=176, κ=1.00e+05±0.00e+00, ρ=0.70 ✗
+[22:38:11] INFO        
 High-z weighted mean diagnostic κ = 1.00e+05 ± 7.07e-02
-[10:03:31]     Tension with nominal (9.6e5): 2.15σ
-[10:03:31]     
+[22:38:11] INFO        Tension with nominal (9.6e5): 2.15σ
+[22:38:11] INFO        
 ======================================================================
-[10:03:31]     EVOLUTION TEST RESULTS
-[10:03:31]     ======================================================================
-[10:03:31]     
+[22:38:11] INFO        EVOLUTION TEST RESULTS
+[22:38:11] INFO        ======================================================================
+[22:38:11] INFO        
 Linear fit: diagnostic κ(z) = 9.60e+05 + 0.000 × z
-[10:03:31]     Slope significance: p = 1.000
-[10:03:31] ⚠   
+[22:38:11] INFO        Slope significance: p = 1.000
+[22:38:11] WARNING ⚠   
 ⚠ κ_gal redshift-evolution recovery is inconclusive in this step: the Spearman rank objective is insensitive to monotonic κ rescaling. Do not cite this as validation of constant κ_gal; use the scale-aware multi-observable recovery in step_101 instead.
-[10:03:31]     
+[22:38:11] INFO        
 All-bins weighted mean diagnostic κ = 1.00e+05 ± 5.00e-02
-[10:03:31]       (LOW-Z BINS INCLUDED — methodologically incorrect, reported for completeness)
-[10:03:31]     High-z-only weighted mean diagnostic κ = 1.00e+05 ± 7.07e-02
-[10:03:31]     Nominal value: κ_gal = 960000.0 ± 400000.0
-[10:03:31]     All-bins tension with nominal: 2.1σ  (high-z only: 2.15σ)
-[10:03:31]     
+[22:38:11] INFO          (LOW-Z BINS INCLUDED — methodologically incorrect, reported for completeness)
+[22:38:11] INFO        High-z-only weighted mean diagnostic κ = 1.00e+05 ± 7.07e-02
+[22:38:11] INFO        Nominal value: κ_gal = 960000.0 ± 400000.0
+[22:38:11] INFO        All-bins tension with nominal: 2.1σ  (high-z only: 2.15σ)
+[22:38:11] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_099_alpha_evolution_test.json
-[10:03:31]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_099_alpha_evolution_test.png
-[10:03:31]     
+[22:38:12] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_099_alpha_evolution_test.png
+[22:38:12] INFO        
 Step 099 complete.

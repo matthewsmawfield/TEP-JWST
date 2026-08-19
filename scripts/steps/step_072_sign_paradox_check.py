@@ -34,6 +34,8 @@ The resolution is that TEP operates in a RELATIVE frame where:
 """
 
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_bvp
 from pathlib import Path

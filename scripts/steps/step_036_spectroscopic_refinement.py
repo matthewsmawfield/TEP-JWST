@@ -16,7 +16,6 @@ import pandas as pd
 from scipy import stats  # Hypothesis tests and correlation
 from pathlib import Path
 import json
-import matplotlib.pyplot as plt  # Diagnostic plotting (Simpson's paradox visualisation)
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))

@@ -428,7 +428,7 @@ def run():
         z = float(row["z"])
         log_Mstar = float(row["log_Mstar"])
         log_Mh = estimate_halo_mass(log_Mstar, z)
-        concentration = float(np.clip(500.0 / row["Re_pc"], 5.0, 50.0))
+        concentration = float(np.clip(500.0 / row["Re_pc"], 1.0, 5.0))
         g_halo, g_cen, dg, t_cos = calculate_differential_topology(z, log_Mh, concentration)
         topology_rows.append({
             "id": row["id"],
@@ -603,14 +603,14 @@ def run():
             df_lrd_empirical["log_Mstar_empirical"] = np.clip(
                 empirical_model.predict(df_lrd_empirical[empirical_features].to_numpy(dtype=float)),
                 7.0,
-                12.0,
+                11.0,
             )
             empirical_rows = []
             for _, row in df_lrd_empirical.iterrows():
                 z = float(row["z"])
                 log_Mstar = float(row["log_Mstar_empirical"])
                 log_Mh = estimate_halo_mass(log_Mstar, z)
-                concentration = float(np.clip(500.0 / row["Re_pc"], 5.0, 50.0))
+                concentration = float(np.clip(500.0 / row["Re_pc"], 1.0, 5.0))
                 g_halo, g_cen, dg, t_cos = calculate_differential_topology(z, log_Mh, concentration)
                 empirical_rows.append({
                     "id": row["id"],
@@ -765,7 +765,7 @@ def run():
             z = float(row["z"])
             log_Mstar = float(row["log_Mstar"])
             log_Mh = estimate_halo_mass(log_Mstar, z)
-            concentration = float(np.clip(500.0 / row["Re_pc"], 5.0, 50.0))
+            concentration = float(np.clip(500.0 / row["Re_pc"], 1.0, 5.0))
             g_halo, g_cen, dg, t_cos = calculate_differential_topology(z, log_Mh, concentration)
             ceers_topology_rows.append({
                 "id": row["id"],

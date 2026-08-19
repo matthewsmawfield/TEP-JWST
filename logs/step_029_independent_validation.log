@@ -1,48 +1,48 @@
-[10:01:50]     ======================================================================
-[10:01:50]     STEP 31: Independent Validation (Out-of-Sample Prediction)
-[10:01:50]     ======================================================================
-[10:01:50] 
-[10:01:50]     Sample size: N = 1108
-[10:01:50] 
-[10:01:50]     ==================================================
-[10:01:50]     TEST 1: 50/50 Train-Test Split
-[10:01:50]     ==================================================
-[10:01:50]     Training set: N = 554
-[10:01:50]     Test set: N = 554
-[10:01:50]     
+[22:35:53] INFO        ======================================================================
+[22:35:53] INFO        STEP 31: Independent Validation (Out-of-Sample Prediction)
+[22:35:53] INFO        ======================================================================
+[22:35:53] INFO    
+[22:35:53] INFO        Sample size: N = 1108
+[22:35:53] INFO    
+[22:35:53] INFO        ==================================================
+[22:35:53] INFO        TEST 1: 50/50 Train-Test Split
+[22:35:53] INFO        ==================================================
+[22:35:53] INFO        Training set: N = 554
+[22:35:53] INFO        Test set: N = 554
+[22:35:53] INFO        
 Calibrated α (training only): 960000.000
-[10:01:50]     Reference α (from Cepheids): 960000.0
-[10:01:50]     Difference: 0.000
-[10:01:50]     
+[22:35:53] INFO        Reference α (from Cepheids): 960000.0
+[22:35:53] INFO        Difference: 0.000
+[22:35:53] INFO        
 Out-of-sample predictions (test set):
-[10:01:50]       TEP (Γ_t vs dust): ρ = 0.234, p = 2.48e-08
-[10:01:50]       Mass-only baseline: ρ = 0.314, p = 4.02e-14
-[10:01:50]       Partial (Γ_t | M*): ρ = 0.356, p = 5.20e-18
-[10:01:50]     
+[22:35:53] INFO          TEP (Γ_t vs dust): ρ = 0.185, p = 1.23e-05
+[22:35:53] INFO          Mass-only baseline: ρ = 0.282, p = 1.41e-11
+[22:35:53] INFO          Partial (Γ_t | M*): ρ = 0.341, p = 1.59e-16
+[22:35:53] INFO        
 ✓ TEP predicts dust BEYOND mass on held-out data
-[10:01:50] 
-[10:01:50]     ==================================================
-[10:01:50]     TEST 2: 5-Fold Cross-Validation
-[10:01:50]     ==================================================
-[10:01:50]     
+[22:35:53] INFO    
+[22:35:53] INFO        ==================================================
+[22:35:53] INFO        TEST 2: 5-Fold Cross-Validation
+[22:35:53] INFO        ==================================================
+[22:35:53] INFO        
 Calibrated α across folds:
-[10:01:50]       Mean: 960000.000 ± 0.000
-[10:01:50]       Range: [960000.000, 960000.000]
-[10:01:50]     
+[22:35:53] INFO          Mean: 960000.000 ± 0.000
+[22:35:53] INFO          Range: [960000.000, 960000.000]
+[22:35:53] INFO        
 Partial correlation (Γ_t | M*) across folds:
-[10:01:50]       Mean ρ: 0.322 ± 0.133
-[10:01:50]       Significant folds: 4/5
-[10:01:50]     
+[22:35:53] INFO          Mean ρ: 0.322 ± 0.133
+[22:35:53] INFO          Significant folds: 4/5
+[22:35:53] INFO        
 Combined significance (Fisher's method):
-[10:01:50]       χ² = 164.8, p = 3.26e-30
-[10:01:50] 
-[10:01:50]     ======================================================================
-[10:01:50]     INDEPENDENT VALIDATION SUMMARY
-[10:01:50]     ======================================================================
-[10:01:50]     
+[22:35:53] INFO          χ² = 164.8, p = 3.26e-30
+[22:35:53] INFO    
+[22:35:53] INFO        ======================================================================
+[22:35:53] INFO        INDEPENDENT VALIDATION SUMMARY
+[22:35:53] INFO        ======================================================================
+[22:35:53] INFO        
 ✓ STRONG: TEP shows genuine out-of-sample predictive power
-[10:01:50]       Mean partial correlation: ρ = 0.322
-[10:01:50]       Significant in 4/5 folds
-[10:01:50]     
+[22:35:53] INFO          Mean partial correlation: ρ = 0.322
+[22:35:53] INFO          Significant in 4/5 folds
+[22:35:53] INFO        
 Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_029_independent_validation.json
-[10:01:50]     Step 029 complete.
+[22:35:53] INFO        Step 029 complete.

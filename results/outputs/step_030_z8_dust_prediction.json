@@ -12,8 +12,8 @@
   "cosmic_time_control": {
     "rho_raw": 0.21624922832234364,
     "p_raw": 0.0002471101718732487,
-    "rho_partial": 0.4297412250655638,
-    "p_partial": 3.795294856877563e-14,
+    "rho_partial": 0.4297412250655635,
+    "p_partial": 3.795294856877824e-14,
     "status": "confirmed"
   },
   "mass_independence": {

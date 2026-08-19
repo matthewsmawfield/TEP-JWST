@@ -27,7 +27,6 @@ Outputs:
 
 import sys
 import numpy as np
-np.random.seed(42)
 import pandas as pd
 from scipy.stats import spearmanr
 from pathlib import Path
@@ -75,9 +74,10 @@ def bootstrap_correlation(x, y, n_boot=1000):
     and sSFRs are not normally distributed.
     """
     n = len(x)
+    rng = np.random.default_rng(42)
     rhos = []
     for _ in range(n_boot):
-        idx = np.random.choice(n, n, replace=True)
+        idx = rng.choice(n, n, replace=True)
         r, _ = spearmanr(x[idx], y[idx])
         rhos.append(r)
     return np.percentile(rhos, [2.5, 97.5])
@@ -100,10 +100,11 @@ def bootstrap_delta(x_low, y_low, x_high, y_high, n_boot=1000):
     """
     n_low = len(x_low)
     n_high = len(x_high)
+    rng = np.random.default_rng(42)
     deltas = []
     for _ in range(n_boot):
-        idx_low = np.random.choice(n_low, n_low, replace=True)
-        idx_high = np.random.choice(n_high, n_high, replace=True)
+        idx_low = rng.choice(n_low, n_low, replace=True)
+        idx_high = rng.choice(n_high, n_high, replace=True)
         r_low, _ = spearmanr(x_low[idx_low], y_low[idx_low])
         r_high, _ = spearmanr(x_high[idx_high], y_high[idx_high])
         deltas.append(r_high - r_low)
@@ -207,7 +208,7 @@ def main():
         "delta_rho": float(delta_rho),
         "delta_ci_95": [float(ci_delta[0]), float(ci_delta[1])],
         "significant": significant,
-        "conclusion": "TEP prediction CONFIRMED" if significant else "Inconclusive",
+        "conclusion": f"Mass-sSFR correlation inverts at z > 7 (delta_rho = {delta_rho:+.3f}, p = {p_high:.2e})" if significant else f"Inconclusive (delta_rho = {delta_rho:+.3f})",
     }
     
     with open(OUTPUT_PATH / f"step_{STEP_NUM}_thread1_z7_inversion.json", "w") as f:

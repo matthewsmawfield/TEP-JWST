@@ -5,45 +5,45 @@
   "n_observables": 4,
   "individual_fits": {
     "dust": {
-      "kappa_gal": 1757900.3713374063,
-      "kappa_gal_err": 410962.7768426801,
-      "rho_best": 0.3901426887347675,
+      "kappa_gal": 1047480.1096467108,
+      "kappa_gal_err": 413670.00673706847,
+      "rho_best": 0.3901426887347682,
       "expected_sign": 1,
       "weight": 1.0
     },
     "age_ratio": {
-      "kappa_gal": 1385658.3226181394,
-      "kappa_gal_err": 425721.9832388995,
-      "rho_best": 0.18057881962588684,
+      "kappa_gal": 1283406.6393215242,
+      "kappa_gal_err": 423999.69558108214,
+      "rho_best": 0.18057881962588712,
       "expected_sign": 1,
       "weight": 1.0
     },
     "metallicity": {
-      "kappa_gal": 1072351.6045958414,
-      "kappa_gal_err": 431905.60465860704,
-      "rho_best": 0.016846797711161942,
+      "kappa_gal": 804386.5677104419,
+      "kappa_gal_err": 484841.3731757786,
+      "rho_best": 0.016846797711161973,
       "expected_sign": 1,
       "weight": 0.5
     },
     "ssfr": {
-      "kappa_gal": 441357.2670320274,
-      "kappa_gal_err": 410996.6657245087,
-      "rho_best": -0.3206751209784734,
+      "kappa_gal": 1271042.7399274562,
+      "kappa_gal_err": 418863.7937493496,
+      "rho_best": -0.3206751209784736,
       "expected_sign": -1,
       "weight": 0.5
     }
   },
   "joint_fit": {
-    "kappa_gal": 398148.657210988,
-    "kappa_gal_err": 410437.840931173,
-    "tension_sigma": 0.9803489627884542,
+    "kappa_gal": 1205467.5570274135,
+    "kappa_gal_err": 399207.48535297485,
+    "tension_sigma": 0.43435951734200784,
     "consistent_2sigma": true
   },
   "weighted_mean": {
-    "kappa_gal": 1162707.6577424568,
-    "kappa_gal_err": 211169.38875537412,
-    "tension_sigma": 0.44815194895912785
+    "kappa_gal": 1119973.1508337464,
+    "kappa_gal_err": 217716.62929533626,
+    "tension_sigma": 0.35127089489173674
   },
-  "improvement_over_dust_only": 236049.02854839433,
+  "improvement_over_dust_only": -157987.4473807027,
   "conclusion": "Joint \u03ba_gal is CONSISTENT with Cepheid calibration within 2\u03c3"
 }

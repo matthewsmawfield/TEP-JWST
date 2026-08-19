@@ -211,7 +211,7 @@ def analyze_age_excess(df):
     # TEP predicts negative correlation (higher Γ_t → more negative age_excess)
     if rho < 0 and (p_value_fmt is not None and p_value_fmt < 0.05):
         logger.info("\n✓ Higher Γ_t → more negative age_excess (TEP-consistent)")
-        logger.info("  Correlation confirmed")
+        logger.info(f"  Correlation significant (ρ = {rho:.3f}, p = {p_value_fmt:.2e})")
         tep_consistent = True
     elif rho < 0:
         logger.info("\n⚠ Trend in correct direction but not significant")

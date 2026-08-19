@@ -76,7 +76,7 @@
     "scaling_relation": {
       "slope": 0.06769986057805213,
       "intercept": -0.8913156436514897,
-      "r_squared": 0.4663683812028637,
+      "r_squared": 0.46636838120286406,
       "p": 1e-300,
       "expected_alpha": 960000.0
     },

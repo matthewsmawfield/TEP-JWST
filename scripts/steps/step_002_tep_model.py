@@ -44,7 +44,10 @@ import json
 PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging for step-level tracking
+from scripts.utils.logger import (
+    TEPLogger, set_step_logger, print_status,
+    log_subsection, log_data, log_dict, log_timing,
+)  # Centralised logging for step-level tracking
 from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting (prevents underflow) & JSON serialiser for numpy types
 from scripts.utils.downloader import smart_download  # Robust HTTP download utility with integrity checking
 
@@ -180,80 +183,147 @@ def apply_tep_model(df):
 # =============================================================================
 
 def main():
-    print_status("=" * 60, "INFO")
-    print_status("STEP 2: TEP Model and Gamma_t Calculation", "INFO")
-    print_status("=" * 60, "INFO")
-    print_status("", "INFO")
-    
-    print_status("TEP Model Parameters:", "INFO")
-    print_status(f"  kappa_gal = {KAPPA_GAL} ± {KAPPA_GAL_UNCERTAINTY} mag (Observable Response Coefficient)", "INFO")
-    print_status(f"  log_Mh_ref = {LOG_MH_REF}", "INFO")
-    print_status(f"  z_ref = {Z_REF}", "INFO")
-    print_status("", "INFO")
-    
-    full_path = INTERIM_PATH / f"step_001_uncover_full_sample.csv"
-    multi_path = INTERIM_PATH / f"step_001_uncover_multi_property_sample.csv"
-    
+    print_status("STEP 002: TEP Model and Gamma_t Calculation", "TITLE")
+    print_status("Applying the potential-linear TEP model to compute chronological enhancement factors.", "INFO")
+    print_status("")
+
+    # ------------------------------------------------------------------
+    # Stage 1: Display model parameters
+    # ------------------------------------------------------------------
+    log_subsection("Stage 1: TEP Model Parameters")
+
+    print_status("Potential-linear Gamma_t formula:", "INFO")
+    print_status("  Gamma_t = exp[ K * (Phi - Phi_ref)/c^2 * sqrt(1+z) ]", "INFO")
+    print_status("")
+    log_data("kappa_gal (response coefficient)", f"{KAPPA_GAL} ± {KAPPA_GAL_UNCERTAINTY} mag")
+    log_data("kappa_gal source", "Cepheid calibration (Paper 11), transferred via K_gal")
+    log_data("log_Mh_ref (reference halo mass)", LOG_MH_REF)
+    log_data("z_ref (reference redshift)", Z_REF)
+    log_data("Redshift scaling", "alpha(z) = kappa_gal * sqrt(1+z)")
+    print_status("")
+
+    # ------------------------------------------------------------------
+    # Stage 2: Load input data from step 001
+    # ------------------------------------------------------------------
+    log_subsection("Stage 2: Loading Input Samples")
+
+    full_path = INTERIM_PATH / "step_001_uncover_full_sample.csv"
+    multi_path = INTERIM_PATH / "step_001_uncover_multi_property_sample.csv"
+
     if not full_path.exists() or not multi_path.exists():
         print_status("ERROR: Input files from step 001 not found.", "ERROR")
+        print_status(f"  Expected: {full_path.name}", "ERROR")
+        print_status(f"  Expected: {multi_path.name}", "ERROR")
         return
 
-    df_full = pd.read_csv(full_path)
-    print_status(f"Loaded full sample: N = {len(df_full)}", "INFO")
-    
-    df_multi = pd.read_csv(multi_path)
-    print_status(f"Loaded multi-property sample: N = {len(df_multi)}", "INFO")
-    print_status("", "INFO")
-    
+    with log_timing("Loading full sample"):
+        df_full = pd.read_csv(full_path)
+    print_status(f"Full sample: N = {len(df_full)}", "INFO")
+
+    with log_timing("Loading multi-property sample"):
+        df_multi = pd.read_csv(multi_path)
+    print_status(f"Multi-property sample: N = {len(df_multi)}", "INFO")
+    print_status("")
+
     if len(df_full) == 0 or len(df_multi) == 0:
         print_status("ERROR: Input dataframes are empty.", "ERROR")
         return
 
-    print_status("Applying TEP model...", "INFO")
-    df_full = apply_tep_model(df_full)
-    df_multi = apply_tep_model(df_multi)
-    
-    print_status("", "INFO")
-    print_status("Gamma_t Statistics (Full Sample):", "INFO")
-    print_status(f"  Min: {df_full['gamma_t'].min():.3f}", "INFO")
-    print_status(f"  Max: {df_full['gamma_t'].max():.3f}", "INFO")
-    print_status(f"  Median: {df_full['gamma_t'].median():.3f}", "INFO")
-    print_status(f"  N with Gamma_t > 1: {(df_full['gamma_t'] > 1).sum()}", "INFO")
-    print_status(f"  N with Gamma_t > 1.5: {(df_full['gamma_t'] > 1.5).sum()}", "INFO")
-    
-    print_status("", "INFO")
-    print_status("Saving outputs...", "INFO")
-    
-    df_full.to_csv(INTERIM_PATH / f"step_{STEP_NUM}_uncover_full_sample_tep.csv", index=False)
-    print_status(f"Saved: step_{STEP_NUM}_uncover_full_sample_tep.csv", "INFO")
-    
-    df_multi.to_csv(INTERIM_PATH / f"step_{STEP_NUM}_uncover_multi_property_sample_tep.csv", index=False)
-    print_status(f"Saved: step_{STEP_NUM}_uncover_multi_property_sample_tep.csv", "INFO")
-    
-    summary = {
-        "kappa_gal": KAPPA_GAL,
-        "kappa_gal_uncertainty": KAPPA_GAL_UNCERTAINTY,
-        "log_Mh_ref": LOG_MH_REF,
-        "z_ref": Z_REF,
-        "gamma_t_stats_full": {
-            "min": float(df_full['gamma_t'].min()),
-            "max": float(df_full['gamma_t'].max()),
-            "median": float(df_full['gamma_t'].median()),
-            "n_gt_1": int((df_full['gamma_t'] > 1).sum()),
-            "n_gt_1p5": int((df_full['gamma_t'] > 1.5).sum()),
-        },
-        "gamma_t_stats_multi": {
-            "min": float(df_multi['gamma_t'].min()),
-            "max": float(df_multi['gamma_t'].max()),
-            "median": float(df_multi['gamma_t'].median()),
-        },
-    }
-    
-    with open(OUTPUT_PATH / f"step_{STEP_NUM}_tep_model.json", "w") as f:
-        json.dump(summary, f, indent=2, default=safe_json_default)
-    
-    print_status("", "INFO")
-    print_status(f"Step {STEP_NUM} complete.", "INFO")
+    # ------------------------------------------------------------------
+    # Stage 3: Apply TEP model
+    # ------------------------------------------------------------------
+    log_subsection("Stage 3: Computing Gamma_t and Derived Quantities")
+
+    print_status("Computing per-galaxy:", "INFO")
+    print_status("  (a) alpha(z) = kappa_gal * sqrt(1+z)  — redshift-dependent coupling", "INFO")
+    print_status("  (b) Gamma_t  = exp[...]               — chronological enhancement factor", "INFO")
+    print_status("  (c) t_eff    = t_cosmic * Gamma_t     — effective proper time [Gyr]", "INFO")
+    print_status("  (d) ml_bias  = Gamma_t^n_ml            — isochrony mass-to-light bias", "INFO")
+    print_status("  (e) log_Mstar_true = log_Mstar - log10(ml_bias)  — TEP-corrected mass", "INFO")
+    print_status("")
+
+    with log_timing("Applying TEP model to full sample"):
+        df_full = apply_tep_model(df_full)
+
+    with log_timing("Applying TEP model to multi-property sample"):
+        df_multi = apply_tep_model(df_multi)
+
+    # ------------------------------------------------------------------
+    # Stage 4: Report Gamma_t distribution statistics
+    # ------------------------------------------------------------------
+    log_subsection("Stage 4: Gamma_t Distribution Statistics")
+
+    print_status("Full sample:", "INFO")
+    log_data("N", len(df_full), indent=4)
+    log_data("Gamma_t min", df_full['gamma_t'].min(), indent=4)
+    log_data("Gamma_t max", df_full['gamma_t'].max(), indent=4)
+    log_data("Gamma_t median", df_full['gamma_t'].median(), indent=4)
+    log_data("Gamma_t mean", df_full['gamma_t'].mean(), indent=4)
+    log_data("N (Gamma_t > 1)", int((df_full['gamma_t'] > 1).sum()), indent=4)
+    log_data("N (Gamma_t > 1.5)", int((df_full['gamma_t'] > 1.5).sum()), indent=4)
+    log_data("N (Gamma_t > 2.0)", int((df_full['gamma_t'] > 2.0).sum()), indent=4)
+    log_data("t_eff range [Gyr]", f"[{df_full['t_eff'].min():.3f}, {df_full['t_eff'].max():.3f}]", indent=4)
+
+    print_status("Multi-property sample:", "INFO")
+    log_data("N", len(df_multi), indent=4)
+    log_data("Gamma_t median", df_multi['gamma_t'].median(), indent=4)
+    log_data("Mass bias median (dex)", df_multi['ml_bias'].apply(np.log10).median(), indent=4)
+
+    # Per-redshift breakdown
+    print_status("Per-redshift Gamma_t (full sample):", "DEBUG")
+    for z_lo, z_hi in [(4, 6), (6, 7), (7, 8), (8, 9), (9, 10)]:
+        sub = df_full[(df_full['z_phot'] >= z_lo) & (df_full['z_phot'] < z_hi)]
+        if len(sub) > 0:
+            print_status(f"  z=[{z_lo},{z_hi}): N={len(sub):>5}, "
+                         f"median Gamma_t={sub['gamma_t'].median():.3f}, "
+                         f"median t_eff={sub['t_eff'].median():.3f} Gyr", "DEBUG")
+
+    print_status("")
+
+    # ------------------------------------------------------------------
+    # Stage 5: Save outputs
+    # ------------------------------------------------------------------
+    log_subsection("Stage 5: Saving Outputs")
+
+    with log_timing("Writing TEP-enriched CSVs and summary JSON"):
+        df_full.to_csv(INTERIM_PATH / f"step_{STEP_NUM}_uncover_full_sample_tep.csv", index=False)
+        print_status(f"Saved: step_{STEP_NUM}_uncover_full_sample_tep.csv ({len(df_full)} rows)", "INFO")
+
+        df_multi.to_csv(INTERIM_PATH / f"step_{STEP_NUM}_uncover_multi_property_sample_tep.csv", index=False)
+        print_status(f"Saved: step_{STEP_NUM}_uncover_multi_property_sample_tep.csv ({len(df_multi)} rows)", "INFO")
+
+        summary = {
+            "kappa_gal": KAPPA_GAL,
+            "kappa_gal_uncertainty": KAPPA_GAL_UNCERTAINTY,
+            "log_Mh_ref": LOG_MH_REF,
+            "z_ref": Z_REF,
+            "gamma_t_stats_full": {
+                "min": float(df_full['gamma_t'].min()),
+                "max": float(df_full['gamma_t'].max()),
+                "median": float(df_full['gamma_t'].median()),
+                "n_gt_1": int((df_full['gamma_t'] > 1).sum()),
+                "n_gt_1p5": int((df_full['gamma_t'] > 1.5).sum()),
+            },
+            "gamma_t_stats_multi": {
+                "min": float(df_multi['gamma_t'].min()),
+                "max": float(df_multi['gamma_t'].max()),
+                "median": float(df_multi['gamma_t'].median()),
+            },
+        }
+
+        with open(OUTPUT_PATH / f"step_{STEP_NUM}_tep_model.json", "w") as f:
+            json.dump(summary, f, indent=2, default=safe_json_default)
+        print_status(f"Saved: step_{STEP_NUM}_tep_model.json", "INFO")
+
+    # ------------------------------------------------------------------
+    # Final summary
+    # ------------------------------------------------------------------
+    print_status("")
+    print_status("Step 002 complete — TEP model applied:", "SUCCESS")
+    print_status(f"  Full sample:       N = {len(df_full):>6}, median Gamma_t = {df_full['gamma_t'].median():.3f}", "SUCCESS")
+    print_status(f"  Multi-property:    N = {len(df_multi):>6}, median Gamma_t = {df_multi['gamma_t'].median():.3f}", "SUCCESS")
+    print_status(f"  Gamma_t range: [{df_full['gamma_t'].min():.3f}, {df_full['gamma_t'].max():.3f}]", "SUCCESS")
+    print_status(f"  N(Gamma_t > 1): {int((df_full['gamma_t'] > 1).sum())} ({100 * (df_full['gamma_t'] > 1).mean():.1f}%)", "SUCCESS")
 
 if __name__ == "__main__":
     main()

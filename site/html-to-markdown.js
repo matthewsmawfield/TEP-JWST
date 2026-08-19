@@ -24,7 +24,9 @@ class HTMLToMarkdownConverter {
                 .replace(/<(em|i)[^>]*>([\s\S]*?)<\/(em|i)>/gi, '*$2*')
                 .replace(/<code[^>]*>([\s\S]*?)<\/code>/gi, '`$1`')
                 .replace(/<br\s*\/?>/gi, ' ')
-                .replace(/<\/?[a-zA-Z][^>]*>/g, '')
+                .replace(/<sub[^>]*>([\s\S]*?)<\/sub>/gi, '<sub>$1</sub>')
+                .replace(/<sup[^>]*>([\s\S]*?)<\/sup>/gi, '<sup>$1</sup>')
+                .replace(/<\/?(?!sub|sup)[a-zA-Z][^>]*>/g, '')
         )
             .replace(/\s+/g, ' ')
             .trim();
@@ -106,7 +108,9 @@ class HTMLToMarkdownConverter {
         html = html.replace(/<br\s*\/?>/gi, '\n');
         html = html.replace(/<hr\s*\/?>/gi, '\n---\n');
 
-        html = html.replace(/<\/?[a-zA-Z][^>]*>/g, '');
+        html = html.replace(/<sub[^>]*>([\s\S]*?)<\/sub>/gi, '<sub>$1</sub>');
+        html = html.replace(/<sup[^>]*>([\s\S]*?)<\/sup>/gi, '<sup>$1</sup>');
+        html = html.replace(/<\/?(?!sub|sup)[a-zA-Z][^>]*>/g, '');
         html = this.decodeEntities(html);
         html = html.replace(/@@@CODEBLOCK_START:([^@]*)@@@[\r\n]+([\s\S]*?)[\r\n]+@@@CODEBLOCK_END@@@/g, (match, lang, code) => {
             const language = lang.trim();
@@ -143,12 +147,21 @@ class HTMLToMarkdownConverter {
 
             console.log(`  Total HTML: ${(allHtml.length / 1024).toFixed(1)} KB`);
             const markdownTitle = manifest.title || 'Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies';
-            
+
+            // Derive version/codename and last-updated from manifest.json so the
+            // markdown header and filename never go stale on a version bump.
+            const manifestVersion = manifest.version || 'v0.6 (Kos)';
+            const manifestUpdated = manifest.last_updated || '8 August 2026';
+            const versionMatch = String(manifestVersion).match(/^v?([\d.]+)\s*\(([^)]+)\)$/i);
+            const versionNum = versionMatch ? versionMatch[1] : '0.6';
+            const codename = versionMatch ? versionMatch[2] : 'Kos';
+            const fileVersionTag = `v${versionNum}-${codename}`;
+
             // Build header with metadata
             const header = `# ${markdownTitle}
 **Matthew Lukin Smawfield**  
-Version: v0.5 (Kos)  
-First published: 13 March 2026 · Last updated: 29 April 2026  
+Version: ${manifestVersion}  
+First published: 13 March 2026 · Last updated: ${manifestUpdated}  
 DOI: 10.5281/zenodo.19000827
 
 ---
@@ -159,7 +172,7 @@ DOI: 10.5281/zenodo.19000827
             const cleanedMarkdown = this.stripLeadingWhitespace(rawMarkdown);
             const markdown = header + cleanedMarkdown;
             
-            const outputPath = path.join(__dirname, '..', '12-TEP-JWST-v0.5-Kos.md');
+            const outputPath = path.join(__dirname, '..', `12-TEP-JWST-${fileVersionTag}.md`);
             fs.writeFileSync(outputPath, markdown, 'utf8');
             console.log(`✅ Markdown saved to: ${outputPath} (${(markdown.length / 1024).toFixed(1)} KB)`);
         } catch (error) {

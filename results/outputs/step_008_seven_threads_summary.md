@@ -1,6 +1,6 @@
 # TEP-JWST: The Seven Threads of Evidence
 
-Generated: 2026-04-29T10:01:26.247611
+Generated: 2026-08-18T22:35:26.332761
 
 ## Summary
 
@@ -12,7 +12,7 @@ Generated: 2026-04-29T10:01:26.247611
 | Γ_t vs Age Ratio | ρ = 0.09 (p = 2e-05) | ✓ |
 | Γ_t vs Metallicity | ρ = 0.16 (p = 1e-07) | ✓ |
 | Γ_t vs Dust | ρ = 0.32 (p = 2e-27) | ✓ |
-| z > 8 Dust Anomaly | ρ = 0.56 [0.46, 0.64] | ✓ |
+| z > 8 Dust Anomaly | ρ = 0.56 [0.46, 0.65] | ✓ |
 | Age-Metallicity Coherence | ρ = 0.33 [0.27, 0.39] | ✓ |
 | Multi-Property Split | All p < 10⁻¹⁰ | ✓ |
 

@@ -265,13 +265,13 @@ def main():
     # Key finding
     if mean_tension_tep < 2:
         conclusion = f"TEP reduces ΛCDM tension from {mean_tension_obs:.1f}σ to {mean_tension_tep:.1f}σ (< 2σ)"
-        status = "SUPPORTED"
+        status = "tension_reduced_below_2sigma"
     elif mean_tension_tep < mean_tension_obs:
         conclusion = f"TEP reduces ΛCDM tension from {mean_tension_obs:.1f}σ to {mean_tension_tep:.1f}σ"
-        status = "PARTIALLY SUPPORTED"
+        status = "tension_reduced"
     else:
-        conclusion = "-> TEP does not measurably reduce ΛCDM tension"
-        status = "NOT SUPPORTED"
+        conclusion = f"TEP does not measurably reduce ΛCDM tension ({mean_tension_obs:.1f}σ → {mean_tension_tep:.1f}σ)"
+        status = "tension_not_reduced"
     
     print_status(f"\n✓ {conclusion}")
     print_status(f"  Status: {status}")

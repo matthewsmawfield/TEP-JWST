@@ -216,7 +216,7 @@ def test1_phase_boundary(df):
     frac_below_z8 = below_z8["dust_detected"].mean() if len(below_z8) > 0 else 0
 
     # Compare with mass-only threshold: find mass that gives same split ratio
-    mass_thresh = sub["log_Mstar"].quantile(len(above_teff) / n)
+    mass_thresh = sub["log_Mstar"].quantile(len(below_teff) / n)
     above_mass = sub[sub["log_Mstar"] >= mass_thresh]
     below_mass = sub[sub["log_Mstar"] < mass_thresh]
     frac_above_mass = above_mass["dust_detected"].mean() if len(above_mass) > 0 else 0

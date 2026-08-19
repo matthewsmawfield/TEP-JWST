@@ -47,7 +47,7 @@ def load_citation_metadata():
             # Parse manually if yaml not available
             with open(citation_file, 'r') as f:
                 content = f.read()
-            version_match = re.search(r'version:\s*"?([^"\n]+)"?', content)
+            version_match = re.search(r'^version:\s*"?([^"\n]+)"?', content, re.MULTILINE)
             version_str = version_match.group(1).strip() if version_match else 'v0.1'
         
         # Parse version string like 'v0.1 (Sintra)'

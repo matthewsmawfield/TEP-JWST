@@ -264,11 +264,11 @@ def main():
         print_status(f"\nMorphology tests: {n_consistent}/{n_tests} consistent with TEP")
         
         if n_consistent == n_tests:
-            conclusion = "All morphology tests SUPPORT TEP predictions"
+            conclusion = f"All {n_tests} morphology tests consistent with TEP predictions ({n_consistent}/{n_tests})"
         elif n_consistent > 0:
-            conclusion = f"Partial support: {n_consistent}/{n_tests} tests consistent"
+            conclusion = f"Partial support: {n_consistent}/{n_tests} morphology tests consistent with TEP"
         else:
-            conclusion = "Morphology tests do NOT support TEP predictions"
+            conclusion = f"Morphology tests do not support TEP predictions (0/{n_tests} consistent)"
         
         print_status(f"\n{conclusion}")
     else:

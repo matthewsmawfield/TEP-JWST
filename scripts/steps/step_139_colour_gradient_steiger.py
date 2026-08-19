@@ -369,6 +369,9 @@ def main():
         ),
     }
 
+    print_status(f"Raw correlations: ρ(grad,Γt)={r_grad_gamma:.3f} p={p_grad_gamma:.2e}; ρ(grad,M*)={r_grad_mass:.3f} p={p_grad_mass:.2e}", "INFO")
+    print_status(f"  ρ(grad,t_eff)={r_grad_teff:.3f} p={p_grad_teff:.2e}; ρ(grad,t_cosmic)={r_grad_tcosmic:.3f} p={p_grad_tcosmic:.2e}", "INFO")
+
     # ── Test 2: Steiger Z-test: t_eff vs M* ──────────────────────────────────
     Z_teff_vs_mass, p_teff_vs_mass = steiger_z_dependent(
         r_grad_teff, r_grad_mass, r_teff_mass, n_total
@@ -405,6 +408,8 @@ def main():
             ),
         },
     }
+
+    print_status(f"Steiger Z: t_eff vs M* -> Z={Z_teff_vs_mass:.2f}, p={p_teff_vs_mass:.4f}; t_eff vs t_cosmic -> Z={Z_teff_vs_tcosmic:.2f}, p={p_teff_vs_tcosmic:.4f}", "INFO")
 
     # ── Test 3: Partial correlations ──────────────────────────────────────────
     try:
@@ -486,6 +491,7 @@ def main():
             "ci_95_low": ci_lo,
             "ci_95_high": ci_hi,
         })
+        print_status(f"  z={z_lo}-{z_hi}: N={n_bin}, ρ={r_bin:.3f}, p={p_bin:.3f}", "INFO")
 
     results["redshift_bins"] = z_bin_results
 

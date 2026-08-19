@@ -2,8 +2,8 @@
   "step": 171,
   "name": "sigma_kinematic_expansion",
   "status": "SUCCESS",
-  "assessment": "mixed_sigma_test_opposite_primary_sign",
-  "supportive": false,
+  "assessment": "directionally_supportive_sigma_test",
+  "supportive": true,
   "sample": {
     "n_total": 75,
     "n_with_mdyn": 75,
@@ -14,6 +14,10 @@
     "z_median": 4.4,
     "sigma_min_kms": 25.0,
     "sigma_max_kms": 387.0,
+    "sigma_type_counts": {
+      "absorption": 20,
+      "emission": 55
+    },
     "source_counts": {
       "SUSPENSE (Slob+25)": 15,
       "Esdaile+21 / Tanaka+19": 5,
@@ -41,33 +45,109 @@
         "std_residual_dex": 0.682999006754398
       },
       "corrected_mstar_sigma_fit": {
-        "slope": 1.9904215432445491,
-        "intercept": 5.557684955375533,
-        "r2": 0.4905874788847018,
-        "std_residual_dex": 0.672677855473213
+        "slope": 2.365855261416635,
+        "intercept": 4.905940935699307,
+        "r2": 0.5713202413049285,
+        "std_residual_dex": 0.6796735111275837
       },
       "observed_residual_z_trend": {
-        "partial_rho_resid_z_given_sigma": -0.46239442858894797,
+        "partial_rho_resid_z_given_sigma": 0.46239442858894797,
         "p": 2.9604271401459188e-05,
         "n": 75,
         "ci_95": [
-          -0.609443395995087,
-          -0.2728643164015865
+          0.2728643164015862,
+          0.609443395995087
         ]
       },
       "corrected_residual_z_trend": {
-        "partial_rho_resid_z_given_sigma": -0.4397093881886537,
-        "p": 7.910652190734434e-05,
+        "partial_rho_resid_z_given_sigma": 0.4599315753848213,
+        "p": 3.30498961269747e-05,
         "n": 75,
         "ci_95": [
-          -0.5911076280447279,
-          -0.25709521182665857
+          0.2818716197305016,
+          0.6052537477699402
         ]
       },
       "z_trend_improved": true,
       "scatter_improved": true,
-      "scatter_change_fraction": 0.015111517263005858,
-      "mean_tep_correction_dex": 0.10269307096270906
+      "scatter_change_fraction": 0.004868961146249684,
+      "mean_tep_correction_dex": 0.02238197823747526
+    },
+    "T1a_absorption_only": {
+      "n": 20,
+      "description": "M*-sigma zero-point evolution test. Under TEP, the M*-sigma residual should increase with z (positive rho). After sigma-only TEP correction, this trend should weaken.",
+      "observed_mstar_sigma_fit": {
+        "slope": 1.6522153877977406,
+        "intercept": 6.985887997021146,
+        "r2": 0.28440226283036385,
+        "std_residual_dex": 0.2308296846434382
+      },
+      "corrected_mstar_sigma_fit": {
+        "slope": 0.4357116405322445,
+        "intercept": 9.826477740040229,
+        "r2": 0.024108111335653715,
+        "std_residual_dex": 0.24416053211607466
+      },
+      "observed_residual_z_trend": {
+        "partial_rho_resid_z_given_sigma": -0.2578672535379566,
+        "p": 0.27235365359399005,
+        "n": 20,
+        "ci_95": [
+          -0.6586798535403304,
+          0.19947820018887727
+        ]
+      },
+      "corrected_residual_z_trend": {
+        "partial_rho_resid_z_given_sigma": -0.30630286693582004,
+        "p": 0.1890267204948589,
+        "n": 20,
+        "ci_95": [
+          -0.7311020926354355,
+          0.18177562480601686
+        ]
+      },
+      "z_trend_improved": false,
+      "scatter_improved": false,
+      "scatter_change_fraction": -0.057751876641120026,
+      "mean_tep_correction_dex": 0.08333556185646913
+    },
+    "T1b_emission_only": {
+      "n": 55,
+      "description": "M*-sigma zero-point evolution test. Under TEP, the M*-sigma residual should increase with z (positive rho). After sigma-only TEP correction, this trend should weaken.",
+      "observed_mstar_sigma_fit": {
+        "slope": 1.0224600119540852,
+        "intercept": 7.2017120139162705,
+        "r2": 0.08716376015774807,
+        "std_residual_dex": 0.6945577521295511
+      },
+      "corrected_mstar_sigma_fit": {
+        "slope": 1.0224600119540852,
+        "intercept": 7.201494975176612,
+        "r2": 0.08716376015774852,
+        "std_residual_dex": 0.694557752129551
+      },
+      "observed_residual_z_trend": {
+        "partial_rho_resid_z_given_sigma": 0.29345122030027404,
+        "p": 0.029673200791084816,
+        "n": 55,
+        "ci_95": [
+          0.03913700292466348,
+          0.5023254171709344
+        ]
+      },
+      "corrected_residual_z_trend": {
+        "partial_rho_resid_z_given_sigma": 0.29345122030027404,
+        "p": 0.029673200791084816,
+        "n": 55,
+        "ci_95": [
+          0.03913700292466348,
+          0.5023254171709344
+        ]
+      },
+      "z_trend_improved": false,
+      "scatter_improved": true,
+      "scatter_change_fraction": 1.1102230246251565e-16,
+      "mean_tep_correction_dex": 0.00021703873965929645
     },
     "T2_fundamental_plane": {
       "n": 53,
@@ -80,23 +160,23 @@
         "std_residual_dex": 0.5778696934595354
       },
       "corrected_fp": {
-        "coeff_log_sigma": 1.4923475741351708,
-        "coeff_log_re": 0.9670672516194966,
-        "intercept": 6.59368000428444,
-        "r2": 0.513326247497309,
-        "std_residual_dex": 0.5622020356449295
+        "coeff_log_sigma": 1.89921816432959,
+        "coeff_log_re": 0.9165870732291862,
+        "intercept": 5.883551561248114,
+        "r2": 0.6003347522910345,
+        "std_residual_dex": 0.5762431181879736
       },
       "r2_improved": false,
       "scatter_improved": true,
-      "scatter_change_fraction": 0.027112786830553848,
+      "scatter_change_fraction": 0.002814778642956761,
       "observed_resid_z_trend": {
-        "partial_rho": -0.26029268345781414,
+        "partial_rho": 0.2602926834578141,
         "p": 0.05978667874469207,
         "n": 53
       },
       "corrected_resid_z_trend": {
-        "partial_rho": -0.21835295900198448,
-        "p": 0.11624111017265808,
+        "partial_rho": 0.2534371423490357,
+        "p": 0.06708919742896913,
         "n": 53
       },
       "z_trend_improved": true
@@ -104,29 +184,29 @@
     "T3_gamma_sigma_only_prediction": {
       "n": 75,
       "description": "Does sigma-only Gamma_t add predictive power for M*_obs beyond log(sigma) and z? Positive partial = TEP-consistent z-dependent mass enhancement.",
-      "partial_rho_gamma_mstar_given_sigma_z": 0.29427674002641324,
-      "p_partial_gamma_mstar_given_sigma_z": 0.010385466993835581,
+      "partial_rho_gamma_mstar_given_sigma_z": 0.18179647031708937,
+      "p_partial_gamma_mstar_given_sigma_z": 0.118524026343867,
       "n_partial": 75,
       "ci_95_partial_gamma_mstar_given_sigma_z": [
-        0.11001185695447206,
-        0.4693860942008988
+        0.014622789327549231,
+        0.32913512424138014
       ],
-      "partial_rho_z_mstar_given_sigma": -0.4797807779280464,
-      "p_partial_z_mstar_given_sigma": 1.3278306867060304e-05,
-      "partial_rho_sigma_mstar_given_z": 0.4937349730580023,
+      "partial_rho_z_mstar_given_sigma": -0.4797807779280465,
+      "p_partial_z_mstar_given_sigma": 1.3278306867060165e-05,
+      "partial_rho_sigma_mstar_given_z": 0.49373497305800235,
       "p_partial_sigma_mstar_given_z": 6.755183373981323e-06
     },
     "T4_cross_survey": {
       "description": "Per-survey M*-sigma residual vs z trend and Gamma_t prediction test.",
       "n_surveys_tested": 4,
-      "n_surveys_positive_resid_z": 4,
+      "n_surveys_positive_resid_z": 0,
       "per_survey": {
         "Danhaive et al. 2025": {
           "n": 33,
-          "partial_rho_resid_z_given_sigma": 0.13771475536584266,
+          "partial_rho_resid_z_given_sigma": -0.13771475536584263,
           "p_resid_z": 0.44471263539193234,
-          "partial_rho_gamma_mstar_given_sigma_z": 0.07638998904507138,
-          "p_gamma_mstar": 0.6726418776060284
+          "partial_rho_gamma_mstar_given_sigma_z": -0.058893559418225334,
+          "p_gamma_mstar": 0.7447606836699417
         },
         "Esdaile et al. 2021": {
           "n": 4,
@@ -134,17 +214,17 @@
         },
         "Saldana-Lopez et al. 2025": {
           "n": 16,
-          "partial_rho_resid_z_given_sigma": 0.2021320100697033,
+          "partial_rho_resid_z_given_sigma": -0.20213201006970327,
           "p_resid_z": 0.4528068839546807,
-          "partial_rho_gamma_mstar_given_sigma_z": 0.12490644643169682,
+          "partial_rho_gamma_mstar_given_sigma_z": 0.12490644643169681,
           "p_gamma_mstar": 0.6448634951499225
         },
         "Slob et al. 2025": {
           "n": 15,
-          "partial_rho_resid_z_given_sigma": 0.10029949504448674,
+          "partial_rho_resid_z_given_sigma": -0.10029949504448672,
           "p_resid_z": 0.7220977138763776,
-          "partial_rho_gamma_mstar_given_sigma_z": 0.031159463261371492,
-          "p_gamma_mstar": 0.9122220676500441
+          "partial_rho_gamma_mstar_given_sigma_z": -0.26689258404211474,
+          "p_gamma_mstar": 0.3362537928747499
         },
         "Tanaka et al. 2019": {
           "n": 1,
@@ -152,9 +232,9 @@
         },
         "de Graaff et al. 2024": {
           "n": 6,
-          "partial_rho_resid_z_given_sigma": 0.32978511743893246,
+          "partial_rho_resid_z_given_sigma": -0.3297851174389325,
           "p_resid_z": 0.5232557456266747,
-          "partial_rho_gamma_mstar_given_sigma_z": 0.007785658141525181,
+          "partial_rho_gamma_mstar_given_sigma_z": 0.007785658141525126,
           "p_gamma_mstar": 0.9883217487572792
         }
       }
@@ -162,17 +242,17 @@
     "T5_highz_z_ge_4": {
       "n": 56,
       "z_min": 4.0,
-      "partial_rho_resid_z_given_sigma": -0.32847689923487317,
+      "partial_rho_resid_z_given_sigma": 0.3284768992348732,
       "p_resid_z": 0.01344871347445838,
       "ci_95_resid_z": [
-        -0.5305822036142415,
-        -0.08264014625697694
+        0.08264014625697688,
+        0.5305822036142415
       ],
-      "partial_rho_gamma_mstar_given_sigma_z": 0.12531604284858547,
-      "p_gamma_mstar": 0.3574352561076989,
+      "partial_rho_gamma_mstar_given_sigma_z": 0.10682199714700813,
+      "p_gamma_mstar": 0.4332754522749144,
       "ci_95_gamma_mstar": [
-        -0.09095465892352242,
-        0.30704118596938207
+        -0.04368052316389311,
+        0.2258437135581222
       ]
     }
   },

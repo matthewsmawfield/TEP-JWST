@@ -7,7 +7,7 @@
     "n_total": 2315,
     "n_field": 1158,
     "n_dense": 1157,
-    "median_density": 194263.36420535285,
+    "median_density": 194263.36420530803,
     "rho_field": -0.11247504640148043,
     "p_field": 0.0001253086126465986,
     "rho_dense": -0.40500245537278035,
@@ -18,8 +18,8 @@
     "Z_fisher_independent": 7.608214571270406,
     "p_fisher_independent": 2.7755575615628914e-14,
     "rho_gamma_t_density": -0.17835130242388578,
-    "partial_rho_dust_gamma_t_given_mass_env": -0.29955527276033445,
-    "partial_p": 3.311019308552566e-49,
+    "partial_rho_dust_gamma_t_given_mass_env": -0.29955527276033417,
+    "partial_p": 3.311019308553691e-49,
     "mass_matched_quintile_deltas": [
       0.44778629787319724,
       0.14680177340437456,
@@ -32,7 +32,7 @@
     "n_quintiles_tested": 5,
     "tep_prediction": "rho_field > rho_dense (screening suppresses in dense regions)",
     "tep_confirmed": true,
-    "interpretation": "SUPPORTS TEP"
+    "interpretation": "Consistent with TEP screening (delta_rho = +0.293, Z = 7.61, p = 0.0000)"
   },
   "z_gt_8": {
     "label": "z > 8",
@@ -41,17 +41,17 @@
     "n_dense": 141,
     "median_density": 322029.32673890673,
     "rho_field": 0.5086495763750783,
-    "p_field": 1.0277712513246462e-10,
+    "p_field": 1.0277712513246463e-10,
     "rho_dense": 0.3979665225394923,
-    "p_dense": 1.0242220514926548e-06,
+    "p_dense": 1.0242220514926546e-06,
     "delta_rho": 0.11068305383558608,
     "delta_rho_ci_low": -0.1004356550644031,
     "delta_rho_ci_high": 0.3325034551678887,
     "Z_fisher_independent": 1.1623272348141054,
     "p_fisher_independent": 0.2451025679167984,
     "rho_gamma_t_density": 0.0016786316491560287,
-    "partial_rho_dust_gamma_t_given_mass_env": 0.21971864985143513,
-    "partial_p": 0.00019492279494266165,
+    "partial_rho_dust_gamma_t_given_mass_env": 0.21971864985143505,
+    "partial_p": 0.00019492279494266247,
     "mass_matched_quintile_deltas": [
       0.2855166572557877,
       0.15015918173812914,
@@ -64,7 +64,7 @@
     "n_quintiles_tested": 5,
     "tep_prediction": "rho_field > rho_dense (screening suppresses in dense regions)",
     "tep_confirmed": false,
-    "interpretation": "MARGINAL"
+    "interpretation": "Marginal: delta_rho positive but not significant (delta_rho = +0.111, p = 0.2451)"
   },
   "z_6_8": {
     "label": "z = 6-8",
@@ -82,8 +82,8 @@
     "Z_fisher_independent": 2.456352081145725,
     "p_fisher_independent": 0.014035557062115345,
     "rho_gamma_t_density": -0.15220483862554054,
-    "partial_rho_dust_gamma_t_given_mass_env": -0.1724632489342322,
-    "partial_p": 2.415290600451349e-05,
+    "partial_rho_dust_gamma_t_given_mass_env": -0.17246324893423212,
+    "partial_p": 2.4152906004513483e-05,
     "mass_matched_quintile_deltas": [
       0.12778262160945092,
       0.17073682716478228,
@@ -96,7 +96,7 @@
     "n_quintiles_tested": 5,
     "tep_prediction": "rho_field > rho_dense (screening suppresses in dense regions)",
     "tep_confirmed": true,
-    "interpretation": "SUPPORTS TEP"
+    "interpretation": "Consistent with TEP screening (delta_rho = +0.195, Z = 2.46, p = 0.0140)"
   },
   "z_4_6": {
     "label": "z = 4-6 (control)",
@@ -114,8 +114,8 @@
     "Z_fisher_independent": 1.6426717777867064,
     "p_fisher_independent": 0.10045086101038536,
     "rho_gamma_t_density": 0.010259019950304716,
-    "partial_rho_dust_gamma_t_given_mass_env": -0.0888663199195231,
-    "partial_p": 0.0007386455982779986,
+    "partial_rho_dust_gamma_t_given_mass_env": -0.08886631991952325,
+    "partial_p": 0.0007386455982779957,
     "mass_matched_quintile_deltas": [
       0.25889480423617217,
       0.18498181380817622,
@@ -128,7 +128,7 @@
     "n_quintiles_tested": 5,
     "tep_prediction": "rho_field > rho_dense (screening suppresses in dense regions)",
     "tep_confirmed": false,
-    "interpretation": "MARGINAL"
+    "interpretation": "Marginal: delta_rho positive but not significant (delta_rho = +0.086, p = 0.1005)"
   },
   "summary": {
     "n_tests": 4,
@@ -141,17 +141,17 @@
       "n_dense": 141,
       "median_density": 322029.32673890673,
       "rho_field": 0.5086495763750783,
-      "p_field": 1.0277712513246462e-10,
+      "p_field": 1.0277712513246463e-10,
       "rho_dense": 0.3979665225394923,
-      "p_dense": 1.0242220514926548e-06,
+      "p_dense": 1.0242220514926546e-06,
       "delta_rho": 0.11068305383558608,
       "delta_rho_ci_low": -0.1004356550644031,
       "delta_rho_ci_high": 0.3325034551678887,
       "Z_fisher_independent": 1.1623272348141054,
       "p_fisher_independent": 0.2451025679167984,
       "rho_gamma_t_density": 0.0016786316491560287,
-      "partial_rho_dust_gamma_t_given_mass_env": 0.21971864985143513,
-      "partial_p": 0.00019492279494266165,
+      "partial_rho_dust_gamma_t_given_mass_env": 0.21971864985143505,
+      "partial_p": 0.00019492279494266247,
       "mass_matched_quintile_deltas": [
         0.2855166572557877,
         0.15015918173812914,
@@ -164,7 +164,7 @@
       "n_quintiles_tested": 5,
       "tep_prediction": "rho_field > rho_dense (screening suppresses in dense regions)",
       "tep_confirmed": false,
-      "interpretation": "MARGINAL"
+      "interpretation": "Marginal: delta_rho positive but not significant (delta_rho = +0.111, p = 0.2451)"
     },
     "conclusion": "2/4 redshift bins show the predicted environmental screening pattern (rho_field > rho_dense). Primary test (z > 8): delta_rho = 0.111, Z = 1.16, p = 0.2451."
   }

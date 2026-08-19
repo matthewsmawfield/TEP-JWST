@@ -80,42 +80,64 @@ def test_alternative_models():
             'tep_mass_dust_ratio': float(tep_mass_dust_ratio),
             'sn_only_mass_dust_ratio': float(sn_mass_dust_ratio),
             'observed_mass_dust_ratio_approx': 4.0,  # From observations
-            'tep_matches_observation': tep_mass_dust_ratio > 3.0,
-            'sn_only_fails': sn_mass_dust_ratio < 2.0
+            'tep_matches_observation': 1.0 < tep_mass_dust_ratio / 4.0 < 3.0,
+            'sn_only_fails': sn_mass_dust_ratio < 2.0,
+            'tep_overprediction_factor': float(tep_mass_dust_ratio / 4.0),
+            'sn_overprediction_factor': float(sn_mass_dust_ratio / 4.0)
         }
     }
 
 def main():
-    print("="*70)
-    print("Step 152: Dust Physics Alternative Models Test")
-    print("="*70)
+    print_status("STEP 129: Dust Physics Alternative Models Test", "TITLE")
+    print_status("Comparing TEP vs SN-only dust production models against observed mass-dust ratios.", "INFO")
+    print_status("")
     
     results = test_alternative_models()
     
-    print("\nGamma_t grid test:")
+    print_status("")
+    print_status("Gamma_t grid test:", "PROCESS")
     for r in results['gamma_t_grid']:
-        print(f"  Γ_t={r['gamma_t']:.1f}: TEP dust={r['tep_dust']:.2f}, "
-              f"SN-only={r['sn_only_dust']:.2f}, enhancement={r['tep_enhancement']:.2f}x")
+        print_status(f"  Gamma_t={r['gamma_t']:.1f}: TEP dust={r['tep_dust']:.2f}, "
+                     f"SN-only={r['sn_only_dust']:.2f}, enhancement={r['tep_enhancement']:.2f}x", "INFO")
     
     kt = results['key_test']
-    print(f"\nKey test (massive vs dwarf galaxies at z~8):")
-    print(f"  TEP predicts dust ratio: {kt['tep_mass_dust_ratio']:.1f}x")
-    print(f"  SN-only predicts: {kt['sn_only_mass_dust_ratio']:.1f}x")
-    print(f"  Observed ratio: ~{kt['observed_mass_dust_ratio_approx']:.0f}x")
-    print(f"  TEP matches: {kt['tep_matches_observation']}")
-    print(f"  SN-only fails: {kt['sn_only_fails']}")
+    print_status("")
+    print_status("Key test (massive vs dwarf galaxies at z~8):", "PROCESS")
+    print_status(f"  TEP predicts dust ratio: {kt['tep_mass_dust_ratio']:.1f}x", "INFO")
+    print_status(f"  SN-only predicts: {kt['sn_only_mass_dust_ratio']:.1f}x", "INFO")
+    print_status(f"  Observed ratio: ~{kt['observed_mass_dust_ratio_approx']:.0f}x", "INFO")
+    print_status(f"  TEP overpredicts by factor: {kt.get('tep_overprediction_factor', float('nan')):.1f}x", "INFO")
+    print_status(f"  SN-only overpredicts by factor: {kt.get('sn_overprediction_factor', float('nan')):.1f}x", "INFO")
+    print_status(f"  TEP matches: {kt['tep_matches_observation']}", "INFO")
+    print_status(f"  SN-only fails: {kt['sn_only_fails']}", "INFO")
+    
+    tep_factor = kt.get('tep_overprediction_factor', float('nan'))
+    sn_factor = kt.get('sn_overprediction_factor', float('nan'))
+    if kt['tep_matches_observation'] and kt['sn_only_fails']:
+        conclusion = 'TEP dust predictions match observations; SN-only models fail'
+    elif kt['tep_matches_observation'] and not kt['sn_only_fails']:
+        conclusion = 'TEP dust predictions match observations; SN-only models also within range'
+    elif not kt['tep_matches_observation'] and kt['sn_only_fails']:
+        conclusion = f'TEP overpredicts dust mass ratio by {tep_factor:.1f}x; SN-only models fail'
+    else:
+        if tep_factor < sn_factor:
+            conclusion = f'TEP overpredicts by {tep_factor:.1f}x, SN-only overpredicts by {sn_factor:.1f}x; TEP is closer but both exceed observed ratio'
+        else:
+            conclusion = f'TEP overpredicts by {tep_factor:.1f}x, SN-only overpredicts by {sn_factor:.1f}x; SN-only is closer but both exceed observed ratio'
     
     output = {
         'step': 129,
         'description': 'Dust Physics Alternative Models Test',
         'results': results,
-        'conclusion': 'TEP dust predictions match observations; SN-only models fail'
+        'conclusion': conclusion
     }
     
     with open(RESULTS_DIR / "step_129_dust_models.json", 'w') as f:
         json.dump(output, f, indent=2)
     
-    print("\n" + "="*70)
+    print_status("")
+    print_status(f"Conclusion: {conclusion}", "INFO")
+    print_status(f"Results saved to step_129_dust_models.json", "SUCCESS")
 
 if __name__ == "__main__":
     main()

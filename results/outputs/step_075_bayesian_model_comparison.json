@@ -1,7 +1,7 @@
 {
   "step": 95,
   "name": "Bayesian Model Comparison",
-  "timestamp": "2026-04-29T07:02:33",
+  "timestamp": "2026-08-18T21:36:36",
   "sample_size": 2315,
   "individual_bayes_factors": [
     {
@@ -57,7 +57,7 @@
       "bayes_factor": 2.6625752150965404e+22,
       "log10_bf": 22.425301885006416,
       "interpretation": "Decisive evidence for H1",
-      "sign_matches_prediction": "True"
+      "sign_matches_prediction": true
     }
   ],
   "individual_summary": {

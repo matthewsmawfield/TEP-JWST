@@ -137,9 +137,9 @@ def _append_test(tests, name, rho, n_raw, original_p, survey_area, source_step, 
 def run_analysis():
     """Run N_eff-corrected significance analysis."""
     
-    print("=" * 60)
-    print("Step 118: N_eff-Corrected Significance")
-    print("=" * 60)
+    print_status("STEP 118: N_eff-Corrected Significance", "TITLE")
+    print_status("Recomputing key p-values accounting for cosmic variance / clustering.", "INFO")
+    print_status("")
     
     key_tests = []
     excluded_tests = []
@@ -164,7 +164,7 @@ def run_analysis():
                 'survey_correlations',
             )
             if entry:
-                print(f"  Loaded {label} from step_081")
+                print_status(f"  Loaded {label} from step_081", "INFO")
     else:
         excluded_tests.append({
             'name': 'L1 survey replication basket',
@@ -184,7 +184,7 @@ def run_analysis():
             'step_037_resolved_gradients',
             'rho_mass_grad',
         )
-        print("  Loaded Core Screening (JADES) from step_037")
+        print_status("  Loaded Core Screening (JADES) from step_037", "INFO")
     else:
         excluded_tests.append({
             'name': 'Core Screening (JADES)',
@@ -205,7 +205,7 @@ def run_analysis():
             'step_004_thread1_z7_inversion',
             'high_z_rho',
         )
-        print("  Loaded Mass-sSFR Inversion (z>7) from step_004")
+        print_status("  Loaded Mass-sSFR Inversion (z>7) from step_004", "INFO")
     else:
         excluded_tests.append({
             'name': 'Mass-sSFR Inversion (z>7)',
@@ -226,7 +226,7 @@ def run_analysis():
             'step_035_spectroscopic_validation',
             'z8_sample.rho_gamma_age',
         )
-        print("  Loaded Spectroscopic Validation (z>8) from step_035")
+        print_status("  Loaded Spectroscopic Validation (z>8) from step_035", "INFO")
     else:
         excluded_tests.append({
             'name': 'Spectroscopic Validation (z>8)',
@@ -253,8 +253,8 @@ def run_analysis():
     results = []
     corrected_ps = []
     
-    print("\nRecomputing p-values with N_eff correction:")
-    print("-" * 60)
+    print_status("")
+    print_status("Recomputing p-values with N_eff correction:", "PROCESS")
     
     for test in key_tests:
         n_raw = test['n_raw']
@@ -289,12 +289,12 @@ def run_analysis():
         results.append(result)
         corrected_ps.append(float(p_corrected))
         
-        print(f"\n{test['name']}:")
-        print(f"  ρ = {rho:.3f}")
-        print(f"  N_raw = {n_raw}, N_eff = {n_eff:.0f} ({n_eff/n_raw*100:.0f}%)")
-        print(f"  p (original): {p_original:.2e} ({sigma_original:.1f}σ)")
-        print(f"  p (corrected): {p_corrected:.2e} ({sigma_corrected:.1f}σ)")
-        print(f"  Still significant at α=0.05: {result['still_significant_0.05']}")
+        print_status(f"  {test['name']}:", "INFO")
+        print_status(f"    rho = {rho:.3f}", "INFO")
+        print_status(f"    N_raw = {n_raw}, N_eff = {n_eff:.0f} ({n_eff/n_raw*100:.0f}%)", "INFO")
+        print_status(f"    p (original): {p_original:.2e} ({sigma_original:.1f}sigma)", "INFO")
+        print_status(f"    p (corrected): {p_corrected:.2e} ({sigma_corrected:.1f}sigma)", "INFO")
+        print_status(f"    Still significant at alpha=0.05: {result['still_significant_0.05']}", "INFO")
     
     if corrected_ps:
         chi2_fisher = -2 * sum(np.log(max(p, 1e-300)) for p in corrected_ps)
@@ -338,20 +338,22 @@ def run_analysis():
     else:
         summary['interpretation'] = f"Weak combined evidence ({bonferroni_sigma:.1f}σ): conservative N_eff correction substantially reduces the live-source-only basket."
     
-    print("\n" + "=" * 60)
-    print("SUMMARY")
-    print("=" * 60)
-    print(f"Tests analyzed: {summary['n_tests']}")
-    print(f"Mean N_eff/N_raw: {summary['mean_neff_ratio']:.0%}")
-    print(f"\nSignificance after N_eff correction:")
-    print(f"  p < 0.05: {summary['n_significant_0.05']}/{summary['n_tests']}")
-    print(f"  p < 0.01: {summary['n_significant_0.01']}/{summary['n_tests']}")
-    print(f"  p < 0.001: {summary['n_significant_0.001']}/{summary['n_tests']}")
-    print(f"\nCombined significance:")
-    print(f"  Fisher's method: p = {p_combined_fisher:.2e}")
-    print(f"  Harmonic mean: p = {p_harmonic:.2e}")
-    print(f"  Bonferroni: p = {p_bonferroni:.2e} ({summary['combined_significance']['bonferroni_sigma']:.1f}σ)")
-    print(f"\nInterpretation: {summary['interpretation']}")
+    print_status("")
+    print_status("SUMMARY", "TITLE")
+    print_status(f"Tests analyzed: {summary['n_tests']}", "INFO")
+    print_status(f"Mean N_eff/N_raw: {summary['mean_neff_ratio']:.0%}", "INFO")
+    print_status("", "INFO")
+    print_status("Significance after N_eff correction:", "INFO")
+    print_status(f"  p < 0.05: {summary['n_significant_0.05']}/{summary['n_tests']}", "INFO")
+    print_status(f"  p < 0.01: {summary['n_significant_0.01']}/{summary['n_tests']}", "INFO")
+    print_status(f"  p < 0.001: {summary['n_significant_0.001']}/{summary['n_tests']}", "INFO")
+    print_status("", "INFO")
+    print_status("Combined significance:", "INFO")
+    print_status(f"  Fisher's method: p = {p_combined_fisher:.2e}", "INFO")
+    print_status(f"  Harmonic mean: p = {p_harmonic:.2e}", "INFO")
+    print_status(f"  Bonferroni: p = {p_bonferroni:.2e} ({summary['combined_significance']['bonferroni_sigma']:.1f}sigma)", "INFO")
+    print_status("", "INFO")
+    print_status(f"Interpretation: {summary['interpretation']}", "INFO")
     
     output = {
         'step': '118',
@@ -375,7 +377,7 @@ def run_analysis():
     output_path = RESULTS_DIR / "step_118_neff_corrected_significance.json"
     with open(output_path, 'w') as f:
         json.dump(output, f, indent=2, default=safe_json_default)
-    print(f"\nResults saved to {output_path}")
+    print_status(f"Results saved to {output_path.name}", "SUCCESS")
     
     return output
 

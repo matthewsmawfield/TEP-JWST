@@ -43,12 +43,6 @@ from scipy import stats
 PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root (re-assigned)
 OUTPUTS_DIR = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
 
-sys.path.insert(0, str(PROJECT_ROOT / "scripts" / "utils"))
-try:
-    from logger import print_status
-except ImportError:
-    STEP_NUM = 161
-
 
 def load_json(fname):
     path = OUTPUTS_DIR / fname
@@ -97,17 +91,20 @@ def main():
     # -----------------------------------------------------------------------
     # Load source p-values from upstream JSON outputs
     # -----------------------------------------------------------------------
-    s006 = load_json("step_006_thread5_z8_dust.json")
     s032 = load_json("step_032_ceers_replication.json")
     s034 = load_json("step_034_cosmosweb_replication.json")
+    s081 = load_json("step_081_survey_cross_correlation.json")
     s184 = load_json_optional("step_156_dja_gds_morphology.json")
     s186 = load_json_optional("step_158_dja_balmer_decrement.json")
 
-    # Dataset 1: UNCOVER z>8 (raw Spearman rho)
-    uncover_test = s006.get("z8_result", {})
-    uncover_rho = uncover_test["rho"]
-    uncover_N = uncover_test["n"]
-    uncover_p = uncover_test["p"]
+    # Dataset 1: UNCOVER z>8 (Gamma_t-dust Spearman rho from homogeneous re-analysis)
+    # NOTE: step_006's z8_result stores rho(M*, dust), not rho(Gamma_t, dust).
+    # The Gamma_t-dust correlation for UNCOVER is in step_081's survey_correlations,
+    # which computes spearmanr(gamma_t, dust) consistently for all three surveys.
+    uncover_corr = s081.get("survey_correlations", {}).get("UNCOVER", {})
+    uncover_rho = uncover_corr["rho"]
+    uncover_N = uncover_corr["n"]
+    uncover_p = uncover_corr["p"]
 
     # Dataset 2: CEERS z>8 (raw Spearman rho)
     ceers_gamma = s032.get("gamma_dust", {})
@@ -322,7 +319,7 @@ def main():
             "conservative_z": float(z_photo),
             "spectroscopic_z": float(z_balmer_only) if balmer_available else None,
             "key_result": (
-                f"L1 dust-Gamma_t confirmed across the three primary JWST photometric surveys "
+                f"L1 dust-Gamma_t observed across the three primary JWST photometric surveys "
                 f"(Fisher z = {z_photo:.0f}sigma); "
                 + (f"adding the supplementary NIRSpec Ha/Hb branch leaves the 4-dataset Fisher combination at {z_fisher:.0f}sigma, while the Balmer partial-rho branch itself is null after M*, z control (rho={balmer_rho:.3f}, p={balmer_p:.3f})." if balmer_available else "the supplementary NIRSpec Ha/Hb branch is not reproducible in the current workspace because the DJA merged catalog is unavailable.")
             ),

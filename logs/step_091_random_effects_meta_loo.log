@@ -1,3 +1,17 @@
-[10:03:08] ═══ STEP 091: Random-effects meta-analysis + LOO
-[10:03:08]     Surveys loaded: ['UNCOVER', 'CEERS', 'COSMOS-Web']
-[10:03:09] ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_091_random_effects_meta_loo.json
+[22:37:31] INFO    ═══ STEP 091: Random-effects meta-analysis + LOO
+[22:37:31] INFO        Surveys loaded: ['UNCOVER', 'CEERS', 'COSMOS-Web']
+[22:37:31] INFO        Config: z_min=8.0, dust_positive_only=True
+[22:37:31] INFO    
+[22:37:31] INFO          UNCOVER: N=283, ρ=0.471, z=0.51
+[22:37:31] INFO          CEERS: N=82, ρ=0.645, z=0.77
+[22:37:31] INFO          COSMOS-Web: N=918, ρ=0.626, z=0.73
+[22:37:31] INFO    
+[22:37:31] INFO        Fixed-effects: ρ=0.597, z=24.55, p=4.309e-133
+[22:37:31] INFO        Random-effects: ρ=0.581, z=7.84, p=4.549e-15
+[22:37:31] INFO        Heterogeneity: Q=11.2, I²=82.2%, τ²=0.0167
+[22:37:31] INFO    
+[22:37:31] INFO        Leave-one-out influence:
+[22:37:31] INFO          Drop UNCOVER: ρ_random=0.628 (Δ=+0.047)
+[22:37:31] INFO          Drop CEERS: ρ_random=0.557 (Δ=-0.024)
+[22:37:31] INFO          Drop COSMOS-Web: ρ_random=0.552 (Δ=-0.029)
+[22:37:31] INFO    ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_091_random_effects_meta_loo.json

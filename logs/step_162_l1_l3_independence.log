@@ -1,51 +1,51 @@
-[10:08:12]     =================================================================
-[10:08:12]     Step 162: TEP Concordance / L1–L3 Independence — Independent κ_gal Recovery
-[10:08:12]     =================================================================
-[10:08:12]     Loading data...
-[10:08:12]       UNCOVER: 2315, CEERS: 10156, COSMOS-Web: 50146
-[10:08:12]     
+[22:45:41] INFO        =================================================================
+[22:45:41] INFO        Step 162: TEP Concordance / L1–L3 Independence — Independent κ_gal Recovery
+[22:45:41] INFO        =================================================================
+[22:45:41] INFO        Loading data...
+[22:45:41] INFO          UNCOVER: 2315, CEERS: 10156, COSMOS-Web: 50146
+[22:45:41] INFO        
 Scanning κ_gal grid (N=100, bootstrap N=200)...
-[10:08:12]       Observable 1: Dust-t_eff Correlation (UNCOVER z>6, M*>8.5)
-[10:08:12]         N = 258
-[10:08:14]         Bootstrapping CI...
-[10:10:30] ✓       Best kappa_gal = 1.000e+05 [1.000e+05, 1.000e+05], rho = 0.396
-[10:10:30]       Observable 2: AGB Threshold F1 (UNCOVER z>8)
-[10:10:30]         N = 283, dust threshold = 0.150
-[10:10:34]         Bootstrapping CI...
-[10:12:44] ✓       Best kappa_gal = 1.290e+06 [1.271e+06, 1.290e+06], F1 = 0.937
-[10:12:44]       Observable 3: Mass-sSFR Inversion (UNCOVER M*>8.5)
-[10:12:45]         N_low = 529, N_high = 159
-[10:12:45]         Observed: rho_low = -0.183, rho_high = 0.006, delta_rho = 0.189
-[10:12:45]         Bootstrapping CI...
-[10:12:45] ✓       Best kappa_gal = 1.156e+06 [6.374e+05, 1.753e+06], residual = 0.0001
-[10:12:45]       Observable 4: Cross-Survey Dust-t_eff R2 (CEERS + COSMOS-Web z>7)
-[10:12:45]         CEERS: N = 205
-[10:12:45]         COSMOS-Web: N = 3824
-[10:13:19]         Bootstrapping CI...
-[10:42:48] ✓       Best kappa_gal = 2.000e+06 [1.022e+06, 1.885e+06], mean R2 = 0.058
-[10:42:48]       Observable 5: Anomalous Galaxy Resolution (all surveys z>7)
-[10:42:49]         N = 9256 galaxies at z>7
-[10:42:49]         N_impossible = 124
-[10:42:49]         Bootstrapping CI...
-[10:42:49] ✓       Best kappa_gal = 1.597e+06 [1.229e+06, 2.000e+06], excess mass loss = 52.236
-[10:42:49]     
+[22:45:41] INFO          Observable 1: Dust-t_eff Correlation (UNCOVER z>6, M*>8.5)
+[22:45:41] INFO            N = 258
+[22:45:45] INFO            Bootstrapping CI...
+[22:49:12] INFO    ✓       Best kappa_gal = 1.000e+05 [1.000e+05, 1.000e+05], rho = 0.396
+[22:49:12] INFO          Observable 2: AGB Threshold F1 (UNCOVER z>8)
+[22:49:12] INFO            N = 283, dust threshold = 0.150
+[22:49:17] INFO            Bootstrapping CI...
+[22:53:12] INFO    ✓       Best kappa_gal = 1.290e+06 [1.271e+06, 1.290e+06], F1 = 0.937
+[22:53:12] INFO          Observable 3: Mass-sSFR Inversion (UNCOVER M*>8.5)
+[22:53:12] INFO            N_low = 529, N_high = 159
+[22:53:12] INFO            Observed: rho_low = -0.183, rho_high = 0.006, delta_rho = 0.189
+[22:53:12] INFO            Bootstrapping CI...
+[22:53:14] INFO    ✓       Best kappa_gal = 1.156e+06 [6.374e+05, 1.753e+06], residual = 0.0001
+[22:53:14] INFO          Observable 4: Cross-Survey Dust-t_eff R2 (CEERS + COSMOS-Web z>7)
+[22:53:14] INFO            CEERS: N = 205
+[22:53:14] INFO            COSMOS-Web: N = 3824
+[22:54:16] INFO            Bootstrapping CI...
+[23:45:32] INFO    ✓       Best kappa_gal = 2.000e+06 [1.022e+06, 1.885e+06], mean R2 = 0.058
+[23:45:32] INFO          Observable 5: Anomalous Galaxy Resolution (all surveys z>7)
+[23:45:32] INFO            N = 9256 galaxies at z>7
+[23:45:32] INFO            N_impossible = 124
+[23:45:32] INFO            Bootstrapping CI...
+[23:45:32] INFO    ✓       Best kappa_gal = 1.597e+06 [1.229e+06, 2.000e+06], excess mass loss = 52.236
+[23:45:32] INFO        
 =================================================================
-[10:42:49]     CONCORDANCE STATISTICS
-[10:42:49]     =================================================================
-[10:42:49]       Weighted mean κ_gal = 1.156e+06 ± 5.577e+05 mag
-[10:42:49]       Concordance χ² = 0.00 (ndof = 0)
-[10:42:49]       p(concordance) = 1.0000
-[10:42:49]       Max pairwise tension = 0.00σ
-[10:42:49]       Concordant (p > 0.05): True
-[10:42:49]       Tension with external Cepheid κ_gal = 9.600e+05 ± 4.000e+05 mag: 0.28σ
-[10:42:49]     
+[23:45:32] INFO        CONCORDANCE STATISTICS
+[23:45:32] INFO        =================================================================
+[23:45:32] INFO          Weighted mean κ_gal = 1.156e+06 ± 5.577e+05 mag
+[23:45:32] INFO          Concordance χ² = 0.00 (ndof = 0)
+[23:45:32] INFO          p(concordance) = 1.0000
+[23:45:32] INFO          Max pairwise tension = 0.00σ
+[23:45:32] INFO          Concordant (p > 0.05): True
+[23:45:32] INFO          Tension with external Cepheid κ_gal = 9.600e+05 ± 4.000e+05 mag: 0.28σ
+[23:45:32] INFO        
   VERDICT: PASS: 1 informative observables are mutually concordant and consistent with the external Cepheid calibration (0.3σ tension)
-[10:42:49]     
+[23:45:32] INFO        
 Generating concordance figure...
-[10:42:50]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_162_l1_l3_independence.png
-[10:42:50]     
+[23:45:33] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_162_l1_l3_independence.png
+[23:45:33] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_162_l1_l3_independence.json
-[10:42:50]     
+[23:45:33] INFO        
 =================================================================
-[10:42:50]     HEADLINE: 1/5 informative observables recover κ_gal = 1.16e+06 ± 5.58e+05 (χ² = 0.0, p = 1.000, Cepheid tension = 0.3σ)
-[10:42:50]     =================================================================
+[23:45:33] INFO        HEADLINE: 1/5 informative observables recover κ_gal = 1.16e+06 ± 5.58e+05 (χ² = 0.0, p = 1.000, Cepheid tension = 0.3σ)
+[23:45:33] INFO        =================================================================

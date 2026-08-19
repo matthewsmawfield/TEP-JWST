@@ -96,9 +96,9 @@ def test_mass_dust_correlation(df, sample_name):
     # Bootstrap CI
     n_boot = 1000
     rhos = []
-    np.random.seed(42)
+    rng = np.random.default_rng(42)
     for _ in range(n_boot):
-        idx = np.random.choice(len(df_valid), len(df_valid), replace=True)
+        idx = rng.choice(len(df_valid), len(df_valid), replace=True)
         r, _ = stats.spearmanr(df_valid['log_Mstar'].iloc[idx], df_valid['dust'].iloc[idx])
         rhos.append(r)
     ci_lo, ci_hi = np.percentile(rhos, [2.5, 97.5])

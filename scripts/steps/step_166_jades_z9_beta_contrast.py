@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import json
 import sys
 from pathlib import Path
@@ -202,7 +204,7 @@ def _assessment(primary: dict | None, rho: float, p: float) -> str:
 
 
 def run():
-    print_status(f"STEP {STEP_NUM}: JADES z=9-12 beta contrast", "INFO")
+    print_status(f"STEP {STEP_NUM}: JADES z=9-12 beta contrast", "TITLE")
     try:
         df = load_jades_highz_photometry()
     except FileNotFoundError as exc:
@@ -223,7 +225,11 @@ def run():
     quality = quality[(quality["beta_err"] <= 2.5) & quality["MUV"].between(-22.0, -16.0)].copy()
     quality["redder_beta"] = quality["beta"]
 
+    print_status(f"Selected N={len(quality)} JADES galaxies at z=9-12 with quality beta", "INFO")
+
     rho, p = spearmanr(quality["gamma_t"], quality["beta"]) if len(quality) >= 6 else (np.nan, np.nan)
+    if not np.isnan(rho):
+        print_status(f"Raw correlation: ρ(Γt, β)={rho:.3f}, p={p:.3e}", "INFO")
     contrast_q33 = _contrast(quality, 1.0 / 3.0, 2.0 / 3.0) if len(quality) >= 12 else None
     contrast_q25 = _contrast(quality, 0.25, 0.75) if len(quality) >= 12 else None
     primary = contrast_q25 if contrast_q25 is not None else contrast_q33

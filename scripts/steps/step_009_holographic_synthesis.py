@@ -469,10 +469,10 @@ def main():
     
     # Summary
     print_status("\n" + "=" * 70, "INFO")
-    print_status("SUMMARY: THE CONSTELLATION", "INFO")
+    print_status("Summary: The Constellation", "INFO")
     print_status("=" * 70, "INFO")
     print_status("", "INFO")
-    print_status("Confirmed Threads (7/7):", "INFO")
+    print_status("Significant threads (7/7):", "INFO")
     print_status("  ✓ z > 7 Inversion", "INFO")
     print_status("  ✓ Γ_t vs Age, Metallicity, Dust", "INFO")
     print_status("  ✓ z > 8 Dust Anomaly", "INFO")

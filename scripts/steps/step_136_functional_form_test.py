@@ -329,6 +329,8 @@ def analyze_subsample(df, label):
         "t_eff": t_eff.reshape(-1, 1),
         "gamma_t": gamma_t.reshape(-1, 1),
         "t_cosmic": t_cosmic.reshape(-1, 1),
+        "M*_plus_z_plus_gamma_t": np.column_stack([log_mstar, z, gamma_t]),
+        "M*_plus_z_plus_teff": np.column_stack([log_mstar, z, t_eff]),
     }
 
     regression = {}
@@ -406,8 +408,11 @@ def analyze_redshift_evolution(df):
             "rho_alpha_vs_rho_dust_mstar": float(rho_evolution),
             "p_value": float(p_evolution),
             "interpretation": (
-                "TEP predicts the mass-dust correlation strengthens with "
-                "alpha(z) ~ sqrt(1+z). A positive correlation here supports TEP."
+                f"TEP predicts the mass-dust correlation strengthens with "
+                f"alpha(z) ~ sqrt(1+z). The observed Spearman rho = {float(rho_evolution):.3f} "
+                f"(p = {float(p_evolution):.2e}) "
+                f"{'supports' if rho_evolution > 0 and p_evolution < 0.05 else 'is consistent with' if rho_evolution > 0 else 'does not support'} "
+                f"this prediction."
             )
         }
     else:

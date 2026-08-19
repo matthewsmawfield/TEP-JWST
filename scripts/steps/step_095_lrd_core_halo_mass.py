@@ -186,29 +186,29 @@ def run_analysis():
     print_status("\nRunning Monte Carlo simulation (N=10000)...", "INFO")
     
     n_mc = 10000
-    np.random.seed(42)
+    rng = np.random.default_rng(42)
     
     # Sample LRD properties
-    r_e_samples = np.random.lognormal(
+    r_e_samples = rng.lognormal(
         np.log(lrd_params['r_e_kpc_median']),
         lrd_params['r_e_kpc_scatter'] / lrd_params['r_e_kpc_median'],
         n_mc
     )
     
-    n_sersic_samples = np.random.normal(
+    n_sersic_samples = rng.normal(
         lrd_params['n_sersic_median'],
         lrd_params['n_sersic_scatter'],
         n_mc
     )
     n_sersic_samples = np.clip(n_sersic_samples, 0.5, 8.0)
     
-    log_mh_samples = np.random.normal(
+    log_mh_samples = rng.normal(
         lrd_params['log_mh_median'],
         lrd_params['log_mh_scatter'],
         n_mc
     )
     
-    z_samples = np.random.uniform(
+    z_samples = rng.uniform(
         lrd_params['z_range'][0],
         lrd_params['z_range'][1],
         n_mc

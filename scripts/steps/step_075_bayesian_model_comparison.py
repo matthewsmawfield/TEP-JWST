@@ -142,9 +142,9 @@ def compute_observable_bayes_factors(df):
         bf = savage_dickey_bayes_factor(rho, n)
         
         # Check if sign matches prediction
-        sign_correct = (prediction == 'positive' and rho > 0) or \
+        sign_correct = bool((prediction == 'positive' and rho > 0) or \
                        (prediction == 'negative' and rho < 0) or \
-                       (prediction == 'positive_at_high_z')
+                       (prediction == 'positive_at_high_z'))
         
         results.append({
             'observable': name,
@@ -239,7 +239,7 @@ def main():
     results['sample_size'] = len(df)
     
     # Compute individual Bayes Factors
-    print("Computing individual Bayes Factors...")
+    print_status("Computing individual Bayes Factors...", "PROCESS")
     individual_bfs = compute_observable_bayes_factors(df)
     results['individual_bayes_factors'] = individual_bfs
     
@@ -254,12 +254,12 @@ def main():
     }
     
     # Compute joint Bayes Factor
-    print("Computing joint Bayes Factor...")
+    print_status("Computing joint Bayes Factor...", "PROCESS")
     joint_bf = compute_joint_bayes_factor(individual_bfs, correlation_penalty=0.5)
     results['joint_bayes_factor'] = joint_bf
     
     # Compute posterior probabilities
-    print("Computing posterior model probabilities...")
+    print_status("Computing posterior model probabilities...", "PROCESS")
     posterior = compute_posterior_model_probabilities(joint_bf, prior_tep=0.1)
     results['posterior_probabilities'] = posterior
     
@@ -288,9 +288,9 @@ def main():
     with open(output_path, 'w') as f:
         json.dump(results, f, indent=2, default=str)
     
-    print(f"\nStep 95 complete. Results saved to {output_path}")
-    print(f"Joint Bayes Factor (conservative): {joint_bf['bf_conservative']:.2e}")
-    print(f"Posterior P(TEP): {posterior['posterior_tep']:.4f}")
+    print_status(f"Step 075 complete. Results saved to {output_path.name}", "SUCCESS")
+    print_status(f"Joint Bayes Factor (conservative): {joint_bf['bf_conservative']:.2e}", "INFO")
+    print_status(f"Posterior P(TEP): {posterior['posterior_tep']:.4f}", "INFO")
     
     return results
 

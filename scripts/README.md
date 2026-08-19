@@ -2,8 +2,8 @@
 
 Reproducible analysis pipeline for testing Temporal Equivalence Principle: A Unified Resolution to JWST High-Redshift Galaxy Anomalies.
 
-**Pipeline size:** 163 steps | **Framework:** Python 3.10+
-**Last full canonical run:** ~32m18s total (2026-03-09 15:52 UTC)
+**Pipeline size:** 159 steps | **Framework:** Python 3.10+
+**Last full canonical run:** ~77m20s total (2026-06-22)
 
 ---
 
@@ -16,7 +16,7 @@ pip install -r requirements.txt
 # Step 1: Download primary data (UNCOVER DR4 — ~500 MB)
 python scripts/steps/step_001_uncover_load.py
 
-# Step 2: Run full pipeline (~32m18s in the last complete canonical run)
+# Step 2: Run full pipeline (~77m20s in the last complete canonical run)
 python scripts/steps/run_all_steps.py
 ```
 
@@ -26,9 +26,9 @@ Results appear in `results/outputs/` (JSON) and `results/figures/` (PNG).
 
 ## Runtime Estimates
 
-- **Full pipeline:** ~32m18s in the last full canonical run.
-- **Slowest step:** `step_162_l1_l3_independence.py` at ~25m01s.
-- **Other long steps:** `step_144_adversarial_ml_attack.py` ~2m27s, `step_157_cosmos2025_ssfr_inversion.py` ~42.1s, `step_153_cosmos2025_sed_analysis.py` ~39.8s.
+- **Full pipeline:** ~77m20s in the last full canonical run.
+- **Slowest step:** `step_162_l1_l3_independence.py` at ~61m14s.
+- **Other long steps:** `step_144_adversarial_ml_attack.py` ~2m27s, `step_157_cosmos2025_ssfr_inversion.py` ~1m44s, `step_153_cosmos2025_sed_analysis.py` ~4m41s.
 - **Source of truth:** `results/outputs/pipeline_summary.json` from the most recent complete canonical run.
 
 ---
@@ -129,7 +129,7 @@ Comprehensive battery of 63 independent tests including:
 - LRD/black-hole population analysis
 - Binary pulsar, BBN, growth factor constraints
 
-### Phase V — Advanced Analysis (Steps 101–163)
+### Phase V — Advanced Analysis (Steps 101–159)
 | Steps | Focus area |
 |-------|-----------|
 | 101–110 | Alpha recovery, cosmic variance, morphology, SN rate, GW timing |
@@ -138,7 +138,7 @@ Comprehensive battery of 63 independent tests including:
 | 131–140 | AGN power, LRD validation, Hubble connection, evidence tier summary |
 | 141–148 | Nonlinear AIC, LRD BH mass prediction, adversarial ML, phase boundary |
 | 149–155 | New data ingestion (JADES DR4/DR5, UNCOVER DR4 SPS, DJA) |
-| 156–163 | Cross-dataset L1 evidence, multi-dataset combination, registry |
+| 156–159 | Cross-dataset L1 evidence, multi-dataset combination, registry |
 
 ---
 
@@ -205,10 +205,8 @@ CSV files with per-galaxy computed quantities used by downstream steps.
 
 ## Stub Steps
 
-17 steps are marked as stubs (`status: "STUB_NOT_IMPLEMENTED"`) pending new data releases:
-- steps 102, 103, 115, 122, 125, 127, 130, 131, 133, 134, 146, 153, 154, 156, 157, 158, 163
+The pipeline no longer has stub steps; all 159 steps execute with real analysis. Steps previously marked as stubs (102, 103, 115, 122, 125, 127, 130, 131, 133, 134, 146, 153, 154, 156, 157, 158, 163) now have full implementations or have been renumbered.
 
-These exit cleanly with a stub JSON output and do not affect upstream or downstream steps.
 
 ---
 
@@ -228,6 +226,6 @@ These exit cleanly with a stub JSON output and do not affect upstream or downstr
 1. **z = 6–7 anomaly**: Negative mass–dust correlation (ρ = −0.12, p = 0.02) not explained by standard TEP — may reflect transition physics.
 2. **Mass circularity**: Γ_t is derived from M* (via M*→M_h relation), limiting fully independent tests.
 3. **Spectroscopic validation** (step_036): Marginal result (ρ = +0.18, p = 0.047) — limited by sample size.
-4. **Stub steps**: 17 steps await data releases (JADES DR5 morphology catalog, COSMOS 2025, DJA Balmer decrement catalog).
+4. **Stub steps**: No stub steps remain; all 159 steps execute with real analysis.
 5. **GOODS-S JADES v2.0**: Large file (~700 MB); step_019 downloads it automatically on first run.
 

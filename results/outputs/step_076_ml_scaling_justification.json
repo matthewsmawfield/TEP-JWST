@@ -1,7 +1,7 @@
 {
   "step": 96,
   "name": "M/L Scaling Justification",
-  "timestamp": "2026-04-29T07:02:34",
+  "timestamp": "2026-08-18T21:36:37",
   "theoretical_basis": {
     "standard_ssp": {
       "solar_metallicity": {
@@ -25,7 +25,7 @@
   },
   "tep_modification": {
     "mechanism": "TEP modifies the mapping between observed age and true age. If t_eff = Gamma_t * t_cosmic, then the observed M/L ratio is (M/L)_obs = (M/L)_true * Gamma_t^n. The best-fit n that minimizes residual correlations after TEP correction reflects both the intrinsic stellar physics AND the TEP enhancement.",
-    "prediction": "At high-z where Gamma_t varies strongly with mass, the preferred effective n should be lower than in the low-z regime where Gamma_t is typically weaker. In the live empirical validation below, the low-z bin favors a higher n while the z > 6 bins favor lower values.",
+    "prediction": "At high-z where Gamma_t varies strongly with mass, the preferred effective n should be lower than in the low-z regime where Gamma_t is typically weaker. The live empirical validation below tests this prediction across redshift bins.",
     "interpretation": "The redshift-dependent best-fit n is compatible with the TEP picture in which the Gamma_t correction becomes more important at high z. Within the canonical pipeline this step is treated as scaling support and robustness context rather than as a primary independent line of evidence."
   },
   "empirical_validation": {
@@ -55,7 +55,7 @@
       {
         "n": 0.5,
         "rho_mass_age": 0.12088489591425297,
-        "p_value": 5.3927425262732586e-09,
+        "p_value": 5.392742526273258e-09,
         "abs_rho": 0.12088489591425297
       },
       {
@@ -125,6 +125,6 @@
   },
   "key_finding": {
     "statement": "The M/L ~ t^n scaling is justified by: (1) Standard SSP theory predicts n ~ 0.7-0.9 for solar metallicity and n ~ 0.4-0.7 for low metallicity; (2) live empirical residual minimization in the UNCOVER sample gives best_n = 0.3 overall (rho = 0.1183), with z-split minima at 4-6: n=1.0, 6-8: n=1.0, 8-10: n=0.3; (3) the preferred high-z n is therefore grounded in live data rather than in an archived simulation branch.",
-    "not_ad_hoc": "The preferred low n at high z is NOT ad hoc. It follows from: (a) lower-metallicity SSP expectations, (b) live residual minimization across tested n values with best_n = 0.3 overall, (c) z-split validation showing lower preferred n above z=6 than in the z=4-6 bin."
+    "not_ad_hoc": "The preferred low n at high z is NOT ad hoc. It follows from: (a) lower-metallicity SSP expectations, (b) live residual minimization across tested n values with best_n = 0.3 overall, (c) z-split validation: 4-6: n=1.0, 6-8: n=1.0, 8-10: n=0.3."
   }
 }

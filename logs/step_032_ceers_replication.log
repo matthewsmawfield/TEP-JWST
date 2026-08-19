@@ -1,43 +1,43 @@
-[10:01:52]     ======================================================================
-[10:01:52]     STEP 32: Independent Replication with CEERS Data
-[10:01:52]     ======================================================================
-[10:01:52] 
-[10:01:52]     Testing whether the z>8 dust anomaly replicates in CEERS,
-[10:01:52]     an independent JWST survey.
-[10:01:52] 
-[10:01:52]     Loaded CEERS z>8 sample: N = 82
-[10:01:52]     
+[22:35:56] INFO        ======================================================================
+[22:35:56] INFO        STEP 32: Independent Replication with CEERS Data
+[22:35:56] INFO        ======================================================================
+[22:35:56] INFO    
+[22:35:56] INFO        Testing whether the z>8 dust anomaly replicates in CEERS,
+[22:35:56] INFO        an independent JWST survey.
+[22:35:56] INFO    
+[22:35:57] INFO        Loaded CEERS z>8 sample: N = 82
+[22:35:57] INFO        
 ============================================================
-[10:01:52]     MASS-DUST CORRELATION: CEERS z>8
-[10:01:52]     ============================================================
-[10:01:52]     Sample size: N = 82
-[10:01:52]     Redshift range: z = 8.0 - 11.7
-[10:01:53]     
+[22:35:57] INFO        MASS-DUST CORRELATION: CEERS z>8
+[22:35:57] INFO        ============================================================
+[22:35:57] INFO        Sample size: N = 82
+[22:35:57] INFO        Redshift range: z = 8.0 - 11.7
+[22:35:57] INFO        
 Mass-Dust Correlation:
-[10:01:53]       ρ = 0.680 [0.521, 0.799]
-[10:01:53]       p = 2.03e-12
-[10:01:53]     
+[22:35:57] INFO          ρ = 0.680 [0.521, 0.799]
+[22:35:57] INFO          p = 2.03e-12
+[22:35:57] INFO        
 Γ_t-DUST CORRELATION: CEERS z>8
-[10:01:53]       Raw: ρ(Γ_t, dust) = 0.645, p = 6.00e-11
-[10:01:53]       Partial (|M*): ρ = 0.147, p = 1.89e-01
-[10:01:53]     
+[22:35:57] INFO          Raw: ρ(Γ_t, dust) = 0.645, p = 6.00e-11
+[22:35:57] INFO          Partial (|M*): ρ = 0.147, p = 1.89e-01
+[22:35:57] INFO        
 ============================================================
-[10:01:53]     CROSS-SURVEY COMPARISON
-[10:01:53]     ============================================================
-[10:01:53]     
+[22:35:57] INFO        CROSS-SURVEY COMPARISON
+[22:35:57] INFO        ============================================================
+[22:35:57] INFO        
 UNCOVER z>8 (N=283):
-[10:01:53]       ρ(M*, dust) = 0.559, p = 1.05e-24
-[10:01:53]     
+[22:35:57] INFO          ρ(M*, dust) = 0.559, p = 1.05e-24
+[22:35:57] INFO        
 ======================================================================
-[10:01:53]     REPLICATION SUMMARY
-[10:01:53]     ======================================================================
-[10:01:53]     
+[22:35:57] INFO        REPLICATION SUMMARY
+[22:35:57] INFO        ======================================================================
+[22:35:57] INFO        
 Mass-Dust Correlation at z>8:
-[10:01:53]       UNCOVER: ρ = 0.559
-[10:01:53]       CEERS:   ρ = 0.680
-[10:01:53]     
+[22:35:57] INFO          UNCOVER: ρ = 0.559
+[22:35:57] INFO          CEERS:   ρ = 0.680
+[22:35:57] INFO        
 ✓ REPLICATION SUCCESSFUL
-[10:01:53]       The z>8 dust anomaly is confirmed in independent CEERS data.
-[10:01:53]     
+[22:35:57] INFO          The z>8 dust anomaly is confirmed in independent CEERS data.
+[22:35:57] INFO        
 Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_032_ceers_replication.json
-[10:01:53]     Step 032 complete.
+[22:35:57] INFO        Step 032 complete.

@@ -92,24 +92,26 @@ def test_temporal_spatial_decoupling():
     }
 
 def main():
-    print("=" * 70)
-    print("Step 147: Time-Space Coupling Consistency Test")
-    print("=" * 70)
+    print_status("STEP 124: Time-Space Coupling Consistency Test", "TITLE")
+    print_status("Verifying that TEP temporal effects decouple from spatial metric modifications.", "INFO")
+    print_status("")
     
     results = test_temporal_spatial_decoupling()
     
-    print("\nTemporal vs Spatial Observable Tests:")
+    print_status("")
+    print_status("Temporal vs Spatial Observable Tests:", "PROCESS")
     for test, info in results['conceptual_tests'].items():
-        print(f"\n  {test}:")
-        print(f"    Description: {info['description']}")
-        print(f"    TEP Effect: {info['tep_effect']}")
+        print_status(f"  {test}:", "INFO")
+        print_status(f"    Description: {info['description']}", "INFO")
+        print_status(f"    TEP Effect: {info['tep_effect']}", "INFO")
     
     qt = results['quantitative_test']
-    print(f"\nQuantitative Test (z={qt['z']:.1f}, M_h={qt['M_h']:.2e}):")
-    print(f"  Temporal enhancement Γ_t = {qt['temporal_enhancement']:.2f}")
-    print(f"  Spatial effect = {qt['spatial_effect']:.2f}")
-    print(f"  Ratio T/S = {qt['ratio_t_s']:.2f}")
-    print(f"  Decoupling confirmed: {qt['decoupling_confirmed']}")
+    print_status("")
+    print_status(f"Quantitative Test (z={qt['z']:.1f}, M_h={qt['M_h']:.2e}):", "PROCESS")
+    print_status(f"  Temporal enhancement Gamma_t = {qt['temporal_enhancement']:.2f}", "INFO")
+    print_status(f"  Spatial effect = {qt['spatial_effect']:.2f}", "INFO")
+    print_status(f"  Ratio T/S = {qt['ratio_t_s']:.2f}", "INFO")
+    print_status(f"  Decoupling confirmed: {qt['decoupling_confirmed']}", "INFO")
     
     output = {
         'step': 147,
@@ -125,11 +127,10 @@ def main():
     output_path = RESULTS_DIR / "step_124_timespace_coupling.json"
     with open(output_path, 'w') as f:
         json.dump(output, f, indent=2)
-    print(f"\nResults saved to {output_path}")
+    print_status(f"Results saved to {output_path.name}", "SUCCESS")
     
-    print("\n" + "=" * 70)
-    print("Time-space coupling test complete.")
-    print("=" * 70)
+    print_status("")
+    print_status("Time-space coupling test complete.", "SUCCESS")
 
 if __name__ == "__main__":
     main()

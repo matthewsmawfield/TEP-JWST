@@ -1,53 +1,53 @@
-[10:03:16]     ======================================================================
-[10:03:16]     STEP 094: Enhanced Environmental Screening Analysis
-[10:03:16]     ======================================================================
-[10:03:16]     Loaded 2315 galaxies from UNCOVER
-[10:03:16]     Using real sky coordinates for density estimation
-[10:03:16]     Computing density estimators...
-[10:03:16]     
+[22:37:43] INFO        ======================================================================
+[22:37:43] INFO        STEP 094: Enhanced Environmental Screening Analysis
+[22:37:43] INFO        ======================================================================
+[22:37:43] INFO        Loaded 2315 galaxies from UNCOVER
+[22:37:43] INFO        Using real sky coordinates for density estimation
+[22:37:43] INFO        Computing density estimators...
+[22:37:44] INFO        
 Testing screening hypothesis with multiple density estimators:
-[10:03:16]     
+[22:37:44] INFO        
   density_5nn:
-[10:03:17]         rho(high density) = -0.371
-[10:03:17]         rho(low density)  = -0.174
-[10:03:17]         delta_rho = 0.196 [0.115, 0.282]
-[10:03:17]         Result: SUPPORTS TEP
-[10:03:17]     
+[22:37:45] INFO            rho(high density) = -0.371
+[22:37:45] INFO            rho(low density)  = -0.174
+[22:37:45] INFO            delta_rho = 0.196 [0.117, 0.274]
+[22:37:45] INFO            Result: Consistent with TEP screening prediction (delta_rho = +0.196, 95% CI [+0.117, +0.274])
+[22:37:45] INFO        
   density_1arcmin:
-[10:03:17]         rho(high density) = -0.318
-[10:03:17]         rho(low density)  = -0.158
-[10:03:17]         delta_rho = 0.160 [0.079, 0.241]
-[10:03:17]         Result: SUPPORTS TEP
-[10:03:17]     
+[22:37:46] INFO            rho(high density) = -0.318
+[22:37:46] INFO            rho(low density)  = -0.158
+[22:37:46] INFO            delta_rho = 0.160 [0.070, 0.242]
+[22:37:46] INFO            Result: Consistent with TEP screening prediction (delta_rho = +0.160, 95% CI [+0.070, +0.242])
+[22:37:46] INFO        
   density_2arcmin:
-[10:03:18]         rho(high density) = -0.220
-[10:03:18]         rho(low density)  = -0.192
-[10:03:18]         delta_rho = 0.028 [-0.058, 0.118]
-[10:03:18]         Result: INCONCLUSIVE or CONTRADICTS
-[10:03:18]     
+[22:37:47] INFO            rho(high density) = -0.220
+[22:37:47] INFO            rho(low density)  = -0.192
+[22:37:47] INFO            delta_rho = 0.028 [-0.063, 0.117]
+[22:37:47] INFO            Result: Inconclusive or inconsistent with TEP screening prediction (delta_rho = +0.028, 95% CI [-0.063, +0.117])
+[22:37:47] INFO        
   overdensity:
-[10:03:19]         rho(high density) = -0.220
-[10:03:19]         rho(low density)  = -0.192
-[10:03:19]         delta_rho = 0.028 [-0.060, 0.111]
-[10:03:19]         Result: INCONCLUSIVE or CONTRADICTS
-[10:03:19]     
+[22:37:48] INFO            rho(high density) = -0.220
+[22:37:48] INFO            rho(low density)  = -0.192
+[22:37:48] INFO            delta_rho = 0.028 [-0.060, 0.108]
+[22:37:48] INFO            Result: Inconclusive or inconsistent with TEP screening prediction (delta_rho = +0.028, 95% CI [-0.060, +0.108])
+[22:37:48] INFO        
 Testing by redshift bins:
-[10:03:20]       z=4-6: delta_rho=-0.167, TEP: INCONCLUSIVE or CONTRADICTS
-[10:03:20]       z=6-8: delta_rho=0.504, TEP: SUPPORTS TEP
-[10:03:20]       z=8-10: delta_rho=0.428, TEP: SUPPORTS TEP
-[10:03:20]     
+[22:37:51] INFO          z=4-6: delta_rho=-0.167, TEP: Inconclusive or inconsistent with TEP screening prediction (delta_rho = -0.167, 95% CI [-0.273, -0.063])
+[22:37:51] INFO          z=6-8: delta_rho=0.504, TEP: Consistent with TEP screening prediction (delta_rho = +0.504, 95% CI [+0.353, +0.658])
+[22:37:51] INFO          z=8-10: delta_rho=0.428, TEP: Consistent with TEP screening prediction (delta_rho = +0.428, 95% CI [+0.219, +0.642])
+[22:37:51] INFO        
 Testing with isolation index (field vs clustered):
-[10:03:20]       Field galaxies: rho = -0.168 (n=1147)
-[10:03:20]       Clustered galaxies: rho = -0.244 (n=1168)
-[10:03:20]       Delta: 0.077
-[10:03:20]     
+[22:37:51] INFO          Field galaxies: rho = -0.168 (n=1147)
+[22:37:51] INFO          Clustered galaxies: rho = -0.244 (n=1168)
+[22:37:51] INFO          Delta: 0.077
+[22:37:51] INFO        
 ======================================================================
-[10:03:20]     SUMMARY
-[10:03:20]     ======================================================================
-[10:03:20]     Tests supporting TEP screening: 3/5
-[10:03:20]     RESULT: Evidence SUPPORTS environmental screening hypothesis
-[10:03:20]     
+[22:37:51] INFO        SUMMARY
+[22:37:51] INFO        ======================================================================
+[22:37:51] INFO        Tests supporting TEP screening: 3/5
+[22:37:51] INFO        Result: 3/5 density estimators show the predicted screening pattern
+[22:37:51] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_094_environmental_screening_enhanced.json
-[10:03:21]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_094_environmental_screening_enhanced.png
-[10:03:21]     
+[22:37:53] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_094_environmental_screening_enhanced.png
+[22:37:53] INFO        
 Step 094 complete.

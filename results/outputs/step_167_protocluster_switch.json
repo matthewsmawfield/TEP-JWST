@@ -99,17 +99,17 @@
     "density_threshold_field_q25": null,
     "density_threshold_dense_q75": null,
     "density_split_method": "within_footprint_q25_q75",
-    "field_median": -0.09741578076486945,
-    "dense_median": -0.0061987889357419945,
-    "field_mean": -0.016973792581293796,
-    "dense_mean": 0.06880921593587691,
-    "delta_dense_minus_field": 0.0857830085171707,
+    "field_median": -0.11007874088865965,
+    "dense_median": -0.006198788935739552,
+    "field_mean": -0.02634931442304156,
+    "dense_mean": 0.07088996772767124,
+    "delta_dense_minus_field": 0.0972392821507128,
     "bootstrap_ci_95": [
-      -0.01915895868879288,
-      0.1878999903706879
+      -0.009059026775720154,
+      0.20588271037178615
     ],
-    "bootstrap_one_sided_p_dense_less_than_field": 0.9482629342664334,
-    "mannwhitney_p_two_sided": 0.0639860463075327,
+    "bootstrap_one_sided_p_dense_less_than_field": 0.9650087478130467,
+    "mannwhitney_p_two_sided": 0.04316779765256803,
     "matched_cell_median_deltas_dense_minus_field": [],
     "n_matched_cells": 0,
     "n_matched_cells_supporting_tep": 0
@@ -123,17 +123,17 @@
       "density_threshold_field_q25": null,
       "density_threshold_dense_q75": null,
       "density_split_method": "within_footprint_q25_q75",
-      "field_median": -2.1174400480608555,
-      "dense_median": -2.0242562318529296,
-      "field_mean": -2.011899700302023,
-      "dense_mean": -1.9219570662811565,
-      "delta_dense_minus_field": 0.08994263402086666,
+      "field_median": -2.1436478201122804,
+      "dense_median": -2.02651735353611,
+      "field_mean": -2.0239830210210275,
+      "dense_mean": -1.916798549982761,
+      "delta_dense_minus_field": 0.10718447103826656,
       "bootstrap_ci_95": [
-        -0.019289805477117724,
-        0.20272118531519298
+        -0.002996948185450587,
+        0.21429469009832972
       ],
-      "bootstrap_one_sided_p_dense_less_than_field": 0.944513871532117,
-      "mannwhitney_p_two_sided": 0.05242334741429383,
+      "bootstrap_one_sided_p_dense_less_than_field": 0.9712571857035741,
+      "mannwhitney_p_two_sided": 0.024623416774442918,
       "matched_cell_median_deltas_dense_minus_field": [],
       "n_matched_cells": 0,
       "n_matched_cells_supporting_tep": 0

@@ -1,13 +1,26 @@
-[10:02:29] ═══ STEP 069: Compactness Verification
-[10:02:29] >>> Loading LRD Catalog (Kokorev)...
-[10:02:29]     Loaded 260 LRDs with valid sizes.
-[10:02:29] >>> Loading Survey Catalogs...
-[10:02:29]     Loaded CEERS: 10483
-[10:02:29] >>> Matching LRDs to CEERS...
-[10:02:29]     Found 40 matches in CEERS
-[10:02:29] ✓   Total matched LRDs with Mass: 40
-[10:02:29]     Calibrated k (Phi->Gamma): 1.38e-11
-[10:02:29] ✓   Saved figure to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/circularity_check_compactness.png
-[10:02:29] ✓   Report saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/circularity_resolution_stats.txt
-[10:02:29] ✓   JSON results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_069_compactness_verification.json
-[10:02:29] ✓   Step 069 complete.
+[22:36:28] INFO    ═══ STEP 069: Compactness Verification
+[22:36:28] INFO    >>> Loading LRD Catalog (Kokorev)...
+[22:36:28] INFO        Loaded 260 LRDs with valid sizes.
+[22:36:28] INFO    >>> Loading Survey Catalogs...
+[22:36:28] INFO        Loaded CEERS: 10483
+[22:36:28] INFO    >>> Matching LRDs to CEERS...
+[22:36:28] INFO        Found 40 matches in CEERS
+[22:36:28] INFO    ✓   Total matched LRDs with Mass: 40
+[22:36:28] INFO        Calibrated k (Phi->Gamma): 1.38e-11
+[22:36:29] INFO    ✓   Saved figure to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/circularity_check_compactness.png
+[22:36:29] INFO    ✓   Report saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/circularity_resolution_stats.txt
+[22:36:29] INFO        CIRCULARITY RESOLUTION STATISTICS
+=================================
+Matched LRDs: 40
+Calibration k: 1.38e-11 (Gamma ~ exp(k * M/R))
+
+Mean Boost (Compact/Mass): 1.31x
+Median Boost: 1.38x
+
+INTERPRETATION:
+LRDs are significantly more compact than the mass-size relation predicts.
+Using a potential-based proxy (M/R) yields HIGHER Gamma_t values than mass alone.
+Therefore, the Mass-Only proxy used in the manuscript is CONSERVATIVE.
+The circularity critique is resolved: explicit potential modeling strengthens the anomaly.
+[22:36:29] INFO    ✓   JSON results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_069_compactness_verification.json
+[22:36:29] INFO    ✓   Step 069 complete.

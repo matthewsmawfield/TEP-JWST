@@ -22,7 +22,6 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 import json
 import numpy as np
-np.random.seed(42)
 import pandas as pd
 import sys
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
@@ -94,9 +93,10 @@ def fit_alpha_in_zbin(dust, log_mh, z, z_mean):
     n_boot = 100
     alpha_boots = []
     n = len(dust)
-    
+    rng = np.random.default_rng(42)
+
     for _ in range(n_boot):
-        idx = np.random.choice(n, n, replace=True)
+        idx = rng.choice(n, n, replace=True)
         dust_boot = dust[idx]
         log_mh_boot = log_mh[idx]
         z_boot = z[idx]
@@ -151,8 +151,9 @@ def test_alpha_evolution(z_bins, alpha_fits):
             # Fall back to bootstrap uncertainty estimation
             n_boot = 200
             a_boots, b_boots = [], []
+            rng = np.random.default_rng(42)
             for _ in range(n_boot):
-                idx = np.random.choice(len(z_centers), len(z_centers), replace=True)
+                idx = rng.choice(len(z_centers), len(z_centers), replace=True)
                 z_boot = z_centers[idx]
                 alpha_boot = alphas[idx]
                 try:

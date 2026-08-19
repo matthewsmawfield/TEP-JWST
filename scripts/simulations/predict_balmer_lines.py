@@ -9,19 +9,13 @@ def effective_time_factor(log_mh, z, kappa_gal=9.6e5, z_ref=5.5):
     """
     Compute Gamma_t based on halo mass and redshift.
     """
-    # TEP coupling scaling
-    alpha = kappa_gal * np.sqrt(1 + z)
-    
-    # Potential depth proxy relative to reference
-    # Reference mass log_mh = 12
-    delta_log_mh = log_mh - 12.0
-    
-    # Redshift factor relative to z_ref
-    z_factor = (1 + z) / (1 + z_ref)
-    
-    # Gamma_t
-    gamma_t = np.exp(alpha * (2/3) * delta_log_mh * z_factor)
-    return gamma_t
+    import sys
+    from pathlib import Path
+    _REPO_ROOT = Path(__file__).resolve().parents[2]
+    if str(_REPO_ROOT) not in sys.path:
+        sys.path.insert(0, str(_REPO_ROOT))
+    from scripts.utils.tep_model import compute_gamma_t
+    return compute_gamma_t(log_mh, z, kappa=kappa_gal)
 
 def simple_hdelta_model(age_gyr):
     """
@@ -147,7 +141,8 @@ def simulate_spectroscopic_prediction(n_galaxies=500, z_mean=7.0, z_width=1.0):
         print(f"{str(idx):<15} | {gt:.2f}     | {std_mean:.2f}            | {tep_mean:.2f}            | {diff:+.2f}")
 
     # Output CSV
-    outfile = '/Users/matthewsmawfield/www/TEP-JWST/scripts/simulations/balmer_prediction.csv'
+    import os
+    outfile = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'balmer_prediction.csv')
     df.to_csv(outfile, index=False)
     print(f"\nSimulation data saved to {outfile}")
     

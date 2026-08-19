@@ -22,7 +22,7 @@
       "n_test": 56,
       "n_optimal": 0.9943020252656685,
       "rho_test": 0.49282296650717705,
-      "p_test": 0.00011402748146932397
+      "p_test": 0.00011402748146932396
     },
     {
       "fold": 3,
@@ -68,7 +68,7 @@
     {
       "n": 0.4,
       "rho": 0.5055010160201869,
-      "p": 9.194824584672591e-20,
+      "p": 9.194824584672592e-20,
       "significant": true
     },
     {
@@ -123,13 +123,13 @@
     "n_ssp_solar": 0.7,
     "n_ssp_low_z": 0.5,
     "consistent_with_low_z_ssp": false,
-    "interpretation": "The optimal n at z>8 is consistent with low-metallicity SSP predictions, supporting the physical interpretation that high-z galaxies have lower metallicity and hence lower M/L power-law index."
+    "interpretation": "The optimal n at z>8 is 0.991, which is NOT consistent with low-metallicity SSP predictions (n~0.5) or solar-metallicity SSP (n~0.7). The data-driven optimal n exceeds both theoretical benchmarks, suggesting that the M/L scaling at z>8 is steeper than predicted by standard SSP models."
   },
   "summary": {
     "kfold_stable": true,
     "generalizes_to_high_z": false,
     "robust_to_n_choice": true,
     "theoretically_consistent": false,
-    "conclusion": "The TEP signal is robust to the choice of M/L power-law index n. Cross-validation confirms that n calibrated on one subset generalizes to holdout data. The optimal n is consistent with theoretical predictions for low-metallicity stellar populations at high redshift."
+    "conclusion": "The TEP signal is robust to the choice of M/L power-law index n (significant across 100% of tested n values). K-fold cross-validation confirms that n calibrated on one subset generalizes to holdout data (mean test rho = 0.469). Redshift-blind generalization from z<6 to z>=6 does NOT succeed (rho = -0.147 with low-z n on high-z data). The optimal n (0.991) is NOT consistent with standard SSP theoretical predictions (n_solar=0.7, n_low_z=0.5)."
   }
 }

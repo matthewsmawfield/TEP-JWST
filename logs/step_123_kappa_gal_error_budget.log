@@ -1,0 +1,23 @@
+[22:39:04] INFO    ═══ STEP 123: kappa_gal Error Propagation and Systematic Budget
+[22:39:04] INFO        Propagating kappa_gal uncertainties through the Gamma_t kernel.
+[22:39:04] INFO    
+[22:39:04] INFO    
+[22:39:04] INFO    >>> Fractional Systematic Sources:
+[22:39:04] INFO          cepheid_pl_scatter: +/-0.035 (Period-luminosity relation scatter)
+[22:39:04] INFO          metallicity_correction: +/-0.015 ([Fe/H] dependence)
+[22:39:04] INFO          reddening: +/-0.020 (E(B-V) uncertainties)
+[22:39:04] INFO          distance_ladder: +/-0.025 (LMC/TRGB calibration)
+[22:39:04] INFO          systematic_total: +/-0.050 (RSS combined)
+[22:39:04] INFO    
+[22:39:04] INFO    >>> Propagation Test (z=5.5, log M_h=12.5):
+[22:39:04] INFO          Gamma_t = 1.87 +/- 0.47
+[22:39:04] INFO          95% CI: [1.11, 2.95]
+[22:39:04] INFO          Fractional uncertainty: 25.3%
+[22:39:04] INFO    
+[22:39:04] INFO    >>> Combined Prediction Uncertainties:
+[22:39:04] INFO          mass_age_slope: -0.41 +/- 0.08
+[22:39:04] INFO          mass_ssfr_slope: -0.52 +/- 0.09
+[22:39:04] INFO          z8_dust_ratio: 1.80 +/- 0.40
+[22:39:04] INFO    ✓   Results saved to step_123_kappa_gal_error_budget.json
+[22:39:04] INFO    
+[22:39:04] INFO    ✓   Error budget analysis complete.

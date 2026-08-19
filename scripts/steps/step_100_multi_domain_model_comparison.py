@@ -159,7 +159,7 @@ def load_test_results():
                         t[k] = v
                 break
 
-    cross_path = OUTPUT_PATH / "step_102_survey_cross_correlation.json"
+    cross_path = OUTPUT_PATH / "step_081_survey_cross_correlation.json"
     if cross_path.exists():
         try:
             with open(cross_path) as f:
@@ -187,7 +187,7 @@ def load_test_results():
                             t['available'] = True
                         break
         except Exception as e:
-            print(f"WARNING: Could not load step_102 survey correlations: {e}")
+            print_status(f"WARNING: Could not load step_081 survey correlations: {e}", "WARNING")
 
     # Core screening from step_38
     s38_path = OUTPUT_PATH / "step_037_resolved_gradients.json"
@@ -202,7 +202,7 @@ def load_test_results():
                 if rho is not None and p is not None and n is not None:
                     _update_test('core_screening', rho=rho, p=p, n=n, available=True)
         except Exception as e:
-            print(f"WARNING: Could not load step_38 resolved gradients: {e}")
+            print_status(f"WARNING: Could not load step_38 resolved gradients: {e}", "WARNING")
 
     # Spectroscopic bin-normalized from step_37c
     s37c_path = OUTPUT_PATH / "step_37c_spectroscopic_refinement.json"
@@ -217,7 +217,7 @@ def load_test_results():
             if rho is not None and p is not None:
                 _update_test('spectroscopic', rho=rho, p=p, n=n, available=True)
         except Exception as e:
-            print(f"WARNING: Could not load step_37c spectroscopic refinement: {e}")
+            print_status(f"WARNING: Could not load step_37c spectroscopic refinement: {e}", "WARNING")
 
     # z>7 mass-sSFR inversion from step_004
     s03_path = OUTPUT_PATH / "step_004_thread1_z7_inversion.json"
@@ -232,22 +232,11 @@ def load_test_results():
             if rho is not None and p is not None and n is not None:
                 _update_test('z7_inversion', rho=rho, p=p, n=n, available=True)
         except Exception as e:
-            print(f"WARNING: Could not load step_004 z7 inversion: {e}")
+            print_status(f"WARNING: Could not load step_004 z7 inversion: {e}", "WARNING")
 
-    # UNCOVER z>8 dust from step_006 (cross-check with step_102)
-    s05_path = OUTPUT_PATH / "step_006_thread5_z8_dust.json"
-    if s05_path.exists():
-        try:
-            with open(s05_path) as _f:
-                s05 = json.load(_f)
-            z8r = s05.get('z8_result', {})
-            rho = _safe_float(z8r.get('rho'))
-            p = _safe_float(z8r.get('p'))
-            n = _safe_int(z8r.get('n'))
-            if rho is not None and p is not None and n is not None:
-                _update_test('z8_dust_uncover', rho=rho, p=p, n=n, available=True)
-        except Exception as e:
-            print(f"WARNING: Could not load step_05 z8 dust: {e}")
+    # UNCOVER z>8 dust: already loaded from step_081 homogeneous re-analysis above.
+    # NOTE: step_006's z8_result stores rho(M*, dust), not rho(Gamma_t, dust),
+    # so it must not be used as a fallback for the Gamma_t-dust correlation.
 
     # CEERS z>8 dust from step_032
     s032_path = OUTPUT_PATH / "step_032_ceers_replication.json"
@@ -263,7 +252,7 @@ def load_test_results():
             if rho is not None and p is not None and n is not None:
                 _update_test('z8_dust_ceers', rho=rho, p=p, n=n, available=True)
         except Exception as e:
-            print(f"WARNING: Could not load step_032 CEERS replication: {e}")
+            print_status(f"WARNING: Could not load step_032 CEERS replication: {e}", "WARNING")
 
     # COSMOS-Web z>8 dust from step_034
     s034_path = OUTPUT_PATH / "step_034_cosmosweb_replication.json"
@@ -279,7 +268,7 @@ def load_test_results():
             if rho is not None and p is not None and n is not None:
                 _update_test('z8_dust_cosmosweb', rho=rho, p=p, n=n, available=True)
         except Exception as e:
-            print(f"WARNING: Could not load step_034 COSMOS-Web replication: {e}")
+            print_status(f"WARNING: Could not load step_034 COSMOS-Web replication: {e}", "WARNING")
 
     # Red Monsters from step_47
     s47_path = OUTPUT_PATH / "step_043_blue_monsters.json"
@@ -293,7 +282,7 @@ def load_test_results():
                              effect=float(rm['mean_sfe_reduction']),
                              n=_safe_int(rm.get('n')), available=True)
         except Exception as e:
-            print(f"WARNING: Could not load step_47 red monsters: {e}")
+            print_status(f"WARNING: Could not load step_47 red monsters: {e}", "WARNING")
 
     # Log which tests were loaded from upstream vs hardcoded defaults
     for t in test_definitions:
@@ -301,7 +290,7 @@ def load_test_results():
         p_value = t.get('p')
         status = 'LIVE' if t.get('available') else 'UNAVAILABLE'
         p_text = f"{p_value:.2e}" if p_value is not None else 'N/A'
-        print(f"  Test '{t['name']}': status={status}, rho={value}, p={p_text}, n={t.get('n', 'N/A')}")
+        print_status(f"  Test '{t['name']}': status={status}, rho={value}, p={p_text}, n={t.get('n', 'N/A')}", "INFO")
 
     return test_definitions
 
@@ -603,10 +592,13 @@ def main():
         'posterior_prob': bayes['posterior_prob'],
         'primary_evidence_p': format_p_value(primary['p_meta']) if primary['p_meta'] is not None else None,
         'conclusion': (
-            'Even under the most conservative assumptions (independent tests only, '
-            'correlation-adjusted combination), the combined evidence strongly '
-            'supports TEP (p < 10⁻¹⁰). The primary evidence—the replicated z>8 '
-            'dust correlation—is robust to all statistical concerns.'
+            f'Even under the most conservative assumptions (independent tests only, '
+            f'correlation-adjusted combination), the combined evidence '
+            f'{"strongly" if cons_p < 1e-10 else "moderately" if cons_p < 0.01 else "weakly"} '
+            f'supports TEP (conservative p = {cons_p:.2e}). '
+            f'The primary evidence—the replicated z>8 '
+            f'dust correlation—is {"robust" if cons_p < 1e-10 else "suggestive but not definitive"} '
+            f'under correlation adjustment.'
         ),
         'recommendation': (
             'Report the conservative Brown-adjusted p-value in the manuscript, '

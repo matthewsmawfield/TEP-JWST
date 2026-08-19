@@ -1,49 +1,81 @@
-[10:05:40]     =================================================================
-[10:05:40]     Step 147: Cosmic SFRD Correction at z > 6
-[10:05:40]     =================================================================
-[10:05:40]     Loading SFR data...
-[10:05:40]       UNCOVER: 2315 galaxies with SFR
-[10:05:40]       CEERS: 10477 galaxies with SFR
-[10:05:40]     
-Computing SFRD per survey...
-[10:05:40]       UNCOVER:
-[10:05:40]         z=[6,7): N=372, log SFRD_obs=-1.90, log SFRD_corr=-1.84, reduction=-14%
-[10:05:40]         z=[7,8): N=221, log SFRD_obs=-2.07, log SFRD_corr=-1.98, reduction=-23%
-[10:05:40]         z=[8,9): N=179, log SFRD_obs=-1.60, log SFRD_corr=-1.66, reduction=12%
-[10:05:40]         z=[9,10): N=104, log SFRD_obs=-1.80, log SFRD_corr=-1.98, reduction=33%
-[10:05:40]       CEERS:
-[10:05:40]         z=[6,7): N=1835, log SFRD_obs=-0.82, log SFRD_corr=-1.26, reduction=63%
-[10:05:40]         z=[7,8): N=554, log SFRD_obs=-1.37, log SFRD_corr=-1.47, reduction=21%
-[10:05:40]         z=[8,9): N=382, log SFRD_obs=-1.87, log SFRD_corr=-1.86, reduction=-1%
-[10:05:40]         z=[9,10): N=236, log SFRD_obs=-1.68, log SFRD_corr=-1.74, reduction=13%
-[10:05:40]         z=[10,12): N=269, log SFRD_obs=-1.97, log SFRD_corr=-1.96, reduction=-3%
-[10:05:40]     
-Combined SFRD (volume-weighted):
-[10:05:40]       z=[6,7): N=2207, log SFRD_obs=-0.97, log SFRD_corr=-1.37, excess_obs=5.1×, excess_corr=2.0×, reduction=60%
-[10:05:40]       z=[7,8): N=775, log SFRD_obs=-1.49, log SFRD_corr=-1.58, excess_obs=3.4×, excess_corr=2.8×, reduction=17%
-[10:05:40]       z=[8,9): N=561, log SFRD_obs=-1.77, log SFRD_corr=-1.79, excess_obs=4.0×, excess_corr=3.8×, reduction=5%
-[10:05:40]       z=[9,10): N=340, log SFRD_obs=-1.72, log SFRD_corr=-1.80, excess_obs=10.2×, excess_corr=8.3×, reduction=18%
-[10:05:40]       z=[10,12): N=269, log SFRD_obs=-1.97, log SFRD_corr=-1.96, excess_obs=18.9×, excess_corr=19.5×, reduction=-3%
-[10:05:40]     
-=================================================================
-[10:05:40]     SUMMARY
-[10:05:40]     =================================================================
-[10:05:40]       z>8 mean SFRD reduction: 6%
-[10:05:40]       z>8 mean excess (observed): 11.0× ΛCDM
-[10:05:40]       z>8 mean excess (TEP-corrected): 10.6× ΛCDM
-[10:05:40]       z>8 max excess: 18.9× → 19.5×
-[10:05:40]       Overall mean SFRD reduction: 19%
-[10:05:40]     
-  Sensitivity to SFR bias index m:
-[10:05:40]         z=[8,9): m=0.5 → log SFRD=-1.79, m=0.7 → log SFRD=-1.79
-[10:05:40]         z=[9,10): m=0.5 → log SFRD=-1.80, m=0.7 → log SFRD=-1.82
-[10:05:40]         z=[10,12): m=0.5 → log SFRD=-1.96, m=0.7 → log SFRD=-1.95
-[10:05:40]     
-Generating figure...
-[10:05:41]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_147_cosmic_sfrd_correction.png
-[10:05:41]     
-Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_147_cosmic_sfrd_correction.json
-[10:05:41]     
-=================================================================
-[10:05:41]     HEADLINE: TEP reduces cosmic SFRD at z>8 by 6%, cutting the ΛCDM excess from 11.0× to 10.6×.
-[10:05:41]     =================================================================
+[22:41:53] INFO    ═══ STEP 147: Cosmic SFRD Correction at z > 6
+[22:41:53] INFO        Quantifying the TEP isochrony-bias correction to the cosmic star formation rate density.
+[22:41:53] INFO    
+[22:41:53] INFO        ── Stage 1: Methodology ────────────────────────────────────
+[22:41:53] INFO        If TEP inflates apparent stellar masses via isochrony bias, it also inflates
+[22:41:53] INFO        apparent SFRs (since SFR is proportional to M* x sSFR in SED fitting).
+[22:41:53] INFO    
+[22:41:53] INFO        Correction formula: SFR_true = SFR_obs / Gamma_t^m
+[22:41:53] INFO            SFR bias index m: 0.5000
+[22:41:53] INFO          Rationale: UV-based SFR traces recent SF (< 100 Myr), less affected than cumulative mass
+[22:41:53] INFO            Mass bias index n (for comparison): 0.7000
+[22:41:53] INFO          LCDM reference: Mason+ 2015 / Bouwens+ 2022 extrapolation: log10(SFRD) = -1.5 - 0.35*(z-6)
+[22:41:53] INFO            Redshift bins: z = 6-7, 7-8, 8-9, 9-10, 10-12
+[22:41:53] INFO            Volume weighting: Flat LCDM comoving shell, H0=67.4, Om=0.315
+[22:41:53] INFO    
+[22:41:53] INFO        ── Stage 2: Loading Survey Data ────────────────────────────
+[22:41:53] INFO    >>> Loading UNCOVER SFR data...
+[22:41:53] INFO    ✓   Loading UNCOVER SFR data completed in 13ms
+[22:41:53] INFO          UNCOVER: 2315 galaxies with valid SFR
+[22:41:53] INFO    >>> Loading CEERS SFR data...
+[22:41:53] INFO    ✓   Loading CEERS SFR data completed in 9ms
+[22:41:53] INFO          CEERS: 10477 galaxies with valid SFR
+[22:41:53] INFO          Combined sample: 12792 galaxies
+[22:41:53] INFO    
+[22:41:53] INFO        ── Stage 3: Per-Survey SFRD Computation ────────────────────
+[22:41:53] INFO        UNCOVER (Abell 2744, ~45 arcmin^2):
+[22:41:53] INFO    >>> Computing UNCOVER SFRD bins...
+[22:41:53] INFO    ✓   Computing UNCOVER SFRD bins completed in 741ms
+[22:41:53] INFO          z=[6,7): N=372, log SFRD_obs=-1.90, log SFRD_corr=-1.84, excess=0.6x -> 0.7x, reduction=-14%
+[22:41:53] INFO          z=[7,8): N=221, log SFRD_obs=-2.07, log SFRD_corr=-1.98, excess=0.9x -> 1.1x, reduction=-23%
+[22:41:53] INFO          z=[8,9): N=179, log SFRD_obs=-1.60, log SFRD_corr=-1.66, excess=5.9x -> 5.2x, reduction=12%
+[22:41:53] INFO          z=[9,10): N=104, log SFRD_obs=-1.80, log SFRD_corr=-1.98, excess=8.3x -> 5.6x, reduction=33%
+[22:41:53] INFO    
+[22:41:53] INFO        CEERS (EGS field, ~100 arcmin^2):
+[22:41:53] INFO    >>> Computing CEERS SFRD bins...
+[22:41:53] INFO    ✓   Computing CEERS SFRD bins completed in 4ms
+[22:41:53] INFO          z=[6,7): N=1835, log SFRD_obs=-0.82, log SFRD_corr=-1.26, excess=7.1x -> 2.6x, reduction=63%
+[22:41:53] INFO          z=[7,8): N=554, log SFRD_obs=-1.37, log SFRD_corr=-1.47, excess=4.5x -> 3.6x, reduction=21%
+[22:41:53] INFO          z=[8,9): N=382, log SFRD_obs=-1.87, log SFRD_corr=-1.86, excess=3.2x -> 3.2x, reduction=-1%
+[22:41:53] INFO          z=[9,10): N=236, log SFRD_obs=-1.68, log SFRD_corr=-1.74, excess=11.0x -> 9.6x, reduction=13%
+[22:41:53] INFO          z=[10,12): N=269, log SFRD_obs=-1.97, log SFRD_corr=-1.96, excess=18.9x -> 19.5x, reduction=-3%
+[22:41:53] INFO    
+[22:41:53] INFO        ── Stage 4: Combined Volume-Weighted SFRD ──────────────────
+[22:41:53] INFO    >>> Combining surveys (volume-weighted)...
+[22:41:53] INFO    ✓   Combining surveys (volume-weighted) completed in 0ms
+[22:41:53] INFO        Combined UNCOVER + CEERS:
+[22:41:53] INFO          z=[6,7): N=2207, log SFRD_obs=-0.97, log SFRD_corr=-1.37, excess_obs=5.1x, excess_corr=2.0x, reduction=60%
+[22:41:53] INFO          z=[7,8): N=775, log SFRD_obs=-1.49, log SFRD_corr=-1.58, excess_obs=3.4x, excess_corr=2.8x, reduction=17%
+[22:41:53] INFO          z=[8,9): N=561, log SFRD_obs=-1.77, log SFRD_corr=-1.79, excess_obs=4.0x, excess_corr=3.8x, reduction=5%
+[22:41:53] INFO          z=[9,10): N=340, log SFRD_obs=-1.72, log SFRD_corr=-1.80, excess_obs=10.2x, excess_corr=8.3x, reduction=18%
+[22:41:53] INFO          z=[10,12): N=269, log SFRD_obs=-1.97, log SFRD_corr=-1.96, excess_obs=18.9x, excess_corr=19.5x, reduction=-3%
+[22:41:53] INFO    
+[22:41:53] INFO        ── Stage 5: Summary Statistics ─────────────────────────────
+[22:41:53] INFO        z > 8 bins (combined):
+[22:41:53] INFO            Mean SFRD reduction: 6.5%
+[22:41:53] INFO            Mean excess (observed): 11.0x LCDM
+[22:41:53] INFO            Mean excess (TEP-corrected): 10.6x LCDM
+[22:41:53] INFO            Max excess (observed -> corrected): 18.9x -> 19.5x
+[22:41:53] INFO    
+[22:41:53] INFO        All bins (combined):
+[22:41:53] INFO            Overall mean SFRD reduction: 19.4%
+[22:41:53] INFO    
+[22:41:53] INFO        Sensitivity to SFR bias index m:
+[22:41:53] INFO          z=[8,9): m=0.5 -> log SFRD=-1.79, m=0.7 -> log SFRD=-1.79
+[22:41:53] INFO          z=[9,10): m=0.5 -> log SFRD=-1.80, m=0.7 -> log SFRD=-1.82
+[22:41:53] INFO          z=[10,12): m=0.5 -> log SFRD=-1.96, m=0.7 -> log SFRD=-1.95
+[22:41:53] INFO    
+[22:41:53] INFO        ── Stage 6: Figure Generation and Output ───────────────────
+[22:41:53] INFO    >>> Generating 3-panel SFRD correction figure...
+[22:41:54] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_147_cosmic_sfrd_correction.png
+[22:41:54] INFO    ✓   Generating 3-panel SFRD correction figure completed in 925ms
+[22:41:54] INFO    >>> Writing results JSON...
+[22:41:54] INFO        Results saved to step_147_cosmic_sfrd_correction.json
+[22:41:54] INFO    ✓   Writing results JSON completed in 1ms
+[22:41:54] INFO    
+[22:41:54] INFO    ✓   Step 147 complete — SFRD correction summary:
+[22:41:54] INFO    ✓     z > 8 mean reduction: 6.5%
+[22:41:54] INFO    ✓     z > 8 excess: 11.0x -> 10.6x LCDM
+[22:41:54] INFO    ✓     Overall mean reduction: 19.4%
+[22:41:54] INFO    ✓     Correction is modest — residual excess at z > 9 requires
+[22:41:54] INFO    ✓     additional astrophysical contributions (bursty SF, cosmic variance).

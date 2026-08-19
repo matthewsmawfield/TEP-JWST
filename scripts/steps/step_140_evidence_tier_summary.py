@@ -552,6 +552,8 @@ def main():
     if s176:
         joint_bf = s176.get('joint_bayes_factors', {})
         residual_bf = s176.get('residual_space_bayes_factors', {})
+        correction_bf = s176.get('correction_bayes_factors', {})
+        correction_summary = s176.get('correction_summary', {})
         auxiliary_checks['nested_bayesian_model_comparison'] = {
             'status': 'live',
             'sample_size': s176.get('sample_size'),
@@ -568,6 +570,19 @@ def main():
             'joint_ln_BF_bursty_sf': joint_bf.get('Bursty_SF', {}).get('ln_BF_TEP_vs_alt'),
             'joint_ln_BF_varying_imf': joint_bf.get('Varying_IMF', {}).get('ln_BF_TEP_vs_alt'),
             'joint_ln_BF_agn_feedback': joint_bf.get('AGN_Feedback', {}).get('ln_BF_TEP_vs_alt'),
+            'joint_ln_BF_corrected_standard': joint_bf.get('Corrected_Standard_Physics', {}).get('ln_BF_TEP_vs_alt'),
+            'joint_ln_BF_corrected_bursty': joint_bf.get('Corrected_Bursty_SF', {}).get('ln_BF_TEP_vs_alt'),
+            'joint_ln_BF_corrected_imf': joint_bf.get('Corrected_Varying_IMF', {}).get('ln_BF_TEP_vs_alt'),
+            'joint_ln_BF_corrected_agn': joint_bf.get('Corrected_AGN_Feedback', {}).get('ln_BF_TEP_vs_alt'),
+            'correction_key_finding': s176.get('correction_key_finding', {}).get('statement'),
+            'correction_verdict': correction_summary.get('verdict'),
+            'correction_mean_ln_BF': correction_summary.get('mean_ln_BF_correction'),
+            'correction_n_improves': correction_summary.get('n_correction_improves'),
+            'correction_n_hurts': correction_summary.get('n_correction_hurts'),
+            'correction_ln_BF_standard': correction_bf.get('Standard_Physics', {}).get('ln_BF_corrected_vs_uncorrected'),
+            'correction_ln_BF_bursty': correction_bf.get('Bursty_SF', {}).get('ln_BF_corrected_vs_uncorrected'),
+            'correction_ln_BF_imf': correction_bf.get('Varying_IMF', {}).get('ln_BF_corrected_vs_uncorrected'),
+            'correction_ln_BF_agn': correction_bf.get('AGN_Feedback', {}).get('ln_BF_corrected_vs_uncorrected'),
             'residual_key_finding': s176.get('residual_space_key_finding', {}).get('statement'),
             'residual_mean_ln_BF': s176.get('residual_space_summary', {}).get('mean_ln_BF'),
             'residual_mean_log10_BF': s176.get('residual_space_summary', {}).get('mean_log10_BF'),

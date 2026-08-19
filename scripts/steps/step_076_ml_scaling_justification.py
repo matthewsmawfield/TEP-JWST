@@ -93,8 +93,8 @@ def tep_ml_modification():
         'prediction': (
             'At high-z where Gamma_t varies strongly with mass, the preferred '
             'effective n should be lower than in the low-z regime where Gamma_t '
-            'is typically weaker. In the live empirical validation below, the '
-            'low-z bin favors a higher n while the z > 6 bins favor lower values.'
+            'is typically weaker. The live empirical validation below tests '
+            'this prediction across redshift bins.'
         ),
         'interpretation': (
             'The redshift-dependent best-fit n is compatible with the TEP picture '
@@ -172,6 +172,8 @@ def empirical_validation(df):
     }
 
 def main():
+    print_status("STEP 076: M/L Scaling Justification", "TITLE")
+    print_status("Computing theoretical SSP M/L ~ t^n scaling and empirical validation...", "PROCESS")
     results = {
         'step': 96,
         'name': 'M/L Scaling Justification',
@@ -180,9 +182,11 @@ def main():
     
     # Theoretical justification
     results['theoretical_basis'] = theoretical_ml_scaling()
+    print_status(f"Theoretical SSP: best n={results['theoretical_basis'].get('best_n', 'N/A')}", "INFO")
     
     # TEP modification
     results['tep_modification'] = tep_ml_modification()
+    print_status(f"TEP modification applied", "INFO")
     
     # Load data for empirical validation
     empirical = None
@@ -193,6 +197,7 @@ def main():
 
     if data_path.exists():
         df = pd.read_csv(data_path)
+        print_status(f"Loaded UNCOVER data: N={len(df)} from {data_path.name}", "INFO")
         if 'z' not in df.columns and 'z_phot' in df.columns:
             df['z'] = df['z_phot']
         if 'z' in df.columns:
@@ -202,6 +207,7 @@ def main():
         empirical = empirical_validation(df)
         if empirical:
             results['empirical_validation'] = empirical
+            print_status(f"Empirical validation: best_n={empirical['best_n']:.2f}, best_ρ={empirical['best_rho']:.4f}", "INFO")
         
         # Z-dependent validation
         for z_low, z_high in [(4, 6), (6, 8), (8, 10)]:
@@ -215,6 +221,7 @@ def main():
                         'best_ml_power': emp['best_n'],
                         'best_rho': emp['best_rho']
                     })
+                    print_status(f"  z={z_low}-{z_high}: N={len(subset)}, best_n={emp['best_n']:.2f}, ρ={emp['best_rho']:.4f}", "INFO")
         
         if z_dependent:
             results['z_dependent_validation'] = z_dependent
@@ -253,7 +260,7 @@ def main():
                 'The preferred low n at high z is NOT ad hoc. It follows from: '
                 '(a) lower-metallicity SSP expectations, '
                 f'(b) live residual minimization across tested n values with best_n = {empirical["best_n"]:.1f} overall, '
-                '(c) z-split validation showing lower preferred n above z=6 than in the z=4-6 bin.'
+                f'(c) z-split validation: {z_summary}.'
             )
         }
     else:
@@ -274,7 +281,7 @@ def main():
     with open(output_path, 'w') as f:
         json.dump(results, f, indent=2, default=str)
     
-    print(f"Step 96 complete. Results saved to {output_path}")
+    print_status(f"Step 076 complete. Results saved to {output_path.name}", "SUCCESS")
     
     return results
 

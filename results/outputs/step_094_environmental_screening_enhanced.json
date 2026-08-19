@@ -7,17 +7,17 @@
       "n_total": 2315,
       "n_high_density": 1157,
       "n_low_density": 1158,
-      "median_density": 7.137383335275645,
+      "median_density": 7.137383335272014,
       "rho_high_density": -0.3705025967014064,
-      "p_high_density": 5.841961274253734e-39,
+      "p_high_density": 5.8419612742537325e-39,
       "rho_low_density": -0.17416344890399102,
       "p_low_density": 2.432476141062938e-09,
       "delta_rho": 0.19633914779741538,
-      "delta_rho_ci_low": 0.11538651287533794,
-      "delta_rho_ci_high": 0.2820933107894671,
+      "delta_rho_ci_low": 0.11734438097997514,
+      "delta_rho_ci_high": 0.27363358276298455,
       "tep_prediction": "rho_low > rho_high (screening suppresses in dense regions)",
       "tep_confirmed": true,
-      "interpretation": "SUPPORTS TEP"
+      "interpretation": "Consistent with TEP screening prediction (delta_rho = +0.196, 95% CI [+0.117, +0.274])"
     },
     "density_1arcmin": {
       "n_total": 2315,
@@ -25,15 +25,15 @@
       "n_low_density": 1189,
       "median_density": 5.411268065124442,
       "rho_high_density": -0.31779168827157084,
-      "p_high_density": 7.694643975501853e-28,
+      "p_high_density": 7.694643975501852e-28,
       "rho_low_density": -0.15753376611240363,
       "p_low_density": 4.7486040818032106e-08,
       "delta_rho": 0.1602579221591672,
-      "delta_rho_ci_low": 0.07912907569889539,
-      "delta_rho_ci_high": 0.24066479072648844,
+      "delta_rho_ci_low": 0.07037344657743817,
+      "delta_rho_ci_high": 0.24204254777394932,
       "tep_prediction": "rho_low > rho_high (screening suppresses in dense regions)",
       "tep_confirmed": true,
-      "interpretation": "SUPPORTS TEP"
+      "interpretation": "Consistent with TEP screening prediction (delta_rho = +0.160, 95% CI [+0.070, +0.242])"
     },
     "density_2arcmin": {
       "n_total": 2315,
@@ -43,13 +43,13 @@
       "rho_high_density": -0.21966416812753295,
       "p_high_density": 7.782287949694964e-14,
       "rho_low_density": -0.19205491298911842,
-      "p_low_density": 2.7234032924296357e-11,
+      "p_low_density": 2.723403292429636e-11,
       "delta_rho": 0.02760925513841453,
-      "delta_rho_ci_low": -0.058361160408262294,
-      "delta_rho_ci_high": 0.11841960269803642,
+      "delta_rho_ci_low": -0.06345678552890217,
+      "delta_rho_ci_high": 0.11731399493273537,
       "tep_prediction": "rho_low > rho_high (screening suppresses in dense regions)",
       "tep_confirmed": false,
-      "interpretation": "INCONCLUSIVE or CONTRADICTS"
+      "interpretation": "Inconclusive or inconsistent with TEP screening prediction (delta_rho = +0.028, 95% CI [-0.063, +0.117])"
     },
     "overdensity": {
       "n_total": 2315,
@@ -59,13 +59,13 @@
       "rho_high_density": -0.21966416812753295,
       "p_high_density": 7.782287949694964e-14,
       "rho_low_density": -0.19205491298911842,
-      "p_low_density": 2.7234032924296357e-11,
+      "p_low_density": 2.723403292429636e-11,
       "delta_rho": 0.02760925513841453,
-      "delta_rho_ci_low": -0.060364342290222577,
-      "delta_rho_ci_high": 0.11102543501785875,
+      "delta_rho_ci_low": -0.06000066230199343,
+      "delta_rho_ci_high": 0.10818284330854479,
       "tep_prediction": "rho_low > rho_high (screening suppresses in dense regions)",
       "tep_confirmed": false,
-      "interpretation": "INCONCLUSIVE or CONTRADICTS"
+      "interpretation": "Inconclusive or inconsistent with TEP screening prediction (delta_rho = +0.028, 95% CI [-0.060, +0.108])"
     }
   },
   "redshift_bin_tests": [
@@ -79,11 +79,11 @@
       "rho_low_density": -0.11679234763451381,
       "p_low_density": 0.001537650593895253,
       "delta_rho": -0.1674700680495545,
-      "delta_rho_ci_low": -0.2704794208213262,
-      "delta_rho_ci_high": -0.06090726012635066,
+      "delta_rho_ci_low": -0.27261784919170684,
+      "delta_rho_ci_high": -0.06342248969423482,
       "tep_prediction": "rho_low > rho_high (screening suppresses in dense regions)",
       "tep_confirmed": false,
-      "interpretation": "INCONCLUSIVE or CONTRADICTS",
+      "interpretation": "Inconclusive or inconsistent with TEP screening prediction (delta_rho = -0.167, 95% CI [-0.273, -0.063])",
       "z_range": "4-6"
     },
     {
@@ -96,11 +96,11 @@
       "rho_low_density": 0.05716177861873227,
       "p_low_density": 0.32295588133322284,
       "delta_rho": 0.504065548887003,
-      "delta_rho_ci_low": 0.34788652922534624,
-      "delta_rho_ci_high": 0.6524869488867878,
+      "delta_rho_ci_low": 0.35318863131579203,
+      "delta_rho_ci_high": 0.6577843877726643,
       "tep_prediction": "rho_low > rho_high (screening suppresses in dense regions)",
       "tep_confirmed": true,
-      "interpretation": "SUPPORTS TEP",
+      "interpretation": "Consistent with TEP screening prediction (delta_rho = +0.504, 95% CI [+0.353, +0.658])",
       "z_range": "6-8"
     },
     {
@@ -113,11 +113,11 @@
       "rho_low_density": 0.6077340969708875,
       "p_low_density": 3.2885721878717787e-16,
       "delta_rho": 0.4276711228761402,
-      "delta_rho_ci_low": 0.22089643282220212,
-      "delta_rho_ci_high": 0.6337300842394099,
+      "delta_rho_ci_low": 0.219012084397397,
+      "delta_rho_ci_high": 0.6420828417739894,
       "tep_prediction": "rho_low > rho_high (screening suppresses in dense regions)",
       "tep_confirmed": true,
-      "interpretation": "SUPPORTS TEP",
+      "interpretation": "Consistent with TEP screening prediction (delta_rho = +0.428, 95% CI [+0.219, +0.642])",
       "z_range": "8-10"
     }
   ],

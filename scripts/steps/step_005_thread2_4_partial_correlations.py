@@ -32,7 +32,6 @@ Outputs:
 
 import sys
 import numpy as np
-np.random.seed(42)
 import pandas as pd
 from scipy.stats import spearmanr, linregress
 from pathlib import Path

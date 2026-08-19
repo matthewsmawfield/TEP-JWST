@@ -1,40 +1,38 @@
-[10:03:33]     ======================================================================
-[10:03:33]     STEP 101: Multi-Observable κ_gal Recovery Test
-[10:03:33]     ======================================================================
-[10:03:33]     Loaded 2315 galaxies
-[10:03:33]     High-z sample (z > 6): 876 galaxies
-[10:03:33]       Added: dust (N=876)
-[10:03:33]       Added: age_ratio (N=876)
-[10:03:33]       Added: metallicity (N=876)
-[10:03:33]       Added: log_ssfr (N=876)
-[10:03:33]     
+[22:38:14] INFO        ======================================================================
+[22:38:14] INFO        STEP 101: Multi-Observable κ_gal Recovery Test
+[22:38:14] INFO        ======================================================================
+[22:38:14] INFO        Loaded 2315 galaxies
+[22:38:14] INFO        High-z sample (z > 6): 876 galaxies
+[22:38:14] INFO          Added: dust (N=876)
+[22:38:14] INFO          Added: age_ratio (N=876)
+[22:38:14] INFO          Added: metallicity (N=876)
+[22:38:14] INFO          Added: log_ssfr (N=876)
+[22:38:14] INFO        
 Fitting κ_gal to 4 observables:
-[10:03:33]       dust: κ_gal = 1.758e+06 ± 4.110e+05 mag, ρ = 0.39 ✓
-[10:03:34]       age_ratio: κ_gal = 1.386e+06 ± 4.257e+05 mag, ρ = 0.18 ✓
-[10:03:35]       metallicity: κ_gal = 1.072e+06 ± 4.319e+05 mag, ρ = 0.02 ✓
-[10:03:35]       ssfr: κ_gal = 4.414e+05 ± 4.110e+05 mag, ρ = -0.32 ✓
-[10:03:35]     
+[22:38:18] INFO          dust: κ_gal = 1.047e+06 ± 4.137e+05 mag, ρ = 0.39 ✓
+[22:38:21] INFO          age_ratio: κ_gal = 1.283e+06 ± 4.240e+05 mag, ρ = 0.18 ✓
+[22:38:25] INFO          metallicity: κ_gal = 8.044e+05 ± 4.848e+05 mag, ρ = 0.02 ✓
+[22:38:28] INFO          ssfr: κ_gal = 1.271e+06 ± 4.189e+05 mag, ρ = -0.32 ✓
+[22:38:28] INFO        
 Joint fit across all observables:
-[10:03:37]       Joint κ_gal = 3.981e+05 ± 4.104e+05 mag
-[10:03:37]       Nominal κ_gal = 9.600e+05 ± 4.000e+05 mag
-[10:03:37]       Tension: 1.0σ ✓
-[10:03:37]     
+[22:38:40] INFO          Joint κ_gal = 1.205e+06 ± 3.992e+05 mag
+[22:38:40] INFO          Nominal κ_gal = 9.600e+05 ± 4.000e+05 mag
+[22:38:40] INFO          Tension: 0.4σ ✓
+[22:38:40] INFO        
 Weighted mean of individual fits:
-[10:03:37]       κ_gal = 1.163e+06 ± 2.112e+05 mag
-[10:03:37]       Tension with nominal: 0.4σ
-[10:03:37]     
+[22:38:40] INFO          κ_gal = 1.120e+06 ± 2.177e+05 mag
+[22:38:40] INFO          Tension with nominal: 0.4σ
+[22:38:40] INFO        
 ======================================================================
-[10:03:37]     SUMMARY
-[10:03:37]     ======================================================================
-[10:03:37]     
-✓ Joint fit IMPROVES agreement with nominal κ_gal
-[10:03:37]       Dust-only: κ_gal = 1.758e+06 (Δ = 7.979e+05)
-[10:03:37]       Joint: κ_gal = 3.981e+05 (Δ = 5.619e+05)
-[10:03:37]       Improvement: 236049.03
-[10:03:37]     
+[22:38:40] INFO        SUMMARY
+[22:38:40] INFO        ======================================================================
+[22:38:40] INFO        
+✗ Joint fit does not improve agreement
+[22:38:40] INFO          This may indicate systematic effects in the data
+[22:38:40] INFO        
 Joint κ_gal is CONSISTENT with Cepheid calibration within 2σ
-[10:03:37]     
+[22:38:40] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_101_alpha_recovery_multi_observable.json
-[10:03:37]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_101_alpha_recovery.png
-[10:03:37]     
+[22:38:41] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_101_alpha_recovery.png
+[22:38:41] INFO        
 Step 101 complete.

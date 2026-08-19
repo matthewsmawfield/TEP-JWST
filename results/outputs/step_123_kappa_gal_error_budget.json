@@ -27,15 +27,15 @@
       }
     },
     "propagation_test": {
-      "kappa_gal_mean": 960358.6146472561,
-      "kappa_gal_std": 398068.9818102997,
-      "gamma_t_mean": 1.8693847347586896,
-      "gamma_t_std": 0.4709567798725668,
+      "kappa_gal_mean": 957213.6978535099,
+      "kappa_gal_std": 398974.66465419775,
+      "gamma_t_mean": 1.8660032059957958,
+      "gamma_t_std": 0.47127169347023923,
       "gamma_t_95ci": [
-        1.1128700836597945,
-        2.9568275072294075
+        1.1117083795598008,
+        2.953253166805981
       ],
-      "fractional_uncertainty": 0.25193143557650827
+      "fractional_uncertainty": 0.252556743716174
     },
     "model_uncertainties": {
       "ML_exponent_n": {

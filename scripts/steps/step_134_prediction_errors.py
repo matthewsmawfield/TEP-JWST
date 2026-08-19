@@ -58,7 +58,9 @@ def gamma_sensitivity(log_mstar, z):
 
 
 def run():
-    print_status(f"STEP {STEP_NUM}: TEP prediction error budget (kappa_gal uncertainty)", "INFO")
+    print_status(f"STEP {STEP_NUM}: TEP prediction error budget (kappa_gal uncertainty)", "TITLE")
+    print_status(f"kappa_gal={KAPPA_GAL}, uncertainty=±{KAPPA_GAL_UNCERTAINTY}", "INFO")
+    print_status(f"Fiducial grid: {len(FIDUCIAL_LOG_MSTAR)} masses × {len(FIDUCIAL_Z)} redshifts", "INFO")
 
     # 1. kappa_gal sensitivity of Gamma_t at fiducial galaxies
     sensitivity_rows = []
@@ -77,6 +79,10 @@ def run():
                 "frac_uncertainty": float(delta_g / g_fid) if g_fid > 0 else float("nan"),
             })
 
+    print_status(f"Sensitivity: {len(sensitivity_rows)} fiducial points computed", "INFO")
+    max_frac = max(r["frac_uncertainty"] for r in sensitivity_rows if np.isfinite(r["frac_uncertainty"]))
+    print_status(f"  Max fractional Γt uncertainty: {max_frac:.2%}", "INFO")
+
     # 2. Propagate kappa_gal uncertainty through rho prediction
     # Use analytic approximation: d(rho)/d(kappa_gal) via finite difference on Gamma_t grid
     # Load COSMOS-Web data for numerical estimate
@@ -87,6 +93,7 @@ def run():
     cw_file = DATA_INTERIM / "cosmosweb_highz_sample.csv"
     if cw_file.exists():
         df = pd.read_csv(cw_file)
+        print_status(f"Loaded COSMOS-Web: N={len(df)} for rho-vs-alpha propagation", "INFO")
         df = df.dropna(subset=["z_phot", "log_Mstar"]).copy()
         df = df[(df["z_phot"] > 4) & (df["log_Mstar"] > 6)]
         if "dust" in df.columns and len(df) > 10:

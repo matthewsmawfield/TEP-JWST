@@ -33,7 +33,6 @@ import warnings
 from concurrent.futures import ThreadPoolExecutor  # Sandbox-safe parallel bootstrap workers
 import multiprocessing as mp
 import numpy as np
-np.random.seed(42)  # Fixed seed for reproducibility
 import pandas as pd
 from pathlib import Path
 from scipy import stats
@@ -178,15 +177,6 @@ BOOTSTRAP_WORKERS = max(
 )
 
 
-def _gamma_argument_base(log_Mstar, z):
-    log_Mstar = np.asarray(log_Mstar, dtype=float)
-    z = np.asarray(z, dtype=float)
-    log_Mh = stellar_to_halo_mass(log_Mstar, z)
-    log_mh_ref_z = LOG_MH_REF - 1.5 * np.log10(1 + z)
-    delta_log_Mh = log_Mh - log_mh_ref_z
-    z_factor = (1 + z) / (1 + Z_REF)
-    return np.sqrt(1 + z) * (2.0 / 3.0) * delta_log_Mh * z_factor
-
 
 def _gamma_t_from_base(gamma_base, alpha_0):
     # DEPRECATED STUB — do not use. All observables now use _t_eff_for_alpha
@@ -280,8 +270,8 @@ def _f1(y_true, y_pred):
     return tp / (tp + 0.5 * (fp + fn))
 
 def _boot_worker_obs1(seed, n, log_M, z, dust, kappa_gal_grid):
-    np.random.seed(seed)
-    idx = np.random.choice(n, n, replace=True)
+    rng = np.random.default_rng(seed)
+    idx = rng.choice(n, n, replace=True)
     bprofile = np.zeros(len(kappa_gal_grid))
     for i, a0 in enumerate(kappa_gal_grid):
         t_eff = _t_eff_for_alpha(log_M[idx], z[idx], a0)
@@ -290,8 +280,8 @@ def _boot_worker_obs1(seed, n, log_M, z, dust, kappa_gal_grid):
     return kappa_gal_grid[np.argmax(bprofile)]
 
 def _boot_worker_obs2(seed, n, log_M, z, true_dust, kappa_gal_grid):
-    np.random.seed(seed)
-    idx = np.random.choice(n, n, replace=True)
+    rng = np.random.default_rng(seed)
+    idx = rng.choice(n, n, replace=True)
     bprofile = np.zeros(len(kappa_gal_grid))
     for i, a0 in enumerate(kappa_gal_grid):
         t_eff = _t_eff_for_alpha(log_M[idx], z[idx], a0)
@@ -302,9 +292,9 @@ def _boot_worker_obs2(seed, n, log_M, z, true_dust, kappa_gal_grid):
     return kappa_gal_grid[np.argmax(bprofile)]
 
 def _boot_worker_obs3(seed, n_low, n_high, M_low, M_high, z_high, ssfr_low, ssfr_high, rho_low_obs, kappa_gal_grid):
-    np.random.seed(seed)
-    idx_low = np.random.choice(n_low, n_low, replace=True)
-    idx_high = np.random.choice(n_high, n_high, replace=True)
+    rng = np.random.default_rng(seed)
+    idx_low = rng.choice(n_low, n_low, replace=True)
+    idx_high = rng.choice(n_high, n_high, replace=True)
     b_M_low = M_low[idx_low]
     b_M_high = M_high[idx_high]
     b_z_high = z_high[idx_high]
@@ -321,12 +311,12 @@ def _boot_worker_obs3(seed, n_low, n_high, M_low, M_high, z_high, ssfr_low, ssfr
     return kappa_gal_grid[np.argmax(bprofile)]
 
 def _boot_worker_obs4(seed, boot_data, kappa_gal_grid):
-    np.random.seed(seed)
+    rng = np.random.default_rng(seed)
     bprofile = np.zeros(len(kappa_gal_grid))
     for i, a0 in enumerate(kappa_gal_grid):
         r2s = []
         for (log_M, z, dust) in boot_data:
-            idx = np.random.choice(len(log_M), len(log_M), replace=True)
+            idx = rng.choice(len(log_M), len(log_M), replace=True)
             t_eff = _t_eff_for_alpha(log_M[idx], z[idx], a0)
             r = np.corrcoef(dust[idx], np.log10(np.maximum(t_eff, 1e-6)))[0, 1]
             r2s.append(r ** 2)
@@ -334,8 +324,8 @@ def _boot_worker_obs4(seed, boot_data, kappa_gal_grid):
     return kappa_gal_grid[np.argmax(bprofile)]
 
 def _boot_worker_obs5(seed, n, log_M, max_logM, z, best_alpha, kappa_gal_grid):
-    np.random.seed(seed)
-    idx = np.random.choice(n, n, replace=True)
+    rng = np.random.default_rng(seed)
+    idx = rng.choice(n, n, replace=True)
     b_log_M = log_M[idx]
     b_max_logM = max_logM[idx]
     b_z = z[idx]

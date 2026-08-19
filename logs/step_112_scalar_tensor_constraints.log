@@ -1,45 +1,45 @@
-[10:03:47]     ======================================================================
-[10:03:47]     STEP 112: Scalar-Tensor Sector-Dictionary Check
-[10:03:47]     ======================================================================
-[10:03:47]     
+[22:38:54] INFO        ======================================================================
+[22:38:54] INFO        STEP 112: Scalar-Tensor Sector-Dictionary Check
+[22:38:54] INFO        ======================================================================
+[22:38:54] INFO        
 Observable response coefficient: κ_gal = 9.600e+05 ± 4.000e+05 mag
-[10:03:47]     Bare PPN/photon-sector benchmark: α0, β ≲ 3e-3 (dimensionless)
-[10:03:47]     
+[22:38:54] INFO        Bare PPN/photon-sector benchmark: α0, β ≲ 3e-3 (dimensionless)
+[22:38:54] INFO        
 --- Dimensionless Bare/Eff Coupling Constraints ---
-[10:03:47]     Constraint                       ω_BD limit    α limit   Screened
-[10:03:47]     ----------------------------------------------------------------------
-[10:03:47]     Cassini (Shapiro delay)               40000     0.0035        Yes
-[10:03:47]     Lunar Laser Ranging                    1000     0.0223        Yes
-[10:03:47]     Binary Pulsar (Hulse-Taylor)            100     0.0702        Yes
-[10:03:47]     Binary Pulsar (Double Pulsar)           200     0.0498        Yes
-[10:03:47]     BBN (light element abundances)          500     0.0316         No
-[10:03:47]     CMB (Planck)                           1000     0.0223         No
-[10:03:47]     
+[22:38:54] INFO        Constraint                       ω_BD limit    α limit   Screened
+[22:38:54] INFO        ----------------------------------------------------------------------
+[22:38:54] INFO        Cassini (Shapiro delay)               40000     0.0035        Yes
+[22:38:54] INFO        Lunar Laser Ranging                    1000     0.0223        Yes
+[22:38:54] INFO        Binary Pulsar (Hulse-Taylor)            100     0.0702        Yes
+[22:38:54] INFO        Binary Pulsar (Double Pulsar)           200     0.0498        Yes
+[22:38:54] INFO        BBN (light element abundances)          500     0.0316         No
+[22:38:54] INFO        CMB (Planck)                           1000     0.0223         No
+[22:38:54] INFO        
 --- Sector Dictionary ---
-[10:03:47]       κ_gal is not converted to ω_BD.
-[10:03:47]       Compatibility is a transfer-function/screening requirement, not a direct κ_gal < α0 test.
-[10:03:47]     
+[22:38:54] INFO          κ_gal is not converted to ω_BD.
+[22:38:54] INFO          Compatibility is a transfer-function/screening requirement, not a direct κ_gal < α0 test.
+[22:38:54] INFO        
 Screening threshold: ρ_c ≈ 20 g/cm³
-[10:03:47]     Environment                ρ (g/cm³)   Screened
-[10:03:47]     --------------------------------------------------
-[10:03:47]     Solar core                  1.50e+02        Yes
-[10:03:47]     Earth core                  1.30e+01         No
-[10:03:47]     NS interior                 1.00e+15        Yes
-[10:03:47]     Milky Way disk              1.00e-24         No
-[10:03:47]     Galaxy cluster              1.00e-27         No
-[10:03:47]     High-z halo                 1.00e-26         No
-[10:03:47]     
+[22:38:54] INFO        Environment                ρ (g/cm³)   Screened
+[22:38:54] INFO        --------------------------------------------------
+[22:38:54] INFO        Solar core                  1.50e+02        Yes
+[22:38:54] INFO        Earth core                  1.30e+01         No
+[22:38:54] INFO        NS interior                 1.00e+15        Yes
+[22:38:54] INFO        Milky Way disk              1.00e-24         No
+[22:38:54] INFO        Galaxy cluster              1.00e-27         No
+[22:38:54] INFO        High-z halo                 1.00e-26         No
+[22:38:54] INFO        
 ======================================================================
-[10:03:47]     SUMMARY
-[10:03:47]     ======================================================================
-[10:03:47]     
+[22:38:54] INFO        SUMMARY
+[22:38:54] INFO        ======================================================================
+[22:38:54] INFO        
 Key findings:
-[10:03:47]       1. κ_gal is an observable response coefficient in mag, not α0.
-[10:03:47]       2. PPN/Brans-Dicke constraints apply to dimensionless bare/effective couplings.
-[10:03:47]       3. A microscopic transfer calculation is required to map κ_gal to α0/β.
-[10:03:47]       4. Screening statements must be phrased as sector compatibility, not direct equality.
-[10:03:47]     
+[22:38:54] INFO          1. κ_gal is an observable response coefficient in mag, not α0.
+[22:38:54] INFO          2. PPN/Brans-Dicke constraints apply to dimensionless bare/effective couplings.
+[22:38:54] INFO          3. A microscopic transfer calculation is required to map κ_gal to α0/β.
+[22:38:54] INFO          4. Screening statements must be phrased as sector compatibility, not direct equality.
+[22:38:54] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_112_scalar_tensor_constraints.json
-[10:03:47]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_112_scalar_tensor.png
-[10:03:47]     
+[22:38:55] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_112_scalar_tensor.png
+[22:38:55] INFO        
 Step 112 complete.

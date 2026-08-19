@@ -22,7 +22,7 @@
       "parameter": "fwhm",
       "n": 588,
       "rho": 0.17637634294548715,
-      "p": 1.6959562071978212e-05
+      "p": 1.6959562071978216e-05
     },
     {
       "parameter": "r_kron",
@@ -34,7 +34,7 @@
       "parameter": "q",
       "n": 588,
       "rho": -0.10219415763716992,
-      "p": 0.01316414839471563
+      "p": 0.013164148394715629
     }
   ],
   "conclusion": "GOODS-S morphology crossmatch (N=588 at z>4): rho(Gamma_t, gini)=0.133. TEP predicts compact (high-Gini) galaxies in deeper potentials due to faster inside-out growth."

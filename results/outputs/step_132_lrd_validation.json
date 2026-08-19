@@ -20,13 +20,13 @@
   },
   "temporal_enhancement": {
     "median_gamma_halo": 0.610736607147889,
-    "median_gamma_cen": 0.6702254180511216,
-    "median_delta_gamma": 0.05966780521521037
+    "median_gamma_cen": 0.6563704285232215,
+    "median_delta_gamma": 0.04256911169588545
   },
   "bh_growth_boost": {
-    "median_log_boost": 0.5798132819784529,
-    "mean_log_boost": 0.9814423620571427,
-    "fraction_gt_1000x": 0.046153846153846156
+    "median_log_boost": 0.4243311075394124,
+    "mean_log_boost": 0.681692986331535,
+    "fraction_gt_1000x": 0.023076923076923078
   },
-  "conclusion": "After correcting the Kokorev radius units and using an object-level MUV stellar-mass proxy where catalog stellar masses are absent, 5% of 260 LRDs show >1000x differential BH growth boost. This is a mechanism stress test, not a calibrated resolution of the observed M_BH/M_* anomaly."
+  "conclusion": "After correcting the Kokorev radius units and using an object-level MUV stellar-mass proxy where catalog stellar masses are absent, 2% of 260 LRDs show >1000x differential BH growth boost. This is a mechanism stress test, not a calibrated resolution of the observed M_BH/M_* anomaly."
 }

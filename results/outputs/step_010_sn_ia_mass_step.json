@@ -3,22 +3,22 @@
     "threshold_log_Mstar": 10.0,
     "n_low_mass": 683,
     "n_high_mass": 758,
-    "mean_residual_low": -0.007959183779825334,
-    "mean_residual_high": 0.007171665595796805,
-    "mass_step_mag": 0.01513084937562214,
+    "mean_residual_low": -0.007959183779825324,
+    "mean_residual_high": 0.007171665595796814,
+    "mass_step_mag": 0.015130849375622138,
     "mass_step_err": 0.008144307558280077,
-    "t_statistic": 1.8628308285535873,
-    "p_value": 0.06268970070200323,
-    "significance_sigma": 1.8628308285535873
+    "t_statistic": 1.862830828553587,
+    "p_value": 0.0626897007020033,
+    "significance_sigma": 1.862830828553587
   },
   "continuous_correlation": {
     "spearman_rho": 0.015298882679072123,
     "spearman_p": 0.5617235832672017,
-    "pearson_r": 0.00875781875794207,
-    "pearson_p": 0.7397615761185348,
-    "linear_slope": 0.001101596533600757,
-    "linear_slope_err": 0.0033157330234210723,
-    "linear_intercept": -0.010787549852830819
+    "pearson_r": 0.008757818757942102,
+    "pearson_p": 0.7397615761185352,
+    "linear_slope": 0.0011015965336007582,
+    "linear_slope_err": 0.003315733023421072,
+    "linear_intercept": -0.010787549852830822
   },
   "tep_prediction_test": {
     "median_log_Mstar_low": 9.134,
@@ -37,12 +37,12 @@
       "f_group_high": 0.6,
       "delta_mu_predicted": 0.022107606441454278
     },
-    "observed_mass_step": 0.01513084937562214,
+    "observed_mass_step": 0.015130849375622138,
     "observed_mass_step_err": 0.008144307558280077,
     "literature_mass_step": 0.06,
     "predicted_mass_step": 0.022107606441454278,
     "ratio_lit_pred": 2.7139980150674825,
-    "ratio_obs_pred": 0.684418252862059,
+    "ratio_obs_pred": 0.6844182528620589,
     "sign_consistent": true
   },
   "binned_analysis": {
@@ -52,7 +52,7 @@
         "bin": 0,
         "n": 289,
         "mean_log_Mstar": 7.836999896193771,
-        "mean_residual": 0.0002583394439812608,
+        "mean_residual": 0.0002583394439812854,
         "sem_residual": 0.009824439080535496,
         "sigma_inferred": 21.040876459502574,
         "delta_mu_predicted": -0.05575545349453501
@@ -70,7 +70,7 @@
         "bin": 2,
         "n": 288,
         "mean_log_Mstar": 10.049322847222221,
-        "mean_residual": 0.0143491711772207,
+        "mean_residual": 0.014349171177220676,
         "sem_residual": 0.007857218368109943,
         "sigma_inferred": 75.18731293893049,
         "delta_mu_predicted": -0.00010073103684506036
@@ -79,8 +79,8 @@
         "bin": 3,
         "n": 288,
         "mean_log_Mstar": 10.567662152777778,
-        "mean_residual": 0.006781253424507194,
-        "sem_residual": 0.009264743179241622,
+        "mean_residual": 0.0067812534245072185,
+        "sem_residual": 0.00926474317924162,
         "sigma_inferred": 101.32798131017697,
         "delta_mu_predicted": 0.049185868511520826
       },
@@ -88,7 +88,7 @@
         "bin": 4,
         "n": 288,
         "mean_log_Mstar": 11.143230902777779,
-        "mean_residual": -0.0036563205564849907,
+        "mean_residual": -0.003656320556484966,
         "sem_residual": 0.009008061780585882,
         "sigma_inferred": 141.13072679811256,
         "delta_mu_predicted": 0.15226734808844267

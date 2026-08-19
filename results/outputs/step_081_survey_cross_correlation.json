@@ -45,7 +45,7 @@
     "ci_upper": 0.6307881599454819,
     "se": 0.02801659073402629,
     "z_stat": 24.550151665948345,
-    "p_combined": 4.308898170555008e-133,
+    "p_combined": 4.3088981705550084e-133,
     "n_total": 1283,
     "n_surveys": 3
   },
@@ -77,8 +77,8 @@
     },
     "redshift_distributions": {
       "UNCOVER": {
-        "mean": 5.825741384544903,
-        "std": 1.5354106867343804,
+        "mean": 5.825741384544904,
+        "std": 1.5354106867343802,
         "median": 5.236858940389137
       },
       "CEERS": {
@@ -158,7 +158,7 @@
           "mean_dust_below": 0.32738126409569446,
           "ratio": 2.365182197643629,
           "mannwhitney_u": 1111.0,
-          "p_value": 0.00045500681733291683,
+          "p_value": 0.0004550068173329168,
           "cohens_d": 0.7781594587496621
         },
         "detection_test": null
@@ -180,7 +180,7 @@
           "mean_dust_below": 0.32738126409569446,
           "ratio": 2.365182197643629,
           "mannwhitney_u": 1111.0,
-          "p_value": 0.00045500681733291683,
+          "p_value": 0.0004550068173329168,
           "cohens_d": 0.7781594587496621
         },
         "detection_test": null
@@ -190,8 +190,8 @@
       "dust_positive_only": {
         "n": 918,
         "rho_t_cosmic_dust": -0.2299746121656186,
-        "p_t_cosmic_dust": 1.7492219390072158e-12,
-        "log10_p_t_cosmic_dust": -11.757155084305673,
+        "p_t_cosmic_dust": 1.749221939007222e-12,
+        "log10_p_t_cosmic_dust": -11.757155084305671,
         "rho_t_eff_dust": 0.46508780165729585,
         "p_t_eff_dust": 1.8645756766004108e-50,
         "log10_p_t_eff_dust": -49.72941998545204,
@@ -204,7 +204,7 @@
           "mean_dust_below": 0.22027972027972031,
           "ratio": 2.062480286738351,
           "mannwhitney_u": 70833.0,
-          "p_value": 7.148255721248654e-09,
+          "p_value": 7.148255721248655e-09,
           "cohens_d": 0.6595552626676833
         },
         "detection_test": null
@@ -253,7 +253,7 @@
   "summary": {
     "n_surveys": 3,
     "combined_rho": 0.5965742629509032,
-    "combined_p": 4.308898170555008e-133,
+    "combined_p": 4.3088981705550084e-133,
     "total_n": 1283,
     "heterogeneity": "High heterogeneity",
     "replication_status": "FULLY REPLICATED",

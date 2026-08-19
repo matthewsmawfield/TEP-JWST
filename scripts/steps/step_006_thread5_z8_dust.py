@@ -27,7 +27,6 @@ Outputs:
 
 import sys
 import numpy as np
-np.random.seed(42)
 import pandas as pd
 from scipy.stats import spearmanr, linregress
 from pathlib import Path
@@ -70,9 +69,10 @@ def bootstrap_correlation(x, y, n_boot=1000):
     each, and returns the [2.5, 97.5] percentile interval.
     """
     n = len(x)
+    rng = np.random.default_rng(42)
     rhos = []
     for _ in range(n_boot):
-        idx = np.random.choice(n, n, replace=True)
+        idx = rng.choice(n, n, replace=True)
         r, _ = spearmanr(x[idx], y[idx])
         rhos.append(r)
     return np.percentile(rhos, [2.5, 97.5])
@@ -229,10 +229,11 @@ def main():
     print_status("At z > 8, the universe is < 600 Myr old.", "INFO")
     print_status("Standard dust production (AGB stars) requires 100-300 Myr.", "INFO")
     print_status("", "INFO")
-    print_status("Observed: Strong mass-dust correlation (rho = +0.56)", "INFO")
-    print_status("          Massive galaxies have A_V ~ 2.7 (heavily dust-obscured)", "INFO")
+    print_status(f"Observed: mass-dust correlation rho = {z8_result['rho']:+.3f} (N = {z8_result['n']})", "INFO")
+    if len(dust_by_mass) > 0:
+        print_status(f"          Most massive bin has <A_V> = {dust_by_mass[-1]['mean_dust']:.2f}", "INFO")
     print_status("", "INFO")
-    print_status("This is inconsistent with standard timescales.", "INFO")
+    print_status(f"Partial rho(Gamma_t, dust | M*, z) = {rho_double:.3f} (p = {p_double:.2e})", "INFO")
     print_status("", "INFO")
     print_status("TEP explanation:", "INFO")
     print_status("  For log M* = 11 at z = 9, Gamma_t ~ 2.9", "INFO")
@@ -247,7 +248,13 @@ def main():
         "partial_correlations": partial_results,
         "dust_by_mass": dust_by_mass,
         "significant": z8_result['significant'],
-        "conclusion": "TEP prediction consistent with data - inconsistent with standard timescales" if z8_result['significant'] else "Inconclusive",
+        "conclusion": (
+            f"z>8 mass-dust correlation rho = {z8_result['rho']:.3f} "
+            f"(p = {z8_result['p']:.2e}, N = {z8_result['n']}); "
+            f"{'significant' if z8_result['significant'] else 'not significant'} "
+            f"at the bootstrap 95% CI level. "
+            f"Partial rho(Gamma_t, dust | M*, z) = {rho_double:.3f} (p = {p_double:.2e})."
+        ),
     }
     
     with open(OUTPUT_PATH / f"step_{STEP_NUM}_thread5_z8_dust.json", "w") as f:

@@ -1,54 +1,54 @@
-[10:02:31]     ============================================================
-[10:02:31]     Step 90: Sign Paradox Resolution
-[10:02:31]     ============================================================
-[10:02:31]     
+[22:36:32] INFO        ============================================================
+[22:36:32] INFO        Step 90: Sign Paradox Resolution
+[22:36:32] INFO        ============================================================
+[22:36:32] INFO        
 --- Part 1: Calibrated Clock Rate Analysis ---
-[10:02:31]     This shows the 'naive' sign paradox when β < 0.5
-[10:02:31] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.4
-[10:02:31]   Deepest potential Φ/c²: -1.61e-06
-[10:02:31]     β = 0.4: 4β² = 0.64, Threshold met: False, Enhancement: False
-[10:02:31] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.5
-[10:02:31]   Deepest potential Φ/c²: -1.61e-06
-[10:02:31]     β = 0.5: 4β² = 1.00, Threshold met: False, Enhancement: False
-[10:02:31] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.6
-[10:02:31]   Deepest potential Φ/c²: -1.61e-06
-[10:02:31]     β = 0.6: 4β² = 1.44, Threshold met: True, Enhancement: False
-[10:02:31] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.8
-[10:02:31]   Deepest potential Φ/c²: -1.61e-06
-[10:02:31]     β = 0.8: 4β² = 2.56, Threshold met: True, Enhancement: False
-[10:02:31] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=1.0
-[10:02:31]   Deepest potential Φ/c²: -1.61e-06
-[10:02:31]     β = 1.0: 4β² = 4.00, Threshold met: True, Enhancement: False
-[10:02:31]     
+[22:36:32] INFO        This shows the 'naive' sign paradox when β < 0.5
+[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.4
+[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
+[22:36:32] INFO        β = 0.4: 4β² = 0.64, Threshold met: False, Enhancement: False
+[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.5
+[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
+[22:36:32] INFO        β = 0.5: 4β² = 1.00, Threshold met: False, Enhancement: False
+[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.6
+[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
+[22:36:32] INFO        β = 0.6: 4β² = 1.44, Threshold met: True, Enhancement: False
+[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.8
+[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
+[22:36:32] INFO        β = 0.8: 4β² = 2.56, Threshold met: True, Enhancement: False
+[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=1.0
+[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
+[22:36:32] INFO        β = 1.0: 4β² = 4.00, Threshold met: True, Enhancement: False
+[22:36:32] INFO        
 --- Part 2: Relative Enhancement (TEP-JWST Method) ---
-[10:02:31]     This is the correct formulation used in the manuscript
-[10:02:31]     Low-mass z=8: Γ_t = 0.5795 (SUPPRESSED)
-[10:02:31]     Intermediate z=8: Γ_t = 0.7226 (SUPPRESSED)
-[10:02:31]     Reference mass z=8: Γ_t = 1.0000 (REFERENCE)
-[10:02:31]     High-mass z=8: Γ_t = 2.0136 (ENHANCED)
-[10:02:31]     Ultra-massive z=8: Γ_t = 9.0967 (ENHANCED)
-[10:02:31]     High-mass z=5.5 (ref z): Γ_t = 1.8127 (ENHANCED)
-[10:02:31]     
+[22:36:32] INFO        This is the correct formulation used in the manuscript
+[22:36:32] INFO        Low-mass z=8: Γ_t = 0.5795 (SUPPRESSED)
+[22:36:32] INFO        Intermediate z=8: Γ_t = 0.7226 (SUPPRESSED)
+[22:36:32] INFO        Reference mass z=8: Γ_t = 1.0000 (REFERENCE)
+[22:36:32] INFO        High-mass z=8: Γ_t = 2.0136 (ENHANCED)
+[22:36:32] INFO        Ultra-massive z=8: Γ_t = 9.0967 (ENHANCED)
+[22:36:32] INFO        High-mass z=5.5 (ref z): Γ_t = 1.8127 (ENHANCED)
+[22:36:32] INFO        
 --- Part 3: Red Monsters Validation ---
-[10:02:31]     S1 (z=5.3): Γ_t = 3.40, Mass correction = 2.36×
-[10:02:31]     S2 (z=5.5): Γ_t = 2.18, Mass correction = 1.73×
-[10:02:31]     S3 (z=5.9): Γ_t = 6.91, Mass correction = 3.87×
-[10:02:31]     
+[22:36:32] INFO        S1 (z=5.3): Γ_t = 3.40, Mass correction = 2.36×
+[22:36:32] INFO        S2 (z=5.5): Γ_t = 2.18, Mass correction = 1.73×
+[22:36:32] INFO        S3 (z=5.9): Γ_t = 6.91, Mass correction = 3.87×
+[22:36:32] INFO        
 --- Part 4: Theoretical Mapping ---
-[10:02:31]     
+[22:36:32] INFO        
 Sign Paradox Resolution:
-[10:02:31]       The TEP-JWST formulation uses RELATIVE enhancement Γ_t
-[10:02:31]       Γ_t > 1 for M_h > M_ref (by construction)
-[10:02:31]       This does NOT require 4β² > 1 in the scalar-tensor action
-[10:02:31]       The phenomenological κ_gal = 9.6e5 mag is an Observable Response Coefficient, not β
-[10:02:31]     
+[22:36:32] INFO          The TEP-JWST formulation uses RELATIVE enhancement Γ_t
+[22:36:32] INFO          Γ_t > 1 for M_h > M_ref (by construction)
+[22:36:32] INFO          This does NOT require 4β² > 1 in the scalar-tensor action
+[22:36:32] INFO          The phenomenological κ_gal = 9.6e5 mag is an Observable Response Coefficient, not β
+[22:36:32] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_072_sign_paradox.json
-[10:02:31] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.4
-[10:02:31]   Deepest potential Φ/c²: -1.61e-06
-[10:02:31] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.5
-[10:02:31]   Deepest potential Φ/c²: -1.61e-06
-[10:02:31] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.6
-[10:02:31]   Deepest potential Φ/c²: -1.61e-06
-[10:02:31] Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.8
-[10:02:31]   Deepest potential Φ/c²: -1.61e-06
-[10:02:31]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/step_072_sign_paradox_resolution.png
+[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.4
+[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
+[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.5
+[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
+[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.6
+[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
+[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.8
+[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
+[22:36:33] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/step_072_sign_paradox_resolution.png

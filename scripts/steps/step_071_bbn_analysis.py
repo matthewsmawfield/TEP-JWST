@@ -185,10 +185,10 @@ def compute_deuterium_shift(delta_H_mean):
 
 def main():
     """Run the BBN compatibility analysis."""
-    print("=" * 60)
-    print("Step 89: BBN Compatibility Analysis")
-    print("=" * 60)
-    
+    print_status("STEP 071: BBN Compatibility Analysis", "TITLE")
+    print_status("Validating that TEP scalar-tensor modifications preserve BBN yields within 1%.", "INFO")
+    print_status("")
+
     results = {
         'step': 89,
         'name': 'BBN Compatibility Analysis',
@@ -202,70 +202,68 @@ def main():
             'T_BBN_end_MeV': T_BBN_end,
         }
     }
-    
+
     # Compute expansion rate deviation
-    print("\n1. Computing expansion rate deviation during BBN...")
+    print_status("1. Computing expansion rate deviation during BBN...", "PROCESS")
     deviation = compute_bbn_deviation()
     results['expansion_deviation'] = deviation
-    
-    print(f"   Redshift range: z = {deviation['z_range'][0]:.2e} to {deviation['z_range'][1]:.2e}")
-    print(f"   Max |ΔH/H|: {deviation['max_deviation']:.2e}")
-    print(f"   Mean |ΔH/H|: {deviation['mean_deviation']:.2e}")
-    print(f"   RMS ΔH/H: {deviation['rms_deviation']:.2e}")
-    
+
+    print_status(f"   Redshift range: z = {deviation['z_range'][0]:.2e} to {deviation['z_range'][1]:.2e}", "INFO")
+    print_status(f"   Max |ΔH/H|: {deviation['max_deviation']:.2e}", "INFO")
+    print_status(f"   Mean |ΔH/H|: {deviation['mean_deviation']:.2e}", "INFO")
+    print_status(f"   RMS ΔH/H: {deviation['rms_deviation']:.2e}", "INFO")
+
     # Compute He-4 yield shift
-    print("\n2. Computing He-4 yield shift...")
+    print_status("2. Computing He-4 yield shift...", "PROCESS")
     helium = compute_helium_yield_shift(deviation['mean_deviation'])
     results['helium_4'] = helium
-    
-    print(f"   Y_p (standard): {helium['Y_p_standard']:.4f}")
-    print(f"   Y_p (TEP): {helium['Y_p_tep']:.6f}")
-    print(f"   Fractional shift: {helium['fractional_shift']*100:.4f}%")
-    
+
+    print_status(f"   Y_p (standard): {helium['Y_p_standard']:.4f}", "INFO")
+    print_status(f"   Y_p (TEP): {helium['Y_p_tep']:.6f}", "INFO")
+    print_status(f"   Fractional shift: {helium['fractional_shift']*100:.4f}%", "INFO")
+
     # Compute D/H shift
-    print("\n3. Computing D/H shift...")
+    print_status("3. Computing D/H shift...", "PROCESS")
     deuterium = compute_deuterium_shift(deviation['mean_deviation'])
     results['deuterium'] = deuterium
-    
-    print(f"   D/H (standard): {deuterium['DH_standard']:.2e}")
-    print(f"   D/H (TEP): {deuterium['DH_tep']:.2e}")
-    print(f"   Fractional shift: {deuterium['fractional_shift']*100:.4f}%")
-    
+
+    print_status(f"   D/H (standard): {deuterium['DH_standard']:.2e}", "INFO")
+    print_status(f"   D/H (TEP): {deuterium['DH_tep']:.2e}", "INFO")
+    print_status(f"   Fractional shift: {deuterium['fractional_shift']*100:.4f}%", "INFO")
+
     # Summary
-    print("\n" + "=" * 60)
-    print("SUMMARY: BBN Compatibility")
-    print("=" * 60)
-    
     max_yield_shift = max(
         abs(helium['fractional_shift']),
         abs(deuterium['fractional_shift'])
     )
-    
+
     results['summary'] = {
         'max_yield_shift_percent': float(max_yield_shift * 100),
         'within_1_percent': max_yield_shift < 0.01,
         'mechanism': 'Scalar field frozen during radiation domination (T^μ_μ = 0)',
         'conclusion': 'TEP preserves BBN yields within 1%' if max_yield_shift < 0.01 else 'BBN constraint violated'
     }
-    
-    print(f"\nMaximum yield shift: {max_yield_shift*100:.4f}%")
-    print(f"Within 1% threshold: {'YES ✓' if max_yield_shift < 0.01 else 'NO ✗'}")
-    print(f"\nPhysical mechanism:")
-    print("   During radiation domination, the trace of the stress-energy tensor")
-    print("   vanishes (T^μ_μ = 0 for relativistic matter). This freezes the scalar")
-    print("   field, preventing TEP modifications to the expansion rate during BBN.")
-    print("   The coupling only becomes active when matter dominates (z < 3400).")
-    
+
+    print_status("")
+    print_status(f"Maximum yield shift: {max_yield_shift*100:.4f}%", "INFO")
+    print_status(f"Within 1% threshold: {'YES' if max_yield_shift < 0.01 else 'NO'}", "SUCCESS" if max_yield_shift < 0.01 else "ERROR")
+    print_status("")
+    print_status("Physical mechanism:", "INFO")
+    print_status("   During radiation domination, the trace of the stress-energy tensor", "INFO")
+    print_status("   vanishes (T^μ_μ = 0 for relativistic matter). This freezes the scalar", "INFO")
+    print_status("   field, preventing TEP modifications to the expansion rate during BBN.", "INFO")
+    print_status("   The coupling only becomes active when matter dominates (z < 3400).", "INFO")
+
     # Save results
     output_dir = Path(__file__).parent.parent.parent / 'results' / 'outputs'
     output_dir.mkdir(parents=True, exist_ok=True)
     output_file = output_dir / 'step_071_bbn_analysis.json'
-    
+
     with open(output_file, 'w') as f:
         json.dump(results, f, indent=2, default=safe_json_default)
-    
-    print(f"\nResults saved to: {output_file}")
-    
+
+    print_status(f"Results saved to: {output_file.name}", "SUCCESS")
+
     return results
 
 if __name__ == '__main__':

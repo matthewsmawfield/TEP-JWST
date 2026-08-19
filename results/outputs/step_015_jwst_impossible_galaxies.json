@@ -14,10 +14,10 @@
   "correlation": {
     "spearman_rho": -0.006035944296748368,
     "spearman_p": 0.7716158733152128,
-    "pearson_r": 0.07807757218568719,
-    "pearson_p": 0.000169661141610343,
-    "slope": 0.03658177590969333,
-    "slope_err": 0.009712317336005367,
+    "pearson_r": 0.0780775721856873,
+    "pearson_p": 0.00016966114161034632,
+    "slope": 0.036581775909693345,
+    "slope_err": 0.00971231733600537,
     "intercept": 0.1384152294290279,
     "tep_consistent": false
   },
@@ -27,6 +27,6 @@
     "n_still_impossible": 8,
     "reduction_pct": 11.11111111111111,
     "mean_age_ratio_raw": 0.6415049439240004,
-    "mean_age_ratio_corrected": 0.7887755971856744
+    "mean_age_ratio_corrected": 0.7887755971856742
   }
 }

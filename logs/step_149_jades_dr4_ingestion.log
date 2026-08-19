@@ -1,36 +1,36 @@
-[10:05:44]     ============================================================
-[10:05:44]     STEP 149: JADES DR4 Spectroscopic Catalog Ingestion
-[10:05:44]     ============================================================
-[10:05:44] >>> Loading JADES DR4: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/jades_hainline/JADES_DR4_spectroscopic_catalog.fits
-[10:05:44]     Total targets: 5190
-[10:05:44]     Good spec-z (flags A/B): N = 2858
-[10:05:44]       z>5: N = 495
-[10:05:44]       z>7: N = 118
-[10:05:44]       z>8: N = 41
-[10:05:44]       z>10: N = 2
-[10:05:44] >>> Applying TEP model...
-[10:05:44]     Sources with valid halo mass: 1345
-[10:05:44]     Gamma_t computed for 1345 sources
-[10:05:44]       Median Gamma_t: 0.639
-[10:05:44]       Gamma_t range: 0.536 - 0.721
-[10:05:44]     Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/interim/step_149_jades_dr4_specz.csv (N=2858)
-[10:05:44] >>> Analyzing TEP signal...
-[10:05:44]     Full sample with gamma_t + MUV: N=1345
-[10:05:44]     Full: ρ(Gamma_t, MUV) = 0.046, p = 0.09455072253811944
-[10:05:44]     z>7 sample with gamma_t + MUV: N=114
-[10:05:44]     z>7: ρ(Gamma_t, MUV) = -0.277, p = 0.002856575954389816
-[10:05:44]     z>8 sample with gamma_t + MUV: N=40
-[10:05:44]     z>8: ρ(Gamma_t, MUV) = -0.640, p = 8.870034252915474e-06
-[10:05:44]     Photo-z accuracy: σ_MAD = 0.0418, η_outlier = 0.097
-[10:05:44] >>> Cross-survey consistency check...
-[10:05:44]     UNCOVER sample: N=2315
-[10:05:44]     UNCOVER ρ(Gamma_t, dust) = -0.288
-[10:05:44]     Sign consistency (JADES vs UNCOVER): False
-[10:05:44]     Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_149_jades_dr4_ingestion.json
-[10:05:44]     ============================================================
-[10:05:44]     SUMMARY
-[10:05:44]       JADES DR4 good spec-z: N = 2858
-[10:05:44]       Upgrade factor vs prior: 19.4×
-[10:05:44]       TEP signal (full): ρ = 0.046, p = 0.09455072253811944
-[10:05:44]       TEP signal (z>7): ρ = -0.277, p = 0.002856575954389816
-[10:05:44]     ============================================================
+[22:41:59] INFO        ============================================================
+[22:41:59] INFO        STEP 149: JADES DR4 Spectroscopic Catalog Ingestion
+[22:41:59] INFO        ============================================================
+[22:41:59] INFO    >>> Loading JADES DR4: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/jades_hainline/JADES_DR4_spectroscopic_catalog.fits
+[22:41:59] INFO        Total targets: 5190
+[22:41:59] INFO        Good spec-z (flags A/B): N = 2858
+[22:41:59] INFO          z>5: N = 495
+[22:41:59] INFO          z>7: N = 118
+[22:41:59] INFO          z>8: N = 41
+[22:41:59] INFO          z>10: N = 2
+[22:42:00] INFO    >>> Applying TEP model...
+[22:42:00] INFO        Sources with valid halo mass: 1345
+[22:42:00] INFO        Gamma_t computed for 1345 sources
+[22:42:00] INFO          Median Gamma_t: 0.639
+[22:42:00] INFO          Gamma_t range: 0.536 - 0.721
+[22:42:00] INFO        Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/interim/step_149_jades_dr4_specz.csv (N=2858)
+[22:42:00] INFO    >>> Analyzing TEP signal...
+[22:42:00] INFO        Full sample with gamma_t + MUV: N=1345
+[22:42:00] INFO        Full: ρ(Gamma_t, MUV) = 0.046, p = 0.09455072253811944
+[22:42:00] INFO        z>7 sample with gamma_t + MUV: N=114
+[22:42:00] INFO        z>7: ρ(Gamma_t, MUV) = -0.277, p = 0.002856575954389816
+[22:42:00] INFO        z>8 sample with gamma_t + MUV: N=40
+[22:42:00] INFO        z>8: ρ(Gamma_t, MUV) = -0.640, p = 8.870034252915474e-06
+[22:42:00] INFO        Photo-z accuracy: σ_MAD = 0.0418, η_outlier = 0.097
+[22:42:00] INFO    >>> Cross-survey consistency check...
+[22:42:00] INFO        UNCOVER sample: N=2315
+[22:42:00] INFO        UNCOVER ρ(Gamma_t, dust) = -0.288
+[22:42:00] INFO        Sign consistency (JADES vs UNCOVER): False
+[22:42:00] INFO        Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_149_jades_dr4_ingestion.json
+[22:42:00] INFO        ============================================================
+[22:42:00] INFO        SUMMARY
+[22:42:00] INFO          JADES DR4 good spec-z: N = 2858
+[22:42:00] INFO          Upgrade factor vs prior: 19.4×
+[22:42:00] INFO          TEP signal (full): ρ = 0.046, p = 0.09455072253811944
+[22:42:00] INFO          TEP signal (z>7): ρ = -0.277, p = 0.002856575954389816
+[22:42:00] INFO        ============================================================

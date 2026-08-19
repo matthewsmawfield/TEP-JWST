@@ -86,7 +86,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.12000000000000002,
+            "teff_threshold_gyr": 0.12000000000000001,
             "n_above": 283,
             "n_below": 0,
             "det_above": 283,
@@ -140,7 +140,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.18000000000000002,
+            "teff_threshold_gyr": 0.18000000000000005,
             "n_above": 283,
             "n_below": 0,
             "det_above": 283,
@@ -149,7 +149,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.19000000000000003,
+            "teff_threshold_gyr": 0.19,
             "n_above": 283,
             "n_below": 0,
             "det_above": 283,
@@ -158,7 +158,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.20000000000000004,
+            "teff_threshold_gyr": 0.2,
             "n_above": 283,
             "n_below": 0,
             "det_above": 283,
@@ -229,7 +229,7 @@
             "mean_dust_below": 0.3248255188450755,
             "mean_ratio": 2.5688058650916585,
             "mannwhitney_u": 4705.0,
-            "p_mannwhitney_greater": 2.5893812186688214e-06
+            "p_mannwhitney_greater": 2.589381218668821e-06
           },
           {
             "teff_threshold_gyr": 0.27,
@@ -249,7 +249,7 @@
             "mean_dust_below": 0.4809814219190666,
             "mean_ratio": 1.771364075590078,
             "mannwhitney_u": 7369.0,
-            "p_mannwhitney_greater": 3.175965594778512e-05
+            "p_mannwhitney_greater": 3.175965594778513e-05
           },
           {
             "teff_threshold_gyr": 0.28,
@@ -352,7 +352,7 @@
             "p_mannwhitney_greater": 0.03033968436245666
           },
           {
-            "teff_threshold_gyr": 0.33000000000000007,
+            "teff_threshold_gyr": 0.33,
             "n_above": 92,
             "n_below": 191,
             "det_above": 92,
@@ -369,10 +369,10 @@
             "mean_dust_below": 0.6986477081171069,
             "mean_ratio": 1.4154181603827451,
             "mannwhitney_u": 9942.0,
-            "p_mannwhitney_greater": 0.03658208352429288
+            "p_mannwhitney_greater": 0.036582083524292895
           },
           {
-            "teff_threshold_gyr": 0.3400000000000001,
+            "teff_threshold_gyr": 0.34,
             "n_above": 62,
             "n_below": 221,
             "det_above": 62,
@@ -389,10 +389,10 @@
             "mean_dust_below": 0.7142670990489299,
             "mean_ratio": 1.503131549601159,
             "mannwhitney_u": 7904.0,
-            "p_mannwhitney_greater": 0.032282827697963326
+            "p_mannwhitney_greater": 0.03228282769796332
           },
           {
-            "teff_threshold_gyr": 0.3500000000000001,
+            "teff_threshold_gyr": 0.35000000000000003,
             "n_above": 36,
             "n_below": 247,
             "det_above": 36,
@@ -409,7 +409,7 @@
             "mean_dust_below": 0.7166018386593186,
             "mean_ratio": 1.8380691453535538,
             "mannwhitney_u": 5836.0,
-            "p_mannwhitney_greater": 0.0012270782334840263
+            "p_mannwhitney_greater": 0.0012270782334840268
           },
           {
             "teff_threshold_gyr": 0.36000000000000004,
@@ -429,7 +429,7 @@
             "mean_dust_below": 0.7223734952805267,
             "mean_ratio": 3.1283310518623058,
             "mannwhitney_u": 3093.0,
-            "p_mannwhitney_greater": 1.7372151548993885e-06
+            "p_mannwhitney_greater": 1.7372151548993887e-06
           },
           {
             "teff_threshold_gyr": 0.37000000000000005,
@@ -449,7 +449,7 @@
             "mean_dust_below": 0.7252335357925008,
             "mean_ratio": 3.203595672091243,
             "mannwhitney_u": 2837.0,
-            "p_mannwhitney_greater": 6.404015777810542e-06
+            "p_mannwhitney_greater": 6.4040157778105436e-06
           },
           {
             "teff_threshold_gyr": 0.38000000000000006,
@@ -469,7 +469,7 @@
             "mean_dust_below": 0.7252335357925008,
             "mean_ratio": 3.203595672091243,
             "mannwhitney_u": 2837.0,
-            "p_mannwhitney_greater": 6.404015777810542e-06
+            "p_mannwhitney_greater": 6.4040157778105436e-06
           },
           {
             "teff_threshold_gyr": 0.39000000000000007,
@@ -489,7 +489,7 @@
             "mean_dust_below": 0.7321381522734703,
             "mean_ratio": 3.352486515166019,
             "mannwhitney_u": 2465.0,
-            "p_mannwhitney_greater": 7.606203411281644e-06
+            "p_mannwhitney_greater": 7.606203411281647e-06
           },
           {
             "teff_threshold_gyr": 0.4000000000000001,
@@ -509,7 +509,7 @@
             "mean_dust_below": 0.7321381522734703,
             "mean_ratio": 3.352486515166019,
             "mannwhitney_u": 2465.0,
-            "p_mannwhitney_greater": 7.606203411281644e-06
+            "p_mannwhitney_greater": 7.606203411281647e-06
           },
           {
             "teff_threshold_gyr": 0.4100000000000001,
@@ -529,10 +529,10 @@
             "mean_dust_below": 0.7321381522734703,
             "mean_ratio": 3.352486515166019,
             "mannwhitney_u": 2465.0,
-            "p_mannwhitney_greater": 7.606203411281644e-06
+            "p_mannwhitney_greater": 7.606203411281647e-06
           },
           {
-            "teff_threshold_gyr": 0.4200000000000001,
+            "teff_threshold_gyr": 0.42000000000000004,
             "n_above": 9,
             "n_below": 274,
             "det_above": 9,
@@ -595,7 +595,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.4900000000000001,
+            "teff_threshold_gyr": 0.49000000000000005,
             "n_above": 5,
             "n_below": 278,
             "det_above": 5,
@@ -649,7 +649,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.55,
+            "teff_threshold_gyr": 0.5500000000000002,
             "n_above": 5,
             "n_below": 278,
             "det_above": 5,
@@ -658,7 +658,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.56,
+            "teff_threshold_gyr": 0.5600000000000002,
             "n_above": 4,
             "n_below": 279,
             "det_above": 4,
@@ -667,7 +667,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.5700000000000001,
+            "teff_threshold_gyr": 0.5700000000000002,
             "n_above": 4,
             "n_below": 279,
             "det_above": 4,
@@ -676,7 +676,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.5800000000000001,
+            "teff_threshold_gyr": 0.5800000000000002,
             "n_above": 4,
             "n_below": 279,
             "det_above": 4,
@@ -685,7 +685,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.5900000000000001,
+            "teff_threshold_gyr": 0.5900000000000002,
             "n_above": 4,
             "n_below": 279,
             "det_above": 4,
@@ -694,7 +694,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.6000000000000001,
+            "teff_threshold_gyr": 0.6000000000000002,
             "n_above": 4,
             "n_below": 279,
             "det_above": 4,
@@ -802,7 +802,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.7200000000000001,
+            "teff_threshold_gyr": 0.7200000000000002,
             "n_above": 4,
             "n_below": 279,
             "det_above": 4,
@@ -811,7 +811,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.7300000000000001,
+            "teff_threshold_gyr": 0.7300000000000002,
             "n_above": 4,
             "n_below": 279,
             "det_above": 4,
@@ -820,7 +820,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.7400000000000001,
+            "teff_threshold_gyr": 0.7400000000000002,
             "n_above": 4,
             "n_below": 279,
             "det_above": 4,
@@ -829,7 +829,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.7500000000000001,
+            "teff_threshold_gyr": 0.7500000000000002,
             "n_above": 4,
             "n_below": 279,
             "det_above": 4,
@@ -838,7 +838,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.7600000000000001,
+            "teff_threshold_gyr": 0.7600000000000002,
             "n_above": 4,
             "n_below": 279,
             "det_above": 4,
@@ -847,7 +847,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.7700000000000001,
+            "teff_threshold_gyr": 0.7700000000000002,
             "n_above": 4,
             "n_below": 279,
             "det_above": 4,
@@ -937,7 +937,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.8700000000000001,
+            "teff_threshold_gyr": 0.8700000000000002,
             "n_above": 3,
             "n_below": 280,
             "det_above": 3,
@@ -946,7 +946,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.8800000000000001,
+            "teff_threshold_gyr": 0.8800000000000002,
             "n_above": 3,
             "n_below": 280,
             "det_above": 3,
@@ -955,7 +955,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.8900000000000001,
+            "teff_threshold_gyr": 0.8900000000000002,
             "n_above": 3,
             "n_below": 280,
             "det_above": 3,
@@ -964,7 +964,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.9000000000000001,
+            "teff_threshold_gyr": 0.9000000000000002,
             "n_above": 3,
             "n_below": 280,
             "det_above": 3,
@@ -973,7 +973,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.9100000000000001,
+            "teff_threshold_gyr": 0.9100000000000003,
             "n_above": 3,
             "n_below": 280,
             "det_above": 3,
@@ -982,7 +982,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.9200000000000002,
+            "teff_threshold_gyr": 0.9200000000000003,
             "n_above": 3,
             "n_below": 280,
             "det_above": 3,
@@ -1162,7 +1162,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.12,
+            "teff_threshold_gyr": 1.1200000000000003,
             "n_above": 2,
             "n_below": 281,
             "det_above": 2,
@@ -1171,7 +1171,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.1300000000000001,
+            "teff_threshold_gyr": 1.1300000000000003,
             "n_above": 2,
             "n_below": 281,
             "det_above": 2,
@@ -1180,7 +1180,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.1400000000000001,
+            "teff_threshold_gyr": 1.1400000000000003,
             "n_above": 2,
             "n_below": 281,
             "det_above": 2,
@@ -1189,7 +1189,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.1500000000000001,
+            "teff_threshold_gyr": 1.1500000000000004,
             "n_above": 2,
             "n_below": 281,
             "det_above": 2,
@@ -1198,7 +1198,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.1600000000000001,
+            "teff_threshold_gyr": 1.1600000000000004,
             "n_above": 2,
             "n_below": 281,
             "det_above": 2,
@@ -1441,7 +1441,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.4300000000000002,
+            "teff_threshold_gyr": 1.4300000000000004,
             "n_above": 2,
             "n_below": 281,
             "det_above": 2,
@@ -1450,7 +1450,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.4400000000000002,
+            "teff_threshold_gyr": 1.4400000000000004,
             "n_above": 2,
             "n_below": 281,
             "det_above": 2,
@@ -1459,7 +1459,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.4500000000000002,
+            "teff_threshold_gyr": 1.4500000000000004,
             "n_above": 2,
             "n_below": 281,
             "det_above": 2,
@@ -1468,7 +1468,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.4600000000000002,
+            "teff_threshold_gyr": 1.4600000000000004,
             "n_above": 2,
             "n_below": 281,
             "det_above": 2,
@@ -1477,7 +1477,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.4700000000000002,
+            "teff_threshold_gyr": 1.4700000000000004,
             "n_above": 2,
             "n_below": 281,
             "det_above": 2,
@@ -1486,7 +1486,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.4800000000000002,
+            "teff_threshold_gyr": 1.4800000000000004,
             "n_above": 2,
             "n_below": 281,
             "det_above": 2,
@@ -1495,7 +1495,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.4900000000000002,
+            "teff_threshold_gyr": 1.4900000000000004,
             "n_above": 2,
             "n_below": 281,
             "det_above": 2,
@@ -1738,7 +1738,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.7600000000000002,
+            "teff_threshold_gyr": 1.7600000000000005,
             "n_above": 1,
             "n_below": 282,
             "det_above": 1,
@@ -1747,7 +1747,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.7700000000000002,
+            "teff_threshold_gyr": 1.7700000000000005,
             "n_above": 1,
             "n_below": 282,
             "det_above": 1,
@@ -1756,7 +1756,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.7800000000000002,
+            "teff_threshold_gyr": 1.7800000000000005,
             "n_above": 1,
             "n_below": 282,
             "det_above": 1,
@@ -1765,7 +1765,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.7900000000000003,
+            "teff_threshold_gyr": 1.7900000000000005,
             "n_above": 1,
             "n_below": 282,
             "det_above": 1,
@@ -1774,7 +1774,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.8000000000000003,
+            "teff_threshold_gyr": 1.8000000000000005,
             "n_above": 1,
             "n_below": 282,
             "det_above": 1,
@@ -1981,7 +1981,7 @@
           "mean_dust_below": 0.3248255188450755,
           "mean_ratio": 2.5688058650916585,
           "mannwhitney_u": 4705.0,
-          "p_mannwhitney_greater": 2.5893812186688214e-06
+          "p_mannwhitney_greater": 2.589381218668821e-06
         }
       },
       "bootstrap_best_threshold": {
@@ -2062,7 +2062,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.12000000000000002,
+            "teff_threshold_gyr": 0.12000000000000001,
             "n_above": 82,
             "n_below": 0,
             "det_above": 82,
@@ -2116,7 +2116,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.18000000000000002,
+            "teff_threshold_gyr": 0.18000000000000005,
             "n_above": 82,
             "n_below": 0,
             "det_above": 82,
@@ -2125,7 +2125,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.19000000000000003,
+            "teff_threshold_gyr": 0.19,
             "n_above": 82,
             "n_below": 0,
             "det_above": 82,
@@ -2134,7 +2134,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.20000000000000004,
+            "teff_threshold_gyr": 0.2,
             "n_above": 81,
             "n_below": 1,
             "det_above": 81,
@@ -2187,7 +2187,7 @@
             "mean_dust_below": 0.37752405200702605,
             "mean_ratio": 1.7303275111086802,
             "mannwhitney_u": 479.0,
-            "p_mannwhitney_greater": 0.1155917342402481
+            "p_mannwhitney_greater": 0.11559173424024821
           },
           {
             "teff_threshold_gyr": 0.25000000000000006,
@@ -2227,7 +2227,7 @@
             "mean_dust_below": 0.3267046431685155,
             "mean_ratio": 2.118066651451054,
             "mannwhitney_u": 736.0,
-            "p_mannwhitney_greater": 0.018163329779994273
+            "p_mannwhitney_greater": 0.01816332977999427
           },
           {
             "teff_threshold_gyr": 0.27,
@@ -2247,7 +2247,7 @@
             "mean_dust_below": 0.3194373373202676,
             "mean_ratio": 2.209416268836178,
             "mannwhitney_u": 808.0,
-            "p_mannwhitney_greater": 0.010810924834997161
+            "p_mannwhitney_greater": 0.010810924834997158
           },
           {
             "teff_threshold_gyr": 0.28,
@@ -2267,7 +2267,7 @@
             "mean_dust_below": 0.3422850424952763,
             "mean_ratio": 2.075963026791363,
             "mannwhitney_u": 829.0,
-            "p_mannwhitney_greater": 0.022898408946981284
+            "p_mannwhitney_greater": 0.02289840894698128
           },
           {
             "teff_threshold_gyr": 0.29000000000000004,
@@ -2283,9 +2283,9 @@
             "odds_ratio": null,
             "log_odds_ratio": 0.9891280558264214,
             "p_fisher_greater": 1.0,
-            "mean_dust_above": 0.7211050356136985,
+            "mean_dust_above": 0.7211050356136984,
             "mean_dust_below": 0.330296382684411,
-            "mean_ratio": 2.183205973232514,
+            "mean_ratio": 2.1832059732325138,
             "mannwhitney_u": 876.0,
             "p_mannwhitney_greater": 0.012056020128132254
           },
@@ -2307,7 +2307,7 @@
             "mean_dust_below": 0.32738126409569446,
             "mean_ratio": 2.365182197643629,
             "mannwhitney_u": 1111.0,
-            "p_mannwhitney_greater": 0.00045500681733291683
+            "p_mannwhitney_greater": 0.0004550068173329168
           },
           {
             "teff_threshold_gyr": 0.31000000000000005,
@@ -2347,10 +2347,10 @@
             "mean_dust_below": 0.4104056481938645,
             "mean_ratio": 2.1751132762194505,
             "mannwhitney_u": 1120.0,
-            "p_mannwhitney_greater": 0.002681689947543751
+            "p_mannwhitney_greater": 0.0026816899475437515
           },
           {
-            "teff_threshold_gyr": 0.33000000000000007,
+            "teff_threshold_gyr": 0.33,
             "n_above": 33,
             "n_below": 49,
             "det_above": 33,
@@ -2367,10 +2367,10 @@
             "mean_dust_below": 0.4266379986890125,
             "mean_ratio": 2.104371551608361,
             "mannwhitney_u": 1077.0,
-            "p_mannwhitney_greater": 0.005636113258104726
+            "p_mannwhitney_greater": 0.005636113258104728
           },
           {
-            "teff_threshold_gyr": 0.3400000000000001,
+            "teff_threshold_gyr": 0.34,
             "n_above": 27,
             "n_below": 55,
             "det_above": 27,
@@ -2387,10 +2387,10 @@
             "mean_dust_below": 0.3998101130806855,
             "mean_ratio": 2.6441502550172937,
             "mannwhitney_u": 1132.0,
-            "p_mannwhitney_greater": 6.194668217927494e-05
+            "p_mannwhitney_greater": 6.194668217927491e-05
           },
           {
-            "teff_threshold_gyr": 0.3500000000000001,
+            "teff_threshold_gyr": 0.35000000000000003,
             "n_above": 19,
             "n_below": 63,
             "det_above": 19,
@@ -2407,7 +2407,7 @@
             "mean_dust_below": 0.40004017573980094,
             "mean_ratio": 3.332598366023689,
             "mannwhitney_u": 1012.0,
-            "p_mannwhitney_greater": 2.8268703493668922e-06
+            "p_mannwhitney_greater": 2.8268703493668914e-06
           },
           {
             "teff_threshold_gyr": 0.36000000000000004,
@@ -2427,7 +2427,7 @@
             "mean_dust_below": 0.40386986058670166,
             "mean_ratio": 3.6950968132516033,
             "mannwhitney_u": 947.0,
-            "p_mannwhitney_greater": 4.869736503881635e-07
+            "p_mannwhitney_greater": 4.869736503881634e-07
           },
           {
             "teff_threshold_gyr": 0.37000000000000005,
@@ -2447,7 +2447,7 @@
             "mean_dust_below": 0.425232953989497,
             "mean_ratio": 3.631115852714983,
             "mannwhitney_u": 844.0,
-            "p_mannwhitney_greater": 2.9649118478862604e-06
+            "p_mannwhitney_greater": 2.96491184788626e-06
           },
           {
             "teff_threshold_gyr": 0.38000000000000006,
@@ -2467,7 +2467,7 @@
             "mean_dust_below": 0.4280013080839544,
             "mean_ratio": 4.005581797966282,
             "mannwhitney_u": 775.0,
-            "p_mannwhitney_greater": 1.6532056126756103e-06
+            "p_mannwhitney_greater": 1.6532056126756106e-06
           },
           {
             "teff_threshold_gyr": 0.39000000000000007,
@@ -2487,7 +2487,7 @@
             "mean_dust_below": 0.44774146255554054,
             "mean_ratio": 4.086161050945904,
             "mannwhitney_u": 657.0,
-            "p_mannwhitney_greater": 1.3254406351444522e-05
+            "p_mannwhitney_greater": 1.3254406351444527e-05
           },
           {
             "teff_threshold_gyr": 0.4000000000000001,
@@ -2507,7 +2507,7 @@
             "mean_dust_below": 0.44774146255554054,
             "mean_ratio": 4.086161050945904,
             "mannwhitney_u": 657.0,
-            "p_mannwhitney_greater": 1.3254406351444522e-05
+            "p_mannwhitney_greater": 1.3254406351444527e-05
           },
           {
             "teff_threshold_gyr": 0.4100000000000001,
@@ -2519,7 +2519,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.4200000000000001,
+            "teff_threshold_gyr": 0.42000000000000004,
             "n_above": 8,
             "n_below": 74,
             "det_above": 8,
@@ -2582,7 +2582,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.4900000000000001,
+            "teff_threshold_gyr": 0.49000000000000005,
             "n_above": 7,
             "n_below": 75,
             "det_above": 7,
@@ -2636,7 +2636,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.55,
+            "teff_threshold_gyr": 0.5500000000000002,
             "n_above": 5,
             "n_below": 77,
             "det_above": 5,
@@ -2645,7 +2645,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.56,
+            "teff_threshold_gyr": 0.5600000000000002,
             "n_above": 5,
             "n_below": 77,
             "det_above": 5,
@@ -2654,7 +2654,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.5700000000000001,
+            "teff_threshold_gyr": 0.5700000000000002,
             "n_above": 5,
             "n_below": 77,
             "det_above": 5,
@@ -2663,7 +2663,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.5800000000000001,
+            "teff_threshold_gyr": 0.5800000000000002,
             "n_above": 5,
             "n_below": 77,
             "det_above": 5,
@@ -2672,7 +2672,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.5900000000000001,
+            "teff_threshold_gyr": 0.5900000000000002,
             "n_above": 5,
             "n_below": 77,
             "det_above": 5,
@@ -2681,7 +2681,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.6000000000000001,
+            "teff_threshold_gyr": 0.6000000000000002,
             "n_above": 5,
             "n_below": 77,
             "det_above": 5,
@@ -2789,7 +2789,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.7200000000000001,
+            "teff_threshold_gyr": 0.7200000000000002,
             "n_above": 5,
             "n_below": 77,
             "det_above": 5,
@@ -2798,7 +2798,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.7300000000000001,
+            "teff_threshold_gyr": 0.7300000000000002,
             "n_above": 5,
             "n_below": 77,
             "det_above": 5,
@@ -2807,7 +2807,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.7400000000000001,
+            "teff_threshold_gyr": 0.7400000000000002,
             "n_above": 5,
             "n_below": 77,
             "det_above": 5,
@@ -2816,7 +2816,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.7500000000000001,
+            "teff_threshold_gyr": 0.7500000000000002,
             "n_above": 5,
             "n_below": 77,
             "det_above": 5,
@@ -2825,7 +2825,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.7600000000000001,
+            "teff_threshold_gyr": 0.7600000000000002,
             "n_above": 5,
             "n_below": 77,
             "det_above": 5,
@@ -2834,7 +2834,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.7700000000000001,
+            "teff_threshold_gyr": 0.7700000000000002,
             "n_above": 5,
             "n_below": 77,
             "det_above": 5,
@@ -2924,7 +2924,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.8700000000000001,
+            "teff_threshold_gyr": 0.8700000000000002,
             "n_above": 4,
             "n_below": 78,
             "det_above": 4,
@@ -2933,7 +2933,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.8800000000000001,
+            "teff_threshold_gyr": 0.8800000000000002,
             "n_above": 4,
             "n_below": 78,
             "det_above": 4,
@@ -2942,7 +2942,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.8900000000000001,
+            "teff_threshold_gyr": 0.8900000000000002,
             "n_above": 4,
             "n_below": 78,
             "det_above": 4,
@@ -2951,7 +2951,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.9000000000000001,
+            "teff_threshold_gyr": 0.9000000000000002,
             "n_above": 4,
             "n_below": 78,
             "det_above": 4,
@@ -2960,7 +2960,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.9100000000000001,
+            "teff_threshold_gyr": 0.9100000000000003,
             "n_above": 4,
             "n_below": 78,
             "det_above": 4,
@@ -2969,7 +2969,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.9200000000000002,
+            "teff_threshold_gyr": 0.9200000000000003,
             "n_above": 4,
             "n_below": 78,
             "det_above": 4,
@@ -3149,7 +3149,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.12,
+            "teff_threshold_gyr": 1.1200000000000003,
             "n_above": 3,
             "n_below": 79,
             "det_above": 3,
@@ -3158,7 +3158,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.1300000000000001,
+            "teff_threshold_gyr": 1.1300000000000003,
             "n_above": 3,
             "n_below": 79,
             "det_above": 3,
@@ -3167,7 +3167,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.1400000000000001,
+            "teff_threshold_gyr": 1.1400000000000003,
             "n_above": 3,
             "n_below": 79,
             "det_above": 3,
@@ -3176,7 +3176,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.1500000000000001,
+            "teff_threshold_gyr": 1.1500000000000004,
             "n_above": 3,
             "n_below": 79,
             "det_above": 3,
@@ -3185,7 +3185,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.1600000000000001,
+            "teff_threshold_gyr": 1.1600000000000004,
             "n_above": 3,
             "n_below": 79,
             "det_above": 3,
@@ -3428,7 +3428,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.4300000000000002,
+            "teff_threshold_gyr": 1.4300000000000004,
             "n_above": 3,
             "n_below": 79,
             "det_above": 3,
@@ -3437,7 +3437,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.4400000000000002,
+            "teff_threshold_gyr": 1.4400000000000004,
             "n_above": 3,
             "n_below": 79,
             "det_above": 3,
@@ -3446,7 +3446,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.4500000000000002,
+            "teff_threshold_gyr": 1.4500000000000004,
             "n_above": 3,
             "n_below": 79,
             "det_above": 3,
@@ -3455,7 +3455,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.4600000000000002,
+            "teff_threshold_gyr": 1.4600000000000004,
             "n_above": 3,
             "n_below": 79,
             "det_above": 3,
@@ -3464,7 +3464,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.4700000000000002,
+            "teff_threshold_gyr": 1.4700000000000004,
             "n_above": 3,
             "n_below": 79,
             "det_above": 3,
@@ -3473,7 +3473,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.4800000000000002,
+            "teff_threshold_gyr": 1.4800000000000004,
             "n_above": 3,
             "n_below": 79,
             "det_above": 3,
@@ -3482,7 +3482,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.4900000000000002,
+            "teff_threshold_gyr": 1.4900000000000004,
             "n_above": 3,
             "n_below": 79,
             "det_above": 3,
@@ -3725,7 +3725,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.7600000000000002,
+            "teff_threshold_gyr": 1.7600000000000005,
             "n_above": 3,
             "n_below": 79,
             "det_above": 3,
@@ -3734,7 +3734,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.7700000000000002,
+            "teff_threshold_gyr": 1.7700000000000005,
             "n_above": 3,
             "n_below": 79,
             "det_above": 3,
@@ -3743,7 +3743,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.7800000000000002,
+            "teff_threshold_gyr": 1.7800000000000005,
             "n_above": 3,
             "n_below": 79,
             "det_above": 3,
@@ -3752,7 +3752,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.7900000000000003,
+            "teff_threshold_gyr": 1.7900000000000005,
             "n_above": 3,
             "n_below": 79,
             "det_above": 3,
@@ -3761,7 +3761,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 1.8000000000000003,
+            "teff_threshold_gyr": 1.8000000000000005,
             "n_above": 3,
             "n_below": 79,
             "det_above": 3,
@@ -3968,7 +3968,7 @@
           "mean_dust_below": 0.37752405200702605,
           "mean_ratio": 1.7303275111086802,
           "mannwhitney_u": 479.0,
-          "p_mannwhitney_greater": 0.1155917342402481
+          "p_mannwhitney_greater": 0.11559173424024821
         }
       },
       "bootstrap_best_threshold": {
@@ -4049,7 +4049,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.12000000000000002,
+            "teff_threshold_gyr": 0.12000000000000001,
             "n_above": 2606,
             "n_below": 0,
             "det_above": 918,
@@ -4103,7 +4103,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.18000000000000002,
+            "teff_threshold_gyr": 0.18000000000000005,
             "n_above": 2606,
             "n_below": 0,
             "det_above": 918,
@@ -4112,7 +4112,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.19000000000000003,
+            "teff_threshold_gyr": 0.19,
             "n_above": 2606,
             "n_below": 0,
             "det_above": 918,
@@ -4121,7 +4121,7 @@
             "non_det_below": 0
           },
           {
-            "teff_threshold_gyr": 0.20000000000000004,
+            "teff_threshold_gyr": 0.2,
             "n_above": 2602,
             "n_below": 4,
             "det_above": 915,
@@ -4216,7 +4216,7 @@
             "mean_dust_below": 0.012970711297071131,
             "mean_ratio": 13.673083919476108,
             "mannwhitney_u": 693582.0,
-            "p_mannwhitney_greater": 7.911620668337148e-49
+            "p_mannwhitney_greater": 7.911620668337149e-49
           },
           {
             "teff_threshold_gyr": 0.26000000000000006,
@@ -4236,7 +4236,7 @@
             "mean_dust_below": 0.014655172413793105,
             "mean_ratio": 13.339821373575607,
             "mannwhitney_u": 931075.0,
-            "p_mannwhitney_greater": 3.114936477215534e-76
+            "p_mannwhitney_greater": 3.1149364772155334e-76
           },
           {
             "teff_threshold_gyr": 0.27,
@@ -4256,7 +4256,7 @@
             "mean_dust_below": 0.01857476635514019,
             "mean_ratio": 11.311813117699907,
             "mannwhitney_u": 1063831.5,
-            "p_mannwhitney_greater": 5.816590080410475e-94
+            "p_mannwhitney_greater": 5.816590080410476e-94
           },
           {
             "teff_threshold_gyr": 0.28,
@@ -4276,7 +4276,7 @@
             "mean_dust_below": 0.02031098153547133,
             "mean_ratio": 11.323611241743606,
             "mannwhitney_u": 1180733.5,
-            "p_mannwhitney_greater": 8.760548649516008e-119
+            "p_mannwhitney_greater": 8.760548649516014e-119
           },
           {
             "teff_threshold_gyr": 0.29000000000000004,
@@ -4356,10 +4356,10 @@
             "mean_dust_below": 0.032571801566579635,
             "mean_ratio": 9.53916025719969,
             "mannwhitney_u": 1273568.5,
-            "p_mannwhitney_greater": 1.77053802160197e-173
+            "p_mannwhitney_greater": 1.7705380216019704e-173
           },
           {
-            "teff_threshold_gyr": 0.33000000000000007,
+            "teff_threshold_gyr": 0.33,
             "n_above": 932,
             "n_below": 1674,
             "det_above": 657,
@@ -4376,10 +4376,10 @@
             "mean_dust_below": 0.040442054958183996,
             "mean_ratio": 8.38108988785414,
             "mannwhitney_u": 1236340.5,
-            "p_mannwhitney_greater": 3.7848355385934727e-187
+            "p_mannwhitney_greater": 3.784835538593471e-187
           },
           {
-            "teff_threshold_gyr": 0.3400000000000001,
+            "teff_threshold_gyr": 0.34,
             "n_above": 775,
             "n_below": 1831,
             "det_above": 585,
@@ -4396,10 +4396,10 @@
             "mean_dust_below": 0.049208083014746044,
             "mean_ratio": 7.696086785292327,
             "mannwhitney_u": 1149269.5,
-            "p_mannwhitney_greater": 4.23686268176058e-191
+            "p_mannwhitney_greater": 4.236862681760581e-191
           },
           {
-            "teff_threshold_gyr": 0.3500000000000001,
+            "teff_threshold_gyr": 0.35000000000000003,
             "n_above": 592,
             "n_below": 2014,
             "det_above": 496,
@@ -4416,7 +4416,7 @@
             "mean_dust_below": 0.05809334657398212,
             "mean_ratio": 7.751969276969278,
             "mannwhitney_u": 1011537.0,
-            "p_mannwhitney_greater": 8.655933143272364e-203
+            "p_mannwhitney_greater": 8.655933143272366e-203
           },
           {
             "teff_threshold_gyr": 0.36000000000000004,
@@ -4436,7 +4436,7 @@
             "mean_dust_below": 0.0627260083449235,
             "mean_ratio": 8.81622625296915,
             "mannwhitney_u": 866576.5,
-            "p_mannwhitney_greater": 2.189246132267466e-211
+            "p_mannwhitney_greater": 2.1892461322674662e-211
           },
           {
             "teff_threshold_gyr": 0.37000000000000005,
@@ -4476,7 +4476,7 @@
             "mean_dust_below": 0.07643451598773543,
             "mean_ratio": 8.469582265118385,
             "mannwhitney_u": 681886.0,
-            "p_mannwhitney_greater": 1.4362246199319946e-186
+            "p_mannwhitney_greater": 1.4362246199319948e-186
           },
           {
             "teff_threshold_gyr": 0.39000000000000007,
@@ -4496,7 +4496,7 @@
             "mean_dust_below": 0.08382226056945644,
             "mean_ratio": 7.841492966203465,
             "mannwhitney_u": 616050.5,
-            "p_mannwhitney_greater": 1.2248582438772303e-167
+            "p_mannwhitney_greater": 1.2248582438772307e-167
           },
           {
             "teff_threshold_gyr": 0.4000000000000001,
@@ -4536,10 +4536,10 @@
             "mean_dust_below": 0.10171404682274247,
             "mean_ratio": 6.445594262688653,
             "mannwhitney_u": 470917.0,
-            "p_mannwhitney_greater": 2.212205337478986e-127
+            "p_mannwhitney_greater": 2.2122053374789865e-127
           },
           {
-            "teff_threshold_gyr": 0.4200000000000001,
+            "teff_threshold_gyr": 0.42000000000000004,
             "n_above": 196,
             "n_below": 2410,
             "det_above": 194,
@@ -4576,7 +4576,7 @@
             "mean_dust_below": 0.1086384204031263,
             "mean_ratio": 6.285595283171959,
             "mannwhitney_u": 392968.5,
-            "p_mannwhitney_greater": 4.1075069514149464e-108
+            "p_mannwhitney_greater": 4.107506951414947e-108
           },
           {
             "teff_threshold_gyr": 0.44000000000000006,
@@ -4596,7 +4596,7 @@
             "mean_dust_below": 0.11234668847097304,
             "mean_ratio": 6.052692867540028,
             "mannwhitney_u": 360406.5,
-            "p_mannwhitney_greater": 2.3657086938852645e-98
+            "p_mannwhitney_greater": 2.3657086938852655e-98
           },
           {
             "teff_threshold_gyr": 0.45000000000000007,
@@ -4616,7 +4616,7 @@
             "mean_dust_below": 0.11368078175895766,
             "mean_ratio": 6.122406876790832,
             "mannwhitney_u": 339339.5,
-            "p_mannwhitney_greater": 8.384993406926474e-93
+            "p_mannwhitney_greater": 8.384993406926477e-93
           },
           {
             "teff_threshold_gyr": 0.4600000000000001,
@@ -4656,7 +4656,7 @@
             "mean_dust_below": 0.11775625504439065,
             "mean_ratio": 6.090440798492116,
             "mannwhitney_u": 293764.0,
-            "p_mannwhitney_greater": 4.346934729632999e-82
+            "p_mannwhitney_greater": 4.346934729633e-82
           },
           {
             "teff_threshold_gyr": 0.4800000000000001,
@@ -4679,7 +4679,7 @@
             "p_mannwhitney_greater": 5.3782798253068593e-76
           },
           {
-            "teff_threshold_gyr": 0.4900000000000001,
+            "teff_threshold_gyr": 0.49000000000000005,
             "n_above": 110,
             "n_below": 2496,
             "det_above": 109,
@@ -4696,7 +4696,7 @@
             "mean_dust_below": 0.12095352564102563,
             "mean_ratio": 6.140600439639856,
             "mannwhitney_u": 254275.0,
-            "p_mannwhitney_greater": 2.462609819206765e-71
+            "p_mannwhitney_greater": 2.4626098192067647e-71
           },
           {
             "teff_threshold_gyr": 0.5000000000000001,
@@ -4716,7 +4716,7 @@
             "mean_dust_below": 0.12131147540983606,
             "mean_ratio": 6.296267696267696,
             "mannwhitney_u": 244098.0,
-            "p_mannwhitney_greater": 2.1938389428162335e-69
+            "p_mannwhitney_greater": 2.1938389428162343e-69
           },
           {
             "teff_threshold_gyr": 0.5100000000000001,
@@ -4736,7 +4736,7 @@
             "mean_dust_below": 0.12271821442805898,
             "mean_ratio": 6.359384992449685,
             "mannwhitney_u": 226183.5,
-            "p_mannwhitney_greater": 2.044430019850793e-64
+            "p_mannwhitney_greater": 2.0444300198507932e-64
           },
           {
             "teff_threshold_gyr": 0.5200000000000001,
@@ -4756,7 +4756,7 @@
             "mean_dust_below": 0.12462271644162036,
             "mean_ratio": 6.36466481256156,
             "mannwhitney_u": 205676.5,
-            "p_mannwhitney_greater": 1.5598314193184398e-58
+            "p_mannwhitney_greater": 1.5598314193184396e-58
           },
           {
             "teff_threshold_gyr": 0.5300000000000001,
@@ -4776,7 +4776,7 @@
             "mean_dust_below": 0.12473203652242953,
             "mean_ratio": 6.395318890522913,
             "mannwhitney_u": 203488.0,
-            "p_mannwhitney_greater": 5.3846810252655744e-58
+            "p_mannwhitney_greater": 5.384681025265578e-58
           },
           {
             "teff_threshold_gyr": 0.5400000000000001,
@@ -4799,7 +4799,7 @@
             "p_mannwhitney_greater": 2.1675126833394603e-57
           },
           {
-            "teff_threshold_gyr": 0.55,
+            "teff_threshold_gyr": 0.5500000000000002,
             "n_above": 83,
             "n_below": 2523,
             "det_above": 82,
@@ -4816,10 +4816,10 @@
             "mean_dust_below": 0.12524772096710265,
             "mean_ratio": 6.5027756596004265,
             "mannwhitney_u": 194609.0,
-            "p_mannwhitney_greater": 1.0355265494504127e-55
+            "p_mannwhitney_greater": 1.035526549450413e-55
           },
           {
-            "teff_threshold_gyr": 0.56,
+            "teff_threshold_gyr": 0.5600000000000002,
             "n_above": 73,
             "n_below": 2533,
             "det_above": 72,
@@ -4836,10 +4836,10 @@
             "mean_dust_below": 0.12727990525069088,
             "mean_ratio": 6.586712668683504,
             "mannwhitney_u": 172042.0,
-            "p_mannwhitney_greater": 1.1158621618534601e-49
+            "p_mannwhitney_greater": 1.11586216185346e-49
           },
           {
-            "teff_threshold_gyr": 0.5700000000000001,
+            "teff_threshold_gyr": 0.5700000000000002,
             "n_above": 68,
             "n_below": 2538,
             "det_above": 67,
@@ -4856,10 +4856,10 @@
             "mean_dust_below": 0.1280141843971631,
             "mean_ratio": 6.743278474824835,
             "mannwhitney_u": 160812.5,
-            "p_mannwhitney_greater": 8.623004607728618e-47
+            "p_mannwhitney_greater": 8.623004607728615e-47
           },
           {
-            "teff_threshold_gyr": 0.5800000000000001,
+            "teff_threshold_gyr": 0.5800000000000002,
             "n_above": 63,
             "n_below": 2543,
             "det_above": 62,
@@ -4876,10 +4876,10 @@
             "mean_dust_below": 0.1293747542272906,
             "mean_ratio": 6.69888551165147,
             "mannwhitney_u": 149017.5,
-            "p_mannwhitney_greater": 2.880922837986735e-43
+            "p_mannwhitney_greater": 2.880922837986734e-43
           },
           {
-            "teff_threshold_gyr": 0.5900000000000001,
+            "teff_threshold_gyr": 0.5900000000000002,
             "n_above": 59,
             "n_below": 2547,
             "det_above": 58,
@@ -4896,10 +4896,10 @@
             "mean_dust_below": 0.13027090694935217,
             "mean_ratio": 6.739540871057714,
             "mannwhitney_u": 139701.5,
-            "p_mannwhitney_greater": 1.2728269120602538e-40
+            "p_mannwhitney_greater": 1.2728269120602536e-40
           },
           {
-            "teff_threshold_gyr": 0.6000000000000001,
+            "teff_threshold_gyr": 0.6000000000000002,
             "n_above": 57,
             "n_below": 2549,
             "det_above": 56,
@@ -4936,7 +4936,7 @@
             "mean_dust_below": 0.1307450980392157,
             "mean_ratio": 6.856307309966578,
             "mannwhitney_u": 133205.0,
-            "p_mannwhitney_greater": 3.040679015436576e-39
+            "p_mannwhitney_greater": 3.040679015436575e-39
           },
           {
             "teff_threshold_gyr": 0.6200000000000001,
@@ -4956,7 +4956,7 @@
             "mean_dust_below": 0.13092904743237946,
             "mean_ratio": 6.887838867719109,
             "mannwhitney_u": 130886.0,
-            "p_mannwhitney_greater": 1.3278780455105165e-38
+            "p_mannwhitney_greater": 1.327878045510517e-38
           },
           {
             "teff_threshold_gyr": 0.6300000000000001,
@@ -4976,7 +4976,7 @@
             "mean_dust_below": 0.13198903680501176,
             "mean_ratio": 6.775038221938252,
             "mannwhitney_u": 123613.0,
-            "p_mannwhitney_greater": 2.5924649436501563e-36
+            "p_mannwhitney_greater": 2.5924649436501556e-36
           },
           {
             "teff_threshold_gyr": 0.6400000000000001,
@@ -4996,7 +4996,7 @@
             "mean_dust_below": 0.13215962441314555,
             "mean_ratio": 6.93101243339254,
             "mannwhitney_u": 120478.5,
-            "p_mannwhitney_greater": 7.095459808625642e-37
+            "p_mannwhitney_greater": 7.0954598086256446e-37
           },
           {
             "teff_threshold_gyr": 0.6500000000000001,
@@ -5136,10 +5136,10 @@
             "mean_dust_below": 0.13595636930268795,
             "mean_ratio": 6.525472044669754,
             "mannwhitney_u": 93764.5,
-            "p_mannwhitney_greater": 1.4483647318157767e-28
+            "p_mannwhitney_greater": 1.4483647318157776e-28
           },
           {
-            "teff_threshold_gyr": 0.7200000000000001,
+            "teff_threshold_gyr": 0.7200000000000002,
             "n_above": 38,
             "n_below": 2568,
             "det_above": 38,
@@ -5156,10 +5156,10 @@
             "mean_dust_below": 0.1360202492211838,
             "mean_ratio": 6.636008859824914,
             "mannwhitney_u": 91569.5,
-            "p_mannwhitney_greater": 4.180698392954644e-28
+            "p_mannwhitney_greater": 4.180698392954646e-28
           },
           {
-            "teff_threshold_gyr": 0.7300000000000001,
+            "teff_threshold_gyr": 0.7300000000000002,
             "n_above": 38,
             "n_below": 2568,
             "det_above": 38,
@@ -5176,10 +5176,10 @@
             "mean_dust_below": 0.1360202492211838,
             "mean_ratio": 6.636008859824914,
             "mannwhitney_u": 91569.5,
-            "p_mannwhitney_greater": 4.180698392954644e-28
+            "p_mannwhitney_greater": 4.180698392954646e-28
           },
           {
-            "teff_threshold_gyr": 0.7400000000000001,
+            "teff_threshold_gyr": 0.7400000000000002,
             "n_above": 38,
             "n_below": 2568,
             "det_above": 38,
@@ -5196,10 +5196,10 @@
             "mean_dust_below": 0.1360202492211838,
             "mean_ratio": 6.636008859824914,
             "mannwhitney_u": 91569.5,
-            "p_mannwhitney_greater": 4.180698392954644e-28
+            "p_mannwhitney_greater": 4.180698392954646e-28
           },
           {
-            "teff_threshold_gyr": 0.7500000000000001,
+            "teff_threshold_gyr": 0.7500000000000002,
             "n_above": 36,
             "n_below": 2570,
             "det_above": 36,
@@ -5216,10 +5216,10 @@
             "mean_dust_below": 0.13673151750972762,
             "mean_ratio": 6.541611332447986,
             "mannwhitney_u": 86709.5,
-            "p_mannwhitney_greater": 1.290417052523987e-26
+            "p_mannwhitney_greater": 1.2904170525239877e-26
           },
           {
-            "teff_threshold_gyr": 0.7600000000000001,
+            "teff_threshold_gyr": 0.7600000000000002,
             "n_above": 36,
             "n_below": 2570,
             "det_above": 36,
@@ -5236,10 +5236,10 @@
             "mean_dust_below": 0.13673151750972762,
             "mean_ratio": 6.541611332447986,
             "mannwhitney_u": 86709.5,
-            "p_mannwhitney_greater": 1.290417052523987e-26
+            "p_mannwhitney_greater": 1.2904170525239877e-26
           },
           {
-            "teff_threshold_gyr": 0.7700000000000001,
+            "teff_threshold_gyr": 0.7700000000000002,
             "n_above": 35,
             "n_below": 2571,
             "det_above": 35,
@@ -5296,7 +5296,7 @@
             "mean_dust_below": 0.1381895881895882,
             "mean_ratio": 6.309266938431261,
             "mannwhitney_u": 76891.5,
-            "p_mannwhitney_greater": 1.5445204560138518e-23
+            "p_mannwhitney_greater": 1.544520456013852e-23
           },
           {
             "teff_threshold_gyr": 0.8000000000000002,
@@ -5316,7 +5316,7 @@
             "mean_dust_below": 0.1381895881895882,
             "mean_ratio": 6.309266938431261,
             "mannwhitney_u": 76891.5,
-            "p_mannwhitney_greater": 1.5445204560138518e-23
+            "p_mannwhitney_greater": 1.544520456013852e-23
           },
           {
             "teff_threshold_gyr": 0.8100000000000002,
@@ -5336,7 +5336,7 @@
             "mean_dust_below": 0.13833009708737865,
             "mean_ratio": 6.389578163771711,
             "mannwhitney_u": 74590.5,
-            "p_mannwhitney_greater": 5.862488263661098e-23
+            "p_mannwhitney_greater": 5.862488263661097e-23
           },
           {
             "teff_threshold_gyr": 0.8200000000000002,
@@ -5356,7 +5356,7 @@
             "mean_dust_below": 0.13833009708737865,
             "mean_ratio": 6.389578163771711,
             "mannwhitney_u": 74590.5,
-            "p_mannwhitney_greater": 5.862488263661098e-23
+            "p_mannwhitney_greater": 5.862488263661097e-23
           },
           {
             "teff_threshold_gyr": 0.8300000000000002,
@@ -5376,7 +5376,7 @@
             "mean_dust_below": 0.13833009708737865,
             "mean_ratio": 6.389578163771711,
             "mannwhitney_u": 74590.5,
-            "p_mannwhitney_greater": 5.862488263661098e-23
+            "p_mannwhitney_greater": 5.862488263661097e-23
           },
           {
             "teff_threshold_gyr": 0.8400000000000002,
@@ -5396,7 +5396,7 @@
             "mean_dust_below": 0.13833009708737865,
             "mean_ratio": 6.389578163771711,
             "mannwhitney_u": 74590.5,
-            "p_mannwhitney_greater": 5.862488263661098e-23
+            "p_mannwhitney_greater": 5.862488263661097e-23
           },
           {
             "teff_threshold_gyr": 0.8500000000000002,
@@ -5416,7 +5416,7 @@
             "mean_dust_below": 0.13874223602484473,
             "mean_ratio": 6.294646521171423,
             "mannwhitney_u": 72100.5,
-            "p_mannwhitney_greater": 3.758355819204489e-22
+            "p_mannwhitney_greater": 3.7583558192044877e-22
           },
           {
             "teff_threshold_gyr": 0.8600000000000002,
@@ -5436,10 +5436,10 @@
             "mean_dust_below": 0.13874223602484473,
             "mean_ratio": 6.294646521171423,
             "mannwhitney_u": 72100.5,
-            "p_mannwhitney_greater": 3.758355819204489e-22
+            "p_mannwhitney_greater": 3.7583558192044877e-22
           },
           {
-            "teff_threshold_gyr": 0.8700000000000001,
+            "teff_threshold_gyr": 0.8700000000000002,
             "n_above": 27,
             "n_below": 2579,
             "det_above": 27,
@@ -5459,7 +5459,7 @@
             "p_mannwhitney_greater": 4.426708659878972e-20
           },
           {
-            "teff_threshold_gyr": 0.8800000000000001,
+            "teff_threshold_gyr": 0.8800000000000002,
             "n_above": 26,
             "n_below": 2580,
             "det_above": 26,
@@ -5479,7 +5479,7 @@
             "p_mannwhitney_greater": 1.0914020225515158e-19
           },
           {
-            "teff_threshold_gyr": 0.8900000000000001,
+            "teff_threshold_gyr": 0.8900000000000002,
             "n_above": 26,
             "n_below": 2580,
             "det_above": 26,
@@ -5499,7 +5499,7 @@
             "p_mannwhitney_greater": 1.0914020225515158e-19
           },
           {
-            "teff_threshold_gyr": 0.9000000000000001,
+            "teff_threshold_gyr": 0.9000000000000002,
             "n_above": 26,
             "n_below": 2580,
             "det_above": 26,
@@ -5519,7 +5519,7 @@
             "p_mannwhitney_greater": 1.0914020225515158e-19
           },
           {
-            "teff_threshold_gyr": 0.9100000000000001,
+            "teff_threshold_gyr": 0.9100000000000003,
             "n_above": 25,
             "n_below": 2581,
             "det_above": 25,
@@ -5536,10 +5536,10 @@
             "mean_dust_below": 0.13982952344052693,
             "mean_ratio": 6.493621501801054,
             "mannwhitney_u": 60409.5,
-            "p_mannwhitney_greater": 4.636447530930701e-19
+            "p_mannwhitney_greater": 4.636447530930702e-19
           },
           {
-            "teff_threshold_gyr": 0.9200000000000002,
+            "teff_threshold_gyr": 0.9200000000000003,
             "n_above": 25,
             "n_below": 2581,
             "det_above": 25,
@@ -5556,7 +5556,7 @@
             "mean_dust_below": 0.13982952344052693,
             "mean_ratio": 6.493621501801054,
             "mannwhitney_u": 60409.5,
-            "p_mannwhitney_greater": 4.636447530930701e-19
+            "p_mannwhitney_greater": 4.636447530930702e-19
           },
           {
             "teff_threshold_gyr": 0.9300000000000002,
@@ -5616,7 +5616,7 @@
             "mean_dust_below": 0.14018583042973287,
             "mean_ratio": 6.668167573214221,
             "mannwhitney_u": 55732.5,
-            "p_mannwhitney_greater": 7.80026760193312e-18
+            "p_mannwhitney_greater": 7.800267601933122e-18
           },
           {
             "teff_threshold_gyr": 0.9600000000000002,
@@ -5636,7 +5636,7 @@
             "mean_dust_below": 0.14018583042973287,
             "mean_ratio": 6.668167573214221,
             "mannwhitney_u": 55732.5,
-            "p_mannwhitney_greater": 7.80026760193312e-18
+            "p_mannwhitney_greater": 7.800267601933122e-18
           },
           {
             "teff_threshold_gyr": 0.9700000000000002,
@@ -5656,7 +5656,7 @@
             "mean_dust_below": 0.14018583042973287,
             "mean_ratio": 6.668167573214221,
             "mannwhitney_u": 55732.5,
-            "p_mannwhitney_greater": 7.80026760193312e-18
+            "p_mannwhitney_greater": 7.800267601933122e-18
           },
           {
             "teff_threshold_gyr": 0.9800000000000002,
@@ -5676,7 +5676,7 @@
             "mean_dust_below": 0.14018583042973287,
             "mean_ratio": 6.668167573214221,
             "mannwhitney_u": 55732.5,
-            "p_mannwhitney_greater": 7.80026760193312e-18
+            "p_mannwhitney_greater": 7.800267601933122e-18
           },
           {
             "teff_threshold_gyr": 0.9900000000000002,
@@ -5696,7 +5696,7 @@
             "mean_dust_below": 0.14018583042973287,
             "mean_ratio": 6.668167573214221,
             "mannwhitney_u": 55732.5,
-            "p_mannwhitney_greater": 7.80026760193312e-18
+            "p_mannwhitney_greater": 7.800267601933122e-18
           },
           {
             "teff_threshold_gyr": 1.0000000000000002,
@@ -5836,7 +5836,7 @@
             "mean_dust_below": 0.14122196442382057,
             "mean_ratio": 6.514567360350493,
             "mannwhitney_u": 48363.5,
-            "p_mannwhitney_greater": 1.4253596937531166e-15
+            "p_mannwhitney_greater": 1.4253596937531164e-15
           },
           {
             "teff_threshold_gyr": 1.0700000000000003,
@@ -5939,7 +5939,7 @@
             "p_mannwhitney_greater": 6.357519627337636e-15
           },
           {
-            "teff_threshold_gyr": 1.12,
+            "teff_threshold_gyr": 1.1200000000000003,
             "n_above": 19,
             "n_below": 2587,
             "det_above": 19,
@@ -5959,7 +5959,7 @@
             "p_mannwhitney_greater": 6.357519627337636e-15
           },
           {
-            "teff_threshold_gyr": 1.1300000000000001,
+            "teff_threshold_gyr": 1.1300000000000003,
             "n_above": 19,
             "n_below": 2587,
             "det_above": 19,
@@ -5979,7 +5979,7 @@
             "p_mannwhitney_greater": 6.357519627337636e-15
           },
           {
-            "teff_threshold_gyr": 1.1400000000000001,
+            "teff_threshold_gyr": 1.1400000000000003,
             "n_above": 19,
             "n_below": 2587,
             "det_above": 19,
@@ -5999,7 +5999,7 @@
             "p_mannwhitney_greater": 6.357519627337636e-15
           },
           {
-            "teff_threshold_gyr": 1.1500000000000001,
+            "teff_threshold_gyr": 1.1500000000000004,
             "n_above": 19,
             "n_below": 2587,
             "det_above": 19,
@@ -6019,7 +6019,7 @@
             "p_mannwhitney_greater": 6.357519627337636e-15
           },
           {
-            "teff_threshold_gyr": 1.1600000000000001,
+            "teff_threshold_gyr": 1.1600000000000004,
             "n_above": 19,
             "n_below": 2587,
             "det_above": 19,
@@ -6176,7 +6176,7 @@
             "mean_dust_below": 0.14184698608964452,
             "mean_ratio": 6.4623626623081805,
             "mannwhitney_u": 43488.5,
-            "p_mannwhitney_greater": 4.066547337520818e-14
+            "p_mannwhitney_greater": 4.066547337520819e-14
           },
           {
             "teff_threshold_gyr": 1.2400000000000002,
@@ -6196,7 +6196,7 @@
             "mean_dust_below": 0.14184698608964452,
             "mean_ratio": 6.4623626623081805,
             "mannwhitney_u": 43488.5,
-            "p_mannwhitney_greater": 4.066547337520818e-14
+            "p_mannwhitney_greater": 4.066547337520819e-14
           },
           {
             "teff_threshold_gyr": 1.2500000000000002,
@@ -6216,7 +6216,7 @@
             "mean_dust_below": 0.14184698608964452,
             "mean_ratio": 6.4623626623081805,
             "mannwhitney_u": 43488.5,
-            "p_mannwhitney_greater": 4.066547337520818e-14
+            "p_mannwhitney_greater": 4.066547337520819e-14
           },
           {
             "teff_threshold_gyr": 1.2600000000000002,
@@ -6236,7 +6236,7 @@
             "mean_dust_below": 0.14184698608964452,
             "mean_ratio": 6.4623626623081805,
             "mannwhitney_u": 43488.5,
-            "p_mannwhitney_greater": 4.066547337520818e-14
+            "p_mannwhitney_greater": 4.066547337520819e-14
           },
           {
             "teff_threshold_gyr": 1.2700000000000002,
@@ -6256,7 +6256,7 @@
             "mean_dust_below": 0.14184698608964452,
             "mean_ratio": 6.4623626623081805,
             "mannwhitney_u": 43488.5,
-            "p_mannwhitney_greater": 4.066547337520818e-14
+            "p_mannwhitney_greater": 4.066547337520819e-14
           },
           {
             "teff_threshold_gyr": 1.2800000000000002,
@@ -6276,7 +6276,7 @@
             "mean_dust_below": 0.14184698608964452,
             "mean_ratio": 6.4623626623081805,
             "mannwhitney_u": 43488.5,
-            "p_mannwhitney_greater": 4.066547337520818e-14
+            "p_mannwhitney_greater": 4.066547337520819e-14
           },
           {
             "teff_threshold_gyr": 1.2900000000000003,
@@ -6296,7 +6296,7 @@
             "mean_dust_below": 0.1420239474700657,
             "mean_ratio": 6.585467692652257,
             "mannwhitney_u": 41131.5,
-            "p_mannwhitney_greater": 1.7251121343992316e-13
+            "p_mannwhitney_greater": 1.7251121343992323e-13
           },
           {
             "teff_threshold_gyr": 1.3000000000000003,
@@ -6516,7 +6516,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.4100000000000004,
@@ -6536,7 +6536,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.4200000000000004,
@@ -6556,10 +6556,10 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
-            "teff_threshold_gyr": 1.4300000000000002,
+            "teff_threshold_gyr": 1.4300000000000004,
             "n_above": 15,
             "n_below": 2591,
             "det_above": 15,
@@ -6576,10 +6576,10 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
-            "teff_threshold_gyr": 1.4400000000000002,
+            "teff_threshold_gyr": 1.4400000000000004,
             "n_above": 15,
             "n_below": 2591,
             "det_above": 15,
@@ -6596,10 +6596,10 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
-            "teff_threshold_gyr": 1.4500000000000002,
+            "teff_threshold_gyr": 1.4500000000000004,
             "n_above": 15,
             "n_below": 2591,
             "det_above": 15,
@@ -6616,10 +6616,10 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
-            "teff_threshold_gyr": 1.4600000000000002,
+            "teff_threshold_gyr": 1.4600000000000004,
             "n_above": 15,
             "n_below": 2591,
             "det_above": 15,
@@ -6636,10 +6636,10 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
-            "teff_threshold_gyr": 1.4700000000000002,
+            "teff_threshold_gyr": 1.4700000000000004,
             "n_above": 15,
             "n_below": 2591,
             "det_above": 15,
@@ -6656,10 +6656,10 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
-            "teff_threshold_gyr": 1.4800000000000002,
+            "teff_threshold_gyr": 1.4800000000000004,
             "n_above": 15,
             "n_below": 2591,
             "det_above": 15,
@@ -6676,10 +6676,10 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
-            "teff_threshold_gyr": 1.4900000000000002,
+            "teff_threshold_gyr": 1.4900000000000004,
             "n_above": 15,
             "n_below": 2591,
             "det_above": 15,
@@ -6696,7 +6696,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.5000000000000002,
@@ -6716,7 +6716,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.5100000000000002,
@@ -6736,7 +6736,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.5200000000000002,
@@ -6756,7 +6756,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.5300000000000002,
@@ -6776,7 +6776,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.5400000000000003,
@@ -6796,7 +6796,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.5500000000000003,
@@ -6816,7 +6816,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.5600000000000003,
@@ -6836,7 +6836,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.5700000000000003,
@@ -6856,7 +6856,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.5800000000000003,
@@ -6876,7 +6876,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.5900000000000003,
@@ -6896,7 +6896,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.6000000000000003,
@@ -6916,7 +6916,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.6100000000000003,
@@ -6936,7 +6936,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.6200000000000003,
@@ -6956,7 +6956,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.6300000000000003,
@@ -6976,7 +6976,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.6400000000000003,
@@ -6996,7 +6996,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.6500000000000004,
@@ -7016,7 +7016,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.6600000000000004,
@@ -7036,7 +7036,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.6700000000000004,
@@ -7056,7 +7056,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.6800000000000004,
@@ -7076,7 +7076,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.6900000000000004,
@@ -7096,7 +7096,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.7000000000000004,
@@ -7116,7 +7116,7 @@
             "mean_dust_below": 0.1428406020841374,
             "mean_ratio": 6.300729532558767,
             "mannwhitney_u": 36122.5,
-            "p_mannwhitney_greater": 7.062040000395307e-12
+            "p_mannwhitney_greater": 7.0620400003953076e-12
           },
           {
             "teff_threshold_gyr": 1.7100000000000004,
@@ -7219,7 +7219,7 @@
             "p_mannwhitney_greater": 3.00484242346251e-11
           },
           {
-            "teff_threshold_gyr": 1.7600000000000002,
+            "teff_threshold_gyr": 1.7600000000000005,
             "n_above": 14,
             "n_below": 2592,
             "det_above": 14,
@@ -7239,7 +7239,7 @@
             "p_mannwhitney_greater": 3.00484242346251e-11
           },
           {
-            "teff_threshold_gyr": 1.7700000000000002,
+            "teff_threshold_gyr": 1.7700000000000005,
             "n_above": 14,
             "n_below": 2592,
             "det_above": 14,
@@ -7259,7 +7259,7 @@
             "p_mannwhitney_greater": 3.00484242346251e-11
           },
           {
-            "teff_threshold_gyr": 1.7800000000000002,
+            "teff_threshold_gyr": 1.7800000000000005,
             "n_above": 14,
             "n_below": 2592,
             "det_above": 14,
@@ -7279,7 +7279,7 @@
             "p_mannwhitney_greater": 3.00484242346251e-11
           },
           {
-            "teff_threshold_gyr": 1.7900000000000003,
+            "teff_threshold_gyr": 1.7900000000000005,
             "n_above": 14,
             "n_below": 2592,
             "det_above": 14,
@@ -7299,7 +7299,7 @@
             "p_mannwhitney_greater": 3.00484242346251e-11
           },
           {
-            "teff_threshold_gyr": 1.8000000000000003,
+            "teff_threshold_gyr": 1.8000000000000005,
             "n_above": 14,
             "n_below": 2592,
             "det_above": 14,
@@ -7737,13 +7737,13 @@
           "mean_dust_below": 0.13215962441314555,
           "mean_ratio": 6.93101243339254,
           "mannwhitney_u": 120478.5,
-          "p_mannwhitney_greater": 7.095459808625642e-37
+          "p_mannwhitney_greater": 7.0954598086256446e-37
         }
       },
       "bootstrap_best_threshold": {
         "n_boot": 400,
         "seed": 42,
-        "threshold_q16": 0.4200000000000001,
+        "threshold_q16": 0.42000000000000004,
         "threshold_q50": 0.4700000000000001,
         "threshold_q84": 0.6400000000000001
       }
@@ -7818,7 +7818,7 @@
         "non_det_below": 0
       },
       {
-        "teff_threshold_gyr": 0.12000000000000002,
+        "teff_threshold_gyr": 0.12000000000000001,
         "n_above": 2971,
         "n_below": 0,
         "det_above": 1283,
@@ -7872,7 +7872,7 @@
         "non_det_below": 0
       },
       {
-        "teff_threshold_gyr": 0.18000000000000002,
+        "teff_threshold_gyr": 0.18000000000000005,
         "n_above": 2971,
         "n_below": 0,
         "det_above": 1283,
@@ -7881,7 +7881,7 @@
         "non_det_below": 0
       },
       {
-        "teff_threshold_gyr": 0.19000000000000003,
+        "teff_threshold_gyr": 0.19,
         "n_above": 2971,
         "n_below": 0,
         "det_above": 1283,
@@ -7890,7 +7890,7 @@
         "non_det_below": 0
       },
       {
-        "teff_threshold_gyr": 0.20000000000000004,
+        "teff_threshold_gyr": 0.2,
         "n_above": 2966,
         "n_below": 5,
         "det_above": 1279,
@@ -7996,7 +7996,7 @@
         "mean_dust_below": 0.024547417578023506,
         "mean_ratio": 10.658593162113089,
         "mannwhitney_u": 874536.0,
-        "p_mannwhitney_greater": 2.2438495796395126e-59
+        "p_mannwhitney_greater": 2.243849579639512e-59
       },
       {
         "teff_threshold_gyr": 0.26000000000000006,
@@ -8016,7 +8016,7 @@
         "mean_dust_below": 0.03155566014579008,
         "mean_ratio": 9.008284799849323,
         "mannwhitney_u": 1184182.0,
-        "p_mannwhitney_greater": 3.233438191352476e-88
+        "p_mannwhitney_greater": 3.233438191352477e-88
       },
       {
         "teff_threshold_gyr": 0.27,
@@ -8036,7 +8036,7 @@
         "mean_dust_below": 0.04740594934287291,
         "mean_ratio": 6.324595434545427,
         "mannwhitney_u": 1357437.5,
-        "p_mannwhitney_greater": 2.001443261145772e-100
+        "p_mannwhitney_greater": 2.001443261145773e-100
       },
       {
         "teff_threshold_gyr": 0.28,
@@ -8076,7 +8076,7 @@
         "mean_dust_below": 0.06334237275974897,
         "mean_ratio": 5.4121780416110035,
         "mannwhitney_u": 1605276.0,
-        "p_mannwhitney_greater": 8.089983012284054e-138
+        "p_mannwhitney_greater": 8.089983012284053e-138
       },
       {
         "teff_threshold_gyr": 0.30000000000000004,
@@ -8116,7 +8116,7 @@
         "mean_dust_below": 0.08688907551052764,
         "mean_ratio": 4.310502477224463,
         "mannwhitney_u": 1639333.5,
-        "p_mannwhitney_greater": 7.880608976089768e-146
+        "p_mannwhitney_greater": 7.880608976089769e-146
       },
       {
         "teff_threshold_gyr": 0.32000000000000006,
@@ -8136,10 +8136,10 @@
         "mean_dust_below": 0.10190388314413766,
         "mean_ratio": 3.827105849023766,
         "mannwhitney_u": 1593949.5,
-        "p_mannwhitney_greater": 1.319386370576656e-139
+        "p_mannwhitney_greater": 1.3193863705766556e-139
       },
       {
-        "teff_threshold_gyr": 0.33000000000000007,
+        "teff_threshold_gyr": 0.33,
         "n_above": 1057,
         "n_below": 1914,
         "det_above": 782,
@@ -8159,7 +8159,7 @@
         "p_mannwhitney_greater": 4.7315360431068506e-141
       },
       {
-        "teff_threshold_gyr": 0.3400000000000001,
+        "teff_threshold_gyr": 0.34,
         "n_above": 864,
         "n_below": 2107,
         "det_above": 674,
@@ -8176,10 +8176,10 @@
         "mean_dust_below": 0.1281170313760091,
         "mean_ratio": 3.5106861475749773,
         "mannwhitney_u": 1389518.5,
-        "p_mannwhitney_greater": 1.2030523747884424e-138
+        "p_mannwhitney_greater": 1.2030523747884423e-138
       },
       {
-        "teff_threshold_gyr": 0.3500000000000001,
+        "teff_threshold_gyr": 0.35000000000000003,
         "n_above": 647,
         "n_below": 2324,
         "det_above": 551,
@@ -8216,7 +8216,7 @@
         "mean_dust_below": 0.14319946029862196,
         "mean_ratio": 4.4055225005557865,
         "mannwhitney_u": 1002717.5,
-        "p_mannwhitney_greater": 2.062366593871726e-152
+        "p_mannwhitney_greater": 2.0623665938717263e-152
       },
       {
         "teff_threshold_gyr": 0.37000000000000005,
@@ -8296,7 +8296,7 @@
         "mean_dust_below": 0.16695451549765222,
         "mean_ratio": 4.618943177848598,
         "mannwhitney_u": 637978.0,
-        "p_mannwhitney_greater": 2.339759713565686e-114
+        "p_mannwhitney_greater": 2.339759713565687e-114
       },
       {
         "teff_threshold_gyr": 0.4100000000000001,
@@ -8316,10 +8316,10 @@
         "mean_dust_below": 0.17472187302664202,
         "mean_ratio": 4.440262825753355,
         "mannwhitney_u": 555568.0,
-        "p_mannwhitney_greater": 1.7699316869287716e-98
+        "p_mannwhitney_greater": 1.7699316869287733e-98
       },
       {
-        "teff_threshold_gyr": 0.4200000000000001,
+        "teff_threshold_gyr": 0.42000000000000004,
         "n_above": 213,
         "n_below": 2758,
         "det_above": 211,
@@ -8336,7 +8336,7 @@
         "mean_dust_below": 0.17673991911549772,
         "mean_ratio": 4.545090566657716,
         "mannwhitney_u": 517939.0,
-        "p_mannwhitney_greater": 9.483992002951278e-95
+        "p_mannwhitney_greater": 9.483992002951282e-95
       },
       {
         "teff_threshold_gyr": 0.43000000000000005,
@@ -8356,7 +8356,7 @@
         "mean_dust_below": 0.18037016801746772,
         "mean_ratio": 4.542240934825808,
         "mannwhitney_u": 469801.5,
-        "p_mannwhitney_greater": 9.610064985173935e-86
+        "p_mannwhitney_greater": 9.610064985173932e-86
       },
       {
         "teff_threshold_gyr": 0.44000000000000006,
@@ -8396,7 +8396,7 @@
         "mean_dust_below": 0.18444859096284388,
         "mean_ratio": 4.61071671072011,
         "mannwhitney_u": 409961.5,
-        "p_mannwhitney_greater": 4.35780690906529e-75
+        "p_mannwhitney_greater": 4.3578069090652915e-75
       },
       {
         "teff_threshold_gyr": 0.4600000000000001,
@@ -8416,7 +8416,7 @@
         "mean_dust_below": 0.18542745920098655,
         "mean_ratio": 4.7213526107844155,
         "mannwhitney_u": 388145.5,
-        "p_mannwhitney_greater": 3.4788125960521103e-72
+        "p_mannwhitney_greater": 3.478812596052112e-72
       },
       {
         "teff_threshold_gyr": 0.4700000000000001,
@@ -8456,10 +8456,10 @@
         "mean_dust_below": 0.189803653279566,
         "mean_ratio": 4.806453372745874,
         "mannwhitney_u": 330317.0,
-        "p_mannwhitney_greater": 1.0165853942418085e-62
+        "p_mannwhitney_greater": 1.0165853942418089e-62
       },
       {
-        "teff_threshold_gyr": 0.4900000000000001,
+        "teff_threshold_gyr": 0.49000000000000005,
         "n_above": 122,
         "n_below": 2849,
         "det_above": 121,
@@ -8476,7 +8476,7 @@
         "mean_dust_below": 0.19203732275246735,
         "mean_ratio": 4.756462622536997,
         "mannwhitney_u": 308905.0,
-        "p_mannwhitney_greater": 5.411938778187836e-59
+        "p_mannwhitney_greater": 5.411938778187838e-59
       },
       {
         "teff_threshold_gyr": 0.5000000000000001,
@@ -8496,7 +8496,7 @@
         "mean_dust_below": 0.192226465494667,
         "mean_ratio": 4.8881552532012,
         "mannwhitney_u": 298368.0,
-        "p_mannwhitney_greater": 4.0796171655061156e-58
+        "p_mannwhitney_greater": 4.079617165506116e-58
       },
       {
         "teff_threshold_gyr": 0.5100000000000001,
@@ -8516,7 +8516,7 @@
         "mean_dust_below": 0.19326147188042614,
         "mean_ratio": 5.005199793739362,
         "mannwhitney_u": 279382.5,
-        "p_mannwhitney_greater": 5.6210647227537504e-55
+        "p_mannwhitney_greater": 5.621064722753752e-55
       },
       {
         "teff_threshold_gyr": 0.5200000000000001,
@@ -8556,7 +8556,7 @@
         "mean_dust_below": 0.1947821492067478,
         "mean_ratio": 5.141047219496869,
         "mannwhitney_u": 255168.0,
-        "p_mannwhitney_greater": 9.505478030490382e-51
+        "p_mannwhitney_greater": 9.505478030490378e-51
       },
       {
         "teff_threshold_gyr": 0.5400000000000001,
@@ -8576,10 +8576,10 @@
         "mean_dust_below": 0.19586699624608556,
         "mean_ratio": 5.0333768762109345,
         "mannwhitney_u": 249941.0,
-        "p_mannwhitney_greater": 1.3794668490555358e-49
+        "p_mannwhitney_greater": 1.379466849055536e-49
       },
       {
-        "teff_threshold_gyr": 0.55,
+        "teff_threshold_gyr": 0.5500000000000002,
         "n_above": 93,
         "n_below": 2878,
         "det_above": 92,
@@ -8596,10 +8596,10 @@
         "mean_dust_below": 0.19617012539289086,
         "mean_ratio": 5.150990390969632,
         "mannwhitney_u": 240747.0,
-        "p_mannwhitney_greater": 2.307620678858396e-48
+        "p_mannwhitney_greater": 2.3076206788583955e-48
       },
       {
-        "teff_threshold_gyr": 0.56,
+        "teff_threshold_gyr": 0.5600000000000002,
         "n_above": 82,
         "n_below": 2889,
         "det_above": 81,
@@ -8619,7 +8619,7 @@
         "p_mannwhitney_greater": 1.3030795220549718e-43
       },
       {
-        "teff_threshold_gyr": 0.5700000000000001,
+        "teff_threshold_gyr": 0.5700000000000002,
         "n_above": 77,
         "n_below": 2894,
         "det_above": 76,
@@ -8632,14 +8632,14 @@
         "odds_ratio": 106.22369511184756,
         "log_odds_ratio": 4.266521669944283,
         "p_fisher_greater": 2.3812848111562663e-27,
-        "mean_dust_above": 1.0570799882163484,
+        "mean_dust_above": 1.0570799882163482,
         "mean_dust_below": 0.19943200133421948,
-        "mean_ratio": 5.3004531927894245,
+        "mean_ratio": 5.300453192789424,
         "mannwhitney_u": 201926.5,
         "p_mannwhitney_greater": 6.528921872713773e-42
       },
       {
-        "teff_threshold_gyr": 0.5800000000000001,
+        "teff_threshold_gyr": 0.5800000000000002,
         "n_above": 72,
         "n_below": 2899,
         "det_above": 71,
@@ -8656,10 +8656,10 @@
         "mean_dust_below": 0.20050231523326362,
         "mean_ratio": 5.35427172019421,
         "mannwhitney_u": 189106.5,
-        "p_mannwhitney_greater": 2.343024945123338e-39
+        "p_mannwhitney_greater": 2.3430249451233387e-39
       },
       {
-        "teff_threshold_gyr": 0.5900000000000001,
+        "teff_threshold_gyr": 0.5900000000000002,
         "n_above": 68,
         "n_below": 2903,
         "det_above": 67,
@@ -8676,10 +8676,10 @@
         "mean_dust_below": 0.20119056557396875,
         "mean_ratio": 5.4451710613513065,
         "mannwhitney_u": 179105.5,
-        "p_mannwhitney_greater": 1.469093463267103e-37
+        "p_mannwhitney_greater": 1.4690934632671034e-37
       },
       {
-        "teff_threshold_gyr": 0.6000000000000001,
+        "teff_threshold_gyr": 0.6000000000000002,
         "n_above": 66,
         "n_below": 2905,
         "det_above": 65,
@@ -8716,7 +8716,7 @@
         "mean_dust_below": 0.20153345212017593,
         "mean_ratio": 5.56465427571879,
         "mannwhitney_u": 172196.0,
-        "p_mannwhitney_greater": 9.449062958121172e-37
+        "p_mannwhitney_greater": 9.449062958121173e-37
       },
       {
         "teff_threshold_gyr": 0.6200000000000001,
@@ -8756,7 +8756,7 @@
         "mean_dust_below": 0.2025279078560932,
         "mean_ratio": 5.6009410376049,
         "mannwhitney_u": 161673.0,
-        "p_mannwhitney_greater": 1.5901041496768688e-34
+        "p_mannwhitney_greater": 1.590104149676869e-34
       },
       {
         "teff_threshold_gyr": 0.6400000000000001,
@@ -8776,7 +8776,7 @@
         "mean_dust_below": 0.2026291936336646,
         "mean_ratio": 5.729356560409748,
         "mannwhitney_u": 158387.5,
-        "p_mannwhitney_greater": 3.321410717863894e-35
+        "p_mannwhitney_greater": 3.3214107178638934e-35
       },
       {
         "teff_threshold_gyr": 0.6500000000000001,
@@ -8796,7 +8796,7 @@
         "mean_dust_below": 0.2030735112770183,
         "mean_ratio": 5.770545301518369,
         "mannwhitney_u": 153201.5,
-        "p_mannwhitney_greater": 3.5758500646275162e-34
+        "p_mannwhitney_greater": 3.575850064627516e-34
       },
       {
         "teff_threshold_gyr": 0.6600000000000001,
@@ -8816,7 +8816,7 @@
         "mean_dust_below": 0.2037572743008338,
         "mean_ratio": 5.746155951631651,
         "mannwhitney_u": 147622.5,
-        "p_mannwhitney_greater": 8.716687134664834e-33
+        "p_mannwhitney_greater": 8.716687134664832e-33
       },
       {
         "teff_threshold_gyr": 0.6700000000000002,
@@ -8836,7 +8836,7 @@
         "mean_dust_below": 0.20454135384077812,
         "mean_ratio": 5.781712065135432,
         "mannwhitney_u": 139635.5,
-        "p_mannwhitney_greater": 4.5944744957362175e-31
+        "p_mannwhitney_greater": 4.594474495736217e-31
       },
       {
         "teff_threshold_gyr": 0.6800000000000002,
@@ -8896,7 +8896,7 @@
         "mean_dust_below": 0.2053580464959724,
         "mean_ratio": 5.813157932511062,
         "mannwhitney_u": 131573.5,
-        "p_mannwhitney_greater": 2.763608832681852e-29
+        "p_mannwhitney_greater": 2.7636088326818545e-29
       },
       {
         "teff_threshold_gyr": 0.7100000000000002,
@@ -8916,10 +8916,10 @@
         "mean_dust_below": 0.2056983276979922,
         "mean_ratio": 5.802911288205756,
         "mannwhitney_u": 128776.5,
-        "p_mannwhitney_greater": 1.3547000737929784e-28
+        "p_mannwhitney_greater": 1.3547000737929787e-28
       },
       {
-        "teff_threshold_gyr": 0.7200000000000001,
+        "teff_threshold_gyr": 0.7200000000000002,
         "n_above": 47,
         "n_below": 2924,
         "det_above": 47,
@@ -8939,7 +8939,7 @@
         "p_mannwhitney_greater": 2.224463503990974e-28
       },
       {
-        "teff_threshold_gyr": 0.7300000000000001,
+        "teff_threshold_gyr": 0.7300000000000002,
         "n_above": 47,
         "n_below": 2924,
         "det_above": 47,
@@ -8959,7 +8959,7 @@
         "p_mannwhitney_greater": 2.224463503990974e-28
       },
       {
-        "teff_threshold_gyr": 0.7400000000000001,
+        "teff_threshold_gyr": 0.7400000000000002,
         "n_above": 47,
         "n_below": 2924,
         "det_above": 47,
@@ -8979,7 +8979,7 @@
         "p_mannwhitney_greater": 2.224463503990974e-28
       },
       {
-        "teff_threshold_gyr": 0.7500000000000001,
+        "teff_threshold_gyr": 0.7500000000000002,
         "n_above": 45,
         "n_below": 2926,
         "det_above": 45,
@@ -8996,10 +8996,10 @@
         "mean_dust_below": 0.20630765955612823,
         "mean_ratio": 5.912976895312133,
         "mannwhitney_u": 121113.5,
-        "p_mannwhitney_greater": 3.4121273593775514e-27
+        "p_mannwhitney_greater": 3.412127359377551e-27
       },
       {
-        "teff_threshold_gyr": 0.7600000000000001,
+        "teff_threshold_gyr": 0.7600000000000002,
         "n_above": 45,
         "n_below": 2926,
         "det_above": 45,
@@ -9016,10 +9016,10 @@
         "mean_dust_below": 0.20630765955612823,
         "mean_ratio": 5.912976895312133,
         "mannwhitney_u": 121113.5,
-        "p_mannwhitney_greater": 3.4121273593775514e-27
+        "p_mannwhitney_greater": 3.412127359377551e-27
       },
       {
-        "teff_threshold_gyr": 0.7700000000000001,
+        "teff_threshold_gyr": 0.7700000000000002,
         "n_above": 44,
         "n_below": 2927,
         "det_above": 44,
@@ -9036,7 +9036,7 @@
         "mean_dust_below": 0.2066471513020947,
         "mean_ratio": 5.905450508965159,
         "mannwhitney_u": 118312.5,
-        "p_mannwhitney_greater": 1.669562040106623e-26
+        "p_mannwhitney_greater": 1.6695620401066232e-26
       },
       {
         "teff_threshold_gyr": 0.7800000000000001,
@@ -9056,7 +9056,7 @@
         "mean_dust_below": 0.2069864111547921,
         "mean_ratio": 5.898057010151621,
         "mannwhitney_u": 115510.5,
-        "p_mannwhitney_greater": 8.157704542494954e-26
+        "p_mannwhitney_greater": 8.157704542494955e-26
       },
       {
         "teff_threshold_gyr": 0.7900000000000001,
@@ -9076,7 +9076,7 @@
         "mean_dust_below": 0.20749358766594925,
         "mean_ratio": 5.947307983991086,
         "mannwhitney_u": 110187.5,
-        "p_mannwhitney_greater": 1.0722028709125158e-24
+        "p_mannwhitney_greater": 1.0722028709125152e-24
       },
       {
         "teff_threshold_gyr": 0.8000000000000002,
@@ -9096,7 +9096,7 @@
         "mean_dust_below": 0.20749358766594925,
         "mean_ratio": 5.947307983991086,
         "mannwhitney_u": 110187.5,
-        "p_mannwhitney_greater": 1.0722028709125158e-24
+        "p_mannwhitney_greater": 1.0722028709125152e-24
       },
       {
         "teff_threshold_gyr": 0.8100000000000002,
@@ -9136,7 +9136,7 @@
         "mean_dust_below": 0.20829211269657508,
         "mean_ratio": 5.889029385801563,
         "mannwhitney_u": 104848.5,
-        "p_mannwhitney_greater": 1.441668477869622e-23
+        "p_mannwhitney_greater": 1.4416684778696224e-23
       },
       {
         "teff_threshold_gyr": 0.8300000000000002,
@@ -9156,7 +9156,7 @@
         "mean_dust_below": 0.20829211269657508,
         "mean_ratio": 5.889029385801563,
         "mannwhitney_u": 104848.5,
-        "p_mannwhitney_greater": 1.441668477869622e-23
+        "p_mannwhitney_greater": 1.4416684778696224e-23
       },
       {
         "teff_threshold_gyr": 0.8400000000000002,
@@ -9172,9 +9172,9 @@
         "odds_ratio": null,
         "log_odds_ratio": 4.648108926977071,
         "p_fisher_greater": 1.0120278515371344e-14,
-        "mean_dust_above": 1.1553576964021957,
+        "mean_dust_above": 1.1553576964021954,
         "mean_dust_below": 0.20956282935240597,
-        "mean_ratio": 5.51318046226279,
+        "mean_ratio": 5.513180462262788,
         "mannwhitney_u": 101916.5,
         "p_mannwhitney_greater": 9.103380215942424e-23
       },
@@ -9192,9 +9192,9 @@
         "odds_ratio": null,
         "log_odds_ratio": 4.62098905039832,
         "p_fisher_greater": 2.3830575573113577e-14,
-        "mean_dust_above": 1.1541511476563089,
+        "mean_dust_above": 1.1541511476563087,
         "mean_dust_below": 0.20990040166687346,
-        "mean_ratio": 5.498565693495085,
+        "mean_ratio": 5.498565693495084,
         "mannwhitney_u": 99108.5,
         "p_mannwhitney_greater": 4.420644731072751e-22
       },
@@ -9212,14 +9212,14 @@
         "odds_ratio": null,
         "log_odds_ratio": 4.62098905039832,
         "p_fisher_greater": 2.3830575573113577e-14,
-        "mean_dust_above": 1.1541511476563089,
+        "mean_dust_above": 1.1541511476563087,
         "mean_dust_below": 0.20990040166687346,
-        "mean_ratio": 5.498565693495085,
+        "mean_ratio": 5.498565693495084,
         "mannwhitney_u": 99108.5,
         "p_mannwhitney_greater": 4.420644731072751e-22
       },
       {
-        "teff_threshold_gyr": 0.8700000000000001,
+        "teff_threshold_gyr": 0.8700000000000002,
         "n_above": 34,
         "n_below": 2937,
         "det_above": 34,
@@ -9236,10 +9236,10 @@
         "mean_dust_below": 0.21060530421879697,
         "mean_ratio": 5.58664110234261,
         "mannwhitney_u": 91216.5,
-        "p_mannwhitney_greater": 1.651573639062532e-20
+        "p_mannwhitney_greater": 1.6515736390625318e-20
       },
       {
-        "teff_threshold_gyr": 0.8800000000000001,
+        "teff_threshold_gyr": 0.8800000000000002,
         "n_above": 33,
         "n_below": 2938,
         "det_above": 33,
@@ -9256,10 +9256,10 @@
         "mean_dust_below": 0.2106016945168845,
         "mean_ratio": 5.727254338343625,
         "mannwhitney_u": 89003.5,
-        "p_mannwhitney_greater": 2.2945018769689173e-20
+        "p_mannwhitney_greater": 2.294501876968917e-20
       },
       {
-        "teff_threshold_gyr": 0.8900000000000001,
+        "teff_threshold_gyr": 0.8900000000000002,
         "n_above": 33,
         "n_below": 2938,
         "det_above": 33,
@@ -9276,10 +9276,10 @@
         "mean_dust_below": 0.2106016945168845,
         "mean_ratio": 5.727254338343625,
         "mannwhitney_u": 89003.5,
-        "p_mannwhitney_greater": 2.2945018769689173e-20
+        "p_mannwhitney_greater": 2.294501876968917e-20
       },
       {
-        "teff_threshold_gyr": 0.9000000000000001,
+        "teff_threshold_gyr": 0.9000000000000002,
         "n_above": 33,
         "n_below": 2938,
         "det_above": 33,
@@ -9296,10 +9296,10 @@
         "mean_dust_below": 0.2106016945168845,
         "mean_ratio": 5.727254338343625,
         "mannwhitney_u": 89003.5,
-        "p_mannwhitney_greater": 2.2945018769689173e-20
+        "p_mannwhitney_greater": 2.294501876968917e-20
       },
       {
-        "teff_threshold_gyr": 0.9100000000000001,
+        "teff_threshold_gyr": 0.9100000000000003,
         "n_above": 32,
         "n_below": 2939,
         "det_above": 32,
@@ -9319,7 +9319,7 @@
         "p_mannwhitney_greater": 5.653599785510757e-20
       },
       {
-        "teff_threshold_gyr": 0.9200000000000002,
+        "teff_threshold_gyr": 0.9200000000000003,
         "n_above": 32,
         "n_below": 2939,
         "det_above": 32,
@@ -9356,7 +9356,7 @@
         "mean_dust_below": 0.21083257771789346,
         "mean_ratio": 5.9217745008892,
         "mannwhitney_u": 84088.5,
-        "p_mannwhitney_greater": 1.2079190637059672e-19
+        "p_mannwhitney_greater": 1.2079190637059674e-19
       },
       {
         "teff_threshold_gyr": 0.9400000000000002,
@@ -9376,7 +9376,7 @@
         "mean_dust_below": 0.21083257771789346,
         "mean_ratio": 5.9217745008892,
         "mannwhitney_u": 84088.5,
-        "p_mannwhitney_greater": 1.2079190637059672e-19
+        "p_mannwhitney_greater": 1.2079190637059674e-19
       },
       {
         "teff_threshold_gyr": 0.9500000000000002,
@@ -9396,7 +9396,7 @@
         "mean_dust_below": 0.21099890462108353,
         "mean_ratio": 6.003758255132668,
         "mannwhitney_u": 81557.5,
-        "p_mannwhitney_greater": 3.2157536700552034e-19
+        "p_mannwhitney_greater": 3.215753670055203e-19
       },
       {
         "teff_threshold_gyr": 0.9600000000000002,
@@ -9416,7 +9416,7 @@
         "mean_dust_below": 0.21099890462108353,
         "mean_ratio": 6.003758255132668,
         "mannwhitney_u": 81557.5,
-        "p_mannwhitney_greater": 3.2157536700552034e-19
+        "p_mannwhitney_greater": 3.215753670055203e-19
       },
       {
         "teff_threshold_gyr": 0.9700000000000002,
@@ -9436,7 +9436,7 @@
         "mean_dust_below": 0.21159455666449864,
         "mean_ratio": 5.873331658930693,
         "mannwhitney_u": 78628.5,
-        "p_mannwhitney_greater": 1.9923051173880764e-18
+        "p_mannwhitney_greater": 1.9923051173880756e-18
       },
       {
         "teff_threshold_gyr": 0.9800000000000002,
@@ -9456,7 +9456,7 @@
         "mean_dust_below": 0.21159455666449864,
         "mean_ratio": 5.873331658930693,
         "mannwhitney_u": 78628.5,
-        "p_mannwhitney_greater": 1.9923051173880764e-18
+        "p_mannwhitney_greater": 1.9923051173880756e-18
       },
       {
         "teff_threshold_gyr": 0.9900000000000002,
@@ -9476,7 +9476,7 @@
         "mean_dust_below": 0.21159455666449864,
         "mean_ratio": 5.873331658930693,
         "mannwhitney_u": 78628.5,
-        "p_mannwhitney_greater": 1.9923051173880764e-18
+        "p_mannwhitney_greater": 1.9923051173880756e-18
       },
       {
         "teff_threshold_gyr": 1.0000000000000002,
@@ -9496,7 +9496,7 @@
         "mean_dust_below": 0.21193040628846585,
         "mean_ratio": 5.871230806560306,
         "mannwhitney_u": 75811.5,
-        "p_mannwhitney_greater": 9.691029434433056e-18
+        "p_mannwhitney_greater": 9.691029434433053e-18
       },
       {
         "teff_threshold_gyr": 1.0100000000000002,
@@ -9516,7 +9516,7 @@
         "mean_dust_below": 0.21193040628846585,
         "mean_ratio": 5.871230806560306,
         "mannwhitney_u": 75811.5,
-        "p_mannwhitney_greater": 9.691029434433056e-18
+        "p_mannwhitney_greater": 9.691029434433053e-18
       },
       {
         "teff_threshold_gyr": 1.0200000000000002,
@@ -9596,7 +9596,7 @@
         "mean_dust_below": 0.2127364974341927,
         "mean_ratio": 5.793079592803333,
         "mannwhitney_u": 70342.5,
-        "p_mannwhitney_greater": 1.6045557986955724e-16
+        "p_mannwhitney_greater": 1.604555798695573e-16
       },
       {
         "teff_threshold_gyr": 1.0600000000000003,
@@ -9616,7 +9616,7 @@
         "mean_dust_below": 0.21307161742827482,
         "mean_ratio": 5.790050572188443,
         "mannwhitney_u": 67522.5,
-        "p_mannwhitney_greater": 7.788521846106067e-16
+        "p_mannwhitney_greater": 7.788521846106065e-16
       },
       {
         "teff_threshold_gyr": 1.0700000000000003,
@@ -9636,7 +9636,7 @@
         "mean_dust_below": 0.21323684592592387,
         "mean_ratio": 5.8898486561791685,
         "mannwhitney_u": 64985.5,
-        "p_mannwhitney_greater": 2.0779442282520586e-15
+        "p_mannwhitney_greater": 2.077944228252059e-15
       },
       {
         "teff_threshold_gyr": 1.0800000000000003,
@@ -9656,7 +9656,7 @@
         "mean_dust_below": 0.21323684592592387,
         "mean_ratio": 5.8898486561791685,
         "mannwhitney_u": 64985.5,
-        "p_mannwhitney_greater": 2.0779442282520586e-15
+        "p_mannwhitney_greater": 2.077944228252059e-15
       },
       {
         "teff_threshold_gyr": 1.0900000000000003,
@@ -9676,7 +9676,7 @@
         "mean_dust_below": 0.21323684592592387,
         "mean_ratio": 5.8898486561791685,
         "mannwhitney_u": 64985.5,
-        "p_mannwhitney_greater": 2.0779442282520586e-15
+        "p_mannwhitney_greater": 2.077944228252059e-15
       },
       {
         "teff_threshold_gyr": 1.1000000000000003,
@@ -9696,7 +9696,7 @@
         "mean_dust_below": 0.21323684592592387,
         "mean_ratio": 5.8898486561791685,
         "mannwhitney_u": 64985.5,
-        "p_mannwhitney_greater": 2.0779442282520586e-15
+        "p_mannwhitney_greater": 2.077944228252059e-15
       },
       {
         "teff_threshold_gyr": 1.1100000000000003,
@@ -9716,10 +9716,10 @@
         "mean_dust_below": 0.21323684592592387,
         "mean_ratio": 5.8898486561791685,
         "mannwhitney_u": 64985.5,
-        "p_mannwhitney_greater": 2.0779442282520586e-15
+        "p_mannwhitney_greater": 2.077944228252059e-15
       },
       {
-        "teff_threshold_gyr": 1.12,
+        "teff_threshold_gyr": 1.1200000000000003,
         "n_above": 24,
         "n_below": 2947,
         "det_above": 24,
@@ -9736,10 +9736,10 @@
         "mean_dust_below": 0.21323684592592387,
         "mean_ratio": 5.8898486561791685,
         "mannwhitney_u": 64985.5,
-        "p_mannwhitney_greater": 2.0779442282520586e-15
+        "p_mannwhitney_greater": 2.077944228252059e-15
       },
       {
-        "teff_threshold_gyr": 1.1300000000000001,
+        "teff_threshold_gyr": 1.1300000000000003,
         "n_above": 24,
         "n_below": 2947,
         "det_above": 24,
@@ -9756,10 +9756,10 @@
         "mean_dust_below": 0.21323684592592387,
         "mean_ratio": 5.8898486561791685,
         "mannwhitney_u": 64985.5,
-        "p_mannwhitney_greater": 2.0779442282520586e-15
+        "p_mannwhitney_greater": 2.077944228252059e-15
       },
       {
-        "teff_threshold_gyr": 1.1400000000000001,
+        "teff_threshold_gyr": 1.1400000000000003,
         "n_above": 24,
         "n_below": 2947,
         "det_above": 24,
@@ -9776,10 +9776,10 @@
         "mean_dust_below": 0.21323684592592387,
         "mean_ratio": 5.8898486561791685,
         "mannwhitney_u": 64985.5,
-        "p_mannwhitney_greater": 2.0779442282520586e-15
+        "p_mannwhitney_greater": 2.077944228252059e-15
       },
       {
-        "teff_threshold_gyr": 1.1500000000000001,
+        "teff_threshold_gyr": 1.1500000000000004,
         "n_above": 24,
         "n_below": 2947,
         "det_above": 24,
@@ -9796,10 +9796,10 @@
         "mean_dust_below": 0.21323684592592387,
         "mean_ratio": 5.8898486561791685,
         "mannwhitney_u": 64985.5,
-        "p_mannwhitney_greater": 2.0779442282520586e-15
+        "p_mannwhitney_greater": 2.077944228252059e-15
       },
       {
-        "teff_threshold_gyr": 1.1600000000000001,
+        "teff_threshold_gyr": 1.1600000000000004,
         "n_above": 24,
         "n_below": 2947,
         "det_above": 24,
@@ -9816,7 +9816,7 @@
         "mean_dust_below": 0.21323684592592387,
         "mean_ratio": 5.8898486561791685,
         "mannwhitney_u": 64985.5,
-        "p_mannwhitney_greater": 2.0779442282520586e-15
+        "p_mannwhitney_greater": 2.077944228252059e-15
       },
       {
         "teff_threshold_gyr": 1.1700000000000002,
@@ -9836,7 +9836,7 @@
         "mean_dust_below": 0.21323684592592387,
         "mean_ratio": 5.8898486561791685,
         "mannwhitney_u": 64985.5,
-        "p_mannwhitney_greater": 2.0779442282520586e-15
+        "p_mannwhitney_greater": 2.077944228252059e-15
       },
       {
         "teff_threshold_gyr": 1.1800000000000002,
@@ -9856,7 +9856,7 @@
         "mean_dust_below": 0.21323684592592387,
         "mean_ratio": 5.8898486561791685,
         "mannwhitney_u": 64985.5,
-        "p_mannwhitney_greater": 2.0779442282520586e-15
+        "p_mannwhitney_greater": 2.077944228252059e-15
       },
       {
         "teff_threshold_gyr": 1.1900000000000002,
@@ -9876,7 +9876,7 @@
         "mean_dust_below": 0.21323684592592387,
         "mean_ratio": 5.8898486561791685,
         "mannwhitney_u": 64985.5,
-        "p_mannwhitney_greater": 2.0779442282520586e-15
+        "p_mannwhitney_greater": 2.077944228252059e-15
       },
       {
         "teff_threshold_gyr": 1.2000000000000002,
@@ -9896,7 +9896,7 @@
         "mean_dust_below": 0.21323684592592387,
         "mean_ratio": 5.8898486561791685,
         "mannwhitney_u": 64985.5,
-        "p_mannwhitney_greater": 2.0779442282520586e-15
+        "p_mannwhitney_greater": 2.077944228252059e-15
       },
       {
         "teff_threshold_gyr": 1.2100000000000002,
@@ -9916,7 +9916,7 @@
         "mean_dust_below": 0.21323684592592387,
         "mean_ratio": 5.8898486561791685,
         "mannwhitney_u": 64985.5,
-        "p_mannwhitney_greater": 2.0779442282520586e-15
+        "p_mannwhitney_greater": 2.077944228252059e-15
       },
       {
         "teff_threshold_gyr": 1.2200000000000002,
@@ -9936,7 +9936,7 @@
         "mean_dust_below": 0.21323684592592387,
         "mean_ratio": 5.8898486561791685,
         "mannwhitney_u": 64985.5,
-        "p_mannwhitney_greater": 2.0779442282520586e-15
+        "p_mannwhitney_greater": 2.077944228252059e-15
       },
       {
         "teff_threshold_gyr": 1.2300000000000002,
@@ -9956,7 +9956,7 @@
         "mean_dust_below": 0.21357156884114575,
         "mean_ratio": 5.892004333567328,
         "mannwhitney_u": 62163.5,
-        "p_mannwhitney_greater": 1.0088210032151153e-14
+        "p_mannwhitney_greater": 1.0088210032151154e-14
       },
       {
         "teff_threshold_gyr": 1.2400000000000002,
@@ -9976,7 +9976,7 @@
         "mean_dust_below": 0.21357156884114575,
         "mean_ratio": 5.892004333567328,
         "mannwhitney_u": 62163.5,
-        "p_mannwhitney_greater": 1.0088210032151153e-14
+        "p_mannwhitney_greater": 1.0088210032151154e-14
       },
       {
         "teff_threshold_gyr": 1.2500000000000002,
@@ -9996,7 +9996,7 @@
         "mean_dust_below": 0.21357156884114575,
         "mean_ratio": 5.892004333567328,
         "mannwhitney_u": 62163.5,
-        "p_mannwhitney_greater": 1.0088210032151153e-14
+        "p_mannwhitney_greater": 1.0088210032151154e-14
       },
       {
         "teff_threshold_gyr": 1.2600000000000002,
@@ -10016,7 +10016,7 @@
         "mean_dust_below": 0.21357156884114575,
         "mean_ratio": 5.892004333567328,
         "mannwhitney_u": 62163.5,
-        "p_mannwhitney_greater": 1.0088210032151153e-14
+        "p_mannwhitney_greater": 1.0088210032151154e-14
       },
       {
         "teff_threshold_gyr": 1.2700000000000002,
@@ -10036,7 +10036,7 @@
         "mean_dust_below": 0.21357156884114575,
         "mean_ratio": 5.892004333567328,
         "mannwhitney_u": 62163.5,
-        "p_mannwhitney_greater": 1.0088210032151153e-14
+        "p_mannwhitney_greater": 1.0088210032151154e-14
       },
       {
         "teff_threshold_gyr": 1.2800000000000002,
@@ -10056,7 +10056,7 @@
         "mean_dust_below": 0.21357156884114575,
         "mean_ratio": 5.892004333567328,
         "mannwhitney_u": 62163.5,
-        "p_mannwhitney_greater": 1.0088210032151153e-14
+        "p_mannwhitney_greater": 1.0088210032151154e-14
       },
       {
         "teff_threshold_gyr": 1.2900000000000003,
@@ -10096,7 +10096,7 @@
         "mean_dust_below": 0.21403694404871107,
         "mean_ratio": 6.038651774152498,
         "mannwhitney_u": 56839.5,
-        "p_mannwhitney_greater": 1.203461801059478e-13
+        "p_mannwhitney_greater": 1.2034618010594785e-13
       },
       {
         "teff_threshold_gyr": 1.3100000000000003,
@@ -10116,7 +10116,7 @@
         "mean_dust_below": 0.21403694404871107,
         "mean_ratio": 6.038651774152498,
         "mannwhitney_u": 56839.5,
-        "p_mannwhitney_greater": 1.203461801059478e-13
+        "p_mannwhitney_greater": 1.2034618010594785e-13
       },
       {
         "teff_threshold_gyr": 1.3200000000000003,
@@ -10136,7 +10136,7 @@
         "mean_dust_below": 0.21403694404871107,
         "mean_ratio": 6.038651774152498,
         "mannwhitney_u": 56839.5,
-        "p_mannwhitney_greater": 1.203461801059478e-13
+        "p_mannwhitney_greater": 1.2034618010594785e-13
       },
       {
         "teff_threshold_gyr": 1.3300000000000003,
@@ -10156,7 +10156,7 @@
         "mean_dust_below": 0.21403694404871107,
         "mean_ratio": 6.038651774152498,
         "mannwhitney_u": 56839.5,
-        "p_mannwhitney_greater": 1.203461801059478e-13
+        "p_mannwhitney_greater": 1.2034618010594785e-13
       },
       {
         "teff_threshold_gyr": 1.3400000000000003,
@@ -10176,7 +10176,7 @@
         "mean_dust_below": 0.21403694404871107,
         "mean_ratio": 6.038651774152498,
         "mannwhitney_u": 56839.5,
-        "p_mannwhitney_greater": 1.203461801059478e-13
+        "p_mannwhitney_greater": 1.2034618010594785e-13
       },
       {
         "teff_threshold_gyr": 1.3500000000000003,
@@ -10196,7 +10196,7 @@
         "mean_dust_below": 0.21403694404871107,
         "mean_ratio": 6.038651774152498,
         "mannwhitney_u": 56839.5,
-        "p_mannwhitney_greater": 1.203461801059478e-13
+        "p_mannwhitney_greater": 1.2034618010594785e-13
       },
       {
         "teff_threshold_gyr": 1.3600000000000003,
@@ -10216,7 +10216,7 @@
         "mean_dust_below": 0.21403694404871107,
         "mean_ratio": 6.038651774152498,
         "mannwhitney_u": 56839.5,
-        "p_mannwhitney_greater": 1.203461801059478e-13
+        "p_mannwhitney_greater": 1.2034618010594785e-13
       },
       {
         "teff_threshold_gyr": 1.3700000000000003,
@@ -10236,7 +10236,7 @@
         "mean_dust_below": 0.21403694404871107,
         "mean_ratio": 6.038651774152498,
         "mannwhitney_u": 56839.5,
-        "p_mannwhitney_greater": 1.203461801059478e-13
+        "p_mannwhitney_greater": 1.2034618010594785e-13
       },
       {
         "teff_threshold_gyr": 1.3800000000000003,
@@ -10256,7 +10256,7 @@
         "mean_dust_below": 0.21403694404871107,
         "mean_ratio": 6.038651774152498,
         "mannwhitney_u": 56839.5,
-        "p_mannwhitney_greater": 1.203461801059478e-13
+        "p_mannwhitney_greater": 1.2034618010594785e-13
       },
       {
         "teff_threshold_gyr": 1.3900000000000003,
@@ -10276,7 +10276,7 @@
         "mean_dust_below": 0.21403694404871107,
         "mean_ratio": 6.038651774152498,
         "mannwhitney_u": 56839.5,
-        "p_mannwhitney_greater": 1.203461801059478e-13
+        "p_mannwhitney_greater": 1.2034618010594785e-13
       },
       {
         "teff_threshold_gyr": 1.4000000000000004,
@@ -10339,7 +10339,7 @@
         "p_mannwhitney_greater": 5.842966038695037e-13
       },
       {
-        "teff_threshold_gyr": 1.4300000000000002,
+        "teff_threshold_gyr": 1.4300000000000004,
         "n_above": 20,
         "n_below": 2951,
         "det_above": 20,
@@ -10359,7 +10359,7 @@
         "p_mannwhitney_greater": 5.842966038695037e-13
       },
       {
-        "teff_threshold_gyr": 1.4400000000000002,
+        "teff_threshold_gyr": 1.4400000000000004,
         "n_above": 20,
         "n_below": 2951,
         "det_above": 20,
@@ -10379,7 +10379,7 @@
         "p_mannwhitney_greater": 5.842966038695037e-13
       },
       {
-        "teff_threshold_gyr": 1.4500000000000002,
+        "teff_threshold_gyr": 1.4500000000000004,
         "n_above": 20,
         "n_below": 2951,
         "det_above": 20,
@@ -10399,7 +10399,7 @@
         "p_mannwhitney_greater": 5.842966038695037e-13
       },
       {
-        "teff_threshold_gyr": 1.4600000000000002,
+        "teff_threshold_gyr": 1.4600000000000004,
         "n_above": 20,
         "n_below": 2951,
         "det_above": 20,
@@ -10419,7 +10419,7 @@
         "p_mannwhitney_greater": 5.842966038695037e-13
       },
       {
-        "teff_threshold_gyr": 1.4700000000000002,
+        "teff_threshold_gyr": 1.4700000000000004,
         "n_above": 20,
         "n_below": 2951,
         "det_above": 20,
@@ -10439,7 +10439,7 @@
         "p_mannwhitney_greater": 5.842966038695037e-13
       },
       {
-        "teff_threshold_gyr": 1.4800000000000002,
+        "teff_threshold_gyr": 1.4800000000000004,
         "n_above": 20,
         "n_below": 2951,
         "det_above": 20,
@@ -10459,7 +10459,7 @@
         "p_mannwhitney_greater": 5.842966038695037e-13
       },
       {
-        "teff_threshold_gyr": 1.4900000000000002,
+        "teff_threshold_gyr": 1.4900000000000004,
         "n_above": 20,
         "n_below": 2951,
         "det_above": 20,
@@ -10536,7 +10536,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.5300000000000002,
@@ -10556,7 +10556,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.5400000000000003,
@@ -10576,7 +10576,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.5500000000000003,
@@ -10596,7 +10596,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.5600000000000003,
@@ -10616,7 +10616,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.5700000000000003,
@@ -10636,7 +10636,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.5800000000000003,
@@ -10656,7 +10656,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.5900000000000003,
@@ -10676,7 +10676,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.6000000000000003,
@@ -10696,7 +10696,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.6100000000000003,
@@ -10716,7 +10716,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.6200000000000003,
@@ -10736,7 +10736,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.6300000000000003,
@@ -10756,7 +10756,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.6400000000000003,
@@ -10776,7 +10776,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.6500000000000004,
@@ -10796,7 +10796,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.6600000000000004,
@@ -10816,7 +10816,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.6700000000000004,
@@ -10836,7 +10836,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.6800000000000004,
@@ -10856,7 +10856,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.6900000000000004,
@@ -10876,7 +10876,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.7000000000000004,
@@ -10896,7 +10896,7 @@
         "mean_dust_below": 0.21563101043371075,
         "mean_ratio": 5.371902899579957,
         "mannwhitney_u": 51064.5,
-        "p_mannwhitney_greater": 3.671029814106954e-12
+        "p_mannwhitney_greater": 3.671029814106953e-12
       },
       {
         "teff_threshold_gyr": 1.7100000000000004,
@@ -10916,7 +10916,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.7200000000000004,
@@ -10936,7 +10936,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.7300000000000004,
@@ -10956,7 +10956,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.7400000000000004,
@@ -10976,7 +10976,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.7500000000000004,
@@ -10996,10 +10996,10 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
-        "teff_threshold_gyr": 1.7600000000000002,
+        "teff_threshold_gyr": 1.7600000000000005,
         "n_above": 18,
         "n_below": 2953,
         "det_above": 18,
@@ -11016,10 +11016,10 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
-        "teff_threshold_gyr": 1.7700000000000002,
+        "teff_threshold_gyr": 1.7700000000000005,
         "n_above": 18,
         "n_below": 2953,
         "det_above": 18,
@@ -11036,10 +11036,10 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
-        "teff_threshold_gyr": 1.7800000000000002,
+        "teff_threshold_gyr": 1.7800000000000005,
         "n_above": 18,
         "n_below": 2953,
         "det_above": 18,
@@ -11056,10 +11056,10 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
-        "teff_threshold_gyr": 1.7900000000000003,
+        "teff_threshold_gyr": 1.7900000000000005,
         "n_above": 18,
         "n_below": 2953,
         "det_above": 18,
@@ -11076,10 +11076,10 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
-        "teff_threshold_gyr": 1.8000000000000003,
+        "teff_threshold_gyr": 1.8000000000000005,
         "n_above": 18,
         "n_below": 2953,
         "det_above": 18,
@@ -11096,7 +11096,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.8100000000000003,
@@ -11116,7 +11116,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.8200000000000003,
@@ -11136,7 +11136,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.8300000000000003,
@@ -11156,7 +11156,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.8400000000000003,
@@ -11176,7 +11176,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.8500000000000003,
@@ -11196,7 +11196,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.8600000000000003,
@@ -11216,7 +11216,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.8700000000000003,
@@ -11236,7 +11236,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.8800000000000003,
@@ -11256,7 +11256,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.8900000000000003,
@@ -11276,7 +11276,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.9000000000000004,
@@ -11296,7 +11296,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.9100000000000004,
@@ -11316,7 +11316,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.9200000000000004,
@@ -11336,7 +11336,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.9300000000000004,
@@ -11356,7 +11356,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.9400000000000004,
@@ -11376,7 +11376,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.9500000000000004,
@@ -11396,7 +11396,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.9600000000000004,
@@ -11416,7 +11416,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.9700000000000004,
@@ -11436,7 +11436,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.9800000000000004,
@@ -11456,7 +11456,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 1.9900000000000004,
@@ -11476,7 +11476,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       },
       {
         "teff_threshold_gyr": 2.0000000000000004,
@@ -11496,7 +11496,7 @@
         "mean_dust_below": 0.21576117263810166,
         "mean_ratio": 5.512429396873724,
         "mannwhitney_u": 48560.5,
-        "p_mannwhitney_greater": 9.064232455430435e-12
+        "p_mannwhitney_greater": 9.064232455430434e-12
       }
     ],
     "best_by_log_odds_ratio": {
@@ -11517,13 +11517,13 @@
       "mean_dust_below": 0.2026291936336646,
       "mean_ratio": 5.729356560409748,
       "mannwhitney_u": 158387.5,
-      "p_mannwhitney_greater": 3.321410717863894e-35
+      "p_mannwhitney_greater": 3.3214107178638934e-35
     }
   },
   "combined_bootstrap_best_threshold": {
     "n_boot": 400,
     "seed": 42,
-    "threshold_q16": 0.4200000000000001,
+    "threshold_q16": 0.42000000000000004,
     "threshold_q50": 0.5550000000000002,
     "threshold_q84": 0.6400000000000001
   },

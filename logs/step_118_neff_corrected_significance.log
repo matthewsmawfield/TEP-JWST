@@ -1,0 +1,64 @@
+[22:38:59] INFO    ═══ STEP 118: N_eff-Corrected Significance
+[22:38:59] INFO        Recomputing key p-values accounting for cosmic variance / clustering.
+[22:38:59] INFO    
+[22:38:59] INFO          Loaded z>8 Dust-Γt (UNCOVER) from step_081
+[22:38:59] INFO          Loaded z>8 Dust-Γt (CEERS) from step_081
+[22:38:59] INFO          Loaded z>8 Dust-Γt (COSMOS-Web) from step_081
+[22:38:59] INFO          Loaded Core Screening (JADES) from step_037
+[22:38:59] INFO          Loaded Mass-sSFR Inversion (z>7) from step_004
+[22:38:59] INFO          Loaded Spectroscopic Validation (z>8) from step_035
+[22:38:59] INFO    
+[22:38:59] INFO    >>> Recomputing p-values with N_eff correction:
+[22:39:00] INFO          z>8 Dust-Γt (UNCOVER):
+[22:39:00] INFO            rho = 0.471
+[22:39:00] INFO            N_raw = 283, N_eff = 28 (10%)
+[22:39:00] INFO            p (original): 4.72e-17 (8.4sigma)
+[22:39:00] INFO            p (corrected): 1.09e-02 (2.5sigma)
+[22:39:00] INFO            Still significant at alpha=0.05: True
+[22:39:00] INFO          z>8 Dust-Γt (CEERS):
+[22:39:00] INFO            rho = 0.645
+[22:39:00] INFO            N_raw = 82, N_eff = 9 (11%)
+[22:39:00] INFO            p (original): 6.00e-11 (6.5sigma)
+[22:39:00] INFO            p (corrected): 5.95e-02 (1.9sigma)
+[22:39:00] INFO            Still significant at alpha=0.05: False
+[22:39:00] INFO          z>8 Dust-Γt (COSMOS-Web):
+[22:39:00] INFO            rho = 0.626
+[22:39:00] INFO            N_raw = 918, N_eff = 30 (3%)
+[22:39:00] INFO            p (original): 4.80e-101 (21.3sigma)
+[22:39:00] INFO            p (corrected): 1.99e-04 (3.7sigma)
+[22:39:00] INFO            Still significant at alpha=0.05: True
+[22:39:00] INFO          Core Screening (JADES):
+[22:39:00] INFO            rho = -0.166
+[22:39:00] INFO            N_raw = 277, N_eff = 28 (10%)
+[22:39:00] INFO            p (original): 5.73e-03 (2.8sigma)
+[22:39:00] INFO            p (corrected): 4.02e-01 (0.8sigma)
+[22:39:00] INFO            Still significant at alpha=0.05: False
+[22:39:00] INFO          Mass-sSFR Inversion (z>7):
+[22:39:00] INFO            rho = 0.087
+[22:39:00] INFO            N_raw = 504, N_eff = 50 (10%)
+[22:39:00] INFO            p (original): 5.21e-02 (1.9sigma)
+[22:39:00] INFO            p (corrected): 5.48e-01 (0.6sigma)
+[22:39:00] INFO            Still significant at alpha=0.05: False
+[22:39:00] INFO          Spectroscopic Validation (z>8):
+[22:39:00] INFO            rho = 0.627
+[22:39:00] INFO            N_raw = 21, N_eff = 5 (22%)
+[22:39:00] INFO            p (original): 2.34e-03 (3.0sigma)
+[22:39:00] INFO            p (corrected): 2.99e-01 (1.0sigma)
+[22:39:00] INFO            Still significant at alpha=0.05: False
+[22:39:00] INFO    
+[22:39:00] INFO    ═══ SUMMARY
+[22:39:00] INFO        Tests analyzed: 6
+[22:39:00] INFO        Mean N_eff/N_raw: 11%
+[22:39:00] INFO    
+[22:39:00] INFO        Significance after N_eff correction:
+[22:39:00] INFO          p < 0.05: 2/6
+[22:39:00] INFO          p < 0.01: 1/6
+[22:39:00] INFO          p < 0.001: 1/6
+[22:39:00] INFO    
+[22:39:00] INFO        Combined significance:
+[22:39:00] INFO          Fisher's method: p = 2.10e-04
+[22:39:00] INFO          Harmonic mean: p = 1.17e-03
+[22:39:00] INFO          Bonferroni: p = 1.19e-03 (3.2sigma)
+[22:39:00] INFO    
+[22:39:00] INFO        Interpretation: Moderate combined evidence (3.2σ): the live-source-only basket remains meaningful after conservative N_eff correction.
+[22:39:00] INFO    ✓   Results saved to step_118_neff_corrected_significance.json

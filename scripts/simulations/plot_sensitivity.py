@@ -10,6 +10,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.style import set_pub_style, COLORS, FIG_SIZE
+from scripts.utils.tep_model import KAPPA_GAL, KAPPA_GAL_UNCERTAINTY
 
 def plot_sensitivity():
     # Load data
@@ -19,9 +20,7 @@ def plot_sensitivity():
         print("Error: Sensitivity data not found. Run step_40_sensitivity_analysis.py first.")
         return
     
-    # Constants (from tep_model.py, Cepheid-calibrated magnitude sector)
-    KAPPA_GAL = 9.6e5  # mag
-    KAPPA_GAL_UNCERTAINTY = 4.0e5  # mag
+    # Constants imported from tep_model.py (Cepheid-calibrated magnitude sector)
     
     # Set style
     set_pub_style(scale=1.0)

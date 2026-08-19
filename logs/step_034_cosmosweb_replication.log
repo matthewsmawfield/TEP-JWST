@@ -1,48 +1,48 @@
-[10:01:55]     ======================================================================
-[10:01:55]     STEP 36: COSMOS-Web Independent Replication
-[10:01:55]     ======================================================================
-[10:01:55] 
-[10:01:55]     Third independent validation of the z>8 dust anomaly
-[10:01:55]     using COSMOS-Web DR1 (Shuntov et al. 2025)
-[10:01:55] 
-[10:01:55]     Loaded COSMOS-Web z>8 sample: N = 2606
-[10:01:55]     
+[22:36:00] INFO        ======================================================================
+[22:36:00] INFO        STEP 36: COSMOS-Web Independent Replication
+[22:36:00] INFO        ======================================================================
+[22:36:00] INFO    
+[22:36:00] INFO        Third independent validation of the z>8 dust anomaly
+[22:36:00] INFO        using COSMOS-Web DR1 (Shuntov et al. 2025)
+[22:36:00] INFO    
+[22:36:00] INFO        Loaded COSMOS-Web z>8 sample: N = 2606
+[22:36:01] INFO        
 ============================================================
-[10:01:55]     MASS-DUST CORRELATION: COSMOS-Web z>8
-[10:01:55]     ============================================================
-[10:01:55]     Sample size (dust > 0): N = 918
-[10:01:55]     Redshift range: z = 8.0 - 12.0
-[10:01:55]     
+[22:36:01] INFO        MASS-DUST CORRELATION: COSMOS-Web z>8
+[22:36:01] INFO        ============================================================
+[22:36:01] INFO        Sample size (dust > 0): N = 918
+[22:36:01] INFO        Redshift range: z = 8.0 - 12.0
+[22:36:01] INFO        
 Mass-Dust Correlation:
-[10:01:55]       ρ = 0.631 [0.585, 0.672]
-[10:01:55]       p = 3.19e-103
-[10:01:55]       Significance: 21.6σ
-[10:01:55]     
+[22:36:01] INFO          ρ = 0.631 [0.586, 0.668]
+[22:36:01] INFO          p = 3.19e-103
+[22:36:01] INFO          Significance: 21.6σ
+[22:36:01] INFO        
 Γ_t-DUST CORRELATION: COSMOS-Web z>8
-[10:01:55]       Raw: ρ(Γ_t, dust) = 0.626, p = 4.80e-101
-[10:01:55]       Partial (|M*): ρ = 0.077, p = 1.89e-02
-[10:01:55]     
+[22:36:01] INFO          Raw: ρ(Γ_t, dust) = 0.626, p = 4.80e-101
+[22:36:01] INFO          Partial (|M*): ρ = 0.077, p = 1.89e-02
+[22:36:01] INFO        
 t_eff-DUST CORRELATION: COSMOS-Web z>8
-[10:01:55]       ρ(t_eff, dust) = 0.465, p = 1.86e-50
-[10:01:55]     
+[22:36:01] INFO          ρ(t_eff, dust) = 0.465, p = 1.86e-50
+[22:36:01] INFO        
 ============================================================
-[10:01:55]     CROSS-SURVEY COMPARISON (3 INDEPENDENT SURVEYS)
-[10:01:55]     ============================================================
-[10:01:55]     
+[22:36:01] INFO        CROSS-SURVEY COMPARISON (3 INDEPENDENT SURVEYS)
+[22:36:01] INFO        ============================================================
+[22:36:01] INFO        
 UNCOVER z>8 (N=283): ρ = 0.559, p = 1.05e-24
-[10:01:55]     CEERS z>8 (N=82): ρ = 0.680, p = 2.03e-12
-[10:01:55]     
+[22:36:01] INFO        CEERS z>8 (N=82): ρ = 0.680, p = 2.03e-12
+[22:36:01] INFO        
 ======================================================================
-[10:01:55]     THREE-SURVEY REPLICATION SUMMARY
-[10:01:55]     ======================================================================
-[10:01:55]     
+[22:36:01] INFO        THREE-SURVEY REPLICATION SUMMARY
+[22:36:01] INFO        ======================================================================
+[22:36:01] INFO        
 Mass-Dust Correlation at z>8:
-[10:01:55]       UNCOVER:    ρ = 0.559 (N = 283)
-[10:01:55]       CEERS:      ρ = 0.680 (N = 82)
-[10:01:55]       COSMOS-Web: ρ = 0.631 (N = 918)
-[10:01:55]     
+[22:36:01] INFO          UNCOVER:    ρ = 0.559 (N = 283)
+[22:36:01] INFO          CEERS:      ρ = 0.680 (N = 82)
+[22:36:01] INFO          COSMOS-Web: ρ = 0.631 (N = 918)
+[22:36:01] INFO        
 ✓ THIRD INDEPENDENT REPLICATION SUCCESSFUL
-[10:01:55]       The z>8 dust anomaly is confirmed in COSMOS-Web.
-[10:01:55]     
+[22:36:01] INFO          The z>8 dust anomaly is confirmed in COSMOS-Web.
+[22:36:01] INFO        
 Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_034_cosmosweb_replication.json
-[10:01:55]     Step 034 complete.
+[22:36:01] INFO        Step 034 complete.

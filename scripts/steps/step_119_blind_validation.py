@@ -15,7 +15,6 @@ Data sources:
 
 import json
 import numpy as np
-np.random.seed(42)  # Fixed seed for reproducible train/test splits
 import sys
 from pathlib import Path
 from scipy import stats
@@ -60,9 +59,9 @@ def load_real_surveys():
         df = df.rename(columns={'z_phot': 'z'})
         df = df.dropna(subset=['z', 'log_Mstar', 'dust', 'gamma_t'])
         surveys['UNCOVER'] = df
-        print(f"  UNCOVER: {len(df)} galaxies loaded (real data)")
+        print_status(f"  UNCOVER: {len(df)} galaxies loaded (real data)", "INFO")
     else:
-        print(f"  WARNING: UNCOVER data not found at {uncover_path}")
+        print_status(f"  WARNING: UNCOVER data not found at {uncover_path}", "WARNING")
 
     # --- CEERS z>8 sample ---
     ceers_path = DATA_DIR / "ceers_z8_sample.csv"
@@ -78,9 +77,9 @@ def load_real_surveys():
         )
         df = df.dropna(subset=['z', 'log_Mstar', 'dust', 'gamma_t'])
         surveys['CEERS'] = df
-        print(f"  CEERS: {len(df)} galaxies loaded (real data)")
+        print_status(f"  CEERS: {len(df)} galaxies loaded (real data)", "INFO")
     else:
-        print(f"  WARNING: CEERS data not found at {ceers_path}")
+        print_status(f"  WARNING: CEERS data not found at {ceers_path}", "WARNING")
 
     # --- COSMOS-Web z>8 sample ---
     cw_path = DATA_DIR / "cosmosweb_z8_sample.csv"
@@ -96,9 +95,9 @@ def load_real_surveys():
         )
         df = df.dropna(subset=['z', 'log_Mstar', 'dust', 'gamma_t'])
         surveys['COSMOS-Web'] = df
-        print(f"  COSMOS-Web: {len(df)} galaxies loaded (real data)")
+        print_status(f"  COSMOS-Web: {len(df)} galaxies loaded (real data)", "INFO")
     else:
-        print(f"  WARNING: COSMOS-Web data not found at {cw_path}")
+        print_status(f"  WARNING: COSMOS-Web data not found at {cw_path}", "WARNING")
 
     return surveys
 
@@ -133,21 +132,21 @@ def field_split_validation(df):
 def run_analysis():
     """Run blind validation analysis on REAL survey data."""
 
-    print("=" * 60)
-    print("Step 119: Blind Validation Protocol (Real Data)")
-    print("=" * 60)
+    print_status("STEP 119: Blind Validation Protocol (Real Data)", "TITLE")
+    print_status("Cross-validating TEP dust-Gamma_t correlations across time, field, and survey splits.", "INFO")
+    print_status("")
 
     surveys = load_real_surveys()
 
     if not surveys:
-        print("ERROR: No survey data loaded. Cannot run validation.")
+        print_status("ERROR: No survey data loaded. Cannot run validation.", "ERROR")
         return None
 
     results = {'time_split': [], 'field_split': [], 'cross_survey': []}
 
     # 1. Time-split validation
-    print("\n1. TIME-SPLIT VALIDATION")
-    print("-" * 40)
+    print_status("")
+    print_status("1. TIME-SPLIT VALIDATION", "PROCESS")
 
     for name, df in surveys.items():
         train, test = time_split_validation(df)
@@ -170,11 +169,11 @@ def run_analysis():
         results['time_split'].append(result)
         rho_s = f"{rho_test:.3f}" if not np.isnan(rho_test) else "N/A"
         p_s = f"{p_test:.2e}" if not np.isnan(p_test) else "N/A"
-        print(f"  {name}: test N_z8={n_test}, ρ={rho_s}, p={p_s} → {gen}")
+        print_status(f"  {name}: test N_z8={n_test}, rho={rho_s}, p={p_s} -> {gen}", "INFO")
 
     # 2. Field-split validation
-    print("\n2. FIELD-SPLIT VALIDATION")
-    print("-" * 40)
+    print_status("")
+    print_status("2. FIELD-SPLIT VALIDATION", "PROCESS")
 
     for name, df in surveys.items():
         east, west = field_split_validation(df)
@@ -199,15 +198,15 @@ def run_analysis():
         results['field_split'].append(result)
         re_s = f"{rho_e:.3f}" if not np.isnan(rho_e) else "N/A"
         rw_s = f"{rho_w:.3f}" if not np.isnan(rho_w) else "N/A"
-        print(f"  {name}: East ρ={re_s}, West ρ={rw_s} → {consistent}")
+        print_status(f"  {name}: East rho={re_s}, West rho={rw_s} -> {consistent}", "INFO")
 
     # 3. Cross-survey validation
-    print("\n3. CROSS-SURVEY VALIDATION")
-    print("-" * 40)
+    print_status("")
+    print_status("3. CROSS-SURVEY VALIDATION", "PROCESS")
 
     survey_names = list(surveys.keys())
     if len(survey_names) < 2:
-        print("WARN: fewer than 2 surveys loaded — leave-one-out validation skipped.")
+        print_status("WARN: fewer than 2 surveys loaded — leave-one-out validation skipped.", "WARNING")
         return {"status": "skipped", "reason": "insufficient surveys for cross-validation"}
     for train_name in survey_names:
         test_names = [s for s in survey_names if s != train_name]
@@ -232,7 +231,7 @@ def run_analysis():
         results['cross_survey'].append(result)
         rt_s = f"{rho_test:.3f}" if not np.isnan(rho_test) else "N/A"
         pt_s = f"{p_test:.2e}" if not np.isnan(p_test) else "N/A"
-        print(f"  Train={train_name}, Test={test_names}: test ρ={rt_s}, p={pt_s} → {gen}")
+        print_status(f"  Train={train_name}, Test={test_names}: test rho={rt_s}, p={pt_s} -> {gen}", "INFO")
 
     # Summary
     valid_time = [r for r in results['time_split'] if (r['test_n_z8'] or 0) >= 5]
@@ -272,8 +271,9 @@ def run_analysis():
         'interpretation': interp,
     }
 
-    print(f"\nOverall: {grade}")
-    print(f"Interpretation: {interp}")
+    print_status("")
+    print_status(f"Overall: {grade}", "SUCCESS" if grade == 'STRONG' else "INFO")
+    print_status(f"Interpretation: {interp}", "INFO")
 
     output = {
         'step': 119,
@@ -292,7 +292,7 @@ def run_analysis():
     output_path = RESULTS_DIR / "step_119_blind_validation.json"
     with open(output_path, 'w') as f:
         json.dump(output, f, indent=2, default=safe_json_default)
-    print(f"\nResults saved to {output_path}")
+    print_status(f"Results saved to {output_path.name}", "SUCCESS")
 
     return output
 

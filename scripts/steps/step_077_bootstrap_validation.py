@@ -16,7 +16,6 @@ Outputs:
 """
 
 import numpy as np
-np.random.seed(42)
 import pandas as pd
 from scipy import stats
 from scipy.stats import spearmanr, pearsonr
@@ -61,9 +60,10 @@ def bootstrap_correlation(x, y, n_bootstrap=10000, ci=0.95):
     rho_obs, p_obs = spearmanr(x, y)
     
     # Bootstrap
+    rng = np.random.default_rng(42)
     rho_boot = np.zeros(n_bootstrap)
     for i in range(n_bootstrap):
-        idx = np.random.randint(0, n, n)
+        idx = rng.integers(0, n, n)
         rho_boot[i], _ = spearmanr(x[idx], y[idx])
     
     # Confidence interval (BCa method approximation)
@@ -102,9 +102,10 @@ def permutation_test(x, y, n_permutations=10000):
     rho_obs, _ = spearmanr(x, y)
     
     # Permutation distribution
+    rng = np.random.default_rng(42)
     rho_perm = np.zeros(n_permutations)
     for i in range(n_permutations):
-        y_perm = np.random.permutation(y)
+        y_perm = rng.permutation(y)
         rho_perm[i], _ = spearmanr(x, y_perm)
     
     # Two-tailed p-value

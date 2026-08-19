@@ -154,8 +154,8 @@ def compute_effect_sizes(df):
                         'independent': True,
                         'weight': float(n_s - 3),
                     })
-    except Exception:
-        pass
+    except Exception as e:
+        print_status(f"WARNING: Could not load survey correlations for effect-size meta: {e}", "WARNING")
 
     return effects
 

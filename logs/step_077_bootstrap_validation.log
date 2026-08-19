@@ -1,23 +1,23 @@
-[10:02:35]     ======================================================================
-[10:02:35]     STEP 077: Bootstrap Validation and Confidence Intervals
-[10:02:35]     ======================================================================
-[10:02:35]     Loaded N = 2315 galaxies
-[10:02:35]     
+[22:36:38] INFO        ======================================================================
+[22:36:38] INFO        STEP 077: Bootstrap Validation and Confidence Intervals
+[22:36:38] INFO        ======================================================================
+[22:36:38] INFO        Loaded N = 2315 galaxies
+[22:36:38] INFO        
 --- 1. Bootstrap Confidence Intervals ---
-[10:02:37]       z>8 Dust: ρ = 0.471 [0.363, 0.569]
-[10:02:41]       Mass-Age: ρ = 0.135 [0.094, 0.177]
-[10:02:46]       Γt-Dust (full): ρ = -0.288 [-0.329, -0.246]
-[10:02:46]     
+[22:36:41] INFO          z>8 Dust: ρ = 0.471 [0.361, 0.570]
+[22:36:47] INFO          Mass-Age: ρ = 0.135 [0.093, 0.176]
+[22:36:53] INFO          Γt-Dust (full): ρ = -0.288 [-0.329, -0.246]
+[22:36:53] INFO        
 --- 2. Permutation Tests ---
-[10:02:47]       z>8 Dust: p_perm = 1.00e-04, Z = 7.91
-[10:02:47]     
+[22:36:55] INFO          z>8 Dust: p_perm = 1.00e-04, Z = 7.94
+[22:36:55] INFO        
 --- 3. Effective Sample Size ---
-[10:02:47]       N_nominal = 283, N_eff = 187.7, DEFF = 1.51
-[10:02:47]     
+[22:36:55] INFO          N_nominal = 283, N_eff = 187.7, DEFF = 1.51
+[22:36:55] INFO        
 ======================================================================
-[10:02:47]     BOOTSTRAP VALIDATION SUMMARY
-[10:02:47]     ======================================================================
-[10:02:47]       All CIs exclude zero: True
-[10:02:47]       Permutation tests significant: True
-[10:02:47]     
+[22:36:55] INFO        BOOTSTRAP VALIDATION SUMMARY
+[22:36:55] INFO        ======================================================================
+[22:36:55] INFO          All CIs exclude zero: True
+[22:36:55] INFO          Permutation tests significant: True
+[22:36:55] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_077_bootstrap_validation.json

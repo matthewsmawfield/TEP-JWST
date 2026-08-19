@@ -1,1 +1,6 @@
-[10:43:01]     STEP 168: Resolved gradient sign-reversal test
+[23:45:50] INFO    ═══ STEP 168: Resolved gradient sign-reversal test
+[23:45:50] INFO        Beta debiasing: β=0.382 (source: step_117_object_level_bootstrap)
+[23:45:51] INFO        Loaded N=277 galaxies with resolved gradients
+[23:45:51] INFO          Γt<1: 277, Γt>1: 0
+[23:45:51] INFO        Primary residual gradient contrast Δ=-0.058 with 95% CI [-0.249, 0.146]
+[23:45:51] INFO        The resolved sign test is directionally consistent with TEP after converting the problem into a high-vs-low screening comparison, but the effect remains short of a decisive inversion detection.

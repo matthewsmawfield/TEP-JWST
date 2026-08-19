@@ -72,14 +72,13 @@ def load_z8_data():
     return df
 
 
-def test_agb_threshold():
+def test_agb_threshold(df):
     """Test whether t_eff > 300 Myr predicts higher dust content."""
     print_status("=" * 70, "INFO")
     print_status("TEST 1: AGB Threshold Prediction", "INFO")
     print_status("=" * 70, "INFO")
     print_status("", "INFO")
     
-    df = load_z8_data()
     if df is None:
         return None
         
@@ -123,7 +122,7 @@ def test_agb_threshold():
     print_status("", "INFO")
     
     if p_value < 0.05 and mean_above > mean_below:
-        print_status("✓ TEP PREDICTION CONFIRMED: t_eff > 300 Myr → more dust", "INFO")
+        print_status(f"✓ t_eff > {T_AGB_THRESHOLD} Myr predicts higher dust (p = {p_value:.2e}, Cohen's d = {cohens_d:.2f})", "INFO")
         status = "confirmed"
     else:
         print_status("⚠ TEP prediction not confirmed", "INFO")
@@ -141,7 +140,7 @@ def test_agb_threshold():
     }
 
 
-def test_cosmic_time_control():
+def test_cosmic_time_control(df):
     """Test that t_eff predicts dust BEYOND t_cosmic."""
     print_status("", "INFO")
     print_status("=" * 70, "INFO")
@@ -149,7 +148,6 @@ def test_cosmic_time_control():
     print_status("=" * 70, "INFO")
     print_status("", "INFO")
     
-    df = load_z8_data()
     if df is None:
         return None
 
@@ -169,7 +167,7 @@ def test_cosmic_time_control():
     print_status("", "INFO")
     
     if p_partial < 0.05 and rho_partial > 0:
-        print_status("✓ t_eff predicts dust BEYOND what t_cosmic alone explains", "INFO")
+        print_status(f"✓ t_eff predicts dust beyond t_cosmic alone (partial ρ = {rho_partial:.3f}, p = {p_partial:.2e})", "INFO")
         status = "confirmed"
     else:
         print_status("⚠ t_eff does not add predictive power beyond t_cosmic", "INFO")
@@ -184,7 +182,7 @@ def test_cosmic_time_control():
     }
 
 
-def test_mass_independence():
+def test_mass_independence(df):
     """Test that the z>8 dust-mass correlation is not just a mass effect."""
     print_status("", "INFO")
     print_status("=" * 70, "INFO")
@@ -192,7 +190,6 @@ def test_mass_independence():
     print_status("=" * 70, "INFO")
     print_status("", "INFO")
     
-    df = load_z8_data()
     if df is None:
         return None
     
@@ -220,7 +217,7 @@ def test_mass_independence():
     any_significant = p_low < 0.05 or p_high < 0.05
     
     if both_positive:
-        print_status("✓ t_eff-dust correlation is positive in BOTH mass bins", "INFO")
+        print_status(f"✓ t_eff-dust correlation is positive in both mass bins (low: ρ = {rho_low:.3f}, high: ρ = {rho_high:.3f})", "INFO")
         status = "confirmed"
     else:
         print_status("⚠ t_eff-dust correlation is not consistent across mass bins", "INFO")
@@ -235,7 +232,7 @@ def test_mass_independence():
     }
 
 
-def test_redshift_gradient():
+def test_redshift_gradient(df):
     """Test that the dust anomaly strengthens with redshift (as TEP predicts)."""
     print_status("", "INFO")
     print_status("=" * 70, "INFO")
@@ -243,7 +240,6 @@ def test_redshift_gradient():
     print_status("=" * 70, "INFO")
     print_status("", "INFO")
     
-    df = load_z8_data()
     
     # Split by redshift
     z_bins = [(8, 8.5), (8.5, 9), (9, 10)]
@@ -267,7 +263,7 @@ def test_redshift_gradient():
     if len(results) >= 2:
         rhos = [r['rho'] for r in results]
         if rhos[-1] > rhos[0]:
-            print_status("✓ Mass-dust correlation STRENGTHENS with redshift", "INFO")
+            print_status(f"✓ Mass-dust correlation strengthens with redshift (ρ: {rhos[0]:.3f} → {rhos[-1]:.3f})", "INFO")
             status = "confirmed"
         else:
             print_status("⚠ Mass-dust correlation does not strengthen with redshift", "INFO")
@@ -290,19 +286,24 @@ def main():
     print_status("This step provides rigorous quantitative tests.", "INFO")
     print_status("", "INFO")
     
+    df = load_z8_data()
+    if df is None:
+        print_status("ERROR: Could not load z>8 data. Aborting.", "ERROR")
+        return
+
     results = {}
     
     # Test 1: AGB threshold
-    results['agb_threshold'] = test_agb_threshold()
+    results['agb_threshold'] = test_agb_threshold(df)
     
     # Test 2: Cosmic time control
-    results['cosmic_time_control'] = test_cosmic_time_control()
+    results['cosmic_time_control'] = test_cosmic_time_control(df)
     
     # Test 3: Mass independence
-    results['mass_independence'] = test_mass_independence()
+    results['mass_independence'] = test_mass_independence(df)
     
     # Test 4: Redshift gradient
-    results['redshift_gradient'] = test_redshift_gradient()
+    results['redshift_gradient'] = test_redshift_gradient(df)
     
     # Summary
     print_status("", "INFO")
@@ -318,7 +319,7 @@ def main():
             total_tests += 1
             if test_result.get('status') == 'confirmed':
                 tests_passed += 1
-                print_status(f"  ✓ {test_name}: CONFIRMED", "INFO")
+                print_status(f"  ✓ {test_name}: confirmed ({test_result.get('status', 'unknown')})", "INFO")
             else:
                 print_status(f"  ⚠ {test_name}: {test_result.get('status', 'unknown')}", "INFO")
     

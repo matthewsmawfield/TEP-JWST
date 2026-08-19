@@ -1,30 +1,30 @@
-[10:03:44]     ======================================================================
-[10:03:44]     STEP 105: Morphology-TEP Correlation
-[10:03:44]     ======================================================================
-[10:03:44]     Loaded 2315 galaxies
-[10:03:44]     Sérsic column: None
-[10:03:44]     Effective radius column: None
-[10:03:44]     High-z sample (z > 6): 876 galaxies
-[10:03:44]     
+[22:38:49] INFO        ======================================================================
+[22:38:49] INFO        STEP 105: Morphology-TEP Correlation
+[22:38:49] INFO        ======================================================================
+[22:38:49] INFO        Loaded 2315 galaxies
+[22:38:49] INFO        Sérsic column: None
+[22:38:49] INFO        Effective radius column: None
+[22:38:49] INFO        High-z sample (z > 6): 876 galaxies
+[22:38:49] INFO        
 No Sérsic index column found - simulating morphology proxy
-[10:03:44]     Using mass-concentration proxy (limited test)
-[10:03:44]     
+[22:38:49] INFO        Using mass-concentration proxy (limited test)
+[22:38:49] INFO        
 No effective radius column found
-[10:03:44]     
+[22:38:49] INFO        
 --- Dust (morphology proxy) vs Γₜ ---
-[10:03:44]     N = 876
-[10:03:44]     ρ(Γₜ, dust) = -0.183
-[10:03:44]     p-value = 5.14e-08
-[10:03:44]     
+[22:38:49] INFO        N = 876
+[22:38:49] INFO        ρ(Γₜ, dust) = -0.183
+[22:38:49] INFO        p-value = 5.14e-08
+[22:38:49] INFO        
 ======================================================================
-[10:03:44]     SUMMARY
-[10:03:44]     ======================================================================
-[10:03:44]     
+[22:38:49] INFO        SUMMARY
+[22:38:49] INFO        ======================================================================
+[22:38:49] INFO        
 ⚠ Insufficient morphology data for testing
-[10:03:44]       Morphology columns (sersic_n, r_e) not found in catalog
-[10:03:44]       Future JWST morphology catalogs will enable this test
-[10:03:44]     
+[22:38:49] INFO          Morphology columns (sersic_n, r_e) not found in catalog
+[22:38:49] INFO          Future JWST morphology catalogs will enable this test
+[22:38:49] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_105_morphology_tep.json
-[10:03:44]     Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_105_morphology_tep.png
-[10:03:44]     
+[22:38:49] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_105_morphology_tep.png
+[22:38:49] INFO        
 Step 105 complete.

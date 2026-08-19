@@ -43,9 +43,11 @@
       "tep_mass_dust_ratio": 46.47435897435897,
       "sn_only_mass_dust_ratio": 10.0,
       "observed_mass_dust_ratio_approx": 4.0,
-      "tep_matches_observation": true,
-      "sn_only_fails": false
+      "tep_matches_observation": false,
+      "sn_only_fails": false,
+      "tep_overprediction_factor": 11.618589743589743,
+      "sn_overprediction_factor": 2.5
     }
   },
-  "conclusion": "TEP dust predictions match observations; SN-only models fail"
+  "conclusion": "TEP overpredicts by 11.6x, SN-only overpredicts by 2.5x; SN-only is closer but both exceed observed ratio"
 }

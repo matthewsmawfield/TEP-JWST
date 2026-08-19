@@ -114,7 +114,7 @@ def calculate_hubble_residuals(df):
     # Use zHD (Hubble diagram redshift, corrected for peculiar velocity)
     valid_z = df['zHD'] > 0.001
     
-    df.loc[valid_z, 'mu_model'] = cosmo.distmod(df.loc[valid_z, 'zHD']).value
+    df.loc[valid_z, 'mu_model'] = cosmo.distmod(df.loc[valid_z, 'zHD'].to_numpy()).value
     
     # Hubble residual = observed - expected
     # Positive residual = fainter than expected = farther than expected

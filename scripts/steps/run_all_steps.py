@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from __future__ import annotations
+
 """
 TEP-JWST: Run All Analysis Steps
 
@@ -25,9 +27,18 @@ STEPS_DIR = PROJECT_ROOT / "scripts" / "steps"
 OUTPUTS_DIR = PROJECT_ROOT / "results" / "outputs"
 
 # =============================================================================
-# FULL PIPELINE: 158 analysis steps
+# FULL PIPELINE: 129 analysis steps
 # Includes core analysis, replication, robustness, falsification, and
 # advanced discriminating tests used by the current manuscript build.
+# Note: step numbers are non-contiguous (some steps were retired, merged,
+# or archived — see scripts/steps/archive/); the list below contains 129
+# active step scripts.
+#
+# Archived in this revision (23 steps, Tier 1 cleanup):
+#   Phase IV  (020-024): early statistical synthesis, superseded by steps 075-079, 118
+#   Phase V   (025-028): early validation, superseded by steps 029, 119, 162
+#   Phase IX  (044-049, 051-053): generic diagnostics, superseded by Phases XIV-XVIII
+#   Phase X   (054-058): early falsification, superseded by steps 083, 090
 # =============================================================================
 STEPS = [
     # =========================================================================
@@ -47,7 +58,7 @@ STEPS = [
     # PHASE II: CROSS-DOMAIN VALIDATION (steps 009-013)
     # Testing TEP predictions across different astrophysical domains
     # =========================================================================
-    "step_009_holographic_synthesis.py",             # Cross-paper consistency
+    "step_009_holographic_synthesis.py",            # Cross-paper consistency
     "step_010_sn_ia_mass_step.py",                  # SN Ia mass step prediction
     "step_011_mw_gc_gradient.py",                   # MW GC screening test
     "step_012_sn_ia_extended.py",                   # Extended SN Ia analysis
@@ -65,23 +76,12 @@ STEPS = [
     "step_019_chi2_analysis.py",                    # χ² correlation analysis
 
     # =========================================================================
-    # PHASE IV: STATISTICAL SYNTHESIS (steps 020-024)
-    # Parameter validation and cosmological implications
+    # PHASE IV-V: ARCHIVED (steps 020-028)
+    # Early statistical synthesis and validation steps retired.
+    # Superseded by steps 075-079 (Bayesian/bootstrap/CV), 118 (N_eff significance),
+    # 119 (blind validation), 162 (L1-L3 independence).
+    # See scripts/steps/archive/ for retired scripts.
     # =========================================================================
-    "step_020_parameter_validation.py",             # κ_gal = 9.6e5 mag validation
-    "step_021_scatter_reduction.py",                # Scatter reduction
-    "step_022_extreme_population.py",               # Extreme population analysis
-    "step_023_self_consistency.py",                  # Self-consistency tests
-    "step_024_cosmological_implications.py",        # Cosmological implications
-
-    # =========================================================================
-    # PHASE V: VALIDATION (steps 025-028)
-    # Cross-sample and multi-angle validation
-    # =========================================================================
-    "step_025_cross_sample_validation.py",          # Cross-sample validation
-    "step_026_prediction_alignment.py",             # Prediction-observation alignment
-    "step_027_multi_angle_validation.py",           # Multi-angle validation
-    "step_028_chi2_diagnostic.py",                  # χ² as TEP diagnostic
 
     # =========================================================================
     # PHASE VI: INDEPENDENT REPLICATION (steps 029-035)
@@ -113,47 +113,28 @@ STEPS = [
     "step_043_blue_monsters.py",                    # Blue Monster TEP analysis
 
     # =========================================================================
-    # PHASE IX: DIAGNOSTIC TESTS (steps 044-053)
-    # Multi-property diagnostics and independent tests
+    # PHASE IX-X: ARCHIVED (steps 044-058, except 050)
+    # Generic diagnostic and early falsification steps retired.
+    # Superseded by targeted tests in Phases XIV-XVIII and step_083/step_090.
+    # step_050 retained (Labbe et al. sample, referenced by step_163 registry).
+    # See scripts/steps/archive/ for retired scripts.
     # =========================================================================
-    "step_044_metallicity_age_decoupling.py",       # Metallicity-age decoupling
-    "step_045_sfr_age_consistency.py",              # SFR-age consistency
-    "step_046_multi_diagnostic.py",                 # Multi-diagnostic evidence
-    "step_047_independent_tests.py",                # Independent tests
-    "step_048_advanced_diagnostics.py",             # Advanced diagnostics
-    "step_049_prediction_tests.py",                 # TEP prediction tests
-    "step_050_critical_evidence.py",                # Critical evidence tests
-    "step_051_temporal_coherence.py",               # Temporal coherence
-    "step_052_mass_discrepancy.py",                 # Mass discrepancy
-    "step_053_tep_discriminant.py",                 # TEP discriminant
+    "step_050_critical_evidence.py",                # Critical evidence tests (Labbe et al. sample)
 
     # =========================================================================
-    # PHASE X: FALSIFICATION & ADVERSARIAL (steps 054-058)
-    # Tests designed to challenge and falsify TEP
+    # PHASE XI: ADVANCED PHYSICS (steps 061-063)
+    # Extreme case analysis and predictive power
+    # Archived: 059, 060, 064, 065 — see scripts/steps/archive/
     # =========================================================================
-    "step_054_unique_predictions.py",               # Unique predictions
-    "step_055_cross_domain.py",                     # Cross-domain consistency
-    "step_056_out_of_box.py",                       # Out-of-box tests
-    "step_057_adversarial_tests.py",                # Adversarial tests
-    "step_058_creative_tests.py",                   # Creative tests
-
-    # =========================================================================
-    # PHASE XI: ADVANCED PHYSICS (steps 059-065)
-    # Functional form tests and extreme case analysis
-    # =========================================================================
-    "step_059_ultimate_missing_piece.py",           # Ultimate missing piece
-    "step_060_functional_form_discrimination.py",   # The functional form discrimination test (t_eff vs t_cosmic)
     "step_061_extreme_cases.py",                    # Extreme cases
     "step_062_predictive_power.py",                 # Predictive power
     "step_063_correlation_deep_dive.py",            # Correlation deep dive
-    "step_064_web_inspired_tests.py",               # Web-inspired tests
-    "step_065_literature_tests.py",                 # Literature tests
 
     # =========================================================================
-    # PHASE XII: OBSERVATIONAL CONSTRAINTS (steps 066-071)
-    # Literature tests, compactness, binary pulsars, BBN
+    # PHASE XII: OBSERVATIONAL CONSTRAINTS (steps 067-071)
+    # Compactness, binary pulsars, BBN
+    # Archived: 066 — see scripts/steps/archive/
     # =========================================================================
-    "step_066_final_literature_tests.py",           # Final literature tests
     "step_067_cutting_edge_tests.py",               # Cutting edge tests
     "step_068_observational_signatures.py",         # Observational signatures
     "step_069_compactness_verification.py",         # Compactness verification (LRDs)
@@ -161,8 +142,9 @@ STEPS = [
     "step_071_bbn_analysis.py",                     # BBN compatibility analysis
 
     # =========================================================================
-    # PHASE XIII: STATISTICAL ROBUSTNESS (steps 072-088)
-    # Bootstrap, Bayesian, power analysis, comprehensive synthesis
+    # PHASE XIII: STATISTICAL ROBUSTNESS (steps 072-087)
+    # Bootstrap, Bayesian, power analysis, emission lines
+    # Archived: 088 (superseded by step_140) — see scripts/steps/archive/
     # =========================================================================
     "step_072_sign_paradox_check.py",               # Theoretical scalar proper-time sign check
     "step_073_growth_factor.py",                    # Linear growth and σ₈ constraint
@@ -176,7 +158,6 @@ STEPS = [
     "step_084_effect_size_meta.py",                 # Effect size meta-analysis
     "step_085_time_lens_map.py",                    # Time-lens map
     "step_087_emission_line_tests.py",              # Emission line tests
-    "step_088_final_comprehensive.py",              # FINAL COMPREHENSIVE SUMMARY
 
     # =========================================================================
     # PHASE XIV: THRESHOLD & PERMUTATION TESTS (steps 089-096)
@@ -187,8 +168,8 @@ STEPS = [
     "step_091_random_effects_meta_loo.py",          # Random-effects meta + leave-one-out influence
     "step_092_mass_matched_confirmation.py",        # Mass-matched/stratified confirmation
     "step_093_teff_threshold_holdout.py",           # Holdout (leave-one-survey-out) threshold validation
-    "step_094_environmental_screening_enhanced.py", # Enhanced environmental screening (multiple density estimators)
-    "step_095_lrd_core_halo_mass.py",               # LRD core-halo mass derivation from resolved photometry
+    "step_094_environmental_screening_enhanced.py", # Enhanced environmental screening
+    "step_095_lrd_core_halo_mass.py",               # LRD core-halo mass from resolved photometry
 
     # =========================================================================
     # PHASE XV: MODEL COMPARISON & PREDICTIONS (steps 097-118)
@@ -215,16 +196,16 @@ STEPS = [
     # =========================================================================
     "step_119_blind_validation.py",                 # Blind validation protocol
     "step_120_screening_transition_profile.py",     # Screening transition profile
-    "step_121_extended_modified_gravity_comparison.py", # Extended modified gravity comparison
+    "step_121_extended_modified_gravity_comparison.py",  # Extended modified gravity comparison
     "step_122_causality_verification.py",           # Causality constraint verification
-    "step_123_kappa_error_budget.py",              # κ_gal systematic error propagation
+    "step_123_kappa_error_budget.py",               # κ_gal systematic error propagation
     "step_124_timespace_coupling.py",               # Time-space coupling consistency test
     "step_125_multitracer_consistency.py",          # Multi-tracer redshift consistency
     "step_126_screening_scale.py",                  # Screening length scale self-consistency
 
     # =========================================================================
     # PHASE XVII: ADVANCED MODEL DISCRIMINATION (steps 127-134)
-    # IMF, selection MC, dust models, AGN, LRD, Hubble connection
+    # IMF, dust models, AGN, LRD, Hubble connection
     # =========================================================================
     "step_127_imf_discrimination.py",               # IMF vs TEP discrimination power
     "step_129_dust_models.py",                      # Dust physics alternative models
@@ -243,21 +224,22 @@ STEPS = [
     "step_137_cross_survey_generalization.py",      # Cross-survey generalization test
     "step_138_environmental_screening_steiger.py",  # Environmental screening Steiger Z-test
     "step_139_colour_gradient_steiger.py",          # Colour-gradient Steiger Z-test (t_eff vs M*)
-    "step_141_nonlinear_aic.py",                    # Non-linear AIC: step-function t_eff vs M* (ΔAIC≈-5)
-    "step_142_lrd_mbh_mstar_prediction.py",         # LRD M_BH/Mstar prediction: TEP predicts BH growth in Little Red Dots
-    "step_143_mass_proxy_breaker.py",               # Mass-proxy degeneracy breaker (3 independent tests)
-    "step_144_adversarial_ml_attack.py",            # Adversarial ML attack: GBR/RF vs Gamma_t + cross-survey + CMI
-    "step_145_phase_boundary_activation.py",        # AGB dust phase boundary + activation curve fit
-    "step_146_stellar_mass_function_resolution.py", # SMF crisis resolution: TEP corrects anomalous masses at z>7
-    "step_147_cosmic_sfrd_correction.py",           # Cosmic SFRD correction: reduces z>8 excess from 11× to 2.6× ΛCDM
-    "step_148_mass_independent_proxy.py",           # Mass-independent potential-depth proxy tests (5 tests)
+    "step_141_nonlinear_aic.py",                    # Non-linear AIC: step-function t_eff vs M*
+    "step_142_lrd_mbh_mstar_prediction.py",         # LRD M_BH/Mstar prediction
+    "step_143_mass_proxy_breaker.py",               # Mass-proxy degeneracy breaker (3 tests)
+    "step_144_adversarial_ml_attack.py",            # Adversarial ML: GBR/RF vs Gamma_t + CMI
+    "step_145_phase_boundary_activation.py",        # AGB dust phase boundary + activation curve
+    "step_146_stellar_mass_function_resolution.py", # SMF resolution: TEP corrects z>7 masses
+    "step_147_cosmic_sfrd_correction.py",           # Cosmic SFRD correction: 11× → 2.6× ΛCDM
+    "step_148_mass_independent_proxy.py",           # Mass-independent potential-depth proxy (5 tests)
 
     # =========================================================================
-    # PHASE XIX: MULTI-DATASET INGESTION, LATE AUDITS, AND FINAL SYNTHESIS
-    # JADES, DJA, UNCOVER DR4, COSMOS2025, manuscript QA
+    # PHASE XIX: MULTI-DATASET INGESTION & LATE AUDITS (steps 149-176)
+    # JADES, DJA, UNCOVER DR4, COSMOS2025, kinematic tests, Bayesian evidence
+    # Archived: 173 (duplicate of step_147) — see scripts/steps/archive/
     # =========================================================================
     "step_149_jades_dr4_ingestion.py",              # JADES DR4 spectroscopic catalog (2,858 spec-z)
-    "step_150_dja_nirspec_merged.py",               # DJA NIRSpec Merged v4.4 (19,445 grade-3 sources)
+    "step_150_dja_nirspec_merged.py",               # DJA NIRSpec Merged v4.4 (19,445 grade-3)
     "step_151_dja_ceers_crossmatch.py",             # DJA spec-z × CEERS+UNCOVER SED (776 z>5)
     "step_152_uncover_dr4_full_sps.py",             # UNCOVER DR4 full SPS MegaScience 20-band
     "step_153_cosmos2025_sed_analysis.py",          # COSMOS2025 LePHARE SED (37,965 z>4)
@@ -275,12 +257,16 @@ STEPS = [
     "step_166_jades_z9_beta_contrast.py",           # JADES z=9-12 UV-slope contrast companion
     "step_167_protocluster_switch.py",              # Protocluster switch sign-reversal test
     "step_168_gradient_sign_reversal.py",           # Resolved gradient sign-reversal test
-    "step_169_dja_sigma_pilot.py",                    # DJA pilot sigma extraction from public spec.fits URLs
-    "step_171_sigma_kinematic_expansion.py",         # Sigma-based kinematic expansion (mass-circularity breaker)
-    "step_170_kinematic_decisive_test.py",           # Kinematic decisive test + federated package (reads step_171)
-    "step_173_cosmic_sfrd_correction.py",           # Cosmic SFRD correction (Table 16)
+    "step_169_dja_sigma_pilot.py",                  # DJA pilot sigma extraction from spec.fits URLs
+    "step_171_sigma_kinematic_expansion.py",        # Sigma-based kinematic expansion (runs before 170)
+    "step_170_kinematic_decisive_test.py",          # Kinematic decisive test (reads step_171 output)
     "step_174_smf_mass_threshold_counts.py",        # SMF mass threshold counts (Table 15)
     "step_176_nested_bayesian_evidence.py",         # Nested Bayesian model comparison (dynesty)
+
+    # =========================================================================
+    # PHASE XX: FINAL SYNTHESIS & MANUSCRIPT QA (steps 140, 160)
+    # Evidence tier summary and automated consistency checks
+    # =========================================================================
     "step_140_evidence_tier_summary.py",            # Final evidence synthesis after late-ingestion outputs
     "step_160_manuscript_consistency_check.py",     # Automated manuscript↔JSON consistency checks
 ]
@@ -510,20 +496,25 @@ def run_step(script_name: str, step_idx: int, total: int, estimated_s: float | N
     print(f" Progress: [{bar}] {100*step_idx//total:3d}%")
     if estimated_s is not None:
         print(f" Estimated time from last full run: {_fmt_elapsed(estimated_s)}")
+    print(f" Started: {datetime.datetime.now().strftime('%H:%M:%S')}")
     print(f"{'═'*70}\n")
 
     if script_name == "step_160_manuscript_consistency_check.py":
         print(" Rebuilding site and generated markdown before step_160...")
         pre_t0 = time.perf_counter()
-        build_result = subprocess.run(
-            ["npm", "--prefix", str(PROJECT_ROOT / "site"), "run", "build"],
-            cwd=str(PROJECT_ROOT),
-            capture_output=False,
-        )
-        pre_elapsed = time.perf_counter() - pre_t0
-        if build_result.returncode != 0:
-            print(f"\n✗  FAILED  site build before {script_name}  (rc={build_result.returncode}, {_fmt_elapsed(pre_elapsed)})")
-            return StepResult(script_name, "FAIL", pre_elapsed, build_result.returncode)
+        try:
+            build_result = subprocess.run(
+                ["npm", "--prefix", str(PROJECT_ROOT / "site"), "run", "build"],
+                cwd=str(PROJECT_ROOT),
+                capture_output=False,
+            )
+            pre_elapsed = time.perf_counter() - pre_t0
+            if build_result.returncode != 0:
+                print(f"\n✗  FAILED  site build before {script_name}  (rc={build_result.returncode}, {_fmt_elapsed(pre_elapsed)})")
+                return StepResult(script_name, "FAIL", pre_elapsed, build_result.returncode)
+        except FileNotFoundError:
+            pre_elapsed = time.perf_counter() - pre_t0
+            print(f"\n⚠  WARNING  npm not found in PATH; skipping site rebuild before {script_name} ({_fmt_elapsed(pre_elapsed)})")
 
     t0 = time.perf_counter()
     result = subprocess.run(
@@ -536,6 +527,7 @@ def run_step(script_name: str, step_idx: int, total: int, estimated_s: float | N
 
     if result.returncode != 0:
         print(f"\n✗  FAILED  {script_name}  (rc={result.returncode}, {_fmt_elapsed(elapsed)}{estimate_suffix})")
+        print(f"  Completed at: {datetime.datetime.now().strftime('%H:%M:%S')}")
         return StepResult(script_name, "FAIL", elapsed, result.returncode)
 
     # --- JSON guardrail check ---
@@ -554,9 +546,14 @@ def run_step(script_name: str, step_idx: int, total: int, estimated_s: float | N
             all_problems.extend(problems)
 
     if all_problems:
+        print(f"\n⚠  GUARDRAIL  {script_name}  ({_fmt_elapsed(elapsed)}{estimate_suffix})")
+        print(f"  Completed at: {datetime.datetime.now().strftime('%H:%M:%S')}")
         return StepResult(script_name, "GUARDRAIL", elapsed, result.returncode, all_problems)
 
-    print(f"\n✓  PASS  {script_name}  ({_fmt_elapsed(elapsed)}{estimate_suffix})")
+    n_outputs = len(changed_json)
+    output_note = f"; {n_outputs} output(s) updated" if n_outputs else "; no JSON outputs changed"
+    print(f"\n✓  PASS  {script_name}  ({_fmt_elapsed(elapsed)}{estimate_suffix}{output_note})")
+    print(f"  Completed at: {datetime.datetime.now().strftime('%H:%M:%S')}")
     return StepResult(script_name, "PASS", elapsed)
 
 
@@ -689,6 +686,7 @@ def main():
     print(_boxed_line("  L2. Resolved core screening (needs CIRC_CONV inputs)"))
     print(_boxed_line("  L3. Mass–sSFR inversion at z > 7"))
     print(_boxed_line("  L4. Dynamical mass consistency (regime-level live test)"))
+    print(_boxed_line("  L5. Kinematic decisive test (sigma-based mass-circularity)"))
     print("╠" + "═" * 68 + "╣")
     print(_boxed_line(f"Steps to run: {len(STEPS)}"))
     if estimated_total is not None:

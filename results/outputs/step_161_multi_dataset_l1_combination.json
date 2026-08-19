@@ -8,11 +8,11 @@
       "pipeline": "Prospector/BEAGLE",
       "dust_proxy": "photometric Av",
       "n": 283,
-      "rho": 0.5594522703471411,
-      "p": 1.046457458256734e-24,
+      "rho": 0.4712708247076625,
+      "p": 4.7184506345891225e-17,
       "is_partial": false,
       "is_spectroscopic": false,
-      "z_sigma": 10.194745722731305
+      "z_sigma": 8.31166437590519
     },
     {
       "name": "CEERS z>8",
@@ -44,35 +44,35 @@
       "pipeline": "msaexp spectroscopic",
       "dust_proxy": "spectroscopic Ha/Hb ratio (partial, controls for M*, z)",
       "n": 3259,
-      "rho": 0.12297637389436425,
-      "p": 1.861391255574771e-12,
+      "rho": 0.12297637389436439,
+      "p": 1.861391255574857e-12,
       "is_partial": true,
       "is_spectroscopic": true,
-      "z_sigma": 6.947324683808991
+      "z_sigma": 6.947324683808985
     }
   ],
   "fisher_combination": {
     "n_datasets": 4,
-    "chi2": 673.5117200934072,
+    "chi2": 638.2633890320917,
     "df": 8,
-    "p": 3.601281783892683e-140,
-    "z_sigma": 25.17674294039274,
-    "stouffer_z": 22.444653257897713
+    "p": 1.3826542103217042e-132,
+    "z_sigma": 24.474435522841418,
+    "stouffer_z": 21.503112584484654
   },
   "conservative_photometric_only": {
     "n_datasets": 3,
-    "chi2": 619.4923262515312,
+    "chi2": 584.2439951902157,
     "df": 6,
-    "p": 1.4545766631214987e-130,
-    "z_sigma": 24.28377695071883,
+    "p": 5.8357984475394486e-123,
+    "z_sigma": 23.55308749727032,
     "note": "3 photometric surveys z>8 only (UNCOVER, CEERS, COSMOS-Web)"
   },
   "spectroscopic_only": {
     "n_datasets": 1,
-    "rho": 0.12297637389436425,
+    "rho": 0.12297637389436439,
     "n": 3259,
-    "p": 1.861391255574771e-12,
-    "z_sigma": 6.947324683808991,
+    "p": 1.861391255574857e-12,
+    "z_sigma": 6.947324683808985,
     "note": "NIRSpec Ha/Hb Balmer decrement \u2014 supplementary SED-free branch; mass+z-controlled partial is null in the live reproducible run"
   },
   "independence_rationale": {
@@ -97,10 +97,10 @@
     "note": "Between-field combination requires no within-field clustering correction"
   },
   "summary": {
-    "headline_z": 25.17674294039274,
-    "headline_p": 3.601281783892683e-140,
-    "conservative_z": 24.28377695071883,
-    "spectroscopic_z": 6.947324683808991,
-    "key_result": "L1 dust-Gamma_t confirmed across the three primary JWST photometric surveys (Fisher z = 24sigma); adding the supplementary NIRSpec Ha/Hb branch leaves the 4-dataset Fisher combination at 25sigma, while the Balmer partial-rho branch itself is null after M*, z control (rho=0.123, p=0.000)."
+    "headline_z": 24.474435522841418,
+    "headline_p": 1.3826542103217042e-132,
+    "conservative_z": 23.55308749727032,
+    "spectroscopic_z": 6.947324683808985,
+    "key_result": "L1 dust-Gamma_t observed across the three primary JWST photometric surveys (Fisher z = 24sigma); adding the supplementary NIRSpec Ha/Hb branch leaves the 4-dataset Fisher combination at 24sigma, while the Balmer partial-rho branch itself is null after M*, z control (rho=0.123, p=0.000)."
   }
 }

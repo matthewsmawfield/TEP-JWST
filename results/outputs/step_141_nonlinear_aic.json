@@ -72,9 +72,9 @@
     "note": "Both step-function models have same k=2 parameters. Delta AIC/BIC directly measures which threshold (t_eff or M*) better organizes the dust distribution."
   },
   "interpretation": {
-    "main_finding": "The step-function t_eff model (AGB threshold at 0.3 Gyr) outperforms the mass-matched step-function M* model on AIC and BIC, despite identical parameter counts (k=2). This directly addresses the OLS AIC limitation: when the correct functional form (step function) is used, t_eff outperforms M* as a model for dust.",
-    "ols_limitation": "OLS linear regression penalizes t_eff because the AGB threshold creates a non-linear (step-function) relationship. Linear regression cannot detect this structure. The step-function AIC comparison is the appropriate test.",
+    "main_finding": "The mass-matched step-function M* model (AIC=-351.6) outperforms the step-function t_eff model (AIC=-328.4) by \u0394AIC=23.2, despite identical parameter counts (k=2). The best-fitting model overall is the polynomial M*\u00d7z baseline (AIC=-516.6, Akaike weight=1.0). Both step-function models are dominated by the polynomial baseline (\u0394AIC=188.2 and 165.0 respectively).",
+    "ols_limitation": "OLS linear regression penalizes t_eff because the AGB threshold creates a non-linear (step-function) relationship. However, even with the step-function functional form, the mass-matched threshold achieves lower AIC. The dust ratio above/below the t_eff threshold is only 1.36\u00d7, indicating a weak step contrast in the UNCOVER z>8 sample.",
     "consistency_with_step110": "Real-data dust ratio above/below t_eff threshold: 1.36x, compared against the step_110 threshold result.",
-    "conclusion": "When the physically motivated functional form (step function at AGB onset) is used, t_eff is the superior model. The OLS AIC ranking (which favored M*) reflects a methodological mismatch, not a physical preference for mass over effective time."
+    "conclusion": "The step-function t_eff model does not outperform the mass-matched step-function M* model on AIC (\u0394AIC=23.2) or BIC (\u0394BIC=23.2). The polynomial M*\u00d7z model dominates all competitors. The AGB step-function contrast (dust ratio 1.36\u00d7) is present but weak in the UNCOVER z>8 sample. The case for t_eff over M* rests on the rank-correlation and Steiger Z tests (step_136), not on the step-function AIC comparison."
   }
 }

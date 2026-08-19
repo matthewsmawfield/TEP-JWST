@@ -28,7 +28,6 @@ Date: February 2026
 import sys
 import json
 import numpy as np
-np.random.seed(42)
 import pandas as pd
 from pathlib import Path
 from scipy import stats
@@ -40,7 +39,10 @@ from scipy import stats
 PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
+from scripts.utils.logger import (
+    TEPLogger, set_step_logger, print_status,
+    log_subsection, log_data, log_dict, log_timing,
+)  # Centralised logging
 from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting & JSON serialiser
 from scripts.utils.tep_model import (
     compute_gamma_t, stellar_to_halo_mass, _cosmic_time_gyr,
@@ -388,58 +390,98 @@ def generate_figure(combined, uncover_results, ceers_results, output_path):
 # =============================================================================
 
 def main():
-    print_status("=" * 65, "INFO")
-    print_status("Step 147: Cosmic SFRD Correction at z > 6", "INFO")
-    print_status("=" * 65, "INFO")
+    print_status("STEP 147: Cosmic SFRD Correction at z > 6", "TITLE")
+    print_status("Quantifying the TEP isochrony-bias correction to the cosmic star formation rate density.", "INFO")
+    print_status("")
 
-    # Load data
-    print_status("Loading SFR data...", "INFO")
-    df_uncover = load_uncover()
-    df_ceers = load_ceers()
+    # ------------------------------------------------------------------
+    # Stage 1: Methodology overview
+    # ------------------------------------------------------------------
+    log_subsection("Stage 1: Methodology")
+
+    print_status("If TEP inflates apparent stellar masses via isochrony bias, it also inflates", "INFO")
+    print_status("apparent SFRs (since SFR is proportional to M* x sSFR in SED fitting).", "INFO")
+    print_status("")
+    print_status("Correction formula: SFR_true = SFR_obs / Gamma_t^m", "INFO")
+    log_data("SFR bias index m", 0.5, indent=4)
+    log_data("Rationale", "UV-based SFR traces recent SF (< 100 Myr), less affected than cumulative mass")
+    log_data("Mass bias index n (for comparison)", 0.7, indent=4)
+    log_data("LCDM reference", "Mason+ 2015 / Bouwens+ 2022 extrapolation: log10(SFRD) = -1.5 - 0.35*(z-6)")
+    log_data("Redshift bins", "z = 6-7, 7-8, 8-9, 9-10, 10-12", indent=4)
+    log_data("Volume weighting", "Flat LCDM comoving shell, H0=67.4, Om=0.315", indent=4)
+    print_status("")
+
+    # ------------------------------------------------------------------
+    # Stage 2: Load survey data
+    # ------------------------------------------------------------------
+    log_subsection("Stage 2: Loading Survey Data")
+
+    with log_timing("Loading UNCOVER SFR data"):
+        df_uncover = load_uncover()
+    print_status(f"  UNCOVER: {len(df_uncover)} galaxies with valid SFR", "INFO")
+
+    with log_timing("Loading CEERS SFR data"):
+        df_ceers = load_ceers()
     if df_ceers is None:
         print_status("ceers_highz_sample.csv not found — run step_031/032 first. Aborting.", "ERROR")
         return {"status": "aborted", "reason": "missing ceers_highz_sample.csv"}
-    print_status(f"  UNCOVER: {len(df_uncover)} galaxies with SFR", "INFO")
-    print_status(f"  CEERS: {len(df_ceers)} galaxies with SFR", "INFO")
+    print_status(f"  CEERS: {len(df_ceers)} galaxies with valid SFR", "INFO")
 
-    # Redshift bins
+    print_status(f"  Combined sample: {len(df_uncover) + len(df_ceers)} galaxies", "INFO")
+    print_status("")
+
+    # ------------------------------------------------------------------
+    # Stage 3: Compute per-survey SFRD
+    # ------------------------------------------------------------------
+    log_subsection("Stage 3: Per-Survey SFRD Computation")
+
     z_bins = [(6, 7), (7, 8), (8, 9), (9, 10), (10, 12)]
 
-    # Compute per-survey
-    print_status("\nComputing SFRD per survey...", "INFO")
-    print_status("  UNCOVER:", "INFO")
-    uncover_results = compute_sfrd_bins(df_uncover, z_bins, "UNCOVER", SURVEY_AREAS["UNCOVER"])
+    print_status("UNCOVER (Abell 2744, ~45 arcmin^2):", "INFO")
+    with log_timing("Computing UNCOVER SFRD bins"):
+        uncover_results = compute_sfrd_bins(df_uncover, z_bins, "UNCOVER", SURVEY_AREAS["UNCOVER"])
     for r in uncover_results:
-        print_status(f"    z=[{r['z_lo']},{r['z_hi']}): N={r['n']}, "
+        print_status(f"  z=[{r['z_lo']},{r['z_hi']}): N={r['n']}, "
                      f"log SFRD_obs={r['log_sfrd_obs']:.2f}, "
                      f"log SFRD_corr={r['log_sfrd_corr']:.2f}, "
+                     f"excess={r['excess_factor_obs']:.1f}x -> {r['excess_factor_corr']:.1f}x, "
                      f"reduction={r['sfrd_reduction_pct']:.0f}%", "INFO")
 
-    print_status("  CEERS:", "INFO")
-    ceers_results = compute_sfrd_bins(df_ceers, z_bins, "CEERS", SURVEY_AREAS["CEERS"])
+    print_status("")
+    print_status("CEERS (EGS field, ~100 arcmin^2):", "INFO")
+    with log_timing("Computing CEERS SFRD bins"):
+        ceers_results = compute_sfrd_bins(df_ceers, z_bins, "CEERS", SURVEY_AREAS["CEERS"])
     for r in ceers_results:
-        print_status(f"    z=[{r['z_lo']},{r['z_hi']}): N={r['n']}, "
+        print_status(f"  z=[{r['z_lo']},{r['z_hi']}): N={r['n']}, "
                      f"log SFRD_obs={r['log_sfrd_obs']:.2f}, "
                      f"log SFRD_corr={r['log_sfrd_corr']:.2f}, "
+                     f"excess={r['excess_factor_obs']:.1f}x -> {r['excess_factor_corr']:.1f}x, "
                      f"reduction={r['sfrd_reduction_pct']:.0f}%", "INFO")
 
-    # Combined
-    print_status("\nCombined SFRD (volume-weighted):", "INFO")
-    combined = combine_survey_sfrd([uncover_results, ceers_results], z_bins)
+    # ------------------------------------------------------------------
+    # Stage 4: Combined volume-weighted SFRD
+    # ------------------------------------------------------------------
+    print_status("")
+    log_subsection("Stage 4: Combined Volume-Weighted SFRD")
+
+    with log_timing("Combining surveys (volume-weighted)"):
+        combined = combine_survey_sfrd([uncover_results, ceers_results], z_bins)
+
+    print_status("Combined UNCOVER + CEERS:", "INFO")
     for c in combined:
         print_status(f"  z=[{c['z_lo']},{c['z_hi']}): N={c['n']}, "
                      f"log SFRD_obs={c['log_sfrd_obs']:.2f}, "
                      f"log SFRD_corr={c['log_sfrd_corr']:.2f}, "
-                     f"excess_obs={c['excess_factor_obs']:.1f}×, "
-                     f"excess_corr={c['excess_factor_corr']:.1f}×, "
+                     f"excess_obs={c['excess_factor_obs']:.1f}x, "
+                     f"excess_corr={c['excess_factor_corr']:.1f}x, "
                      f"reduction={c['sfrd_reduction_pct']:.0f}%", "INFO")
 
-    # Summary statistics
-    print_status("\n" + "=" * 65, "INFO")
-    print_status("SUMMARY", "INFO")
-    print_status("=" * 65, "INFO")
+    # ------------------------------------------------------------------
+    # Stage 5: Summary statistics
+    # ------------------------------------------------------------------
+    print_status("")
+    log_subsection("Stage 5: Summary Statistics")
 
-    # z>8 combined
     z8_bins = [c for c in combined if c["z_lo"] >= 8]
     if z8_bins:
         mean_reduction_z8 = np.mean([c["sfrd_reduction_pct"] for c in z8_bins])
@@ -448,74 +490,85 @@ def main():
         max_excess_obs = max(c["excess_factor_obs"] for c in z8_bins)
         max_excess_corr = max(c["excess_factor_corr"] for c in z8_bins)
 
-        print_status(f"  z>8 mean SFRD reduction: {mean_reduction_z8:.0f}%", "INFO")
-        print_status(f"  z>8 mean excess (observed): {mean_excess_obs_z8:.1f}× ΛCDM", "INFO")
-        print_status(f"  z>8 mean excess (TEP-corrected): {mean_excess_corr_z8:.1f}× ΛCDM", "INFO")
-        print_status(f"  z>8 max excess: {max_excess_obs:.1f}× → {max_excess_corr:.1f}×", "INFO")
+        print_status("z > 8 bins (combined):", "INFO")
+        log_data("Mean SFRD reduction", f"{mean_reduction_z8:.1f}%", indent=4)
+        log_data("Mean excess (observed)", f"{mean_excess_obs_z8:.1f}x LCDM", indent=4)
+        log_data("Mean excess (TEP-corrected)", f"{mean_excess_corr_z8:.1f}x LCDM", indent=4)
+        log_data("Max excess (observed -> corrected)", f"{max_excess_obs:.1f}x -> {max_excess_corr:.1f}x", indent=4)
 
-    # Overall
     all_reductions = [c["sfrd_reduction_pct"] for c in combined]
     mean_reduction_all = np.mean(all_reductions)
-    print_status(f"  Overall mean SFRD reduction: {mean_reduction_all:.0f}%", "INFO")
+    print_status("")
+    print_status("All bins (combined):", "INFO")
+    log_data("Overall mean SFRD reduction", f"{mean_reduction_all:.1f}%", indent=4)
 
-    # Sensitivity: m=0.5 vs m=0.7
-    print_status("\n  Sensitivity to SFR bias index m:", "INFO")
+    # Sensitivity to SFR bias index
+    print_status("")
+    print_status("Sensitivity to SFR bias index m:", "INFO")
     for c in combined:
         if c["z_lo"] >= 8:
             r_m05 = c["log_sfrd_corr"]
             r_m07 = c["log_sfrd_corr_m07"]
-            print_status(f"    z=[{c['z_lo']},{c['z_hi']}): "
-                         f"m=0.5 → log SFRD={r_m05:.2f}, "
-                         f"m=0.7 → log SFRD={r_m07:.2f}", "INFO")
+            print_status(f"  z=[{c['z_lo']},{c['z_hi']}): "
+                         f"m=0.5 -> log SFRD={r_m05:.2f}, "
+                         f"m=0.7 -> log SFRD={r_m07:.2f}", "INFO")
 
-    # Generate figure
-    print_status("\nGenerating figure...", "INFO")
-    fig_path = FIGURES_PATH / f"figure_{STEP_NUM}_{STEP_NAME}.png"
-    generate_figure(combined, uncover_results, ceers_results, fig_path)
+    # ------------------------------------------------------------------
+    # Stage 6: Generate figure and save outputs
+    # ------------------------------------------------------------------
+    print_status("")
+    log_subsection("Stage 6: Figure Generation and Output")
 
-    # Build results dict
-    results = {
-        "step": f"step_{STEP_NUM}",
-        "name": "Cosmic SFRD Correction",
-        "surveys": {
-            "UNCOVER": uncover_results,
-            "CEERS": ceers_results,
-        },
-        "combined": combined,
-        "summary": {
-            "z_gt_8_mean_reduction_pct": float(mean_reduction_z8) if z8_bins else None,
-            "z_gt_8_mean_excess_obs": float(mean_excess_obs_z8) if z8_bins else None,
-            "z_gt_8_mean_excess_corr": float(mean_excess_corr_z8) if z8_bins else None,
-            "overall_mean_reduction_pct": float(mean_reduction_all),
-            "sfr_bias_index_m": 0.5,
-            "mass_bias_index_n": 0.7,
-        },
-        "methodology": {
-            "sfr_correction": "SFR_true = SFR_obs / Gamma_t^m, m=0.5",
-            "lcdm_extrapolation": "log10(SFRD) = -1.5 - 0.35*(z-6) for z>6",
-            "volume_calculation": "flat LCDM comoving shell, H0=67.4, Om=0.315",
-            "caveat": (
-                "SFR bias index m=0.5 is approximate. UV-based SFRs are less "
-                "affected by TEP than SED-based masses because UV traces recent "
-                "star formation (< 100 Myr). Values m=0.3-0.7 bracket the "
-                "plausible range. The correction is conservative at m=0.5."
-            ),
-        },
-    }
+    with log_timing("Generating 3-panel SFRD correction figure"):
+        fig_path = FIGURES_PATH / f"figure_{STEP_NUM}_{STEP_NAME}.png"
+        generate_figure(combined, uncover_results, ceers_results, fig_path)
 
-    out_file = OUTPUT_PATH / f"step_{STEP_NUM}_{STEP_NAME}.json"
-    with open(out_file, "w") as f:
-        json.dump(results, f, indent=2, default=safe_json_default)
-    print_status(f"\nResults saved to {out_file}", "INFO")
+    with log_timing("Writing results JSON"):
+        results = {
+            "step": f"step_{STEP_NUM}",
+            "name": "Cosmic SFRD Correction",
+            "surveys": {
+                "UNCOVER": uncover_results,
+                "CEERS": ceers_results,
+            },
+            "combined": combined,
+            "summary": {
+                "z_gt_8_mean_reduction_pct": float(mean_reduction_z8) if z8_bins else None,
+                "z_gt_8_mean_excess_obs": float(mean_excess_obs_z8) if z8_bins else None,
+                "z_gt_8_mean_excess_corr": float(mean_excess_corr_z8) if z8_bins else None,
+                "overall_mean_reduction_pct": float(mean_reduction_all),
+                "sfr_bias_index_m": 0.5,
+                "mass_bias_index_n": 0.7,
+            },
+            "methodology": {
+                "sfr_correction": "SFR_true = SFR_obs / Gamma_t^m, m=0.5",
+                "lcdm_extrapolation": "log10(SFRD) = -1.5 - 0.35*(z-6) for z>6",
+                "volume_calculation": "flat LCDM comoving shell, H0=67.4, Om=0.315",
+                "caveat": (
+                    "SFR bias index m=0.5 is approximate. UV-based SFRs are less "
+                    "affected by TEP than SED-based masses because UV traces recent "
+                    "star formation (< 100 Myr). Values m=0.3-0.7 bracket the "
+                    "plausible range. The correction is conservative at m=0.5."
+                ),
+            },
+        }
 
-    print_status("\n" + "=" * 65, "INFO")
+        out_file = OUTPUT_PATH / f"step_{STEP_NUM}_{STEP_NAME}.json"
+        with open(out_file, "w") as f:
+            json.dump(results, f, indent=2, default=safe_json_default)
+        print_status(f"Results saved to {out_file.name}", "INFO")
+
+    # ------------------------------------------------------------------
+    # Final summary
+    # ------------------------------------------------------------------
+    print_status("")
+    print_status("Step 147 complete — SFRD correction summary:", "SUCCESS")
     if z8_bins:
-        print_status(
-            f"HEADLINE: TEP reduces cosmic SFRD at z>8 by {mean_reduction_z8:.0f}%, "
-            f"cutting the ΛCDM excess from {mean_excess_obs_z8:.1f}× to {mean_excess_corr_z8:.1f}×.",
-            "INFO"
-        )
-    print_status("=" * 65, "INFO")
+        print_status(f"  z > 8 mean reduction: {mean_reduction_z8:.1f}%", "SUCCESS")
+        print_status(f"  z > 8 excess: {mean_excess_obs_z8:.1f}x -> {mean_excess_corr_z8:.1f}x LCDM", "SUCCESS")
+        print_status(f"  Overall mean reduction: {mean_reduction_all:.1f}%", "SUCCESS")
+        print_status(f"  Correction is modest — residual excess at z > 9 requires", "SUCCESS")
+        print_status(f"  additional astrophysical contributions (bursty SF, cosmic variance).", "SUCCESS")
 
 
 if __name__ == "__main__":

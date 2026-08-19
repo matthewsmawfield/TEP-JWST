@@ -43,12 +43,12 @@
         "mean_dust_below": 0.1434038677320584,
         "mean_ratio": 7.169888880546454,
         "mannwhitney_u": 136498.5,
-        "p_mannwhitney_greater": 5.009365557792269e-39
+        "p_mannwhitney_greater": 5.009365557792267e-39
       },
       "train_bootstrap_best_threshold": {
         "n_boot": 400,
         "seed": 42,
-        "threshold_q16": 0.4200000000000001,
+        "threshold_q16": 0.42000000000000004,
         "threshold_q50": 0.4700000000000001,
         "threshold_q84": 0.6400000000000001
       },
@@ -115,12 +115,12 @@
         "mean_dust_below": 0.19410011573993705,
         "mean_ratio": 5.5092531381968675,
         "mannwhitney_u": 140821.5,
-        "p_mannwhitney_greater": 9.349723182426058e-33
+        "p_mannwhitney_greater": 9.349723182426059e-33
       },
       "train_bootstrap_best_threshold": {
         "n_boot": 400,
         "seed": 42,
-        "threshold_q16": 0.4200000000000001,
+        "threshold_q16": 0.42000000000000004,
         "threshold_q50": 0.4700000000000001,
         "threshold_q84": 0.6400000000000001
       },
@@ -155,7 +155,7 @@
         "mean_dust_below": 0.32738126409569446,
         "mean_ratio": 2.365182197643629,
         "mannwhitney_u": 1111.0,
-        "p_mannwhitney_greater": 0.00045500681733291683,
+        "p_mannwhitney_greater": 0.0004550068173329168,
         "n_total": 82,
         "z_min": 8.0,
         "min_group": 10
@@ -187,7 +187,7 @@
         "mean_dust_below": 0.37752405200702605,
         "mean_ratio": 2.026275705007671,
         "mannwhitney_u": 2751.0,
-        "p_mannwhitney_greater": 0.00986314198353253
+        "p_mannwhitney_greater": 0.009863141983532529
       },
       "train_bootstrap_best_threshold": {
         "n_boot": 400,
@@ -266,8 +266,8 @@
       "k": 1,
       "stat": 2.413707118687801,
       "df": 2,
-      "p": 0.2991370171125589,
-      "log10_p": -0.5241298412883545
+      "p": 0.29913701711255886,
+      "log10_p": -0.5241298412883546
     },
     "fixed_threshold_gyr": 0.3,
     "fixed_log_odds_ratio": [

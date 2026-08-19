@@ -470,6 +470,8 @@ def main():
         return
 
     print_status(f"Surveys loaded: {list(surveys.keys())}", "INFO")
+    print_status(f"Config: z_min={config['z_min']}, mass_bin={config['mass_bin_width_dex']} dex, min_bin_n={config['min_bin_n']}", "INFO")
+    print_status("", "INFO")
 
     analyses = {
         'dust_positive_only': True,
@@ -499,12 +501,22 @@ def main():
 
             per[name] = analyze_dataset(df_use, config)
             combined_rows.append(df_use[['survey', 'z_phot', 'log_Mstar', 'dust', 'gamma_t']])
+            if per[name] is not None:
+                pr = per[name].get('partial_residual', {})
+                rho_val = pr.get('rho') if pr else None
+                print_status(f"  {name} ({analysis_name}): N={len(df_use)}, partial_residual_ρ={rho_val:.3f}" if rho_val is not None else f"  {name} ({analysis_name}): N={len(df_use)}, no partial residual", "INFO")
 
         results['per_survey'][analysis_name] = per
 
         if combined_rows:
             df_all = pd.concat(combined_rows, ignore_index=True)
             results['combined'][analysis_name] = analyze_dataset(df_all, config)
+            comb = results['combined'][analysis_name]
+            if comb is not None:
+                pr = comb.get('partial_residual', {})
+                rho_val = pr.get('rho') if pr else None
+                print_status(f"  Combined ({analysis_name}): N={len(df_all)}, partial_residual_ρ={rho_val:.3f}" if rho_val is not None else f"  Combined ({analysis_name}): N={len(df_all)}", "INFO")
+        print_status("", "INFO")
 
     fig_path = FIGURES_PATH / 'figure_092_mass_matched_confirmation.png'
     wrote = make_figure(results, fig_path)

@@ -40,8 +40,8 @@ def propagate_kappa_gal_uncertainty(kappa_gal=KAPPA_GAL, sigma_kappa_gal=KAPPA_G
     not a dimensionless α₀. The external Paper 11 prior is therefore sampled
     directly in mag units and passed to compute_gamma_t as kappa=...
     """
-    np.random.seed(42)
-    kappa_gal_samples = np.random.normal(kappa_gal, sigma_kappa_gal, n_samples)
+    rng = np.random.default_rng(42)
+    kappa_gal_samples = rng.normal(kappa_gal, sigma_kappa_gal, n_samples)
     kappa_gal_samples = np.clip(kappa_gal_samples, 1.0e3, 3.0e6)
     
     # Test case: z=5.5, M_h = 10^12.5 M_sun
@@ -132,26 +132,29 @@ def calculate_full_error_budget():
     return error_budget
 
 def main():
-    print("=" * 70)
-    print("Step 123: κ_gal Error Propagation and Systematic Budget")
-    print("=" * 70)
+    print_status("STEP 123: kappa_gal Error Propagation and Systematic Budget", "TITLE")
+    print_status("Propagating kappa_gal uncertainties through the Gamma_t kernel.", "INFO")
+    print_status("")
     
     budget = calculate_full_error_budget()
     
-    print("\nFractional Systematic Sources:")
+    print_status("")
+    print_status("Fractional Systematic Sources:", "PROCESS")
     for source, info in budget['kappa_gal_sources'].items():
         if isinstance(info, dict):
-            print(f"  {source}: ±{info['value']:.3f} ({info['source']})")
+            print_status(f"  {source}: +/-{info['value']:.3f} ({info['source']})", "INFO")
     
-    print(f"\nPropagation Test (z=5.5, log M_h=12.5):")
+    print_status("")
+    print_status("Propagation Test (z=5.5, log M_h=12.5):", "PROCESS")
     prop = budget['propagation_test']
-    print(f"  Γ_t = {prop['gamma_t_mean']:.2f} ± {prop['gamma_t_std']:.2f}")
-    print(f"  95% CI: [{prop['gamma_t_95ci'][0]:.2f}, {prop['gamma_t_95ci'][1]:.2f}]")
-    print(f"  Fractional uncertainty: {prop['fractional_uncertainty']:.1%}")
+    print_status(f"  Gamma_t = {prop['gamma_t_mean']:.2f} +/- {prop['gamma_t_std']:.2f}", "INFO")
+    print_status(f"  95% CI: [{prop['gamma_t_95ci'][0]:.2f}, {prop['gamma_t_95ci'][1]:.2f}]", "INFO")
+    print_status(f"  Fractional uncertainty: {prop['fractional_uncertainty']:.1%}", "INFO")
     
-    print(f"\nCombined Prediction Uncertainties:")
+    print_status("")
+    print_status("Combined Prediction Uncertainties:", "PROCESS")
     for obs, info in budget['combined_predictions'].items():
-        print(f"  {obs}: {info['nominal']:.2f} ± {info['uncertainty']:.2f}")
+        print_status(f"  {obs}: {info['nominal']:.2f} +/- {info['uncertainty']:.2f}", "INFO")
     
     output = {
         'step': 123,
@@ -166,11 +169,10 @@ def main():
     output_path = RESULTS_DIR / "step_123_kappa_gal_error_budget.json"
     with open(output_path, 'w') as f:
         json.dump(output, f, indent=2)
-    print(f"\nResults saved to {output_path}")
+    print_status(f"Results saved to {output_path.name}", "SUCCESS")
     
-    print("\n" + "=" * 70)
-    print("Error budget analysis complete.")
-    print("=" * 70)
+    print_status("")
+    print_status("Error budget analysis complete.", "SUCCESS")
 
 if __name__ == "__main__":
     main()

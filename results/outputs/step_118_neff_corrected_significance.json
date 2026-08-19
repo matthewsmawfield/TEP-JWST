@@ -33,7 +33,7 @@
       "n_eff_ratio": 0.11043152607484655,
       "p_original": 5.998049948343616e-11,
       "p_corrected": 0.05947765063801476,
-      "sigma_original": 6.543786277693838,
+      "sigma_original": 6.543786277693837,
       "sigma_corrected": 1.884645976242979,
       "still_significant_0.05": false,
       "still_significant_0.01": false,
@@ -106,7 +106,7 @@
       "p_original": 0.0023372863127848866,
       "p_corrected": 0.29913169954337476,
       "sigma_original": 3.0436477570489178,
-      "sigma_corrected": 1.0382972264762915,
+      "sigma_corrected": 1.0382972264762913,
       "still_significant_0.05": false,
       "still_significant_0.01": false,
       "still_significant_0.001": false,
@@ -133,7 +133,7 @@
     "combined_significance": {
       "fisher_chi2": 37.16493704277896,
       "fisher_df": 12,
-      "fisher_p": 0.0002100554627908674,
+      "fisher_p": 0.00021005546279086732,
       "harmonic_mean_p": 0.0011670902038764621,
       "bonferroni_p": 0.0011941062707704355,
       "bonferroni_sigma": 3.2402841817940384

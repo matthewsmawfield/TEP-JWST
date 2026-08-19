@@ -64,10 +64,12 @@ LOG_MH_AT_SIGMA_REF = 12.5
 SIGMA_SLOPE = 5.0
 
 
-def _sigma_to_log_mhalo(sigma_kms):
+def _sigma_to_log_mhalo(sigma_kms, z):
     """Map velocity dispersion to halo mass (sigma-only, no R_e)."""
     sigma = np.asarray(sigma_kms, dtype=float)
-    return SIGMA_SLOPE * np.log10(np.maximum(sigma, 1.0) / SIGMA_REF) + LOG_MH_AT_SIGMA_REF
+    z = np.asarray(z, dtype=float)
+    log_mh_ref_z = LOG_MH_AT_SIGMA_REF - 1.5 * np.log10(1 + z)
+    return SIGMA_SLOPE * np.log10(np.maximum(sigma, 1.0) / SIGMA_REF) + log_mh_ref_z
 
 
 # ---------------------------------------------------------------------------
@@ -229,6 +231,16 @@ def _build_combined_sample():
         combined[col] = pd.to_numeric(combined[col], errors="coerce")
     combined["is_upper_limit_mdyn"] = combined["is_upper_limit_mdyn"].fillna(False).astype(bool)
 
+    # Flag sigma measurement type: absorption (stellar dynamics, quiescent)
+    # vs emission (gas kinematics, star-forming).  These trace different
+    # physical components and may carry systematic offsets at high-z.
+    _ABSORPTION_SOURCES = {
+        "Slob et al. 2025", "Esdaile et al. 2021", "Tanaka et al. 2019",
+    }
+    combined["sigma_type"] = combined["source_paper"].apply(
+        lambda p: "absorption" if p in _ABSORPTION_SOURCES else "emission"
+    )
+
     combined["object_id"] = combined["object_id"].astype(str)
     combined = combined.drop_duplicates(subset=["object_id"], keep="first").reset_index(drop=True)
 
@@ -254,6 +266,10 @@ def _build_combined_sample():
         "z_median": float(combined["z"].median()),
         "sigma_min_kms": float(combined["sigma_kms"].min()),
         "sigma_max_kms": float(combined["sigma_kms"].max()),
+        "sigma_type_counts": {
+            "absorption": int((combined["sigma_type"] == "absorption").sum()),
+            "emission": int((combined["sigma_type"] == "emission").sum()),
+        },
         "source_counts": sources,
         "source_paper_breakdown": {
             str(k): int(v)
@@ -271,7 +287,7 @@ def _compute_gamma_t_sigma_only(df):
     """Gamma_t from sigma alone (no Mdyn, no M*, no R_e)."""
     sigma = df["sigma_kms"].to_numpy(dtype=float)
     z = df["z"].to_numpy(dtype=float)
-    log_mh = _sigma_to_log_mhalo(sigma)
+    log_mh = _sigma_to_log_mhalo(sigma, z)
     return compute_gamma_t(log_mh, z)
 
 
@@ -304,7 +320,7 @@ def _ols_fit(x, y):
     ss_tot = float(np.sum((ym - np.mean(ym)) ** 2))
     r2 = 1.0 - ss_res / ss_tot if ss_tot > 0 else 0.0
     full_resid = np.full(len(x), np.nan)
-    full_resid[mask] = ym - fitted
+    full_resid[mask] = fitted - ym
     return float(beta[0]), float(beta[1]), float(r2), full_resid
 
 
@@ -323,7 +339,7 @@ def _ols_fit_2d(x1, x2, y):
     ss_tot = float(np.sum((y[mask] - np.mean(y[mask])) ** 2))
     r2 = 1.0 - ss_res / ss_tot if ss_tot > 0 else 0.0
     full_resid = np.full(len(y), np.nan)
-    full_resid[mask] = y[mask] - fitted
+    full_resid[mask] = fitted - y[mask]
     return float(beta[0]), float(beta[1]), float(beta[2]), float(r2), full_resid
 
 
@@ -692,6 +708,15 @@ def run():
     t4 = _test_cross_survey(combined)
     t5 = _test_highz_subset(combined, z_min=4.0)
 
+    # Stratify by sigma_type (absorption vs emission) to diagnose
+    # whether the primary test result is driven by mixing stellar
+    # absorption-line sigma (quiescent galaxies) with gas emission-
+    # line sigma (star-forming galaxies).
+    absorption = combined[combined["sigma_type"] == "absorption"].reset_index(drop=True)
+    emission = combined[combined["sigma_type"] == "emission"].reset_index(drop=True)
+    t1_abs = _test_mstar_sigma_evolution(absorption) if len(absorption) >= 10 else {"n": len(absorption), "status": "insufficient_n"}
+    t1_emi = _test_mstar_sigma_evolution(emission) if len(emission) >= 10 else {"n": len(emission), "status": "insufficient_n"}
+
     assessment, supportive = _classify_sigma_test(t1, t2, t3, t5)
 
     # Print key results
@@ -703,6 +728,22 @@ def run():
     print_status(f"    Observed  rho(resid, z | sigma) = {obs_rho:.4f} (p={obs_p:.4e})", "INFO")
     print_status(f"    Corrected rho(resid, z | sigma) = {corr_rho:.4f} (p={corr_p:.4e})", "INFO")
     print_status(f"    z-trend improved: {t1['z_trend_improved']}, scatter improved: {t1['scatter_improved']}", "INFO")
+
+    # Stratified by sigma_type
+    print_status(f"  T1a — Absorption-only (N={len(absorption)}):", "INFO")
+    if isinstance(t1_abs, dict) and "observed_residual_z_trend" in t1_abs:
+        abs_rho = t1_abs["observed_residual_z_trend"]["partial_rho_resid_z_given_sigma"]
+        abs_p = t1_abs["observed_residual_z_trend"]["p"]
+        print_status(f"    rho(resid, z | sigma) = {abs_rho:.4f} (p={abs_p:.4e})", "INFO")
+    else:
+        print_status(f"    Insufficient N for stratified test", "INFO")
+    print_status(f"  T1b — Emission-only (N={len(emission)}):", "INFO")
+    if isinstance(t1_emi, dict) and "observed_residual_z_trend" in t1_emi:
+        emi_rho = t1_emi["observed_residual_z_trend"]["partial_rho_resid_z_given_sigma"]
+        emi_p = t1_emi["observed_residual_z_trend"]["p"]
+        print_status(f"    rho(resid, z | sigma) = {emi_rho:.4f} (p={emi_p:.4e})", "INFO")
+    else:
+        print_status(f"    Insufficient N for stratified test", "INFO")
 
     if isinstance(t2, dict) and "observed_fp" in t2:
         print_status(f"  T2 — Fundamental plane (N={t2['n']}):", "INFO")
@@ -737,6 +778,8 @@ def run():
         "sample": metadata,
         "tests": {
             "T1_mstar_sigma_evolution": t1,
+            "T1a_absorption_only": t1_abs,
+            "T1b_emission_only": t1_emi,
             "T2_fundamental_plane": t2,
             "T3_gamma_sigma_only_prediction": t3,
             "T4_cross_survey": t4,

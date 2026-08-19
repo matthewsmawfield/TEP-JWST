@@ -277,15 +277,15 @@ def main():
     # Check if optimal n matches theoretical prediction
     n_optimal_global = find_optimal_n(df_z8)
     
+    is_consistent = bool(abs(n_optimal_global - 0.5) < 0.2)
     theoretical = {
         'n_optimal_data': float(n_optimal_global),
         'n_ssp_solar': 0.7,
         'n_ssp_low_z': 0.5,
-        'consistent_with_low_z_ssp': bool(abs(n_optimal_global - 0.5) < 0.2),
+        'consistent_with_low_z_ssp': is_consistent,
         'interpretation': (
-            'The optimal n at z>8 is consistent with low-metallicity SSP predictions, '
-            'supporting the physical interpretation that high-z galaxies have lower '
-            'metallicity and hence lower M/L power-law index.'
+            f'The optimal n at z>8 is {n_optimal_global:.3f}, which is '
+            + ('consistent with low-metallicity SSP predictions (n~0.5), supporting the physical interpretation that high-z galaxies have lower metallicity and hence lower M/L power-law index.' if is_consistent else f'NOT consistent with low-metallicity SSP predictions (n~0.5) or solar-metallicity SSP (n~0.7). The data-driven optimal n exceeds both theoretical benchmarks, suggesting that the M/L scaling at z>8 is steeper than predicted by standard SSP models.')
         )
     }
     
@@ -300,16 +300,19 @@ def main():
     print_status("M/L CROSS-VALIDATION SUMMARY", "INFO")
     print_status("=" * 70, "INFO")
     
+    gen_success = z_blind['generalization_success'] if z_blind else None
     summary = {
         'kfold_stable': results['kfold_summary']['stable'],
-        'generalizes_to_high_z': z_blind['generalization_success'] if z_blind else None,
+        'generalizes_to_high_z': gen_success,
         'robust_to_n_choice': robustness['robust'],
         'theoretically_consistent': theoretical['consistent_with_low_z_ssp'],
         'conclusion': (
-            'The TEP signal is robust to the choice of M/L power-law index n. '
-            'Cross-validation confirms that n calibrated on one subset generalizes '
-            'to holdout data. The optimal n is consistent with theoretical predictions '
-            'for low-metallicity stellar populations at high redshift.'
+            f'The TEP signal is robust to the choice of M/L power-law index n '
+            f'(significant across {robustness["significant_fraction"]*100:.0f}% of tested n values). '
+            f'K-fold cross-validation confirms that n calibrated on one subset generalizes '
+            f'to holdout data (mean test rho = {np.mean(rhos):.3f}). '
+            + ('Redshift-blind generalization from z<6 to z>=6 succeeds. ' if gen_success else 'Redshift-blind generalization from z<6 to z>=6 does NOT succeed (rho = {:.3f} with low-z n on high-z data). '.format(z_blind['rho_high_z_with_low_z_n']) if z_blind else '')
+            + ('The optimal n is consistent with low-metallicity SSP predictions.' if theoretical['consistent_with_low_z_ssp'] else f'The optimal n ({theoretical["n_optimal_data"]:.3f}) is NOT consistent with standard SSP theoretical predictions (n_solar=0.7, n_low_z=0.5).')
         )
     }
     

@@ -233,7 +233,7 @@ def test_thread_7(df):
         "gamma_median": float(gamma_median),
         "properties": results,
         "all_significant": all_significant,
-        "interpretation": "TEP signature confirmed" if all_significant else "Partial or no confirmation",
+        "interpretation": f"{sum(1 for r in results.values() if r.get('p', 1) < 0.05)}/{len(results)} properties show significant TEP signature" if results else "No results",
     }
 
 # =============================================================================

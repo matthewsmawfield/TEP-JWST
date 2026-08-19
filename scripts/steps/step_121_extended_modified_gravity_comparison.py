@@ -33,9 +33,9 @@ RESULTS_DIR = Path(__file__).parent.parent.parent / "results" / "outputs"  # JSO
 def run_analysis():
     """Run extended modified gravity comparison."""
     
-    print("=" * 60)
-    print("Step 144: Extended Modified Gravity Comparison")
-    print("=" * 60)
+    print_status("STEP 121: Extended Modified Gravity Comparison", "TITLE")
+    print_status("Comparing TEP predictions against f(R), MOND, Galileon, and DGP for JWST anomalies.", "INFO")
+    print_status("")
     
     # Define modified gravity theories and their predictions
     theories = {
@@ -289,21 +289,24 @@ def run_analysis():
     )
     
     # Print results
-    print("\nTheory Comparison Summary:")
-    print("-" * 40)
+    print_status("")
+    print_status("Theory Comparison Summary:", "PROCESS")
     max_jwst_score = len(jwst_observables) * 2  # 2 points per observable
     for theory_name in theories:
-        print(f"{theory_name}: JWST score = {scores[theory_name]}/{max_jwst_score}, "
-              f"Constraints = {constraint_scores[theory_name]}/3")
+        print_status(f"  {theory_name}: JWST score = {scores[theory_name]}/{max_jwst_score}, "
+                     f"Constraints = {constraint_scores[theory_name]}/3", "INFO")
     
-    print(f"\nBest fit for JWST anomalies: {summary['best_jwst_fit']} "
-          f"(score: {summary['best_jwst_score']}/{max_jwst_score})")
+    print_status("")
+    print_status(f"Best fit for JWST anomalies: {summary['best_jwst_fit']} "
+                 f"(score: {summary['best_jwst_score']}/{max_jwst_score})", "SUCCESS")
     
-    print("\nTEP Unique Predictions:")
+    print_status("")
+    print_status("TEP Unique Predictions:", "PROCESS")
     for pred in theories['TEP']['unique_signatures']:
-        print(f"  • {pred}")
+        print_status(f"  - {pred}", "INFO")
     
-    print(f"\nInterpretation: {summary['interpretation']}")
+    print_status("")
+    print_status(f"Interpretation: {summary['interpretation']}", "INFO")
     
     # Save results
     output = {
@@ -322,7 +325,7 @@ def run_analysis():
     output_path = RESULTS_DIR / "step_121_extended_modified_gravity_comparison.json"
     with open(output_path, 'w') as f:
         json.dump(output, f, indent=2)
-    print(f"\nResults saved to {output_path}")
+    print_status(f"Results saved to {output_path.name}", "SUCCESS")
     
     return output
 

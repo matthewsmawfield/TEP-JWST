@@ -7,24 +7,24 @@
       "mean_low_gamma": 0.13342928382137856,
       "mean_high_gamma": 0.1669863677337453,
       "diff": 0.03355708391236675,
-      "p": 6.325271609580192e-16,
+      "p": 6.325271609580193e-16,
       "significant": true
     },
     "metallicity": {
       "mean_low_gamma": -1.2720433126430737,
       "mean_high_gamma": -1.048921363590981,
       "diff": 0.2231219490520926,
-      "p": 4.140947214204659e-16,
+      "p": 4.1409472142046597e-16,
       "significant": true
     },
     "dust": {
       "mean_low_gamma": 0.2543495416691087,
       "mean_high_gamma": 0.30181798406255833,
       "diff": 0.047468442393449606,
-      "p": 1.6801535439863338e-06,
+      "p": 1.6801535439863336e-06,
       "significant": true
     }
   },
   "all_significant": true,
-  "interpretation": "TEP signature confirmed"
+  "interpretation": "3/3 properties show significant TEP signature"
 }

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import json
 import sys
 from pathlib import Path
@@ -71,10 +73,12 @@ def _assign_named_footprints(df: pd.DataFrame, label_col: str) -> pd.DataFrame:
 
 
 def _compute_density(df: pd.DataFrame, n_neighbor: int, z_window: float) -> np.ndarray:
+    from astropy.cosmology import Planck18
     coords = df[["ra", "dec"]].to_numpy(dtype=float)
     z = df["z"].to_numpy(dtype=float)
     footprint = df["footprint_id"].to_numpy(dtype=int)
     density = np.full(len(df), np.nan)
+    kpc_per_arcmin = Planck18.kpc_proper_per_arcmin(z).value
     for i in range(len(df)):
         mask = (footprint == footprint[i]) & (np.abs(z - z[i]) < z_window)
         mask[i] = False
@@ -83,8 +87,9 @@ def _compute_density(df: pd.DataFrame, n_neighbor: int, z_window: float) -> np.n
         nbr = coords[mask]
         dra = (nbr[:, 0] - coords[i, 0]) * np.cos(np.deg2rad(coords[i, 1]))
         ddec = nbr[:, 1] - coords[i, 1]
-        dist = np.sqrt(dra * dra + ddec * ddec) * 60.0
-        d_n = np.sort(dist)[n_neighbor - 1]
+        dist_arcmin = np.sqrt(dra * dra + ddec * ddec) * 60.0
+        dist_kpc = dist_arcmin * kpc_per_arcmin[i]
+        d_n = np.sort(dist_kpc)[n_neighbor - 1]
         if d_n > 0:
             density[i] = n_neighbor / (np.pi * d_n * d_n)
     return density
@@ -288,10 +293,13 @@ def _assessment(primary: dict | None, companion: dict | None) -> str:
 
 
 def run():
-    print_status(f"STEP {STEP_NUM}: Protocluster switch sign-reversal test", "INFO")
+    print_status(f"STEP {STEP_NUM}: Protocluster switch sign-reversal test", "TITLE")
     dja_df, dja_meta = _load_dja_beta()
     jades_df, jades_meta = _load_jades_mwa_companion()
     dja_within_footprint = bool(dja_meta.get("footprint_method") == "dja_root") if isinstance(dja_meta, dict) else False
+
+    print_status(f"DJA beta: N={len(dja_df) if dja_df is not None else 0}, within_footprint={dja_within_footprint}", "INFO")
+    print_status(f"JADES MWA companion: N={len(jades_df) if jades_df is not None else 0}", "INFO")
     primary = (
         _summarize_environment_contrast(
             dja_df,

@@ -77,8 +77,8 @@ def process_ceers_catalog(force=False):
                 print_status(f"  High-z sample (z > 4): N = {len(highz_df)}", "INFO")
                 print_status(f"  z > 8 sample: N = {len(z8_df)}", "INFO")
                 return len(z8_df)
-        except Exception:
-            pass  # Fall through to reprocess
+        except Exception as e:
+            print_status(f"WARNING: Could not read cached CEERS data: {e}", "WARNING")
     
     print_status("\nProcessing CEERS catalog...", "INFO")
     

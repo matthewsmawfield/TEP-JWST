@@ -13,16 +13,16 @@
       "n_params": 4,
       "aic": 287.83850411639247,
       "bic": 302.42029170696543,
-      "akaike_weight": 0.03817086670439836
+      "akaike_weight": 0.03651549817588553
     },
     "tep": {
       "name": "TEP (Temporal Equivalence)",
-      "description": "Dust depends on Gamma_t (temporal enhancement factor)",
-      "log_likelihood": -186.68536713047462,
-      "n_params": 3,
-      "aic": 379.37073426094923,
-      "bic": 390.30707495387895,
-      "akaike_weight": 5.078796212859239e-22
+      "description": "Dust depends on mass, redshift, AND Gamma_t (tests whether TEP adds explanatory power beyond standard predictors)",
+      "log_likelihood": -138.7472824702902,
+      "n_params": 5,
+      "aic": 287.4945649405804,
+      "bic": 305.7217994287966,
+      "akaike_weight": 0.043367328840926964
     },
     "topheavy_imf": {
       "name": "Top-Heavy IMF",
@@ -31,7 +31,7 @@
       "n_params": 5,
       "aic": 285.99481412707064,
       "bic": 304.22204861528684,
-      "akaike_weight": 0.09595866900736083
+      "akaike_weight": 0.09179719785338096
     },
     "stochastic_sf": {
       "name": "Stochastic Star Formation",
@@ -40,7 +40,7 @@
       "n_params": 5,
       "aic": 289.8385039747192,
       "bic": 308.06573846293537,
-      "akaike_weight": 0.014042278106951567
+      "akaike_weight": 0.01343330201461165
     },
     "agn": {
       "name": "AGN Contamination",
@@ -49,7 +49,7 @@
       "n_params": 4,
       "aic": 281.627879568086,
       "bic": 296.20966715865893,
-      "akaike_weight": 0.8518281861812893
+      "akaike_weight": 0.8148866731151949
     }
   },
   "ranking_by_aic": [
@@ -67,53 +67,53 @@
     },
     {
       "rank": 3,
+      "model": "tep",
+      "aic": 287.4945649405804,
+      "delta_aic": 5.86668537249443
+    },
+    {
+      "rank": 4,
       "model": "null",
       "aic": 287.83850411639247,
       "delta_aic": 6.210624548306498
     },
     {
-      "rank": 4,
+      "rank": 5,
       "model": "stochastic_sf",
       "aic": 289.8385039747192,
       "delta_aic": 8.210624406633201
-    },
-    {
-      "rank": 5,
-      "model": "tep",
-      "aic": 379.37073426094923,
-      "delta_aic": 97.74285469286326
     }
   ],
   "comparisons_vs_tep": {
     "null": {
-      "bayes_factor": 7.515731111193589e+19,
-      "interpretation": "Very strong evidence for Model 2",
-      "delta_aic": -91.53223014455676,
-      "delta_bic": -87.88678324691352
+      "bayes_factor": 0.8420047799076071,
+      "interpretation": "Weak evidence for Model 1",
+      "delta_aic": 0.3439391758120678,
+      "delta_bic": -3.3015077218311717
     },
     "topheavy_imf": {
-      "bayes_factor": 1.889397900321313e+20,
-      "interpretation": "Very strong evidence for Model 2",
-      "delta_aic": -93.3759201338786,
-      "delta_bic": -86.08502633859212
+      "bayes_factor": 2.116736269141607,
+      "interpretation": "Weak evidence for Model 2",
+      "delta_aic": -1.4997508135097632,
+      "delta_bic": -1.4997508135097632
     },
     "stochastic_sf": {
-      "bayes_factor": 2.76488315703577e+19,
-      "interpretation": "Very strong evidence for Model 2",
-      "delta_aic": -89.53223028623006,
-      "delta_bic": -82.24133649094358
+      "bayes_factor": 0.30975626983818905,
+      "interpretation": "Positive evidence for Model 1",
+      "delta_aic": 2.3439390341387707,
+      "delta_bic": 2.3439390341387707
     },
     "agn": {
-      "bayes_factor": 1.6772245833067803e+21,
-      "interpretation": "Very strong evidence for Model 2",
-      "delta_aic": -97.74285469286326,
-      "delta_bic": -94.09740779522002
+      "bayes_factor": 18.79033583332353,
+      "interpretation": "Positive evidence for Model 2",
+      "delta_aic": -5.86668537249443,
+      "delta_bic": -9.51213227013767
     }
   },
   "conclusion": {
     "best_model": "agn",
-    "tep_rank": 5,
-    "tep_akaike_weight": 5.078796212859239e-22,
-    "interpretation": "TEP ranks #5 (Akaike weight = 0.0%)"
+    "tep_rank": 3,
+    "tep_akaike_weight": 0.043367328840926964,
+    "interpretation": "TEP ranks #3 (Akaike weight = 4.3%)"
   }
 }

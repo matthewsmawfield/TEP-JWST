@@ -4,12 +4,12 @@
   "test_1_environment_density": {
     "n_total": 2315,
     "partial_density_dust_given_mass_z": {
-      "rho": 0.06928485024621288,
-      "p": 0.0008505100626160521
+      "rho": 0.06928485024621303,
+      "p": 0.0008505100626159908
     },
     "partial_density_dust_given_mass_z_gammat": {
-      "rho": 0.07027996939254436,
-      "p": 0.0007147960239825733
+      "rho": 0.07027996939254426,
+      "p": 0.0007147960239826264
     },
     "cell_analysis": {
       "n_cells": 10,
@@ -55,7 +55,7 @@
           "z_bin": "6-8",
           "n": 113,
           "rho_density_dust": -0.1539856277862799,
-          "p": 0.10343638293934625,
+          "p": 0.10343638293934626,
           "tep_sign_correct": true
         },
         {
@@ -120,8 +120,8 @@
         "degree": "cubic mass + quadratic z + interactions",
         "rho": -0.05868138687020249,
         "p": 0.32528643600257734,
-        "r2_gamma_from_mass_z": 0.991970101510436,
-        "r2_dust_from_mass_z": 0.5784401593920714
+        "r2_gamma_from_mass_z": 0.9919701015104387,
+        "r2_dust_from_mass_z": 0.5784401593920567
       },
       "lowess_double_residual": {
         "method": "Sequential LOWESS (frac=0.3) on mass then z",
@@ -129,12 +129,12 @@
         "p": 0.0054458559015891795
       },
       "partial_spearman_mass_z": {
-        "rho": 0.21215902985942497,
-        "p": 0.00032529870281168674
+        "rho": 0.21215902985942492,
+        "p": 0.0003252987028116838
       },
       "partial_spearman_mass_z_interaction": {
         "rho": 0.21918034014327648,
-        "p": 0.00020228067074475872
+        "p": 0.0002022806707447574
       }
     },
     "full_z4_10": {
@@ -143,8 +143,8 @@
         "degree": "cubic mass + quadratic z + interactions",
         "rho": -0.07971373915650451,
         "p": 0.00012332441775638476,
-        "r2_gamma_from_mass_z": 0.9897166297652046,
-        "r2_dust_from_mass_z": 0.2672913542298201
+        "r2_gamma_from_mass_z": 0.9897166297652059,
+        "r2_dust_from_mass_z": 0.2672913542298173
       },
       "lowess_double_residual": {
         "method": "Sequential LOWESS (frac=0.3) on mass then z",
@@ -152,12 +152,12 @@
         "p": 3.3357209227588725e-05
       },
       "partial_spearman_mass_z": {
-        "rho": 0.018852333210372833,
-        "p": 0.3645864870963281
+        "rho": 0.018852333210372867,
+        "p": 0.3645864870963277
       },
       "partial_spearman_mass_z_interaction": {
-        "rho": -0.0016802896978018247,
-        "p": 0.9355989386140251
+        "rho": -0.0016802896978018189,
+        "p": 0.9355989386140224
       }
     }
   },

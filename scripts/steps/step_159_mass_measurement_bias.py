@@ -46,13 +46,7 @@ import pandas as pd
 from scipy.stats import spearmanr
 from numpy.linalg import lstsq
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="[%(asctime)s] [%(levelname)s] %(message)s",
-    datefmt="%H:%M:%S",
-    stream=sys.stdout,
-)
-log = logging.getLogger(__name__)
+log = logger  # Route all log.info/warning calls through TEPLogger
 
 ROOT   = Path(__file__).resolve().parents[2]
 OUTPUT = ROOT / "results/outputs/step_159_mass_measurement_bias.json"
@@ -227,18 +221,18 @@ def main():
     # 1. Simulation: suppression of partial rho as function of beta
     # ------------------------------------------------------------------ #
     log.info("\n--- Part 1: Simulation of partial rho suppression ---")
-    np.random.seed(42)
+    rng = np.random.default_rng(42)
     N = 10_000
-    log_mh_true = np.random.uniform(10, 14, N)
-    z = np.random.uniform(4, 10, N)
+    log_mh_true = rng.uniform(10, 14, N)
+    z = rng.uniform(4, 10, N)
     gt = compute_gamma_t(log_mh_true, z)
     log_gt = np.log10(np.clip(gt, 1e-9, None))
 
     # True stellar mass (no TEP bias)
-    log_mstar_true = 0.6 * log_mh_true - 2.5 + np.random.normal(0, 0.3, N)
+    log_mstar_true = 0.6 * log_mh_true - 2.5 + rng.normal(0, 0.3, N)
 
     # True dust signal: dust ~ Gamma_t (TEP prediction, signal strength 0.3)
-    log_dust = 0.3 * log_gt + np.random.normal(0, 0.2, N)
+    log_dust = 0.3 * log_gt + rng.normal(0, 0.2, N)
 
     # Unbiased partial rho (controlling for true mass)
     X_true = np.column_stack([log_mstar_true, z, np.ones(N)])

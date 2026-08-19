@@ -420,6 +420,8 @@ def main():
         return
 
     print_status(f"Surveys loaded: {list(surveys.keys())}", "INFO")
+    print_status(f"Config: n_perm={config['n_perm']}, nulls={config['nulls']}, z_min={config['z_min']}", "INFO")
+    print_status("", "INFO")
 
     results = {
         'config': config,
@@ -448,6 +450,10 @@ def main():
         if len(per_survey_data) == 0:
             continue
 
+        print_status(f"Analysis: {analysis_name} (dust_positive_only={dust_positive_only})", "PROCESS")
+        for sname, n in per_survey_n.items():
+            print_status(f"  {sname}: N={n}", "INFO")
+
         payload = {
             'per_survey_n': per_survey_n,
             'per_survey': {},
@@ -469,6 +475,9 @@ def main():
             }
 
         payload['meta_fixed_observed'] = combine_meta_fixed_from_z(per_survey_obs)
+        if payload['meta_fixed_observed'] is not None:
+            mf = payload['meta_fixed_observed']
+            print_status(f"  Meta-fixed observed: z={mf.get('z_combined', 0):.2f}, p={mf.get('p_combined', 1):.3e}", "INFO")
 
         for null_mode in config['nulls']:
             payload['per_survey'][null_mode] = {}
@@ -497,8 +506,12 @@ def main():
                 z_bin_width=float(config['z_bin_width']),
             )
             payload['meta_fixed_permutations'][null_mode] = meta_perm
+            if meta_perm is not None:
+                mp = meta_perm
+                print_status(f"  Null={null_mode}: meta z_perm={mp.get('z_combined_perm', 0):.2f}, p_perm={mp.get('p_combined_perm', 1):.3e}", "INFO")
 
         results['analyses'][analysis_name] = payload
+        print_status("", "INFO")
 
     out_json = OUTPUT_PATH / 'step_090_permutation_battery.json'
     with open(out_json, 'w') as f:

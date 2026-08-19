@@ -1,34 +1,34 @@
-[10:02:49]     ======================================================================
-[10:02:49]     STEP 079: M/L Scaling Cross-Validation
-[10:02:49]     ======================================================================
-[10:02:49]     Loaded N = 2315 galaxies
-[10:02:49]     z > 8 sample: N = 283
-[10:02:49]     
+[22:36:58] INFO        ======================================================================
+[22:36:58] INFO        STEP 079: M/L Scaling Cross-Validation
+[22:36:58] INFO        ======================================================================
+[22:36:58] INFO        Loaded N = 2315 galaxies
+[22:36:58] INFO        z > 8 sample: N = 283
+[22:36:58] INFO        
 --- 1. K-Fold Cross-Validation (k=5) ---
-[10:02:49]       Optimal n across folds: 0.99 ± 0.00
-[10:02:49]       Test ρ across folds: 0.469 ± 0.205
-[10:02:49]     
+[22:36:58] INFO          Optimal n across folds: 0.99 ± 0.00
+[22:36:58] INFO          Test ρ across folds: 0.469 ± 0.205
+[22:36:58] INFO        
 --- 2. Redshift-Blind Validation ---
-[10:02:49]       n calibrated at z<6: 0.98
-[10:02:49]       n optimal at z>6: 1.00
-[10:02:49]       ρ at z>6 with low-z n: -0.147
-[10:02:49]       Generalization success: False
-[10:02:49]     
+[22:36:58] INFO          n calibrated at z<6: 0.98
+[22:36:58] INFO          n optimal at z>6: 1.00
+[22:36:58] INFO          ρ at z>6 with low-z n: -0.147
+[22:36:58] INFO          Generalization success: False
+[22:36:58] INFO        
 --- 3. Sensitivity Analysis ---
-[10:02:49]       Significant across n values: 100%
-[10:02:49]       ρ range: [0.497, 0.545]
-[10:02:49]       Robust to n choice: True
-[10:02:49]     
+[22:36:58] INFO          Significant across n values: 100%
+[22:36:58] INFO          ρ range: [0.497, 0.545]
+[22:36:58] INFO          Robust to n choice: True
+[22:36:58] INFO        
 --- 4. Theoretical Consistency ---
-[10:02:49]       Optimal n (data): 0.99
-[10:02:49]       Consistent with low-Z SSP (n~0.5): False
-[10:02:49]     
+[22:36:58] INFO          Optimal n (data): 0.99
+[22:36:58] INFO          Consistent with low-Z SSP (n~0.5): False
+[22:36:58] INFO        
 ======================================================================
-[10:02:49]     M/L CROSS-VALIDATION SUMMARY
-[10:02:49]     ======================================================================
-[10:02:49]       K-fold stable: True
-[10:02:49]       Robust to n choice: True
-[10:02:49]       Theoretically consistent: False
-[10:02:49]       ALL TESTS PASS: False
-[10:02:49]     
+[22:36:58] INFO        M/L CROSS-VALIDATION SUMMARY
+[22:36:58] INFO        ======================================================================
+[22:36:58] INFO          K-fold stable: True
+[22:36:58] INFO          Robust to n choice: True
+[22:36:58] INFO          Theoretically consistent: False
+[22:36:58] INFO          ALL TESTS PASS: False
+[22:36:58] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_079_ml_cross_validation.json

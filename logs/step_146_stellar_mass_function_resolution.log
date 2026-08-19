@@ -1,9 +1,9 @@
-[10:05:39]     STEP 146: Stellar mass function resolution via TEP mass correction
-[10:05:39]   z=6: SMF excess=0.3 dex, Gamma_t=1.37, correction=0.10 dex, resolved=48%
-[10:05:39]   z=7: SMF excess=0.5 dex, Gamma_t=1.31, correction=0.08 dex, resolved=24%
-[10:05:39]   z=8: SMF excess=0.8 dex, Gamma_t=1.24, correction=0.07 dex, resolved=12%
-[10:05:39]   z=9: SMF excess=1.1 dex, Gamma_t=1.18, correction=0.05 dex, resolved=7%
-[10:05:39]   z=10: SMF excess=1.4 dex, Gamma_t=1.12, correction=0.03 dex, resolved=4%
-[10:05:39]   Labbe+2023 anomalous galaxies: 8/9 resolved
-[10:05:39] Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_146_stellar_mass_function_resolution.json
-[10:05:39]     Step 146 complete. Mean resolution=19%
+[22:41:51] INFO        STEP 146: Stellar mass function resolution via TEP mass correction
+[22:41:51] INFO      z=6: SMF excess=0.3 dex, Gamma_t=1.37, correction=0.10 dex, resolved=48%
+[22:41:51] INFO      z=7: SMF excess=0.5 dex, Gamma_t=1.31, correction=0.08 dex, resolved=24%
+[22:41:51] INFO      z=8: SMF excess=0.8 dex, Gamma_t=1.24, correction=0.07 dex, resolved=12%
+[22:41:51] INFO      z=9: SMF excess=1.1 dex, Gamma_t=1.18, correction=0.05 dex, resolved=7%
+[22:41:51] INFO      z=10: SMF excess=1.4 dex, Gamma_t=1.12, correction=0.03 dex, resolved=4%
+[22:41:51] INFO      Labbe+2023 anomalous galaxies: 8/9 resolved
+[22:41:51] INFO    Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_146_stellar_mass_function_resolution.json
+[22:41:51] INFO        Step 146 complete. Mean resolution=19%

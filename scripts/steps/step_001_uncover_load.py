@@ -32,7 +32,10 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.utils.logger import TEPLogger, set_step_logger, print_status
+from scripts.utils.logger import (
+    TEPLogger, set_step_logger, print_status,
+    log_section, log_subsection, log_data, log_dict, log_timing,
+)
 from scripts.utils.p_value_utils import format_p_value, safe_json_default
 from scripts.utils.downloader import smart_download
 
@@ -346,57 +349,125 @@ def compute_derived_quantities(df):
     return df
 
 # =============================================================================
-# MAIN
-# =============================================================================
-
 def main():
     print_status("STEP 01: Load UNCOVER DR4 Data", "TITLE")
-    
-    data = load_uncover_catalog()
+    print_status("Loading and quality-cutting the UNCOVER DR4 SPS catalog for TEP analysis.", "INFO")
+    print_status(f"Source: Wang et al. (2024, ApJS 270, 12) — Abell 2744 lensing field", "INFO")
+    print_status(f"Catalog file: {UNCOVER_DR4_FILE.name}", "INFO")
+    print_status("")
+
+    # ------------------------------------------------------------------
+    # Stage 1: Download / load raw FITS catalog
+    # ------------------------------------------------------------------
+    log_subsection("Stage 1: Catalog Acquisition")
+    with log_timing("Loading UNCOVER DR4 FITS catalog"):
+        data = load_uncover_catalog()
     if data is None:
         print_status("Aborting step 001 due to missing data.", "ERROR")
         return
 
-    df = extract_columns(data)
-    print_status(f"Extracted {len(df.columns)} columns", "INFO")
-    
-    df_full = apply_full_sample_cuts(df)
-    df_full = compute_derived_quantities(df_full)
-    
-    df_multi = apply_multi_property_cuts(df)
-    df_multi = compute_derived_quantities(df_multi)
-    
-    df_z8 = apply_z8_cuts(df)
-    df_z8 = compute_derived_quantities(df_z8)
-    
-    print_status("Saving outputs...", "PROCESS")
-    
-    df_full.to_csv(INTERIM_PATH / f"step_{STEP_NUM}_uncover_full_sample.csv", index=False)
-    print_status(f"Saved: step_{STEP_NUM}_uncover_full_sample.csv", "INFO")
-    
-    df_multi.to_csv(INTERIM_PATH / f"step_{STEP_NUM}_uncover_multi_property_sample.csv", index=False)
-    print_status(f"Saved: step_{STEP_NUM}_uncover_multi_property_sample.csv", "INFO")
-    
-    df_z8.to_csv(INTERIM_PATH / f"step_{STEP_NUM}_uncover_z8_sample.csv", index=False)
-    print_status(f"Saved: step_{STEP_NUM}_uncover_z8_sample.csv", "INFO")
-    
-    summary = {
-        "step": f"{STEP_NUM}",
-        "name": "UNCOVER DR4 Data Loading",
-        "full_sample_n": len(df_full),
-        "multi_property_n": len(df_multi),
-        "z8_sample_n": len(df_z8),
-        "z_range": [float(df_full['z_phot'].min()), float(df_full['z_phot'].max())],
-        "log_Mstar_range": [float(df_full['log_Mstar'].min()), float(df_full['log_Mstar'].max())],
-    }
-    
-    with open(OUTPUT_PATH / f"step_{STEP_NUM}_uncover_load.json", "w") as f:
-        json.dump(summary, f, indent=2, default=safe_json_default)
-    
-    print_status(f"Full sample: N = {summary['full_sample_n']}", "SUCCESS")
-    print_status(f"Multi-property: N = {summary['multi_property_n']}", "SUCCESS")
-    print_status(f"z > 8: N = {summary['z8_sample_n']}", "SUCCESS")
-    print_status(f"Step {STEP_NUM} complete.", "SUCCESS")
+    print_status(f"Raw catalog contains {len(data)} sources", "INFO")
+    print_status(f"Catalog columns available: {len(data.names)} FITS fields", "DEBUG")
+
+    # ------------------------------------------------------------------
+    # Stage 2: Extract columns into analysis DataFrame
+    # ------------------------------------------------------------------
+    log_subsection("Stage 2: Column Extraction")
+    with log_timing("Extracting columns into DataFrame"):
+        df = extract_columns(data)
+    print_status(f"Extracted {len(df.columns)} analysis columns", "INFO")
+
+    # Report key column statistics before quality cuts
+    print_status("Pre-cut column statistics:", "DEBUG")
+    log_data("Total sources", len(df), indent=4)
+    log_data("z_phot range", f"[{df['z_phot'].min():.2f}, {df['z_phot'].max():.2f}]", indent=4)
+    log_data("log_Mstar range", f"[{df['log_Mstar'].min():.2f}, {df['log_Mstar'].max():.2f}]", indent=4)
+    log_data("Sources with valid sSFR", df['ssfr100'].notna().sum(), indent=4)
+    log_data("Sources with valid MWA", df['mwa'].notna().sum(), indent=4)
+    log_data("Sources with valid dust", df['dust'].notna().sum(), indent=4)
+
+    # ------------------------------------------------------------------
+    # Stage 3: Apply quality cuts to create analysis samples
+    # ------------------------------------------------------------------
+    log_subsection("Stage 3: Quality Cuts and Sample Construction")
+
+    print_status("Constructing three analysis samples:", "INFO")
+    print_status("  (a) Full sample — basic z/M*/sSFR/MWA cuts for correlation analyses", "INFO")
+    print_status("  (b) Multi-property sample — adds metallicity quality cuts for dust/met tests", "INFO")
+    print_status("  (c) z > 8 sample — isolates the dust-anomaly regime", "INFO")
+    print_status("")
+
+    with log_timing("Applying full-sample cuts (z > 4, log M* > 8, valid sSFR/MWA)"):
+        df_full = apply_full_sample_cuts(df)
+        df_full = compute_derived_quantities(df_full)
+
+    with log_timing("Applying multi-property cuts (adds met uncertainty < 0.5 dex)"):
+        df_multi = apply_multi_property_cuts(df)
+        df_multi = compute_derived_quantities(df_multi)
+
+    with log_timing("Applying z > 8 dust-anomaly sample cuts"):
+        df_z8 = apply_z8_cuts(df)
+        df_z8 = compute_derived_quantities(df_z8)
+
+    # ------------------------------------------------------------------
+    # Stage 4: Report sample statistics
+    # ------------------------------------------------------------------
+    log_subsection("Stage 4: Sample Statistics")
+
+    print_status("Full sample:", "INFO")
+    log_data("N", len(df_full), indent=4)
+    log_data("z range", f"[{df_full['z_phot'].min():.2f}, {df_full['z_phot'].max():.2f}]", indent=4)
+    log_data("log M* range", f"[{df_full['log_Mstar'].min():.2f}, {df_full['log_Mstar'].max():.2f}]", indent=4)
+    log_data("Median Gamma_t", df_full['gamma_t'].median() if 'gamma_t' in df_full.columns else "N/A", indent=4)
+    log_data("Median age_ratio", df_full['age_ratio'].median(), indent=4)
+
+    print_status("Multi-property sample:", "INFO")
+    log_data("N", len(df_multi), indent=4)
+    log_data("Retention rate", f"{100 * len(df_multi) / len(df_full):.1f}%", indent=4)
+
+    print_status("z > 8 sample:", "INFO")
+    log_data("N", len(df_z8), indent=4)
+    log_data("Median dust (A_V)", df_z8['dust'].median(), indent=4)
+    log_data("Median log M*", df_z8['log_Mstar'].median(), indent=4)
+
+    # ------------------------------------------------------------------
+    # Stage 5: Save outputs
+    # ------------------------------------------------------------------
+    log_subsection("Stage 5: Saving Outputs")
+    with log_timing("Writing interim CSVs and summary JSON"):
+        df_full.to_csv(INTERIM_PATH / f"step_{STEP_NUM}_uncover_full_sample.csv", index=False)
+        print_status(f"Saved: step_{STEP_NUM}_uncover_full_sample.csv ({len(df_full)} rows)", "INFO")
+
+        df_multi.to_csv(INTERIM_PATH / f"step_{STEP_NUM}_uncover_multi_property_sample.csv", index=False)
+        print_status(f"Saved: step_{STEP_NUM}_uncover_multi_property_sample.csv ({len(df_multi)} rows)", "INFO")
+
+        df_z8.to_csv(INTERIM_PATH / f"step_{STEP_NUM}_uncover_z8_sample.csv", index=False)
+        print_status(f"Saved: step_{STEP_NUM}_uncover_z8_sample.csv ({len(df_z8)} rows)", "INFO")
+
+        summary = {
+            "step": f"{STEP_NUM}",
+            "name": "UNCOVER DR4 Data Loading",
+            "full_sample_n": len(df_full),
+            "multi_property_n": len(df_multi),
+            "z8_sample_n": len(df_z8),
+            "z_range": [float(df_full['z_phot'].min()), float(df_full['z_phot'].max())],
+            "log_Mstar_range": [float(df_full['log_Mstar'].min()), float(df_full['log_Mstar'].max())],
+        }
+
+        with open(OUTPUT_PATH / f"step_{STEP_NUM}_uncover_load.json", "w") as f:
+            json.dump(summary, f, indent=2, default=safe_json_default)
+        print_status(f"Saved: step_{STEP_NUM}_uncover_load.json", "INFO")
+
+    # ------------------------------------------------------------------
+    # Final summary
+    # ------------------------------------------------------------------
+    print_status("")
+    print_status("Step 001 complete — sample construction summary:", "SUCCESS")
+    print_status(f"  Full sample:       N = {summary['full_sample_n']:>6}", "SUCCESS")
+    print_status(f"  Multi-property:    N = {summary['multi_property_n']:>6}", "SUCCESS")
+    print_status(f"  z > 8 dust sample: N = {summary['z8_sample_n']:>6}", "SUCCESS")
+    print_status(f"  z range: [{summary['z_range'][0]:.2f}, {summary['z_range'][1]:.2f}]", "SUCCESS")
+    print_status(f"  log M* range: [{summary['log_Mstar_range'][0]:.2f}, {summary['log_Mstar_range'][1]:.2f}]", "SUCCESS")
 
 if __name__ == "__main__":
     main()

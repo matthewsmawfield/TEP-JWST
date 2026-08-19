@@ -138,29 +138,33 @@ def verify_screening_scale():
 
 
 def main():
-    print("=" * 70)
-    print("Step 149: Screening Length Scale Self-Consistency")
-    print("=" * 70)
+    print_status("STEP 126: Screening Length Scale Self-Consistency", "TITLE")
+    print_status("Verifying that the TEP Compton wavelength matches observed core screening scales.", "INFO")
+    print_status("")
 
     results = verify_screening_scale()
 
-    print("\nCompton Wavelength Derivation:")
+    print_status("")
+    print_status("Compton Wavelength Derivation:", "PROCESS")
     pred = results["theoretical_prediction"]
-    print(f"  M_Pl = {pred['M_pl_GeV']:.3e} GeV")
-    print(f"  Λ_DE = {pred['Lambda_dark_energy']:.3e} GeV")
-    print(f"  λ_C (physical) = {pred['lambda_kpc_physical']:.2f} kpc")
-    print(
-        f"  Expected range: {pred['expected_range_kpc'][0]:.1f}-{pred['expected_range_kpc'][1]:.1f} kpc"
+    print_status(f"  M_Pl = {pred['M_pl_GeV']:.3e} GeV", "INFO")
+    print_status(f"  Lambda_DE = {pred['Lambda_dark_energy']:.3e} GeV", "INFO")
+    print_status(f"  lambda_C (physical) = {pred['lambda_kpc_physical']:.2f} kpc", "INFO")
+    print_status(
+        f"  Expected range: {pred['expected_range_kpc'][0]:.1f}-{pred['expected_range_kpc'][1]:.1f} kpc",
+        "INFO"
     )
-    print(f"  Within observed range: {pred['within_observed_range']}")
+    print_status(f"  Within observed range: {pred['within_observed_range']}", "INFO")
 
-    print(f"\nObserved vs Predicted:")
-    print(
-        f"  Observed core scale: {results['observed_scale']['core_radius_kpc']:.1f} kpc"
+    print_status("")
+    print_status("Observed vs Predicted:", "PROCESS")
+    print_status(
+        f"  Observed core scale: {results['observed_scale']['core_radius_kpc']:.1f} kpc",
+        "INFO"
     )
-    print(f"  Predicted λ_C: {pred['lambda_kpc_physical']:.2f} kpc")
-    print(f"  Agreement factor: {results['agreement_factor']:.2f}x")
-    print(f"  Consistent: {results['consistent']}")
+    print_status(f"  Predicted lambda_C: {pred['lambda_kpc_physical']:.2f} kpc", "INFO")
+    print_status(f"  Agreement factor: {results['agreement_factor']:.2f}x", "INFO")
+    print_status(f"  Consistent: {results['consistent']}", "INFO")
 
     output = {
         "step": 149,
@@ -172,11 +176,10 @@ def main():
     output_path = RESULTS_DIR / "step_126_screening_scale.json"
     with open(output_path, "w") as f:
         json.dump(output, f, indent=2)
-    print(f"\nResults saved to {output_path}")
+    print_status(f"Results saved to {output_path.name}", "SUCCESS")
 
-    print("\n" + "=" * 70)
-    print("Screening length scale verification complete.")
-    print("=" * 70)
+    print_status("")
+    print_status("Screening length scale verification complete.", "SUCCESS")
 
 
 if __name__ == "__main__":

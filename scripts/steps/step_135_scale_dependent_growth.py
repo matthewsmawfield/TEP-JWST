@@ -229,8 +229,8 @@ def compute_sigma8_from_growth(k_grid, D_ratio_k, R8=8.0):
     integrand_lcdm = k_grid**2 * P_lcdm * W**2
     integrand_tep = k_grid**2 * P_lcdm * D_ratio_k**2 * W**2
     
-    sigma2_lcdm = np.trapezoid(integrand_lcdm, k_grid)
-    sigma2_tep = np.trapezoid(integrand_tep, k_grid)
+    sigma2_lcdm = np.trapz(integrand_lcdm, k_grid)
+    sigma2_tep = np.trapz(integrand_tep, k_grid)
     
     return np.sqrt(sigma2_tep / sigma2_lcdm)
 

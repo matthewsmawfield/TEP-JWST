@@ -1,0 +1,26 @@
+[22:39:05] INFO    ═══ STEP 124: Time-Space Coupling Consistency Test
+[22:39:05] INFO        Verifying that TEP temporal effects decouple from spatial metric modifications.
+[22:39:05] INFO    
+[22:39:05] INFO    
+[22:39:05] INFO    >>> Temporal vs Spatial Observable Tests:
+[22:39:05] INFO          angular_diameter_distance:
+[22:39:05] INFO            Description: Standard ΛCDM angular diameter distance
+[22:39:05] INFO            TEP Effect: None - spatial geometry unchanged
+[22:39:05] INFO          luminosity_distance:
+[22:39:05] INFO            Description: Standard ΛCDM luminosity distance
+[22:39:05] INFO            TEP Effect: None - photon propagation unchanged
+[22:39:05] INFO          proper_time_accumulation:
+[22:39:05] INFO            Description: Clock rate in high-z galaxies
+[22:39:05] INFO            TEP Effect: Γ_t enhancement factor
+[22:39:05] INFO          redshift_dilation:
+[22:39:05] INFO            Description: Cosmological redshift
+[22:39:05] INFO            TEP Effect: Modified age interpretation
+[22:39:05] INFO    
+[22:39:05] INFO    >>> Quantitative Test (z=5.5, M_h=3.98e+12):
+[22:39:05] INFO          Temporal enhancement Gamma_t = 2.18
+[22:39:05] INFO          Spatial effect = 1.00
+[22:39:05] INFO          Ratio T/S = 2.18
+[22:39:05] INFO          Decoupling confirmed: True
+[22:39:05] INFO    ✓   Results saved to step_124_timespace_coupling.json
+[22:39:05] INFO    
+[22:39:05] INFO    ✓   Time-space coupling test complete.
