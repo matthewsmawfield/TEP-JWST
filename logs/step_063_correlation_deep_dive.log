@@ -1,96 +1,102 @@
-[22:36:22] INFO        ======================================================================
-[22:36:22] INFO        STEP 063: Correlation Deep Dive
-[22:36:22] INFO        ======================================================================
-[22:36:22] INFO        
+[17:18:03] INFO        ======================================================================
+[17:18:03] INFO        STEP 063: Correlation Deep Dive
+[17:18:03] INFO        ======================================================================
+[17:18:03] INFO        
 Loaded N = 2315 galaxies
-[22:36:23] INFO        
+[17:18:04] INFO        
 ======================================================================
-[22:36:23] INFO        TEST 1: Correlation Coefficients Comparison
-[22:36:23] INFO        ======================================================================
-[22:36:23] INFO        Comparing different correlation measures.
+[17:18:04] INFO        TEST 1: Correlation Coefficients Comparison
+[17:18:04] INFO        ======================================================================
+[17:18:04] INFO        Comparing different correlation measures.
 
-[22:36:23] INFO        Γ_t vs Dust:
-[22:36:23] INFO          Spearman ρ = 0.4713 (p = 4.72e-17)
-[22:36:23] INFO          Pearson r = 0.4046 (p = 1.43e-12)
-[22:36:23] INFO          Kendall τ = 0.3317 (p = 8.94e-17)
-[22:36:23] INFO        
+[17:18:04] INFO        Γ_t vs Dust:
+[17:18:04] INFO          Spearman ρ = 0.5808 (p = 6.29e-27)
+[17:18:04] INFO          Pearson r = 0.2238 (p = 1.47e-04)
+[17:18:04] INFO          Kendall τ = 0.4249 (p = 1.66e-26)
+[17:18:04] INFO        
 ======================================================================
-[22:36:23] INFO        TEST 2: The Functional Form Discrimination Comparison (t_eff vs t_cosmic)
-[22:36:23] INFO        ======================================================================
-[22:36:23] INFO        This is the CRITICAL SIGNAL evidence for TEP.
+[17:18:04] INFO        TEST 2: The Functional Form Discrimination Comparison (t_eff vs t_cosmic)
+[17:18:04] INFO        ======================================================================
+[17:18:04] INFO        This is the CRITICAL SIGNAL evidence for TEP.
 
-[22:36:23] INFO        ρ(t_cosmic, Dust) = -0.0063 (p = 9.17e-01)
-[22:36:23] INFO        ρ(t_eff, Dust) = +0.2162 (p = 2.47e-04)
-[22:36:23] INFO        
-Improvement: Δρ = +0.2225
-[22:36:23] INFO        
+[17:18:04] INFO        ρ(t_cosmic, Dust) = -0.0063 (p = 9.17e-01)
+[17:18:04] INFO        ρ(t_eff, Dust) = +0.3034 (p = 1.95e-07)
+[17:18:04] INFO        
+Improvement: Δρ = +0.3096
+[17:18:04] INFO        
+★★★ CRITICAL SIGNAL CONFIRMED ★★★
+[17:18:04] INFO        t_cosmic has NO predictive power
+[17:18:04] INFO        t_eff has STRONG predictive power
+[17:18:04] INFO        This is ANOMALOUS under standard physics
+[17:18:04] INFO        
 ======================================================================
-[22:36:23] INFO        TEST 3: Binned Analysis
-[22:36:23] INFO        ======================================================================
-[22:36:23] INFO        Mean dust in bins of t_eff vs t_cosmic.
+[17:18:04] INFO        TEST 3: Binned Analysis
+[17:18:04] INFO        ======================================================================
+[17:18:04] INFO        Mean dust in bins of t_eff vs t_cosmic.
 
-[22:36:23] INFO        Binned by t_cosmic:
-[22:36:23] INFO          Q1: <Dust> = 0.730 (N = 71)
-[22:36:23] INFO          Q2: <Dust> = 0.859 (N = 70)
-[22:36:23] INFO          Q3: <Dust> = 0.723 (N = 71)
-[22:36:23] INFO          Q4: <Dust> = 0.860 (N = 70)
-[22:36:23] INFO        
+[17:18:04] INFO        Binned by t_cosmic:
+[17:18:04] INFO          Q1: <Dust> = 0.730 (N = 71)
+[17:18:04] INFO          Q2: <Dust> = 0.859 (N = 70)
+[17:18:04] INFO          Q3: <Dust> = 0.723 (N = 71)
+[17:18:04] INFO          Q4: <Dust> = 0.860 (N = 70)
+[17:18:04] INFO        
 Binned by t_eff:
-[22:36:23] INFO          Q1: <Dust> = 0.545 (N = 71)
-[22:36:23] INFO          Q2: <Dust> = 0.808 (N = 70)
-[22:36:23] INFO          Q3: <Dust> = 0.768 (N = 71)
-[22:36:23] INFO          Q4: <Dust> = 1.038 (N = 70)
-[22:36:23] INFO        
+[17:18:04] INFO          Q1: <Dust> = 0.520 (N = 71)
+[17:18:04] INFO          Q2: <Dust> = 0.761 (N = 70)
+[17:18:04] INFO          Q3: <Dust> = 0.806 (N = 71)
+[17:18:04] INFO          Q4: <Dust> = 1.072 (N = 70)
+[17:18:04] INFO        
 ======================================================================
-[22:36:23] INFO        TEST 4: Monotonicity Check
-[22:36:23] INFO        ======================================================================
-[22:36:23] INFO        Is the relationship monotonic?
+[17:18:04] INFO        TEST 4: Monotonicity Check
+[17:18:04] INFO        ======================================================================
+[17:18:04] INFO        Is the relationship monotonic?
 
-[22:36:23] INFO        Running mean increases: 6/9
-[22:36:23] INFO        Monotonicity rate: 66.7%
-[22:36:23] INFO        
+[17:18:04] INFO        Running mean increases: 7/9
+[17:18:04] INFO        Monotonicity rate: 77.8%
+[17:18:04] INFO        ✓ Relationship is approximately monotonic
+[17:18:04] INFO        
 ======================================================================
-[22:36:23] INFO        TEST 5: Extreme Tails
-[22:36:23] INFO        ======================================================================
-[22:36:23] INFO        Do the extreme tails follow the pattern?
+[17:18:04] INFO        TEST 5: Extreme Tails
+[17:18:04] INFO        ======================================================================
+[17:18:04] INFO        Do the extreme tails follow the pattern?
 
-[22:36:23] INFO        Top 10% t_eff: <Dust> = 1.525
-[22:36:23] INFO        Bottom 10% t_eff: <Dust> = 0.376
-[22:36:23] INFO        Ratio: 4.06×
-[22:36:23] INFO        
+[17:18:04] INFO        Top 10% t_eff: <Dust> = 1.666
+[17:18:04] INFO        Bottom 10% t_eff: <Dust> = 0.303
+[17:18:04] INFO        Ratio: 5.49×
+[17:18:04] INFO        
 Top 10% t_cosmic: <Dust> = 0.630
-[22:36:23] INFO        Bottom 10% t_cosmic: <Dust> = 0.738
-[22:36:23] INFO        Ratio: 0.85×
-[22:36:23] INFO        
+[17:18:04] INFO        Bottom 10% t_cosmic: <Dust> = 0.738
+[17:18:04] INFO        Ratio: 0.85×
+[17:18:04] INFO        
 ======================================================================
-[22:36:23] INFO        THE ULTIMATE SUMMARY
-[22:36:23] INFO        ======================================================================
-[22:36:23] INFO        
+[17:18:04] INFO        THE ULTIMATE SUMMARY
+[17:18:04] INFO        ======================================================================
+[17:18:04] INFO        
 ┌─────────────────────────────────────────────────────────────────┐
-[22:36:23] INFO        │                    THE CRITICAL SIGNAL EVIDENCE                     │
-[22:36:23] INFO        ├─────────────────────────────────────────────────────────────────┤
-[22:36:23] INFO        │                                                                 │
-[22:36:23] INFO        │  Standard Physics Prediction:                                   │
-[22:36:23] INFO        │    • Dust should correlate with cosmic time                     │
-[22:36:23] INFO        │    • More time → more dust production                           │
-[22:36:23] INFO        │                                                                 │
-[22:36:23] INFO        │  Observation:                                                   │
-[22:36:23] INFO        │    • ρ(t_cosmic, Dust) = -0.0063 ← ZERO                        │
-[22:36:23] INFO        │                                                                 │
-[22:36:23] INFO        │  TEP Prediction:                                                │
-[22:36:23] INFO        │    • Dust should correlate with effective time                  │
-[22:36:23] INFO        │    • t_eff = t_cosmic × Γ_t                                     │
-[22:36:23] INFO        │                                                                 │
-[22:36:23] INFO        │  Observation:                                                   │
-[22:36:23] INFO        │    • ρ(t_eff, Dust) = +0.2162 ← STRONG                        │
-[22:36:23] INFO        │                                                                 │
-[22:36:23] INFO        │  Improvement:                                                   │
-[22:36:23] INFO        │    • Δρ = +0.2225                                            │
-[22:36:23] INFO        │                                                                 │
-[22:36:23] INFO        │  Conclusion:                                                    │
-[22:36:23] INFO        │    • This is ANOMALOUS under standard physics                  │
-[22:36:23] INFO        │    • TEP is adding REAL physical information                    │
-[22:36:23] INFO        │                                                                 │
-[22:36:23] INFO        └─────────────────────────────────────────────────────────────────┘
-[22:36:23] INFO        
+[17:18:04] INFO        │                    THE CRITICAL SIGNAL EVIDENCE                     │
+[17:18:04] INFO        ├─────────────────────────────────────────────────────────────────┤
+[17:18:04] INFO        │                                                                 │
+[17:18:04] INFO        │  Standard Physics Prediction:                                   │
+[17:18:04] INFO        │    • Dust should correlate with cosmic time                     │
+[17:18:04] INFO        │    • More time → more dust production                           │
+[17:18:04] INFO        │                                                                 │
+[17:18:04] INFO        │  Observation:                                                   │
+[17:18:04] INFO        │    • ρ(t_cosmic, Dust) = -0.0063 ← ZERO                        │
+[17:18:04] INFO        │                                                                 │
+[17:18:04] INFO        │  TEP Prediction:                                                │
+[17:18:04] INFO        │    • Dust should correlate with effective time                  │
+[17:18:04] INFO        │    • t_eff = t_cosmic × Γ_t                                     │
+[17:18:04] INFO        │                                                                 │
+[17:18:04] INFO        │  Observation:                                                   │
+[17:18:04] INFO        │    • ρ(t_eff, Dust) = +0.3034 ← STRONG                        │
+[17:18:04] INFO        │                                                                 │
+[17:18:04] INFO        │  Improvement:                                                   │
+[17:18:04] INFO        │    • Δρ = +0.3096                                            │
+[17:18:04] INFO        │                                                                 │
+[17:18:04] INFO        │  Conclusion:                                                    │
+[17:18:04] INFO        │    • This is ANOMALOUS under standard physics                  │
+[17:18:04] INFO        │    • TEP is adding REAL physical information                    │
+[17:18:04] INFO        │                                                                 │
+[17:18:04] INFO        └─────────────────────────────────────────────────────────────────┘
+[17:18:04] INFO        
 Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_063_correlation_deep_dive.json

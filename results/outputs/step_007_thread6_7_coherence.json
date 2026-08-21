@@ -16,27 +16,27 @@
   "thread7_multi_property": {
     "test": "Thread 7: Multi-Property Split Test",
     "n": 1108,
-    "gamma_median": 0.6340092838054383,
+    "gamma_median": 0.6343648355151936,
     "properties": {
       "age_ratio": {
-        "mean_low_gamma": 0.13342928382137856,
-        "mean_high_gamma": 0.1669863677337453,
-        "diff": 0.03355708391236675,
-        "p": 6.325271609580193e-16,
+        "mean_low_gamma": 0.131931755179465,
+        "mean_high_gamma": 0.1684838963756589,
+        "diff": 0.03655214119619388,
+        "p": 3.57377069552259e-17,
         "significant": true
       },
       "metallicity": {
-        "mean_low_gamma": -1.2720433126430737,
-        "mean_high_gamma": -1.048921363590981,
-        "diff": 0.2231219490520926,
-        "p": 4.1409472142046597e-16,
+        "mean_low_gamma": -1.2697062177663392,
+        "mean_high_gamma": -1.0512584584677158,
+        "diff": 0.21844775929862337,
+        "p": 5.51335015744385e-15,
         "significant": true
       },
       "dust": {
-        "mean_low_gamma": 0.2543495416691087,
-        "mean_high_gamma": 0.30181798406255833,
-        "diff": 0.047468442393449606,
-        "p": 1.6801535439863336e-06,
+        "mean_low_gamma": 0.241346480170721,
+        "mean_high_gamma": 0.31482104556094603,
+        "diff": 0.07347456539022504,
+        "p": 2.859555541576782e-07,
         "significant": true
       }
     },

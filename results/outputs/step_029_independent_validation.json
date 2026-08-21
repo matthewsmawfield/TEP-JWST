@@ -2,21 +2,21 @@
   "single_split": {
     "alpha_calibrated": 960000.0,
     "alpha_reference": 960000.0,
-    "rho_tep": 0.18455774894106017,
+    "rho_tep": 0.20125454836417683,
     "rho_mass": 0.28186450334236285,
-    "rho_partial": 0.340726153850497,
-    "p_partial": 1.5871857290775143e-16,
+    "rho_partial": 0.4505618066738571,
+    "p_partial": 4.7380255390908325e-29,
     "partial_significant": true
   },
   "cross_validation": {
     "n_folds": 5,
     "alpha_mean": 960000.0,
     "alpha_std": 0.0,
-    "rho_partial_mean": 0.3221787871326252,
-    "rho_partial_std": 0.13296492928949724,
-    "significant_folds": 4,
-    "combined_chi2": 164.82735987282152,
-    "combined_p": 3.2607076467558724e-30
+    "rho_partial_mean": 0.38746866043384115,
+    "rho_partial_std": 0.17141389107929153,
+    "significant_folds": 5,
+    "combined_chi2": 253.25411306701324,
+    "combined_p": 1.1227666112037146e-48
   },
   "validation_status": "strong"
 }

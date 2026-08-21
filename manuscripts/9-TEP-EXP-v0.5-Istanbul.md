@@ -1,7 +1,7 @@
 # What Do Precision Tests of General Relativity Actually Measure?
 **Matthew Lukin Smawfield**
 Version: v0.5 (Istanbul)
-First published: 31 December 2025 · Last updated: 11 August 2026
+First published: 31 December 2025 · Last updated: 19 August 2026
 DOI: 10.5281/zenodo.18109760
 
 ---
@@ -76,7 +76,7 @@ The Temporal Equivalence Principle (TEP) is defined formally by a single manifol
 
 Sector map: The conformal factor A(φ) governs clock rates and spatial correlation structure; the disformal factor B(φ) governs light-cone tilts and residual holonomy. GW170817 primarily constrains photon–graviton differential propagation and hence disformal cone tilt. It does not directly constrain common-mode conformal clock-rate structure along a shared path, although conformal scalar sectors remain indirectly constrained by PPN, equivalence-principle, source-screening, and clock-comparison tests.
 
-Screening and PPN compatibility: Rather than invoking discrete thin-shell boundaries, screening operates via the continuous spatial profile of the scalar time field, termed Temporal Topology. The locally active gradient sector, Temporal Shear, is suppressed in screened regimes by environmental state and boundary conditions, ensuring short-range fifth-force suppression while leaving the field light cosmologically. Near massive bodies, suppression of Temporal Shear decouples local clock rates from the scalar field structure, cleanly preserving PPN bounds without rigid boundary approximations.
+Screening and PPN compatibility: Rather than invoking discrete thin-shell boundaries, screening operates via the continuous spatial profile of the scalar time field, termed Temporal Topology. The locally active gradient sector, Temporal Shear, is suppressed in screened regimes by environmental state and boundary conditions, ensuring short-range Temporal Shear suppression while leaving the field light cosmologically. Near massive bodies, suppression of Temporal Shear decouples local clock rates from the scalar field structure, cleanly preserving PPN bounds without rigid boundary approximations.
 
 1. The Action: The theory is defined in the Einstein frame ($g_{\mu\nu}$) by:
 
@@ -255,7 +255,7 @@ A fifth distinction concerns the density environment in which experiments are pe
 
 In TEP, screening is formulated as a continuous geometric effect rather than a discrete thin-shell boundary. The spatial profile of the scalar field φ(r; ρ) — termed Temporal Topology — is shaped by the ambient density through the effective potential V_eff(φ; ρ). In deep potential wells, high ambient matter density suppresses the field gradient (Temporal Shear, ∇φ), driving ∇φ toward zero while the Temporal Topology persists. This continuous suppression reconciles local null tests with cosmological dynamics without invoking step-function boundary conditions.
 
-The operative quantity for fifth-force coupling and clock-sector effects is the local field gradient (Temporal Shear). In dense environments, suppression of Temporal Shear by environmental state and boundary conditions decouples local clock rates from the scalar field, cleanly preserving PPN bounds. In dilute regions, the gradient recovers and the field becomes cosmologically active.
+The operative quantity for Temporal Shear coupling and clock-sector effects is the local field gradient (Temporal Shear). In dense environments, suppression of Temporal Shear by environmental state and boundary conditions decouples local clock rates from the scalar field, cleanly preserving PPN bounds. In dilute regions, the gradient recovers and the field becomes cosmologically active.
 
 $\Sigma_\mu^{\text{obs}} = \mathcal{S}_\Sigma(\mathcal{E}) \, \nabla_\mu \ln A(\phi),$
 
@@ -679,7 +679,7 @@ LLR tests the gravitational metric g<sub>μv</sub> through orbital dynamics. TEP
 
 - The measurement is two-way (direction-dependent effects cancel)
 
-- The Earth-Moon system sits in a deeply screened regime where Temporal Shear vanishes continuously, suppressing any fifth-force signature
+- The Earth-Moon system sits in a deeply screened regime where Temporal Shear vanishes continuously, suppressing any Temporal Shear signature
 
 LLR does not directly probe the clock-sector and synchronization-structure observables that distinguish GR from TEP. The proposed loop and correlation tests should be seen as complementary additions to, not replacements for, LLR and other precision tests.
 
@@ -823,7 +823,7 @@ In a two-metric framework, A(φ) can modify clock rates (and hence clock residua
 
 - No evidence for preferred-frame effects in light propagation
 
-- Local fifth-force constraints are satisfied in the screened regime where Temporal Shear is suppressed
+- Local Temporal Shear constraints are satisfied in the screened regime where Temporal Shear is suppressed
 
 #### What They Cannot Test
 

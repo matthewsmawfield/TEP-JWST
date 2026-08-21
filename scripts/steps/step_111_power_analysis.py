@@ -155,8 +155,8 @@ def main():
     print_status(f"STEP {STEP_NUM}: Power Analysis for Key Tests")
     print_status("=" * 70)
     
-    # Load primary dust correlation values from upstream step_102
-    s102_path = OUTPUTS_DIR / "step_102_survey_cross_correlation.json"
+    # Load primary dust correlation values from upstream step_081
+    s102_path = OUTPUTS_DIR / "step_081_survey_cross_correlation.json"
     try:
         with open(s102_path) as f:
             s102 = json.load(f)

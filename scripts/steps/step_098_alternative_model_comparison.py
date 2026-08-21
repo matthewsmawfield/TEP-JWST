@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): 1.1s.
 """
-Step 120: Alternative Model Comparison
+Step 098: Alternative Model Comparison
 
 Compares TEP against specific alternative explanations for high-z anomalies:
 1. Top-heavy IMF

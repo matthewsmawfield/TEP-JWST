@@ -1,7 +1,7 @@
 {
   "step": 96,
   "name": "M/L Scaling Justification",
-  "timestamp": "2026-08-18T21:36:37",
+  "timestamp": "2026-08-20T16:18:25",
   "theoretical_basis": {
     "standard_ssp": {
       "solar_metallicity": {
@@ -42,80 +42,80 @@
     "results": [
       {
         "n": 0.3,
-        "rho_mass_age": 0.11826758007571897,
-        "p_value": 1.1475128882514289e-08,
-        "abs_rho": 0.11826758007571897
+        "rho_mass_age": 0.11781215551309195,
+        "p_value": 1.30649218447837e-08,
+        "abs_rho": 0.11781215551309195
       },
       {
         "n": 0.4,
-        "rho_mass_age": 0.1196007455887468,
-        "p_value": 7.826873306709709e-09,
-        "abs_rho": 0.1196007455887468
+        "rho_mass_age": 0.1190480953838103,
+        "p_value": 9.176826395364732e-09,
+        "abs_rho": 0.1190480953838103
       },
       {
         "n": 0.5,
-        "rho_mass_age": 0.12088489591425297,
-        "p_value": 5.392742526273258e-09,
-        "abs_rho": 0.12088489591425297
+        "rho_mass_age": 0.12015690102376417,
+        "p_value": 6.6639302110478245e-09,
+        "abs_rho": 0.12015690102376417
       },
       {
         "n": 0.6,
-        "rho_mass_age": 0.12200844692743612,
-        "p_value": 3.8804159926941805e-09,
-        "abs_rho": 0.12200844692743612
+        "rho_mass_age": 0.12121086296723745,
+        "p_value": 4.903151692245612e-09,
+        "abs_rho": 0.12121086296723745
       },
       {
         "n": 0.7,
-        "rho_mass_age": 0.1232162124474299,
-        "p_value": 2.7151252418202844e-09,
-        "abs_rho": 0.1232162124474299
+        "rho_mass_age": 0.12231779121988809,
+        "p_value": 3.5424045603710225e-09,
+        "abs_rho": 0.12231779121988809
       },
       {
         "n": 0.8,
-        "rho_mass_age": 0.12441308892761947,
-        "p_value": 1.8994245865673456e-09,
-        "abs_rho": 0.12441308892761947
+        "rho_mass_age": 0.12342853614966319,
+        "p_value": 2.5490054469718236e-09,
+        "abs_rho": 0.12342853614966319
       },
       {
         "n": 0.9,
-        "rho_mass_age": 0.12566379351610396,
-        "p_value": 1.3028726695888486e-09,
-        "abs_rho": 0.12566379351610396
+        "rho_mass_age": 0.12444263190432758,
+        "p_value": 1.882666383010182e-09,
+        "abs_rho": 0.12444263190432758
       },
       {
         "n": 1.0,
-        "rho_mass_age": 0.12682238522337375,
-        "p_value": 9.158043810592246e-10,
-        "abs_rho": 0.12682238522337375
+        "rho_mass_age": 0.1255483346805675,
+        "p_value": 1.3492214658330793e-09,
+        "abs_rho": 0.1255483346805675
       }
     ],
     "best_n": 0.3,
-    "best_rho": 0.11826758007571897,
-    "interpretation": "The best-fit M/L power-law index is n = 0.3, which minimizes the residual mass-age correlation (rho = 0.1183). This is consistent with low-metallicity stellar populations at high-z."
+    "best_rho": 0.11781215551309195,
+    "interpretation": "The best-fit M/L power-law index is n = 0.3, which minimizes the residual mass-age correlation (rho = 0.1178). This is consistent with low-metallicity stellar populations at high-z."
   },
   "z_dependent_validation": [
     {
       "z_range": "4-6",
       "sample_size": 1439,
       "best_ml_power": 1.0,
-      "best_rho": 0.1634041541945467
+      "best_rho": 0.16358313334448052
     },
     {
       "z_range": "6-8",
       "sample_size": 593,
       "best_ml_power": 1.0,
-      "best_rho": -0.0009446822263011134
+      "best_rho": -0.0016070416576318771
     },
     {
       "z_range": "8-10",
       "sample_size": 283,
       "best_ml_power": 0.3,
-      "best_rho": 0.02012291779396021
+      "best_rho": 0.01989207631322859
     }
   ],
   "live_empirical_summary": {
     "best_n_overall": 0.3,
-    "best_rho_overall": 0.11826758007571897,
+    "best_rho_overall": 0.11781215551309195,
     "z_split_best_n": {
       "4-6": 1.0,
       "6-8": 1.0,
@@ -124,7 +124,7 @@
     "canonical_note": "This live step intentionally excludes archived forward-modeling outputs and relies on SSP expectations plus empirical residual minimization in the current dataset."
   },
   "key_finding": {
-    "statement": "The M/L ~ t^n scaling is justified by: (1) Standard SSP theory predicts n ~ 0.7-0.9 for solar metallicity and n ~ 0.4-0.7 for low metallicity; (2) live empirical residual minimization in the UNCOVER sample gives best_n = 0.3 overall (rho = 0.1183), with z-split minima at 4-6: n=1.0, 6-8: n=1.0, 8-10: n=0.3; (3) the preferred high-z n is therefore grounded in live data rather than in an archived simulation branch.",
+    "statement": "The M/L ~ t^n scaling is justified by: (1) Standard SSP theory predicts n ~ 0.7-0.9 for solar metallicity and n ~ 0.4-0.7 for low metallicity; (2) live empirical residual minimization in the UNCOVER sample gives best_n = 0.3 overall (rho = 0.1178), with z-split minima at 4-6: n=1.0, 6-8: n=1.0, 8-10: n=0.3; (3) the preferred high-z n is therefore grounded in live data rather than in an archived simulation branch.",
     "not_ad_hoc": "The preferred low n at high z is NOT ad hoc. It follows from: (a) lower-metallicity SSP expectations, (b) live residual minimization across tested n values with best_n = 0.3 overall, (c) z-split validation: 4-6: n=1.0, 6-8: n=1.0, 8-10: n=0.3."
   }
 }

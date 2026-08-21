@@ -252,7 +252,7 @@ spatially separated precision timing networks, with correlation structure
 determined by the continuous spatial profile of the underlying scalar
 field—termed Temporal Topology in the TEP framework—where high ambient
 density suppresses the local field gradient (Temporal Shear), ensuring
-short-range fifth-force suppression while leaving the field light
+short-range Temporal Shear suppression while leaving the field light
 cosmologically (Smawfield 2025, Section 7).
 
 Theoretical Motivation: TEP addresses a fundamental conceptual problem that

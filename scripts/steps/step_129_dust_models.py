@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): <0.1s.
-"""Step 152: Dust Physics Alternative Models Test
+"""Step 129: Dust Physics Alternative Models Test
 
 Tests TEP against alternative dust production models:
 1. Supernova-only dust (no AGB)

@@ -1,49 +1,49 @@
-[22:38:13] INFO        ======================================================================
-[22:38:13] INFO        STEP 100: Combined Evidence Synthesis
-[22:38:13] INFO        ======================================================================
-[22:38:13] INFO          Test 'z8_dust_uncover': status=LIVE, rho=0.4712708247076625, p=4.72e-17, n=283
-[22:38:13] INFO          Test 'z8_dust_ceers': status=LIVE, rho=0.6452585409388231, p=6.00e-11, n=82
-[22:38:13] INFO          Test 'z8_dust_cosmosweb': status=LIVE, rho=0.6260262084989178, p=4.80e-101, n=918
-[22:38:13] INFO          Test 'core_screening': status=LIVE, rho=-0.16561160112876575, p=5.73e-03, n=277
-[22:38:13] INFO          Test 'z7_inversion': status=LIVE, rho=0.0865815948252025, p=5.21e-02, n=504
-[22:38:13] INFO          Test 'spectroscopic': status=UNAVAILABLE, rho=None, p=N/A, n=None
-[22:38:13] INFO          Test 'red_monsters': status=UNAVAILABLE, rho=None, p=N/A, n=None
-[22:38:13] INFO        
+[17:21:46] INFO        ======================================================================
+[17:21:46] INFO        STEP 100: Combined Evidence Synthesis
+[17:21:46] INFO        ======================================================================
+[17:21:46] INFO          Test 'z8_dust_uncover': status=LIVE, rho=0.5808363450381259, p=6.29e-27, n=283
+[17:21:46] INFO          Test 'z8_dust_ceers': status=LIVE, rho=0.6557068381928799, p=2.30e-11, n=82
+[17:21:46] INFO          Test 'z8_dust_cosmosweb': status=LIVE, rho=0.6299953902396725, p=1.10e-102, n=918
+[17:21:46] INFO          Test 'core_screening': status=LIVE, rho=-0.16561160112876575, p=5.73e-03, n=277
+[17:21:46] INFO          Test 'z7_inversion': status=LIVE, rho=0.0865815948252025, p=5.21e-02, n=504
+[17:21:46] INFO          Test 'spectroscopic': status=UNAVAILABLE, rho=None, p=N/A, n=None
+[17:21:46] INFO          Test 'red_monsters': status=UNAVAILABLE, rho=None, p=N/A, n=None
+[17:21:46] INFO        
 Loaded 5 live tests (5 with p-values for combination)
-[22:38:13] INFO        
+[17:21:46] INFO        
 --- 1. Fisher's Method (Independence Assumed) ---
-[22:38:13] INFO          Combined p-value: 1.39e-122
-[22:38:13] INFO          χ² = 600.5, df = 10
-[22:38:13] INFO        
+[17:21:46] INFO          Combined p-value: 2.31e-134
+[17:21:46] INFO          χ² = 655.4, df = 10
+[17:21:46] INFO        
 --- 2. Brown's Method (Correlation Adjusted) ---
-[22:38:13] INFO          Combined p-value: 5.97e-85
-[22:38:13] INFO          Adjusted df = 6.9
-[22:38:13] INFO        
+[17:21:46] INFO          Combined p-value: 4.91e-93
+[17:21:46] INFO          Adjusted df = 6.9
+[17:21:46] INFO        
 --- 3. Conservative Estimate (Independent Tests Only) ---
-[22:38:13] INFO          Using 4 independent tests
-[22:38:13] INFO          Combined p-value: 3.44e-123
-[22:38:13] INFO        
+[17:21:46] INFO          Using 4 independent tests
+[17:21:46] INFO          Combined p-value: 5.25e-135
+[17:21:46] INFO        
 --- 4. Bayesian Evidence ---
-[22:38:13] INFO          Prior P(TEP) = 1%
-[22:38:13] INFO          Log Bayes Factor = 280.3
-[22:38:13] INFO          Posterior P(TEP) = 100.00%
-[22:38:13] INFO        
+[17:21:46] INFO          Prior P(TEP) = 1%
+[17:21:46] INFO          Log Bayes Factor = 307.2
+[17:21:46] INFO          Posterior P(TEP) = 100.00%
+[17:21:46] INFO        
   Prior sensitivity:
-[22:38:13] INFO            Prior 0.1% -> Posterior 100.00%
-[22:38:13] INFO            Prior 1.0% -> Posterior 100.00%
-[22:38:13] INFO            Prior 5.0% -> Posterior 100.00%
-[22:38:13] INFO            Prior 10.0% -> Posterior 100.00%
-[22:38:13] INFO            Prior 50.0% -> Posterior 100.00%
-[22:38:13] INFO        
+[17:21:46] INFO            Prior 0.1% -> Posterior 100.00%
+[17:21:46] INFO            Prior 1.0% -> Posterior 100.00%
+[17:21:46] INFO            Prior 5.0% -> Posterior 100.00%
+[17:21:46] INFO            Prior 10.0% -> Posterior 100.00%
+[17:21:46] INFO            Prior 50.0% -> Posterior 100.00%
+[17:21:46] INFO        
 --- 5. Primary Evidence Statement ---
-[22:38:13] INFO          The primary evidence for TEP rests on the z>8 dust-Γt correlation, replicated across 3 independent JWST surveys (N=1,283) with a sample-size-weighted ρ = 0.593 and Fisher-combined p = 5.84e-123.
-[22:38:13] INFO        
+[17:21:46] INFO          The primary evidence for TEP rests on the z>8 dust-Γt correlation, replicated across 3 independent JWST surveys (N=1,283) with a sample-size-weighted ρ = 0.621 and Fisher-combined p = 8.18e-135.
+[17:21:46] INFO        
 ======================================================================
-[22:38:13] INFO        COMBINED EVIDENCE SUMMARY
-[22:38:13] INFO        ======================================================================
-[22:38:13] INFO          Fisher (independence): p = 1.39e-122
-[22:38:13] INFO          Brown (correlated): p = 5.97e-85
-[22:38:13] INFO          Conservative: p = 3.44e-123
-[22:38:13] INFO          Bayesian posterior: 100.00%
-[22:38:13] INFO        
+[17:21:46] INFO        COMBINED EVIDENCE SUMMARY
+[17:21:46] INFO        ======================================================================
+[17:21:46] INFO          Fisher (independence): p = 2.31e-134
+[17:21:46] INFO          Brown (correlated): p = 4.91e-93
+[17:21:46] INFO          Conservative: p = 5.25e-135
+[17:21:46] INFO          Bayesian posterior: 100.00%
+[17:21:46] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_100_multi_domain_model_comparison.json

@@ -4,56 +4,56 @@
       "fold": 0,
       "n_train": 227,
       "n_test": 56,
-      "n_optimal": 0.9973510158160513,
-      "rho_test": 0.7606971975393029,
-      "p_test": 1.0282925099904029e-11
+      "n_optimal": 0.9029313816659237,
+      "rho_test": 0.7745044429254956,
+      "p_test": 2.5088973145958e-12
     },
     {
       "fold": 1,
       "n_train": 227,
       "n_test": 56,
-      "n_optimal": 0.9907809891056509,
-      "rho_test": 0.507382091592618,
-      "p_test": 6.578081776556606e-05
+      "n_optimal": 0.8240953920982986,
+      "rho_test": 0.4632946001367054,
+      "p_test": 0.00032345759707075284
     },
     {
       "fold": 2,
       "n_train": 227,
       "n_test": 56,
-      "n_optimal": 0.9943020252656685,
-      "rho_test": 0.49282296650717705,
-      "p_test": 0.00011402748146932396
+      "n_optimal": 0.7772565617796753,
+      "rho_test": 0.5340396445659604,
+      "p_test": 2.2463706768389668e-05
     },
     {
       "fold": 3,
       "n_train": 227,
       "n_test": 56,
-      "n_optimal": 0.9896646871609333,
-      "rho_test": 0.11961722488038277,
-      "p_test": 0.3798879190735168
+      "n_optimal": 0.7396999058855143,
+      "rho_test": 0.42946001367054004,
+      "p_test": 0.0009567062019170744
     },
     {
       "fold": 4,
       "n_train": 227,
       "n_test": 56,
-      "n_optimal": 0.9886234656146835,
-      "rho_test": 0.4659603554340397,
-      "p_test": 0.0002955308597942741
+      "n_optimal": 0.7807457201116484,
+      "rho_test": 0.5674641148325359,
+      "p_test": 5.1011143128712085e-06
     }
   ],
   "kfold_summary": {
-    "n_mean": 0.9921444365925975,
-    "n_std": 0.0032301405236638873,
-    "rho_mean": 0.46929596719070404,
-    "rho_std": 0.20455077547982645,
+    "n_mean": 0.804945792308212,
+    "n_std": 0.05581620834589805,
+    "rho_mean": 0.5537525632262474,
+    "rho_std": 0.12078019635824183,
     "stable": true
   },
   "redshift_blind": {
-    "n_calibrated_low_z": 0.9825223199097465,
-    "n_optimal_high_z": 0.9986603241341003,
-    "n_difference": 0.016138004224353852,
-    "rho_high_z_with_low_z_n": -0.1472109821107806,
-    "p_high_z": 1.2161034874700324e-05,
+    "n_calibrated_low_z": 0.9892042279168214,
+    "n_optimal_high_z": 0.9999944227798265,
+    "n_difference": 0.010790194863005143,
+    "rho_high_z_with_low_z_n": -0.0465002778106291,
+    "p_high_z": 0.1691124618799774,
     "n_low_z": 1439,
     "n_high_z": 876,
     "generalization_success": false
@@ -61,50 +61,50 @@
   "sensitivity": [
     {
       "n": 0.3,
-      "rho": 0.4970128265268628,
-      "p": 4.615359902829281e-19,
+      "rho": 0.5906889347512788,
+      "p": 5.239226245223431e-28,
       "significant": true
     },
     {
       "n": 0.4,
-      "rho": 0.5055010160201869,
-      "p": 9.194824584672592e-20,
+      "rho": 0.5939228332932713,
+      "p": 2.2743493100796563e-28,
       "significant": true
     },
     {
       "n": 0.5,
-      "rho": 0.5139643212254505,
-      "p": 1.75879446795405e-20,
+      "rho": 0.5946661852174622,
+      "p": 1.8748827354350089e-28,
       "significant": true
     },
     {
       "n": 0.6,
-      "rho": 0.5202266905697019,
-      "p": 5.019481974868728e-21,
+      "rho": 0.5970376049243359,
+      "p": 1.0090511983009827e-28,
       "significant": true
     },
     {
       "n": 0.7,
-      "rho": 0.5282362546075641,
-      "p": 9.717605458944359e-22,
+      "rho": 0.5993211354435916,
+      "p": 5.529758875518336e-29,
       "significant": true
     },
     {
       "n": 0.8,
-      "rho": 0.5337235048513772,
-      "p": 3.0760379606389005e-22,
+      "rho": 0.600726832992542,
+      "p": 3.8095104318407684e-29,
       "significant": true
     },
     {
       "n": 0.9,
-      "rho": 0.5391196891899476,
-      "p": 9.721965024539974e-23,
+      "rho": 0.601367471046866,
+      "p": 3.212532243690219e-29,
       "significant": true
     },
     {
       "n": 1.0,
-      "rho": 0.5454524757748808,
-      "p": 2.4496435814839145e-23,
+      "rho": 0.6020086385541276,
+      "p": 2.707681307651833e-29,
       "significant": true
     }
   ],
@@ -112,24 +112,24 @@
     "significant_fraction": 1.0,
     "all_significant": true,
     "rho_range": [
-      0.4970128265268628,
-      0.5454524757748808
+      0.5906889347512788,
+      0.6020086385541276
     ],
-    "rho_mean": 0.5229045973457465,
+    "rho_mean": 0.5974674545279344,
     "robust": true
   },
   "theoretical_consistency": {
-    "n_optimal_data": 0.9910003494348331,
+    "n_optimal_data": 0.8139383184991646,
     "n_ssp_solar": 0.7,
     "n_ssp_low_z": 0.5,
     "consistent_with_low_z_ssp": false,
-    "interpretation": "The optimal n at z>8 is 0.991, which is NOT consistent with low-metallicity SSP predictions (n~0.5) or solar-metallicity SSP (n~0.7). The data-driven optimal n exceeds both theoretical benchmarks, suggesting that the M/L scaling at z>8 is steeper than predicted by standard SSP models."
+    "interpretation": "The optimal n at z>8 is 0.814, which is NOT consistent with low-metallicity SSP predictions (n~0.5) or solar-metallicity SSP (n~0.7). The data-driven optimal n exceeds both theoretical benchmarks, suggesting that the M/L scaling at z>8 is steeper than predicted by standard SSP models."
   },
   "summary": {
     "kfold_stable": true,
     "generalizes_to_high_z": false,
     "robust_to_n_choice": true,
     "theoretically_consistent": false,
-    "conclusion": "The TEP signal is robust to the choice of M/L power-law index n (significant across 100% of tested n values). K-fold cross-validation confirms that n calibrated on one subset generalizes to holdout data (mean test rho = 0.469). Redshift-blind generalization from z<6 to z>=6 does NOT succeed (rho = -0.147 with low-z n on high-z data). The optimal n (0.991) is NOT consistent with standard SSP theoretical predictions (n_solar=0.7, n_low_z=0.5)."
+    "conclusion": "The TEP signal is robust to the choice of M/L power-law index n (significant across 100% of tested n values). K-fold cross-validation confirms that n calibrated on one subset generalizes to holdout data (mean test rho = 0.554). Redshift-blind generalization from z<6 to z>=6 does NOT succeed (rho = -0.047 with low-z n on high-z data). The optimal n (0.814) is NOT consistent with standard SSP theoretical predictions (n_solar=0.7, n_low_z=0.5)."
   }
 }

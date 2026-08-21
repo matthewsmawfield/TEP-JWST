@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 149: Screening Length Scale Self-Consistency
+Step 126: Screening Length Scale Self-Consistency
 
 Derives the scalar field Compton wavelength from first principles and
 verifies it matches the observed screening scale (~1-10 kpc). This provides
@@ -167,7 +167,7 @@ def main():
     print_status(f"  Consistent: {results['consistent']}", "INFO")
 
     output = {
-        "step": 149,
+        "step": 126,
         "description": "Screening Length Scale Self-Consistency",
         "results": results,
         "conclusion": results["conclusion"],

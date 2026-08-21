@@ -11,10 +11,10 @@
       "z_hi": 5,
       "f_agn": 0.05,
       "n": 31799,
-      "rho_obs": 0.32338975609228693,
-      "rho_agn_corrected": 0.31530501218997975,
+      "rho_obs": 0.32327967561962023,
+      "rho_agn_corrected": 0.3151976837291297,
       "delta_rho_agn": 0.02511009804759127,
-      "rho_change_pct": -2.5000000000000018,
+      "rho_change_pct": -2.500000000000006,
       "ref": "Harikane+2022"
     },
     {
@@ -22,10 +22,10 @@
       "z_hi": 6,
       "f_agn": 0.08,
       "n": 5499,
-      "rho_obs": 0.3626953640317952,
-      "rho_agn_corrected": 0.3481875494705234,
+      "rho_obs": 0.36944309131038844,
+      "rho_agn_corrected": 0.3546653676579729,
       "delta_rho_agn": 0.04789131426105757,
-      "rho_change_pct": -4.000000000000002,
+      "rho_change_pct": -3.9999999999999982,
       "ref": "Ouchi+2023"
     },
     {
@@ -33,10 +33,10 @@
       "z_hi": 7,
       "f_agn": 0.12,
       "n": 4754,
-      "rho_obs": 0.541690383373304,
-      "rho_agn_corrected": 0.5091889603709058,
+      "rho_obs": 0.5463225386790804,
+      "rho_agn_corrected": 0.5135431863583356,
       "delta_rho_agn": 0.0419960525565808,
-      "rho_change_pct": -5.9999999999999964,
+      "rho_change_pct": -5.999999999999996,
       "ref": "Kokorev+2024"
     },
     {
@@ -44,10 +44,10 @@
       "z_hi": 9,
       "f_agn": 0.15,
       "n": 5894,
-      "rho_obs": 0.5154340768437662,
-      "rho_agn_corrected": 0.47677652108048374,
+      "rho_obs": 0.5653565612516311,
+      "rho_agn_corrected": 0.5229548191577589,
       "delta_rho_agn": 0.03369085602646046,
-      "rho_change_pct": -7.4999999999999964,
+      "rho_change_pct": -7.499999999999988,
       "ref": "Matthee+2024 (LRDs)"
     },
     {
@@ -55,13 +55,13 @@
       "z_hi": 12,
       "f_agn": 0.2,
       "n": 1451,
-      "rho_obs": 0.5810942112920825,
-      "rho_agn_corrected": 0.5229847901628742,
+      "rho_obs": 0.5863780761558403,
+      "rho_agn_corrected": 0.5277402685402562,
       "delta_rho_agn": 0.059028133610095526,
-      "rho_change_pct": -10.0,
+      "rho_change_pct": -9.999999999999998,
       "ref": "estimate"
     }
   ],
-  "max_rho_shift_pct": 10.0,
+  "max_rho_shift_pct": 9.999999999999998,
   "conclusion": "Maximum AGN contamination shift: 10.0% of rho signal. AGN fraction (f_AGN=20% at z>9) shifts rho by <10%. Signal is robust to AGN contamination."
 }

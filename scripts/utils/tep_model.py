@@ -7,7 +7,7 @@ COS (Paper 10), H0 (Paper 11), JWST (Paper 12), WB (Paper 13).
 
 This module provides a unified point of truth for:
 1. Universal Couplings (KAPPA_GAL, ALPHA_INT)
-2. Chronological Enhancement (Gamma_t)
+2. Positive Potential-Depth Proxies and Observable Channel Responses
 3. Screening Mechanisms (Temporal Topology)
 4. Kinematic Profile Models (Wide Binaries)
 
@@ -60,44 +60,51 @@ G_NEWTON_PC_MSUN = 4.30091e-3  # (pc/Msun) * (km/s)^2
 G_AU = 887.1                   # (km/s)^2 * AU / M_sun
 
 # =============================================================================
-# 2. CHRONOLOGICAL ENHANCEMENT (Gamma_t)
+# 2. POTENTIAL DEPTH AND OBSERVABLE RESPONSE
 # =============================================================================
 
-def get_phi_from_log_mh(log_Mh):
-    """Compute dimensionless virial potential Phi/c^2 at z=0."""
+def get_potential_depth_from_log_mh(log_Mh):
+    """Compute the positive dimensionless virial depth Psi = |Phi|/c^2 at z=0."""
     return 1.6e-7 * (10**log_Mh / 1e12)**(2/3)
 
+def get_phi_from_log_mh(log_Mh):
+    """Backward-compatible alias returning positive potential depth, not signed Phi."""
+    return get_potential_depth_from_log_mh(log_Mh)
+
 def get_halo_potential(log_Mh):
-    """Backward-compatible alias for the canonical z=0 virial potential."""
-    return get_phi_from_log_mh(log_Mh)
+    """Backward-compatible alias returning positive potential depth."""
+    return get_potential_depth_from_log_mh(log_Mh)
 
 def tep_alpha(z, kappa=KAPPA_GAL):
     """Redshift-dependent observable response coefficient κ(z)."""
     return kappa * np.sqrt(1 + z)
 
-def compute_gamma_t_from_phi(phi, z, kappa=None, n=ALPHA_NUCLEAR):
+def compute_ml_response_from_depth(psi, z, kappa=None, n=ALPHA_NUCLEAR):
     """
-    Compute TEP chronological enhancement from dimensionless potential Phi/c^2.
+    Compute the positive mass-to-light inference response from potential depth.
 
-    Gamma_t = exp[ K_gal * (Phi - Phi_ref,0) * sqrt(1+z) ],
-    where K_gal = kappa * ln(10) / (2.5*n).  The kappa argument is the
-    magnitude-sector observable response coefficient, not a bare scalar
-    coupling.
+    R_ML = exp[ K_gal * (Psi - Psi_ref,0) * sqrt(1+z) ],
+    where K_gal = kappa * ln(10) / (2.5*n). The kappa argument is a
+    magnitude-sector observable response coefficient, not the conformal factor,
+    a local proper-time ratio, or a bare scalar coupling.
     """
     eff_kappa = KAPPA_GAL if kappa is None else kappa
     k_exp = (eff_kappa * np.log(10)) / (2.5 * n)
-    argument = k_exp * (np.asarray(phi) - PHI_REF_0) * np.sqrt(1 + np.asarray(z))
+    argument = k_exp * (np.asarray(psi) - PHI_REF_0) * np.sqrt(1 + np.asarray(z))
     return np.exp(argument)
 
+def compute_gamma_t_from_phi(phi, z, kappa=None, n=ALPHA_NUCLEAR):
+    """Backward-compatible alias for compute_ml_response_from_depth."""
+    return compute_ml_response_from_depth(phi, z, kappa=kappa, n=n)
+
+def compute_ml_response(log_Mh, z, kappa=None, n=ALPHA_NUCLEAR):
+    """Compute the observable mass-to-light response from halo mass and redshift."""
+    psi = get_potential_depth_from_log_mh(log_Mh)
+    return compute_ml_response_from_depth(psi, z, kappa=kappa, n=n)
+
 def compute_gamma_t(log_Mh, z, kappa=None, n=ALPHA_NUCLEAR):
-    """
-    Compute TEP chronological enhancement factor (Potential-Linear Form).
-    
-    Gamma_t = exp[ K * (Phi - Phi_ref) * sqrt(1+z) ]
-    where K = kappa * ln(10) / (2.5 * n)
-    """
-    phi = get_phi_from_log_mh(log_Mh)
-    return compute_gamma_t_from_phi(phi, z, kappa=kappa, n=n)
+    """Backward-compatible alias for compute_ml_response."""
+    return compute_ml_response(log_Mh, z, kappa=kappa, n=n)
 
 # =============================================================================
 # 3. KINEMATIC & SCREENING MODELS
@@ -117,13 +124,69 @@ def temporal_topology_suppression(rho, rho_c=RHO_CRIT_G_CM3, kappa_bare=KAPPA_GA
 # 4. MASS CORRECTIONS & BIAS
 # =============================================================================
 
-def isochrony_mass_bias(gamma_t, n=ALPHA_NUCLEAR):
-    """M/L ratio bias: M_obs / M_true = Gamma_t^n."""
-    return np.power(np.maximum(gamma_t, 0.01), n)
+def ml_inference_bias(response, n=ALPHA_NUCLEAR):
+    """Mass inference bias M_obs/M_true = R_ML^n."""
+    return np.power(np.maximum(response, 0.01), n)
 
-def correct_stellar_mass(log_Mstar, gamma_t, n=ALPHA_NUCLEAR):
-    """Apply TEP correction to observed stellar mass."""
-    return log_Mstar - np.log10(isochrony_mass_bias(gamma_t, n))
+def isochrony_mass_bias(gamma_t, n=ALPHA_NUCLEAR):
+    """Backward-compatible alias for ml_inference_bias."""
+    return ml_inference_bias(gamma_t, n)
+
+def correct_stellar_mass(log_Mstar, response, n=ALPHA_NUCLEAR):
+    """Correct an observed logarithmic stellar mass using the M/L response."""
+    return log_Mstar - np.log10(ml_inference_bias(response, n))
+
+
+def compute_ml_response_self_consistent(log_Mstar_obs, z, kappa=None, n=ALPHA_NUCLEAR,
+                                         tol=1e-4, max_iter=200, damping=0.3):
+    """
+    Solve the M*–Mh–R_ML relation self-consistently.
+
+    The single-pass pipeline computes R_ML from the observed (biased) mass,
+    then corrects the mass once.  But R_ML itself depends on the halo mass,
+    which depends on the stellar mass.  The self-consistent solution iterates:
+
+        M_h = AM(M*_true, z)
+        R_ML = f(M_h, z)
+        M*_true = M*_obs - n * log10(R_ML)
+
+    to convergence.  For typical high-z galaxies (M* < 10) the single-pass
+    and iterated solutions differ by < 2%, but at M* > 10.5 the difference
+    can reach 10–60% because the abundance-matching slope amplifies the
+    feedback loop.
+
+    Damped fixed-point iteration (damping=0.3) is used because the undamped
+    update oscillates between two fixed points for high-mass galaxies where
+    the SMHM slope amplifies the feedback.  R_ML is clipped to [0.01, 100]
+    inside the loop to keep the iteration bounded for extreme masses where
+    the exponential response would otherwise diverge.  Convergence is
+    assessed on the relative change in log_M_true (which is bounded) rather
+    than on R_ML directly (which can span many orders of magnitude).
+
+    Returns (R_ML_iterated, log_Mstar_true_iterated).
+    """
+    log_mstar = np.asarray(log_Mstar_obs, dtype=float)
+    z_arr = np.asarray(z, dtype=float)
+    n_arr = np.broadcast_to(n, log_mstar.shape).astype(float) if np.ndim(n) else np.full_like(log_mstar, float(n))
+    log_m_true = log_mstar.copy()
+    log_m_true_prev = log_mstar.copy() + 1.0  # ensure first iteration runs
+    for _ in range(max_iter):
+        log_mh = stellar_to_halo_mass_behroozi_like(log_m_true, z_arr)
+        r_ml = compute_ml_response(log_mh, z_arr, kappa=kappa, n=n_arr)
+        # Clip R_ML to physical range to keep iteration bounded
+        r_ml = np.clip(r_ml, 0.01, 100.0)
+        log_m_true_new = log_mstar - n_arr * np.log10(r_ml)
+        log_m_true = (1.0 - damping) * log_m_true + damping * log_m_true_new
+        # Converge on log_M_true (bounded) rather than R_ML (can be extreme)
+        delta = np.max(np.abs(log_m_true - log_m_true_prev))
+        if delta < tol:
+            break
+        log_m_true_prev = log_m_true.copy()
+    # Final R_ML from converged mass (clipped for safety)
+    log_mh = stellar_to_halo_mass_behroozi_like(log_m_true, z_arr)
+    r_ml = compute_ml_response(log_mh, z_arr, kappa=kappa, n=n_arr)
+    r_ml = np.clip(r_ml, 0.01, 100.0)
+    return r_ml, log_m_true
 
 def stellar_to_halo_mass(log_Mstar, z=None):
     """
@@ -139,21 +202,40 @@ def stellar_to_halo_mass(log_Mstar, z=None):
     return stellar_to_halo_mass_behroozi_like(log_Mstar, z)
 
 def stellar_to_halo_mass_behroozi_like(log_Mstar, z):
-    """Empirical SMHM relation proxy for high-z."""
-    log_ratio = -1.8 - 0.1 * (np.asarray(log_Mstar) - 10) + 0.05 * (np.asarray(z) - 5)
+    """Empirical SMHM relation proxy for high-z.
+
+    WARNING: This is a simplified linear proxy for the Behroozi+2019 SMHM
+    relation, calibrated approximately for z~4-8.  At z>10 it is an
+    EXTRAPOLATION with no calibration anchor.  The stellar-halo mass
+    relation at z>10 is poorly constrained by observations, and
+    abundance-matching extrapolations in this regime can produce
+    physically pathological baryon-conversion efficiencies.  Results at
+    z>10 should be treated as indicative only, not as calibrated evidence.
+    Multiple independent SHMRs and a baryon-fraction ceiling should be
+    used for any z>10 quantitative claim.
+    """
+    log_ratio = -1.8 - 0.1 * (np.asarray(log_Mstar) - 10) - 0.05 * (np.asarray(z) - 5)
     return np.asarray(log_Mstar) - log_ratio
 
-def compute_gamma_t_from_mstar(log_Mstar, z, kappa=None):
-    """Compute Gamma_t after mapping stellar mass to a halo-mass proxy."""
-    return compute_gamma_t(stellar_to_halo_mass(log_Mstar, z), z, kappa=kappa)
+def compute_ml_response_from_mstar(log_Mstar, z, kappa=None):
+    """Compute the M/L response after mapping stellar mass to a halo-mass proxy."""
+    return compute_ml_response(stellar_to_halo_mass(log_Mstar, z), z, kappa=kappa)
 
-def correct_age_ratio(age_ratio, gamma_t):
-    """Apply TEP correction to an observed stellar-age/cosmic-age ratio."""
-    return np.asarray(age_ratio) / np.asarray(gamma_t)
+def compute_gamma_t_from_mstar(log_Mstar, z, kappa=None):
+    """Backward-compatible alias for compute_ml_response_from_mstar."""
+    return compute_ml_response_from_mstar(log_Mstar, z, kappa=kappa)
+
+def correct_age_ratio(age_ratio, response):
+    """Correct an inferred age ratio using the observable response proxy."""
+    return np.asarray(age_ratio) / np.asarray(response)
+
+def compute_inferred_time_proxy(t_cosmic, response):
+    """Compute the observer-side inferred-time proxy t_proxy = t_cosmic R_ML."""
+    return np.maximum(np.asarray(t_cosmic) * np.asarray(response), 0.001)
 
 def compute_effective_time(t_cosmic, gamma_t):
-    """Effective stellar-population time t_eff = t_cosmic * Gamma_t."""
-    return np.maximum(np.asarray(t_cosmic) * np.asarray(gamma_t), 0.001)
+    """Backward-compatible alias for compute_inferred_time_proxy."""
+    return compute_inferred_time_proxy(t_cosmic, gamma_t)
 
 # =============================================================================
 # 5. COSMOLOGY UTILS
@@ -172,7 +254,11 @@ def _cosmic_time_gyr(z, H0=67.4, Om=0.315, OL=0.685):
     """Backward-compatible flat-LCDM cosmic time helper."""
     return cosmic_time_gyr(z, H0=H0, Om=Om)
 
+def compute_inferred_time_from_halo(log_Mh, z, kappa=None):
+    """Compute the observer-side inferred-time proxy from halo mass and redshift."""
+    response = compute_ml_response(log_Mh, z, kappa=kappa)
+    return compute_inferred_time_proxy(_cosmic_time_gyr(z), response)
+
 def compute_t_eff(log_Mh, z, kappa=None):
-    """Compute TEP effective time from halo mass and redshift."""
-    gamma_t = compute_gamma_t(log_Mh, z, kappa=kappa)
-    return compute_effective_time(_cosmic_time_gyr(z), gamma_t)
+    """Backward-compatible alias for compute_inferred_time_from_halo."""
+    return compute_inferred_time_from_halo(log_Mh, z, kappa=kappa)

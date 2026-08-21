@@ -1,51 +1,51 @@
-[22:35:47] INFO    ======================================================================
-[22:35:47] INFO    TEP-JWST Step 019: Chi-Squared Correlation Analysis
-[22:35:47] INFO    ======================================================================
-[22:35:47] INFO    Loading JADES z>8 candidates (Hainline+23)...
-[22:35:52] INFO    Loaded 94000 z>8 candidates
-[22:35:52] INFO      With spec-z: 0
-[22:35:52] INFO    ======================================================================
-[22:35:52] INFO    TEST 1: Photo-z Uncertainty Scaling
-[22:35:52] INFO    ======================================================================
-[22:35:52] INFO    Sample size: N = 84291
-[22:35:52] INFO    
+[17:17:08] INFO    ======================================================================
+[17:17:08] INFO    TEP-JWST Step 019: Chi-Squared Correlation Analysis
+[17:17:08] INFO    ======================================================================
+[17:17:08] INFO    Loading JADES z>8 candidates (Hainline+23)...
+[17:17:15] INFO    Loaded 94000 z>8 candidates
+[17:17:15] INFO      With spec-z: 0
+[17:17:15] INFO    ======================================================================
+[17:17:15] INFO    TEST 1: Photo-z Uncertainty Scaling
+[17:17:15] INFO    ======================================================================
+[17:17:15] INFO    Sample size: N = 84291
+[17:17:15] INFO    
 Correlation (z_phot_err vs Γ_t):
-[22:35:52] INFO      Spearman ρ = -0.424, p = 0.0000
-[22:35:52] INFO    
+[17:17:15] INFO      Spearman ρ = -0.424, p = 0.0000
+[17:17:15] INFO    
 ⚠ No positive correlation
-[22:35:52] INFO    ======================================================================
-[22:35:52] INFO    TEST 2: Spec-z vs Photo-z Offset
-[22:35:52] INFO    ======================================================================
-[22:35:52] INFO    Galaxies with spec-z: N = 0
-[22:35:52] WARNING Insufficient spec-z sample
-[22:35:52] INFO    ======================================================================
-[22:35:52] INFO    TEST 3: χ² Scaling with Γ_t
-[22:35:52] INFO    ======================================================================
-[22:35:52] INFO    Sample size: N = 84291
-[22:35:52] INFO    
+[17:17:15] INFO    ======================================================================
+[17:17:15] INFO    TEST 2: Spec-z vs Photo-z Offset
+[17:17:15] INFO    ======================================================================
+[17:17:15] INFO    Galaxies with spec-z: N = 0
+[17:17:15] WARNING Insufficient spec-z sample
+[17:17:15] INFO    ======================================================================
+[17:17:15] INFO    TEST 3: χ² Scaling with Γ_t
+[17:17:15] INFO    ======================================================================
+[17:17:15] INFO    Sample size: N = 84291
+[17:17:15] INFO    
 Correlation (χ² vs Γ_t):
-[22:35:52] INFO      Spearman ρ = -0.133, p = 0.0000
-[22:35:52] INFO    
+[17:17:15] INFO      Spearman ρ = -0.133, p = 0.0000
+[17:17:15] INFO    
 Binned analysis:
-[22:35:52] INFO      Γ_t = [0.5, 0.7): N = 205, mean χ² = 12.9, median = 10.2
-[22:35:52] INFO      Γ_t = [0.7, 1.0): N = 25609, mean χ² = 9.8, median = 8.1
-[22:35:52] INFO      Γ_t = [1.0, 5.0): N = 37945, mean χ² = 9.0, median = 7.6
-[22:35:52] INFO    
+[17:17:15] INFO      Γ_t = [0.5, 0.7): N = 205, mean χ² = 12.9, median = 10.2
+[17:17:15] INFO      Γ_t = [0.7, 1.0): N = 25609, mean χ² = 9.8, median = 8.1
+[17:17:15] INFO      Γ_t = [1.0, 5.0): N = 37945, mean χ² = 9.0, median = 7.6
+[17:17:15] INFO    
 ⚠ No significant positive correlation
-[22:35:52] INFO    ======================================================================
-[22:35:52] INFO    TEST 5: Δχ² Diagnostic
-[22:35:52] INFO    ======================================================================
-[22:35:52] INFO    Sample size: N = 0
-[22:35:52] WARNING Insufficient valid Δχ² data — skipping Test 5.
-[22:35:52] INFO    Loading JADES GOODS-S Deep catalog...
-[22:35:52] WARNING Could not load full catalog: list index out of range
-[22:35:52] INFO    
-[22:35:52] INFO    ======================================================================
-[22:35:52] INFO    SUMMARY
-[22:35:52] INFO    ======================================================================
-[22:35:52] INFO    ⚠ photoz_uncertainty: Not significant
-[22:35:52] INFO    ⚠ chi2_scaling: Not significant
-[22:35:52] INFO    
+[17:17:15] INFO    ======================================================================
+[17:17:15] INFO    TEST 5: Δχ² Diagnostic
+[17:17:15] INFO    ======================================================================
+[17:17:15] INFO    Sample size: N = 0
+[17:17:15] WARNING Insufficient valid Δχ² data — skipping Test 5.
+[17:17:15] INFO    Loading JADES GOODS-S Deep catalog...
+[17:17:15] WARNING Could not load full catalog: list index out of range
+[17:17:15] INFO    
+[17:17:15] INFO    ======================================================================
+[17:17:15] INFO    SUMMARY
+[17:17:15] INFO    ======================================================================
+[17:17:15] INFO    ⚠ photoz_uncertainty: Not significant
+[17:17:15] INFO    ⚠ chi2_scaling: Not significant
+[17:17:15] INFO    
 Tests passed: 0/2
-[22:35:52] INFO    
+[17:17:15] INFO    
 Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_019_chi2_analysis.json

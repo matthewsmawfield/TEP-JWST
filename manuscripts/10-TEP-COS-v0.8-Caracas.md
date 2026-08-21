@@ -1,7 +1,7 @@
 # TEP: Suppressed Density Scaling in Globular Cluster Pulsars
 **Matthew Lukin Smawfield**
 Version: v0.8 (Caracas)
-First published: 9 January 2026 · Last updated: 18 August 2026
+First published: 9 January 2026 · Last updated: 19 August 2026
 DOI: 10.5281/zenodo.18165798
 
 ---
@@ -18,7 +18,7 @@ Keywords: temporal equivalence principle, pulsar timing, globular clusters, time
 
 ## 1.1 The Intermediate-Scale Problem
 
-General Relativity has passed every precision test in the Solar System. Yet at intermediate and cosmological scales, persistent discrepancies arise—rotation curves, cluster dynamics, cosmic acceleration—that conventionally require invisible mass or exotic energy to resolve. A fundamental question follows: Is gravitational time dilation scale-dependent? This work explores the hypothesis that these anomalies reflect not missing matter but modified temporal structure: a scale-dependent enhancement of gravitational time dilation beyond the predictions of standard General Relativity.
+General Relativity has passed every precision test in the Solar System. Yet at intermediate and cosmological scales, persistent discrepancies arise—rotation curves, cluster dynamics, cosmic acceleration—that conventionally require invisible mass or exotic energy to resolve. A fundamental question follows: Is gravitational time dilation scale-dependent? This work explores the hypothesis that these anomalies reflect not missing matter but modified temporal structure: a scale-dependent amplification of gravitational time dilation beyond the predictions of standard General Relativity.
 
 The Temporal Equivalence Principle (TEP) formalizes this possibility within a two-metric framework (see Section 2), predicting that the rate of proper time accumulation is environment-dependent at intermediate scales while remaining consistent with precision tests in the screened Solar System regime. The central prediction is that *rate-dependent* physical processes—pulsar spin-down, photon arrival times, clock frequencies—should exhibit anomalies in deep gravitational potentials, while *fossil* observables that integrate over formation timescales remain insensitive.
 
@@ -112,7 +112,7 @@ To make the screening physics explicit and evaluable without recourse to externa
 
 - Temporal Equivalence Principle: All non-gravitational processes evolve according to proper time $d\tau$ defined by $\tilde{g}_{\mu\nu}$. In local freely falling frames, physics reduces to special relativity with invariant $c$.
 
-- Screening via continuous gradient: Rather than operating via discrete boundary cutoffs or thin-shell transitions, screening manifests as a continuous spatial profile governed by the non-linear superposition of field gradients (Temporal Shear). This suppresses fifth forces and clock-rate enhancements in regions of high curvature (Solar System) while leaving low-curvature astrophysical environments accessible to dynamics.
+- Screening via continuous gradient: Rather than operating via discrete boundary cutoffs or thin-shell transitions, screening manifests as a continuous spatial profile governed by the non-linear superposition of field gradients (Temporal Shear). This suppresses Temporal Shear and the associated clock-rate responses in regions of high curvature (Solar System) while leaving low-curvature astrophysical environments accessible to dynamics.
 
 The Action and Field Equations. The action in the Einstein frame is:
 
@@ -260,7 +260,7 @@ This does not mean gravitational acceleration is meaningless: one can still defi
 
 ### The Rosetta Stone
 
-The TEP prediction for pulsar spin-down anomalies is a manifestation of enhanced gravitational time dilation effects in deep potentials:
+The TEP prediction for pulsar spin-down anomalies is a manifestation of amplified gravitational time dilation in deep potentials:
 
 | Observable | GR Prediction | TEP Prediction | Status |
 | --- | --- | --- | --- |
@@ -1538,7 +1538,7 @@ Explicit calculation for a pulsar moving at $v \sim 220$ km/s through the Galact
 
 ### 4.7.8 Cross-Scale Consistency: The Hubble Tension Connection
 
-The TEP framework provides a unifying interpretation across scales—from GNSS clock correlations (Earth) to pulsar timing (globular clusters) to cosmological distances. The Hubble tension (5σ discrepancy between Planck CMB and SH0ES local H₀ measurements) may find natural interpretation within this framework: time-dilation-dependent methods (Cepheid period-luminosity) systematically differ from dynamics-based methods (CMB, BAO) because clocks in galactic potentials experience enhanced time dilation.
+The TEP framework provides a unifying interpretation across scales—from GNSS clock correlations (Earth) to pulsar timing (globular clusters) to cosmological distances. The Hubble tension (5σ discrepancy between Planck CMB and SH0ES local H₀ measurements) may find natural interpretation within this framework: time-dilation-dependent methods (Cepheid period-luminosity) systematically differ from dynamics-based methods (CMB, BAO) because clocks in galactic potentials experience amplified time dilation.
 
 *Quantitative evidence from Paper 11:* Analysis of 29 SH0ES host galaxies reveals correlation between host velocity dispersion σ and derived H₀ (Spearman ρ=0.434, p=0.019). TEP correction yields unified H₀=68.66±1.51 km/s/Mpc, reducing Planck tension to 0.79σ. See Paper 11 (11manuscript-tep-h0.md) for complete derivation.
 
@@ -1558,7 +1558,7 @@ It is crucial to consider whether TEP could alter the interpretation of geometri
 
 - Not individually correcting for Shklovskii (treated as part of the field distribution)
 
-*Distance Ladder Implications:* The Hubble tension analysis (Section 4.7.8) assumes standard parallax calibrations for Cepheids. TEP predicts that geometric parallax (from Gaia) remains accurate because it is a screened Earth-based measurement, while Cepheid period-luminosity distances are systematically overestimated due to enhanced time dilation. This *asymmetric* effect—independent of parallax systematics—strengthens the TEP interpretation of the H₀ tension.
+*Distance Ladder Implications:* The Hubble tension analysis (Section 4.7.8) assumes standard parallax calibrations for Cepheids. TEP predicts that geometric parallax (from Gaia) remains accurate because it is a screened Earth-based measurement, while Cepheid period-luminosity distances are systematically overestimated due to amplified time dilation. This *asymmetric* effect—independent of parallax systematics—strengthens the TEP interpretation of the H₀ tension.
 
 *Conclusion:* TEP does not modify parallax geometry, and the Shklovskii effect is subdominant to cluster acceleration in the regime where the TEP signal is detected. Distance ladder calibrations relying on geometric parallax remain valid within TEP.
 
@@ -1963,7 +1963,7 @@ TEP modifications at the ~10<sup>−5</sup> level are swamped by astrophysical s
 
 Type Ia supernovae occupy an intermediate category between rate and fossil observables. While SNe Ia light curves are instantaneous events (theoretically rate-sensitive), their use as distance indicators relies on peak magnitude standardization, which is dominated by host galaxy mass effects.
 
-SNe Ia in galaxies with higher velocity dispersion appear systematically fainter (r = +0.22, p = 1.2×10<sup>−3</sup>, 218 SNe from Pantheon+). This direction matches the TEP prediction—deeper potentials correlate with enhanced time dilation—but the correlation is *indistinguishable* from the standard mass-step effect. Partial correlation controlling for host mass is null (r = −0.047, p = 0.49), indicating the signal is dominated by established astrophysical systematics rather than a novel TEP signature. Consequently, SNe Ia provide qualitative framework-consistency but cannot independently confirm TEP predictions.
+SNe Ia in galaxies with higher velocity dispersion appear systematically fainter (r = +0.22, p = 1.2×10<sup>−3</sup>, 218 SNe from Pantheon+). This direction matches the TEP prediction—deeper potentials correlate with amplified time dilation—but the correlation is *indistinguishable* from the standard mass-step effect. Partial correlation controlling for host mass is null (r = −0.047, p = 0.49), indicating the signal is dominated by established astrophysical systematics rather than a novel TEP signature. Consequently, SNe Ia provide qualitative framework-consistency but cannot independently confirm TEP predictions.
 
 #### Why SNe Ia Are Not Fossil Observables
 

@@ -413,7 +413,7 @@ TEP discriminator.
 **Axiom 4 (Screening and Temporal Topology):** Screening
 manifests as a continuous spatial profile (Temporal Topology) governed
 by the non-linear superposition of field gradients (Temporal Shear),
-suppressing fifth forces and lensing anomalies in dense environments
+suppressing Temporal Shear and lensing anomalies in dense environments
 while leaving cosmology accessible to dynamics. The suppression of
 local Temporal Shear in deep potential environments continuously
 reduces

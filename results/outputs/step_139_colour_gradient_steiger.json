@@ -1,9 +1,9 @@
 {
-  "step": "Step 163: Colour-Gradient Steiger Z-Test",
+  "step": "Step 139: Colour-Gradient Steiger Z-Test",
   "n_total": 277,
   "tep_prediction": "Core Screening predicts bluer cores in massive galaxies (negative gradient). t_eff should outperform M* as a predictor because it captures the true temporal scale of central enrichment.",
   "mass_debiasing": {
-    "beta_debias_used": 0.38222773644735053,
+    "beta_debias_used": 0.5094071486774364,
     "beta_debias_source": "step_117_object_level_bootstrap"
   },
   "raw_correlations": {
@@ -42,17 +42,17 @@
     }
   },
   "partial_correlations": {
-    "beta_debias_used": 0.38222773644735053,
+    "beta_debias_used": 0.5094071486774364,
     "beta_debias_source": "step_117_object_level_bootstrap",
-    "rho_gradient_gamma_t_given_mass_z": 0.03717068045415018,
+    "rho_gradient_gamma_t_given_mass_z": 0.03717068045415023,
     "p_gradient_gamma_t_given_mass_z": 0.5378556899171846,
-    "rho_gradient_mass_given_gamma_z": -0.08642934077935646,
-    "p_gradient_mass_given_gamma_z": 0.15138629033440534,
-    "rho_gradient_gamma_t_given_debiased_mass_z": 0.03682820826206201,
-    "p_gradient_gamma_t_given_debiased_mass_z": 0.5416108410915966,
-    "rho_gradient_debiased_mass_given_gamma_z": -0.08642353689731297,
-    "p_gradient_debiased_mass_given_gamma_z": 0.15141386215794098,
-    "preferred_gamma_gradient_mass_control": "observed_mass_z",
+    "rho_gradient_mass_given_gamma_z": -0.08642934077935652,
+    "p_gradient_mass_given_gamma_z": 0.1513862903344031,
+    "rho_gradient_gamma_t_given_debiased_mass_z": 0.03859234865546493,
+    "p_gradient_gamma_t_given_debiased_mass_z": 0.5224076427997796,
+    "rho_gradient_debiased_mass_given_gamma_z": -0.08862580289106839,
+    "p_gradient_debiased_mass_given_gamma_z": 0.14122251183719023,
+    "preferred_gamma_gradient_mass_control": "debiased_mass_z",
     "asymmetry_confirmed": false,
     "interpretation": "No asymmetry detected"
   },
@@ -81,14 +81,15 @@
     "primary_p": 0.0013002072639831084,
     "steiger_Z_t_eff_vs_mass": -0.4918714839444252,
     "steiger_p_t_eff_vs_mass": 0.6228101982936254,
-    "partial_rho_given_mass_z": 0.03717068045415018,
+    "partial_rho_given_mass_z": 0.03717068045415023,
     "partial_p_given_mass_z": 0.5378556899171846,
-    "partial_rho_given_debiased_mass_z": 0.03682820826206201,
-    "partial_p_given_debiased_mass_z": 0.5416108410915966,
-    "beta_debias_used": 0.38222773644735053,
+    "partial_rho_given_debiased_mass_z": 0.03859234865546493,
+    "partial_p_given_debiased_mass_z": 0.5224076427997796,
+    "beta_debias_used": 0.5094071486774364,
     "beta_debias_source": "step_117_object_level_bootstrap",
     "tep_confirmed": false,
-    "conclusion": "Colour gradient correlates with Gamma_t at rho = -0.192 (p = 1.30e-03). Steiger Z-test (t_eff vs M*): Z = -0.49, p = 0.6228. Partial rho after observed-mass+z control: 0.037 (p = 0.5379); after debiased-mass+z control: 0.037 (p = 0.5416). Real JADES resolved photometry shows a raw core-screening correlation, but the Steiger and partial-correlation tests do not yet establish unique TEP discrimination.",
-    "interpretation": "Real-data ancillary indication only: the raw gradient-Gamma_t correlation is present, but t_eff does not significantly outperform M* and the residual Gamma_t signal remains non-significant under both observed-mass and debiased-mass control."
+    "conclusion": "Colour gradient correlates with Gamma_t at rho = -0.192 (p = 1.30e-03). Steiger Z-test (t_eff vs M*): Z = -0.49, p = 0.6228. Partial rho after observed-mass+z control: 0.037 (p = 0.5379); after debiased-mass+z control: 0.039 (p = 0.5224). Real JADES resolved photometry shows a raw core-screening correlation, but the Steiger and partial-correlation tests do not yet establish unique TEP discrimination.",
+    "interpretation": "Real-data ancillary indication only: the raw gradient-Gamma_t correlation is present, but t_eff does not significantly outperform M* and the residual Gamma_t signal remains non-significant under both observed-mass and debiased-mass control.",
+    "predictor_mismatch_caveat": "The TEP L2 (resolved screening) prediction describes an inside-out screening gradient: the core should be screened (R_ML -> 1) while the outskirts retain a large response. This test uses a GLOBAL halo-scale R_ML (one number per galaxy), which cannot resolve the radial screening profile. The null partial correlation (rho = +0.037, p = 0.54) may therefore reflect a predictor mismatch rather than absence of screening. The correct resolved test requires PSF-matched color maps, resolved potential or surface-density maps, dust-corrected gradients, and a predeclared radial TEP screening statistic. The Gini coefficient (supportive) is a structural concentration metric closer to the screening prediction, but cannot replace the direct gradient test."
   }
 }

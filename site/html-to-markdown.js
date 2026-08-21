@@ -152,6 +152,7 @@ class HTMLToMarkdownConverter {
             // markdown header and filename never go stale on a version bump.
             const manifestVersion = manifest.version || 'v0.6 (Kos)';
             const manifestUpdated = manifest.last_updated || '8 August 2026';
+            const manifestFirstPublished = manifest.first_published || '13 March 2026';
             const versionMatch = String(manifestVersion).match(/^v?([\d.]+)\s*\(([^)]+)\)$/i);
             const versionNum = versionMatch ? versionMatch[1] : '0.6';
             const codename = versionMatch ? versionMatch[2] : 'Kos';
@@ -161,7 +162,7 @@ class HTMLToMarkdownConverter {
             const header = `# ${markdownTitle}
 **Matthew Lukin Smawfield**  
 Version: ${manifestVersion}  
-First published: 13 March 2026 · Last updated: ${manifestUpdated}  
+First published: ${manifestFirstPublished} · Last updated: ${manifestUpdated}  
 DOI: 10.5281/zenodo.19000827
 
 ---

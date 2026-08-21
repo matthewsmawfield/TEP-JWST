@@ -1,57 +1,59 @@
-[22:43:36] INFO    ═══ ============================================================
-[22:43:36] INFO    ═══ step_155: JADES DR5 morphology × DR4 spec-z TEP test
-[22:43:36] INFO    ═══ ============================================================
-[22:43:36] INFO    >>> Loading JADES DR4 spectroscopic catalog...
-[22:43:36] INFO        DR4 good spec-z with DR5 ID: N = 2839
-[22:43:36] INFO    >>> Loading JADES DR5 photometry (SIZE HDU)...
-[22:43:36] INFO    >>> Cross-matching DR4 spec-z with DR5 morphology...
-[22:43:36] INFO        DR4 proxy sample with valid F277W_RHALF: N = 1592
-[22:43:37] INFO          rhalf_f277_z_gt_7: raw ρ=0.319, p=0.004656; partial ρ=0.065, p=0.5766; N=77
-[22:43:37] INFO          rhalf_f444_z_gt_7: raw ρ=0.319, p=0.004656; partial ρ=0.065, p=0.5766; N=77
-[22:43:37] INFO          axis_ratio_z_gt_7: raw ρ=0.037, p=0.7465; partial ρ=0.053, p=0.6471; N=77
-[22:43:37] INFO          gini_z_gt_7: raw ρ=0.179, p=0.1195; partial ρ=0.085, p=0.4628; N=77
-[22:43:37] INFO          sigma_star_z_gt_7: raw ρ=0.125, p=0.2771; partial ρ=-0.164, p=0.1541; N=77
-[22:43:37] INFO          rhalf_f277_z_gt_5: raw ρ=0.423, p=2.353e-14; partial ρ=0.077, p=0.1867; N=298
-[22:43:37] INFO          rhalf_f444_z_gt_5: raw ρ=0.423, p=2.353e-14; partial ρ=0.077, p=0.1867; N=298
-[22:43:37] INFO          axis_ratio_z_gt_5: raw ρ=-0.124, p=0.03198; partial ρ=0.016, p=0.7838; N=298
-[22:43:37] INFO          gini_z_gt_5: raw ρ=0.304, p=8.309e-08; partial ρ=0.021, p=0.7128; N=298
-[22:43:37] INFO          sigma_star_z_gt_5: raw ρ=-0.083, p=0.1537; partial ρ=0.001, p=0.9824; N=298
-[22:43:37] INFO          rhalf_f277_z_gt_4: raw ρ=0.519, p=1.546e-33; partial ρ=0.064, p=0.1657; N=466
-[22:43:37] INFO          rhalf_f444_z_gt_4: raw ρ=0.519, p=1.546e-33; partial ρ=0.064, p=0.1657; N=466
-[22:43:37] INFO          axis_ratio_z_gt_4: raw ρ=-0.108, p=0.01933; partial ρ=-0.003, p=0.9415; N=466
-[22:43:37] INFO          gini_z_gt_4: raw ρ=0.301, p=3.108e-11; partial ρ=0.104, p=0.02446; N=466
-[22:43:37] INFO          sigma_star_z_gt_4: raw ρ=-0.275, p=1.5e-09; partial ρ=0.011, p=0.8137; N=466
-[22:43:37] INFO    >>> Loading JADES physical catalog for direct-mass morphology control...
-[22:43:37] INFO        Physical-mass sample with valid F277W_RHALF: N = 464
-[22:43:37] INFO          rhalf_f277_z_gt_7: raw ρ=0.675, p=2.178e-52; partial ρ=0.023, p=0.6463; N=384
-[22:43:37] INFO          rhalf_f444_z_gt_7: raw ρ=0.675, p=2.178e-52; partial ρ=0.023, p=0.6463; N=384
-[22:43:37] INFO          axis_ratio_z_gt_7: raw ρ=-0.084, p=0.1013; partial ρ=-0.015, p=0.7666; N=384
-[22:43:37] INFO          gini_z_gt_7: raw ρ=0.024, p=0.6327; partial ρ=0.191, p=0.0001636; N=384
-[22:43:37] INFO          sigma_star_z_gt_7: raw ρ=0.314, p=3.234e-10; partial ρ=0.030, p=0.5637; N=384
-[22:43:37] INFO    ═══ ============================================================
-[22:43:37] INFO    ═══ SUMMARY
-[22:43:37] INFO          Preferred sample: physical_catalog_direct_mass
-[22:43:37] INFO          dr4_spec_muv_proxy: N_matched=1592, N_with_mass=800, supportive=1
-[22:43:37] INFO          dr4_spec_muv_proxy.rhalf_f277_z_gt_7: raw ρ=0.319, partial ρ=0.065, N=77
-[22:43:37] INFO          dr4_spec_muv_proxy.rhalf_f444_z_gt_7: raw ρ=0.319, partial ρ=0.065, N=77
-[22:43:37] INFO          dr4_spec_muv_proxy.axis_ratio_z_gt_7: raw ρ=0.037, partial ρ=0.053, N=77
-[22:43:37] INFO          dr4_spec_muv_proxy.gini_z_gt_7: raw ρ=0.179, partial ρ=0.085, N=77
-[22:43:37] INFO          dr4_spec_muv_proxy.sigma_star_z_gt_7: raw ρ=0.125, partial ρ=-0.164, N=77
-[22:43:37] INFO          dr4_spec_muv_proxy.rhalf_f277_z_gt_5: raw ρ=0.423, partial ρ=0.077, N=298
-[22:43:37] INFO          dr4_spec_muv_proxy.rhalf_f444_z_gt_5: raw ρ=0.423, partial ρ=0.077, N=298
-[22:43:37] INFO          dr4_spec_muv_proxy.axis_ratio_z_gt_5: raw ρ=-0.124, partial ρ=0.016, N=298
-[22:43:37] INFO          dr4_spec_muv_proxy.gini_z_gt_5: raw ρ=0.304, partial ρ=0.021, N=298
-[22:43:37] INFO          dr4_spec_muv_proxy.sigma_star_z_gt_5: raw ρ=-0.083, partial ρ=0.001, N=298
-[22:43:37] INFO          dr4_spec_muv_proxy.rhalf_f277_z_gt_4: raw ρ=0.519, partial ρ=0.064, N=466
-[22:43:37] INFO          dr4_spec_muv_proxy.rhalf_f444_z_gt_4: raw ρ=0.519, partial ρ=0.064, N=466
-[22:43:37] INFO          dr4_spec_muv_proxy.axis_ratio_z_gt_4: raw ρ=-0.108, partial ρ=-0.003, N=466
-[22:43:37] INFO          dr4_spec_muv_proxy.gini_z_gt_4: raw ρ=0.301, partial ρ=0.104, N=466
-[22:43:37] INFO          dr4_spec_muv_proxy.sigma_star_z_gt_4: raw ρ=-0.275, partial ρ=0.011, N=466
-[22:43:37] INFO          physical_catalog_direct_mass: N_matched=464, N_with_mass=384, supportive=1
-[22:43:37] INFO          physical_catalog_direct_mass.rhalf_f277_z_gt_7: raw ρ=0.675, partial ρ=0.023, N=384
-[22:43:37] INFO          physical_catalog_direct_mass.rhalf_f444_z_gt_7: raw ρ=0.675, partial ρ=0.023, N=384
-[22:43:37] INFO          physical_catalog_direct_mass.axis_ratio_z_gt_7: raw ρ=-0.084, partial ρ=-0.015, N=384
-[22:43:37] INFO          physical_catalog_direct_mass.gini_z_gt_7: raw ρ=0.024, partial ρ=0.191, N=384
-[22:43:37] INFO          physical_catalog_direct_mass.sigma_star_z_gt_7: raw ρ=0.314, partial ρ=0.030, N=384
-[22:43:37] INFO    ═══ ============================================================
-[22:43:37] INFO    ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_155_jades_dr5_morphology.json
+[17:31:04] INFO    ═══ ============================================================
+[17:31:04] INFO    ═══ step_155: JADES DR5 morphology × DR4 spec-z TEP test
+[17:31:04] INFO    ═══ ============================================================
+[17:31:04] INFO    >>> Loading JADES DR4 spectroscopic catalog...
+[17:31:04] INFO        DR4 good spec-z with DR5 ID: N = 2839
+[17:31:04] INFO    >>> Loading JADES DR5 photometry (SIZE HDU)...
+[17:31:04] INFO    >>> Cross-matching DR4 spec-z with DR5 morphology...
+[17:31:04] INFO        DR4 proxy sample with valid F277W_RHALF: N = 1592
+[17:31:05] INFO          dr4_spec_muv_proxy: 792/1592 galaxies excluded (missing stellar mass). Included z median=4.35, excluded z median=2.13.
+[17:31:05] INFO          rhalf_f277_z_gt_7: raw ρ=0.413, p=0.0001926; partial ρ=0.168, p=0.1448; N=77
+[17:31:05] INFO          rhalf_f444_z_gt_7: raw ρ=0.413, p=0.0001926; partial ρ=0.168, p=0.1448; N=77
+[17:31:05] INFO          axis_ratio_z_gt_7: raw ρ=-0.048, p=0.6784; partial ρ=-0.139, p=0.2293; N=77
+[17:31:05] INFO          gini_z_gt_7: raw ρ=0.434, p=8.149e-05; partial ρ=0.151, p=0.1909; N=77
+[17:31:05] INFO          sigma_star_z_gt_7: raw ρ=0.419, p=0.0001498; partial ρ=-0.316, p=0.005154; N=77
+[17:31:05] INFO          rhalf_f277_z_gt_5: raw ρ=0.433, p=5.057e-15; partial ρ=0.096, p=0.09933; N=298
+[17:31:05] INFO          rhalf_f444_z_gt_5: raw ρ=0.433, p=5.057e-15; partial ρ=0.096, p=0.09933; N=298
+[17:31:05] INFO          axis_ratio_z_gt_5: raw ρ=-0.140, p=0.0153; partial ρ=0.002, p=0.9784; N=298
+[17:31:05] INFO          gini_z_gt_5: raw ρ=0.373, p=2.884e-11; partial ρ=0.039, p=0.5041; N=298
+[17:31:05] INFO          sigma_star_z_gt_5: raw ρ=0.055, p=0.3483; partial ρ=-0.020, p=0.73; N=298
+[17:31:05] INFO          rhalf_f277_z_gt_4: raw ρ=0.520, p=1.148e-33; partial ρ=0.062, p=0.1833; N=466
+[17:31:05] INFO          rhalf_f444_z_gt_4: raw ρ=0.520, p=1.148e-33; partial ρ=0.062, p=0.1833; N=466
+[17:31:05] INFO          axis_ratio_z_gt_4: raw ρ=-0.111, p=0.01613; partial ρ=-0.005, p=0.9163; N=466
+[17:31:05] INFO          gini_z_gt_4: raw ρ=0.342, p=3.025e-14; partial ρ=0.094, p=0.04194; N=466
+[17:31:05] INFO          sigma_star_z_gt_4: raw ρ=-0.196, p=2.103e-05; partial ρ=0.009, p=0.8411; N=466
+[17:31:05] INFO    >>> Loading JADES physical catalog for direct-mass morphology control...
+[17:31:05] INFO        Physical-mass sample with valid F277W_RHALF: N = 464
+[17:31:05] INFO          physical_catalog_direct_mass: 80/464 galaxies excluded (missing stellar mass). Included z median=9.27, excluded z median=19.00.
+[17:31:05] INFO          rhalf_f277_z_gt_7: raw ρ=0.675, p=2.178e-52; partial ρ=0.023, p=0.6463; N=384
+[17:31:05] INFO          rhalf_f444_z_gt_7: raw ρ=0.675, p=2.178e-52; partial ρ=0.023, p=0.6463; N=384
+[17:31:05] INFO          axis_ratio_z_gt_7: raw ρ=-0.084, p=0.1013; partial ρ=-0.015, p=0.7666; N=384
+[17:31:05] INFO          gini_z_gt_7: raw ρ=0.024, p=0.6327; partial ρ=0.191, p=0.0001636; N=384
+[17:31:05] INFO          sigma_star_z_gt_7: raw ρ=0.314, p=3.234e-10; partial ρ=0.030, p=0.5637; N=384
+[17:31:05] INFO    ═══ ============================================================
+[17:31:05] INFO    ═══ SUMMARY
+[17:31:05] INFO          Preferred sample: physical_catalog_direct_mass
+[17:31:05] INFO          dr4_spec_muv_proxy: N_matched=1592, N_with_mass=800, supportive=1
+[17:31:05] INFO          dr4_spec_muv_proxy.rhalf_f277_z_gt_7: raw ρ=0.413, partial ρ=0.168, N=77
+[17:31:05] INFO          dr4_spec_muv_proxy.rhalf_f444_z_gt_7: raw ρ=0.413, partial ρ=0.168, N=77
+[17:31:05] INFO          dr4_spec_muv_proxy.axis_ratio_z_gt_7: raw ρ=-0.048, partial ρ=-0.139, N=77
+[17:31:05] INFO          dr4_spec_muv_proxy.gini_z_gt_7: raw ρ=0.434, partial ρ=0.151, N=77
+[17:31:05] INFO          dr4_spec_muv_proxy.sigma_star_z_gt_7: raw ρ=0.419, partial ρ=-0.316, N=77
+[17:31:05] INFO          dr4_spec_muv_proxy.rhalf_f277_z_gt_5: raw ρ=0.433, partial ρ=0.096, N=298
+[17:31:05] INFO          dr4_spec_muv_proxy.rhalf_f444_z_gt_5: raw ρ=0.433, partial ρ=0.096, N=298
+[17:31:05] INFO          dr4_spec_muv_proxy.axis_ratio_z_gt_5: raw ρ=-0.140, partial ρ=0.002, N=298
+[17:31:05] INFO          dr4_spec_muv_proxy.gini_z_gt_5: raw ρ=0.373, partial ρ=0.039, N=298
+[17:31:05] INFO          dr4_spec_muv_proxy.sigma_star_z_gt_5: raw ρ=0.055, partial ρ=-0.020, N=298
+[17:31:05] INFO          dr4_spec_muv_proxy.rhalf_f277_z_gt_4: raw ρ=0.520, partial ρ=0.062, N=466
+[17:31:05] INFO          dr4_spec_muv_proxy.rhalf_f444_z_gt_4: raw ρ=0.520, partial ρ=0.062, N=466
+[17:31:05] INFO          dr4_spec_muv_proxy.axis_ratio_z_gt_4: raw ρ=-0.111, partial ρ=-0.005, N=466
+[17:31:05] INFO          dr4_spec_muv_proxy.gini_z_gt_4: raw ρ=0.342, partial ρ=0.094, N=466
+[17:31:05] INFO          dr4_spec_muv_proxy.sigma_star_z_gt_4: raw ρ=-0.196, partial ρ=0.009, N=466
+[17:31:05] INFO          physical_catalog_direct_mass: N_matched=464, N_with_mass=384, supportive=1
+[17:31:05] INFO          physical_catalog_direct_mass.rhalf_f277_z_gt_7: raw ρ=0.675, partial ρ=0.023, N=384
+[17:31:05] INFO          physical_catalog_direct_mass.rhalf_f444_z_gt_7: raw ρ=0.675, partial ρ=0.023, N=384
+[17:31:05] INFO          physical_catalog_direct_mass.axis_ratio_z_gt_7: raw ρ=-0.084, partial ρ=-0.015, N=384
+[17:31:05] INFO          physical_catalog_direct_mass.gini_z_gt_7: raw ρ=0.024, partial ρ=0.191, N=384
+[17:31:05] INFO          physical_catalog_direct_mass.sigma_star_z_gt_7: raw ρ=0.314, partial ρ=0.030, N=384
+[17:31:05] INFO    ═══ ============================================================
+[17:31:05] INFO    ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_155_jades_dr5_morphology.json

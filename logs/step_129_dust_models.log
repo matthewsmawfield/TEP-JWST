@@ -1,22 +1,22 @@
-[22:39:08] INFO    ═══ STEP 129: Dust Physics Alternative Models Test
-[22:39:08] INFO        Comparing TEP vs SN-only dust production models against observed mass-dust ratios.
-[22:39:08] INFO    
-[22:39:08] INFO    
-[22:39:08] INFO    >>> Gamma_t grid test:
-[22:39:08] INFO          Gamma_t=0.1: TEP dust=0.10, SN-only=0.98, enhancement=0.10x
-[22:39:08] INFO          Gamma_t=0.5: TEP dust=0.61, SN-only=0.98, enhancement=0.63x
-[22:39:08] INFO          Gamma_t=1.0: TEP dust=2.73, SN-only=0.98, enhancement=2.79x
-[22:39:08] INFO          Gamma_t=2.0: TEP dust=6.95, SN-only=0.98, enhancement=7.13x
-[22:39:08] INFO          Gamma_t=3.0: TEP dust=11.18, SN-only=0.98, enhancement=11.46x
-[22:39:08] INFO    
-[22:39:08] INFO    >>> Key test (massive vs dwarf galaxies at z~8):
-[22:39:08] INFO          TEP predicts dust ratio: 46.5x
-[22:39:08] INFO          SN-only predicts: 10.0x
-[22:39:08] INFO          Observed ratio: ~4x
-[22:39:08] INFO          TEP overpredicts by factor: 11.6x
-[22:39:08] INFO          SN-only overpredicts by factor: 2.5x
-[22:39:08] INFO          TEP matches: False
-[22:39:08] INFO          SN-only fails: False
-[22:39:08] INFO    
-[22:39:08] INFO        Conclusion: TEP overpredicts by 11.6x, SN-only overpredicts by 2.5x; SN-only is closer but both exceed observed ratio
-[22:39:08] INFO    ✓   Results saved to step_129_dust_models.json
+[17:23:13] INFO    ═══ STEP 129: Dust Physics Alternative Models Test
+[17:23:13] INFO        Comparing TEP vs SN-only dust production models against observed mass-dust ratios.
+[17:23:13] INFO    
+[17:23:13] INFO    
+[17:23:13] INFO    >>> Gamma_t grid test:
+[17:23:13] INFO          Gamma_t=0.1: TEP dust=0.10, SN-only=0.98, enhancement=0.10x
+[17:23:13] INFO          Gamma_t=0.5: TEP dust=0.61, SN-only=0.98, enhancement=0.63x
+[17:23:13] INFO          Gamma_t=1.0: TEP dust=2.73, SN-only=0.98, enhancement=2.79x
+[17:23:13] INFO          Gamma_t=2.0: TEP dust=6.95, SN-only=0.98, enhancement=7.13x
+[17:23:13] INFO          Gamma_t=3.0: TEP dust=11.18, SN-only=0.98, enhancement=11.46x
+[17:23:13] INFO    
+[17:23:13] INFO    >>> Key test (massive vs dwarf galaxies at z~8):
+[17:23:13] INFO          TEP predicts dust ratio: 46.5x
+[17:23:13] INFO          SN-only predicts: 10.0x
+[17:23:13] INFO          Observed ratio: ~4x
+[17:23:13] INFO          TEP overpredicts by factor: 11.6x
+[17:23:13] INFO          SN-only overpredicts by factor: 2.5x
+[17:23:13] INFO          TEP matches: False
+[17:23:13] INFO          SN-only fails: False
+[17:23:13] INFO    
+[17:23:13] INFO        Conclusion: TEP overpredicts by 11.6x, SN-only overpredicts by 2.5x; SN-only is closer but both exceed observed ratio
+[17:23:13] INFO    ✓   Results saved to step_129_dust_models.json

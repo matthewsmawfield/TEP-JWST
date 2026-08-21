@@ -1,42 +1,42 @@
-[22:38:51] INFO        ======================================================================
-[22:38:51] INFO        STEP 109: ΛCDM Tension Quantification
-[22:38:51] INFO        ======================================================================
-[22:38:51] INFO        Loaded 2315 galaxies
-[22:38:51] INFO        
+[17:22:49] INFO        ======================================================================
+[17:22:49] INFO        STEP 109: ΛCDM Tension Quantification
+[17:22:49] INFO        ======================================================================
+[17:22:49] INFO        Loaded 2315 galaxies
+[17:22:49] INFO        
 --- Stellar Mass Density Comparison ---
-[22:38:51] INFO        z bin      ΛCDM         Observed     TEP-corr     Tension (obs)   Tension (TEP)  
-[22:38:51] INFO        --------------------------------------------------------------------------------
-[22:38:51] INFO        Bin z=7-8 (Gamma=0.82):
-[22:38:51] INFO          ΛCDM pred : 1.60 (at z=7.50)
-[22:38:51] INFO          Observed  : 5.27 -> Tension: 12.2σ
-[22:38:51] INFO          TEP corr  : 5.868298551915511 -> Tension: 14.2σ
-[22:38:51] INFO        Bin z=8-9 (Gamma=0.89):
-[22:38:51] INFO          ΛCDM pred : 0.80 (at z=8.50)
-[22:38:51] INFO          Observed  : 6.47 -> Tension: 18.9σ
-[22:38:51] INFO          TEP corr  : 6.3627286628897215 -> Tension: 18.5σ
-[22:38:51] INFO        Bin z=9-10 (Gamma=1.51):
-[22:38:51] INFO          ΛCDM pred : 0.00 (at z=9.50)
-[22:38:51] INFO          Observed  : 6.68 -> Tension: 22.3σ
-[22:38:51] INFO          TEP corr  : 6.465615389458199 -> Tension: 21.6σ
-[22:38:51] INFO        
+[17:22:49] INFO        z bin      ΛCDM         Observed     TEP-corr     Tension (obs)   Tension (TEP)  
+[17:22:49] INFO        --------------------------------------------------------------------------------
+[17:22:50] INFO        Bin z=7-8 (Gamma=1.03):
+[17:22:50] INFO          ΛCDM pred : 1.60 (at z=7.50)
+[17:22:50] INFO          Observed  : 5.27 -> Tension: 12.2σ
+[17:22:50] INFO          TEP corr  : 5.540414027931937 -> Tension: 13.1σ
+[17:22:50] INFO        Bin z=8-9 (Gamma=1.22):
+[17:22:50] INFO          ΛCDM pred : 0.80 (at z=8.50)
+[17:22:50] INFO          Observed  : 6.47 -> Tension: 18.9σ
+[17:22:50] INFO          TEP corr  : 6.102319629934968 -> Tension: 17.7σ
+[17:22:50] INFO        Bin z=9-10 (Gamma=5.15):
+[17:22:50] INFO          ΛCDM pred : 0.00 (at z=9.50)
+[17:22:50] INFO          Observed  : 6.68 -> Tension: 22.3σ
+[17:22:50] INFO          TEP corr  : 5.925257254226272 -> Tension: 19.8σ
+[17:22:50] INFO        
 ======================================================================
-[22:38:51] INFO        SUMMARY
-[22:38:51] INFO        ======================================================================
-[22:38:51] INFO        
+[17:22:50] INFO        SUMMARY
+[17:22:50] INFO        ======================================================================
+[17:22:50] INFO        
 Mean tension (observed vs ΛCDM): 17.8σ
-[22:38:51] INFO        Mean tension (TEP-corrected vs ΛCDM): 18.1σ
-[22:38:51] INFO        Mean tension reduction: -4%
-[22:38:51] INFO        Mean mass reduction: -0.09 dex (0.8×)
-[22:38:51] INFO        
-✓ TEP does not measurably reduce ΛCDM tension (17.8σ → 18.1σ)
-[22:38:51] INFO          Status: tension_not_reduced
-[22:38:51] INFO        
+[17:22:50] INFO        Mean tension (TEP-corrected vs ΛCDM): 16.9σ
+[17:22:50] INFO        Mean tension reduction: 4%
+[17:22:50] INFO        Mean mass reduction: 0.29 dex (1.9×)
+[17:22:50] INFO        
+✓ TEP reduces ΛCDM tension from 17.8σ to 16.9σ
+[17:22:50] INFO          Status: tension_reduced
+[17:22:50] INFO        
 --- Implications ---
-[22:38:51] INFO          1. Observed stellar mass density at z > 7 is 0.8× higher than ΛCDM
-[22:38:51] INFO          2. TEP correction reduces this excess by -4%
-[22:38:51] INFO          3. Remaining tension (18.1σ) may be genuine early structure formation
-[22:38:51] INFO        
+[17:22:50] INFO          1. Observed stellar mass density at z > 7 is 1.9× higher than ΛCDM
+[17:22:50] INFO          2. TEP correction reduces this excess by 4%
+[17:22:50] INFO          3. Remaining tension (16.9σ) may be genuine early structure formation
+[17:22:50] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_109_lcdm_tension_quantification.json
-[22:38:52] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_109_lcdm_tension.png
-[22:38:52] INFO        
+[17:22:51] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_109_lcdm_tension.png
+[17:22:51] INFO        
 Step 109 complete.

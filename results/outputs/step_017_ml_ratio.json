@@ -21,8 +21,11 @@
     "n_galaxies": 422,
     "spearman_rho": 0.9379119055540242,
     "spearman_p": 3.0878073938569425e-195,
-    "rho_partial": 0.812369333553291,
+    "rho_partial": 0.8123693335532911,
     "p_partial": 2.0201573195193035e-100,
+    "rho_partial_mass_z": 0.2486461315905053,
+    "p_partial_mass_z": 2.2891606994645852e-07,
+    "circularity_note": "rho_partial (controlling for z only) is inflated by shared mass dependence: both gamma_t and ML_proxy are functions of log_Mstar. rho_partial_mass_z (controlling for M* and z) is the non-circular test.",
     "tep_consistent": true
   },
   "spec_phot": null

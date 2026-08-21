@@ -7,10 +7,10 @@
   "n": 50143,
   "zphot_err_frac": 0.05,
   "n_simulations": 200,
-  "rho_baseline": 0.45793870001906795,
-  "rho_mean_perturbed": 0.44668003117090954,
-  "rho_std_perturbed": 0.0012343004362163768,
-  "rho_bias": -0.011258668848158404,
-  "rho_bias_pct": -2.458553698931671,
-  "conclusion": "z_phot errors sigma=0.05(1+z) shift rho by -0.0113 (-2.5% of baseline); signal is robust to photometric redshift uncertainties."
+  "rho_baseline": 0.4709205451967277,
+  "rho_mean_perturbed": 0.4601434004615504,
+  "rho_std_perturbed": 0.0012046797650769638,
+  "rho_bias": -0.010777144735177324,
+  "rho_bias_pct": -2.2885271931967117,
+  "conclusion": "z_phot errors sigma=0.05(1+z) shift rho by -0.0108 (-2.3% of baseline); signal is robust to photometric redshift uncertainties."
 }

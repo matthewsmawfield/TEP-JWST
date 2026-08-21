@@ -124,21 +124,21 @@
   "cross_domain": {
     "test": "Cross-Domain Consistency",
     "alpha_from_tep_h0": 960000.0,
-    "rho_observed": 0.262604248768266,
+    "rho_observed": 0.20287782500407547,
     "conclusion": "Consistent - same \u03b1 works across domains"
   },
   "density_proxy": {
     "test": "Density Proxy (Halo Mass)",
-    "mh_median": 9.944592600163167,
+    "mh_median": 10.020341669161311,
     "low_mh": {
       "n": 1157,
-      "rho": -0.19749161949372135,
-      "p": 1.2251617928163374e-11
+      "rho": -0.07071382182806024,
+      "p": 0.01614055432729602
     },
     "high_mh": {
       "n": 1158,
-      "rho": 0.10738569485013087,
-      "p": 0.00025131640242174764
+      "rho": 0.05003544761326289,
+      "p": 0.08877347737703274
     }
   }
 }

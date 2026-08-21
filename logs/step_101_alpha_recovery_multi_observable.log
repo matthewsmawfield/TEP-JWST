@@ -1,38 +1,40 @@
-[22:38:14] INFO        ======================================================================
-[22:38:14] INFO        STEP 101: Multi-Observable κ_gal Recovery Test
-[22:38:14] INFO        ======================================================================
-[22:38:14] INFO        Loaded 2315 galaxies
-[22:38:14] INFO        High-z sample (z > 6): 876 galaxies
-[22:38:14] INFO          Added: dust (N=876)
-[22:38:14] INFO          Added: age_ratio (N=876)
-[22:38:14] INFO          Added: metallicity (N=876)
-[22:38:14] INFO          Added: log_ssfr (N=876)
-[22:38:14] INFO        
+[17:21:48] INFO        ======================================================================
+[17:21:48] INFO        STEP 101: Multi-Observable κ_gal Recovery Test
+[17:21:48] INFO        ======================================================================
+[17:21:48] INFO        Loaded 2315 galaxies
+[17:21:48] INFO        High-z sample (z > 6): 876 galaxies
+[17:21:48] INFO          Added: dust (N=876)
+[17:21:48] INFO          Added: age_ratio (N=876)
+[17:21:48] INFO          Added: metallicity (N=876)
+[17:21:48] INFO          Added: log_ssfr (N=876)
+[17:21:48] INFO        
 Fitting κ_gal to 4 observables:
-[22:38:18] INFO          dust: κ_gal = 1.047e+06 ± 4.137e+05 mag, ρ = 0.39 ✓
-[22:38:21] INFO          age_ratio: κ_gal = 1.283e+06 ± 4.240e+05 mag, ρ = 0.18 ✓
-[22:38:25] INFO          metallicity: κ_gal = 8.044e+05 ± 4.848e+05 mag, ρ = 0.02 ✓
-[22:38:28] INFO          ssfr: κ_gal = 1.271e+06 ± 4.189e+05 mag, ρ = -0.32 ✓
-[22:38:28] INFO        
+[17:21:54] INFO          dust: κ_gal = 6.687e+05 ± 4.037e+05 mag, ρ = 0.39 ✓
+[17:22:00] INFO          age_ratio: κ_gal = 8.254e+05 ± 4.408e+05 mag, ρ = 0.18 ✓
+[17:22:07] INFO          metallicity: κ_gal = 1.269e+06 ± 4.434e+05 mag, ρ = 0.02 ✓
+[17:22:12] INFO          ssfr: κ_gal = 3.772e+05 ± 4.499e+05 mag, ρ = -0.32 ✓
+[17:22:12] INFO        
 Joint fit across all observables:
-[22:38:40] INFO          Joint κ_gal = 1.205e+06 ± 3.992e+05 mag
-[22:38:40] INFO          Nominal κ_gal = 9.600e+05 ± 4.000e+05 mag
-[22:38:40] INFO          Tension: 0.4σ ✓
-[22:38:40] INFO        
+[17:22:33] INFO          Joint κ_gal = 8.377e+05 ± 4.111e+05 mag
+[17:22:33] INFO          Nominal κ_gal = 9.600e+05 ± 4.000e+05 mag
+[17:22:33] INFO          Tension: 0.2σ ✓
+[17:22:33] INFO        
 Weighted mean of individual fits:
-[22:38:40] INFO          κ_gal = 1.120e+06 ± 2.177e+05 mag
-[22:38:40] INFO          Tension with nominal: 0.4σ
-[22:38:40] INFO        
+[17:22:33] INFO          κ_gal = 7.824e+05 ± 2.180e+05 mag
+[17:22:33] INFO          Tension with nominal: 0.4σ
+[17:22:33] INFO        
 ======================================================================
-[22:38:40] INFO        SUMMARY
-[22:38:40] INFO        ======================================================================
-[22:38:40] INFO        
-✗ Joint fit does not improve agreement
-[22:38:40] INFO          This may indicate systematic effects in the data
-[22:38:40] INFO        
+[17:22:33] INFO        SUMMARY
+[17:22:33] INFO        ======================================================================
+[17:22:33] INFO        
+✓ Joint fit IMPROVES agreement with nominal κ_gal
+[17:22:33] INFO          Dust-only: κ_gal = 6.687e+05 (Δ = 2.913e+05)
+[17:22:33] INFO          Joint: κ_gal = 8.377e+05 (Δ = 1.223e+05)
+[17:22:33] INFO          Improvement: 168995.51
+[17:22:33] INFO        
 Joint κ_gal is CONSISTENT with Cepheid calibration within 2σ
-[22:38:40] INFO        
+[17:22:33] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_101_alpha_recovery_multi_observable.json
-[22:38:41] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_101_alpha_recovery.png
-[22:38:41] INFO        
+[17:22:35] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_101_alpha_recovery.png
+[17:22:35] INFO        
 Step 101 complete.

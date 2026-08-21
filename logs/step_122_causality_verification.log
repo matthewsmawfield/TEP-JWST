@@ -1,10 +1,10 @@
-[22:39:03] INFO        STEP 122: Causality constraint verification for TEP
-[22:39:03] INFO      PPN gamma = 0.99998510 (deviation 1.49e-05)
-[22:39:03] INFO      Cassini limit: 2.30e-05 -> SATISFIED
-[22:39:03] INFO      GW speed: c_T/c = 1.0 -> OK
-[22:39:03] INFO      Milky Way halo: R_vir=0.163 Mpc, Gamma_t=1.000
-[22:39:03] INFO      Group halo: R_vir=0.350 Mpc, Gamma_t=2.088
-[22:39:03] INFO      Cluster halo: R_vir=1.108 Mpc, Gamma_t=9732.177
-[22:39:03] INFO      Typical z=7 halo: R_vir=0.020 Mpc, Gamma_t=0.736
-[22:39:03] INFO    Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_122_causality_verification.json
-[22:39:03] INFO        Step 122 complete. Causally consistent: True
+[17:23:06] INFO        STEP 122: Causality constraint verification for TEP
+[17:23:06] INFO      PPN gamma = 0.99998510 (deviation 1.49e-05)
+[17:23:06] INFO      Cassini limit: 2.30e-05 -> SATISFIED
+[17:23:06] INFO      GW speed: c_T/c = 1.0 -> OK
+[17:23:06] INFO      Milky Way halo: R_vir=0.163 Mpc, Gamma_t=1.000
+[17:23:06] INFO      Group halo: R_vir=0.350 Mpc, Gamma_t=2.088
+[17:23:06] INFO      Cluster halo: R_vir=1.108 Mpc, Gamma_t=9732.177
+[17:23:06] INFO      Typical z=7 halo: R_vir=0.020 Mpc, Gamma_t=0.736
+[17:23:06] INFO    Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_122_causality_verification.json
+[17:23:06] INFO        Step 122 complete. Causally consistent: True

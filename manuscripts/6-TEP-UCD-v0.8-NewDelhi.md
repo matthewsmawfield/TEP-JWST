@@ -796,7 +796,7 @@ Topology screening. Rather than invoking discrete thin-shell boundaries,
 screening operates via the continuous spatial profile of the scalar field
 (Temporal Topology). The tight geometric packing in deep potential wells
 suppresses the local field gradient (Temporal Shear), ensuring short-range
-fifth-force suppression while leaving the field light cosmologically.
+Temporal Shear suppression while leaving the field light cosmologically.
 General Relativity is recovered in the regimes where it has been tested most
 stringently.
 
@@ -2772,7 +2772,7 @@ with effective mass parameter:
 
 The critical behavior is immediate. When $\rho > \rho_* \equiv \mu^2 M^2$,
 the effective mass squared is negative and the field sits at the symmetric
-minimum $\phi = 0$; the scalar is massive and screened, so fifth-force
+minimum $\phi = 0$; the scalar is massive and screened, so Temporal Shear
 effects are suppressed. When $\rho < \rho_*$, symmetry is spontaneously
 broken, the field rolls to $\phi_0 = \mu_{\rm eff}/\sqrt{\lambda}$, and the
 scalar becomes light—generating long-range forces. The saturation scale is:

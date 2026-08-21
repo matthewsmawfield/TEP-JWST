@@ -1,0 +1,30 @@
+[22:01:20] INFO        ======================================================================
+[22:01:20] INFO        STEP 178: Circular Mass Loop Breaker
+[22:01:20] INFO        ======================================================================
+[22:01:20] INFO        Loaded N = 2315 galaxies
+[22:01:20] INFO        TEST A: 2D Mass-Z Pairing Shuffle (2000 shuffles)
+[22:01:20] INFO          z > 8 subset: N = 283
+[22:01:20] INFO          Observed rho(R_ML, dust) = 0.5808, p = 6.2906e-27
+[22:01:21] INFO          Shuffled: mean = -0.0022, std = 0.0549
+[22:01:21] INFO          Z-score = 10.63, p_empirical = 4.9975e-04
+[22:01:21] INFO        TEST B: Placebo R_ML (wrong functional form)
+[22:01:21] INFO          z > 8 subset: N = 283
+[22:01:21] INFO          Real R_ML:     rho = 0.5808, p = 6.2906e-27
+[22:01:21] INFO          Placebo R_ML:  rho = 0.5074, p = 6.3797e-20
+[22:01:23] INFO          Delta rho (real - placebo): mean = 0.0742, 95% CI = [-0.0076, 0.1568]
+[22:01:23] INFO          Fraction real > placebo: 0.963
+[22:01:23] INFO        TEST C: Narrow Mass Bin Subsets
+[22:01:23] INFO          log_M* [8.0, 8.5]: N = 1528, rho(R_ML, dust) = -0.346* (p = 2.890e-44), rho(M*, dust) = -0.028 (p = 2.791e-01)
+[22:01:23] INFO          log_M* [8.5, 9.0]: N = 526, rho(R_ML, dust) = -0.464* (p = 1.652e-29), rho(M*, dust) = -0.034 (p = 4.425e-01)
+[22:01:23] INFO          log_M* [9.0, 9.5]: N = 190, rho(R_ML, dust) = -0.041 (p = 5.713e-01), rho(M*, dust) = 0.113 (p = 1.207e-01)
+[22:01:23] INFO          log_M* [9.5, 10.0]: N = 48, rho(R_ML, dust) = 0.337* (p = 1.931e-02), rho(M*, dust) = 0.338 (p = 1.874e-02)
+[22:01:23] INFO          log_M* [10.0, 10.5]: N = 18 (skipped)
+[22:01:23] INFO        
+======================================================================
+[22:01:23] INFO        OVERALL ASSESSMENT
+[22:01:23] INFO        ======================================================================
+[22:01:23] INFO          PASS: 2D shuffle — Signal destroyed by 2D shuffle
+[22:01:23] INFO          FAIL: Placebo R_ML — Inconclusive — real and placebo perform comparably
+[22:01:23] INFO          PASS: Narrow mass bins — R_ML correlates with dust in 3/4 narrow mass bins — signal not driven by mass axis
+[22:01:23] INFO    ✓   
+Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_178_circularity_breaker.json

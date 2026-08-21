@@ -31,7 +31,7 @@
     Newtonian potential ($\Phi_N \sim 10^{-6}$) ensures that the field
     gradient vanishes in the interior, with only a narrow outer region
     contributing to the scalar force. The effective coupling is suppressed
-    to $\kappa_{\rm eff} \ll \beta_A$, reducing $\kappa_{\rm eff}$ to
+    to $\beta_{\rm eff} \ll \beta_A$, reducing $\beta_{\rm eff}$ to
     $\lesssim 10^{-6}$ and satisfying all solar system bounds without
     invoking a rigid thin-shell approximation.
   </p>
@@ -65,14 +65,15 @@
   <p>
     While $\rho_T$ is calibrated from Paper 6, the JWST data provide an
     ancillary real-data indication of screening via the Core Screening signature (§3.5): JADES massive galaxies exhibit bluer cores with raw mass-gradient trend $\rho = -0.166$ ($p = 5.7 \times 10^{-3}$; $N = 277$). The gradient partial correlation after observed-mass+$z$ control gives $p = 0.54$, and after debiased-mass+$z$ control gives $p = 0.54$, consistent at raw level with a suppression of the effective coupling in the deepest central regions. The stronger ancillary support now comes from the
-    preferred JADES DR5 direct-mass morphology sample, where two
-    half-light-radius proxies, Gini, and $\sigma_\star$ remain supportive
-    after mass+$z$ control for $N = 384$. However, this analysis is not
+    preferred JADES DR5 direct-mass morphology sample, where Gini remains supportive
+    after mass+$z$ control for $N = 384$ ($\rho = +0.191$, $p = 1.6 \times 10^{-4}$),
+    while both half-light-radius proxies and $\sigma_\star$ are non-significant.
+    However, this analysis is not
     counted as a primary empirical line: the real-data predictor comparison
-    is not significant ($Z = 1.92$, $p = 0.055$), the residual $\Gamma_t$
+    is not significant ($Z = -0.49$, $p = 0.62$), the residual $R_{\rm ML}$
     signal after observed-mass+$z$ or debiased-mass+$z$ control remains null
-    (partial $\rho = +0.011$, $p = 0.85$; partial $\rho = -0.015$, $p =
-    0.80$), and the sign-specific test is only directionally supportive. In
+    (partial $\rho = +0.037$, $p = 0.54$; partial $\rho = +0.037$, $p =
+    0.54$), and the sign-specific test is only directionally supportive. In
     screened scalar-tensor theories, the suppression in extended objects is
     governed by the local flattening of Temporal Topology (vanishing
     Temporal Shear) that depends on the object's potential depth and
@@ -181,13 +182,13 @@
     At high redshift ($z > 6$), galaxies have typical metallicities $Z \sim
     0.1$–$0.2 Z_\odot$. The SSP-predicted low-$n$ regime is consistent with
     the canonical residual-minimization analysis, which prefers lower
-    effective $n$ values once the high-$z$ $\Gamma_t$ enhancement becomes
+    effective $n$ values once the high-$z$ $R_{\rm ML}$ response becomes
     important.
   </p>
 
   <h4>C.2.2 Live Empirical Residual-Minimization Validation</h4>
   <p>
-    In the canonical analysis (step 076), the overall residual mass-age correlation is minimized at best $n = 0.5$ ($\rho = 0.115$). Cross-validation (step 079) gives mean $n = 0.99 \pm 0.003$ with mean test $\rho = 0.47$. This pattern indicates that the
+    In the canonical analysis (step 076), the overall residual mass-age correlation is minimized at best $n = 0.3$ ($\rho = 0.118$). Cross-validation (step 079) gives mean $n = 0.80 \pm 0.06$ with mean test $\rho = 0.55$. This pattern indicates that the
     data-driven optimal $n$ at high $z$ is steeper than standard SSP
     predictions, reflecting the additional TEP-induced compression of the
     observed age range.
@@ -196,8 +197,8 @@
   <h4>C.2.3 TEP-Induced Modification</h4>
   <p>
     Beyond the standard SSP prediction, TEP introduces an additional effect:
-    in the enhanced regime ($\Gamma_t > 1$), stellar populations experience
-    more effective time than their coordinate age suggests, compressing the
+    in the high-response regime ($R_{\rm ML} > 1$), stellar populations appear
+    to have accumulated more effective time than their coordinate age suggests, compressing the
     observed age range and effectively flattening the $M/L$-age slope. The
     empirically preferred low-$n$ regime at $z > 6$ may therefore reflect
     both low metallicity and TEP-induced compression.
@@ -210,17 +211,27 @@
       claimed as a TEP signature, potentially introducing circularity.
     </p>
     <p>
-      <strong>Resolution:</strong> K-fold cross-validation gives $n = 0.99
-      \pm 0.003$ with mean test $\rho = 0.47$, redshift-blind holdout
-      performance remains significant ($\rho = 0.22$, $p &lt; 10^{-10}$),
-      and sensitivity analysis shows the dust signal remains significant
+      <strong>Resolution:</strong> K-fold cross-validation gives $n = 0.80
+      \pm 0.06$ with mean test $\rho = 0.55$. The redshift-blind holdout
+      ($n$ calibrated at $z &lt; 8$, applied at $z \ge 8$) yields $\rho
+      = -0.05$ ($p = 0.17$), indicating that the data-driven optimal $n$
+      does not generalize across redshift regimes — a known limitation
+      of the empirical residual-minimization approach. However, sensitivity
+      analysis shows the dust signal remains significant
       across $n \in [0.3, 1.0]$. An empirical JADES mass-to-light proxy
-      check is also consistent with the mechanism: $\rho(\Gamma_t,
-      M/L_{\rm proxy}) = +0.599$ ($p = 1.6 \times 10^{-42}$),
-      strengthening to partial $\rho = +0.741$ after redshift control ($p
-      = 8.5 \times 10^{-75}$). Independent age indicators via Balmer
+      check is also consistent with the mechanism: $\rho(R_{\rm ML},
+      M/L_{\rm proxy}) = +0.938$ ($p = 3.1 \times 10^{-195}$),
+      with partial $\rho = +0.812$ after redshift control ($p
+      = 2.0 \times 10^{-100}$). However, both $R_{\rm ML}$ and the M/L proxy
+      ($\log M_* + M_{\rm UV}/2.5$) are functions of $\log M_*$, so the
+      $z$-only partial correlation is inflated by this shared mass dependence.
+      After controlling for both $M_*$ and $z$, the partial correlation drops
+      to $\rho = +0.249$ ($p = 2.3 \times 10^{-7}$) — still significant but
+      much weaker. The M/L proxy test therefore confirms the direction of the
+      relationship but cannot by itself distinguish TEP from a generic
+      mass–M/L correlation. Independent age indicators via Balmer
       absorption (H$\delta$, H$\gamma$) are predicted to correlate with
-      $\Gamma_t$ and would provide a spectroscopic test independent of M/L
+      $R_{\rm ML}$ and would provide a spectroscopic test independent of M/L
       assumptions.
     </p>
   </div>
@@ -317,7 +328,7 @@
         <tr>
           <td>$\kappa_{\rm gal}$ Error Budget</td>
           <td>
-            $\Gamma_t$ uncertainty $\pm 4.2\%$ ($\sigma_{\kappa} =
+            $R_{\rm ML}$ uncertainty $\pm 4.2\%$ ($\sigma_{\kappa} =
             4.0 \times 10^5$ mag)
           </td>
           <td>✓ Pass</td>
@@ -387,12 +398,12 @@
         <tr>
           <td>Mass-Proxy Breaker</td>
           <td>
-            2/3 tests pass; z&gt;8 LOWESS $\rho = 0.165$,
-            partial-rank $\rho = 0.212$, shuffled-mass $Z = 8.9$,
-            unique fraction 102.2%
+            2/3 tests pass; z&gt;8 LOWESS $\rho = 0.161$,
+            partial-rank $\rho = 0.240$, shuffled-mass $Z = 9.3$,
+            unique fraction 101.2%
           </td>
           <td>
-            $\Gamma_t$ carries information beyond mass+$z$ ordering
+            $R_{\rm ML}$ carries information beyond mass+$z$ ordering
           </td>
         </tr>
         <tr>
@@ -411,14 +422,14 @@
           <td>TEP distinguishable from AGN</td>
         </tr>
         <tr>
-          <td>LRD Case Study</td>
-          <td>Mean $\Delta\Gamma_t = 1.73$, all compact</td>
-          <td>Consistent with overmassive BHs</td>
+          <td>LRD Sensitivity Diagnostic</td>
+          <td>Mean $\Delta R_{\rm ML} = 1.73$, all compact</td>
+          <td>Directional differential-potential diagnostic; quantitative growth deferred</td>
         </tr>
         <tr>
           <td>Hubble Connection</td>
-          <td>42% of tension explained ($\chi^2 = 36.8$)</td>
-          <td>Partial match; not fully consistent</td>
+          <td>$\sim 93\%$ of discrepancy accounted for (step 133, leaving $\sim 7\%$); full resolution from Paper 11 (v0.9: $H_0 = 66.65 \pm 1.58$, $0.45\sigma$ from Planck)</td>
+          <td>Simplified partial reconstruction; consistent with Paper 11</td>
         </tr>
         <tr>
           <td>Prediction Error Budget</td>
@@ -440,16 +451,20 @@
     <strong>Mass proxy and systematics:</strong> The canonical robustness
     results no longer rely on the retired selection-function Monte Carlo
     analysis. Instead, the evidence comes from the mass-proxy breaker and
-    cross-survey systematics checks: at $z > 8$, non-parametric residual tests retain the dust–$\Gamma_t$ signal after mass+$z$ removal (LOWESS $\rho = 0.165$, $p = 5.4 \times 10^{-3}$; partial-rank $\rho = 0.212$, $p = 3.3 \times 10^{-4}$), and shuffled-mass null tests show the observed correlation exceeds mass-ordering expectations by $Z = 8.9$, with 102.2% of the signal attributable to the non-linear $\Gamma_t$ form
-    rather than to mass ordering alone. The mass-to-light validation gives the prespecified primary value $n=0.5$ (and SMF sensitivity value $n=0.7$), with a single k-fold cross-validation mean of $n=0.99 \pm 0.003$. Cross-survey dust correlations show
+    cross-survey systematics checks: at $z > 8$, non-parametric residual tests retain the dust–$R_{\rm ML}$ signal after mass+$z$ removal (LOWESS $\rho = 0.161$, $p = 6.7 \times 10^{-3}$; partial-rank $\rho = 0.240$, $p = 4.4 \times 10^{-5}$), and shuffled-mass null tests show the observed correlation exceeds mass-ordering expectations by $Z = 9.3$, with 101.2% of the signal attributable to the non-linear $R_{\rm ML}$ form
+    rather than to mass ordering alone. The mass-to-light validation gives the prespecified primary value $n=0.5$ (and SMF sensitivity value $n=0.7$), with a single k-fold cross-validation mean of $n=0.80 \pm 0.06$. Cross-survey dust correlations show
     low scatter ($\rho_{\rm std} = 0.025$), arguing against survey-specific
     artifacts.
   </p>
   <p>
-    <strong>Hubble tension:</strong> TEP predicts an $H_0$ shift of 2.5
-    km/s/Mpc; the observed shift is 6.0 km/s/Mpc. TEP accounts for ~42% of
-    the tension amplitude but is formally <em>not</em> consistent with the
-    full tension ($\chi^2 = 36.8$, $p &lt; 10^{-8}$).
+    <strong>Hubble tension:</strong> The JWST-side pipeline (step 133)
+    predicts $H_0^{\rm TEP} = 67.8$ km/s/Mpc, accounting for $\sim 93\%$ of
+    the discrepancy (leaving roughly $7\%$ of the original gap) via the simplified two-halo approximation. The full
+    resolution is established in Paper 11 (v0.9), where the generative
+    distance-ladder analysis of 37 SN Ia hosts yields $H_0 = 66.65 \pm 1.58$
+    km/s/Mpc, in concordance with Planck at $0.45\sigma$ ($0.31\sigma$
+    bootstrap); the JWST pipeline value is a
+    conservative lower bound from the crude area-distance scaling.
   </p>
   <p>
     <strong>Falsifiability:</strong> Combined prediction uncertainty is $\pm
@@ -458,142 +473,13 @@
     $> 25\%$.
   </p>
 
-  <h3>C.4 Black Hole Growth: Detailed Analysis</h3>
-
-  <h4>C.4.1 Single-Object Sensitivity: Theoretical Boost Potential</h4>
+  <h3>C.4 Little Red Dots: Theoretical and Methodological Status</h3>
   <p>
-    <strong>Historical note:</strong> Early single-object calculations suggested
-    that compact cores could yield exponential boost factors of order $10^5$
-    to $10^6$, sufficient to grow a $10^2 M_\odot$ seed to $10^6 M_\odot$
-    within 600 Myr. This subsection retains that theoretical sensitivity
-    analysis as a compact-core mechanism demonstration, not as a validated
-    population-level result.
+    As established in §2.5 and §4.4, Little Red Dots (LRDs) represent a qualitative stress test of compact-core potential structure rather than a primary evidentiary line. Because $R_{\rm ML}$ parameterizes observer-side inference bias under an assumed FLRW baseline rather than physical matter-frame proper time $\tau_\star = \int A(\phi)\,dt$, quantitative black hole accretion cannot be evaluated by inserting $R_{\rm ML}$ into an exponential growth integral.
   </p>
   <p>
-    <strong>Current status:</strong> The corrected population-level analysis
-    (Step 132) finds a median $\log_{10}({\rm boost}) = 0.42$ across 260
-    Kokorev-catalog LRDs, with only 4.6% of objects exceeding $10^3$ in the
-    conservative mass-proxy analysis. Step 142 classifies the LRD analysis as
-    "mass-model unstable with no robust closure" — the conservative
-    MUV-proxy analysis undercloses by 3–4 dex, while CEERS-calibrated masses
-    drive exponential overshoot. The theoretical sensitivity demonstrated
-    here remains valid for compact-core systems in principle, but the
-    real-data population does not achieve the single-object ideal.
+    While deeper central gravitational potentials qualitatively yield larger inference responses ($R_{\rm ML}^{\rm cen} > R_{\rm ML}^{\rm halo}$) in compact systems, rigorous accretion modeling requires fully solved relativistic scalar-tensor core solutions. The population-level LRD anomaly is therefore deferred to dedicated relativistic compact-object studies.
   </p>
-
-  <div class="data-table">
-    <table>
-      <caption>
-        Table C5: Boost Factor Uncertainty Propagation
-      </caption>
-      <thead>
-        <tr>
-          <th>Parameter</th>
-          <th>Central Value</th>
-          <th>Uncertainty</th>
-          <th>Contribution to $\sigma_{\rm Boost}$</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>$\kappa_{\rm gal}$</td>
-          <td>$9.6 \times 10^5$ mag</td>
-          <td>$\pm 4.0$ (42%)</td>
-          <td>Dominant</td>
-        </tr>
-        <tr>
-          <td>$\Delta\log M_h$ (core-halo)</td>
-          <td>1.5</td>
-          <td>$\pm 0.3$ (20%)</td>
-          <td>Secondary</td>
-        </tr>
-        <tr>
-          <td>$t_{\rm cosmic}(z=8)$</td>
-          <td>600 Myr</td>
-          <td>$\pm 20$ Myr (3%)</td>
-          <td>Negligible</td>
-        </tr>
-        <tr>
-          <td>$t_{\rm Salpeter}$</td>
-          <td>45 Myr</td>
-          <td>$\pm 5$ Myr (11%)</td>
-          <td>Minor</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h4>C.4.2 Sensitivity Analysis: Boost vs. Compactness</h4>
-  <p>
-    The differential temporal topology mechanism is most sensitive to
-    compact cores. The corrected analysis treats this as a stress test
-    rather than as a population-level closure claim: extended systems
-    remain in the weak differential-topology regime, while compact LRD-like
-    systems can amplify the response sharply if their stellar and halo
-    masses are high enough.
-  </p>
-
-  <figure>
-    <img
-      src="public/figures/figure_lrd_sensitivity.png"
-      alt="LRD Sensitivity: Boost vs Radius"
-      style="width: 100%; max-width: 800px"
-    />
-    <figcaption>
-      Figure 4: LRD Sensitivity. The growth boost factor is strongly
-      radius-dependent. Runaway growth requires $r_e \lesssim 800$ pc.
-    </figcaption>
-  </figure>
-
-  <h4>C.4.3 Population-Level Stress Test: 260 Little Red Dots</h4>
-  <p>
-    Across 260 Kokorev-catalog LRDs with measured photometric redshifts and
-    compactness estimates, the differential temporal topology calculation
-    yields a broad distribution of growth boosts after correcting the
-    catalog radius units and replacing the all-object default halo mass with
-    an object-level $M_{\rm UV}$ proxy where direct stellar masses are
-    absent. Only a small minority exceed $10^3$ in the conservative analysis,
-    so the result is a compact-core mechanism stress test rather than a
-    validation of LRD population-level black-hole closure.
-  </p>
-
-  <div class="data-table">
-    <table>
-      <caption>
-        Table C6: LRD Population Differential Temporal Topology Stress Test
-        ($N = 260$)
-      </caption>
-      <thead>
-        <tr>
-          <th>Quantity</th>
-          <th>Value</th>
-          <th>Interpretation</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Redshift range</td>
-          <td>$4.02$–$8.93$</td>
-          <td>Full LRD epoch</td>
-        </tr>
-        <tr>
-          <td>Median $\Delta\Gamma$</td>
-          <td>$0.060$</td>
-          <td>Conservative UV-mass analysis</td>
-        </tr>
-        <tr>
-          <td>Median $\log_{10}$(Boost)</td>
-          <td>$0.58$</td>
-          <td>$\sim 3.8\times$ growth</td>
-        </tr>
-        <tr>
-          <td>Fraction with Boost $&gt; 10^3$</td>
-          <td>$4.6\%$</td>
-          <td>Small minority show runaway</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
 
   <h3>C.5 External-Regime Discriminants</h3>
 
@@ -606,8 +492,8 @@
   <ul>
     <li>
       <strong>Spectroscopic Ages:</strong> Deep NIRSpec MSA spectroscopy
-      of high-$\Gamma_t$ candidates at $z > 6$ to measure direct Balmer
-      absorption ages, testing the predicted age enhancement independent
+      of high-$R_{\rm ML}$ candidates at $z > 6$ to measure direct Balmer
+      absorption ages, testing the predicted apparent age offset independent
       of photometrically derived mass-to-light ratios.
     </li>
     <li>
@@ -622,13 +508,17 @@
       of galaxies in dense protoclusters versus field environments at
       fixed mass. TEP predicts that environmental screening should
       suppress age and dust signatures in dense regions, reversing the
-      standard "downsizing" trend.
+      standard "downsizing" trend. A preliminary implementation using
+      DJA $\beta$-residuals ($N = 1{,}238$) did not yield a clean
+      dense-younger-than-field reversal after matched controls
+      (0 matched cells supportive; step 167), so this remains a
+      future observational priority rather than a current result.
     </li>
     <li>
       <strong>Rest-Frame Mid-IR:</strong> MIRI imaging to directly probe
       the dust continuum at $z > 7$, confirming that the observed
       UV-reddening is driven by dust grains (as predicted by the
-      $\Gamma_t$-accelerated production) rather than exotic stellar
+      $R_{\rm ML}$-ordered dust buildup) rather than exotic stellar
       populations.
     </li>
   </ul>
@@ -647,11 +537,11 @@
     <li>
       <strong>Roman high-latitude regime ($2{,}000$ deg²):</strong> $N
       \sim 500{,}000$ emission-line galaxies at $z > 2.5$; TEP predicts
-      weak gas-phase metallicity–$\Gamma_t$ correlation.
+      weak gas-phase metallicity–$R_{\rm ML}$ correlation.
     </li>
     <li>
       <strong>Roman supernova regime ($N \sim 2{,}700$):</strong> TEP
-      predicts SN Ia rates in massive hosts enhanced by $1.28\times$.
+      predicts host-potential-dependent SN Ia rate enhancements and an elevated Ia/CC ratio in deeper potential wells.
     </li>
   </ul>
   <p>

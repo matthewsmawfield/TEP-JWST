@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 144: Extended Modified Gravity Comparison
+Step 121: Extended Modified Gravity Comparison
 
 Compares TEP to other modified gravity theories (f(R), MOND, Galileon, etc.)
 to provide theoretical context and highlight unique predictions.

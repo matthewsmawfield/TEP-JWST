@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ 
-Step 113: Mass-matched / stratified confirmation (z>8 dust replication)
+Step 092: Mass-matched / stratified confirmation (z>8 dust replication)
 
 Provides a mass- and redshift-stratified confirmation of the dust–Γ_t
 association to reduce sensitivity to confounding by mass and redshift.

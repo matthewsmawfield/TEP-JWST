@@ -2,26 +2,26 @@
   "n_total": 2315,
   "cutting_edge": {
     "overmassive_bh": {
-      "rho": -0.9749237718432454,
-      "ratio": 0.8530949118439903
+      "rho": 0.01931485111021753,
+      "ratio": 0.62493746997847
     },
     "disk_morphology": {
-      "mean_gamma_disk": 0.6315318763784435,
-      "mean_gamma_irregular": 0.6084471357072316
+      "mean_gamma_disk": 0.7603299493292168,
+      "mean_gamma_irregular": 0.7010650565635117
     },
     "photon_budget": {
-      "mean_ratio": 0.5882883946478914
+      "mean_ratio": 0.8632710705139199
     },
     "nitrogen_enrichment": {
       "rho_cosmic": -0.0532311083991103,
-      "rho_teff": -0.025996308804410694,
-      "improvement": 0.027234799594699606
+      "rho_teff": 0.00511987012390532,
+      "improvement": 0.05835097852301562
     },
     "proto_gc": {
       "n": 87,
-      "mean_gamma_pgc": 0.7164760356963951,
-      "mean_gamma_normal": 0.5735605466540828,
-      "ratio": 1.249172454200385
+      "mean_gamma_pgc": 1.6015824926262041,
+      "mean_gamma_normal": 0.5806001754633272,
+      "ratio": 2.758494675527989
     }
   }
 }

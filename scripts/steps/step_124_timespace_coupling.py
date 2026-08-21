@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 147: Time-Space Coupling Consistency Test
+Step 124: Time-Space Coupling Consistency Test
 
 Tests whether TEP maintains internal consistency between temporal and spatial
 measurements. In standard GR, proper time and proper space are treated symmetrically.
@@ -114,7 +114,7 @@ def main():
     print_status(f"  Decoupling confirmed: {qt['decoupling_confirmed']}", "INFO")
     
     output = {
-        'step': 147,
+        'step': 124,
         'description': 'Time-Space Coupling Consistency Test',
         'results': results,
         'conclusion': (

@@ -1,19 +1,19 @@
-[22:39:07] INFO    ═══ STEP 126: Screening Length Scale Self-Consistency
-[22:39:07] INFO        Verifying that the TEP Compton wavelength matches observed core screening scales.
-[22:39:07] INFO    
-[22:39:07] INFO    
-[22:39:07] INFO    >>> Compton Wavelength Derivation:
-[22:39:07] INFO          M_Pl = 2.435e+18 GeV
-[22:39:07] INFO          Lambda_DE = 2.300e-12 GeV
-[22:39:07] INFO          lambda_C (physical) = 2.50 kpc
-[22:39:07] INFO          Expected range: 0.5-10.0 kpc
-[22:39:07] INFO          Within observed range: True
-[22:39:07] INFO    
-[22:39:07] INFO    >>> Observed vs Predicted:
-[22:39:07] INFO          Observed core scale: 1.5 kpc
-[22:39:07] INFO          Predicted lambda_C: 2.50 kpc
-[22:39:07] INFO          Agreement factor: 1.67x
-[22:39:07] INFO          Consistent: True
-[22:39:07] INFO    ✓   Results saved to step_126_screening_scale.json
-[22:39:07] INFO    
-[22:39:07] INFO    ✓   Screening length scale verification complete.
+[17:23:10] INFO    ═══ STEP 126: Screening Length Scale Self-Consistency
+[17:23:10] INFO        Verifying that the TEP Compton wavelength matches observed core screening scales.
+[17:23:10] INFO    
+[17:23:10] INFO    
+[17:23:10] INFO    >>> Compton Wavelength Derivation:
+[17:23:10] INFO          M_Pl = 2.435e+18 GeV
+[17:23:10] INFO          Lambda_DE = 2.300e-12 GeV
+[17:23:10] INFO          lambda_C (physical) = 2.50 kpc
+[17:23:10] INFO          Expected range: 0.5-10.0 kpc
+[17:23:10] INFO          Within observed range: True
+[17:23:10] INFO    
+[17:23:10] INFO    >>> Observed vs Predicted:
+[17:23:10] INFO          Observed core scale: 1.5 kpc
+[17:23:10] INFO          Predicted lambda_C: 2.50 kpc
+[17:23:10] INFO          Agreement factor: 1.67x
+[17:23:10] INFO          Consistent: True
+[17:23:10] INFO    ✓   Results saved to step_126_screening_scale.json
+[17:23:10] INFO    
+[17:23:10] INFO    ✓   Screening length scale verification complete.

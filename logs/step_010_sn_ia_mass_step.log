@@ -1,95 +1,95 @@
-[22:35:29] INFO    ======================================================================
-[22:35:29] INFO    TEP-JWST Step 10: SN Ia Host Galaxy Mass Step Analysis
-[22:35:29] INFO    ======================================================================
-[22:35:29] INFO    
-[22:35:29] INFO    The mass step is a ~0.06 mag unexplained shift in SN Ia distances
-[22:35:29] INFO    correlated with host galaxy mass. TEP predicts this arises from
-[22:35:29] INFO    time dilation in deeper gravitational potentials.
-[22:35:29] INFO    
-[22:35:29] INFO    Loading Pantheon+ data from /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-H0/data/raw/Pantheon+SH0ES.dat
-[22:35:29] INFO    Loaded 1701 SN Ia observations
-[22:35:29] INFO    Columns: ['CID', 'IDSURVEY', 'zHD', 'zHDERR', 'zCMB', 'zCMBERR', 'zHEL', 'zHELERR', 'm_b_corr', 'm_b_corr_err_DIAG', 'MU_SH0ES', 'MU_SH0ES_ERR_DIAG', 'CEPH_DIST', 'IS_CALIBRATOR', 'USED_IN_SH0ES_HF', 'c', 'cERR', 'x1', 'x1ERR', 'mB', 'mBERR', 'x0', 'x0ERR', 'COV_x1_c', 'COV_x1_x0', 'COV_c_x0', 'RA', 'DEC', 'HOST_RA', 'HOST_DEC', 'HOST_ANGSEP', 'VPEC', 'VPECERR', 'MWEBV', 'HOST_LOGMASS', 'HOST_LOGMASS_ERR', 'PKMJD', 'PKMJDERR', 'NDOF', 'FITCHI2', 'FITPROB', 'm_b_corr_err_RAW', 'm_b_corr_err_VPEC', 'biasCor_m_b', 'biasCorErr_m_b', 'biasCor_m_b_COVSCALE', 'biasCor_m_b_COVADD']
-[22:35:29] INFO    Unique SNe with valid host masses: 1441
-[22:35:29] INFO    Host mass range: 2.00 - 11.50
-[22:35:29] INFO    Redshift range: 0.010 - 0.974
-[22:35:30] INFO    Hubble residual: mean = -0.0000, std = 0.1540 mag
-[22:35:30] INFO    ======================================================================
-[22:35:30] INFO    ANALYSIS 1: Traditional Mass Step (Binary Split)
-[22:35:30] INFO    ======================================================================
-[22:35:30] INFO    Threshold: log(M*) = 10.0
-[22:35:30] INFO    Low-mass hosts: N = 683
-[22:35:30] INFO    High-mass hosts: N = 758
-[22:35:30] INFO    
+[17:16:40] INFO    ======================================================================
+[17:16:40] INFO    TEP-JWST Step 10: SN Ia Host Galaxy Mass Step Analysis
+[17:16:40] INFO    ======================================================================
+[17:16:40] INFO    
+[17:16:40] INFO    The mass step is a ~0.06 mag unexplained shift in SN Ia distances
+[17:16:40] INFO    correlated with host galaxy mass. TEP predicts this arises from
+[17:16:40] INFO    time dilation in deeper gravitational potentials.
+[17:16:40] INFO    
+[17:16:40] INFO    Loading Pantheon+ data from /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-H0/data/raw/Pantheon+SH0ES.dat
+[17:16:40] INFO    Loaded 1701 SN Ia observations
+[17:16:40] INFO    Columns: ['CID', 'IDSURVEY', 'zHD', 'zHDERR', 'zCMB', 'zCMBERR', 'zHEL', 'zHELERR', 'm_b_corr', 'm_b_corr_err_DIAG', 'MU_SH0ES', 'MU_SH0ES_ERR_DIAG', 'CEPH_DIST', 'IS_CALIBRATOR', 'USED_IN_SH0ES_HF', 'c', 'cERR', 'x1', 'x1ERR', 'mB', 'mBERR', 'x0', 'x0ERR', 'COV_x1_c', 'COV_x1_x0', 'COV_c_x0', 'RA', 'DEC', 'HOST_RA', 'HOST_DEC', 'HOST_ANGSEP', 'VPEC', 'VPECERR', 'MWEBV', 'HOST_LOGMASS', 'HOST_LOGMASS_ERR', 'PKMJD', 'PKMJDERR', 'NDOF', 'FITCHI2', 'FITPROB', 'm_b_corr_err_RAW', 'm_b_corr_err_VPEC', 'biasCor_m_b', 'biasCorErr_m_b', 'biasCor_m_b_COVSCALE', 'biasCor_m_b_COVADD']
+[17:16:40] INFO    Unique SNe with valid host masses: 1441
+[17:16:40] INFO    Host mass range: 2.00 - 11.50
+[17:16:40] INFO    Redshift range: 0.010 - 0.974
+[17:16:42] INFO    Hubble residual: mean = -0.0000, std = 0.1540 mag
+[17:16:42] INFO    ======================================================================
+[17:16:42] INFO    ANALYSIS 1: Traditional Mass Step (Binary Split)
+[17:16:42] INFO    ======================================================================
+[17:16:42] INFO    Threshold: log(M*) = 10.0
+[17:16:42] INFO    Low-mass hosts: N = 683
+[17:16:42] INFO    High-mass hosts: N = 758
+[17:16:42] INFO    
 Results:
-[22:35:30] INFO      Low-mass mean residual: -0.0080 ± 0.0060 mag
-[22:35:30] INFO      High-mass mean residual: 0.0072 ± 0.0055 mag
-[22:35:30] INFO      Mass step (high - low): 0.0151 ± 0.0081 mag
-[22:35:30] INFO      t-statistic: 1.86
-[22:35:30] INFO      p-value: 6.27e-02
-[22:35:30] INFO      Significance: 1.9σ
-[22:35:30] INFO    
-[22:35:30] INFO    ======================================================================
-[22:35:30] INFO    ANALYSIS 2: Continuous Mass-Residual Correlation
-[22:35:30] INFO    ======================================================================
-[22:35:30] INFO    Spearman ρ = 0.0153, p = 5.62e-01
-[22:35:30] INFO    Pearson r = 0.0088, p = 7.40e-01
-[22:35:30] INFO    Linear fit: residual = 0.0011 × log(M*) + -0.0108
-[22:35:30] INFO      Slope: 0.0011 ± 0.0033 mag/dex
-[22:35:30] INFO    
-[22:35:30] INFO    ======================================================================
-[22:35:30] INFO    ANALYSIS 3: TEP Prediction Test (using TEP-H0 formulas)
-[22:35:30] INFO    ======================================================================
-[22:35:30] INFO    Median log(M*) in low-mass bin: 9.13 → σ = 44.4 km/s
-[22:35:30] INFO    Median log(M*) in high-mass bin: 10.65 → σ = 106.2 km/s
-[22:35:30] INFO    
+[17:16:42] INFO      Low-mass mean residual: -0.0080 ± 0.0060 mag
+[17:16:42] INFO      High-mass mean residual: 0.0072 ± 0.0055 mag
+[17:16:42] INFO      Mass step (high - low): 0.0151 ± 0.0081 mag
+[17:16:42] INFO      t-statistic: 1.86
+[17:16:42] INFO      p-value: 6.27e-02
+[17:16:42] INFO      Significance: 1.9σ
+[17:16:42] INFO    
+[17:16:42] INFO    ======================================================================
+[17:16:42] INFO    ANALYSIS 2: Continuous Mass-Residual Correlation
+[17:16:42] INFO    ======================================================================
+[17:16:42] INFO    Spearman ρ = 0.0153, p = 5.62e-01
+[17:16:42] INFO    Pearson r = 0.0088, p = 7.40e-01
+[17:16:42] INFO    Linear fit: residual = 0.0011 × log(M*) + -0.0108
+[17:16:42] INFO      Slope: 0.0011 ± 0.0033 mag/dex
+[17:16:42] INFO    
+[17:16:42] INFO    ======================================================================
+[17:16:42] INFO    ANALYSIS 3: TEP Prediction Test (using TEP-H0 formulas)
+[17:16:42] INFO    ======================================================================
+[17:16:42] INFO    Median log(M*) in low-mass bin: 9.13 → σ = 44.4 km/s
+[17:16:42] INFO    Median log(M*) in high-mass bin: 10.65 → σ = 106.2 km/s
+[17:16:42] INFO    
 TEP Prediction using MEDIAN masses (κ_gal = 9.600e+05 mag, σ_ref = 75.25 km/s):
-[22:35:30] INFO      Formula: Δμ = κ_gal · (σ² - σ_ref²) / c²  [Paper 11 v0.6]
-[22:35:30] INFO      Predicted (no group screening): 0.0994 mag
-[22:35:30] INFO      Predicted (with group screening): 0.0516 mag
-[22:35:30] INFO    
+[17:16:42] INFO      Formula: Δμ = κ_gal · (σ² - σ_ref²) / c²  [Paper 11 v0.6]
+[17:16:42] INFO      Predicted (no group screening): 0.0994 mag
+[17:16:42] INFO      Predicted (with group screening): 0.0516 mag
+[17:16:42] INFO    
 TEP Prediction at THRESHOLD (proper comparison):
-[22:35:30] INFO      log(M*) = 9.7 → σ = 61.5 km/s
-[22:35:30] INFO      log(M*) = 10.3 → σ = 86.9 km/s
-[22:35:30] INFO      Predicted (no group screening): 0.0402 mag
-[22:35:30] INFO      Group fractions: f_low = 30%, f_high = 60%
-[22:35:30] INFO      Predicted (with group screening): 0.0221 mag
-[22:35:30] INFO    
+[17:16:42] INFO      log(M*) = 9.7 → σ = 61.5 km/s
+[17:16:42] INFO      log(M*) = 10.3 → σ = 86.9 km/s
+[17:16:42] INFO      Predicted (no group screening): 0.0402 mag
+[17:16:42] INFO      Group fractions: f_low = 30%, f_high = 60%
+[17:16:42] INFO      Predicted (with group screening): 0.0221 mag
+[17:16:42] INFO    
 Comparison:
-[22:35:30] INFO      This analysis: 0.0151 ± 0.0081 mag
-[22:35:30] INFO      Literature (Kelly+10): ~0.06 mag
-[22:35:30] INFO      TEP predicted: 0.0221 mag
-[22:35:30] INFO      Sign: ✓ CONSISTENT
-[22:35:30] INFO      |Literature| / |Predicted|: 2.71
-[22:35:30] INFO      |This analysis| / |Predicted|: 0.68
-[22:35:30] INFO      Tension with literature: 1.9σ
-[22:35:30] INFO    
-[22:35:30] INFO    ======================================================================
-[22:35:30] INFO    ANALYSIS 4: Binned Mass Analysis (Testing M^(1/3) Scaling)
-[22:35:30] INFO    ======================================================================
-[22:35:30] INFO    Bin 0: log(M*) = 7.84, σ = 21 km/s, residual = 0.0003 ± 0.0098 mag, Δμ_TEP = -0.056
-[22:35:30] INFO    Bin 1: log(M*) = 9.37, σ = 51 km/s, residual = -0.0177 ± 0.0093 mag, Δμ_TEP = -0.033
-[22:35:30] INFO    Bin 2: log(M*) = 10.05, σ = 75 km/s, residual = 0.0143 ± 0.0079 mag, Δμ_TEP = -0.000
-[22:35:30] INFO    Bin 3: log(M*) = 10.57, σ = 101 km/s, residual = 0.0068 ± 0.0093 mag, Δμ_TEP = 0.049
-[22:35:30] INFO    Bin 4: log(M*) = 11.14, σ = 141 km/s, residual = -0.0037 ± 0.0090 mag, Δμ_TEP = 0.152
-[22:35:30] INFO    
+[17:16:42] INFO      This analysis: 0.0151 ± 0.0081 mag
+[17:16:42] INFO      Literature (Kelly+10): ~0.06 mag
+[17:16:42] INFO      TEP predicted: 0.0221 mag
+[17:16:42] INFO      Sign: ✓ CONSISTENT
+[17:16:42] INFO      |Literature| / |Predicted|: 2.71
+[17:16:42] INFO      |This analysis| / |Predicted|: 0.68
+[17:16:42] INFO      Tension with literature: 1.9σ
+[17:16:42] INFO    
+[17:16:42] INFO    ======================================================================
+[17:16:42] INFO    ANALYSIS 4: Binned Mass Analysis (Testing M^(1/3) Scaling)
+[17:16:42] INFO    ======================================================================
+[17:16:42] INFO    Bin 0: log(M*) = 7.84, σ = 21 km/s, residual = 0.0003 ± 0.0098 mag, Δμ_TEP = -0.056
+[17:16:42] INFO    Bin 1: log(M*) = 9.37, σ = 51 km/s, residual = -0.0177 ± 0.0093 mag, Δμ_TEP = -0.033
+[17:16:42] INFO    Bin 2: log(M*) = 10.05, σ = 75 km/s, residual = 0.0143 ± 0.0079 mag, Δμ_TEP = -0.000
+[17:16:42] INFO    Bin 3: log(M*) = 10.57, σ = 101 km/s, residual = 0.0068 ± 0.0093 mag, Δμ_TEP = 0.049
+[17:16:42] INFO    Bin 4: log(M*) = 11.14, σ = 141 km/s, residual = -0.0037 ± 0.0090 mag, Δμ_TEP = 0.152
+[17:16:42] INFO    
 Bin-level correlation (Δμ_TEP vs residual):
-[22:35:30] INFO      Spearman ρ = 0.100, p = 0.873
-[22:35:30] INFO    
-[22:35:30] INFO    ======================================================================
-[22:35:30] INFO    SUMMARY
-[22:35:30] INFO    ======================================================================
-[22:35:30] INFO    Observed mass step: 0.0151 ± 0.0081 mag
-[22:35:30] INFO    TEP predicted: 0.0221 mag
-[22:35:30] INFO    Sign consistent: True
-[22:35:30] INFO    Ratio |obs|/|pred|: 0.68
-[22:35:30] INFO    
+[17:16:42] INFO      Spearman ρ = 0.100, p = 0.873
+[17:16:42] INFO    
+[17:16:42] INFO    ======================================================================
+[17:16:42] INFO    SUMMARY
+[17:16:42] INFO    ======================================================================
+[17:16:42] INFO    Observed mass step: 0.0151 ± 0.0081 mag
+[17:16:42] INFO    TEP predicted: 0.0221 mag
+[17:16:42] INFO    Sign consistent: True
+[17:16:42] INFO    Ratio |obs|/|pred|: 0.68
+[17:16:42] INFO    
 ⚠ TEP PREDICTION PARTIALLY CONSISTENT
-[22:35:30] INFO      Sign matches but magnitude differs.
-[22:35:30] INFO      TEP predicts 0.4× larger effect than observed.
-[22:35:30] INFO      Possible explanations:
-[22:35:30] INFO        1. Faber-Jackson relation doesn't apply to spiral SN hosts
-[22:35:30] INFO        2. Additional screening mechanisms not yet modeled
-[22:35:30] INFO        3. Mass step has multiple contributing factors
-[22:35:30] INFO        4. TEP coupling α may be environment-dependent
-[22:35:30] INFO    
-[22:35:30] INFO    Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_010_sn_ia_mass_step.json
+[17:16:42] INFO      Sign matches but magnitude differs.
+[17:16:42] INFO      TEP predicts 0.4× larger effect than observed.
+[17:16:42] INFO      Possible explanations:
+[17:16:42] INFO        1. Faber-Jackson relation doesn't apply to spiral SN hosts
+[17:16:42] INFO        2. Additional screening mechanisms not yet modeled
+[17:16:42] INFO        3. Mass step has multiple contributing factors
+[17:16:42] INFO        4. TEP coupling α may be environment-dependent
+[17:16:42] INFO    
+[17:16:42] INFO    Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_010_sn_ia_mass_step.json

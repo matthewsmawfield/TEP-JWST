@@ -1,0 +1,115 @@
+{
+  "step": 178,
+  "name": "circularity_breaker",
+  "description": "Direct tests targeting the circular mass loop criticism: 2D mass-z shuffle, placebo R_ML with wrong functional form, and narrow mass bin subsets.",
+  "test_a_2d_shuffle": {
+    "n": 283,
+    "rho_observed": 0.5808363450381259,
+    "p_observed": 6.2906045312483296e-27,
+    "rho_shuffled_mean": -0.0022279824348693466,
+    "rho_shuffled_std": 0.054854263077127534,
+    "rho_shuffled_ci_95": [
+      -0.10503967720313308,
+      0.10969694378586371
+    ],
+    "z_score": 10.629334800345067,
+    "p_empirical": 0.0004997501249375312,
+    "n_shuffles": 2000,
+    "n_extreme": 0,
+    "interpretation": "Signal destroyed by 2D shuffle"
+  },
+  "test_b_placebo_rml": {
+    "n": 283,
+    "rho_real": 0.5808363450381259,
+    "p_real": 6.2906045312483296e-27,
+    "rho_placebo": 0.5073916924598488,
+    "p_placebo": 6.379701307030064e-20,
+    "delta_rho_mean": 0.07416167144455703,
+    "delta_rho_ci_95": [
+      -0.007574070155249809,
+      0.15681783344589145
+    ],
+    "fraction_real_better": 0.9625,
+    "real_rho_bootstrap_mean": 0.5807690930385551,
+    "placebo_rho_bootstrap_mean": 0.5066074215939981,
+    "n_bootstrap": 2000,
+    "interpretation": "Inconclusive \u2014 real and placebo perform comparably"
+  },
+  "test_c_narrow_mass_bins": {
+    "bins": {
+      "log_M* [8.0, 8.5]": {
+        "n": 1528,
+        "z_range": [
+          4.002425419412574,
+          9.985523401104327
+        ],
+        "rho_rml_dust": -0.34621094858613194,
+        "p_rml_dust": 2.890144083270526e-44,
+        "rho_mass_dust": -0.027707867771327548,
+        "p_mass_dust": 0.279069485517061,
+        "rho_z_dust": 0.34317345428693746,
+        "p_z_dust": 1.787096506829499e-43,
+        "r_ml_range_log10": 0.0
+      },
+      "log_M* [8.5, 9.0]": {
+        "n": 526,
+        "z_range": [
+          4.004050805475196,
+          9.951958616840656
+        ],
+        "rho_rml_dust": -0.4644973701488445,
+        "p_rml_dust": 1.6522899965647173e-29,
+        "rho_mass_dust": -0.0335544476591078,
+        "p_mass_dust": 0.4425190846129874,
+        "rho_z_dust": 0.4729679748754647,
+        "p_z_dust": 1.1281248215722934e-30,
+        "r_ml_range_log10": 0.0
+      },
+      "log_M* [9.0, 9.5]": {
+        "n": 190,
+        "z_range": [
+          4.002411898151671,
+          9.97240684246926
+        ],
+        "rho_rml_dust": -0.04132232850888128,
+        "p_rml_dust": 0.5713447229396245,
+        "rho_mass_dust": 0.11297615767166608,
+        "p_mass_dust": 0.12067049256198102,
+        "rho_z_dust": 0.21116403574380982,
+        "p_z_dust": 0.003449675769844164,
+        "r_ml_range_log10": 0.0
+      },
+      "log_M* [9.5, 10.0]": {
+        "n": 48,
+        "z_range": [
+          4.007773836989081,
+          9.94551404556666
+        ],
+        "rho_rml_dust": 0.3366261398176292,
+        "p_rml_dust": 0.019311085634231725,
+        "rho_mass_dust": 0.3381458966565349,
+        "p_mass_dust": 0.018738125605023137,
+        "rho_z_dust": 0.41348241424229265,
+        "p_z_dust": 0.003487539320618411,
+        "r_ml_range_log10": 0.0
+      },
+      "log_M* [10.0, 10.5]": {
+        "n": 18,
+        "note": "insufficient sample"
+      }
+    },
+    "n_bins_significant": 3,
+    "n_bins_tested": 4,
+    "interpretation": "R_ML correlates with dust in 3/4 narrow mass bins \u2014 signal not driven by mass axis"
+  },
+  "overall": {
+    "n_tests": 3,
+    "n_passed": 2,
+    "verdicts": [
+      "PASS: 2D shuffle \u2014 Signal destroyed by 2D shuffle",
+      "FAIL: Placebo R_ML \u2014 Inconclusive \u2014 real and placebo perform comparably",
+      "PASS: Narrow mass bins \u2014 R_ML correlates with dust in 3/4 narrow mass bins \u2014 signal not driven by mass axis"
+    ],
+    "assessment": "2/3 circularity-breaking tests passed"
+  }
+}

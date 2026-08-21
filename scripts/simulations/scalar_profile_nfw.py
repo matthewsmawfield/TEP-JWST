@@ -187,7 +187,7 @@ def main():
     ax.set_title(r"Numerical Validation: Scalar Tracks Potential")
     
     # Annotation
-    ax.text(0.5, 0.8, "Tracking Regime\n$\phi(r) \propto \Phi_N(r)$", 
+    ax.text(0.5, 0.8, r"Tracking Regime\n$\phi(r) \propto \Phi_N(r)$", 
             transform=ax.transAxes, ha='center', fontsize=12,
             bbox=dict(facecolor='white', alpha=0.8, edgecolor='none'))
     

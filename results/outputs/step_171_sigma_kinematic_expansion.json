@@ -2,8 +2,8 @@
   "step": 171,
   "name": "sigma_kinematic_expansion",
   "status": "SUCCESS",
-  "assessment": "directionally_supportive_sigma_test",
-  "supportive": true,
+  "assessment": "mixed_sigma_test_absorption_wrong_sign",
+  "supportive": false,
   "sample": {
     "n_total": 75,
     "n_with_mdyn": 75,
@@ -45,10 +45,10 @@
         "std_residual_dex": 0.682999006754398
       },
       "corrected_mstar_sigma_fit": {
-        "slope": 2.365855261416635,
-        "intercept": 4.905940935699307,
-        "r2": 0.5713202413049285,
-        "std_residual_dex": 0.6796735111275837
+        "slope": 2.242800563749063,
+        "intercept": 5.22593559015819,
+        "r2": 0.5531267569850826,
+        "std_residual_dex": 0.6685840136099814
       },
       "observed_residual_z_trend": {
         "partial_rho_resid_z_given_sigma": 0.46239442858894797,
@@ -60,18 +60,18 @@
         ]
       },
       "corrected_residual_z_trend": {
-        "partial_rho_resid_z_given_sigma": 0.4599315753848213,
-        "p": 3.30498961269747e-05,
+        "partial_rho_resid_z_given_sigma": 0.4363355449877875,
+        "p": 9.102502216101334e-05,
         "n": 75,
         "ci_95": [
-          0.2818716197305016,
-          0.6052537477699402
+          0.25239527656348404,
+          0.5861605982515888
         ]
       },
       "z_trend_improved": true,
       "scatter_improved": true,
-      "scatter_change_fraction": 0.004868961146249684,
-      "mean_tep_correction_dex": 0.02238197823747526
+      "scatter_change_fraction": 0.021105437931625115,
+      "mean_tep_correction_dex": -0.057669335566876374
     },
     "T1a_absorption_only": {
       "n": 20,
@@ -83,10 +83,10 @@
         "std_residual_dex": 0.2308296846434382
       },
       "corrected_mstar_sigma_fit": {
-        "slope": 0.4357116405322445,
-        "intercept": 9.826477740040229,
-        "r2": 0.024108111335653715,
-        "std_residual_dex": 0.24416053211607466
+        "slope": 0.33841909129163067,
+        "intercept": 10.066285771567376,
+        "r2": 0.014406353351916978,
+        "std_residual_dex": 0.24653796754279975
       },
       "observed_residual_z_trend": {
         "partial_rho_resid_z_given_sigma": -0.2578672535379566,
@@ -98,18 +98,18 @@
         ]
       },
       "corrected_residual_z_trend": {
-        "partial_rho_resid_z_given_sigma": -0.30630286693582004,
-        "p": 0.1890267204948589,
+        "partial_rho_resid_z_given_sigma": -0.327000495866288,
+        "p": 0.15934770175237312,
         "n": 20,
         "ci_95": [
-          -0.7311020926354355,
-          0.18177562480601686
+          -0.7283172781813952,
+          0.1545154003616301
         ]
       },
       "z_trend_improved": false,
       "scatter_improved": false,
-      "scatter_change_fraction": -0.057751876641120026,
-      "mean_tep_correction_dex": 0.08333556185646913
+      "scatter_change_fraction": -0.06805139869088372,
+      "mean_tep_correction_dex": 0.07737485495938115
     },
     "T1b_emission_only": {
       "n": 55,
@@ -121,10 +121,10 @@
         "std_residual_dex": 0.6945577521295511
       },
       "corrected_mstar_sigma_fit": {
-        "slope": 1.0224600119540852,
-        "intercept": 7.201494975176612,
-        "r2": 0.08716376015774852,
-        "std_residual_dex": 0.694557752129551
+        "slope": 0.9927910893570422,
+        "intercept": 7.361445153374231,
+        "r2": 0.08337301808773145,
+        "std_residual_dex": 0.6909951519512756
       },
       "observed_residual_z_trend": {
         "partial_rho_resid_z_given_sigma": 0.29345122030027404,
@@ -136,18 +136,18 @@
         ]
       },
       "corrected_residual_z_trend": {
-        "partial_rho_resid_z_given_sigma": 0.29345122030027404,
-        "p": 0.029673200791084816,
+        "partial_rho_resid_z_given_sigma": 0.2790171725367162,
+        "p": 0.03912372646404646,
         "n": 55,
         "ci_95": [
-          0.03913700292466348,
-          0.5023254171709344
+          0.025367200214911793,
+          0.49169295159341825
         ]
       },
-      "z_trend_improved": false,
+      "z_trend_improved": true,
       "scatter_improved": true,
-      "scatter_change_fraction": 1.1102230246251565e-16,
-      "mean_tep_correction_dex": 0.00021703873965929645
+      "scatter_change_fraction": 0.005129307343201273,
+      "mean_tep_correction_dex": -0.10677631394006093
     },
     "T2_fundamental_plane": {
       "n": 53,
@@ -160,36 +160,36 @@
         "std_residual_dex": 0.5778696934595354
       },
       "corrected_fp": {
-        "coeff_log_sigma": 1.89921816432959,
-        "coeff_log_re": 0.9165870732291862,
-        "intercept": 5.883551561248114,
-        "r2": 0.6003347522910345,
-        "std_residual_dex": 0.5762431181879736
+        "coeff_log_sigma": 1.7842576439954183,
+        "coeff_log_re": 0.8931662462716659,
+        "intercept": 6.186419361131089,
+        "r2": 0.5809166539648408,
+        "std_residual_dex": 0.5658333222439746
       },
       "r2_improved": false,
       "scatter_improved": true,
-      "scatter_change_fraction": 0.002814778642956761,
+      "scatter_change_fraction": 0.020828867393101302,
       "observed_resid_z_trend": {
         "partial_rho": 0.2602926834578141,
         "p": 0.05978667874469207,
         "n": 53
       },
       "corrected_resid_z_trend": {
-        "partial_rho": 0.2534371423490357,
-        "p": 0.06708919742896913,
+        "partial_rho": 0.23034324790014038,
+        "p": 0.09704848137663309,
         "n": 53
       },
       "z_trend_improved": true
     },
     "T3_gamma_sigma_only_prediction": {
       "n": 75,
-      "description": "Does sigma-only Gamma_t add predictive power for M*_obs beyond log(sigma) and z? Positive partial = TEP-consistent z-dependent mass enhancement.",
-      "partial_rho_gamma_mstar_given_sigma_z": 0.18179647031708937,
-      "p_partial_gamma_mstar_given_sigma_z": 0.118524026343867,
+      "description": "Does sigma-only R_ML add predictive power for M*_obs beyond log(sigma) and z? Positive partial = TEP-consistent z-dependent mass enhancement.",
+      "partial_rho_gamma_mstar_given_sigma_z": 0.07930403371155018,
+      "p_partial_gamma_mstar_given_sigma_z": 0.4988348965702973,
       "n_partial": 75,
       "ci_95_partial_gamma_mstar_given_sigma_z": [
-        0.014622789327549231,
-        0.32913512424138014
+        -0.12494005346805248,
+        0.2565616192747546
       ],
       "partial_rho_z_mstar_given_sigma": -0.4797807779280465,
       "p_partial_z_mstar_given_sigma": 1.3278306867060165e-05,
@@ -197,7 +197,7 @@
       "p_partial_sigma_mstar_given_z": 6.755183373981323e-06
     },
     "T4_cross_survey": {
-      "description": "Per-survey M*-sigma residual vs z trend and Gamma_t prediction test.",
+      "description": "Per-survey M*-sigma residual vs z trend and R_ML prediction test.",
       "n_surveys_tested": 4,
       "n_surveys_positive_resid_z": 0,
       "per_survey": {
@@ -205,8 +205,8 @@
           "n": 33,
           "partial_rho_resid_z_given_sigma": -0.13771475536584263,
           "p_resid_z": 0.44471263539193234,
-          "partial_rho_gamma_mstar_given_sigma_z": -0.058893559418225334,
-          "p_gamma_mstar": 0.7447606836699417
+          "partial_rho_gamma_mstar_given_sigma_z": 0.01881021900911837,
+          "p_gamma_mstar": 0.9172494836495393
         },
         "Esdaile et al. 2021": {
           "n": 4,
@@ -216,15 +216,15 @@
           "n": 16,
           "partial_rho_resid_z_given_sigma": -0.20213201006970327,
           "p_resid_z": 0.4528068839546807,
-          "partial_rho_gamma_mstar_given_sigma_z": 0.12490644643169681,
-          "p_gamma_mstar": 0.6448634951499225
+          "partial_rho_gamma_mstar_given_sigma_z": 0.056237526227478046,
+          "p_gamma_mstar": 0.836115121391348
         },
         "Slob et al. 2025": {
           "n": 15,
           "partial_rho_resid_z_given_sigma": -0.10029949504448672,
           "p_resid_z": 0.7220977138763776,
-          "partial_rho_gamma_mstar_given_sigma_z": -0.26689258404211474,
-          "p_gamma_mstar": 0.3362537928747499
+          "partial_rho_gamma_mstar_given_sigma_z": -0.4529435464258375,
+          "p_gamma_mstar": 0.08998609144831853
         },
         "Tanaka et al. 2019": {
           "n": 1,
@@ -234,8 +234,8 @@
           "n": 6,
           "partial_rho_resid_z_given_sigma": -0.3297851174389325,
           "p_resid_z": 0.5232557456266747,
-          "partial_rho_gamma_mstar_given_sigma_z": 0.007785658141525126,
-          "p_gamma_mstar": 0.9883217487572792
+          "partial_rho_gamma_mstar_given_sigma_z": 0.05857842279039663,
+          "p_gamma_mstar": 0.9122328697404121
         }
       }
     },
@@ -248,17 +248,17 @@
         0.08264014625697688,
         0.5305822036142415
       ],
-      "partial_rho_gamma_mstar_given_sigma_z": 0.10682199714700813,
-      "p_gamma_mstar": 0.4332754522749144,
+      "partial_rho_gamma_mstar_given_sigma_z": 0.14550326767817293,
+      "p_gamma_mstar": 0.2846213807161852,
       "ci_95_gamma_mstar": [
-        -0.04368052316389311,
-        0.2258437135581222
+        -0.13197612267856795,
+        0.3603553938554508
       ]
     }
   },
   "methodology": {
-    "description": "Sigma-based mass-circularity-breaking test suite. Gamma_t is computed from velocity dispersion alone (sigma -> M_halo -> Gamma_t), with zero dependence on SED-fitted M* or size-based Mdyn. This reduces mass-proxy circularity, while still depending on the sigma-to-halo calibration and sample mix. The primary test (T1) asks whether the M*-sigma residual increases with z as TEP predicts. The secondary test (T3) asks whether the sigma-only Gamma_t adds predictive power for M*_obs beyond sigma and z individually.",
-    "gamma_t_derivation": "log(M_h) = 5.0 * log10(sigma / 200.0 km/s) + 12.5; Gamma_t = compute_gamma_t(log_Mh, z)",
+    "description": "Sigma-based mass-circularity-breaking test suite. R_ML is computed from velocity dispersion alone (sigma -> M_halo -> R_ML), with zero dependence on SED-fitted M* or size-based Mdyn. This reduces mass-proxy circularity, while still depending on the sigma-to-halo calibration and sample mix. The primary test (T1) asks whether the M*-sigma residual increases with z as TEP predicts. The secondary test (T3) asks whether the sigma-only R_ML adds predictive power for M*_obs beyond sigma and z individually. Tracer stratification: absorption-line sigma (stellar dynamics, quiescent galaxies) is the primary clean tracer; emission-line sigma (gas kinematics, star-forming galaxies) is contaminated by outflows, turbulence, and beam smearing and is treated as a secondary gas-kinematics test. If the absorption-line subsample shows the opposite sign, the pooled result is downgraded.",
+    "gamma_t_derivation": "log(M_h) = 5.0 * log10(sigma / 200.0 km/s) + 12.5; R_ML = compute_gamma_t(log_Mh, z)",
     "mass_correction_model": "n_ML = 0.5",
     "kappa_gal": 960000.0,
     "combined_sample_sources": [
@@ -268,6 +268,17 @@
       "Saldana-Lopez et al. 2025",
       "Danhaive et al. 2025"
     ],
-    "mass_proxy_independence": "Gamma_t_sigma_only is derived entirely from the velocity dispersion sigma (km/s) via a sigma\u2013M_halo mapping. It has zero dependence on SED-fitted M*, half-light radius R_e, or dynamical mass M_dyn. This reduces the mass-proxy circularity but does not remove sensitivity to the adopted sigma\u2013M_halo mapping or sample composition."
+    "mass_proxy_independence": "R_ML_sigma_only is derived entirely from the velocity dispersion sigma (km/s) via a sigma\u2013M_halo mapping. It has zero dependence on SED-fitted M*, half-light radius R_e, or dynamical mass M_dyn. This reduces the mass-proxy circularity but does not remove sensitivity to the adopted sigma\u2013M_halo mapping or sample composition.",
+    "tracer_stratification": {
+      "absorption_sources": [
+        "Slob et al. 2025",
+        "Esdaile et al. 2021",
+        "Tanaka et al. 2019"
+      ],
+      "absorption_description": "Stellar absorption-line sigma (quiescent galaxies, clean dynamical tracer)",
+      "emission_description": "Gas emission-line sigma (star-forming galaxies, contaminated by outflows/turbulence)",
+      "primary_tracer": "absorption",
+      "secondary_tracer": "emission"
+    }
   }
 }

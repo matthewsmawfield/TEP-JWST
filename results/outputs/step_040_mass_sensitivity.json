@@ -15,10 +15,10 @@
   "signatures_surviving_10dex": {
     "mass_dust_z8": "True",
     "gamma_dust_z8": "True",
-    "gamma_age_z4": "True",
+    "gamma_age_z4": "False",
     "chi2_separation": false
   },
   "n_surviving_05dex": "2",
-  "n_surviving_10dex": "3",
+  "n_surviving_10dex": "2",
   "conclusion": "sensitive"
 }

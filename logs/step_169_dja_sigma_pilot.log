@@ -1,10 +1,10 @@
-[23:45:53] INFO    ═══ STEP 169: DJA sigma pilot
-[23:45:53] INFO        Config: max_targets=24, min_z=5.0, max_z=12.5, min_logM*=5.0
-[23:45:55] INFO        Loaded 24 candidates from DJA catalog
-[23:45:55] INFO          With Balmer lines: 11/24
-[23:45:56] INFO        Spectrum fetch: local=24, downloaded=0, failed=0, missing=0
-[23:45:56] INFO        Line fits: 24/24 successful
-[23:45:56] INFO        Quality screen: 15/24 passed
-[23:45:56] INFO        Balmer-σ test (all): ρ=0.000, p=1.000e+00
-[23:45:56] INFO        Balmer-σ test (quality): ρ=0.000, p=1.000e+00
-[23:45:56] INFO        Step 169 complete (SUCCESS)
+[19:01:00] INFO    ═══ STEP 169: DJA sigma pilot
+[19:01:00] INFO        Config: max_targets=24, min_z=5.0, max_z=12.5, min_logM*=5.0
+[19:01:09] INFO        Loaded 24 candidates from DJA catalog
+[19:01:09] INFO          With Balmer lines: 11/24
+[19:01:10] INFO        Spectrum fetch: local=24, downloaded=0, failed=0, missing=0
+[19:01:10] INFO        Line fits: 24/24 successful
+[19:01:10] INFO        Quality screen: 15/24 passed
+[19:01:10] INFO        Balmer-σ test (all): ρ=0.000, p=1.000e+00
+[19:01:10] INFO        Balmer-σ test (quality): ρ=0.000, p=1.000e+00
+[19:01:10] INFO        Step 169 complete (SUCCESS)

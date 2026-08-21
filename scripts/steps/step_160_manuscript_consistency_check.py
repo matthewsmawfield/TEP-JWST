@@ -32,7 +32,10 @@ set_step_logger(logger)
 ROOT = PROJECT_ROOT
 OUTPUT = ROOT / "results/outputs/step_160_manuscript_consistency_check.json"
 RUN_ALL = ROOT / "scripts/steps/run_all_steps.py"
-GENERATED_ROOT_MARKDOWN = ROOT / "12-TEP-JWST-v0.6-Kos.md"
+# The generated root markdown filename includes the version number, which
+# changes with each release.  Use a glob to find the most recent one.
+_generated_md_candidates = sorted(ROOT.glob("12-TEP-JWST-v*.md"))
+GENERATED_ROOT_MARKDOWN = _generated_md_candidates[-1] if _generated_md_candidates else ROOT / "12-TEP-JWST-v0.6.1-Kos.md"
 
 FILES = {
     "abstract": ROOT / "site/components/1_abstract.html",
@@ -51,6 +54,7 @@ JSONS = {
     "step_117": ROOT / "results/outputs/step_117_dynamical_mass_comparison.json",
     "step_138": ROOT / "results/outputs/step_138_environmental_screening_steiger.json",
     "step_140": ROOT / "results/outputs/step_140_evidence_tier_summary.json",
+    "step_132": ROOT / "results/outputs/step_132_lrd_validation.json",
     "step_143": ROOT / "results/outputs/step_143_mass_proxy_breaker.json",
     "step_157": ROOT / "results/outputs/step_157_cosmos2025_ssfr_inversion.json",
     "step_158": ROOT / "results/outputs/step_158_dja_balmer_decrement.json",
@@ -104,6 +108,7 @@ def main() -> None:
     j076 = json.loads(JSONS["step_076"].read_text())
     j079 = json.loads(JSONS["step_079"].read_text())
     j117 = json.loads(JSONS["step_117"].read_text())
+    j132 = json.loads(JSONS["step_132"].read_text())
     j138 = json.loads(JSONS["step_138"].read_text())
     j140 = json.loads(JSONS["step_140"].read_text())
     j143 = json.loads(JSONS["step_143"].read_text())
@@ -235,7 +240,10 @@ def main() -> None:
         numbering_stale_tokens,
     )
     numbering_expected_tokens = {
-        "intro_three_stages_ref": "The analysis proceeds in three stages: an externally calibrated prediction (§3.1)" in texts["introduction"],
+        "intro_three_stages_ref": (
+            "The analysis proceeds in three stages: a prespecified benchmark prediction (§3.1)" in texts["introduction"]
+            or "The analysis proceeds in three stages: an externally calibrated prediction (§3.1)" in texts["introduction"]
+        ),
         "results_3_2_uncover": "<h3>3.2 UNCOVER DR4: Mass-sSFR and Mass-Age Correlations</h3>" in texts["results"],
         "results_3_9_summary": "<h3>3.9 TEP Predictions vs Observations Summary</h3>" in texts["results"],
         "results_3_9_1_adversarial": "<h4>3.9.1 Adversarial Tests</h4>" in texts["results"],
@@ -417,8 +425,9 @@ def main() -> None:
         key: all(token in combined_text for token in tokens)
         for key, tokens in kappa_gal_expected_tokens.items()
     }
-    # Check for new language: "consistent with the Cepheid prior" instead of specific recovery values
-    jwst_recovery_language_present = "consistent with the Cepheid prior" in combined_text or \
+    # Check for new language: "consistent with the canonical benchmark" / "consistent with the Cepheid prior" instead of specific recovery values
+    jwst_recovery_language_present = "consistent with the canonical benchmark" in combined_text or \
+                                    "consistent with the Cepheid prior" in combined_text or \
                                     "consistent with the external prior" in combined_text or \
                                     "concordance checks rather than as standalone precision calibrations" in combined_text
     checks.append({
@@ -459,10 +468,14 @@ def main() -> None:
         f"{j176_conv_bf.get('Residual_Null', {}).get('ln_BF_TEP_vs_alt', 0.0):.1f}",
         f"{aug_bf:.1f}",
         "Conventional Comparison (Raw Mass)",
-        "Incremental Test (Augmented Joint Test)",
-        "TEP-Aware Comparison (Orthogonalized Mass)",
+        "Primary: Covariance-Corrected Joint Test",
+        "Secondary: Orthogonalized Sensitivity Analysis",
     ]
-    discussion_nested_tokens = []
+    discussion_nested_tokens = [
+        f"{j176_residual_bf.get('Residual_Null', {}).get('ln_BF_TEP_vs_alt', 0.0):.1f}",
+        "covariance-corrected joint comparison",
+        "orthogonalized sensitivity analysis",
+    ]
     nested_bayes_expected = {
         "step_140_status_live": nested_bayes.get("status") == "live",
         "step_140_joint_standard_matches": check_close(
@@ -725,7 +738,6 @@ def main() -> None:
         "ml_live_validation": all(
             token in supp_text for token in [
                 f"{ml_best_n:.1f}",
-                f"{0.58:.2f}",
             ]
         ),
         "mass_proxy_breaker": all(

@@ -379,14 +379,47 @@ def analyze_mass_to_light(df):
     )
     logger.info(f"\nPartial correlation (controlling for z):")
     logger.info(f"  Spearman ρ = {rho_partial:.3f}, p = {p_partial:.4f}")
-    
+
+    # Partial correlation controlling for BOTH M* and z.
+    # This is the critical test: since both gamma_t and ML_proxy depend on
+    # log_Mstar, controlling for z alone leaves a circularity.  Controlling
+    # for M* as well removes the shared mass dependence and tests whether
+    # gamma_t adds information beyond the trivial mass-M/L correlation.
+    mass_col = 'log_Mstar' if 'log_Mstar' in valid.columns else 'log_mstar'
+    if mass_col in valid.columns:
+        rho_partial_mass_z, p_partial_mass_z, _ = partial_rank_correlation(
+            valid['gamma_t'].values,
+            valid['ML_proxy'].values,
+            np.column_stack([valid[mass_col].values, valid['z_best'].values]),
+        )
+        logger.info(f"\nPartial correlation (controlling for M* and z):")
+        logger.info(f"  Spearman ρ = {rho_partial_mass_z:.3f}, p = {p_partial_mass_z:.4f}")
+        logger.info("  (This is the non-circular test: removes shared mass dependence)")
+    else:
+        rho_partial_mass_z = np.nan
+        p_partial_mass_z = np.nan
+        logger.warning("log_Mstar column not found; skipping M*+z partial correlation")
+
+    # The non-circular verdict uses the M*+z partial, not the z-only partial
+    non_circular_sig = (np.isfinite(rho_partial_mass_z)
+                        and rho_partial_mass_z > 0
+                        and format_p_value(p_partial_mass_z) is not None
+                        and format_p_value(p_partial_mass_z) < 0.05)
+
     return {
         'n_galaxies': len(valid),
         'spearman_rho': rho,
         'spearman_p': p_value_fmt,
         'rho_partial': rho_partial,
         'p_partial': format_p_value(p_partial),
-        'tep_consistent': tep_consistent or (rho_partial > 0 and (format_p_value(p_partial) is not None and format_p_value(p_partial) < 0.05))
+        'rho_partial_mass_z': float(rho_partial_mass_z) if np.isfinite(rho_partial_mass_z) else None,
+        'p_partial_mass_z': format_p_value(p_partial_mass_z) if np.isfinite(p_partial_mass_z) else None,
+        'circularity_note': (
+            'rho_partial (controlling for z only) is inflated by shared mass '
+            'dependence: both gamma_t and ML_proxy are functions of log_Mstar. '
+            'rho_partial_mass_z (controlling for M* and z) is the non-circular test.'
+        ),
+        'tep_consistent': tep_consistent or non_circular_sig,
     }
 
 

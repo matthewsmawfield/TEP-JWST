@@ -305,8 +305,8 @@ def stellar_to_halo_mass(log_Mstar, z):
     # Mass dependence: ratio decreases (less dark matter dominated) at high mass
     mass_term = -0.1 * (log_Mstar - 10)
     
-    # Redshift dependence: ratio increases slightly at higher z
-    z_term = 0.05 * (z - 5)
+    # Redshift dependence: ratio decreases at higher z (lower SFE -> more halo per unit M*)
+    z_term = -0.05 * (z - 5)
     
     log_ratio = log_ratio_base + mass_term + z_term
     

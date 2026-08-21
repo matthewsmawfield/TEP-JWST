@@ -1,66 +1,66 @@
-[22:35:05] INFO    ═══ STEP 01: Load UNCOVER DR4 Data
-[22:35:05] INFO        Loading and quality-cutting the UNCOVER DR4 SPS catalog for TEP analysis.
-[22:35:05] INFO        Source: Wang et al. (2024, ApJS 270, 12) — Abell 2744 lensing field
-[22:35:05] INFO        Catalog file: UNCOVER_DR4_SPS_catalog.fits
-[22:35:05] INFO    
-[22:35:05] INFO        ── Stage 1: Catalog Acquisition ────────────────────────────
-[22:35:05] INFO    >>> Loading UNCOVER DR4 FITS catalog...
-[22:35:05] INFO    >>> Loading: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/uncover/UNCOVER_DR4_SPS_catalog.fits
-[22:35:05] INFO        Total sources: 74020
-[22:35:05] INFO    ✓   Loading UNCOVER DR4 FITS catalog completed in 29ms
-[22:35:05] INFO        Raw catalog contains 74020 sources
-[22:35:05] DEBUG    ·  Catalog columns available: 113 FITS fields
-[22:35:05] INFO        ── Stage 2: Column Extraction ──────────────────────────────
-[22:35:05] INFO    >>> Extracting columns into DataFrame...
-[22:35:05] INFO    ✓   Extracting columns into DataFrame completed in 117ms
-[22:35:05] INFO        Extracted 25 analysis columns
-[22:35:05] DEBUG    ·  Pre-cut column statistics:
-[22:35:05] INFO            Total sources: 74,020
-[22:35:05] INFO            z_phot range: [0.00, 19.88]
-[22:35:05] INFO            log_Mstar range: [5.77, 11.95]
-[22:35:05] INFO            Sources with valid sSFR: 73998
-[22:35:05] INFO            Sources with valid MWA: 73998
-[22:35:05] INFO            Sources with valid dust: 73998
-[22:35:05] INFO        ── Stage 3: Quality Cuts and Sample Construction ───────────
-[22:35:05] INFO        Constructing three analysis samples:
-[22:35:05] INFO          (a) Full sample — basic z/M*/sSFR/MWA cuts for correlation analyses
-[22:35:05] INFO          (b) Multi-property sample — adds metallicity quality cuts for dust/met tests
-[22:35:05] INFO          (c) z > 8 sample — isolates the dust-anomaly regime
-[22:35:05] INFO    
-[22:35:05] INFO    >>> Applying full-sample cuts (z > 4, log M* > 8, valid sSFR/MWA)...
-[22:35:05] INFO        Full sample after cuts: N = 2315
-[22:35:06] INFO    ✓   Applying full-sample cuts (z > 4, log M* > 8, valid sSFR/MWA) completed in 308ms
-[22:35:06] INFO    >>> Applying multi-property cuts (adds met uncertainty < 0.5 dex)...
-[22:35:06] INFO        Multi-property sample after cuts: N = 1108
-[22:35:06] INFO    ✓   Applying multi-property cuts (adds met uncertainty < 0.5 dex) completed in 142ms
-[22:35:06] INFO    >>> Applying z > 8 dust-anomaly sample cuts...
-[22:35:06] INFO        z > 8 sample after cuts: N = 283
-[22:35:06] INFO    ✓   Applying z > 8 dust-anomaly sample cuts completed in 39ms
-[22:35:06] INFO        ── Stage 4: Sample Statistics ──────────────────────────────
-[22:35:06] INFO        Full sample:
-[22:35:06] INFO            N: 2,315
-[22:35:06] INFO            z range: [4.00, 9.99]
-[22:35:06] INFO            log M* range: [8.00, 11.14]
-[22:35:06] INFO            Median Gamma_t: N/A
-[22:35:06] INFO            Median age_ratio: 0.1593
-[22:35:06] INFO        Multi-property sample:
-[22:35:06] INFO            N: 1,108
-[22:35:06] INFO            Retention rate: 47.9%
-[22:35:06] INFO        z > 8 sample:
-[22:35:06] INFO            N: 283
-[22:35:06] INFO            Median dust (A_V): 0.8622
-[22:35:06] INFO            Median log M*: 8.3810
-[22:35:06] INFO        ── Stage 5: Saving Outputs ─────────────────────────────────
-[22:35:06] INFO    >>> Writing interim CSVs and summary JSON...
-[22:35:06] INFO        Saved: step_001_uncover_full_sample.csv (2315 rows)
-[22:35:06] INFO        Saved: step_001_uncover_multi_property_sample.csv (1108 rows)
-[22:35:06] INFO        Saved: step_001_uncover_z8_sample.csv (283 rows)
-[22:35:06] INFO        Saved: step_001_uncover_load.json
-[22:35:06] INFO    ✓   Writing interim CSVs and summary JSON completed in 239ms
-[22:35:06] INFO    
-[22:35:06] INFO    ✓   Step 001 complete — sample construction summary:
-[22:35:06] INFO    ✓     Full sample:       N =   2315
-[22:35:06] INFO    ✓     Multi-property:    N =   1108
-[22:35:06] INFO    ✓     z > 8 dust sample: N =    283
-[22:35:06] INFO    ✓     z range: [4.00, 9.99]
-[22:35:06] INFO    ✓     log M* range: [8.00, 11.14]
+[17:15:53] INFO    ═══ STEP 01: Load UNCOVER DR4 Data
+[17:15:53] INFO        Loading and quality-cutting the UNCOVER DR4 SPS catalog for TEP analysis.
+[17:15:53] INFO        Source: Wang et al. (2024, ApJS 270, 12) — Abell 2744 lensing field
+[17:15:53] INFO        Catalog file: UNCOVER_DR4_SPS_catalog.fits
+[17:15:53] INFO    
+[17:15:53] INFO        ── Stage 1: Catalog Acquisition ────────────────────────────
+[17:15:53] INFO    >>> Loading UNCOVER DR4 FITS catalog...
+[17:15:53] INFO    >>> Loading: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/uncover/UNCOVER_DR4_SPS_catalog.fits
+[17:15:53] INFO        Total sources: 74020
+[17:15:53] INFO    ✓   Loading UNCOVER DR4 FITS catalog completed in 49ms
+[17:15:53] INFO        Raw catalog contains 74020 sources
+[17:15:53] DEBUG    ·  Catalog columns available: 113 FITS fields
+[17:15:53] INFO        ── Stage 2: Column Extraction ──────────────────────────────
+[17:15:53] INFO    >>> Extracting columns into DataFrame...
+[17:15:54] INFO    ✓   Extracting columns into DataFrame completed in 194ms
+[17:15:54] INFO        Extracted 25 analysis columns
+[17:15:54] DEBUG    ·  Pre-cut column statistics:
+[17:15:54] INFO            Total sources: 74,020
+[17:15:54] INFO            z_phot range: [0.00, 19.88]
+[17:15:54] INFO            log_Mstar range: [5.77, 11.95]
+[17:15:54] INFO            Sources with valid sSFR: 73998
+[17:15:54] INFO            Sources with valid MWA: 73998
+[17:15:54] INFO            Sources with valid dust: 73998
+[17:15:54] INFO        ── Stage 3: Quality Cuts and Sample Construction ───────────
+[17:15:54] INFO        Constructing three analysis samples:
+[17:15:54] INFO          (a) Full sample — basic z/M*/sSFR/MWA cuts for correlation analyses
+[17:15:54] INFO          (b) Multi-property sample — adds metallicity quality cuts for dust/met tests
+[17:15:54] INFO          (c) z > 8 sample — isolates the dust-anomaly regime
+[17:15:54] INFO    
+[17:15:54] INFO    >>> Applying full-sample cuts (z > 4, log M* > 8, valid sSFR/MWA)...
+[17:15:54] INFO        Full sample after cuts: N = 2315
+[17:15:54] INFO    ✓   Applying full-sample cuts (z > 4, log M* > 8, valid sSFR/MWA) completed in 464ms
+[17:15:54] INFO    >>> Applying multi-property cuts (adds met uncertainty < 0.5 dex)...
+[17:15:54] INFO        Multi-property sample after cuts: N = 1108
+[17:15:54] INFO    ✓   Applying multi-property cuts (adds met uncertainty < 0.5 dex) completed in 239ms
+[17:15:54] INFO    >>> Applying z > 8 dust-anomaly sample cuts...
+[17:15:54] INFO        z > 8 sample after cuts: N = 283
+[17:15:54] INFO    ✓   Applying z > 8 dust-anomaly sample cuts completed in 62ms
+[17:15:54] INFO        ── Stage 4: Sample Statistics ──────────────────────────────
+[17:15:54] INFO        Full sample:
+[17:15:54] INFO            N: 2,315
+[17:15:54] INFO            z range: [4.00, 9.99]
+[17:15:54] INFO            log M* range: [8.00, 11.14]
+[17:15:54] INFO            Median Gamma_t: N/A
+[17:15:54] INFO            Median age_ratio: 0.1593
+[17:15:54] INFO        Multi-property sample:
+[17:15:54] INFO            N: 1,108
+[17:15:54] INFO            Retention rate: 47.9%
+[17:15:54] INFO        z > 8 sample:
+[17:15:54] INFO            N: 283
+[17:15:54] INFO            Median dust (A_V): 0.8622
+[17:15:54] INFO            Median log M*: 8.3810
+[17:15:54] INFO        ── Stage 5: Saving Outputs ─────────────────────────────────
+[17:15:54] INFO    >>> Writing interim CSVs and summary JSON...
+[17:15:54] INFO        Saved: step_001_uncover_full_sample.csv (2315 rows)
+[17:15:55] INFO        Saved: step_001_uncover_multi_property_sample.csv (1108 rows)
+[17:15:55] INFO        Saved: step_001_uncover_z8_sample.csv (283 rows)
+[17:15:55] INFO        Saved: step_001_uncover_load.json
+[17:15:55] INFO    ✓   Writing interim CSVs and summary JSON completed in 154ms
+[17:15:55] INFO    
+[17:15:55] INFO    ✓   Step 001 complete — sample construction summary:
+[17:15:55] INFO    ✓     Full sample:       N =   2315
+[17:15:55] INFO    ✓     Multi-property:    N =   1108
+[17:15:55] INFO    ✓     z > 8 dust sample: N =    283
+[17:15:55] INFO    ✓     z range: [4.00, 9.99]
+[17:15:55] INFO    ✓     log M* range: [8.00, 11.14]

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 115: Enhanced Environmental Screening Analysis
+Step 094: Enhanced Environmental Screening Analysis
 
 This script provides a more rigorous test of environmental screening by:
 1. Using multiple density estimators (Nth-neighbor, aperture counts, Voronoi)
@@ -15,7 +15,7 @@ Key TEP Prediction:
 - The dust-Gamma_t correlation should be strongest in isolated field galaxies
 
 Outputs:
-- results/outputs/step_115_environmental_screening_enhanced.json
+- results/outputs/step_094_environmental_screening_enhanced.json
 - results/figures/figure_094_environmental_screening.png
 """
 

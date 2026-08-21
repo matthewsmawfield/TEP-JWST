@@ -3,16 +3,36 @@
   "kappa_gal_uncertainty": 400000.0,
   "log_Mh_ref": 12.0,
   "z_ref": 5.5,
+  "quantity_dictionary": {
+    "potential_depth": "Psi = |Phi|/c^2 >= 0",
+    "ml_response": "R_ML > 0; observable inference response",
+    "local_clock_offset": "Delta ln A < 0 in a deeper well; not computed from KAPPA_GAL",
+    "legacy_gamma_t_column": "Alias of ml_response for compatibility"
+  },
+  "ml_response_stats_full": {
+    "min": 0.4113969414323777,
+    "max": 8.374159258810193,
+    "median": 0.6921538653116474,
+    "n_gt_1": 17,
+    "n_gt_1p5": 9
+  },
+  "ml_response_stats_multi": {
+    "min": 0.4113969414323777,
+    "max": 8.374159258810193,
+    "median": 0.7044381930861683
+  },
   "gamma_t_stats_full": {
-    "min": 0.5179122707916165,
-    "max": 5.209312694395064,
-    "median": 0.6198293440759494,
-    "n_gt_1": 12,
-    "n_gt_1p5": 5
+    "legacy_alias_for": "ml_response_stats_full",
+    "min": 0.4113969414323777,
+    "max": 8.374159258810193,
+    "median": 0.6921538653116474,
+    "n_gt_1": 17,
+    "n_gt_1p5": 9
   },
   "gamma_t_stats_multi": {
-    "min": 0.5179122707916165,
-    "max": 5.209312694395064,
-    "median": 0.6340092838054383
+    "legacy_alias_for": "ml_response_stats_multi",
+    "min": 0.4113969414323777,
+    "max": 8.374159258810193,
+    "median": 0.7044381930861683
   }
 }

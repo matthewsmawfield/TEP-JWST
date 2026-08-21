@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 102: Survey Cross-Correlation Analysis
+Step 081: Survey Cross-Correlation Analysis
 
 This script performs rigorous cross-correlation analysis between
 UNCOVER, CEERS, and COSMOS-Web surveys to validate TEP replication.
@@ -12,7 +12,7 @@ Key features:
 4. Heterogeneity tests (I², Q statistic)
 
 Outputs:
-- results/outputs/step_102_survey_cross_correlation.json
+- results/outputs/step_081_survey_cross_correlation.json
 """
 
 import numpy as np
@@ -29,7 +29,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
 from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma, stellar_to_halo_mass_behroozi_like  # TEP model: Gamma_t formula, stellar-to-halo mass from abundance matching
+from scripts.utils.tep_model import compute_gamma_t as tep_gamma, stellar_to_halo_mass_behroozi_like, compute_ml_response_self_consistent  # TEP model: Gamma_t formula, stellar-to-halo mass from abundance matching
 
 STEP_NUM = "081"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "survey_cross_correlation"  # Survey cross-correlation: homogeneous re-analysis of UNCOVER/CEERS/COSMOS-Web with I² heterogeneity tests and meta-analysis (Cochran's Q statistic)
@@ -96,9 +96,13 @@ def load_survey_data():
 
 
 def standardize_gamma_t(df):
-    """Compute Γt for each galaxy (standardized across surveys)."""
+    """Compute Γt for each galaxy (standardized across surveys).
+
+    Uses the self-consistent R_ML (damped fixed-point iteration) rather than
+    the single-pass value to avoid mass circularity in high-mass galaxies.
+    """
     df = df.copy()
-    
+
     # Ensure required columns exist
     if 'log_Mstar' not in df.columns:
         if 'mass' in df.columns:
@@ -115,30 +119,15 @@ def standardize_gamma_t(df):
             return df
 
     z_vals = df['z_phot'].astype(float).to_numpy()
+    mstar = df['log_Mstar'].astype(float).to_numpy()
 
-    if 'log_Mh' in df.columns:
-        df['log_Mh'] = pd.to_numeric(df['log_Mh'], errors='coerce')
-    else:
-        df['log_Mh'] = np.nan
-
-    mh = df['log_Mh'].astype(float).to_numpy()
-    missing = np.isnan(mh)
-    if np.any(missing):
-        mstar = df['log_Mstar'].astype(float).to_numpy()
-        mh[missing] = stellar_to_halo_mass_behroozi_like(mstar[missing], z_vals[missing])
-        df['log_Mh'] = mh
-
-    # Compute Gamma_t with clipping to prevent extreme outliers
-    gamma_t = tep_gamma(df['log_Mh'].astype(float).to_numpy(), z_vals)
-    # Clip to reasonable range (Gamma_t typically 0.5-10 for physical galaxies)
-    gamma_t = np.clip(gamma_t, 0.1, 100.0)
+    # Self-consistent R_ML: iterate M*→Mh→R_ML→M*_true to convergence
+    n_ml = np.where(z_vals > 6, 0.5, np.where(z_vals > 4, 0.9, 0.7))
+    gamma_t, log_mstar_true = compute_ml_response_self_consistent(mstar, z_vals, n=n_ml)
     df['gamma_t'] = gamma_t
-    
-    # Flag clipped values
-    n_clipped = np.sum((gamma_t <= 0.1) | (gamma_t >= 100.0))
-    if n_clipped > 0:
-        print_status(f"  Warning: {n_clipped} galaxies had Gamma_t clipped to physical range [0.1, 100]", "WARN")
-    
+    df['log_Mstar_true'] = log_mstar_true
+    df['log_Mh'] = stellar_to_halo_mass_behroozi_like(log_mstar_true, z_vals)
+
     return df
 
 

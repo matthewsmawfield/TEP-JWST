@@ -1,25 +1,25 @@
-[22:37:24] INFO    ═══ STEP 090: Permutation Battery
-[22:37:24] INFO        Surveys loaded: ['UNCOVER', 'CEERS', 'COSMOS-Web']
-[22:37:24] INFO        Config: n_perm=2000, nulls=['none', 'mass', 'z', 'mass_z'], z_min=8.0
-[22:37:24] INFO    
-[22:37:24] INFO    >>> Analysis: dust_positive_only (dust_positive_only=True)
-[22:37:24] INFO          UNCOVER: N=283
-[22:37:24] INFO          CEERS: N=82
-[22:37:24] INFO          COSMOS-Web: N=918
-[22:37:24] INFO          Meta-fixed observed: z=0.00, p=1.000e+00
-[22:37:24] INFO          Null=none: meta z_perm=0.00, p_perm=1.000e+00
-[22:37:25] INFO          Null=mass: meta z_perm=0.00, p_perm=1.000e+00
-[22:37:25] INFO          Null=z: meta z_perm=0.00, p_perm=1.000e+00
-[22:37:27] INFO          Null=mass_z: meta z_perm=0.00, p_perm=1.000e+00
-[22:37:27] INFO    
-[22:37:27] INFO    >>> Analysis: all_dust (dust_positive_only=False)
-[22:37:27] INFO          UNCOVER: N=283
-[22:37:27] INFO          CEERS: N=82
-[22:37:27] INFO          COSMOS-Web: N=2606
-[22:37:27] INFO          Meta-fixed observed: z=0.00, p=1.000e+00
-[22:37:27] INFO          Null=none: meta z_perm=0.00, p_perm=1.000e+00
-[22:37:28] INFO          Null=mass: meta z_perm=0.00, p_perm=1.000e+00
-[22:37:28] INFO          Null=z: meta z_perm=0.00, p_perm=1.000e+00
-[22:37:29] INFO          Null=mass_z: meta z_perm=0.00, p_perm=1.000e+00
-[22:37:29] INFO    
-[22:37:29] INFO    ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_090_permutation_battery.json
+[17:20:06] INFO    ═══ STEP 090: Permutation Battery
+[17:20:06] INFO        Surveys loaded: ['UNCOVER', 'CEERS', 'COSMOS-Web']
+[17:20:06] INFO        Config: n_perm=2000, nulls=['none', 'mass', 'z', 'mass_z'], z_min=8.0
+[17:20:06] INFO    
+[17:20:06] INFO    >>> Analysis: dust_positive_only (dust_positive_only=True)
+[17:20:06] INFO          UNCOVER: N=283
+[17:20:06] INFO          CEERS: N=82
+[17:20:06] INFO          COSMOS-Web: N=918
+[17:20:06] INFO          Meta-fixed observed: z=0.00, p=1.000e+00
+[17:20:06] INFO          Null=none: meta z_perm=0.00, p_perm=1.000e+00
+[17:20:07] INFO          Null=mass: meta z_perm=0.00, p_perm=1.000e+00
+[17:20:07] INFO          Null=z: meta z_perm=0.00, p_perm=1.000e+00
+[17:20:09] INFO          Null=mass_z: meta z_perm=0.00, p_perm=1.000e+00
+[17:20:09] INFO    
+[17:20:09] INFO    >>> Analysis: all_dust (dust_positive_only=False)
+[17:20:09] INFO          UNCOVER: N=283
+[17:20:09] INFO          CEERS: N=82
+[17:20:09] INFO          COSMOS-Web: N=2606
+[17:20:09] INFO          Meta-fixed observed: z=0.00, p=1.000e+00
+[17:20:09] INFO          Null=none: meta z_perm=0.00, p_perm=1.000e+00
+[17:20:10] INFO          Null=mass: meta z_perm=0.00, p_perm=1.000e+00
+[17:20:11] INFO          Null=z: meta z_perm=0.00, p_perm=1.000e+00
+[17:20:13] INFO          Null=mass_z: meta z_perm=0.00, p_perm=1.000e+00
+[17:20:13] INFO    
+[17:20:13] INFO    ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_090_permutation_battery.json

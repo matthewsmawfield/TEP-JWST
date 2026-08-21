@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 107: Effect Size Meta-Analysis with Forest Plot
+Step 084: Effect Size Meta-Analysis with Forest Plot
 
 This script performs a formal meta-analysis of effect sizes across
 all TEP tests, generating a forest plot for publication.
@@ -13,7 +13,7 @@ Key features:
 5. Publication bias assessment (funnel plot)
 
 Outputs:
-- results/outputs/step_107_effect_size_meta.json
+- results/outputs/step_084_effect_size_meta.json
 - results/figures/tep_forest_plot.png
 - results/figures/tep_funnel_plot.png
 """

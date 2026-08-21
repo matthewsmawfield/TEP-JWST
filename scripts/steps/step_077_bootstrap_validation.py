@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 97: Bootstrap Validation and Confidence Intervals
+Step 077: Bootstrap Validation and Confidence Intervals
 
 This script provides rigorous bootstrap-based confidence intervals for all
 key TEP correlations, addressing concerns about statistical robustness.

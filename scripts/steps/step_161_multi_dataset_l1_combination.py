@@ -94,8 +94,8 @@ def main():
     s032 = load_json("step_032_ceers_replication.json")
     s034 = load_json("step_034_cosmosweb_replication.json")
     s081 = load_json("step_081_survey_cross_correlation.json")
-    s184 = load_json_optional("step_156_dja_gds_morphology.json")
-    s186 = load_json_optional("step_158_dja_balmer_decrement.json")
+    s156 = load_json_optional("step_156_dja_gds_morphology.json")
+    s158 = load_json_optional("step_158_dja_balmer_decrement.json")
 
     # Dataset 1: UNCOVER z>8 (Gamma_t-dust Spearman rho from homogeneous re-analysis)
     # NOTE: step_006's z8_result stores rho(M*, dust), not rho(Gamma_t, dust).
@@ -121,19 +121,19 @@ def main():
     cosmosweb_p = cosmosweb_gamma["p_raw"]
 
     # Dataset 4: GOODS-S DJA z>4 (partial rho, controlling for M*, z)
-    if s184 and "results" in s184 and "av_z_gt_4" in s184["results"]:
-        goods_s_rho = s184["results"]["av_z_gt_4"]["rho_partial"]
-        goods_s_N   = s184["results"]["av_z_gt_4"].get("N", 1946)
-        goods_s_p   = s184["results"]["av_z_gt_4"]["p_partial"]
+    if s156 and "results" in s156 and "av_z_gt_4" in s156["results"]:
+        goods_s_rho = s156["results"]["av_z_gt_4"]["rho_partial"]
+        goods_s_N   = s156["results"]["av_z_gt_4"].get("N", 1946)
+        goods_s_p   = s156["results"]["av_z_gt_4"]["p_partial"]
     else:
         goods_s_rho, goods_s_N, goods_s_p = None, 0, None
 
     # Dataset 5: NIRSpec Balmer z>2 (spectroscopic Ha/Hb, partial rho)
-    balmer_catalog = str(s186.get("catalog_used", "")) if s186 else ""
-    balmer_reproducible = bool(s186.get("reproducible_dja_available")) if s186 else False
-    balmer_rho = s186.get("partial_rho_full") if s186 else None
-    balmer_N = s186.get("n_total_z2", 0) if s186 else 0
-    balmer_p = s186.get("partial_p_full") if s186 else None
+    balmer_catalog = str(s158.get("catalog_used", "")) if s158 else ""
+    balmer_reproducible = bool(s158.get("reproducible_dja_available")) if s158 else False
+    balmer_rho = s158.get("partial_rho_full") if s158 else None
+    balmer_N = s158.get("n_total_z2", 0) if s158 else 0
+    balmer_p = s158.get("partial_p_full") if s158 else None
     balmer_available = (
         balmer_reproducible
         and balmer_rho is not None

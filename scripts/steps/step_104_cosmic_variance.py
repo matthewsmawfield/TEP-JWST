@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 127: Cosmic Variance Quantification
+Step 104: Cosmic Variance Quantification
 
 Estimates field-to-field variance and its impact on combined statistics
 across the three JWST surveys (UNCOVER, CEERS, COSMOS-Web).

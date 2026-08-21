@@ -1,27 +1,27 @@
-[08:54:58] INFO        ======================================================================
-[08:54:58] INFO        STEP 140: Final Synthesis
-[08:54:58] INFO        ======================================================================
-[08:54:58] INFO        
+[22:04:02] INFO        ======================================================================
+[22:04:02] INFO        STEP 140: Final Synthesis
+[22:04:02] INFO        ======================================================================
+[22:04:02] INFO        
 Loaded N = 2315 galaxies
-[08:54:58] INFO        
+[22:04:02] INFO        
 ======================================================================
-[08:54:58] INFO        LIVE SYNTHESIS
-[08:54:58] INFO        ======================================================================
-[08:54:58] INFO          Live primary lines: 2
-[08:54:58] INFO          Skipped primary lines: 0
-[08:54:58] INFO          Missing primary lines: 0
-[08:54:58] INFO          L1: Fisher z = 23.55σ across 3 datasets
-[08:54:58] INFO          L3: Δρ = 0.250, high-z ρ = 0.087
-[08:54:58] INFO          L4 (derived_from_real_data): published excess 0.150 dex, TEP reduction 0.256 dex
-[08:54:58] INFO          L5 (live kinematics): kinematic_support_with_small_sample_caveat; ρ(Age, M_star|z)=0.493 (p=6.199e-02) vs ρ(Age, Γ_dyn|z)=0.717 (p=2.616e-03); ρ(Age, Γ_dyn|M_star,z)=0.599 vs ρ(Age, M_star|Γ_dyn,z)=0.024; Steiger Z=1.291
-[08:54:58] INFO          κ_gal concordance: JWST 1.156e+06 ± 5.577e+05; external Cepheid prior 9.600e+05 ± 4.000e+05 mag; agreement = 0.28σ (p = 1.000)
-[08:54:58] INFO          Cross-survey generalization: mean Δρ = -0.227; mean polynomial R² drop = 3.063
-[08:54:58] INFO          Adversarial information: z>8 CMI z = 0.00; mean cross-survey Δρ = -0.036
-[08:54:58] INFO          Functional-form discrimination: step ΔAIC = 23.18
-[08:54:58] INFO          Mass-bias attenuation: ρ_true ≈ 0.716; β=0.7 observed ρ ≈ 0.513
-[08:54:58] INFO          JADES DR5 morphology: supportive partials = 1; strongest = gini_z_gt_7
-[08:54:58] INFO          COSMOS2025 blank-field L3: matched_z8_9_supportive_but_ultrahighz_mixed
-[08:54:58] INFO          UNCOVER z=9-12 audit: None
-[08:54:58] INFO          Environmental screening: full-sample Δρ = 0.293; z>8 Δρ = 0.111 (p = 0.245)
-[08:54:58] INFO        
+[22:04:02] INFO        LIVE SYNTHESIS
+[22:04:02] INFO        ======================================================================
+[22:04:02] INFO          Live primary lines: 2
+[22:04:02] INFO          Skipped primary lines: 0
+[22:04:02] INFO          Missing primary lines: 0
+[22:04:02] INFO          L1: Fisher z = 24.86σ across 3 datasets
+[22:04:02] INFO          L3: Δρ = 0.250, high-z ρ = 0.087
+[22:04:02] INFO          L4 (derived_from_real_data): published excess 0.150 dex, TEP reduction 0.270 dex
+[22:04:02] INFO          L5 (live kinematics): kinematic_support_with_small_sample_caveat; ρ(Age, M_star|z)=0.493 (p=6.199e-02) vs ρ(Age, Γ_dyn|z)=0.690 (p=4.418e-03); ρ(Age, Γ_dyn|M_star,z)=0.556 vs ρ(Age, M_star|Γ_dyn,z)=0.031; Steiger Z=1.143
+[22:04:02] INFO          κ_gal concordance: JWST 5.990e+05 ± 3.788e+05; external Cepheid prior 9.600e+05 ± 4.000e+05 mag; agreement = 0.66σ (p = 1.000)
+[22:04:02] INFO          Cross-survey generalization: mean Δρ = -0.134; mean polynomial R² drop = 3.063
+[22:04:02] INFO          Adversarial information: z>8 CMI z = 0.00; mean cross-survey Δρ = 0.015
+[22:04:02] INFO          Functional-form discrimination: step ΔAIC = 0.25
+[22:04:02] INFO          Mass-bias attenuation: ρ_true ≈ 0.716; β=0.7 observed ρ ≈ 0.513
+[22:04:02] INFO          JADES DR5 morphology: supportive partials = 1; strongest = gini_z_gt_7
+[22:04:02] INFO          COSMOS2025 blank-field L3: no_supportive_matched_highz_replication
+[22:04:02] INFO          UNCOVER z=9-12 audit: None
+[22:04:02] INFO          Environmental screening: full-sample Δρ = 0.301; z>8 Δρ = 0.066 (p = 0.425)
+[22:04:02] INFO        
 Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_140_evidence_tier_summary.json

@@ -1,47 +1,47 @@
-[22:38:53] INFO        ======================================================================
-[22:38:53] INFO        STEP 111: Power Analysis for Key Tests
-[22:38:53] INFO        ======================================================================
-[22:38:53] WARNING ⚠   Could not load step_102: [Errno 2] No such file or directory: '/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_102_survey_cross_correlation.json'; using fallback values
-[22:38:53] INFO        
+[17:22:52] INFO        ======================================================================
+[17:22:52] INFO        STEP 111: Power Analysis for Key Tests
+[17:22:52] INFO        ======================================================================
+[17:22:52] INFO        Loaded survey correlations from step_081_survey_cross_correlation.json
+[17:22:52] INFO        
 --- Power Analysis Results ---
-[22:38:53] INFO        Test                                     N        ρ    Power    Min ρ   Adequate
-[22:38:53] INFO        -------------------------------------------------------------------------------------
-[22:38:53] INFO        UNCOVER z>8 Dust-Γₜ                    283    0.593     1.00    0.166          ✓
-[22:38:53] INFO        CEERS z>8 Dust-Γₜ                       82    0.660     1.00    0.305          ✓
-[22:38:53] INFO        COSMOS-Web z>8 Dust-Γₜ                 918    0.629     1.00    0.092          ✓
-[22:38:53] INFO        Combined z>8 Dust-Γₜ                  1283    0.623     1.00    0.078          ✓
-[22:38:53] INFO        Spectroscopic (global)                 147   -0.136     0.38    0.229          ✗
-[22:38:53] INFO        Spectroscopic (z=4-6)                   77    0.348     0.88    0.315          ✓
-[22:38:53] INFO        Spectroscopic (z=6-8)                   38    0.266     0.36    0.441          ✗
-[22:38:53] INFO        Spectroscopic (bin-normalized)         147    0.312     0.97    0.229          ✓
-[22:38:53] INFO        Red Monsters (N=3)                       3    0.500     0.00    1.000          ✗
-[22:38:53] INFO        Mass-Age (UNCOVER)                    2315    0.135     1.00    0.058          ✓
-[22:38:53] INFO        Inside-Out Screening                   500   -0.180     0.98    0.125          ✓
-[22:38:53] INFO        Environmental Screening                200    0.250     0.95    0.197          ✓
-[22:38:53] INFO        Dust-Γₜ | M* (z>8)                     283    0.280     1.00    0.166          ✓
-[22:38:53] INFO        
+[17:22:52] INFO        Test                                     N        ρ    Power    Min ρ   Adequate
+[17:22:52] INFO        -------------------------------------------------------------------------------------
+[17:22:52] INFO        UNCOVER z>8 Dust-Γₜ                    283    0.581     1.00    0.166          ✓
+[17:22:52] INFO        CEERS z>8 Dust-Γₜ                       82    0.656     1.00    0.305          ✓
+[17:22:52] INFO        COSMOS-Web z>8 Dust-Γₜ                 918    0.630     1.00    0.092          ✓
+[17:22:52] INFO        Combined z>8 Dust-Γₜ                  1283    0.623     1.00    0.078          ✓
+[17:22:52] INFO        Spectroscopic (global)                 147   -0.136     0.38    0.229          ✗
+[17:22:52] INFO        Spectroscopic (z=4-6)                   77    0.348     0.88    0.315          ✓
+[17:22:52] INFO        Spectroscopic (z=6-8)                   38    0.266     0.36    0.441          ✗
+[17:22:52] INFO        Spectroscopic (bin-normalized)         147    0.312     0.97    0.229          ✓
+[17:22:52] INFO        Red Monsters (N=3)                       3    0.500     0.00    1.000          ✗
+[17:22:52] INFO        Mass-Age (UNCOVER)                    2315    0.135     1.00    0.058          ✓
+[17:22:52] INFO        Inside-Out Screening                   500   -0.180     0.98    0.125          ✓
+[17:22:52] INFO        Environmental Screening                200    0.250     0.95    0.197          ✓
+[17:22:52] INFO        Dust-Γₜ | M* (z>8)                     283    0.280     1.00    0.166          ✓
+[17:22:52] INFO        
 ======================================================================
-[22:38:53] INFO        SUMMARY
-[22:38:53] INFO        ======================================================================
-[22:38:53] INFO        
+[17:22:52] INFO        SUMMARY
+[17:22:52] INFO        ======================================================================
+[17:22:52] INFO        
 Total tests analyzed: 13
-[22:38:53] INFO        Adequately powered (≥80%): 10/13 (77%)
-[22:38:53] INFO        Large effect sizes (|ρ| ≥ 0.5): 5/13
-[22:38:53] INFO        
+[17:22:52] INFO        Adequately powered (≥80%): 10/13 (77%)
+[17:22:52] INFO        Large effect sizes (|ρ| ≥ 0.5): 5/13
+[17:22:52] INFO        
 --- Underpowered Tests ---
-[22:38:53] INFO          Spectroscopic (global): N=147, power=0.38
-[22:38:53] INFO            → Need N≥423 for 80% power
-[22:38:53] INFO          Spectroscopic (z=6-8): N=38, power=0.36
-[22:38:53] INFO            → Need N≥109 for 80% power
-[22:38:53] INFO          Red Monsters (N=3): N=3, power=0.00
-[22:38:53] INFO            → Need N≥30 for 80% power
-[22:38:53] INFO        
+[17:22:52] INFO          Spectroscopic (global): N=147, power=0.38
+[17:22:52] INFO            → Need N≥423 for 80% power
+[17:22:52] INFO          Spectroscopic (z=6-8): N=38, power=0.36
+[17:22:52] INFO            → Need N≥109 for 80% power
+[17:22:52] INFO          Red Monsters (N=3): N=3, power=0.00
+[17:22:52] INFO            → Need N≥30 for 80% power
+[17:22:52] INFO        
 --- Key Findings ---
-[22:38:53] INFO          1. Primary dust-Γₜ correlations are highly powered (>99%)
-[22:38:53] INFO          2. Red Monsters (N=3) is illustrative only, not statistically robust
-[22:38:53] INFO          3. Spectroscopic z=6-8 bin is marginally powered (N=38)
-[22:38:53] INFO          4. Combined analyses provide robust statistical power
-[22:38:53] INFO        
+[17:22:52] INFO          1. Primary dust-Γₜ correlations are highly powered (>99%)
+[17:22:52] INFO          2. Red Monsters (N=3) is illustrative only, not statistically robust
+[17:22:52] INFO          3. Spectroscopic z=6-8 bin is marginally powered (N=38)
+[17:22:52] INFO          4. Combined analyses provide robust statistical power
+[17:22:52] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_111_power_analysis.json
-[22:38:53] INFO        
+[17:22:52] INFO        
 Step 111 complete.

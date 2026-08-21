@@ -31,6 +31,7 @@ set_step_logger(logger)
 import numpy as np
 from scripts.utils.tep_model import (
     compute_gamma_t, stellar_to_halo_mass_behroozi_like,
+    compute_ml_response_self_consistent,
     correct_stellar_mass, isochrony_mass_bias, KAPPA_GAL  # Shared TEP model
 )
 
@@ -51,14 +52,18 @@ N_IMPOSSIBLE_LABBE = 9      # Labbe+2023 reported 9 anomalous galaxies
 
 
 def tep_mass_correction_at_z(z, log_mstar=10.5):
-    """Compute TEP mass correction at a given z for typical massive galaxy."""
-    log_mh   = stellar_to_halo_mass_behroozi_like(np.array([log_mstar]), np.array([z]))[0]
-    # Use the canonical potential-linear Gamma_t form (v0.7+ harmonized)
-    from scripts.utils.tep_model import compute_gamma_t
-    gamma_t  = float(compute_gamma_t(log_mh, z))
-    bias_n   = isochrony_mass_bias(gamma_t)  # returns linear ratio M_obs/M_true = Gamma_t^n
-    correction_dex = float(np.log10(bias_n))  # convert to dex correction
-    log_m_corr = log_mstar - correction_dex  # true log M*
+    """Compute TEP mass correction at a given z for typical massive galaxy.
+
+    Uses the self-consistent R_ML (damped fixed-point iteration) rather than
+    the single-pass value to avoid the mass circularity that overcorrects
+    high-mass galaxies.
+    """
+    gamma_t_arr, log_m_corr_arr = compute_ml_response_self_consistent(
+        np.array([log_mstar]), np.array([z])
+    )
+    gamma_t = float(gamma_t_arr[0])
+    log_m_corr = float(log_m_corr_arr[0])
+    correction_dex = log_mstar - log_m_corr
     return float(gamma_t), float(log_m_corr), correction_dex
 
 

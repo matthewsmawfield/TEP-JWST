@@ -1,12 +1,7 @@
-v0.6 (Kos) — 19 August 2026 — Canonical TEP architecture alignment: terminology and screening hierarchy updates
+v0.6 (Kos) — 21 August 2026 — Canonical TEP architecture alignment: terminology and screening hierarchy updates
 
-v0.5 (Kos) — 05 June 2026 — Renamed conformal coupling notation from beta_conf to beta_A to avoid PPN collision
-
-v0.4 (Kos) — Continuous Screening Terminology & Theory Alignment
-
-- Replaced discrete thin-shell terminology with continuous geometric screening throughout manuscript, aligning with Temporal Topology framework.
-- Harmonized clock-sector coupling nomenclature: κ_gal = (9.6 ± 4.0) × 10^5 mag as Observable Response Coefficient (Paper 11 Cepheid prior).
-- Expanded methodology section with detailed SUSPENSE kinematic test protocol and mass-proxy circularity controls.
-- Refined PPN safety exposition: Temporal Shear as non-linear field gradient superposition ensuring local constraints.
-- Updated discussion with resolved-screening branch analysis and environmental screening interpretation.
-- Minor corrections to blue monster sample (N=3 verified Xiao+24 objects) and Gamma_t table values.
+- Switched the main variable name from "Temporal Enhancement Factor" ($\Gamma_t$) to "Mass-to-Light Inference Response" ($R_{\rm ML}$).
+- Upgraded the Bayesian model comparison by using a covariance-corrected joint test to account for correlated errors.
+- Dropped the phenomenological "Log-Mass" approximation to rely entirely on the more rigorous "Potential-Linear" formula.
+- Stratified the mixed kinematic data into emission-line and absorption-line subsets for a more accurate diagnostic.
+- Registered a slight, negligible drop in the omnibus Fisher combination significance from $24.4\sigma$ to $23.5\sigma$.

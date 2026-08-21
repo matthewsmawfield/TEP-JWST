@@ -2,8 +2,8 @@
   "step": 87,
   "name": "Compactness Verification",
   "n_matched": 40,
-  "calibration_k": 1.3796872918381418e-11,
-  "mean_boost": 1.312489830309778,
-  "median_boost": 1.3777976979549134,
+  "calibration_k": 3.062027401483649e-11,
+  "mean_boost": 1.242357848043212,
+  "median_boost": 1.3225000450298197,
   "conclusion": "Resolved"
 }

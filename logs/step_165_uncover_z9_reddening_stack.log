@@ -1,6 +1,6 @@
-[23:45:36] INFO    ═══ STEP 165: UNCOVER z=9-12 stacked reddening surrogate
-[23:45:36] INFO        Selected N=122 galaxies at z=9-12 with dust2 posteriors
-[23:45:36] INFO          Posterior-broad subset: N=61, median σ_dust2=0.493
-[23:45:38] INFO        Built 4 contrasts: full q33/q67, full q25/q75, broad q33/q67, broad q25/q75
-[23:45:38] INFO        Primary broad-tail dust2 contrast Δ=0.287 with 95% CI [0.101, 0.490]
-[23:45:38] INFO        The posterior-broad z=9-12 tail shows a supportive stacked reddening contrast: high-Gamma_t objects are redder on average in dust2 and rest-frame colours even where individual posteriors are broad.
+[19:00:07] INFO    ═══ STEP 165: UNCOVER z=9-12 stacked reddening surrogate
+[19:00:07] INFO        Selected N=122 galaxies at z=9-12 with dust2 posteriors
+[19:00:07] INFO          Posterior-broad subset: N=61, median σ_dust2=0.493
+[19:00:12] INFO        Built 4 contrasts: full q33/q67, full q25/q75, broad q33/q67, broad q25/q75
+[19:00:12] INFO        Primary broad-tail dust2 contrast Δ=0.287 with 95% CI [0.103, 0.490]
+[19:00:12] INFO        The posterior-broad z=9-12 tail shows a supportive stacked reddening contrast: high-Gamma_t objects are redder on average in dust2 and rest-frame colours even where individual posteriors are broad.

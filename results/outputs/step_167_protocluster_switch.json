@@ -99,17 +99,17 @@
     "density_threshold_field_q25": null,
     "density_threshold_dense_q75": null,
     "density_split_method": "within_footprint_q25_q75",
-    "field_median": -0.11007874088865965,
-    "dense_median": -0.006198788935739552,
-    "field_mean": -0.02634931442304156,
-    "dense_mean": 0.07088996772767124,
-    "delta_dense_minus_field": 0.0972392821507128,
+    "field_median": -0.11007874088866165,
+    "dense_median": -0.0061987889357419945,
+    "field_mean": -0.026349314423043127,
+    "dense_mean": 0.0708899677276697,
+    "delta_dense_minus_field": 0.09723928215071283,
     "bootstrap_ci_95": [
-      -0.009059026775720154,
-      0.20588271037178615
+      -0.009059026775720208,
+      0.2058827103717861
     ],
     "bootstrap_one_sided_p_dense_less_than_field": 0.9650087478130467,
-    "mannwhitney_p_two_sided": 0.04316779765256803,
+    "mannwhitney_p_two_sided": 0.04316779765256804,
     "matched_cell_median_deltas_dense_minus_field": [],
     "n_matched_cells": 0,
     "n_matched_cells_supporting_tep": 0

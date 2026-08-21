@@ -1,33 +1,31 @@
 #!/usr/bin/env python3
 # Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): 0.7s.
 """
-TEP-JWST Step 2: TEP Model and Gamma_t Calculation
+TEP-JWST Step 2: Potential-Depth and Observable-Response Calculation
 
-This step applies the TEP model to compute chronological enhancement
-factors (Gamma_t) for all galaxies in the sample.
+This step computes the positive halo potential-depth proxy and the empirical
+mass-to-light inference response for every galaxy in the sample.
 
-TEP Model (Potential-Linear Form):
-    Gamma_t = exp[ K * (Phi - Phi_ref)/c^2 * sqrt(1+z) ]
-    
+TEP Observable Response (Potential-Linear Form):
+    R_ML = exp[ K * (Psi - Psi_ref) * sqrt(1+z) ]
+
     where:
-    - K = 1.26e6 (clock-sector coupling)
-    - Phi = Potential depth (propto M_h^(2/3))
-    - Phi_ref = Reference potential depth
-    - sqrt(1+z) = Background field evolution
-    
-    The exponential form ensures Gamma_t > 0 always:
-    - Gamma_t > 1: Enhanced proper time (deeper potential)
-    - Gamma_t < 1: Suppressed proper time (shallower potential)
-    - Gamma_t = 1: Reference potential (log_Mh = 12)
+    - K is the magnitude-sector observable response coefficient
+    - Psi = |Phi|/c^2 is positive potential depth
+    - Psi_ref is the reference potential depth
+    - sqrt(1+z) is the adopted response-evolution factor
+
+R_ML is positive and is not the conformal factor A, a local proper-time ratio,
+or the microscopic scalar coupling.
 
 Inputs:
 - results/interim/uncover_full_sample.csv
 - results/interim/uncover_multi_property_sample.csv
 
 Outputs:
-- results/interim/uncover_full_sample_tep.csv (with Gamma_t)
-- results/interim/uncover_multi_property_sample_tep.csv (with Gamma_t)
-- results/interim/step_6_summary.json
+- results/interim/uncover_full_sample_tep.csv (with R_ML)
+- results/interim/uncover_multi_property_sample_tep.csv (with R_ML)
+- results/outputs/step_002_tep_model.json
 """
 
 import sys
@@ -72,40 +70,29 @@ set_step_logger(logger)  # Register as global step logger so print_status() rout
 # Mathematical constants imported from scripts/utils/tep_model.py:
 #
 # KAPPA_GAL = 9.6e5 mag (Observable Response Coefficient)
-#   - Clock-sector coupling from Cepheid calibration (Paper 11)
-#   - Represents the astrophysical response in magnitude units
-#   - Distinct from bare coupling β; includes P-L slope and virial factors
+#   - Calibrated from the Paper 11 environmental ladder response
+#   - Distinct from beta_A, A(phi), and a local proper-time ratio
 #
 # KAPPA_GAL_UNCERTAINTY = 4.0e5 mag
-#   - 1-sigma uncertainty from Cepheid distance ladder analysis
-#   - Propagates to ~40% uncertainty in predicted Gamma_t at typical masses
+#   - 1-sigma uncertainty from the distance-ladder response analysis
 #
 # LOG_MH_REF = 12.0  (log10(M_halo/Msun))
-#   - Reference halo mass where Gamma_t = 1 by definition
-#   - Chosen near the knee of the SMHM relation where M* is well-constrained
-#   - Mathematically: Gamma_t(M_h = M_ref, z = z_ref) = 1 exactly
+#   - Reference halo mass where R_ML = 1 by definition
 #
 # Z_REF = 5.5  (dimensionless)
-#   - Reference redshift for TEP calculations
-#   - Redshift scaling: alpha(z) = KAPPA_GAL * sqrt(1+z)
+#   - Reference redshift for response calculations
 #
-# tep_alpha(z)  ->  KAPPA_GAL * sqrt(1+z)
-#   - Redshift-dependent coupling from TEP theory (Paper 0, Eq. 3)
-#   - Derivation: scalar field kinetic term scaling with cosmic density
+# compute_ml_response(log_Mh, z)
+#   - Uses positive Psi = |Phi|/c^2 as the environmental predictor
+#   - Returns R_ML > 0 without identifying it with a local clock rate
 #
-# compute_gamma_t(log_Mh, z)  ->  exp[ K * (Phi - Phi_ref)/c^2 * sqrt(1+z) ]
-#   - Exponential form ensures Gamma_t > 0 always
-#   - The potential Phi is computed from log_Mh via M_h^(2/3)
-#   - The sqrt(1+z) accounts for background field strength evolution
-#
-# isochrony_mass_bias(gamma_t, n_ML=0.7)  ->  n_ML * log10(gamma_t)
-#   - Predicted stellar mass bias from enhanced proper time
-#   - n_ML ~ 0.7 from M/L ~ t^0.7 (mass-to-light evolves with age)
-#   - Bias in dex: M*_obs / M*_true = Gamma_t^(n_ML)
+# ml_inference_bias(response, n_ML=0.7)
+#   - Bias in inferred mass: M*_obs / M*_true = R_ML^(n_ML)
 
 from scripts.utils.tep_model import (
     KAPPA_GAL, KAPPA_GAL_UNCERTAINTY, LOG_MH_REF, Z_REF,
-    tep_alpha, compute_gamma_t as tep_gamma, isochrony_mass_bias
+    tep_alpha, compute_ml_response, compute_ml_response_self_consistent,
+    ml_inference_bias, stellar_to_halo_mass_behroozi_like
 )
 
 # =============================================================================
@@ -113,69 +100,41 @@ from scripts.utils.tep_model import (
 # =============================================================================
 
 def apply_tep_model(df):
-    """Apply TEP model to compute Gamma_t and derived quantities.
+    """Compute the observable M/L response and derived inference quantities.
 
-    For each galaxy, this function computes:
+    The output retains legacy ``gamma_t`` and ``t_eff`` columns for file-format
+    compatibility. They are aliases of ``ml_response`` and
+    ``t_inferred_proxy`` and must not be interpreted as local clock rates or
+    accumulated matter-frame proper time.
 
-    1. alpha(z) = kappa_gal * sqrt(1+z)
-       The redshift-dependent TEP coupling strength. The sqrt(1+z) factor
-       arises because the scalar field gradient scales with the expansion
-       rate, which increases at earlier epochs.
-
-    2. Gamma_t = exp[ K * (Phi - Phi_ref) * sqrt(1+z) * z_scaling ]
-       The chronological enhancement factor. Gamma_t encodes how much
-       faster (>1) or slower (<1) proper time accumulates in a halo of
-       potential Phi relative to the reference potential Phi_ref.
-       The sqrt(1+z) factor accounts for the background field strength.
-
-    3. t_eff = t_cosmic * Gamma_t
-       The effective proper time experienced by stellar populations.
-       SED fitting interprets this elapsed proper time as the apparent
-       stellar age, so galaxies with Gamma_t > 1 appear older than the
-       cosmic age at their redshift.
-
-    4. ml_bias = Gamma_t^n_ml
-       The isochrony mass-to-light bias. When SED fitting assumes
-       standard time flow, a stellar population that has evolved for
-       longer proper time is assigned a higher M/L ratio, leading to
-       an overestimated stellar mass:
-         M*_apparent / M*_true = Gamma_t^n_ml
-       The exponent n_ml depends on the age-metallicity degeneracy
-       and varies with redshift (calibrated in step_044 forward modeling):
-         n_ml ~ 0.9 at z = 4-6  (moderate metallicity, strong M/L-age slope)
-         n_ml ~ 0.5 at z > 6    (low metallicity, flatter M/L-age slope)
-         n_ml = 0.7 default      (intermediate fallback)
-
-    5. log_Mstar_true = log_Mstar - log10(ml_bias)
-       The TEP-corrected (de-biased) stellar mass, removing the
-       isochrony-induced overestimate.
+    Uses the self-consistent R_ML (damped fixed-point iteration) rather than
+    the single-pass value.  The single-pass computation evaluates R_ML from
+    the observed (biased) mass via log_Mh, creating a mass circularity that
+    overcorrects high-mass galaxies.  The self-consistent solution iterates
+    M*→Mh→R_ML→M*_true to a stable fixed point.
     """
-    
     df = df.copy()
-    
-    # alpha(z) = kappa_gal * sqrt(1+z): redshift-dependent coupling strength
-    df['response_z'] = tep_alpha(df['z_phot'].values)
-    
-    # Gamma_t: chronological enhancement factor from halo mass and redshift
-    df['gamma_t'] = tep_gamma(df['log_Mh'].values, df['z_phot'].values)
-    
-    # Effective proper time experienced by stellar populations [Gyr]
-    # Gamma_t is always positive (exponential form), so t_eff > 0 always
-    df['t_eff'] = df['t_cosmic'] * df['gamma_t']
-    
-    # Isochrony mass-to-light bias: M/L_apparent = M/L_true * Gamma_t^n_ml
-    # n_ml is redshift-dependent because the slope of the M/L-age relation
-    # changes with metallicity (which evolves with redshift)
     z = df['z_phot'].values
     n_ml = np.where(z > 6, 0.5, np.where(z > 4, 0.9, 0.7))
     df['n_ml'] = n_ml
-    
-    # Floor Gamma_t at 0.01 to prevent log(0) in edge cases
-    df['ml_bias'] = np.power(np.maximum(df['gamma_t'].values, 0.01), n_ml)
-    
-    # TEP-corrected stellar mass: remove the isochrony overestimate
-    df['log_Mstar_true'] = df['log_Mstar'] - np.log10(df['ml_bias'])
-    
+
+    # Self-consistent R_ML: iterate M*→Mh→R_ML→M*_true to convergence
+    # The redshift-dependent n_ml array is passed through to the iteration
+    df['response_z'] = tep_alpha(z)
+    ml_response, log_mstar_true = compute_ml_response_self_consistent(
+        df['log_Mstar'].values, z, n=n_ml
+    )
+    df['ml_response'] = ml_response
+    df['gamma_t'] = df['ml_response']
+    df['t_inferred_proxy'] = df['t_cosmic'] * df['ml_response']
+    df['t_eff'] = df['t_inferred_proxy']
+
+    # Update log_Mh from the corrected (true) stellar mass
+    df['log_Mh'] = stellar_to_halo_mass_behroozi_like(log_mstar_true, z)
+
+    df['ml_bias'] = ml_inference_bias(df['ml_response'].values, n_ml)
+    df['log_Mstar_true'] = log_mstar_true
+
     return df
 
 # =============================================================================
@@ -183,8 +142,8 @@ def apply_tep_model(df):
 # =============================================================================
 
 def main():
-    print_status("STEP 002: TEP Model and Gamma_t Calculation", "TITLE")
-    print_status("Applying the potential-linear TEP model to compute chronological enhancement factors.", "INFO")
+    print_status("STEP 002: TEP Model and R_ML Calculation", "TITLE")
+    print_status("Computing the potential-depth environmental predictor and M/L inference response.", "INFO")
     print_status("")
 
     # ------------------------------------------------------------------
@@ -192,8 +151,8 @@ def main():
     # ------------------------------------------------------------------
     log_subsection("Stage 1: TEP Model Parameters")
 
-    print_status("Potential-linear Gamma_t formula:", "INFO")
-    print_status("  Gamma_t = exp[ K * (Phi - Phi_ref)/c^2 * sqrt(1+z) ]", "INFO")
+    print_status("Potential-linear R_ML formula:", "INFO")
+    print_status("  R_ML = exp[ K * (Psi - Psi_ref) * sqrt(1+z) ]", "INFO")
     print_status("")
     log_data("kappa_gal (response coefficient)", f"{KAPPA_GAL} ± {KAPPA_GAL_UNCERTAINTY} mag")
     log_data("kappa_gal source", "Cepheid calibration (Paper 11), transferred via K_gal")
@@ -232,14 +191,14 @@ def main():
     # ------------------------------------------------------------------
     # Stage 3: Apply TEP model
     # ------------------------------------------------------------------
-    log_subsection("Stage 3: Computing Gamma_t and Derived Quantities")
+    log_subsection("Stage 3: Computing R_ML and Derived Quantities")
 
     print_status("Computing per-galaxy:", "INFO")
-    print_status("  (a) alpha(z) = kappa_gal * sqrt(1+z)  — redshift-dependent coupling", "INFO")
-    print_status("  (b) Gamma_t  = exp[...]               — chronological enhancement factor", "INFO")
-    print_status("  (c) t_eff    = t_cosmic * Gamma_t     — effective proper time [Gyr]", "INFO")
-    print_status("  (d) ml_bias  = Gamma_t^n_ml            — isochrony mass-to-light bias", "INFO")
-    print_status("  (e) log_Mstar_true = log_Mstar - log10(ml_bias)  — TEP-corrected mass", "INFO")
+    print_status("  (a) response_z = kappa_gal * sqrt(1+z) — response evolution", "INFO")
+    print_status("  (b) R_ML = exp[...]                      — observable inference response", "INFO")
+    print_status("  (c) t_inferred_proxy = t_cosmic * R_ML  — observer-side proxy [Gyr]", "INFO")
+    print_status("  (d) ml_bias = R_ML^n_ml                  — mass-to-light inference bias", "INFO")
+    print_status("  (e) log_Mstar_true = log_Mstar - log10(ml_bias) — corrected mass", "INFO")
     print_status("")
 
     with log_timing("Applying TEP model to full sample"):
@@ -249,34 +208,34 @@ def main():
         df_multi = apply_tep_model(df_multi)
 
     # ------------------------------------------------------------------
-    # Stage 4: Report Gamma_t distribution statistics
+    # Stage 4: Report R_ML distribution statistics
     # ------------------------------------------------------------------
-    log_subsection("Stage 4: Gamma_t Distribution Statistics")
+    log_subsection("Stage 4: R_ML Distribution Statistics")
 
     print_status("Full sample:", "INFO")
     log_data("N", len(df_full), indent=4)
-    log_data("Gamma_t min", df_full['gamma_t'].min(), indent=4)
-    log_data("Gamma_t max", df_full['gamma_t'].max(), indent=4)
-    log_data("Gamma_t median", df_full['gamma_t'].median(), indent=4)
-    log_data("Gamma_t mean", df_full['gamma_t'].mean(), indent=4)
-    log_data("N (Gamma_t > 1)", int((df_full['gamma_t'] > 1).sum()), indent=4)
-    log_data("N (Gamma_t > 1.5)", int((df_full['gamma_t'] > 1.5).sum()), indent=4)
-    log_data("N (Gamma_t > 2.0)", int((df_full['gamma_t'] > 2.0).sum()), indent=4)
-    log_data("t_eff range [Gyr]", f"[{df_full['t_eff'].min():.3f}, {df_full['t_eff'].max():.3f}]", indent=4)
+    log_data("R_ML min", df_full['ml_response'].min(), indent=4)
+    log_data("R_ML max", df_full['ml_response'].max(), indent=4)
+    log_data("R_ML median", df_full['ml_response'].median(), indent=4)
+    log_data("R_ML mean", df_full['ml_response'].mean(), indent=4)
+    log_data("N (R_ML > 1)", int((df_full['ml_response'] > 1).sum()), indent=4)
+    log_data("N (R_ML > 1.5)", int((df_full['ml_response'] > 1.5).sum()), indent=4)
+    log_data("N (R_ML > 2.0)", int((df_full['ml_response'] > 2.0).sum()), indent=4)
+    log_data("Inferred-time proxy range [Gyr]", f"[{df_full['t_inferred_proxy'].min():.3f}, {df_full['t_inferred_proxy'].max():.3f}]", indent=4)
 
     print_status("Multi-property sample:", "INFO")
     log_data("N", len(df_multi), indent=4)
-    log_data("Gamma_t median", df_multi['gamma_t'].median(), indent=4)
+    log_data("R_ML median", df_multi['ml_response'].median(), indent=4)
     log_data("Mass bias median (dex)", df_multi['ml_bias'].apply(np.log10).median(), indent=4)
 
     # Per-redshift breakdown
-    print_status("Per-redshift Gamma_t (full sample):", "DEBUG")
+    print_status("Per-redshift R_ML (full sample):", "DEBUG")
     for z_lo, z_hi in [(4, 6), (6, 7), (7, 8), (8, 9), (9, 10)]:
         sub = df_full[(df_full['z_phot'] >= z_lo) & (df_full['z_phot'] < z_hi)]
         if len(sub) > 0:
             print_status(f"  z=[{z_lo},{z_hi}): N={len(sub):>5}, "
-                         f"median Gamma_t={sub['gamma_t'].median():.3f}, "
-                         f"median t_eff={sub['t_eff'].median():.3f} Gyr", "DEBUG")
+                         f"median R_ML={sub['ml_response'].median():.3f}, "
+                         f"median inferred-time proxy={sub['t_inferred_proxy'].median():.3f} Gyr", "DEBUG")
 
     print_status("")
 
@@ -297,17 +256,37 @@ def main():
             "kappa_gal_uncertainty": KAPPA_GAL_UNCERTAINTY,
             "log_Mh_ref": LOG_MH_REF,
             "z_ref": Z_REF,
+            "quantity_dictionary": {
+                "potential_depth": "Psi = |Phi|/c^2 >= 0",
+                "ml_response": "R_ML > 0; observable inference response",
+                "local_clock_offset": "Delta ln A < 0 in a deeper well; not computed from KAPPA_GAL",
+                "legacy_gamma_t_column": "Alias of ml_response for compatibility",
+            },
+            "ml_response_stats_full": {
+                "min": float(df_full['ml_response'].min()),
+                "max": float(df_full['ml_response'].max()),
+                "median": float(df_full['ml_response'].median()),
+                "n_gt_1": int((df_full['ml_response'] > 1).sum()),
+                "n_gt_1p5": int((df_full['ml_response'] > 1.5).sum()),
+            },
+            "ml_response_stats_multi": {
+                "min": float(df_multi['ml_response'].min()),
+                "max": float(df_multi['ml_response'].max()),
+                "median": float(df_multi['ml_response'].median()),
+            },
             "gamma_t_stats_full": {
-                "min": float(df_full['gamma_t'].min()),
-                "max": float(df_full['gamma_t'].max()),
-                "median": float(df_full['gamma_t'].median()),
-                "n_gt_1": int((df_full['gamma_t'] > 1).sum()),
-                "n_gt_1p5": int((df_full['gamma_t'] > 1.5).sum()),
+                "legacy_alias_for": "ml_response_stats_full",
+                "min": float(df_full['ml_response'].min()),
+                "max": float(df_full['ml_response'].max()),
+                "median": float(df_full['ml_response'].median()),
+                "n_gt_1": int((df_full['ml_response'] > 1).sum()),
+                "n_gt_1p5": int((df_full['ml_response'] > 1.5).sum()),
             },
             "gamma_t_stats_multi": {
-                "min": float(df_multi['gamma_t'].min()),
-                "max": float(df_multi['gamma_t'].max()),
-                "median": float(df_multi['gamma_t'].median()),
+                "legacy_alias_for": "ml_response_stats_multi",
+                "min": float(df_multi['ml_response'].min()),
+                "max": float(df_multi['ml_response'].max()),
+                "median": float(df_multi['ml_response'].median()),
             },
         }
 
@@ -320,10 +299,10 @@ def main():
     # ------------------------------------------------------------------
     print_status("")
     print_status("Step 002 complete — TEP model applied:", "SUCCESS")
-    print_status(f"  Full sample:       N = {len(df_full):>6}, median Gamma_t = {df_full['gamma_t'].median():.3f}", "SUCCESS")
-    print_status(f"  Multi-property:    N = {len(df_multi):>6}, median Gamma_t = {df_multi['gamma_t'].median():.3f}", "SUCCESS")
-    print_status(f"  Gamma_t range: [{df_full['gamma_t'].min():.3f}, {df_full['gamma_t'].max():.3f}]", "SUCCESS")
-    print_status(f"  N(Gamma_t > 1): {int((df_full['gamma_t'] > 1).sum())} ({100 * (df_full['gamma_t'] > 1).mean():.1f}%)", "SUCCESS")
+    print_status(f"  Full sample:       N = {len(df_full):>6}, median R_ML = {df_full['ml_response'].median():.3f}", "SUCCESS")
+    print_status(f"  Multi-property:    N = {len(df_multi):>6}, median R_ML = {df_multi['ml_response'].median():.3f}", "SUCCESS")
+    print_status(f"  R_ML range: [{df_full['ml_response'].min():.3f}, {df_full['ml_response'].max():.3f}]", "SUCCESS")
+    print_status(f"  N(R_ML > 1): {int((df_full['ml_response'] > 1).sum())} ({100 * (df_full['ml_response'] > 1).mean():.1f}%)", "SUCCESS")
 
 if __name__ == "__main__":
     main()

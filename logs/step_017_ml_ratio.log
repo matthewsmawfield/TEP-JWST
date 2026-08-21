@@ -1,72 +1,76 @@
-[22:35:40] INFO    ======================================================================
-[22:35:40] INFO    TEP-JWST Step 017: Mass-to-Light Ratio Analysis
-[22:35:40] INFO    ======================================================================
-[22:35:40] INFO    
-[22:35:40] INFO    Loading JADES data...
-[22:35:40] INFO    Loaded 527 JADES galaxies
-[22:35:40] INFO    Loading raw JADES catalog...
-[22:35:44] INFO    Loaded 94000 raw JADES candidates
-[22:35:44] INFO    ======================================================================
-[22:35:44] INFO    TEST 1: Age Excess Distribution
-[22:35:44] INFO    ======================================================================
-[22:35:44] INFO    Sample size: N = 422
-[22:35:44] INFO    Age excess range: -0.572 to -0.098 Gyr
-[22:35:44] INFO    
+[17:16:57] INFO    ======================================================================
+[17:16:57] INFO    TEP-JWST Step 017: Mass-to-Light Ratio Analysis
+[17:16:57] INFO    ======================================================================
+[17:16:57] INFO    
+[17:16:57] INFO    Loading JADES data...
+[17:16:57] INFO    Loaded 527 JADES galaxies
+[17:16:57] INFO    Loading raw JADES catalog...
+[17:17:04] INFO    Loaded 94000 raw JADES candidates
+[17:17:04] INFO    ======================================================================
+[17:17:04] INFO    TEST 1: Age Excess Distribution
+[17:17:04] INFO    ======================================================================
+[17:17:04] INFO    Sample size: N = 422
+[17:17:04] INFO    Age excess range: -0.572 to -0.098 Gyr
+[17:17:04] INFO    
 Correlation (age_excess vs Γ_t):
-[22:35:44] INFO      Spearman ρ = -0.667, p = 0.0000
-[22:35:44] INFO    
+[17:17:04] INFO      Spearman ρ = -0.667, p = 0.0000
+[17:17:04] INFO    
 ✓ Higher Γ_t → more negative age_excess (TEP-consistent)
-[22:35:44] INFO      Correlation significant (ρ = -0.667, p = 1.34e-55)
-[22:35:44] INFO    
+[17:17:04] INFO      Correlation significant (ρ = -0.667, p = 1.34e-55)
+[17:17:04] INFO    
 Fraction with age_excess < 0 by Γ_t bin:
-[22:35:44] INFO      Γ_t = [0.3, 0.5): N = 110, anomalous = 100.0%
-[22:35:44] INFO      Γ_t = [0.5, 0.7): N = 312, anomalous = 100.0%
-[22:35:44] INFO    ======================================================================
-[22:35:44] INFO    TEST 2: Photo-z Scatter
-[22:35:44] INFO    ======================================================================
-[22:35:44] INFO    Sample size: N = 84291
-[22:35:44] INFO    
+[17:17:04] INFO      Γ_t = [0.3, 0.5): N = 110, anomalous = 100.0%
+[17:17:04] INFO      Γ_t = [0.5, 0.7): N = 312, anomalous = 100.0%
+[17:17:04] INFO    ======================================================================
+[17:17:04] INFO    TEST 2: Photo-z Scatter
+[17:17:04] INFO    ======================================================================
+[17:17:04] INFO    Sample size: N = 84291
+[17:17:04] INFO    
 Correlation (z_phot_err vs Γ_t):
-[22:35:44] INFO      Spearman ρ = -0.424, p = 0.0000
-[22:35:44] INFO    
+[17:17:04] INFO      Spearman ρ = -0.424, p = 0.0000
+[17:17:04] INFO    
 ⚠ No significant correlation
-[22:35:44] INFO    ======================================================================
-[22:35:44] INFO    TEST 3: SED Fit Quality (χ²)
-[22:35:44] INFO    ======================================================================
-[22:35:44] INFO    Sample size: N = 84291
-[22:35:44] INFO    χ² range: 0.0 to 788.1
-[22:35:44] INFO    
+[17:17:04] INFO    ======================================================================
+[17:17:04] INFO    TEST 3: SED Fit Quality (χ²)
+[17:17:04] INFO    ======================================================================
+[17:17:04] INFO    Sample size: N = 84291
+[17:17:04] INFO    χ² range: 0.0 to 788.1
+[17:17:04] INFO    
 Correlation (χ² vs Γ_t):
-[22:35:44] INFO      Spearman ρ = -0.133, p = 0.0000
-[22:35:44] INFO    
+[17:17:04] INFO      Spearman ρ = -0.133, p = 0.0000
+[17:17:04] INFO    
 ✗ No positive correlation detected
-[22:35:44] INFO    ======================================================================
-[22:35:44] INFO    TEST 4: Mass-to-Light Ratio Anomaly
-[22:35:44] INFO    ======================================================================
-[22:35:44] INFO    Sample size: N = 422
-[22:35:44] INFO    
+[17:17:04] INFO    ======================================================================
+[17:17:04] INFO    TEST 4: Mass-to-Light Ratio Anomaly
+[17:17:04] INFO    ======================================================================
+[17:17:04] INFO    Sample size: N = 422
+[17:17:04] INFO    
 Correlation (M/L proxy vs Γ_t):
-[22:35:44] INFO      Spearman ρ = 0.938, p = 0.0000
-[22:35:44] INFO    
+[17:17:04] INFO      Spearman ρ = 0.938, p = 0.0000
+[17:17:04] INFO    
 ✓ Higher Γ_t → higher M/L (TEP-consistent)
-[22:35:44] INFO      TEP inflates mass-to-light ratios
-[22:35:44] INFO    
+[17:17:04] INFO      TEP inflates mass-to-light ratios
+[17:17:04] INFO    
 Partial correlation (controlling for z):
-[22:35:44] INFO      Spearman ρ = 0.812, p = 0.0000
-[22:35:44] INFO    ======================================================================
-[22:35:44] INFO    TEST 5: Spec-z vs Photo-z Offset
-[22:35:44] INFO    ======================================================================
-[22:35:44] INFO    Galaxies with both z_spec and z_phot: N = 0
-[22:35:44] WARNING Insufficient sample for spec-phot analysis
-[22:35:44] INFO    
-[22:35:44] INFO    ======================================================================
-[22:35:44] INFO    SUMMARY
-[22:35:44] INFO    ======================================================================
-[22:35:44] INFO    ✓ age_excess: TEP-consistent
-[22:35:44] INFO    ⚠ photoz_scatter: Not significant
-[22:35:44] INFO    ⚠ sed_quality: Not significant
-[22:35:44] INFO    ✓ mass_to_light: TEP-consistent
-[22:35:44] INFO    
+[17:17:04] INFO      Spearman ρ = 0.812, p = 0.0000
+[17:17:04] INFO    
+Partial correlation (controlling for M* and z):
+[17:17:04] INFO      Spearman ρ = 0.249, p = 0.0000
+[17:17:04] INFO      (This is the non-circular test: removes shared mass dependence)
+[17:17:04] INFO    ======================================================================
+[17:17:04] INFO    TEST 5: Spec-z vs Photo-z Offset
+[17:17:04] INFO    ======================================================================
+[17:17:04] INFO    Galaxies with both z_spec and z_phot: N = 0
+[17:17:04] WARNING Insufficient sample for spec-phot analysis
+[17:17:04] INFO    
+[17:17:04] INFO    ======================================================================
+[17:17:04] INFO    SUMMARY
+[17:17:04] INFO    ======================================================================
+[17:17:04] INFO    ✓ age_excess: TEP-consistent
+[17:17:04] INFO    ⚠ photoz_scatter: Not significant
+[17:17:04] INFO    ⚠ sed_quality: Not significant
+[17:17:04] INFO    ✓ mass_to_light: TEP-consistent
+[17:17:04] INFO    
 Tests passed: 2/4
-[22:35:44] INFO    
+[17:17:04] INFO    
 Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_017_ml_ratio.json

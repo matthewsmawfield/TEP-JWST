@@ -1,9 +1,9 @@
-[22:39:15] INFO    ═══ STEP 134: TEP prediction error budget (kappa_gal uncertainty)
-[22:39:15] INFO        kappa_gal=960000.0, uncertainty=±400000.0
-[22:39:15] INFO        Fiducial grid: 6 masses × 6 redshifts
-[22:39:15] INFO        Sensitivity: 36 fiducial points computed
-[22:39:15] INFO          Max fractional Γt uncertainty: 61.49%
-[22:39:15] INFO        Loaded COSMOS-Web: N=50146 for rho-vs-alpha propagation
-[22:39:16] INFO      d(rho)/d(kappa_gal) = 0.000  delta_rho(1-sigma) = 0.0000
-[22:39:16] INFO    Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_134_prediction_errors.json
-[22:39:16] INFO        Step 134 complete. delta_rho(1sigma)=0.0000
+[17:23:22] INFO    ═══ STEP 134: TEP prediction error budget (kappa_gal uncertainty)
+[17:23:22] INFO        kappa_gal=960000.0, uncertainty=±400000.0
+[17:23:22] INFO        Fiducial grid: 6 masses × 6 redshifts
+[17:23:22] INFO        Sensitivity: 36 fiducial points computed
+[17:23:22] INFO          Max fractional Γt uncertainty: 135.27%
+[17:23:22] INFO        Loaded COSMOS-Web: N=50146 for rho-vs-alpha propagation
+[17:23:23] INFO      d(rho)/d(kappa_gal) = 0.000  delta_rho(1-sigma) = 0.0000
+[17:23:23] INFO    Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_134_prediction_errors.json
+[17:23:23] INFO        Step 134 complete. delta_rho(1sigma)=0.0000

@@ -25,7 +25,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
 from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
 from scripts.utils.rank_stats import partial_rank_correlation  # Partial Spearman: residualization method to control for confounders
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma, stellar_to_halo_mass_behroozi_like  # TEP model: Gamma_t formula, stellar-to-halo mass from abundance matching
+from scripts.utils.tep_model import compute_gamma_t as tep_gamma, stellar_to_halo_mass_behroozi_like, compute_ml_response_self_consistent  # TEP model: Gamma_t formula, stellar-to-halo mass from abundance matching
 
 STEP_NUM = "034"  # Pipeline step number (sequential 001-176)
 STEP_NAME = "cosmosweb_replication"  # COSMOS-Web replication: third independent validation in 0.5 deg² survey (784k galaxies)
@@ -59,10 +59,14 @@ def load_cosmosweb_data():
     # Rename columns for consistency
     df = df.rename(columns={'z_phot': 'z_phot', 'log_Mstar': 'log_Mstar', 'dust': 'dust'})
     
-    # Compute TEP quantities
-    df['log_Mh'] = stellar_to_halo_mass_behroozi_like(df['log_Mstar'].values, df['z_phot'].values)
-    df['gamma_t'] = tep_gamma(df['log_Mh'].values, df['z_phot'].values)
-    df['t_cosmic'] = cosmo.age(df['z_phot'].values).value
+    # Compute TEP quantities (self-consistent R_ML)
+    z = df['z_phot'].values
+    n_ml = np.where(z > 6, 0.5, np.where(z > 4, 0.9, 0.7))
+    gamma_t, log_mstar_true = compute_ml_response_self_consistent(df['log_Mstar'].values, z, n=n_ml)
+    df['gamma_t'] = gamma_t
+    df['log_Mstar_true'] = log_mstar_true
+    df['log_Mh'] = stellar_to_halo_mass_behroozi_like(log_mstar_true, z)
+    df['t_cosmic'] = cosmo.age(z).value
     df['t_eff'] = df['t_cosmic'] * df['gamma_t']
     df['t_eff'] = np.maximum(df['t_eff'], 0.001)
     df['source'] = 'cosmosweb_real'

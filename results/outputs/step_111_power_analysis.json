@@ -4,19 +4,19 @@
     {
       "test_name": "UNCOVER z>8 Dust-\u0393\u209c",
       "n": 283,
-      "observed_rho": 0.593,
+      "observed_rho": 0.5808363450381259,
       "effect_size": "large",
       "power_observed": 1.0,
       "min_detectable_rho_80pct": 0.16587966529819761,
-      "n_required_80pct": 20,
+      "n_required_80pct": 21,
       "adequately_powered": true
     },
     {
       "test_name": "CEERS z>8 Dust-\u0393\u209c",
       "n": 82,
-      "observed_rho": 0.66,
+      "observed_rho": 0.6557068381928799,
       "effect_size": "large",
-      "power_observed": 0.9999998178432687,
+      "power_observed": 0.9999997408954588,
       "min_detectable_rho_80pct": 0.30516299817474124,
       "n_required_80pct": 16,
       "adequately_powered": true
@@ -24,7 +24,7 @@
     {
       "test_name": "COSMOS-Web z>8 Dust-\u0393\u209c",
       "n": 918,
-      "observed_rho": 0.629,
+      "observed_rho": 0.6299858052673817,
       "effect_size": "large",
       "power_observed": 1.0,
       "min_detectable_rho_80pct": 0.0923536311276931,

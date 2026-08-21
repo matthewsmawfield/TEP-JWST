@@ -1,24 +1,24 @@
-[22:35:26] INFO        ============================================================
-[22:35:26] INFO        STEP 11: Summary - The Seven Threads
-[22:35:26] INFO        ============================================================
-[22:35:26] INFO    
-[22:35:26] INFO        Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_008_summary.json
-[22:35:26] INFO        Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_008_seven_threads_summary.md
-[22:35:26] INFO    
-[22:35:26] INFO        ============================================================
-[22:35:26] INFO        THE SEVEN THREADS
-[22:35:26] INFO        ============================================================
-[22:35:26] INFO    
-[22:35:26] INFO          z > 7 Mass-sSFR Inversion: ✓
-[22:35:26] INFO          Γ_t vs Age Ratio: ✓
-[22:35:26] INFO          Γ_t vs Metallicity: ✓
-[22:35:26] INFO          Γ_t vs Dust: ✓
-[22:35:26] INFO          z > 8 Dust Anomaly: ✓
-[22:35:26] INFO          Age-Metallicity Coherence: ✓
-[22:35:26] INFO          Multi-Property Split: ✓
-[22:35:26] INFO    
-[22:35:26] INFO        Threads significant: 7/7
-[22:35:26] INFO    
-[22:35:26] INFO        ★ All 7 threads significant ★
-[22:35:26] INFO    
-[22:35:26] INFO        Step 008 complete.
+[17:16:35] INFO        ============================================================
+[17:16:35] INFO        STEP 11: Summary - The Seven Threads
+[17:16:35] INFO        ============================================================
+[17:16:35] INFO    
+[17:16:35] INFO        Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_008_summary.json
+[17:16:35] INFO        Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_008_seven_threads_summary.md
+[17:16:35] INFO    
+[17:16:35] INFO        ============================================================
+[17:16:35] INFO        THE SEVEN THREADS
+[17:16:35] INFO        ============================================================
+[17:16:35] INFO    
+[17:16:35] INFO          z > 7 Mass-sSFR Inversion: ✓
+[17:16:35] INFO          Γ_t vs Age Ratio: ✓
+[17:16:35] INFO          Γ_t vs Metallicity: ✓
+[17:16:35] INFO          Γ_t vs Dust: ✓
+[17:16:35] INFO          z > 8 Dust Anomaly: ✓
+[17:16:35] INFO          Age-Metallicity Coherence: ✓
+[17:16:35] INFO          Multi-Property Split: ✓
+[17:16:35] INFO    
+[17:16:35] INFO        Threads significant: 7/7
+[17:16:35] INFO    
+[17:16:35] INFO        ★ All 7 threads significant ★
+[17:16:35] INFO    
+[17:16:35] INFO        Step 008 complete.

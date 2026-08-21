@@ -1,32 +1,32 @@
-[22:39:12] INFO        ======================================================================
-[22:39:12] INFO        STEP 132: LRD Population Differential Temporal Topology Analysis
-[22:39:12] INFO        ======================================================================
-[22:39:12] INFO        LRD catalog already exists: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/kokorev_lrd_catalog_v1.1.fits
-[22:39:12] INFO        Loaded 260 LRDs from catalog
-[22:39:12] INFO        Redshift range: 4.02 - 8.93
-[22:39:12] INFO        Median z: 5.57
-[22:39:12] INFO        
+[17:23:19] INFO        ======================================================================
+[17:23:19] INFO        STEP 132: LRD Population Differential Temporal Topology Analysis
+[17:23:19] INFO        ======================================================================
+[17:23:19] INFO        LRD catalog already exists: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/raw/kokorev_lrd_catalog_v1.1.fits
+[17:23:19] INFO        Loaded 260 LRDs from catalog
+[17:23:19] INFO        Redshift range: 4.02 - 8.93
+[17:23:19] INFO        Median z: 5.57
+[17:23:19] INFO        
 Analyzing 260 LRDs...
-[22:39:12] INFO        
+[17:23:19] INFO        
 ==================================================
-[22:39:12] INFO        POPULATION SUMMARY
-[22:39:12] INFO        ==================================================
-[22:39:12] INFO        Total LRDs analyzed: 260
-[22:39:12] INFO        Redshift range: 4.02 - 8.93
-[22:39:12] INFO        Median z: 5.57
-[22:39:12] INFO        
+[17:23:19] INFO        POPULATION SUMMARY
+[17:23:19] INFO        ==================================================
+[17:23:19] INFO        Total LRDs analyzed: 260
+[17:23:19] INFO        Redshift range: 4.02 - 8.93
+[17:23:19] INFO        Median z: 5.57
+[17:23:19] INFO        
 Temporal Enhancement:
-[22:39:12] INFO          Median Gamma_halo: 0.61
-[22:39:12] INFO          Median Gamma_cen: 0.66
-[22:39:12] INFO          Median Delta_Gamma: 0.04
-[22:39:12] INFO        
+[17:23:19] INFO          Median Gamma_halo: 0.61
+[17:23:19] INFO          Median Gamma_cen: 0.66
+[17:23:19] INFO          Median Delta_Gamma: 0.04
+[17:23:19] INFO        
 BH Growth Boost:
-[22:39:12] INFO          Median log(Boost): 0.4
-[22:39:12] INFO          Mean log(Boost): 0.7
-[22:39:12] INFO          LRDs with >1000x boost: 6/260 (2.3%)
-[22:39:12] INFO        
+[17:23:19] INFO          Median log(Boost): 0.4
+[17:23:19] INFO          Mean log(Boost): 0.7
+[17:23:19] INFO          LRDs with >1000x boost: 6/260 (2.3%)
+[17:23:19] INFO        
 Saved CSV to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_132_lrd_population.csv
-[22:39:13] INFO        Saved figure to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/lrd_population_time_bubble.png
-[22:39:13] INFO        Saved JSON to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_132_lrd_validation.json
-[22:39:13] INFO        
+[17:23:20] INFO        Saved figure to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/lrd_population_time_bubble.png
+[17:23:20] INFO        Saved JSON to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_132_lrd_validation.json
+[17:23:20] INFO        
 Step 132 complete.

@@ -54,7 +54,7 @@ def dynamical_to_halo_mass(log_mdyn, z, offset_base_dex=MDYN_TO_MHALO_OFFSET_BAS
     """
     log_mdyn_arr = np.asarray(log_mdyn, dtype=float)
     z_arr = np.asarray(z, dtype=float)
-    log_ratio = -offset_base_dex - 0.1 * (log_mdyn_arr - 10.0) + 0.05 * (z_arr - 5.0)
+    log_ratio = -offset_base_dex - 0.1 * (log_mdyn_arr - 10.0) - 0.05 * (z_arr - 5.0)
     return log_mdyn_arr - log_ratio
 
 
@@ -1118,6 +1118,89 @@ def _halo_proxy_sensitivity(df):
     return sensitivity
 
 
+# Marginalization prior for the Mdyn->Mhalo offset, informed by the scatter
+# in empirical SMHM relations (Behroozi et al. ~0.2-0.3 dex scatter).  The
+# base offset of 1.5 dex is the median; the sigma of 0.3 dex covers the
+# plausible range [0.9, 2.1] at 2-sigma, bracketing the discrete sensitivity
+# values [1.0, 1.5, 2.0].
+MDYN_TO_MHALO_OFFSET_PRIOR_MEAN = 1.5
+MDYN_TO_MHALO_OFFSET_PRIOR_SIGMA = 0.3
+N_OFFSET_DRAWS = 500
+
+
+def _halo_proxy_marginalization(df, n_draws=N_OFFSET_DRAWS, seed=RNG_SEED):
+    """Marginalize the primary statistic over the Mdyn->Mhalo offset uncertainty.
+
+    Instead of testing discrete offset values, draws the base offset from a
+    Gaussian prior (mean=1.5, sigma=0.3 dex) informed by Behroozi SMHM
+    scatter, and reports the distribution of the partial correlation
+    rho(Age, Gamma_t_dyn | M_star, z).  This converts the offset from an
+    assumed constant into a marginalized nuisance parameter.
+    """
+    rng = np.random.default_rng(seed)
+    z_arr = df["z"].to_numpy(dtype=float)
+    log_mdyn = df["log_Mdyn"].to_numpy(dtype=float)
+    log_mstar = df["log_Mstar_obs"].to_numpy(dtype=float)
+    t_univ = df["t_univ"].to_numpy(dtype=float)
+
+    rho_given_z = []
+    p_given_z = []
+    rho_given_mstar_z = []
+    p_given_mstar_z = []
+    delta_rho = []
+
+    for _ in range(n_draws):
+        offset = rng.normal(MDYN_TO_MHALO_OFFSET_PRIOR_MEAN, MDYN_TO_MHALO_OFFSET_PRIOR_SIGMA)
+        if offset <= 0:
+            continue
+        log_mh_dyn = dynamical_to_halo_mass(log_mdyn, z_arr, offset_base_dex=offset)
+        log_mh_phot = dynamical_to_halo_mass(log_mstar, z_arr, offset_base_dex=offset)
+        gamma_dyn = compute_gamma_t(log_mh_dyn, z_arr)
+        trial = df.copy()
+        trial["Gamma_t_dyn"] = gamma_dyn
+        trial["t_tep"] = t_univ * gamma_dyn
+        metrics = _compute_metrics(trial, with_bootstrap=False)
+        rz = metrics["partial_rho_gamma_dyn_age_given_z"]
+        rz_p = metrics["p_partial_gamma_dyn_age_given_z"]
+        rmz = metrics["partial_rho_gamma_dyn_age_given_mstar_z"]
+        rmz_p = metrics["p_partial_gamma_dyn_age_given_mstar_z"]
+        if rz is not None and np.isfinite(rz):
+            rho_given_z.append(float(rz))
+            p_given_z.append(float(rz_p))
+        if rmz is not None and np.isfinite(rmz):
+            rho_given_mstar_z.append(float(rmz))
+            p_given_mstar_z.append(float(rmz_p))
+            delta_rho.append(float(rmz - metrics["partial_rho_mstar_age_given_gamma_dyn_z"]))
+
+    def _summary(vals, ps=None):
+        arr = np.asarray(vals, dtype=float)
+        if len(arr) == 0:
+            return {"median": None, "ci_95": [None, None],
+                    "fraction_positive": None, "fraction_p_lt_0_05": None}
+        out = {
+            "median": float(np.median(arr)),
+            "ci_95": [float(np.percentile(arr, 2.5)), float(np.percentile(arr, 97.5))],
+            "fraction_positive": float(np.mean(arr > 0)),
+            "fraction_p_lt_0_05": None,
+        }
+        if ps is not None:
+            p_arr = np.asarray(ps, dtype=float)
+            out["fraction_p_lt_0_05"] = float(np.mean(p_arr < 0.05))
+        return out
+
+    return {
+        "n_draws": len(rho_given_mstar_z),
+        "offset_prior": {
+            "distribution": "Gaussian",
+            "mean_dex": MDYN_TO_MHALO_OFFSET_PRIOR_MEAN,
+            "sigma_dex": MDYN_TO_MHALO_OFFSET_PRIOR_SIGMA,
+        },
+        "partial_rho_gamma_dyn_age_given_z": _summary(rho_given_z, p_given_z),
+        "partial_rho_gamma_dyn_age_given_mstar_z": _summary(rho_given_mstar_z, p_given_mstar_z),
+        "delta_rho_gamma_minus_mstar": _summary(delta_rho),
+    }
+
+
 def run():
     print_status(f"STEP {STEP_NUM}: TEP Kinematic Decoupling Test", "INFO")
     df, uncertainty_coverage, error = _load_suspense_sample()
@@ -1131,6 +1214,7 @@ def run():
     metrics = _compute_metrics(df)
     uncertainty_mc = _uncertainty_monte_carlo(df)
     halo_proxy_sensitivity = _halo_proxy_sensitivity(df)
+    halo_proxy_marginalization = _halo_proxy_marginalization(df)
     federated_direct_package = _build_federated_direct_package(metrics, uncertainty_coverage, uncertainty_mc)
     federated_assessment = federated_direct_package["summary"]["federated_assessment"]
 
@@ -1209,6 +1293,11 @@ def run():
             "direct_predictor": "Gamma_t_dyn from a calibrated logMdyn->logMhalo proxy, not raw logMdyn",
             "mdyn_to_mhalo_offset_dex": MDYN_TO_MHALO_OFFSET_BASE_DEX,
             "mdyn_to_mhalo_sensitivity_offsets_dex": MDYN_TO_MHALO_SENSITIVITY_DEX,
+            "mdyn_to_mhalo_marginalization": {
+                "prior": "Gaussian(mean=1.5, sigma=0.3 dex)",
+                "n_draws": N_OFFSET_DRAWS,
+                "description": "Offset treated as a nuisance parameter and marginalized over a Gaussian prior informed by Behroozi SMHM scatter, in addition to the discrete sensitivity grid.",
+            },
             "direct_kinematic_package": "Primary SUSPENSE age-based comparison plus any available auxiliary direct object-level branches and contextual same-regime literature kinematic sample when available.",
         },
         "results": metrics,
@@ -1216,6 +1305,7 @@ def run():
             "published_uncertainty_coverage": uncertainty_coverage,
             "uncertainty_monte_carlo": uncertainty_mc,
             "halo_proxy_sensitivity": halo_proxy_sensitivity,
+            "halo_proxy_marginalization": halo_proxy_marginalization,
         },
         "federated_direct_kinematic_package": federated_direct_package,
     }

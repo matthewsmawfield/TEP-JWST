@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 106: Comprehensive Falsification Battery
+Step 083: Comprehensive Falsification Battery
 
 This script implements a battery of falsification tests designed to
 rigorously challenge the TEP framework. If TEP is correct, it should
@@ -15,7 +15,7 @@ Tests:
 6. Cross-survey consistency: Same signal across independent surveys
 
 Outputs:
-- results/outputs/step_106_falsification_battery.json
+- results/outputs/step_083_falsification_battery.json
 """
 
 import numpy as np

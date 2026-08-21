@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 92: Linear Growth Factor and Sigma8 Prediction
+Step 073: Linear Growth Factor and Sigma8 Prediction
 
 This script calculates the linear growth of structure D(z) and σ8(z)
 in the TEP scalar-tensor framework compared to standard ΛCDM.
@@ -161,7 +161,7 @@ def growth_ode(y, a, params):
 
 def run_growth_calculation():
     print_status("=" * 60, "INFO")
-    print_status("Step 92: Linear Growth Factor D(z) and σ8(z)", "INFO")
+    print_status("Step 073: Linear Growth Factor D(z) and σ8(z)", "INFO")
     print_status("=" * 60, "INFO")
     
     # Redshift range: z=100 to z=0

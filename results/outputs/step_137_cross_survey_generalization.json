@@ -16,32 +16,32 @@
     {
       "survey": "UNCOVER",
       "n": 283,
-      "rho_teff": 0.21624922832234364,
-      "p_teff": 0.0002471101718732487,
+      "rho_teff": 0.30335800231053256,
+      "p_teff": 1.9522783600257953e-07,
       "rho_mstar": 0.5594522703471411,
       "p_mstar": 1.046457458256734e-24,
-      "poly_cv_r2": 0.47292457771091756,
-      "teff_cv_r2": -0.16873858929870034
+      "poly_cv_r2": 0.47292457771092045,
+      "teff_cv_r2": -3.422536007991006
     },
     {
       "survey": "CEERS",
       "n": 71,
-      "rho_teff": 0.505365526492287,
-      "p_teff": 6.957664290640841e-06,
+      "rho_teff": 0.651945003353454,
+      "p_teff": 7.353716298067796e-10,
       "rho_mstar": 0.7948692152917504,
       "p_mstar": 1.277456067602502e-16,
-      "poly_cv_r2": 0.5567474188396684,
-      "teff_cv_r2": -9.084227532822012e+20
+      "poly_cv_r2": 0.5567474188396808,
+      "teff_cv_r2": -1.3794063108080384e+48
     },
     {
       "survey": "COSMOS-Web",
       "n": 2340,
-      "rho_teff": 0.6520722933227113,
-      "p_teff": 1.9034429330991085e-283,
+      "rho_teff": 0.6963801132011056,
+      "p_teff": 1e-300,
       "rho_mstar": 0.7062116183488133,
       "p_mstar": 1e-300,
-      "poly_cv_r2": 0.5083586758881826,
-      "teff_cv_r2": -8.948268897007521
+      "poly_cv_r2": 0.5083586758881822,
+      "teff_cv_r2": -122482.00064978401
     }
   ],
   "leave_one_out": [
@@ -53,14 +53,14 @@
       ],
       "n_train": 2411,
       "n_test": 283,
-      "poly_r2_cross": -1.387699856461106,
-      "poly_r2_within": 0.47292457771091756,
-      "poly_r2_drop": 1.8606244341720237,
+      "poly_r2_cross": -1.3876998564611052,
+      "poly_r2_within": 0.47292457771092045,
+      "poly_r2_drop": 1.8606244341720255,
       "rho_poly_cross": 0.5423006424381943,
-      "p_poly_cross": 4.8824058687669935e-23,
-      "rho_teff_cross": 0.21624922832234364,
-      "p_teff_cross": 0.0002471101718732487,
-      "teff_rho_advantage": -0.3260514141158507
+      "p_poly_cross": 4.882405868766994e-23,
+      "rho_teff_cross": 0.30335800231053256,
+      "p_teff_cross": 1.9522783600257953e-07,
+      "teff_rho_advantage": -0.23894264012766175
     },
     {
       "test_survey": "CEERS",
@@ -70,14 +70,14 @@
       ],
       "n_train": 2623,
       "n_test": 71,
-      "poly_r2_cross": 0.1701749413471796,
-      "poly_r2_within": 0.5567474188396684,
-      "poly_r2_drop": 0.3865724774924888,
+      "poly_r2_cross": 0.1701749413471565,
+      "poly_r2_within": 0.5567474188396808,
+      "poly_r2_drop": 0.3865724774925243,
       "rho_poly_cross": 0.788262910798122,
       "p_poly_cross": 3.3845001674988913e-16,
-      "rho_teff_cross": 0.505365526492287,
-      "p_teff_cross": 6.957664290640841e-06,
-      "teff_rho_advantage": -0.282897384305835
+      "rho_teff_cross": 0.651945003353454,
+      "p_teff_cross": 7.353716298067796e-10,
+      "teff_rho_advantage": -0.1363179074446681
     },
     {
       "test_survey": "COSMOS-Web",
@@ -87,25 +87,25 @@
       ],
       "n_train": 354,
       "n_test": 2340,
-      "poly_r2_cross": -6.4330767730752525,
-      "poly_r2_within": 0.5083586758881826,
-      "poly_r2_drop": 6.941435448963436,
+      "poly_r2_cross": -6.43307677307481,
+      "poly_r2_within": 0.5083586758881822,
+      "poly_r2_drop": 6.941435448962992,
       "rho_poly_cross": 0.7236493183486864,
       "p_poly_cross": 1e-300,
-      "rho_teff_cross": 0.6520722933227113,
-      "p_teff_cross": 1.9034429330991085e-283,
-      "teff_rho_advantage": -0.07157702502597507
+      "rho_teff_cross": 0.6963801132011056,
+      "p_teff_cross": 1e-300,
+      "teff_rho_advantage": -0.0272692051475808
     }
   ],
   "summary": {
     "n_tests": 3,
-    "mean_teff_rho_advantage": -0.22684194114922027,
+    "mean_teff_rho_advantage": -0.13417658423997023,
     "teff_rho_wins": 0,
-    "mean_poly_r2_drop": 3.0628774535426495,
+    "mean_poly_r2_drop": 3.062877453542514,
     "individual_advantages": {
-      "UNCOVER": -0.3260514141158507,
-      "CEERS": -0.282897384305835,
-      "COSMOS-Web": -0.07157702502597507
+      "UNCOVER": -0.23894264012766175,
+      "CEERS": -0.1363179074446681,
+      "COSMOS-Web": -0.0272692051475808
     },
     "interpretation": "Polynomial generalizes comparably or better than t_eff."
   }

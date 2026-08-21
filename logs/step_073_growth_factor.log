@@ -1,8 +1,8 @@
-[22:36:34] INFO        ============================================================
-[22:36:34] INFO        Step 92: Linear Growth Factor D(z) and σ8(z)
-[22:36:34] INFO        ============================================================
-[22:36:34] INFO        Growth enhancement at z=0: 38.4880
-[22:36:34] INFO        Predicted σ8(0): 31.2137 (LCDM: 0.811)
-[22:36:34] INFO        Planck σ8 (2σ upper): 0.8230
-[22:36:34] INFO        Max β_eff (2σ): 0.0555
-[22:36:34] INFO        Growth enhancement at z=10: 5.6652
+[17:18:22] INFO        ============================================================
+[17:18:22] INFO        Step 073: Linear Growth Factor D(z) and σ8(z)
+[17:18:22] INFO        ============================================================
+[17:18:22] INFO        Growth enhancement at z=0: 38.4880
+[17:18:22] INFO        Predicted σ8(0): 31.2137 (LCDM: 0.811)
+[17:18:22] INFO        Planck σ8 (2σ upper): 0.8230
+[17:18:22] INFO        Max β_eff (2σ): 0.0555
+[17:18:22] INFO        Growth enhancement at z=10: 5.6652

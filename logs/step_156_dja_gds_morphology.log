@@ -1,12 +1,12 @@
-[22:43:38] INFO        STEP 156: GOODS-S morphology vs. Gamma_t analysis
-[22:43:38] INFO      SIZE ext cols: ['ID', 'RA', 'DEC', 'NPIX_DET', 'X', 'Y', 'XC', 'YC', 'BBOX_XMIN', 'BBOX_XMAX']
-[22:43:38] INFO      FLAG ext cols: ['ID', 'RA', 'DEC', 'F090W_FLAG', 'F115W_FLAG', 'F150W_FLAG', 'F182M_FLAG', 'F200W_FLAG', 'F210M_FLAG', 'F277W_FLAG']
-[22:43:39] INFO      Spec-z from ext 1: N=3,723
-[22:43:44] INFO      Morphology rows: 94,000
-[22:43:44] INFO      After spec-z crossmatch z>4.0: N=588
-[22:43:44] INFO      gini: N=588, rho(Gamma_t, gini)=0.133
-[22:43:44] INFO      fwhm: N=588, rho(Gamma_t, fwhm)=0.176
-[22:43:44] INFO      r_kron: N=588, rho(Gamma_t, r_kron)=0.159
-[22:43:44] INFO      q: N=588, rho(Gamma_t, q)=-0.102
-[22:43:44] INFO    Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_156_dja_gds_morphology.json
-[22:43:44] INFO        Step 156 complete.
+[17:31:06] INFO        STEP 156: GOODS-S morphology vs. Gamma_t analysis
+[17:31:07] INFO      SIZE ext cols: ['ID', 'RA', 'DEC', 'NPIX_DET', 'X', 'Y', 'XC', 'YC', 'BBOX_XMIN', 'BBOX_XMAX']
+[17:31:07] INFO      FLAG ext cols: ['ID', 'RA', 'DEC', 'F090W_FLAG', 'F115W_FLAG', 'F150W_FLAG', 'F182M_FLAG', 'F200W_FLAG', 'F210M_FLAG', 'F277W_FLAG']
+[17:31:08] INFO      Spec-z from ext 1: N=3,723
+[17:31:16] INFO      Morphology rows: 94,000
+[17:31:17] INFO      After spec-z crossmatch z>4.0: N=588
+[17:31:17] INFO      gini: N=588, rho(Gamma_t, gini)=0.120
+[17:31:17] INFO      fwhm: N=588, rho(Gamma_t, fwhm)=0.161
+[17:31:17] INFO      r_kron: N=588, rho(Gamma_t, r_kron)=0.145
+[17:31:17] INFO      q: N=588, rho(Gamma_t, q)=-0.089
+[17:31:17] INFO    Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_156_dja_gds_morphology.json
+[17:31:17] INFO        Step 156 complete.

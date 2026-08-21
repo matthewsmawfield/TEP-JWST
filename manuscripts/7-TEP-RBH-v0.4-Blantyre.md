@@ -345,7 +345,7 @@ Unlike traditional chameleon mechanisms that invoke discrete thin-shell boundari
 with sharp density cutoffs, TEP screening operates through continuous field gradient
 flattening. The Temporal Shear is gradually suppressed in deep potential wells,
 avoiding the fine-tuning problems of thin-shell approximations while maintaining
-fifth-force suppression in dense environments.
+Temporal Shear suppression in dense environments.
 \begin{equation} \label{eq:screening_factor} S = \frac{\beta_0}{\alpha_{\text{RBH,eff}}} \propto
 \left(\frac{\rho}{\rho_T}\right)^{1/3} \end{equation}
 For RBH-1 at the crossover mass (M ~ 10⁷ M_☉, ρ ~ ρ_T ~ 20 g/cm³), the

@@ -1,16 +1,16 @@
-[22:36:07] INFO        Loading Data...
-[22:36:07] INFO        Loading JADES_z_gt_8_Candidates_Hainline_et_al.fits...
-[22:36:08] INFO        Loaded 94000 rows from JADES_z_gt_8_Candidates_Hainline_et_al.fits [CIRC_CONV]
-[22:36:08] INFO        Matching catalogs by JADES ID...
-[22:36:08] INFO        Matched 527 sources.
-[22:36:08] INFO        Sources with valid fluxes: 328
-[22:36:08] INFO        Saved resolved gradients to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/interim/jades_resolved_gradients.csv
-[22:36:08] INFO        
+[17:17:42] INFO        Loading Data...
+[17:17:42] INFO        Loading JADES_z_gt_8_Candidates_Hainline_et_al.fits...
+[17:17:43] INFO        Loaded 94000 rows from JADES_z_gt_8_Candidates_Hainline_et_al.fits [CIRC_CONV]
+[17:17:43] INFO        Matching catalogs by JADES ID...
+[17:17:43] INFO        Matched 527 sources.
+[17:17:43] INFO        Sources with valid fluxes: 328
+[17:17:43] INFO        Saved resolved gradients to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/interim/jades_resolved_gradients.csv
+[17:17:43] INFO        
 --- Gradient Correlations ---
-[22:36:08] INFO        N = 277 (final sample z>4)
-[22:36:08] INFO        rho(Mass, Gradient) = -0.166, p = 5.73e-03
-[22:36:08] INFO        rho(z, Gradient) = +0.186, p = 1.84e-03
-[22:36:08] INFO        rho(Mass, Compactness) = -0.099, p = 1.01e-01
-[22:36:08] INFO        Mass 7-8.5: N=228, <Grad>=+0.201 +/- 0.043
-[22:36:08] INFO        Mass 8.5-9.5: N=9, <Grad>=+0.107 +/- 0.072
-[22:36:08] INFO        Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_037_resolved_gradients.json
+[17:17:43] INFO        N = 277 (final sample z>4)
+[17:17:43] INFO        rho(Mass, Gradient) = -0.166, p = 5.73e-03
+[17:17:43] INFO        rho(z, Gradient) = +0.186, p = 1.84e-03
+[17:17:43] INFO        rho(Mass, Compactness) = -0.099, p = 1.01e-01
+[17:17:43] INFO        Mass 7-8.5: N=228, <Grad>=+0.201 +/- 0.043
+[17:17:43] INFO        Mass 8.5-9.5: N=9, <Grad>=+0.107 +/- 0.072
+[17:17:43] INFO        Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_037_resolved_gradients.json

@@ -1,30 +1,30 @@
-[22:41:42] INFO    ======================================================================
-[22:41:42] INFO    Step 145: Phase Boundary + Activation Curve + Spec-z Sharpening
-[22:41:42] INFO    ======================================================================
-[22:41:43] INFO    UNCOVER: 2315 galaxies
-[22:41:43] INFO    Spec-z: 10483 galaxies
-[22:41:43] INFO        TEST 1: AGB Dust Phase Boundary Map
-[22:41:46] INFO          N = 2315 galaxies
-[22:41:46] INFO          TEP boundary: F1 = 0.853 (precision=0.774, recall=0.949)
-[22:41:46] INFO          Mass-only:    F1 = 0.859
-[22:41:46] INFO          TEP advantage: ΔF1 = -0.006
-[22:41:46] INFO          z>8: dust frac above AGB = 0.927 (178), below = 0.876 (105)
-[22:41:46] INFO        TEST 2: Activation Curve Fit
-[22:41:47] INFO          tep_sqrt    : χ²=11.40, AIC=15.40, ΔAIC=+5.68
-[22:41:47] INFO          linear      : χ²=77.43, AIC=81.43, ΔAIC=+71.71
-[22:41:47] INFO          step        : χ²=13.16, AIC=17.16, ΔAIC=+7.43
-[22:41:47] INFO          constant    : χ²=224.36, AIC=226.36, ΔAIC=+216.64
-[22:41:47] INFO          quadratic   : χ²=3.73, AIC=9.73, ΔAIC=+0.00
-[22:41:47] INFO          Winner: quadratic
-[22:41:47] INFO        TEST 3: Spectroscopic Sharpening
-[22:41:49] INFO          Spec-z: ρ = 0.242 (N = 10156, p = 1.12e-135)
-[22:41:49] INFO          Photo-z: ρ = -0.288 (N = 2315)
-[22:41:49] INFO          Δρ = +0.530 → SHARPENED
-[22:41:49] INFO    Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_145_phase_boundary_activation.json
-[22:41:50] INFO    Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_145_phase_boundary_activation.png
-[22:41:50] INFO        ============================================================
-[22:41:50] INFO        RESULTS
-[22:41:50] INFO        ============================================================
-[22:41:50] INFO          PHASE BOUNDARY: TEP ΔF1=-0.006 vs mass-only
-[22:41:50] INFO          ACTIVATION: quadratic wins by AIC (TEP ΔAIC=+5.7)
-[22:41:50] INFO          SPEC-Z: SHARPENED (Δρ=+0.530)
+[14:27:55] INFO    ======================================================================
+[14:27:55] INFO    Step 145: Phase Boundary + Activation Curve + Spec-z Sharpening
+[14:27:55] INFO    ======================================================================
+[14:27:57] INFO    UNCOVER: 2315 galaxies
+[14:27:57] INFO    Spec-z: 10483 galaxies
+[14:27:57] INFO        TEST 1: AGB Dust Phase Boundary Map
+[14:27:59] INFO          N = 2315 galaxies
+[14:27:59] INFO          TEP boundary: F1 = 0.804 (precision=0.761, recall=0.852)
+[14:27:59] INFO          Mass-only:    F1 = 0.823
+[14:27:59] INFO          TEP advantage: ΔF1 = -0.019
+[14:27:59] INFO          z>8: dust frac above AGB = 1.000 (26), below = 0.899 (257)
+[14:27:59] INFO        TEST 2: Activation Curve Fit
+[14:28:01] INFO          tep_sqrt    : χ²=9.37, AIC=13.37, ΔAIC=+5.29
+[14:28:01] INFO          linear      : χ²=71.78, AIC=75.78, ΔAIC=+67.70
+[14:28:01] INFO          step        : χ²=10.95, AIC=14.95, ΔAIC=+6.87
+[14:28:01] INFO          constant    : χ²=226.32, AIC=228.32, ΔAIC=+220.24
+[14:28:01] INFO          quadratic   : χ²=2.08, AIC=8.08, ΔAIC=+0.00
+[14:28:01] INFO          Winner: quadratic
+[14:28:01] INFO        TEST 3: Spectroscopic Sharpening
+[14:28:03] INFO          Spec-z: ρ = 0.273 (N = 10156, p = 1.44e-173)
+[14:28:03] INFO          Photo-z: ρ = -0.272 (N = 2315)
+[14:28:03] INFO          Δρ = +0.545 → SHARPENED
+[14:28:03] INFO    Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_145_phase_boundary_activation.json
+[14:28:04] INFO    Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_145_phase_boundary_activation.png
+[14:28:04] INFO        ============================================================
+[14:28:04] INFO        RESULTS
+[14:28:04] INFO        ============================================================
+[14:28:04] INFO          PHASE BOUNDARY: TEP ΔF1=-0.019 vs mass-only
+[14:28:04] INFO          ACTIVATION: quadratic wins by AIC (TEP ΔAIC=+5.3)
+[14:28:04] INFO          SPEC-Z: SHARPENED (Δρ=+0.545)

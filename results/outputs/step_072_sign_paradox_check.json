@@ -1,44 +1,43 @@
 {
-  "resolution_method": "relative_enhancement",
-  "explanation": "TEP uses RELATIVE enhancement \u0393_t compared to a reference environment, not CALIBRATED clock rates. This naturally produces \u0393_t > 1 for M_h > M_ref without requiring 4\u03b2\u00b2 > 1 in the scalar-tensor action.",
-  "absolute_analysis": {
-    "0.4": {
-      "max_gamma": 0.9999999544989868,
-      "min_gamma": 0.9999994215178793,
-      "enhancement": false,
-      "threshold_4beta2_gt_1": false,
-      "4beta2": 0.6400000000000001
+  "resolution_method": "three_variable_taxonomy",
+  "quantity_dictionary": {
+    "signed_potential": "Phi <= 0",
+    "potential_depth": "Psi = |Phi|/c^2 >= 0",
+    "local_clock_offset": "Delta ln A is negative in a deeper well",
+    "ml_response": "R_ML > 0 is an observable channel response, not A"
+  },
+  "validation": {
+    "potential_depth_positive": true,
+    "potential_depth_monotonic": true,
+    "local_clock_slows_in_deeper_wells": true,
+    "responses_positive": true,
+    "reciprocal_mass_correction_invariant": true
+  },
+  "response_checks": {
+    "4.0": {
+      "minimum": 0.6392927040180303,
+      "maximum": 10766.95024519373,
+      "positive": true
     },
-    "0.5": {
-      "max_gamma": 0.999999999999984,
-      "min_gamma": 0.999999999997418,
-      "enhancement": false,
-      "threshold_4beta2_gt_1": false,
-      "4beta2": 1.0
+    "6.0": {
+      "minimum": 0.5889803984584605,
+      "maximum": 58997.8830276777,
+      "positive": true
     },
-    "0.6": {
-      "max_gamma": 1.0000007070284196,
-      "min_gamma": 1.0000000556123165,
-      "enhancement": false,
-      "threshold_4beta2_gt_1": true,
-      "4beta2": 1.44
+    "8.0": {
+      "minimum": 0.5486796553217588,
+      "maximum": 256814.78901034256,
+      "positive": true
     },
-    "0.8": {
-      "max_gamma": 1.0000025067459521,
-      "min_gamma": 1.0000001971709955,
-      "enhancement": false,
-      "threshold_4beta2_gt_1": true,
-      "4beta2": 2.5600000000000005
-    },
-    "1.0": {
-      "max_gamma": 1.0000048206732535,
-      "min_gamma": 1.0000003791750407,
-      "enhancement": false,
-      "threshold_4beta2_gt_1": true,
-      "4beta2": 4.0
+    "10.0": {
+      "minimum": 0.5149987240859129,
+      "maximum": 956224.7171396775,
+      "positive": true
     }
   },
   "relative_analysis": {
+    "legacy_name": "Gamma_t",
+    "canonical_name": "R_ML",
     "KAPPA_GAL": 960000.0,
     "z_ref": 5.5,
     "log_Mh_ref": 12.0,
@@ -47,59 +46,47 @@
         "log_Mh": 10.5,
         "z": 8.0,
         "label": "Low-mass z=8",
-        "Gamma_t": 0.5794515686019308,
-        "enhancement": false,
-        "suppression": true
-      },
-      {
-        "log_Mh": 11.5,
-        "z": 8.0,
-        "label": "Intermediate z=8",
-        "Gamma_t": 0.7226123489921581,
-        "enhancement": false,
-        "suppression": true
+        "ml_response": 0.5794515686019308,
+        "legacy_Gamma_t": 0.5794515686019308,
+        "response_above_reference": false
       },
       {
         "log_Mh": 12.0,
         "z": 8.0,
-        "label": "Reference mass z=8",
-        "Gamma_t": 1.0,
-        "enhancement": false,
-        "suppression": false
+        "label": "Reference-mass z=8",
+        "ml_response": 1.0,
+        "legacy_Gamma_t": 1.0,
+        "response_above_reference": false
       },
       {
         "log_Mh": 12.5,
         "z": 8.0,
         "label": "High-mass z=8",
-        "Gamma_t": 2.0136275560692356,
-        "enhancement": true,
-        "suppression": false
+        "ml_response": 2.0136275560692356,
+        "legacy_Gamma_t": 2.0136275560692356,
+        "response_above_reference": true
       },
       {
         "log_Mh": 13.0,
         "z": 8.0,
         "label": "Ultra-massive z=8",
-        "Gamma_t": 9.096668376636377,
-        "enhancement": true,
-        "suppression": false
-      },
-      {
-        "log_Mh": 12.5,
-        "z": 5.5,
-        "label": "High-mass z=5.5 (ref z)",
-        "Gamma_t": 1.8127278176402013,
-        "enhancement": true,
-        "suppression": false
+        "ml_response": 9.096668376636377,
+        "legacy_Gamma_t": 9.096668376636377,
+        "response_above_reference": true
       }
     ]
   },
-  "sign_paradox_resolved": true,
+  "absolute_analysis": {
+    "status": "not_computed_from_KAPPA_GAL",
+    "reason": "KAPPA_GAL is an observable response coefficient, not beta_A or A(phi)"
+  },
   "red_monsters": [
     {
       "id": "S1",
       "z": 5.3,
       "log_Mh": 12.8,
-      "Gamma_t": 3.403580857104021,
+      "ml_response": 3.403580857104021,
+      "legacy_Gamma_t": 3.403580857104021,
       "mass_correction_factor": 2.3569764902545924,
       "sfe_reduction_pct": 57.57276306595729
     },
@@ -107,7 +94,8 @@
       "id": "S2",
       "z": 5.5,
       "log_Mh": 12.6,
-      "Gamma_t": 2.179320208106596,
+      "ml_response": 2.179320208106596,
+      "legacy_Gamma_t": 2.179320208106596,
       "mass_correction_factor": 1.725141537633649,
       "sfe_reduction_pct": 42.03374168523673
     },
@@ -115,16 +103,11 @@
       "id": "S3",
       "z": 5.9,
       "log_Mh": 13.0,
-      "Gamma_t": 6.91182345354814,
+      "ml_response": 6.91182345354814,
+      "legacy_Gamma_t": 6.91182345354814,
       "mass_correction_factor": 3.870034580021769,
       "sfe_reduction_pct": 74.16043760533077
     }
   ],
-  "theoretical_mapping": {
-    "KAPPA_GAL": 960000.0,
-    "interpretation": "\u03ba_gal is the Observable Response Coefficient calibrated from Cepheid P-L residuals. It is NOT the same as the scalar-tensor coupling \u03b2 in the action, and NOT the same as the WB-sector \u03b1\u2080 = 0.58 (Paper 13).",
-    "relative_formulation": "TEP-JWST uses \u0393_t = exp[ K * (\u03a6 - \u03a6_ref)/c^2 * sqrt(1+z) ], which is a RELATIVE enhancement compared to a reference environment.",
-    "sign_paradox_resolution": "The sign paradox arises from conflating CALIBRATED clock rates (which require 4\u03b2\u00b2 > 1 for enhancement) with RELATIVE enhancement (which is > 1 for M_h > M_ref by construction).",
-    "physical_meaning": "\u0393_t > 1 means the galaxy experiences MORE effective time than the reference. This is a statement about differential evolution, not calibrated clock rates."
-  }
+  "sign_paradox_resolved": true
 }

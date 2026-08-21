@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 143: Screening Transition Profile Analysis
+Step 120: Screening Transition Profile Analysis
 
 Quantifies the screening transition width and profile, addressing the
 theoretical completeness concern that ρ_c = 20 g/cm³ is stated but
@@ -330,7 +330,7 @@ def run_analysis():
 
     # Save results
     output = {
-        "step": 143,
+        "step": 120,
         "description": "Screening Transition Profile Analysis",
         "results": results,
         "methodology": {

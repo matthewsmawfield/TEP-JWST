@@ -1,22 +1,22 @@
-[22:36:11] INFO        ======================================================================
-[22:36:11] INFO        STEP 039: Overmassive Black Hole Simulation
-[22:36:11] INFO        ======================================================================
-[22:36:11] INFO        Simulation Parameters:
-[22:36:11] INFO          Halo Mass: 10^11.0 M_sun
-[22:36:11] INFO          Central Concentration Phi_cen/Phi_vir: 10.0
-[22:36:11] INFO          κ_gal: 9.600e+05 mag
-[22:36:11] INFO        
+[17:17:46] INFO        ======================================================================
+[17:17:46] INFO        STEP 039: Overmassive Black Hole Simulation
+[17:17:46] INFO        ======================================================================
+[17:17:46] INFO        Simulation Parameters:
+[17:17:46] INFO          Halo Mass: 10^11.0 M_sun
+[17:17:46] INFO          Central Concentration Phi_cen/Phi_vir: 10.0
+[17:17:46] INFO          κ_gal: 9.600e+05 mag
+[17:17:46] INFO        
 Results:
-[22:36:11] INFO         z   | Gamma_Halo | Gamma_Cen  | Growth Boost
-[22:36:11] INFO        --------------------------------------------------
-[22:36:11] INFO           4 |       0.70 |       1.68 |      3.9e+14
-[22:36:11] INFO           5 |       0.68 |       1.77 |      2.2e+12
-[22:36:11] INFO           6 |       0.66 |       1.85 |      5.4e+10
-[22:36:11] INFO           7 |       0.64 |       1.93 |      3.3e+09
-[22:36:11] INFO           8 |       0.62 |       2.01 |      3.7e+08
-[22:36:11] INFO           9 |       0.61 |       2.09 |      6.3e+07
-[22:36:11] INFO          10 |       0.59 |       2.17 |      1.5e+07
-[22:36:11] INFO        
+[17:17:46] INFO         z   | Gamma_Halo | Gamma_Cen  | Growth Boost
+[17:17:46] INFO        --------------------------------------------------
+[17:17:46] INFO           4 |       0.70 |       1.68 |      3.9e+14
+[17:17:46] INFO           5 |       0.68 |       1.77 |      2.2e+12
+[17:17:46] INFO           6 |       0.66 |       1.85 |      5.4e+10
+[17:17:46] INFO           7 |       0.64 |       1.93 |      3.3e+09
+[17:17:46] INFO           8 |       0.62 |       2.01 |      3.7e+08
+[17:17:46] INFO           9 |       0.61 |       2.09 |      6.3e+07
+[17:17:46] INFO          10 |       0.59 |       2.17 |      1.5e+07
+[17:17:46] INFO        
 Saved table to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_039_bh_growth_table.csv
-[22:36:11] INFO        Saved summary to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_039_overmassive_bh.json
-[22:36:11] INFO        Step 039 complete.
+[17:17:46] INFO        Saved summary to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_039_overmassive_bh.json
+[17:17:46] INFO        Step 039 complete.

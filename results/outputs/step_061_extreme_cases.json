@@ -3,35 +3,35 @@
   "extreme_cases": {
     "oldest": {
       "n_extreme": 9,
-      "mean_gamma_extreme": 0.9048653434067381
+      "mean_gamma_extreme": 1.8432721647137416
     },
     "dusty_z9": {
       "n_dusty": 60,
-      "mean_gamma_dusty": 0.6696178026725125,
-      "mean_gamma_not": 0.5300542694923438,
-      "ratio": 1.2633004603733025
+      "mean_gamma_dusty": 1.7484897428538753,
+      "mean_gamma_not": 0.5420001317168618,
+      "ratio": 3.225995051542308
     },
     "massive_z8": {
       "n_massive": 16,
-      "mean_gamma_massive": 1.2835570587571732,
-      "mean_gamma_not": 0.5466243548510806,
-      "ratio": 2.3481519756046336
+      "mean_gamma_massive": 5.925632577865866,
+      "mean_gamma_not": 0.5599085831819683,
+      "ratio": 10.583214395804424
     },
     "worst_fits": {
       "n_worst": 29,
-      "mean_gamma_worst": 0.7670659523192851,
-      "mean_gamma_good": 0.5678767837326537,
-      "ratio": 1.350761246616495
+      "mean_gamma_worst": 1.4277421293836232,
+      "mean_gamma_good": 0.7988235874146231,
+      "ratio": 1.7873059232070032
     },
     "multi_extreme": {
-      "rho": 0.3828023264221731,
-      "p": 2.6128214189542167e-11
+      "rho": 0.5148506078630285,
+      "p": 1.4751203126295087e-20
     },
     "anomalous": {
       "n_impossible": 10,
-      "mean_gamma_impossible": 0.8117394319210943,
-      "mean_gamma_possible": 0.5891708691362014,
-      "ratio": 1.3777657288304264
+      "mean_gamma_impossible": 1.6916937593892538,
+      "mean_gamma_possible": 1.1897920507753394,
+      "ratio": 1.4218398570463178
     }
   }
 }

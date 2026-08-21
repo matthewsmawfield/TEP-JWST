@@ -31,7 +31,11 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
-from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like  # Shared TEP model
+from scripts.utils.tep_model import (  # Shared TEP model
+    compute_gamma_t,
+    stellar_to_halo_mass_behroozi_like,
+    compute_ml_response_self_consistent,
+)
 from scripts.utils.p_value_utils import safe_json_default  # JSON serialiser for numpy types
 
 STEP_NUM = "174"  # Pipeline step number
@@ -64,13 +68,20 @@ MASS_THRESHOLDS = [10.0, 10.5]
 # ── Data loading ─────────────────────────────────────────────────────────────
 
 def _add_tep_columns(df):
-    """Compute log_Mh and gamma_t for a DataFrame with z and log_Mstar."""
-    df["log_Mh"] = df.apply(
-        lambda r: stellar_to_halo_mass_behroozi_like(r["log_Mstar"], r["z"]), axis=1
+    """Compute log_Mh and gamma_t for a DataFrame with z and log_Mstar.
+
+    Uses the self-consistent R_ML (damped fixed-point iteration) rather than
+    the single-pass value.  The single-pass computation evaluates R_ML from
+    the observed (biased) mass, which overcorrects high-mass galaxies because
+    the SMHM slope amplifies the feedback loop.  The self-consistent solution
+    iterates M*→Mh→R_ML→M*_true to a stable fixed point.
+    """
+    gamma_sc, log_m_true_sc = compute_ml_response_self_consistent(
+        df["log_Mstar"].values, df["z"].values, n=N_ML
     )
-    df["gamma_t"] = df.apply(
-        lambda r: compute_gamma_t(r["log_Mh"], r["z"]), axis=1
-    )
+    df["gamma_t"] = gamma_sc
+    df["log_Mstar_true"] = log_m_true_sc
+    df["log_Mh"] = stellar_to_halo_mass_behroozi_like(log_m_true_sc, df["z"].values)
     return df
 
 
@@ -92,7 +103,7 @@ def load_all_surveys():
         df_u = _add_tep_columns(df_u)
         df_u["survey"] = "UNCOVER"
         logger.info(f"  UNCOVER: loaded {len(df_u)} galaxies")
-        surveys.append(df_u[["z", "log_Mstar", "log_Mh", "gamma_t", "survey"]])
+        surveys.append(df_u[["z", "log_Mstar", "log_Mstar_true", "log_Mh", "gamma_t", "survey"]])
 
     # CEERS highz (z = 4-12)
     ceers_path = DATA_INTERIM_PATH / "ceers_highz_sample.csv"
@@ -104,7 +115,7 @@ def load_all_surveys():
         df_c = _add_tep_columns(df_c)
         df_c["survey"] = "CEERS"
         logger.info(f"  CEERS: loaded {len(df_c)} galaxies (z=4-12)")
-        surveys.append(df_c[["z", "log_Mstar", "log_Mh", "gamma_t", "survey"]])
+        surveys.append(df_c[["z", "log_Mstar", "log_Mstar_true", "log_Mh", "gamma_t", "survey"]])
 
     # COSMOS-Web highz (z = 4-12)
     cosmo_path = DATA_INTERIM_PATH / "cosmosweb_highz_sample.csv"
@@ -116,7 +127,7 @@ def load_all_surveys():
         df_cw = _add_tep_columns(df_cw)
         df_cw["survey"] = "COSMOS-Web"
         logger.info(f"  COSMOS-Web: loaded {len(df_cw)} galaxies (z=4-12)")
-        surveys.append(df_cw[["z", "log_Mstar", "log_Mh", "gamma_t", "survey"]])
+        surveys.append(df_cw[["z", "log_Mstar", "log_Mstar_true", "log_Mh", "gamma_t", "survey"]])
 
     return pd.concat(surveys, ignore_index=True)
 
@@ -137,10 +148,8 @@ def count_above_threshold(df, z_lo, z_hi, log_mass_thresh, n_ml=N_ML):
     # Observed count above threshold
     n_obs = int((sub["log_Mstar"] > log_mass_thresh).sum())
 
-    # TEP-corrected mass
-    sub["log_Mstar_true"] = sub["log_Mstar"] - n_ml * np.log10(
-        np.maximum(sub["gamma_t"].values, 1e-3)
-    )
+    # TEP-corrected mass (already computed in _add_tep_columns via
+    # self-consistent R_ML iteration)
     n_corr = int((sub["log_Mstar_true"] > log_mass_thresh).sum())
 
     reduction = (1 - n_corr / n_obs) * 100 if n_obs > 0 else 0.0

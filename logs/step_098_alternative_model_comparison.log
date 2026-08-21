@@ -1,54 +1,54 @@
-[22:37:59] INFO        ======================================================================
-[22:37:59] INFO        STEP 098: Alternative Model Comparison
-[22:37:59] INFO        ======================================================================
-[22:37:59] INFO        Loaded 2315 galaxies
-[22:37:59] INFO        High-z sample: 283 galaxies
-[22:37:59] INFO        Valid data points: 283
-[22:37:59] INFO        
+[17:21:07] INFO        ======================================================================
+[17:21:07] INFO        STEP 098: Alternative Model Comparison
+[17:21:07] INFO        ======================================================================
+[17:21:07] INFO        Loaded 2315 galaxies
+[17:21:07] INFO        High-z sample: 283 galaxies
+[17:21:07] INFO        Valid data points: 283
+[17:21:07] INFO        
 Fitting models...
-[22:37:59] INFO          Null: LL=-139.9, AIC=287.8, BIC=302.4
-[22:37:59] INFO          TEP: LL=-138.7, AIC=287.5, BIC=305.7
-[22:37:59] INFO          Top-heavy IMF: LL=-138.0, AIC=286.0, BIC=304.2
-[22:37:59] INFO          Stochastic SF: LL=-139.9, AIC=289.8, BIC=308.1
-[22:37:59] INFO          AGN: LL=-136.8, AIC=281.6, BIC=296.2
-[22:37:59] INFO        
+[17:21:07] INFO          Null: LL=-139.9, AIC=287.8, BIC=302.4
+[17:21:07] INFO          TEP: LL=-139.4, AIC=288.7, BIC=307.0
+[17:21:07] INFO          Top-heavy IMF: LL=-138.0, AIC=286.0, BIC=304.2
+[17:21:07] INFO          Stochastic SF: LL=-139.9, AIC=289.8, BIC=308.1
+[17:21:07] INFO          AGN: LL=-136.8, AIC=281.6, BIC=296.2
+[17:21:07] INFO        
 ======================================================================
-[22:37:59] INFO        MODEL COMPARISON RESULTS
-[22:37:59] INFO        ======================================================================
-[22:37:59] INFO        
+[17:21:07] INFO        MODEL COMPARISON RESULTS
+[17:21:07] INFO        ======================================================================
+[17:21:07] INFO        
 Ranking by AIC (lower is better):
-[22:37:59] INFO          1. AGN Contamination: AIC=281.6 (ΔAIC=0.0)
-[22:37:59] INFO          2. Top-Heavy IMF: AIC=286.0 (ΔAIC=4.4)
-[22:37:59] INFO          3. TEP (Temporal Equivalence): AIC=287.5 (ΔAIC=5.9)
-[22:37:59] INFO          4. Standard Physics (Null): AIC=287.8 (ΔAIC=6.2)
-[22:37:59] INFO          5. Stochastic Star Formation: AIC=289.8 (ΔAIC=8.2)
-[22:37:59] INFO        
+[17:21:07] INFO          1. AGN Contamination: AIC=281.6 (ΔAIC=0.0)
+[17:21:07] INFO          2. Top-Heavy IMF: AIC=286.0 (ΔAIC=4.4)
+[17:21:07] INFO          3. Standard Physics (Null): AIC=287.8 (ΔAIC=6.2)
+[17:21:07] INFO          4. TEP (Temporal Equivalence): AIC=288.7 (ΔAIC=7.1)
+[17:21:07] INFO          5. Stochastic Star Formation: AIC=289.8 (ΔAIC=8.2)
+[17:21:07] INFO        
 Bayes Factors (vs TEP):
-[22:37:59] INFO          TEP vs Standard Physics (Null): BF=1.2 (Weak evidence for Model 1)
-[22:37:59] INFO          TEP vs Top-Heavy IMF: BF=0.5 (Weak evidence for Model 2)
-[22:37:59] INFO          TEP vs Stochastic Star Formation: BF=3.2 (Positive evidence for Model 1)
-[22:37:59] INFO          TEP vs AGN Contamination: BF=0.1 (Positive evidence for Model 2)
-[22:37:59] INFO        
+[17:21:07] INFO          TEP vs Standard Physics (Null): BF=0.6 (Weak evidence for Model 2)
+[17:21:07] INFO          TEP vs Top-Heavy IMF: BF=0.3 (Positive evidence for Model 2)
+[17:21:07] INFO          TEP vs Stochastic Star Formation: BF=1.7 (Weak evidence for Model 1)
+[17:21:07] INFO          TEP vs AGN Contamination: BF=0.0 (Strong evidence for Model 2)
+[17:21:07] INFO        
 Akaike Weights (probability of being best model):
-[22:37:59] INFO          Standard Physics (Null): w=0.037 (3.7%)
-[22:37:59] INFO          TEP (Temporal Equivalence): w=0.043 (4.3%)
-[22:37:59] INFO          Top-Heavy IMF: w=0.092 (9.2%)
-[22:37:59] INFO          Stochastic Star Formation: w=0.013 (1.3%)
-[22:37:59] INFO          AGN Contamination: w=0.815 (81.5%)
-[22:37:59] INFO        
+[17:21:07] INFO          Standard Physics (Null): w=0.037 (3.7%)
+[17:21:07] INFO          TEP (Temporal Equivalence): w=0.024 (2.4%)
+[17:21:07] INFO          Top-Heavy IMF: w=0.094 (9.4%)
+[17:21:07] INFO          Stochastic Star Formation: w=0.014 (1.4%)
+[17:21:07] INFO          AGN Contamination: w=0.832 (83.2%)
+[17:21:07] INFO        
 ======================================================================
-[22:37:59] INFO        SUMMARY
-[22:37:59] INFO        ======================================================================
-[22:37:59] INFO        
-TEP ranks #3 (Akaike weight = 4.3%)
-[22:37:59] INFO        Best alternative: AGN Contamination
-[22:37:59] INFO        
+[17:21:07] INFO        SUMMARY
+[17:21:07] INFO        ======================================================================
+[17:21:07] INFO        
+TEP ranks #4 (Akaike weight = 2.4%)
+[17:21:07] INFO        Best alternative: AGN Contamination
+[17:21:07] INFO        
 Key discriminating features:
-[22:37:59] INFO          - TEP model includes mass, z, AND Gamma_t — tests whether temporal enhancement adds explanatory power
-[22:37:59] INFO          - TEP's Gamma_t encodes physics (potential depth) rather than ad-hoc correlations
-[22:37:59] INFO          - TEP makes testable predictions for screening and spectroscopy
-[22:37:59] INFO        
+[17:21:07] INFO          - TEP model includes mass, z, AND Gamma_t — tests whether temporal enhancement adds explanatory power
+[17:21:07] INFO          - TEP's Gamma_t encodes physics (potential depth) rather than ad-hoc correlations
+[17:21:07] INFO          - TEP makes testable predictions for screening and spectroscopy
+[17:21:07] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_098_alternative_model_comparison.json
-[22:38:00] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_098_alternative_model_comparison.png
-[22:38:00] INFO        
+[17:21:08] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_098_alternative_model_comparison.png
+[17:21:08] INFO        
 Step 098 complete.

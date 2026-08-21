@@ -23,10 +23,10 @@
   "consistency_checks": {
     "sigma8_unscreened": 237.9660684115057,
     "sigma8_step92_expected": 3.4,
-    "rsd_chi2_lcdm": 7.486462596535009,
-    "rsd_chi2_tep": 7.486730575180357,
+    "rsd_chi2_lcdm": 7.486462596535011,
+    "rsd_chi2_tep": 7.486730575180365,
     "n_rsd_points": 8,
-    "rsd_delta_chi2": 0.0002679786453478883
+    "rsd_delta_chi2": 0.00026797864535410554
   },
   "2sigma_constraint": {
     "m_phi_0_min_hMpc": 0.42919342601287763,

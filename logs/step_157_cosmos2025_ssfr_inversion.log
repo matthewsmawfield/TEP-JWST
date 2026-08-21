@@ -1,11 +1,11 @@
-[22:43:46] INFO        STEP 157: COSMOS2025 sSFR inversion (Table B4b)
-[22:43:46] INFO    Loading COSMOSWeb_mastercatalog_v1_lephare.fits ...
-[22:43:47] INFO    Valid galaxy SED fits: 648,830
-[22:45:21] INFO      z=4-7 (low-z): N=42,361, partial_rho=0.024, debiased=0.024, weighted_debiased=0.023
-[22:45:25] INFO      z=7-8: N=4,590, partial_rho=0.019, debiased=0.006, weighted_debiased=-0.027
-[22:45:25] INFO      z=8-9: N=1,121, partial_rho=0.084, debiased=0.073, weighted_debiased=0.113
-[22:45:26] INFO      z=9-13 (high-z): N=1,467, partial_rho=-0.073, debiased=-0.076, weighted_debiased=-0.015
-[22:45:28] INFO    Independent-sample Fisher z-difference (z=9-13 vs z=4-7): Z=-3.66, p=2.51e-04
-[22:45:28] INFO    sSFR inversion: rho(low-z)=0.024 -> rho(high-z)=-0.073, delta_rho=-0.097
-[22:45:28] INFO    Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_157_cosmos2025_ssfr_inversion.json
-[22:45:28] INFO        Step 157 complete. Fisher z-difference=-3.66, p=2.51e-04
+[17:31:19] INFO        STEP 157: COSMOS2025 sSFR inversion (Table B4b)
+[17:31:21] INFO    Loading COSMOSWeb_mastercatalog_v1_lephare.fits ...
+[17:31:21] INFO    Valid galaxy SED fits: 648,830
+[17:34:01] INFO      z=4-7 (low-z): N=42,361, partial_rho=0.008, debiased=0.008, weighted_debiased=0.023
+[17:34:03] INFO      z=7-8: N=4,590, partial_rho=-0.002, debiased=-0.022, weighted_debiased=-0.066
+[17:34:05] INFO      z=8-9: N=1,121, partial_rho=0.078, debiased=-0.016, weighted_debiased=-0.034
+[17:34:06] INFO      z=9-13 (high-z): N=1,467, partial_rho=-0.096, debiased=-0.103, weighted_debiased=-0.070
+[17:34:10] INFO    Independent-sample Fisher z-difference (z=9-13 vs z=4-7): Z=-3.92, p=8.84e-05
+[17:34:10] INFO    sSFR inversion: rho(low-z)=0.008 -> rho(high-z)=-0.096, delta_rho=-0.104
+[17:34:10] INFO    Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_157_cosmos2025_ssfr_inversion.json
+[17:34:10] INFO        Step 157 complete. Fisher z-difference=-3.92, p=8.84e-05

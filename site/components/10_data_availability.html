@@ -14,8 +14,8 @@
     <strong>GitHub Repository:</strong> <a href="https://github.com/matthewsmawfield/TEP-JWST">github.com/matthewsmawfield/TEP-JWST</a>
   </p>
   <p>
-    The repository contains a deterministic, version-controlled analysis pipeline with 159 analysis steps 
-    and automated consistency checks.
+    The repository contains a deterministic, version-controlled analysis pipeline of 131 active scripts
+    (numbered up to 178, with gaps from deprecated and merged steps) and automated consistency checks.
   </p>
 
   <h4>Repository Structure</h4>
@@ -31,13 +31,15 @@ TEP-JWST/
 │  ├── outputs/          # JSON/CSV analytical outputs
 │  └── figures/          # Generated manuscript figures
 ├── scripts/
-│  ├── steps/           # 159-step canonical pipeline
+│  ├── steps/           # 131 active scripts (numbered up to 178)
 │  │  ├── step_001_uncover_load.py
 │  │  ├── step_002_tep_model.py
 │  │  ├── step_140_evidence_tier_summary.py
 │  │  ├── step_159_mass_measurement_bias.py
 │  │  ├── step_160_manuscript_consistency_check.py
 │  │  ├── step_170_kinematic_decisive_test.py
+│  │  ├── step_171_sigma_kinematic_expansion.py
+│  │  ├── step_176_nested_bayesian_evidence.py
 │  │  └── run_all_steps.py    # Master pipeline runner
 │  └── utils/           # Shared analysis utilities
 ├── site/
@@ -136,7 +138,7 @@ cd TEP-JWST
 pip install -r requirements.txt
 npm install --prefix site
 
-# 3. Run complete pipeline (159 steps)
+# 3. Run complete pipeline (131 active scripts)
 python scripts/steps/run_all_steps.py
 
 # 4. Build manuscript
@@ -172,19 +174,19 @@ npm run build --prefix site
     </tr>
     <tr>
       <td>Runtime</td>
-      <td colspan="2">~10-12 minutes (full 159-step pipeline)</td>
-      <td>~11 minutes (M4 Pro)</td>
+      <td colspan="2">~30-35 minutes (full pipeline, 131 active scripts)</td>
+      <td>~32 minutes (M4 Pro)</td>
     </tr>
   </table>
 
   <h4>Pipeline Overview</h4>
-  <p>The analysis pipeline consists of 159 deterministic steps organized into phases:</p>
+  <p>The analysis pipeline consists of 131 active scripts (numbered up to 178) organized into phases:</p>
   <ol>
-    <li><strong>Steps 001-008:</strong> Data loading and TEP model computation (Γ_t for all galaxies)</li>
+    <li><strong>Steps 001-008:</strong> Data loading and TEP model computation ($R_{\rm ML}$ for all galaxies)</li>
     <li><strong>Steps 009-100:</strong> Core empirical analysis across five evidence lines (L1-L5)</li>
     <li><strong>Steps 101-140:</strong> Cross-survey replication and robustness validation</li>
     <li><strong>Steps 141-160:</strong> Advanced discriminating tests and manuscript consistency checks</li>
-    <li><strong>Steps 161-176:</strong> Figure generation and final summary outputs</li>
+    <li><strong>Steps 161-178:</strong> Figure generation and final summary outputs</li>
   </ol>
   <p>
     Each step produces JSON outputs with full metadata, and execution logs are written to <code>logs/</code> 

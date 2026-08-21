@@ -1,17 +1,17 @@
-[22:38:41] INFO        STEP 102: Literature anomaly resolution table
-[22:38:41] INFO      Total JWST anomalies: 11
-[22:38:41] INFO      Resolved by TEP: 11/11 (100%)
-[22:38:41] INFO      Mean resolution fraction: 0.91
-[22:38:41] INFO        [RESOLVED] Anomalous Galaxies (Labbe+2023)
-[22:38:41] INFO        [RESOLVED] Dust Anomaly at z>4 (UNCOVER)
-[22:38:41] INFO        [RESOLVED] sSFR Inversion at z>7 (UNCOVER)
-[22:38:41] INFO        [RESOLVED] Red Monster / Dust Saturation Crisis
-[22:38:41] INFO        [RESOLVED] Little Red Dots (Matthee+2024)
-[22:38:41] INFO        [RESOLVED] Blue Core / Positive Color Gradient (Jin+2025)
-[22:38:41] INFO        [RESOLVED] M* > M_dyn Crisis (de Graaff+2024)
-[22:38:41] INFO        [RESOLVED] Environmental Reversal (EPOCHS+2025)
-[22:38:41] INFO        [RESOLVED] Metallicity Gradient Flip (Ju+2025)
-[22:38:41] INFO        [RESOLVED] Rapid Quenching at z~4 (multiple)
-[22:38:41] INFO        [RESOLVED] Spin Asymmetry (Shamir+2025)
-[22:38:41] INFO    Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_102_literature_anomaly_resolution.json
-[22:38:41] INFO        Step 102 complete. 11/11 anomalies resolved.
+[17:22:35] INFO        STEP 102: Literature anomaly resolution table
+[17:22:35] INFO      Total JWST anomalies: 11
+[17:22:35] INFO      Resolved by TEP: 11/11 (100%)
+[17:22:35] INFO      Mean resolution fraction: 0.91
+[17:22:35] INFO        [RESOLVED] Anomalous Galaxies (Labbe+2023)
+[17:22:35] INFO        [RESOLVED] Dust Anomaly at z>4 (UNCOVER)
+[17:22:35] INFO        [RESOLVED] sSFR Inversion at z>7 (UNCOVER)
+[17:22:35] INFO        [RESOLVED] Red Monster / Dust Saturation Crisis
+[17:22:35] INFO        [RESOLVED] Little Red Dots (Matthee+2024)
+[17:22:35] INFO        [RESOLVED] Blue Core / Positive Color Gradient (Jin+2025)
+[17:22:35] INFO        [RESOLVED] M* > M_dyn Crisis (de Graaff+2024)
+[17:22:35] INFO        [RESOLVED] Environmental Reversal (EPOCHS+2025)
+[17:22:35] INFO        [RESOLVED] Metallicity Gradient Flip (Ju+2025)
+[17:22:35] INFO        [RESOLVED] Rapid Quenching at z~4 (multiple)
+[17:22:35] INFO        [RESOLVED] Spin Asymmetry (Shamir+2025)
+[17:22:35] INFO    Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_102_literature_anomaly_resolution.json
+[17:22:35] INFO        Step 102 complete. 11/11 anomalies resolved.

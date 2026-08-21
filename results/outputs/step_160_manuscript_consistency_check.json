@@ -46,7 +46,7 @@
         "step_164_present": true,
         "step_140_present": true,
         "step_164_before_step_140": true,
-        "registered_steps": 129
+        "registered_steps": 131
       },
       "pass": true
     },
@@ -291,7 +291,7 @@
     },
     {
       "name": "step157_z9_13_partial_rho_present",
-      "expected": "-0.073",
+      "expected": "-0.096",
       "found": true,
       "pass": true
     },
@@ -315,8 +315,8 @@
     {
       "name": "step159_bootstrap_beta_ci_present_in_discussion",
       "expected": {
-        "beta_ci_low": "0.221",
-        "beta_ci_high": "0.690"
+        "beta_ci_low": "0.306",
+        "beta_ci_high": "0.992"
       },
       "found": {
         "beta_ci_low": true,

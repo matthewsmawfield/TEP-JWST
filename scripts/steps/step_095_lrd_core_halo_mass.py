@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): 2.5s.
 """
-Step 116: LRD Core-Halo Mass Derivation from Resolved Photometry
+Step 095: LRD Core-Halo Mass Derivation from Resolved Photometry
 
 This script derives the core-halo mass differential (Delta log M_h) for Little Red Dots
 from observational constraints rather than assuming a fixed value.
@@ -18,7 +18,7 @@ Physical basis:
 - This maps to Delta log M_h via virial scaling: Phi ~ M^(2/3)
 
 Outputs:
-- results/outputs/step_116_lrd_core_halo_mass.json
+- results/outputs/step_095_lrd_core_halo_mass.json
 - results/figures/figure_095_lrd_boost_distribution.png
 """
 

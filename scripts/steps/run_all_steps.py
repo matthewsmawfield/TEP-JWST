@@ -27,11 +27,11 @@ STEPS_DIR = PROJECT_ROOT / "scripts" / "steps"
 OUTPUTS_DIR = PROJECT_ROOT / "results" / "outputs"
 
 # =============================================================================
-# FULL PIPELINE: 129 analysis steps
+# FULL PIPELINE: 131 analysis steps
 # Includes core analysis, replication, robustness, falsification, and
 # advanced discriminating tests used by the current manuscript build.
 # Note: step numbers are non-contiguous (some steps were retired, merged,
-# or archived — see scripts/steps/archive/); the list below contains 129
+# or archived — see scripts/steps/archive/); the list below contains 131
 # active step scripts.
 #
 # Archived in this revision (23 steps, Tier 1 cleanup):
@@ -262,6 +262,8 @@ STEPS = [
     "step_170_kinematic_decisive_test.py",          # Kinematic decisive test (reads step_171 output)
     "step_174_smf_mass_threshold_counts.py",        # SMF mass threshold counts (Table 15)
     "step_176_nested_bayesian_evidence.py",         # Nested Bayesian model comparison (dynesty)
+    "step_177_l1_l3_partial_independence.py",        # L1-L3 partial independence test (headline ρ=−0.50)
+    "step_178_circularity_breaker.py",              # Circular mass loop breaker (3 tests)
 
     # =========================================================================
     # PHASE XX: FINAL SYNTHESIS & MANUSCRIPT QA (steps 140, 160)

@@ -1,43 +1,43 @@
-[22:37:03] INFO        ======================================================================
-[22:37:03] INFO        STEP 084: Effect Size Meta-Analysis
-[22:37:03] INFO        ======================================================================
-[22:37:03] INFO        Loaded N = 2315 galaxies
-[22:37:03] INFO        
+[17:19:32] INFO        ======================================================================
+[17:19:32] INFO        STEP 084: Effect Size Meta-Analysis
+[17:19:32] INFO        ======================================================================
+[17:19:32] INFO        Loaded N = 2315 galaxies
+[17:19:32] INFO        
 --- 1. Computing Effect Sizes ---
-[22:37:03] INFO          Computed 6 effect sizes
-[22:37:03] INFO            z>8 Dust-Γt (UNCOVER): ρ = 0.471 [0.375, 0.557] ✓
-[22:37:03] INFO            z>7 Dust-Γt: ρ = 0.148 [0.062, 0.233] ✓
-[22:37:03] INFO            z>6 Dust-Γt: ρ = -0.183 [-0.246, -0.118] ✗
-[22:37:03] INFO            Mass-Age (Full): ρ = 0.135 [0.095, 0.175] ✓
-[22:37:03] INFO            Mass-Age (z>6): ρ = -0.043 [-0.109, 0.023] ✗
-[22:37:03] INFO            Γt-sSFR (z>7): ρ = -0.162 [-0.246, -0.076] ✓
-[22:37:03] INFO        
+[17:19:32] INFO          Computed 6 effect sizes
+[17:19:32] INFO            z>8 Dust-Γt (UNCOVER): ρ = 0.581 [0.498, 0.653] ✓
+[17:19:32] INFO            z>7 Dust-Γt: ρ = 0.265 [0.181, 0.344] ✓
+[17:19:32] INFO            z>6 Dust-Γt: ρ = -0.111 [-0.176, -0.045] ✗
+[17:19:32] INFO            Mass-Age (Full): ρ = 0.135 [0.095, 0.175] ✓
+[17:19:32] INFO            Mass-Age (z>6): ρ = -0.043 [-0.109, 0.023] ✗
+[17:19:32] INFO            Γt-sSFR (z>7): ρ = -0.100 [-0.186, -0.013] ✓
+[17:19:32] INFO        
 --- 2. Fixed-Effects Meta-Analysis ---
-[22:37:03] INFO          All effects: Combined ρ = 0.047 [0.020, 0.074]
-[22:37:03] INFO          Z = 3.44, p = 5.86e-04
-[22:37:03] INFO          Independent only (3 tests): Combined ρ = 0.121 [0.086, 0.155]
-[22:37:03] INFO          Z = 6.75, p = 1.51e-11
-[22:37:03] INFO        
+[17:19:32] INFO          All effects: Combined ρ = 0.084 [0.057, 0.111]
+[17:19:32] INFO          Z = 6.16, p = 7.06e-10
+[17:19:32] INFO          Independent only (3 tests): Combined ρ = 0.144 [0.110, 0.179]
+[17:19:32] INFO          Z = 8.08, p = 6.45e-16
+[17:19:32] INFO        
 --- 3. Heterogeneity Assessment ---
-[22:37:03] INFO          Q = 160.18, df = 5, p = 0.000
-[22:37:03] INFO          I² = 96.9% (Considerable heterogeneity)
-[22:37:03] INFO          τ² = 0.0393
-[22:37:03] INFO        
+[17:19:32] INFO          Q = 182.28, df = 5, p = 0.000
+[17:19:32] INFO          I² = 97.3% (Considerable heterogeneity)
+[17:19:32] INFO          τ² = 0.0449
+[17:19:32] INFO        
 --- 4. Random-Effects Meta-Analysis ---
-[22:37:03] INFO          Combined ρ = 0.064 [-0.098, 0.222]
-[22:37:03] INFO          Z = 0.77, p = 4.38e-01
-[22:37:03] INFO        
+[17:19:32] INFO          Combined ρ = 0.131 [-0.041, 0.296]
+[17:19:32] INFO          Z = 1.50, p = 1.35e-01
+[17:19:32] INFO        
 --- 5. Creating Visualizations ---
-[22:37:03] INFO          Saved: tep_forest_plot.png
-[22:37:04] INFO          Saved: tep_funnel_plot.png
-[22:37:04] INFO        
+[17:19:33] INFO          Saved: tep_forest_plot.png
+[17:19:33] INFO          Saved: tep_funnel_plot.png
+[17:19:33] INFO        
 ======================================================================
-[22:37:04] INFO        META-ANALYSIS SUMMARY
-[22:37:04] INFO        ======================================================================
-[22:37:04] INFO          Effects analyzed: 6
-[22:37:04] INFO          Sign match rate: 67%
-[22:37:04] INFO          Combined ρ (FE): 0.121
-[22:37:04] INFO          Combined ρ (RE): 0.064
-[22:37:04] INFO          Overall significant: True
-[22:37:04] INFO        
+[17:19:33] INFO        META-ANALYSIS SUMMARY
+[17:19:33] INFO        ======================================================================
+[17:19:33] INFO          Effects analyzed: 6
+[17:19:33] INFO          Sign match rate: 67%
+[17:19:33] INFO          Combined ρ (FE): 0.144
+[17:19:33] INFO          Combined ρ (RE): 0.131
+[17:19:33] INFO          Overall significant: True
+[17:19:33] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_084_effect_size_meta.json

@@ -1,0 +1,86 @@
+{
+  "step": 177,
+  "name": "l1_l3_partial_independence",
+  "description": "L1\u2013L3 partial independence and sSFR partial correlations controlling for dust and mass+z across redshift bins",
+  "source_data": "UNCOVER DR4 (step_002 interim CSV)",
+  "method": "Spearman partial correlation via OLS residualisation",
+  "results": {
+    "raw_full": {
+      "description": "Raw Spearman rho(gamma_t, log_sSFR), full sample",
+      "rho": -0.4904631210767889,
+      "p_value": 2.1048639615096864e-140,
+      "n": 2315
+    },
+    "partial_dust_full": {
+      "description": "Partial Spearman rho(gamma_t, log_sSFR | Av), full sample",
+      "rho": -0.4145526116899636,
+      "p_value": 7.799129503712257e-97,
+      "n": 2315
+    },
+    "partial_dust_mass_z_full": {
+      "description": "Partial Spearman rho(gamma_t, log_sSFR | Av, log_Mstar, z), full sample",
+      "rho": -0.15311057106107775,
+      "p_value": 1.2961608628017496e-13,
+      "n": 2315
+    },
+    "partial_mass_z_full": {
+      "description": "Partial Spearman rho(gamma_t, log_sSFR | log_Mstar, z), full sample",
+      "rho": -0.18952232177232559,
+      "p_value": 3.670193705664773e-20,
+      "n": 2315
+    },
+    "partial_dust_z_gt_7": {
+      "description": "Partial Spearman rho(gamma_t, log_sSFR | Av), z > 7",
+      "rho": -0.15997133652587076,
+      "p_value": 0.0003113404281297197,
+      "n": 504
+    },
+    "partial_mass_z_z_gt_7": {
+      "description": "Partial Spearman rho(gamma_t, log_sSFR | log_Mstar, z), z > 7",
+      "rho": -0.5190570860550981,
+      "p_value": 4.1155188500861664e-36,
+      "n": 504
+    },
+    "partial_dust_z_gt_8": {
+      "description": "Partial Spearman rho(gamma_t, log_sSFR | Av), z > 8 (L1-L3 independence)",
+      "rho": -0.4896979047429452,
+      "p_value": 1.7888613267117744e-18,
+      "n": 283
+    },
+    "partial_mass_z_z_gt_8": {
+      "description": "Partial Spearman rho(gamma_t, log_sSFR | log_Mstar, z), z > 8 (L3 mass+z control)",
+      "rho": -0.46552784869505726,
+      "p_value": 1.257521370797482e-16,
+      "n": 283
+    },
+    "partial_dust_mass_z_z_gt_8": {
+      "description": "Partial Spearman rho(gamma_t, log_sSFR | Av, log_Mstar, z), z > 8",
+      "rho": -0.4564652027645914,
+      "p_value": 5.691853636649562e-16,
+      "n": 283
+    },
+    "partial_dust_z_gt_6": {
+      "description": "Partial Spearman rho(gamma_t, log_sSFR | Av), z > 6",
+      "rho": -0.12146227019259305,
+      "p_value": 0.0003143596255680537,
+      "n": 876
+    },
+    "partial_mass_z_z_gt_6": {
+      "description": "Partial Spearman rho(gamma_t, log_sSFR | log_Mstar, z), z > 6",
+      "rho": -0.44302409700388484,
+      "p_value": 2.068669988548731e-43,
+      "n": 876
+    },
+    "summary": {
+      "headline_dust_test": "partial_dust_z_gt_8",
+      "headline_dust_rho": -0.4896979047429452,
+      "headline_dust_p": 1.7888613267117744e-18,
+      "headline_dust_n": 283,
+      "headline_mass_z_test": "partial_mass_z_z_gt_8",
+      "headline_mass_z_rho": -0.46552784869505726,
+      "headline_mass_z_p": 1.257521370797482e-16,
+      "headline_mass_z_n": 283,
+      "verdict": "L3 carries information orthogonal to L1 dust signal and survives mass+z control"
+    }
+  }
+}

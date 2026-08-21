@@ -7,7 +7,7 @@ de Graaff, Saldana-Lopez, Danhaive gold) into a single combined sample and
 runs sigma-derived (SED-independent) tests that break the photometric
 mass-proxy circularity.
 
-Key design choice: Gamma_t_sigma is computed from sigma ALONE (via the
+Key design choice: R_ML_sigma is computed from sigma ALONE (via the
 sigma-Mhalo relation), NOT from Mdyn = 5 sigma^2 R_e / G. This avoids
 shared-variable artifacts when correlating with M*/Mdyn excess.
 
@@ -16,7 +16,7 @@ Key tests:
       increase with z as TEP predicts?
   T2  TEP-corrected fundamental plane scatter: does the TEP-corrected M*
       follow a tighter M*-sigma-Re relation?
-  T3  Sigma-only Gamma_t as M* predictor: does log(Gamma_t_sigma_only)
+  T3  Sigma-only R_ML as M* predictor: does log(R_ML_sigma_only)
       add predictive power for M*_obs beyond sigma alone?
   T4  Cross-survey consistency.
   T5  High-z (z>=4) focused subset.
@@ -34,7 +34,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import print_status
 from scripts.utils.rank_stats import bootstrap_partial_rank_ci, partial_rank_correlation
-from scripts.utils.tep_model import KAPPA_GAL, compute_gamma_t
+from scripts.utils.tep_model import KAPPA_GAL, compute_ml_response
 
 STEP_NUM = 171
 STEP_NAME = "sigma_kinematic_expansion"
@@ -280,15 +280,15 @@ def _build_combined_sample():
 
 
 # ---------------------------------------------------------------------------
-# Gamma_t computations
+# R_ML computations
 # ---------------------------------------------------------------------------
 
-def _compute_gamma_t_sigma_only(df):
-    """Gamma_t from sigma alone (no Mdyn, no M*, no R_e)."""
+def _compute_ml_response_sigma_only(df):
+    """Observable M/L response from sigma alone (no Mdyn, no M*, no R_e)."""
     sigma = df["sigma_kms"].to_numpy(dtype=float)
     z = df["z"].to_numpy(dtype=float)
     log_mh = _sigma_to_log_mhalo(sigma, z)
-    return compute_gamma_t(log_mh, z)
+    return compute_ml_response(log_mh, z)
 
 
 # ---------------------------------------------------------------------------
@@ -353,7 +353,7 @@ def _test_mstar_sigma_evolution(df):
 
     We fit log(M*_obs) = a * log(sigma) + b on the full sample, then ask
     whether the residual correlates with z.  Under TEP the residual should
-    be positive at high z because M*_obs is inflated by Gamma_t^{n_ML}.
+    be positive at high z because M*_obs is inflated by R_ML^{n_ML}.
 
     After applying the sigma-only TEP correction, the residual-z correlation
     should be reduced.
@@ -367,7 +367,7 @@ def _test_mstar_sigma_evolution(df):
     slope_obs, intercept_obs, r2_obs, resid_obs = _ols_fit(log_sigma, log_mstar)
 
     # Corrected M*
-    tep_correction = N_ML * np.log10(np.maximum(gamma_t, 1.001))
+    tep_correction = N_ML * np.log10(np.maximum(gamma_t, 0.01))
     log_mstar_corr = log_mstar - tep_correction
     slope_corr, intercept_corr, r2_corr, resid_corr = _ols_fit(log_sigma, log_mstar_corr)
 
@@ -443,7 +443,7 @@ def _test_fundamental_plane(df):
     log_mstar = sub["log_Mstar_obs"].to_numpy(dtype=float)
     gamma_t = sub["gamma_t_sigma_only"].to_numpy(dtype=float)
     z = sub["z"].to_numpy(dtype=float)
-    tep_correction = N_ML * np.log10(np.maximum(gamma_t, 1.001))
+    tep_correction = N_ML * np.log10(np.maximum(gamma_t, 0.01))
     log_mstar_corr = log_mstar - tep_correction
 
     a_obs, b_obs, c_obs, r2_obs, resid_obs = _ols_fit_2d(log_sigma, log_re, log_mstar)
@@ -478,17 +478,17 @@ def _test_fundamental_plane(df):
 
 
 # ---------------------------------------------------------------------------
-# Test T3: Gamma_t adds predictive power for M* beyond sigma alone
+# Test T3: R_ML adds predictive power for M* beyond sigma alone
 # ---------------------------------------------------------------------------
 
 def _test_gamma_sigma_only_prediction(df):
     """
-    T3 — Sigma-only Gamma_t as additional M*_obs predictor.
+    T3 — Sigma-only R_ML as additional M*_obs predictor.
 
-    Test: partial rho(M*_obs, log Gamma_t_sigma_only | log sigma, z).
+    Test: partial rho(M*_obs, log R_ML_sigma_only | log sigma, z).
     Under TEP this should be positive, under LCDM zero.
 
-    Gamma_t_sigma_only is computed from sigma alone, so it adds information
+    R_ML_sigma_only is computed from sigma alone, so it adds information
     only through its z-dependent functional form.  A positive partial means
     the specific TEP z-scaling improves the prediction of M* beyond what
     sigma and z individually provide.
@@ -496,9 +496,9 @@ def _test_gamma_sigma_only_prediction(df):
     log_mstar = df["log_Mstar_obs"].to_numpy(dtype=float)
     log_sigma = np.log10(df["sigma_kms"].to_numpy(dtype=float))
     z = df["z"].to_numpy(dtype=float)
-    log_gamma = np.log10(np.maximum(df["gamma_t_sigma_only"].to_numpy(dtype=float), 1.001))
+    log_gamma = np.log10(np.maximum(df["ml_response_sigma_only"].to_numpy(dtype=float), 0.01))
 
-    # partial rho(M*_obs, log_Gamma_t | log_sigma, z)
+    # partial rho(M*_obs, log_R_ML | log_sigma, z)
     controls = np.column_stack([log_sigma, z])
     rho_gamma, p_gamma, n_gamma = partial_rank_correlation(log_gamma, log_mstar, controls)
     ci_gamma = bootstrap_partial_rank_ci(log_gamma, log_mstar, controls, n_boot=N_BOOT, seed=RNG_SEED)
@@ -512,7 +512,7 @@ def _test_gamma_sigma_only_prediction(df):
     return {
         "n": int(len(df)),
         "description": (
-            "Does sigma-only Gamma_t add predictive power for M*_obs beyond "
+            "Does sigma-only R_ML add predictive power for M*_obs beyond "
             "log(sigma) and z? Positive partial = TEP-consistent z-dependent "
             "mass enhancement."
         ),
@@ -539,7 +539,7 @@ def _test_cross_survey(df):
     log_mstar = df["log_Mstar_obs"].to_numpy(dtype=float)
     z = df["z"].to_numpy(dtype=float)
     gamma_t = df["gamma_t_sigma_only"].to_numpy(dtype=float)
-    log_gamma = np.log10(np.maximum(gamma_t, 1.001))
+    log_gamma = np.log10(np.maximum(gamma_t, 0.01))
 
     # Global M*-sigma fit
     _, _, _, resid_obs = _ols_fit(log_sigma, log_mstar)
@@ -554,7 +554,7 @@ def _test_cross_survey(df):
             continue
         # Test: rho(M*-sigma residual, z | sigma) per-survey
         rho, p, n = partial_rank_correlation(z[mask], resid_obs[mask], log_sigma[mask])
-        # Also: rho(Gamma_t, M* | sigma, z) per-survey
+        # Also: rho(R_ML, M* | sigma, z) per-survey
         controls_sub = np.column_stack([log_sigma[mask], z[mask]])
         rho_g, p_g, n_g = partial_rank_correlation(log_gamma[mask], log_mstar[mask], controls_sub)
         results[str(paper)] = {
@@ -572,7 +572,7 @@ def _test_cross_survey(df):
         and v["partial_rho_resid_z_given_sigma"] > 0
     )
     return {
-        "description": "Per-survey M*-sigma residual vs z trend and Gamma_t prediction test.",
+        "description": "Per-survey M*-sigma residual vs z trend and R_ML prediction test.",
         "n_surveys_tested": n_surveys,
         "n_surveys_positive_resid_z": n_positive,
         "per_survey": results,
@@ -595,14 +595,14 @@ def _test_highz_subset(df, z_min=4.0):
     log_mstar = highz["log_Mstar_obs"].to_numpy(dtype=float)
     z = highz["z"].to_numpy(dtype=float)
     gamma_t = highz["gamma_t_sigma_only"].to_numpy(dtype=float)
-    log_gamma = np.log10(np.maximum(gamma_t, 1.001))
+    log_gamma = np.log10(np.maximum(gamma_t, 0.01))
 
     # T1 core: M*-sigma residual vs z
     _, _, _, resid_obs = _ols_fit(log_sigma, log_mstar)
     rho_resid, p_resid, n_resid = partial_rank_correlation(z, resid_obs, log_sigma)
     ci_resid = bootstrap_partial_rank_ci(z, resid_obs, log_sigma, n_boot=N_BOOT, seed=RNG_SEED)
 
-    # T3 core: Gamma_t adds power for M* beyond sigma + z
+    # T3 core: R_ML adds power for M* beyond sigma + z
     controls = np.column_stack([log_sigma, z])
     rho_g, p_g, n_g = partial_rank_correlation(log_gamma, log_mstar, controls)
     ci_g = bootstrap_partial_rank_ci(log_gamma, log_mstar, controls, n_boot=N_BOOT, seed=RNG_SEED)
@@ -623,17 +623,25 @@ def _test_highz_subset(df, z_min=4.0):
 # Assessment classification
 # ---------------------------------------------------------------------------
 
-def _classify_sigma_test(t1, t2, t3, t5):
+def _classify_sigma_test(t1, t2, t3, t5, t1_abs=None):
     """
     Classify the overall result.  Focus on two key indicators:
       (a) T1: M*-sigma residual increases with z (positive rho_resid_z).
       (b) T1: TEP correction reduces or removes the z trend.
       (c) T2: Fundamental-plane scatter decreases after correction.
-      (d) T3: Gamma_t adds predictive power for M* beyond sigma + z.
+      (d) T3: R_ML adds predictive power for M* beyond sigma + z.
 
     Opposite-sign T1 evidence is never labelled supportive.  A significant
-    Gamma_t correlation can still be useful context, but it is mixed if the
+    R_ML correlation can still be useful context, but it is mixed if the
     primary sign test points the wrong way.
+
+    TRACER STRATIFICATION: The absorption-line subsample (stellar dynamics,
+    quiescent galaxies) is the clean kinematic tracer.  Emission-line sigma
+    (gas kinematics, star-forming galaxies) is contaminated by outflows,
+    turbulence, and beam smearing.  If the absorption-line subsample shows
+    the opposite sign, the pooled result is downgraded regardless of its
+    nominal significance, because the pooled signal is then driven by the
+    contaminated tracer.
     """
     resid_rho = t1.get("observed_residual_z_trend", {}).get("partial_rho_resid_z_given_sigma")
     resid_p = t1.get("observed_residual_z_trend", {}).get("p")
@@ -644,6 +652,14 @@ def _classify_sigma_test(t1, t2, t3, t5):
     gamma_p = t3.get("p_partial_gamma_mstar_given_sigma_z")
     highz_gamma_rho = t5.get("partial_rho_gamma_mstar_given_sigma_z") if isinstance(t5, dict) else None
     highz_gamma_p = t5.get("p_gamma_mstar") if isinstance(t5, dict) else None
+
+    # Absorption-line stratification (primary clean tracer)
+    abs_rho = None
+    abs_n = 0
+    if isinstance(t1_abs, dict) and "observed_residual_z_trend" in t1_abs:
+        abs_rho = t1_abs["observed_residual_z_trend"].get("partial_rho_resid_z_given_sigma")
+        abs_n = t1_abs.get("n", 0)
+    abs_wrong_sign = abs_rho is not None and abs_rho < 0 and abs_n >= 10
 
     t1_positive = resid_rho is not None and resid_rho > 0
     t1_significant = t1_positive and resid_p is not None and resid_p < 0.05
@@ -658,10 +674,12 @@ def _classify_sigma_test(t1, t2, t3, t5):
         t1_significant
         and z_trend_improved
         and gamma_significant
+        and not abs_wrong_sign
     )
     moderate = (
         t1_positive and resid_p is not None and resid_p < 0.10
         and (z_trend_improved or scatter_improved or fp_scatter_improved)
+        and not abs_wrong_sign
     )
     secondary_only = gamma_significant or highz_gamma_significant or gamma_directional
     directional = t1_positive or (gamma_rho is not None and gamma_rho > 0)
@@ -670,6 +688,8 @@ def _classify_sigma_test(t1, t2, t3, t5):
         return "sigma_based_tep_support", True
     elif moderate:
         return "directionally_supportive_sigma_test", True
+    elif abs_wrong_sign and (t1_significant or secondary_only):
+        return "mixed_sigma_test_absorption_wrong_sign", False
     elif not t1_positive and secondary_only:
         return "mixed_sigma_test_opposite_primary_sign", False
     elif directional:
@@ -698,8 +718,9 @@ def run():
     print_status(f"  Combined kinematic sample: N={len(combined)}, z={metadata['z_min']:.2f}-{metadata['z_max']:.2f}", "INFO")
     print_status(f"  Sources: {metadata['source_paper_breakdown']}", "INFO")
 
-    # Compute sigma-only Gamma_t (SED-independent, R_e-independent)
-    combined["gamma_t_sigma_only"] = _compute_gamma_t_sigma_only(combined)
+    # Compute sigma-only R_ML (SED-independent, R_e-independent)
+    combined["ml_response_sigma_only"] = _compute_ml_response_sigma_only(combined)
+    combined["gamma_t_sigma_only"] = combined["ml_response_sigma_only"]
 
     # Run all tests
     t1 = _test_mstar_sigma_evolution(combined)
@@ -717,7 +738,7 @@ def run():
     t1_abs = _test_mstar_sigma_evolution(absorption) if len(absorption) >= 10 else {"n": len(absorption), "status": "insufficient_n"}
     t1_emi = _test_mstar_sigma_evolution(emission) if len(emission) >= 10 else {"n": len(emission), "status": "insufficient_n"}
 
-    assessment, supportive = _classify_sigma_test(t1, t2, t3, t5)
+    assessment, supportive = _classify_sigma_test(t1, t2, t3, t5, t1_abs)
 
     # Print key results
     print_status("  T1 — M*-sigma zero-point evolution:", "INFO")
@@ -750,8 +771,8 @@ def run():
         print_status(f"    R2 observed={t2['observed_fp']['r2']:.4f}, corrected={t2['corrected_fp']['r2']:.4f}", "INFO")
         print_status(f"    Scatter: {t2['observed_fp']['std_residual_dex']:.3f} → {t2['corrected_fp']['std_residual_dex']:.3f} dex", "INFO")
 
-    print_status("  T3 — Gamma_t adds predictive power:", "INFO")
-    print_status(f"    partial rho(Gamma_t, M* | sigma, z) = {t3['partial_rho_gamma_mstar_given_sigma_z']:.4f} "
+    print_status("  T3 — R_ML adds predictive power:", "INFO")
+    print_status(f"    partial rho(R_ML, M* | sigma, z) = {t3['partial_rho_gamma_mstar_given_sigma_z']:.4f} "
                  f"(p={t3['p_partial_gamma_mstar_given_sigma_z']:.4e})", "INFO")
 
     print_status(f"  T4 — Cross-survey: {t4['n_surveys_positive_resid_z']}/{t4['n_surveys_tested']} positive resid-z", "INFO")
@@ -760,7 +781,7 @@ def run():
         print_status(f"  T5 — High-z (z>={t5['z_min']}, N={t5['n']}):", "INFO")
         print_status(f"    rho(resid, z | sigma) = {t5['partial_rho_resid_z_given_sigma']:.4f} "
                      f"(p={t5['p_resid_z']:.4e})", "INFO")
-        print_status(f"    rho(Gamma_t, M* | sigma, z) = {t5['partial_rho_gamma_mstar_given_sigma_z']:.4f} "
+        print_status(f"    rho(R_ML, M* | sigma, z) = {t5['partial_rho_gamma_mstar_given_sigma_z']:.4f} "
                      f"(p={t5['p_gamma_mstar']:.4e})", "INFO")
 
     print_status(f"  Assessment: {assessment} (supportive={supportive})", "INFO")
@@ -787,29 +808,41 @@ def run():
         },
         "methodology": {
             "description": (
-                "Sigma-based mass-circularity-breaking test suite. Gamma_t is computed "
-                "from velocity dispersion alone (sigma -> M_halo -> Gamma_t), with zero "
+                "Sigma-based mass-circularity-breaking test suite. R_ML is computed "
+                "from velocity dispersion alone (sigma -> M_halo -> R_ML), with zero "
                 "dependence on SED-fitted M* or size-based Mdyn. This reduces mass-proxy "
                 "circularity, while still depending on the sigma-to-halo calibration and "
                 "sample mix. The primary test (T1) asks whether the M*-sigma "
                 "residual increases with z as TEP predicts. The secondary test (T3) asks "
-                "whether the sigma-only Gamma_t adds predictive power for M*_obs beyond "
-                "sigma and z individually."
+                "whether the sigma-only R_ML adds predictive power for M*_obs beyond "
+                "sigma and z individually. Tracer stratification: absorption-line sigma "
+                "(stellar dynamics, quiescent galaxies) is the primary clean tracer; "
+                "emission-line sigma (gas kinematics, star-forming galaxies) is "
+                "contaminated by outflows, turbulence, and beam smearing and is treated "
+                "as a secondary gas-kinematics test. If the absorption-line subsample "
+                "shows the opposite sign, the pooled result is downgraded."
             ),
             "gamma_t_derivation": (
                 f"log(M_h) = {SIGMA_SLOPE} * log10(sigma / {SIGMA_REF} km/s) + {LOG_MH_AT_SIGMA_REF}; "
-                "Gamma_t = compute_gamma_t(log_Mh, z)"
+                "R_ML = compute_gamma_t(log_Mh, z)"
             ),
             "mass_correction_model": f"n_ML = {N_ML}",
             "kappa_gal": KAPPA_GAL,
             "combined_sample_sources": list(metadata["source_counts"].keys()),
             "mass_proxy_independence": (
-                "Gamma_t_sigma_only is derived entirely from the velocity dispersion "
+                "R_ML_sigma_only is derived entirely from the velocity dispersion "
                 "sigma (km/s) via a sigma–M_halo mapping. It has zero dependence on "
                 "SED-fitted M*, half-light radius R_e, or dynamical mass M_dyn. This "
                 "reduces the mass-proxy circularity but does not remove sensitivity to "
                 "the adopted sigma–M_halo mapping or sample composition."
             ),
+            "tracer_stratification": {
+                "absorption_sources": ["Slob et al. 2025", "Esdaile et al. 2021", "Tanaka et al. 2019"],
+                "absorption_description": "Stellar absorption-line sigma (quiescent galaxies, clean dynamical tracer)",
+                "emission_description": "Gas emission-line sigma (star-forming galaxies, contaminated by outflows/turbulence)",
+                "primary_tracer": "absorption",
+                "secondary_tracer": "emission",
+            },
         },
     }
 

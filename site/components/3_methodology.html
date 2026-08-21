@@ -23,8 +23,8 @@
     $\approx 0.50$) are adopted. These capture the regime where the anomaly
     is most acute. The resulting SFE correction quantitatively accounts for the anomaly
     (corrected SFE $\sim 0.20$, at the $\Lambda$CDM limit of 0.20),
-    with the correction depending primarily on $\Gamma_t$ (set by halo mass
-    and redshift via the pre-calibrated TEP formula) and insensitive to the
+    with the correction depending primarily on $R_{\rm ML}$ (set by halo mass
+    and redshift via the prespecified benchmark TEP formula) and insensitive to the
     precise input SFE at the $\lesssim 2\%$ level.
   </p>
 
@@ -229,14 +229,13 @@
       </thead>
       <tbody>
         <tr>
-          <td>Temporal Enhancement Factor</td>
-          <td>$\Gamma_t$</td>
+          <td>Mass-to-Light Inference Response</td>
+          <td>$R_{\rm ML}$</td>
           <td>
-            The ratio of effective stellar-population proper time to cosmic time
-            under the TEP response mapping. It is attenuated where the locally
-            observable Temporal Shear/source-charge sector is screened. The saturation
-            density $\rho_T \approx 20$ g/cm³ is an organizing scale, not a binary
-            condition of the form $\rho &gt; \rho_T \Rightarrow \Gamma_t = 1$.
+            A positive observable channel response that parameterizes the
+            environment-dependent bias in conventional stellar-population inference.
+            It is not the conformal factor $A(\phi)$, a local proper-time ratio, or
+            the microscopic coupling $\beta_A$.
           </td>
         </tr>
         <tr>
@@ -245,10 +244,10 @@
           <td>
             The locally active gradient of the temporal potential,
             $\Sigma_\mu = \nabla_\mu \Theta$, where $\Theta = \ln A(\phi)$.
-            High ambient matter density flattens this gradient,
-            suppressing the effective response continuously rather than
-            at a discrete boundary. Observationally proxied by gradients
-            in $\Gamma_t$ across a galaxy or environment.
+            High ambient matter density can suppress the locally active gradient
+            continuously rather than at a discrete boundary. The inference response
+            $R_{\rm ML}$ is tested against potential depth and environment but is not
+            identified algebraically with $\Sigma_\mu$.
           </td>
         </tr>
         <tr>
@@ -256,10 +255,9 @@
           <td>—</td>
           <td>
             The systematic error in inferred stellar properties
-            (mass, age, SFR) arising from the assumption that
-            stellar clocks tick at the cosmic rate everywhere. Under
-            TEP, this assumption is violated in deep potential
-            wells.
+            (mass, age, SFR) produced when an environment-dependent
+            transport and inference response is reduced with one universal
+            calibration.
           </td>
         </tr>
         <tr>
@@ -272,7 +270,7 @@
             Two types are distinguished:<br />
             <em>Core Screening</em>—Screening within a single
             galaxy, where the deep central potential suppresses TEP
-            ($\Gamma_t \to 1$) while the outskirts remain enhanced.
+            ($R_{\rm ML} \to 1$) while the outskirts retain a large response.
             Produces bluer cores and redder outskirts.<br />
             <em>Environmental Screening</em>—Screening by the
             ambient group or cluster potential, causing galaxies in
@@ -281,11 +279,12 @@
           </td>
         </tr>
         <tr>
-          <td>Effective Time</td>
-          <td>$t_{\rm eff}$</td>
+          <td>Inferred-Time Proxy</td>
+          <td>$t_{\rm inf}^{\rm proxy}$</td>
           <td>
-            The proper time experienced by stellar populations:
-            $t_{\rm eff}^{\rm proxy} = \Gamma_t(M_h,z)\,t_{\rm FLRW}^{\rm obs}(z)$.
+            The observer-side catalogue proxy
+            $t_{\rm inf}^{\rm proxy}=R_{\rm ML}(M_h,z)t_{\rm FLRW}^{\rm obs}(z)$.
+            It is not accumulated matter-frame proper time.
           </td>
         </tr>
       </tbody>
@@ -293,7 +292,7 @@
   </div>
 
   <p>
-    The potential-linear response $\Gamma_t$ and the phenomenological normalization $K_{\rm gal}$ act as the galactic-scale formulation of the abstract environmental operator $\mathcal{S}_\Sigma(\mathcal{E})$. Because the deepest gravitational potentials of high-redshift halos drive the continuous suppression of the proper-time field, local potential depth effectively operationalizes the Temporal Topology saturation for early stellar assembly.
+    The analysis keeps three quantities distinct. The signed Newtonian potential obeys $\Phi\leq0$; the numerical halo-ordering proxy is the positive depth $\Psi\equiv-\Phi/c^2=|\Phi|/c^2$; and $R_{\rm ML}$ is an observable response parameterized from $\Psi$, environment, and redshift. The action-level conformal clock offset remains separate and satisfies $\Delta\ln A<0$ for a deeper unscreened well. No fitted value of $K_{\rm gal}$ is identified with $A$, $\beta_A$, or a local clock-rate ratio.
   </p>
 
   <h3>2.3 Derived quantities</h3>
@@ -305,104 +304,53 @@
     used solely to construct the potential proxy $\Phi$ for the TEP parameterization.
     To mitigate circularity, sensitivity tests are performed with $\pm 0.3$
     dex scatter in the $M_h-M_*$ relation, propagating to $\pm 12\%$ in
-    $\Gamma_t$ corrections.
+    $R_{\rm ML}$ corrections.
   </p>
 
-  <h4>2.3.2 The TEP Metric Coupling</h4>
+  <h4>2.3.2 From the TEP Field to an Observable Inference Channel</h4>
   <p>
-    The temporal enhancement factor $\Gamma_t$ is not introduced here as an
-    ad hoc fitting function. It is the observable mapping of a conformally
-    coupled scalar-tensor framework in which the scalar time field
-    modifies the local rate at which material clocks accumulate proper time. The full
-    theoretical development is extensive; this section states only the steps
-    needed to connect the action-level construction to the measurable
-    quantities used in the present analysis.
+    Matter couples to $\tilde{g}_{\mu\nu}=A^2(\phi)g_{\mu\nu}+B(\phi)\partial_\mu\phi\partial_\nu\phi$, with $A(\phi)=\exp(\beta_A\phi/M_{\rm Pl})$. For the canonical signed potential $\Phi<0$, the static conformal solution gives $\Delta\ln A\propto\beta_A^2\Phi<0$: local clocks slow in a deeper well. This action-level sign is immutable and is not fitted in the present analysis.
   </p>
-
-  <h5>2.3.2.1 From Action to Observable</h5>
   <p>
-    The TEP framework builds upon scalar-tensor theories with
-    environment-dependent screening (Khoury &amp; Weltman 2004; Brax et al. 2004;
-    Burrage &amp; Sakstein 2018), extending them via the TEP Temporal Topology
-    mechanism where field gradient flattening (Temporal Shear) provides
-    continuous geometric screening. The key steps mapping the fundamental physics to the
-    observable $\Gamma_t$ are:
-  </p>
-  <ol>
-    <li>
-      <strong>Action:</strong> Matter couples to $\tilde{g}_{\mu\nu} =
-      A^2(\phi) g_{\mu\nu} + B(\phi) \partial_\mu \phi \partial_\nu \phi$ where $A(\phi) = \exp(\beta_A\phi/M_{\rm Pl})$.
-      The Klein-Gordon equation sources $\phi$ from the matter density
-      trace $T^\mu_\mu$.
-    </li>
-    <li>
-      <strong>Proper time:</strong> Clock rates scale as $d\tau/dt \approx
-      A(\phi)$, defining $\Gamma_t \equiv (d\tau/dt)/(d\tau/dt)_{\rm
-      ref}$.
-    </li>
-    <li>
-      <strong>Halo mapping:</strong> In virialized halos, $\phi$ tracks
-      the potential depth $\Phi \propto M_h^{2/3}$. The executed Potential-Linear kernel is:
-    </li>
-  </ol>
-  <div class="equation">
-    $$\Gamma_t = \exp\left[ K_{\rm gal} \left(\frac{\Phi - \Phi_{\rm ref}}{c^2}\right) \sqrt{1+z} \right]$$
-  </div>
-  <p>
-    where $K_{\rm gal} = (9.6 \pm 4.0) \times 10^5$ mag is the clock-sector response coefficient calibrated from Cepheid data (Paper 11), $\Phi_{\rm ref}$ is the potential at the reference halo mass $\log M_{h,\rm ref} = 12.0$, and the $\sqrt{1+z}$ factor is the prespecified cosmological temporal-calibration response. This is the kernel used throughout all population-level results in §3.
-  </p>
-
-  <h5>2.3.2.1a Enhancement and Suppression: The Two-Sided Prediction</h5>
-  <p>
-    The exponential formula predicts two physically distinct regimes
-    depending on halo mass relative to the $\log M_{h,\rm ref}=12.0$ reference:
-  </p>
-  <ul>
-    <li>
-      <strong>Enhancement ($\Gamma_t > 1$, massive halos):</strong> For
-      $M_h > M_{\rm ref}$, $\Delta\log M_h > 0$ and $\Gamma_t > 1$. The
-      scalar field $\phi$ is sourced more strongly by the deeper
-      potential, raising $A(\phi) > 1$ and accelerating material clock
-      rates relative to the cosmic mean. This is the regime of the Red
-      Monsters and massive $z > 8$ galaxies.
-    </li>
-    <li>
-      <strong>Suppression ($\Gamma_t < 1$, low-mass halos):</strong> For
-      $M_h < M_{\rm ref}$, $\Delta\log M_h < 0$ and $\Gamma_t < 1$. In
-      shallow potentials, the scalar time field relaxes toward a
-      lower-energy minimum with $A(\phi) < 1$, meaning material clocks
-      tick <em>slower</em> than the cosmic mean. This is not an ad-hoc
-      extension: it follows directly from the same conformal coupling
-      $d\tau/dt \propto A(\phi)$, which is symmetric about the
-      reference environment. The reference mass $\log M_{h,\rm ref} =
-      12.0$ defines the environment where $A(\phi) =
-      1$ (i.e., $\phi = 0$ in the Einstein frame), and deviations in
-      either direction produce proportional clock-rate shifts.
-    </li>
-  </ul>
-  <p>
-    This two-sided prediction is central to the interpretation: the
-    "Uniformity Paradox" — why low-mass galaxies at $z > 8$ are dust-poor
-    despite cosmic time being nominally sufficient for AGB production — is
-    resolved because $\Gamma_t \ll 1$ in low-mass halos shuts off the
-    effective AGB clock. A model that only predicted enhancement ($\Gamma_t
-    \geq 1$ everywhere) would not explain the dust-poor low-mass population.
-    The suppression regime is therefore a falsifiable prediction rather than
-    a free parameter: it predicts that low-mass galaxies at $z > 8$ should
-    be systematically younger in their stellar populations than their cosmic
-    age implies, and should lack dust regardless of the available cosmic
-    time.
-  </p>
-
-  <h5>2.3.2.1b Auxiliary Log-Mass Approximation</h5>
-  <p>
-    Earlier variants considered a Log-Mass approximation in which $\Gamma_t$ scales with the log-mass perturbation rather than the potential directly:
+    The catalogue pipeline does not solve $A(\phi)$. It computes the positive halo-depth proxy
   </p>
   <div class="equation">
-    $$\Gamma_t = \exp\left[ \alpha(z) \cdot \frac{2}{3} \cdot (\log_{10} M_h - \log_{10} M_{h,\rm ref}) \cdot \frac{1+z}{1+z_{\rm ref}} \right]$$
+    \begin{equation} \label{eq:jwst_psi_proxy}
+    \Psi\equiv-\frac{\Phi}{c^2}=\frac{|\Phi|}{c^2}>0,
+    \end{equation}
   </div>
   <p>
-    where $\alpha(z) = \kappa_{\rm gal} \sqrt{1+z}/10^6$. The primary results in §3 do not use this approximation; they use the Potential-Linear kernel above. The Log-Mass form appears only as an auxiliary note for interpreting observable scaling relations and for the nested Bayesian comparison in §3.6.
+    and tests the prespecified observable mass-to-light response
+  </p>
+  <div class="equation">
+    \begin{equation} \label{eq:jwst_rml_kernel}
+    R_{\rm ML}=\exp\left[K_{\rm gal}(\Psi-\Psi_{\rm ref})\sqrt{1+z}\right].
+    \end{equation}
+  </div>
+  <p>
+    Here $\kappa_{\rm gal}=(9.6\pm4.0)\times10^5$ mag is the canonical reference benchmark for the galaxy-sector observable response, and $K_{\rm gal} = \kappa_{\rm gal}\ln 10/(2.5\,n_{\rm ref}) \approx 1.26\times10^6$ (with $n_{\rm ref}=0.7$) is the derived galaxy-sector normalization entering the exponential kernel. $\Psi_{\rm ref}$ corresponds to $\log M_{h,\rm ref}=12.0$, and $\sqrt{1+z}$ is the adopted response-evolution factor. $R_{\rm ML}$ is a channel-level inference response: it parameterizes how conventional stellar-population inference changes with environment. It is not $A$, $A/A_{\rm ref}$, $A_{\rm ref}/A$, or the bare scalar coupling.
+  </p>
+  <p>
+    <strong>Provenance of $\kappa_{\rm gal}$.</strong> The value $\kappa_{\rm gal} = 0.960 \times 10^6$ mag is the canonical theory benchmark adopted across the TEP corpus (Paper 11, Appendix C). It corresponds to an effective host-to-anchor potential depth $\Delta(u_\phi^2)/c^2 \sim 3 \times 10^{-7}$ mapped through the Leavitt law slope $b \approx -3.30$ to produce a $\sim 0.3$ mag characteristic modulus shift. It is a prespecified theory reference value, not a fitted posterior from any single step. The empirical Cepheid-channel analyses in Paper 11 fit $\kappa$ directly from observational data without imposing this benchmark: Step 42 recovers $\kappa_{\rm Cep}^{\rm equiv} = (0.369 \pm 0.310) \times 10^6$ mag under the restricted Cepheid-channel closure, and the multi-block joint analysis (Step 44) recovers $\kappa_{\rm Cep} = (0.400 \pm 0.270) \times 10^6$ mag. The JWST-side recovery from the high-redshift galaxy sample is $\kappa = (6.0 \pm 3.8) \times 10^5$ mag, consistent with the canonical benchmark at $0.66\sigma$. The $\pm 4.0 \times 10^5$ mag uncertainty adopted here is the canonical theory uncertainty, not the posterior width of any single Cepheid fit. A sensitivity analysis using the empirical Paper 11 multi-block value ($\kappa = 0.40 \times 10^6$ mag) and the JWST-side recovery ($\kappa = 0.60 \times 10^6$ mag) is reported in §3.9; the dust–$R_{\rm ML}$ correlation remains significant ($\rho > 0.4$) across this range, though the magnitude of the mass correction scales proportionally.
+  </p>
+  <p>
+    Values above and below unity therefore denote positive and negative inference responses relative to the reference environment, not faster and slower local clocks. Screening acts on the environmental transfer entering the response, while the physical conformal clock offset retains the same slowing sign throughout. The low-mass dust and high-mass stellar-population tests below are consequently tests of an environment-ordered inference channel; they do not constitute direct measurements of local proper-time acceleration.
+  </p>
+  <p>
+    The physical origin of $R_{\rm ML}>1$ at high redshift lies in the background temporal structure, not in faster local clocks. In the canonical TEP cosmology (TEP-HUB, Paper 30), the spatial manifold is static and the gravitational coordinate time extends without finite origin. The FLRW observer-age $t_{\rm cosmic}(z)$ used by standard stellar-population inference is a reconstruction under the isochrony axiom: it interprets the clock-calibration ratio $1+z=A_0/A_{\rm em}$ as spatial expansion and assigns a finite, shrinking age to high redshift ($\sim 540$ Myr at $z=9$). Under TEP, the actual coordinate time elapsed is far larger than this reconstruction. Local matter clocks run slower than coordinate time ($\Delta\ln A<0$ in a deeper well), but the coordinate background is eternal, so the accumulated proper time can still exceed the FLRW assigned age by a large factor. $R_{\rm ML}>1$ parameterizes this discrepancy as an inference-channel response: it quantifies how much the standard pipeline inflates apparent age and $M/L$ when it uses the too-short FLRW baseline. It is not itself a direct measurement of the proper-time ratio; the catalogue proxy $t_{\rm inf}^{\rm proxy} = R_{\rm ML} \, t_{\rm FLRW}^{\rm obs}$ propagates the fitted response through the conventional $M/L \propto t^n$ scaling but is not a physical proper-time integral (§2.3.3). The $\sqrt{1+z}$ response-evolution factor encodes the growing discrepancy between the eternal coordinate background and the shrinking FLRW reconstruction at higher redshift.
+  </p>
+
+  <h5>2.3.2.1 Auxiliary Log-Mass Approximation</h5>
+  <p>
+    Earlier variants considered a Log-Mass approximation in which $R_{\rm ML}$ scales with the log-mass perturbation rather than the potential directly:
+  </p>
+  <div class="equation">
+    \begin{equation} \label{eq:jwst_rml_logmass}
+    R_{\rm ML} = \exp\left[ \alpha(z) \cdot \frac{2}{3} \cdot (\log_{10} M_h - \log_{10} M_{h,\rm ref}) \cdot \frac{1+z}{1+z_{\rm ref}} \right]
+    \end{equation}
+  </div>
+  <p>
+    where $\alpha(z) = \kappa_{\rm gal} \sqrt{1+z}/10^6$ and $z_{\rm ref} = 5.5$ is a normalization epoch used only in this auxiliary form. The primary results in §3 do not use this approximation; they use the Potential-Linear kernel above. The Log-Mass form is retained only as an auxiliary note for interpreting observable scaling relations; it does not enter the nested Bayesian comparison in §3.8, which uses the Potential-Linear kernel exclusively.
   </p>
 
   <h5>2.3.2.2 Screening and Scale Separation</h5>
@@ -413,17 +361,18 @@
   pre-screening discrepancy illustrates the central logic of the TEP
   framework: any underlying bare coupling is strong, but in dense environments the scalar
   field gradient (Temporal Shear) flattens continuously, suppressing the
-  effective coupling to $\kappa_{\rm gal} \ll \beta_A$ and yielding
-  $\omega_{\rm BD}^{\rm eff} > 10^6$. On cosmological scales, the Compton
+  effective fifth-force coupling to $\beta_{\rm eff} \ll \beta_A$ (yielding an effective Brans–Dicke parameter $\omega_{\rm BD}^{\rm eff} = 1/(2\beta_{\rm eff}^2) - 1/2 > 10^6$, well within Cassini bounds). On cosmological scales, the Compton
   wavelength $\lambda_C \sim 1$ Mpc yields Yukawa suppression $\beta_{\rm
   eff}(R_8) \approx 0.002$ on $\sigma_8$ scales—well below the Planck bound.
   Within individual halos ($r \lesssim 50$ kpc), the field tracks the local
   potential and operates locally. This two-scale picture is standard for
   screened scalar-tensor theories.
   <p>The continuous screening via Temporal Shear provides PPN-compliant
-  suppression without a rigid threshold:</p>
+  suppression without a rigid threshold. The observable galaxy-sector response coefficient is attenuated by the screening operator as:</p>
   <div class="equation">
-    $$\kappa_{\rm eff}(\rho) = \kappa_{\rm gal} \cdot \mathcal{S}(\rho/\rho_T),$$
+    \begin{equation} \label{eq:jwst_kappa_eff}
+    \kappa_{\rm eff}(\rho) = \kappa_{\rm gal} \cdot \mathcal{S}(\rho/\rho_T),
+    \end{equation}
   </div>
   <p>
     where $\mathcal{S}$ is a smooth suppression function and $\rho_T \approx 20$ g/cm³
@@ -436,27 +385,18 @@
     in mass provides an independent consistency check on this screening scale.
   </p>
   At galactic scales, an effective kinematic screening threshold emerges from
-  analysis of 380 millisecond pulsars in globular clusters, which reveals that
+  analysis of 197 millisecond pulsars in globular clusters, which reveals that
   the TEP spin-down excess saturates for systems with velocity dispersion
   $\sigma \gtrsim 165$ km/s, consistent with the scalar field gradient
-  flattening as potential depth increases. This threshold is used in to
+  flattening as potential depth increases. This threshold is used to
   define the environmental screening boundary for JWST galaxies: halos with
   $\sigma \gtrsim 165$ km/s (corresponding to $\log M_h \gtrsim 13.5$ at $z
-  \sim 0$) are expected to be partially screened, suppressing $\Gamma_t$ below
+  \sim 0$) are expected to be partially screened, suppressing $R_{\rm ML}$ below
   the unscreened prediction.
 
-  <h5>2.3.2.3 Enhancement vs. Dilation</h5>
+  <h5>2.3.2.3 Local Dilation and Channel Response</h5>
   <p>
-    Standard GR predicts time <em>dilation</em> in deep potentials; TEP
-    predicts <em>enhancement</em> ($\Gamma_t > 1$). These refer to different
-    metrics: gravitational redshift is governed by $g_{\mu\nu}$ (preserved
-    identically), while material clock rates are governed by
-    $\tilde{g}_{\mu\nu} = A^2(\phi) g_{\mu\nu} + B(\phi) \partial_\mu \phi \partial_\nu \phi$. The key distinction is that
-    $\Gamma_t$ compares clock rates between
-    <em>different environments at the same epoch</em>, not between positions
-    in a single well. Numerical integration confirms $A(\phi) > 1$ in
-    unscreened halos for $2\beta^2 > 1$. Solar System bodies are fully
-    screened ($\Gamma_t \to 1$).
+    The local conformal and observational quantities must not be conflated. A deeper unscreened well has $\Delta\ln A<0$, while $R_{\rm ML}$ may lie above or below unity because it is an observer-side inference response with its own transfer function. The present pipeline measures the latter and makes no numerical identification between $K_{\rm gal}$ and the microscopic coupling $\beta_A$.
   </p>
 
   <div class="data-table">
@@ -474,28 +414,22 @@
       </thead>
       <tbody>
         <tr>
-          <td>$\kappa_{\rm Cep}$ (Paper 11)</td>
+          <td>$\kappa_{\rm gal}$ (Paper 11)</td>
           <td>$(9.6 \pm 4.0) \times 10^5$ mag</td>
-          <td>Cepheid distance-ladder (Paper 11)</td>
-          <td>Cepheid Observable Response Coefficient; magnitude-sector measurement from period-luminosity residuals</td>
+          <td>Canonical benchmark (Paper 11)</td>
+          <td>Canonical TEP magnitude-sector benchmark fixed prespecified across the TEP corpus; empirical Paper 11 checks recover $(0.369 \pm 0.310)\times10^6$ and $(0.400 \pm 0.270)\times10^6$ mag</td>
         </tr>
         <tr>
           <td>$K_{\rm gal}$ (galaxy kernel)</td>
           <td>$\approx 1.26 \times 10^6$</td>
-          <td>Transferred from $\kappa_{\rm Cep}$ via response normalization</td>
-          <td>Phenomenological response normalization for stellar-population $\Gamma_t$ kernel; not a microscopic coupling</td>
-        </tr>
-        <tr>
-          <td>$z_{\rm ref}$</td>
-          <td>5.5</td>
-          <td>TEP-H0</td>
-          <td>Reference redshift for calibration</td>
+          <td>Transferred from $\kappa_{\rm gal}$ via response normalization</td>
+          <td>Phenomenological response normalization for stellar-population $R_{\rm ML}$ kernel; not a microscopic coupling</td>
         </tr>
         <tr>
           <td>$\log M_{h, \rm ref}$</td>
           <td>12.0</td>
-          <td>TEP-COS</td>
-          <td>Reference halo mass at $z=0$ ($\Gamma_t=1$)</td>
+          <td>TEP-JWST</td>
+          <td>Reference halo mass at $z=0$ ($R_{\rm ML}=1$)</td>
         </tr>
         <tr>
           <td>$\rho_T$</td>
@@ -510,29 +444,16 @@
   <figure>
     <img
       src="public/figures/figure_1_tep_model.png"
-      alt="TEP Metric Coupling Gamma_t as a function of halo mass and redshift"
+      alt="TEP mass-to-light inference response as a function of halo mass and redshift"
       style="width: 100%; max-width: 800px"
     />
     <figcaption>
-      Figure 1: The TEP Metric Coupling $\Gamma_t(M_h, z)$ in the
-      unscreened regime. The enhancement factor increases with halo mass
-      (potential depth) and redshift (weakening of cosmological
-      screening). The reference mass ($\log M_h = 12$) defines $\Gamma_t =
-      1$ (cosmic time flow). Massive halos at high redshift experience
-      significant temporal enhancement ($\Gamma_t &gt; 1$), while low-mass
-      halos are suppressed ($\Gamma_t &lt; 1$). Continuous screening via
-      Temporal Shear suppresses $\Gamma_t$ smoothly as density approaches
-      the Temporal Topology reference scale ($\rho_T \approx 20$ g/cm³).
+      Figure 1: The observable response $R_{\rm ML}(M_h,z)$ evaluated from the positive potential-depth proxy. The reference mass ($\log M_h=12$) defines $R_{\rm ML}=1$; values above and below unity are inference responses relative to that reference, not local clock-rate measurements. Environmental screening attenuates the channel response.
     </figcaption>
   </figure>
 
   <p>
-    The JWST response-prior test adopts the external Cepheid-calibrated
-    response coefficient $\kappa_{\rm gal} = (9.6 \pm 4.0) \times 10^5$ mag
-    and applies it without JWST-specific refit, together with the fixed reference choice $z_{\rm ref} = 5.5$.
-    The high-redshift observables are then examined for internal consistency of the response scale.
-    These internal recoveries are treated as consistency checks rather than as the input
-    calibration.
+    The JWST response-prior test adopts the prespecified canonical magnitude-sector benchmark $\kappa_{\rm gal} = (9.6 \pm 4.0) \times 10^5$ mag from Paper 11 and applies it without JWST-specific refit. The high-redshift observables are then examined for internal consistency of the response scale. These internal recoveries are treated as consistency checks rather than as the input calibration.
   </p>
 
   <h5>2.3.2.4 Cosmological Viability Summary</h5>
@@ -558,9 +479,9 @@
     </li>
     <li>
       <strong>Solar System (PPN):</strong> Temporal Shear suppression in
-      dense environments reduces the effective coupling to $\kappa_{\rm
-      eff} \ll \kappa_{\rm gal}$ for solar-system bodies, satisfying Cassini and
-      lunar laser ranging bounds (Appendix A.1.3).
+      dense environments reduces the effective microscopic fifth-force coupling to
+      $\beta_{\rm eff} \ll \beta_A$ (suppressed to $\lesssim 10^{-6}$ for solar-system bodies),
+      satisfying Cassini and lunar laser ranging bounds (Appendix A.1.3).
     </li>
   </ol>
   <p>
@@ -593,38 +514,93 @@
   </ul>
   <p>
     This k-dependent growth calculation substantially strengthens the
-    viability argument beyond the earlier analytic estimate. A full CAMB
-    Boltzmann integration (Appendix A.1.8.8) confirms these results: at the
+    viability argument beyond the earlier analytic estimate. A CAMB-based
+    late-time propagation (Appendix A.1.9.8) confirms these results: at the
     fiducial $m_{\phi,0} = 1.0\,h$/Mpc, the CAMB-computed $\sigma_8^{\rm
-    TEP} = 0.8116$ ($0.10\sigma$ from Planck), with CMB TT deviations $&lt;
-    0.02\%$ at all $\ell &lt; 2500$ and $\chi^2/{\rm dof} \ll 1$ against
+    TEP} = 0.8116$ ($0.10\sigma$ from Planck), with CMB TT deviations &lt;
+    0.02\% at all $\ell &lt; 2500$ and $\chi^2/{\rm dof} \ll 1$ against
     Planck error bars. Planck consistency holds for $m_{\phi,0} \gtrsim
     0.43\,h$/Mpc. The CAMB integration uses the scale-dependent growth
     equation with Yukawa-suppressed $G_{\rm eff}(k,z)$ and CAMB's exact
     lensed CMB spectra, substantially narrowing the remaining theoretical
-    gap. The remaining approximation — that the scalar field does not modify
+    gap. These CAMB calculations are conventional-background compatibility embeddings used to demonstrate that the local screened sector need not spoil observed CMB/growth phenomenology; they are not the canonical static-space TEP cosmological solution. The remaining approximation — that the scalar field does not modify
     acoustic peaks at $z > 1089$ — is justified by $T^\mu_\mu \approx 0$
     during radiation domination. A natively coupled hi_class integration
     remains desirable for completeness but is no longer expected to change
     the conclusion.
   </p>
 
-  <h4>2.3.3 Effective time and isochrony bias correction</h4>
   <p>
-    The general TEP expression for proper time is an integral over the evolving scalar field: $\tau_\star=\int_{t_{\rm form}}^{t_{\rm obs}} \Gamma_t[\mathcal E(t),t]\,dt$. For the empirical analysis in this paper, we define a frozen-environment catalogue proxy: $t_{\rm eff}^{\rm proxy} = \Gamma_t(M_h,z)\,t_{\rm FLRW}^{\rm obs}(z)$, where $t_{\rm FLRW}^{\rm obs}$ is the
-    observer-frame age coordinate computed from a fiducial
-    cosmology (Planck18). Under the isochrony-bias model used here, the
-    mass-to-light ratio is assumed to scale as $M/L \propto t^n$ (following
-    standard SSP predictions; Bruzual &amp; Charlot 2003; Conroy et al.
-    2009). Forward-modeling analysis finds that $n \approx 0.5$ minimizes
-    the residual mass-age correlation at $z > 6$, while $n \approx 0.9$ is
-    preferred at $z = 4$–$6$. For the primary high-$z$ analysis, $n = 0.5$
-    is adopted. The corrected stellar mass and SFE are:
+    <strong>Screening function:</strong> The transition from the unscreened
+    regime ($\mathcal{S} \approx 1$) to the screened regime ($\mathcal{S}
+    \ll 1$) is parameterized by the smooth tanh profile:
   </p>
   <div class="equation">
-    $$M_{*,\rm true} = M_{*,\rm obs}/\Gamma_t^{n}, \quad \mathrm{SFE}_{\rm
-    true} = \mathrm{SFE}_{\rm obs}/\Gamma_t^{n}.$$
+    \begin{equation} \label{eq:jwst_screening_tanh}
+    \mathcal{S}(x) = 1 - \tanh\left(\left[\frac{x}{x_T}\right]^p\right),
+    \end{equation}
   </div>
+  <p>
+    where $x = \rho/\rho_{\rm crit}$ or $|\Phi|/c^2$, $x_T$ is the screening
+    threshold, and $p \ge 1$ controls the sharpness of the transition. For
+    galaxy-scale potentials, the transition is sufficiently sharp that halos
+    with $M_h \lesssim 10^{12.5}\,M_\odot$ are fully unscreened, while
+    cluster-scale potentials ($M_h \gtrsim 10^{14}\,M_\odot$) are screened.
+    This functional form is used in the environmental screening tests
+    (§3.5) and the core-screening morphology analysis (§3.7).
+  </p>
+
+  <h5>2.3.2.5 Cosmological Background Compatibility</h5>
+  <p>
+    Cosmological parameter constraints from CMB, BAO, and SNe Ia data were
+    verified using CAMB-compatible background evolution. Within this conditional FLRW compatibility embedding, scalar-induced deviations from the reference $\Lambda$CDM background expansion remain small. Using the standard cosmological parameters
+    ($\Omega_m = 0.315$, $\Omega_\Lambda = 0.685$, $H_0 = 67.4$ km/s/Mpc),
+    the TEP-modified expansion history satisfies:
+  </p>
+  <ul>
+    <li>
+      <strong>CMB acoustic scale:</strong> Shift in the angular scale of the
+      first acoustic peak $\Delta\theta_* / \theta_* &lt; 0.08\%$, well
+      within the Planck 2018 uncertainty of $0.03\%$ (Aghanim et al. 2020).
+    </li>
+    <li>
+      <strong>Baryon Acoustic Oscillations:</strong> Shifts in $D_V(z)/r_d$
+      are $&lt; 0.3\%$ across the redshift range $z \in [0.1, 2.5]$,
+      consistent with BOSS DR12 and DESI 2024 constraints (Alam et al.
+      2017; DESI Collaboration 2024).
+    </li>
+    <li>
+      <strong>Supernova distance moduli:</strong> Residuals relative to
+      $\Lambda$CDM are $|\Delta\mu(z)| &lt; 0.008$ mag for $z \in [0.01,
+      1.5]$, well below the Pantheon+ systematic uncertainty floor of $\sim
+      0.015$ mag (Scolnic et al. 2022).
+    </li>
+  </ul>
+  <p>
+    These calculations are conditional conventional-background compatibility tests. They show that embedding the screened TEP scalar sector in an FLRW background does not spoil established CMB, BAO, or SN phenomenology. They do not define the canonical TEP cosmology. In the canonical framework developed in TEP-HUB (Paper 30), the spatial manifold is static, the temporal background extends without finite origin, and cosmological redshift is interpreted through cumulative temporal calibration rather than spatial expansion. The results of the present JWST analysis depend on the local-halo inference response $R_{\rm ML}$ and therefore remain compatible with the conventional-background tests, while their physical interpretation throughout this work follows the canonical static-space TEP framework. The static-space TEP cosmology is discussed further in §4.1, Appendix A.1.7, and the conclusion.
+  </p>
+
+  <h4>2.3.3 Inference-response correction</h4>
+  <p>
+    The catalogue proxy $t_{\rm inf}^{\rm proxy}=R_{\rm ML}(M_h,z)t_{\rm FLRW}^{\rm obs}(z)$ is used only to propagate the fitted response through the conventional stellar population synthesis (SPS) mass-to-light scaling $M/L\propto t^{n_{\rm SPS}}$; it is not a physical proper-time integral. Here $n_{\rm ref} = 0.7$ serves as the fixed reference transfer exponent defining the canonical benchmark normalization $K_{\rm gal}$ from the Cepheid magnitude-sector conversion. In SPS models, the physical response exponent $n_{\rm SPS}$ governs the observational mass correction: for evolved, massive galaxies with significant accumulated older stellar mass (such as the Red Monster regime at $z \sim 5$–$6$), $n_{\rm SPS} \approx 0.7$ applies, whereas for young, bursty high-$z$ systems ($z > 8$), $n_{\rm SPS} \approx 0.5$–$0.7$. In contrast, star-formation rates traced by UV and emission-line luminosity reach steady state much earlier ($\sim 10$–$100$ Myr), scaling as $L_{\rm UV} \propto t^m$ with $m \approx 0.3$–$0.5$. Because ionizing and UV luminosity saturates much faster than integrated stellar mass accumulation across standard SPS libraries, for the representative SPS/SFR response ranges used here, $m < n_{\rm SPS}$ and the expected bias is negative ($m - n_{\rm SPS} \approx -0.2$ to $-0.4$); it approaches zero only at the limiting $m = n_{\rm SPS} = 0.5$ case, yielding ${\rm sSFR}_{\rm obs} \propto R_{\rm ML}^{m - n_{\rm SPS}}$. The observational mass correction is:
+  </p>
+  <div class="equation">
+    \begin{equation} \label{eq:jwst_mass_correction}
+    M_{*,\rm true} = M_{*,\rm obs}/R_{\rm ML}^{n_{\rm SPS}}, \quad \mathrm{SFE}_{\rm
+    true} = \mathrm{SFE}_{\rm obs}/R_{\rm ML}^{n_{\rm SPS}}.
+    \end{equation}
+  </div>
+  <p>
+    Because $R_{\rm ML}$ depends on the halo mass $M_h$, which is derived
+    from the stellar mass via abundance matching, the correction is solved
+    self-consistently by iterating the $M_* \to M_h \to R_{\rm ML} \to
+    M_{*,\rm true}$ cycle to convergence (tolerance $10^{-4}$, typically
+    3–5 iterations). For the vast majority of galaxies at $z > 8$ ($M_* <
+    10$), the single-pass and iterated solutions differ by less than 2%.
+    At $M_* > 10.5$ the difference can reach 10–60% because the
+    abundance-matching slope amplifies the feedback loop; the iterated
+    solution is used throughout to ensure correctness in this regime.
+  </p>
 
   <h3>2.4 Statistical procedures</h3>
   <p>
@@ -639,7 +615,7 @@
   </p>
   <ul>
     <li>
-      Stratified comparisons (e.g., high vs low $\Gamma_t$ splits) for
+      Stratified comparisons (e.g., high vs low $R_{\rm ML}$ splits) for
       multi-property coherence
     </li>
     <li>
@@ -649,11 +625,20 @@
     <li>
       Model comparison using both AIC/BIC and nested Bayesian evidence:
       the regression comparisons test predictors {z}, {z, $\log M_*$}, {z,
-      $\Gamma_t$}, and {z, $\log M_*$, $\Gamma_t$}, while a separate
+      $R_{\rm ML}$}, and {z, $\log M_*$, $R_{\rm ML}$}, while a separate
       <code>dynesty</code> nested-sampling analysis compares TEP against
       explicit bursty-SF, varying-IMF, standard-physics, and AGN
       alternatives in both raw standardized space and a
-      mass+$z$-residualized control space
+      mass+$z$-residualized control space. Three likelihood structures are
+      used: (i) the standard independent-Gaussian joint likelihood (product
+      of $K$ univariate Gaussians), (ii) a joint covariance likelihood
+      (single multivariate Gaussian with the empirical $K \times K$ residual
+      covariance matrix, correcting for correlated SED outputs), and (iii) a
+      quadratic mass-plus-redshift baseline (mass $+$ $z$ $+$ mass$^2$ $+$
+      $z^2$ $+$ mass$\times z$) to test whether the TEP signal is
+      specifically due to $R_{\rm ML}$ or merely reflects generic
+      nonlinearity in the mass–redshift plane. Per-observable evidence is
+      also reported to identify which channels drive the joint signal.
     </li>
   </ul>
 
@@ -679,7 +664,7 @@
   <p>
     Three split strategies test generalization: (1) time-split (low-$z$
     train / high-$z$ test, 60/40); (2) field-split (RA median); (3)
-    cross-survey leave-one-out. A test passes if the dust–$\Gamma_t$
+    cross-survey leave-one-out. A test passes if the dust–$R_{\rm ML}$
     correlation remains significant ($p &lt; 0.05$) on held-out data.
   </p>
 
@@ -704,7 +689,7 @@
     linear redshift term ($-0.05(z-5)$) beyond the calibration range. At
     $z > 10$, the physics of halo assembly and baryon cooling differs
     substantially from $z = 5$, and the linear extrapolation carries
-    unquantified systematic uncertainty in $\Gamma_t$. Results at $z > 10$
+    unquantified systematic uncertainty in $R_{\rm ML}$. Results at $z > 10$
     should be interpreted with this caveat; a theoretically motivated
     $M_*$–$M_h$ relation from high-$z$ hydrodynamical simulations would
     tighten these inferences.
@@ -720,25 +705,7 @@
 
   <h3>2.5 Black Hole Growth Stress Test</h3>
   <p>
-    To test whether compact cores could amplify black-hole growth, a
-    differential temporal topology simulation was developed. A compact
-    galaxy ($r_e \approx 150$ pc) with a baryon-dominated core ($c=10$) is
-    modeled. The local temporal enhancement factor $\Gamma_t(r)$ is computed
-    at the center (black-hole environment) and at the effective radius
-    (stellar environment) across the redshift range $z=4$–$10$. This analysis
-    is a sensitivity diagnostic, not a calibrated population-level
-    resolution of the Little Red Dot anomaly.
-  </p>
-  <p>The differential growth factor is computed as:</p>
-  <div class="equation">
-    $$\text{Boost} = \exp\left(\frac{\int (\Gamma_{\rm cen}(z) - \Gamma_{\rm
-    halo}(z)) \, dt_{\rm cosmic}}{t_{\rm Salpeter}}\right)$$
-  </div>
-  <p>
-    where $t_{\rm Salpeter} \approx 45$ Myr is the Salpeter timescale
-    (e-folding time for Eddington-limited accretion). This simulation uses
-    the same fiducial response scale implied by the external
-    Cepheid prior, with no additional tuning.
+    Differential central-versus-halo temporal structure may affect the inferred accretion history of compact sources, but a physical growth calculation requires the matter-frame proper-time history $\tau_\star = \int A(\phi)\,dt$ rather than the observer-side inference response $R_{\rm ML}$. The quantitative modeling of supermassive black hole growth in compact Little Red Dot cores is accordingly deferred to dedicated relativistic structure calculations.
   </p>
 
   <h3>2.6 Reproducibility</h3>

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 121: Alpha(z) Evolution Test
+Step 099: Alpha(z) Evolution Test
 
 Tests whether the TEP coupling constant kappa_gal is truly constant
 or evolves with redshift.

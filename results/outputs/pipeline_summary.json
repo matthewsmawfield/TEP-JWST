@@ -1,11 +1,11 @@
 {
   "pipeline": "TEP-JWST reproducible analysis",
-  "run_at": "2026-08-18T22:51:12.213364Z",
+  "run_at": "2026-08-20T18:43:33.877285Z",
   "total_steps": 129,
   "n_pass": 128,
   "n_fail": 1,
   "n_guardrail": 0,
-  "total_elapsed_s": 4569.9,
+  "total_elapsed_s": 8863.1,
   "status": "FAIL",
   "execution_status_note": "PASS means the step executed successfully and JSON guardrails passed; scientific branches may still be live, skipped, missing, or reference-only.",
   "scientific_reproducibility": {
@@ -78,43 +78,43 @@
     {
       "name": "step_001_uncover_load.py",
       "status": "PASS",
-      "elapsed_s": 4.35,
+      "elapsed_s": 4.67,
       "returncode": 0
     },
     {
       "name": "step_002_tep_model.py",
       "status": "PASS",
-      "elapsed_s": 1.3,
+      "elapsed_s": 2.01,
       "returncode": 0
     },
     {
       "name": "step_003_first_principles.py",
       "status": "PASS",
-      "elapsed_s": 1.8,
+      "elapsed_s": 3.02,
       "returncode": 0
     },
     {
       "name": "step_004_thread1_z7_inversion.py",
       "status": "PASS",
-      "elapsed_s": 2.7,
+      "elapsed_s": 6.78,
       "returncode": 0
     },
     {
       "name": "step_005_thread2_4_partial_correlations.py",
       "status": "PASS",
-      "elapsed_s": 9.64,
+      "elapsed_s": 17.81,
       "returncode": 0
     },
     {
       "name": "step_006_thread5_z8_dust.py",
       "status": "PASS",
-      "elapsed_s": 2.65,
+      "elapsed_s": 7.45,
       "returncode": 0
     },
     {
       "name": "step_007_thread6_7_coherence.py",
       "status": "PASS",
-      "elapsed_s": 1.53,
+      "elapsed_s": 3.1,
       "returncode": 0
     },
     {
@@ -126,727 +126,727 @@
     {
       "name": "step_009_holographic_synthesis.py",
       "status": "PASS",
-      "elapsed_s": 2.08,
+      "elapsed_s": 3.49,
       "returncode": 0
     },
     {
       "name": "step_010_sn_ia_mass_step.py",
       "status": "PASS",
-      "elapsed_s": 2.01,
+      "elapsed_s": 3.5,
       "returncode": 0
     },
     {
       "name": "step_011_mw_gc_gradient.py",
       "status": "PASS",
-      "elapsed_s": 1.29,
+      "elapsed_s": 2.28,
       "returncode": 0
     },
     {
       "name": "step_012_sn_ia_extended.py",
       "status": "PASS",
-      "elapsed_s": 1.72,
+      "elapsed_s": 2.65,
       "returncode": 0
     },
     {
       "name": "step_013_trgb_cepheid.py",
       "status": "PASS",
-      "elapsed_s": 1.15,
+      "elapsed_s": 1.46,
       "returncode": 0
     },
     {
       "name": "step_014_jwst_uv_slope.py",
       "status": "PASS",
-      "elapsed_s": 2.17,
+      "elapsed_s": 4.45,
       "returncode": 0
     },
     {
       "name": "step_015_jwst_impossible_galaxies.py",
       "status": "PASS",
-      "elapsed_s": 1.34,
+      "elapsed_s": 1.44,
       "returncode": 0
     },
     {
       "name": "step_016_robustness_tests.py",
       "status": "PASS",
-      "elapsed_s": 1.2,
+      "elapsed_s": 1.39,
       "returncode": 0
     },
     {
       "name": "step_017_ml_ratio.py",
       "status": "PASS",
-      "elapsed_s": 5.64,
+      "elapsed_s": 8.57,
       "returncode": 0
     },
     {
       "name": "step_018_assembly_time.py",
       "status": "PASS",
-      "elapsed_s": 1.32,
+      "elapsed_s": 1.52,
       "returncode": 0
     },
     {
       "name": "step_019_chi2_analysis.py",
       "status": "PASS",
-      "elapsed_s": 6.06,
+      "elapsed_s": 10.04,
       "returncode": 0
     },
     {
       "name": "step_029_independent_validation.py",
       "status": "PASS",
-      "elapsed_s": 1.24,
+      "elapsed_s": 1.58,
       "returncode": 0
     },
     {
       "name": "step_030_z8_dust_prediction.py",
       "status": "PASS",
-      "elapsed_s": 1.2,
+      "elapsed_s": 1.52,
       "returncode": 0
     },
     {
       "name": "step_031_ceers_download.py",
       "status": "PASS",
-      "elapsed_s": 0.8,
+      "elapsed_s": 1.26,
       "returncode": 0
     },
     {
       "name": "step_032_ceers_replication.py",
       "status": "PASS",
-      "elapsed_s": 2.2,
+      "elapsed_s": 4.25,
       "returncode": 0
     },
     {
       "name": "step_033_cosmosweb_download.py",
       "status": "PASS",
-      "elapsed_s": 1.51,
+      "elapsed_s": 2.02,
       "returncode": 0
     },
     {
       "name": "step_034_cosmosweb_replication.py",
       "status": "PASS",
-      "elapsed_s": 2.49,
+      "elapsed_s": 4.56,
       "returncode": 0
     },
     {
       "name": "step_035_spectroscopic_validation.py",
       "status": "PASS",
-      "elapsed_s": 2.94,
+      "elapsed_s": 6.78,
       "returncode": 0
     },
     {
       "name": "step_036_spectroscopic_refinement.py",
       "status": "PASS",
-      "elapsed_s": 1.71,
+      "elapsed_s": 2.48,
       "returncode": 0
     },
     {
       "name": "step_037_resolved_gradients.py",
       "status": "PASS",
-      "elapsed_s": 1.97,
+      "elapsed_s": 2.45,
       "returncode": 0
     },
     {
       "name": "step_038_sensitivity_analysis.py",
       "status": "PASS",
-      "elapsed_s": 1.31,
+      "elapsed_s": 1.54,
       "returncode": 0
     },
     {
       "name": "step_039_overmassive_bh.py",
       "status": "PASS",
-      "elapsed_s": 1.42,
+      "elapsed_s": 2.19,
       "returncode": 0
     },
     {
       "name": "step_040_mass_sensitivity.py",
       "status": "PASS",
-      "elapsed_s": 1.18,
+      "elapsed_s": 1.78,
       "returncode": 0
     },
     {
       "name": "step_042_lrd_population.py",
       "status": "PASS",
-      "elapsed_s": 1.47,
+      "elapsed_s": 2.39,
       "returncode": 0
     },
     {
       "name": "step_043_blue_monsters.py",
       "status": "PASS",
-      "elapsed_s": 2.9,
+      "elapsed_s": 4.81,
       "returncode": 0
     },
     {
       "name": "step_050_critical_evidence.py",
       "status": "PASS",
-      "elapsed_s": 1.18,
+      "elapsed_s": 1.67,
       "returncode": 0
     },
     {
       "name": "step_061_extreme_cases.py",
       "status": "PASS",
-      "elapsed_s": 1.25,
+      "elapsed_s": 1.59,
       "returncode": 0
     },
     {
       "name": "step_062_predictive_power.py",
       "status": "PASS",
-      "elapsed_s": 2.24,
+      "elapsed_s": 2.92,
       "returncode": 0
     },
     {
       "name": "step_063_correlation_deep_dive.py",
       "status": "PASS",
-      "elapsed_s": 1.93,
+      "elapsed_s": 2.83,
       "returncode": 0
     },
     {
       "name": "step_067_cutting_edge_tests.py",
       "status": "PASS",
-      "elapsed_s": 1.82,
+      "elapsed_s": 3.15,
       "returncode": 0
     },
     {
       "name": "step_068_observational_signatures.py",
       "status": "PASS",
-      "elapsed_s": 1.89,
+      "elapsed_s": 2.54,
       "returncode": 0
     },
     {
       "name": "step_069_compactness_verification.py",
       "status": "PASS",
-      "elapsed_s": 2.25,
+      "elapsed_s": 3.22,
       "returncode": 0
     },
     {
       "name": "step_070_binary_pulsar_constraints.py",
       "status": "PASS",
-      "elapsed_s": 1.03,
+      "elapsed_s": 1.54,
       "returncode": 0
     },
     {
       "name": "step_071_bbn_analysis.py",
       "status": "PASS",
-      "elapsed_s": 1.15,
+      "elapsed_s": 1.66,
       "returncode": 0
     },
     {
       "name": "step_072_sign_paradox_check.py",
       "status": "PASS",
-      "elapsed_s": 1.91,
+      "elapsed_s": 3.16,
       "returncode": 0
     },
     {
       "name": "step_073_growth_factor.py",
       "status": "PASS",
-      "elapsed_s": 1.46,
+      "elapsed_s": 2.36,
       "returncode": 0
     },
     {
       "name": "step_075_bayesian_model_comparison.py",
       "status": "PASS",
-      "elapsed_s": 1.43,
+      "elapsed_s": 1.72,
       "returncode": 0
     },
     {
       "name": "step_076_ml_scaling_justification.py",
       "status": "PASS",
-      "elapsed_s": 1.24,
+      "elapsed_s": 1.64,
       "returncode": 0
     },
     {
       "name": "step_077_bootstrap_validation.py",
       "status": "PASS",
-      "elapsed_s": 18.18,
+      "elapsed_s": 55.62,
       "returncode": 0
     },
     {
       "name": "step_078_independent_age_validation.py",
       "status": "PASS",
-      "elapsed_s": 1.59,
+      "elapsed_s": 1.72,
       "returncode": 0
     },
     {
       "name": "step_079_ml_cross_validation.py",
       "status": "PASS",
-      "elapsed_s": 1.46,
+      "elapsed_s": 2.33,
       "returncode": 0
     },
     {
       "name": "step_081_survey_cross_correlation.py",
       "status": "PASS",
-      "elapsed_s": 2.33,
+      "elapsed_s": 3.96,
       "returncode": 0
     },
     {
       "name": "step_083_falsification_battery.py",
       "status": "PASS",
-      "elapsed_s": 1.21,
+      "elapsed_s": 1.76,
       "returncode": 0
     },
     {
       "name": "step_084_effect_size_meta.py",
       "status": "PASS",
-      "elapsed_s": 1.76,
+      "elapsed_s": 2.37,
       "returncode": 0
     },
     {
       "name": "step_085_time_lens_map.py",
       "status": "PASS",
-      "elapsed_s": 10.52,
+      "elapsed_s": 17.08,
       "returncode": 0
     },
     {
       "name": "step_087_emission_line_tests.py",
       "status": "PASS",
-      "elapsed_s": 1.35,
+      "elapsed_s": 1.71,
       "returncode": 0
     },
     {
       "name": "step_089_teff_threshold_scan.py",
       "status": "PASS",
-      "elapsed_s": 7.53,
+      "elapsed_s": 11.97,
       "returncode": 0
     },
     {
       "name": "step_090_permutation_battery.py",
       "status": "PASS",
-      "elapsed_s": 6.55,
+      "elapsed_s": 9.1,
       "returncode": 0
     },
     {
       "name": "step_091_random_effects_meta_loo.py",
       "status": "PASS",
-      "elapsed_s": 1.62,
+      "elapsed_s": 2.02,
       "returncode": 0
     },
     {
       "name": "step_092_mass_matched_confirmation.py",
       "status": "PASS",
-      "elapsed_s": 3.25,
+      "elapsed_s": 6.44,
       "returncode": 0
     },
     {
       "name": "step_093_teff_threshold_holdout.py",
       "status": "PASS",
-      "elapsed_s": 7.44,
+      "elapsed_s": 11.49,
       "returncode": 0
     },
     {
       "name": "step_094_environmental_screening_enhanced.py",
       "status": "PASS",
-      "elapsed_s": 10.99,
+      "elapsed_s": 25.89,
       "returncode": 0
     },
     {
       "name": "step_095_lrd_core_halo_mass.py",
       "status": "PASS",
-      "elapsed_s": 5.05,
+      "elapsed_s": 6.51,
       "returncode": 0
     },
     {
       "name": "step_098_alternative_model_comparison.py",
       "status": "PASS",
-      "elapsed_s": 2.07,
+      "elapsed_s": 2.75,
       "returncode": 0
     },
     {
       "name": "step_099_alpha_evolution_test.py",
       "status": "PASS",
-      "elapsed_s": 11.62,
+      "elapsed_s": 36.81,
       "returncode": 0
     },
     {
       "name": "step_100_multi_domain_model_comparison.py",
       "status": "PASS",
-      "elapsed_s": 1.37,
+      "elapsed_s": 1.34,
       "returncode": 0
     },
     {
       "name": "step_101_alpha_recovery_multi_observable.py",
       "status": "PASS",
-      "elapsed_s": 28.07,
+      "elapsed_s": 48.52,
       "returncode": 0
     },
     {
       "name": "step_102_literature_anomaly_resolution.py",
       "status": "PASS",
-      "elapsed_s": 0.06,
+      "elapsed_s": 0.09,
       "returncode": 0
     },
     {
       "name": "step_103_zphot_error_propagation.py",
       "status": "PASS",
-      "elapsed_s": 3.64,
+      "elapsed_s": 6.16,
       "returncode": 0
     },
     {
       "name": "step_104_cosmic_variance.py",
       "status": "PASS",
-      "elapsed_s": 2.99,
+      "elapsed_s": 3.76,
       "returncode": 0
     },
     {
       "name": "step_105_morphology_tep.py",
       "status": "PASS",
-      "elapsed_s": 1.71,
+      "elapsed_s": 2.24,
       "returncode": 0
     },
     {
       "name": "step_109_lcdm_tension_quantification.py",
       "status": "PASS",
-      "elapsed_s": 2.34,
+      "elapsed_s": 4.02,
       "returncode": 0
     },
     {
       "name": "step_111_power_analysis.py",
       "status": "PASS",
-      "elapsed_s": 0.75,
+      "elapsed_s": 0.82,
       "returncode": 0
     },
     {
       "name": "step_112_scalar_tensor_constraints.py",
       "status": "PASS",
-      "elapsed_s": 2.07,
+      "elapsed_s": 2.8,
       "returncode": 0
     },
     {
       "name": "step_114_imf_constraint.py",
       "status": "PASS",
-      "elapsed_s": 2.02,
+      "elapsed_s": 2.3,
       "returncode": 0
     },
     {
       "name": "step_117_dynamical_mass_comparison.py",
       "status": "PASS",
-      "elapsed_s": 1.54,
+      "elapsed_s": 1.69,
       "returncode": 0
     },
     {
       "name": "step_118_neff_corrected_significance.py",
       "status": "PASS",
-      "elapsed_s": 1.33,
+      "elapsed_s": 1.73,
       "returncode": 0
     },
     {
       "name": "step_119_blind_validation.py",
       "status": "PASS",
-      "elapsed_s": 1.26,
+      "elapsed_s": 1.99,
       "returncode": 0
     },
     {
       "name": "step_120_screening_transition_profile.py",
       "status": "PASS",
-      "elapsed_s": 1.17,
+      "elapsed_s": 1.77,
       "returncode": 0
     },
     {
       "name": "step_121_extended_modified_gravity_comparison.py",
       "status": "PASS",
-      "elapsed_s": 0.17,
+      "elapsed_s": 0.1,
       "returncode": 0
     },
     {
       "name": "step_122_causality_verification.py",
       "status": "PASS",
-      "elapsed_s": 0.95,
+      "elapsed_s": 1.33,
       "returncode": 0
     },
     {
       "name": "step_123_kappa_error_budget.py",
       "status": "PASS",
-      "elapsed_s": 0.94,
+      "elapsed_s": 1.23,
       "returncode": 0
     },
     {
       "name": "step_124_timespace_coupling.py",
       "status": "PASS",
-      "elapsed_s": 1.0,
+      "elapsed_s": 1.11,
       "returncode": 0
     },
     {
       "name": "step_125_multitracer_consistency.py",
       "status": "PASS",
-      "elapsed_s": 1.19,
+      "elapsed_s": 1.62,
       "returncode": 0
     },
     {
       "name": "step_126_screening_scale.py",
       "status": "PASS",
-      "elapsed_s": 0.21,
+      "elapsed_s": 0.08,
       "returncode": 0
     },
     {
       "name": "step_127_imf_discrimination.py",
       "status": "PASS",
-      "elapsed_s": 1.49,
+      "elapsed_s": 2.59,
       "returncode": 0
     },
     {
       "name": "step_129_dust_models.py",
       "status": "PASS",
-      "elapsed_s": 0.17,
+      "elapsed_s": 0.11,
       "returncode": 0
     },
     {
       "name": "step_130_cross_survey_systematics.py",
       "status": "PASS",
-      "elapsed_s": 0.73,
+      "elapsed_s": 1.11,
       "returncode": 0
     },
     {
       "name": "step_131_agn_power.py",
       "status": "PASS",
-      "elapsed_s": 1.38,
+      "elapsed_s": 2.21,
       "returncode": 0
     },
     {
       "name": "step_132_lrd_validation.py",
       "status": "PASS",
-      "elapsed_s": 2.78,
+      "elapsed_s": 3.99,
       "returncode": 0
     },
     {
       "name": "step_133_hubble_connection.py",
       "status": "PASS",
-      "elapsed_s": 0.97,
+      "elapsed_s": 1.1,
       "returncode": 0
     },
     {
       "name": "step_134_prediction_errors.py",
       "status": "PASS",
-      "elapsed_s": 1.71,
+      "elapsed_s": 2.2,
       "returncode": 0
     },
     {
       "name": "step_135_scale_dependent_growth.py",
       "status": "PASS",
-      "elapsed_s": 12.99,
+      "elapsed_s": 19.9,
       "returncode": 0
     },
     {
       "name": "step_136_functional_form_test.py",
       "status": "PASS",
-      "elapsed_s": 4.01,
+      "elapsed_s": 4.68,
       "returncode": 0
     },
     {
       "name": "step_137_cross_survey_generalization.py",
       "status": "PASS",
-      "elapsed_s": 2.23,
+      "elapsed_s": 3.5,
       "returncode": 0
     },
     {
       "name": "step_138_environmental_screening_steiger.py",
       "status": "PASS",
-      "elapsed_s": 6.56,
+      "elapsed_s": 19.66,
       "returncode": 0
     },
     {
       "name": "step_139_colour_gradient_steiger.py",
       "status": "PASS",
-      "elapsed_s": 3.0,
+      "elapsed_s": 7.66,
       "returncode": 0
     },
     {
       "name": "step_141_nonlinear_aic.py",
       "status": "PASS",
-      "elapsed_s": 1.19,
+      "elapsed_s": 1.44,
       "returncode": 0
     },
     {
       "name": "step_142_lrd_mbh_mstar_prediction.py",
       "status": "PASS",
-      "elapsed_s": 3.91,
+      "elapsed_s": 5.03,
       "returncode": 0
     },
     {
       "name": "step_143_mass_proxy_breaker.py",
       "status": "PASS",
-      "elapsed_s": 5.21,
+      "elapsed_s": 9.23,
       "returncode": 0
     },
     {
       "name": "step_144_adversarial_ml_attack.py",
       "status": "PASS",
-      "elapsed_s": 105.46,
+      "elapsed_s": 188.24,
       "returncode": 0
     },
     {
       "name": "step_145_phase_boundary_activation.py",
       "status": "PASS",
-      "elapsed_s": 9.89,
+      "elapsed_s": 19.51,
       "returncode": 0
     },
     {
       "name": "step_146_stellar_mass_function_resolution.py",
       "status": "PASS",
-      "elapsed_s": 1.1,
+      "elapsed_s": 1.39,
       "returncode": 0
     },
     {
       "name": "step_147_cosmic_sfrd_correction.py",
       "status": "PASS",
-      "elapsed_s": 2.99,
+      "elapsed_s": 4.22,
       "returncode": 0
     },
     {
       "name": "step_148_mass_independent_proxy.py",
       "status": "PASS",
-      "elapsed_s": 3.1,
+      "elapsed_s": 3.98,
       "returncode": 0
     },
     {
       "name": "step_149_jades_dr4_ingestion.py",
       "status": "PASS",
-      "elapsed_s": 2.34,
+      "elapsed_s": 3.2,
       "returncode": 0
     },
     {
       "name": "step_150_dja_nirspec_merged.py",
       "status": "PASS",
-      "elapsed_s": 9.07,
+      "elapsed_s": 14.52,
       "returncode": 0
     },
     {
       "name": "step_151_dja_ceers_crossmatch.py",
       "status": "PASS",
-      "elapsed_s": 1.13,
+      "elapsed_s": 1.86,
       "returncode": 0
     },
     {
       "name": "step_152_uncover_dr4_full_sps.py",
       "status": "PASS",
-      "elapsed_s": 2.46,
+      "elapsed_s": 3.79,
       "returncode": 0
     },
     {
       "name": "step_153_cosmos2025_sed_analysis.py",
       "status": "PASS",
-      "elapsed_s": 80.62,
+      "elapsed_s": 144.94,
       "returncode": 0
     },
     {
       "name": "step_154_jades_emission_lines.py",
       "status": "PASS",
-      "elapsed_s": 1.81,
+      "elapsed_s": 2.35,
       "returncode": 0
     },
     {
       "name": "step_155_jades_dr5_morphology.py",
       "status": "PASS",
-      "elapsed_s": 1.92,
+      "elapsed_s": 3.1,
       "returncode": 0
     },
     {
       "name": "step_156_dja_gds_morphology.py",
       "status": "PASS",
-      "elapsed_s": 7.51,
+      "elapsed_s": 11.3,
       "returncode": 0
     },
     {
       "name": "step_157_cosmos2025_ssfr_inversion.py",
       "status": "PASS",
-      "elapsed_s": 103.48,
+      "elapsed_s": 173.23,
       "returncode": 0
     },
     {
       "name": "step_158_dja_balmer_decrement.py",
       "status": "PASS",
-      "elapsed_s": 9.64,
+      "elapsed_s": 17.22,
       "returncode": 0
     },
     {
       "name": "step_159_mass_measurement_bias.py",
       "status": "PASS",
-      "elapsed_s": 1.45,
+      "elapsed_s": 1.61,
       "returncode": 0
     },
     {
       "name": "step_161_multi_dataset_l1_combination.py",
       "status": "PASS",
-      "elapsed_s": 0.81,
+      "elapsed_s": 0.82,
       "returncode": 0
     },
     {
       "name": "step_162_l1_l3_independence.py",
       "status": "PASS",
-      "elapsed_s": 3593.46,
+      "elapsed_s": 5129.15,
       "returncode": 0
     },
     {
       "name": "step_163_external_dataset_registry.py",
       "status": "PASS",
-      "elapsed_s": 0.09,
+      "elapsed_s": 0.08,
       "returncode": 0
     },
     {
       "name": "step_164_uncover_z9_null_audit.py",
       "status": "PASS",
-      "elapsed_s": 1.44,
+      "elapsed_s": 3.22,
       "returncode": 0
     },
     {
       "name": "step_165_uncover_z9_reddening_stack.py",
       "status": "PASS",
-      "elapsed_s": 3.57,
+      "elapsed_s": 10.42,
       "returncode": 0
     },
     {
       "name": "step_166_jades_z9_beta_contrast.py",
       "status": "PASS",
-      "elapsed_s": 2.4,
+      "elapsed_s": 7.75,
       "returncode": 0
     },
     {
       "name": "step_167_protocluster_switch.py",
       "status": "PASS",
-      "elapsed_s": 8.44,
+      "elapsed_s": 29.96,
       "returncode": 0
     },
     {
       "name": "step_168_gradient_sign_reversal.py",
       "status": "PASS",
-      "elapsed_s": 2.13,
+      "elapsed_s": 6.71,
       "returncode": 0
     },
     {
       "name": "step_169_dja_sigma_pilot.py",
       "status": "PASS",
-      "elapsed_s": 4.67,
+      "elapsed_s": 13.37,
       "returncode": 0
     },
     {
       "name": "step_171_sigma_kinematic_expansion.py",
       "status": "PASS",
-      "elapsed_s": 8.52,
+      "elapsed_s": 49.77,
       "returncode": 0
     },
     {
       "name": "step_170_kinematic_decisive_test.py",
       "status": "PASS",
-      "elapsed_s": 19.38,
+      "elapsed_s": 80.36,
       "returncode": 0
     },
     {
       "name": "step_174_smf_mass_threshold_counts.py",
       "status": "PASS",
-      "elapsed_s": 2.2,
+      "elapsed_s": 5.35,
       "returncode": 0
     },
     {
       "name": "step_176_nested_bayesian_evidence.py",
       "status": "PASS",
-      "elapsed_s": 284.35,
+      "elapsed_s": 2405.34,
       "returncode": 0
     },
     {
       "name": "step_140_evidence_tier_summary.py",
       "status": "PASS",
-      "elapsed_s": 1.07,
+      "elapsed_s": 1.19,
       "returncode": 0
     },
     {
       "name": "step_160_manuscript_consistency_check.py",
       "status": "FAIL",
-      "elapsed_s": 0.06,
+      "elapsed_s": 0.67,
       "returncode": 1
     }
   ]

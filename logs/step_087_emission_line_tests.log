@@ -1,65 +1,65 @@
-[22:37:15] INFO        ======================================================================
-[22:37:15] INFO        STEP 087: Emission Line and SED Tests
-[22:37:15] INFO        ======================================================================
-[22:37:15] INFO        
+[17:19:52] INFO        ======================================================================
+[17:19:52] INFO        STEP 087: Emission Line and SED Tests
+[17:19:52] INFO        ======================================================================
+[17:19:52] INFO        
 Loaded N = 2315 galaxies
-[22:37:15] INFO        
+[17:19:52] INFO        
 ======================================================================
-[22:37:15] INFO        TEST 1: SFR Indicator Discrepancy
-[22:37:15] INFO        ======================================================================
-[22:37:15] INFO        Different SFR timescales should show different TEP effects.
+[17:19:52] INFO        TEST 1: SFR Indicator Discrepancy
+[17:19:52] INFO        ======================================================================
+[17:19:52] INFO        Different SFR timescales should show different TEP effects.
 
-[22:37:15] INFO        ρ(Γ_t, SFR10/SFR100) = -0.231 (p = 8.73e-05)
-[22:37:15] INFO        ✓ High-Γ_t galaxies have declining SFR (more evolved)
-[22:37:15] INFO        
+[17:19:52] INFO        ρ(Γ_t, SFR10/SFR100) = -0.254 (p = 1.51e-05)
+[17:19:52] INFO        ✓ High-Γ_t galaxies have declining SFR (more evolved)
+[17:19:52] INFO        
 ======================================================================
-[22:37:15] INFO        TEST 2: SED Fitting Quality
-[22:37:15] INFO        ======================================================================
-[22:37:15] INFO        TEP predicts: High-Gamma_t → isochrony violation → poor SED fits.
+[17:19:52] INFO        TEST 2: SED Fitting Quality
+[17:19:52] INFO        ======================================================================
+[17:19:52] INFO        TEP predicts: High-Gamma_t → isochrony violation → poor SED fits.
 
-[22:37:15] INFO        ρ(Γ_t, χ²) = 0.022 (p = 7.18e-01)
-[22:37:15] INFO        
+[17:19:52] INFO        ρ(Γ_t, χ²) = 0.064 (p = 2.80e-01)
+[17:19:52] INFO        
 Binned χ² by Γ_t:
-[22:37:15] INFO          Γ_t = 0.5-1: <χ²> = 15.9 (N = 279)
-[22:37:15] INFO        
+[17:19:52] INFO          Γ_t = 0.5-1: <χ²> = 14.0 (N = 275)
+[17:19:52] INFO        
 ======================================================================
-[22:37:15] INFO        TEST 3: Age Paradox Resolution
-[22:37:15] INFO        ======================================================================
-[22:37:15] INFO        Galaxies with age > cosmic age should have high Gamma_t.
+[17:19:52] INFO        TEST 3: Age Paradox Resolution
+[17:19:52] INFO        ======================================================================
+[17:19:52] INFO        Galaxies with age > cosmic age should have high Gamma_t.
 
-[22:37:15] INFO        'Anomalous' (age > 50% cosmic): N = 6
-[22:37:15] INFO        <Γ_t> anomalous: 0.97
-[22:37:15] INFO        <Γ_t> possible: 0.58
-[22:37:15] INFO        Ratio: 1.7×
-[22:37:15] INFO        
-TEP resolution: 1/6 paradoxes resolved
-[22:37:15] INFO        
+[17:19:52] INFO        'Anomalous' (age > 50% cosmic): N = 6
+[17:19:52] INFO        <Γ_t> anomalous: 2.38
+[17:19:52] INFO        <Γ_t> possible: 0.83
+[17:19:52] INFO        Ratio: 2.9×
+[17:19:52] INFO        
+TEP resolution: 2/6 paradoxes resolved
+[17:19:52] INFO        
 ======================================================================
-[22:37:15] INFO        TEST 4: Stellar Population Complexity
-[22:37:15] INFO        ======================================================================
-[22:37:15] INFO        Complex stellar populations should have high Gamma_t.
+[17:19:52] INFO        TEST 4: Stellar Population Complexity
+[17:19:52] INFO        ======================================================================
+[17:19:52] INFO        Complex stellar populations should have high Gamma_t.
 
-[22:37:15] INFO        Complex populations: N = 24
-[22:37:15] INFO        <Γ_t> complex: 0.66
-[22:37:15] INFO        <Γ_t> simple: 0.58
-[22:37:15] INFO        Ratio: 1.1×
-[22:37:15] INFO        
+[17:19:52] INFO        Complex populations: N = 24
+[17:19:52] INFO        <Γ_t> complex: 1.03
+[17:19:52] INFO        <Γ_t> simple: 0.85
+[17:19:52] INFO        Ratio: 1.2×
+[17:19:52] INFO        
 ======================================================================
-[22:37:15] INFO        TEST 5: Mass-Weighted vs Light-Weighted Age
-[22:37:15] INFO        ======================================================================
-[22:37:15] INFO        TEP predicts: MWA should be more affected than LWA.
+[17:19:52] INFO        TEST 5: Mass-Weighted vs Light-Weighted Age
+[17:19:52] INFO        ======================================================================
+[17:19:52] INFO        TEP predicts: MWA should be more affected than LWA.
 
-[22:37:15] INFO        Age columns found: ['mwa', 'mwa_16', 'mwa_84', 'age_ratio']
-[22:37:15] INFO        ρ(Γ_t, MWA) = 0.219 (p = 2.09e-04)
-[22:37:15] INFO        
+[17:19:52] INFO        Age columns found: ['mwa', 'mwa_16', 'mwa_84', 'age_ratio']
+[17:19:52] INFO        ρ(Γ_t, MWA) = 0.099 (p = 9.62e-02)
+[17:19:52] INFO        
 ======================================================================
-[22:37:15] INFO        SUMMARY: Emission Line and SED Tests
-[22:37:15] INFO        ======================================================================
-[22:37:15] INFO        
+[17:19:52] INFO        SUMMARY: Emission Line and SED Tests
+[17:19:52] INFO        ======================================================================
+[17:19:52] INFO        
 Key findings:
-[22:37:15] INFO          • sfr_discrepancy: ρ = -0.231
-[22:37:15] INFO          • sed_quality: ρ = 0.022
-[22:37:15] INFO          • age_paradox: 1.7× elevation
-[22:37:15] INFO          • complex_pop: 1.1× elevation
-[22:37:15] INFO        
+[17:19:52] INFO          • sfr_discrepancy: ρ = -0.254
+[17:19:52] INFO          • sed_quality: ρ = 0.064
+[17:19:52] INFO          • age_paradox: 2.9× elevation
+[17:19:52] INFO          • complex_pop: 1.2× elevation
+[17:19:52] INFO        
 Saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_087_emission_line_tests.json

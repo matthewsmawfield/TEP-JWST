@@ -1,54 +1,7 @@
-[22:36:32] INFO        ============================================================
-[22:36:32] INFO        Step 90: Sign Paradox Resolution
-[22:36:32] INFO        ============================================================
-[22:36:32] INFO        
---- Part 1: Calibrated Clock Rate Analysis ---
-[22:36:32] INFO        This shows the 'naive' sign paradox when β < 0.5
-[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.4
-[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
-[22:36:32] INFO        β = 0.4: 4β² = 0.64, Threshold met: False, Enhancement: False
-[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.5
-[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
-[22:36:32] INFO        β = 0.5: 4β² = 1.00, Threshold met: False, Enhancement: False
-[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.6
-[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
-[22:36:32] INFO        β = 0.6: 4β² = 1.44, Threshold met: True, Enhancement: False
-[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.8
-[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
-[22:36:32] INFO        β = 0.8: 4β² = 2.56, Threshold met: True, Enhancement: False
-[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=1.0
-[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
-[22:36:32] INFO        β = 1.0: 4β² = 4.00, Threshold met: True, Enhancement: False
-[22:36:32] INFO        
---- Part 2: Relative Enhancement (TEP-JWST Method) ---
-[22:36:32] INFO        This is the correct formulation used in the manuscript
-[22:36:32] INFO        Low-mass z=8: Γ_t = 0.5795 (SUPPRESSED)
-[22:36:32] INFO        Intermediate z=8: Γ_t = 0.7226 (SUPPRESSED)
-[22:36:32] INFO        Reference mass z=8: Γ_t = 1.0000 (REFERENCE)
-[22:36:32] INFO        High-mass z=8: Γ_t = 2.0136 (ENHANCED)
-[22:36:32] INFO        Ultra-massive z=8: Γ_t = 9.0967 (ENHANCED)
-[22:36:32] INFO        High-mass z=5.5 (ref z): Γ_t = 1.8127 (ENHANCED)
-[22:36:32] INFO        
---- Part 3: Red Monsters Validation ---
-[22:36:32] INFO        S1 (z=5.3): Γ_t = 3.40, Mass correction = 2.36×
-[22:36:32] INFO        S2 (z=5.5): Γ_t = 2.18, Mass correction = 1.73×
-[22:36:32] INFO        S3 (z=5.9): Γ_t = 6.91, Mass correction = 3.87×
-[22:36:32] INFO        
---- Part 4: Theoretical Mapping ---
-[22:36:32] INFO        
-Sign Paradox Resolution:
-[22:36:32] INFO          The TEP-JWST formulation uses RELATIVE enhancement Γ_t
-[22:36:32] INFO          Γ_t > 1 for M_h > M_ref (by construction)
-[22:36:32] INFO          This does NOT require 4β² > 1 in the scalar-tensor action
-[22:36:32] INFO          The phenomenological κ_gal = 9.6e5 mag is an Observable Response Coefficient, not β
-[22:36:32] INFO        
-Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_072_sign_paradox.json
-[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.4
-[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
-[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.5
-[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
-[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.6
-[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
-[22:36:32] INFO    Solving CALIBRATED profiles for M_h=1.0e+12, c=10, β=0.8
-[22:36:32] INFO      Deepest potential Φ/c²: -1.61e-06
-[22:36:33] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/step_072_sign_paradox_resolution.png
+[17:18:19] INFO        ============================================================
+[17:18:19] INFO        Step 072: Quantity-Taxonomy and Sign Validation
+[17:18:19] INFO        ============================================================
+[17:18:19] INFO    ✓   Potential depth positive: True
+[17:18:19] INFO    ✓   Deeper-well clock offset negative: True
+[17:18:19] INFO    ✓   Reciprocal mass correction invariant: True
+[17:18:19] INFO    ✓   R_ML is validated as an observable response, not a local clock rate.

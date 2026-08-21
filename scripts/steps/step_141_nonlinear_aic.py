@@ -40,7 +40,7 @@ set_step_logger(logger)
 OUTPUTS_DIR = PROJECT_ROOT / "results" / "outputs"  # JSON output directory
 OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
 
-# ── Load real data from step_160 (functional form test) ──────────────────────
+# ── Load real data from step_136 (functional form test) ──────────────────────
 step160_path = OUTPUTS_DIR / "step_136_functional_form_test.json"
 step109_path = OUTPUTS_DIR / "step_085_time_lens_map.json"
 
@@ -56,7 +56,7 @@ def load_json(path):
         return {}
 
 # ── Reconstruct data from pipeline outputs ────────────────────────────────────
-# We use the summary statistics from step_160 and step_109 to reconstruct
+# We use the summary statistics from step_136 and step_085 to reconstruct
 # representative data consistent with the pipeline, then compute AIC.
 # This is the standard approach when raw catalogs are not re-loaded per step.
 

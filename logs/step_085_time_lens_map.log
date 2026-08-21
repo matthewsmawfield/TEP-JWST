@@ -1,5 +1,5 @@
-[22:37:05] INFO        ======================================================================
-[22:37:05] INFO        STEP 085: Time-Lens Map (z_eff)
-[22:37:05] INFO        ======================================================================
-[22:37:05] INFO        Surveys loaded: ['UNCOVER', 'CEERS', 'COSMOS-Web']
-[22:37:14] INFO    ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_085_time_lens_map.json
+[17:19:36] INFO        ======================================================================
+[17:19:36] INFO        STEP 085: Time-Lens Map (z_eff)
+[17:19:36] INFO        ======================================================================
+[17:19:36] INFO        Surveys loaded: ['UNCOVER', 'CEERS', 'COSMOS-Web']
+[17:19:50] INFO    ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_085_time_lens_map.json

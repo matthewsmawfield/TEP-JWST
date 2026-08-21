@@ -1,6 +1,6 @@
 {
   "title": "TEP-JWST: The Seven Threads of Evidence",
-  "generated": "2026-08-18T22:35:26.332761",
+  "generated": "2026-08-20T17:16:35.586319",
   "threads": {
     "thread_1": {
       "name": "z > 7 Mass-sSFR Inversion",
@@ -49,19 +49,19 @@
       "details": {
         "test": "Thread 2: \u0393_t vs Age Ratio",
         "n": 2315,
-        "raw_rho": -0.006035944296748368,
-        "raw_p": 0.7716158733152128,
-        "partial_rho": 0.08881115675648815,
-        "partial_p": 1.8752440464813805e-05,
+        "raw_rho": 0.005776202298512069,
+        "raw_p": 0.7811881584293188,
+        "partial_rho": 0.09521855602587637,
+        "partial_p": 4.44640690730653e-06,
         "ci_95": [
-          0.03675356755891353,
-          0.14045189223892127
+          0.046330759440869215,
+          0.14359806844928988
         ],
-        "partial_rho_double": 0.00565543225609637,
-        "partial_p_double": 0.7856503102499931,
+        "partial_rho_double": 0.010659916125297285,
+        "partial_p_double": 0.6082076996681908,
         "ci_95_double": [
-          -0.04501763932115341,
-          0.05714122366531683
+          -0.036889799392476545,
+          0.06062916881612347
         ],
         "significant": true,
         "significant_double": false,
@@ -74,19 +74,19 @@
       "details": {
         "test": "Thread 3: \u0393_t vs Metallicity",
         "n": 1108,
-        "raw_rho": 0.26902588899714247,
-        "raw_p": 7.984800956972143e-20,
-        "partial_rho": 0.1585677568696727,
-        "partial_p": 1.1216038995996483e-07,
+        "raw_rho": 0.27025927937025934,
+        "raw_p": 5.3463012816779635e-20,
+        "partial_rho": 0.165290771804795,
+        "partial_p": 3.132422253537302e-08,
         "ci_95": [
-          0.09044666533636071,
-          0.22894024443376215
+          0.09820975394721602,
+          0.23329262168251397
         ],
-        "partial_rho_double": 0.021591377791883012,
-        "partial_p_double": 0.4727716219957194,
+        "partial_rho_double": 0.029175455151815695,
+        "partial_p_double": 0.33191538866702425,
         "ci_95_double": [
-          -0.04871165870424524,
-          0.09793628687971968
+          -0.041407881329690546,
+          0.10549416790450059
         ],
         "significant": true,
         "significant_double": false,
@@ -99,19 +99,19 @@
       "details": {
         "test": "Thread 4: \u0393_t vs Dust",
         "n": 1108,
-        "raw_rho": 0.2116301857565652,
-        "raw_p": 1.1008664763423664e-12,
-        "partial_rho": 0.318480445329775,
-        "partial_p": 1.5407772480271636e-27,
+        "raw_rho": 0.23519628740411133,
+        "raw_p": 2.163807306815055e-15,
+        "partial_rho": 0.328165739810815,
+        "partial_p": 3.127204666328307e-29,
         "ci_95": [
-          0.26009508849206914,
-          0.37126395233397724
+          0.2686852676496421,
+          0.3815470545381184
         ],
-        "partial_rho_double": 0.09691743401577586,
-        "partial_p_double": 0.001237815152746225,
+        "partial_rho_double": 0.10884026629481586,
+        "partial_p_double": 0.0002838340822143981,
         "ci_95_double": [
-          0.029054705522114616,
-          0.15748908830143563
+          0.04585885442617456,
+          0.1692754444363389
         ],
         "significant": true,
         "significant_double": true,
@@ -211,12 +211,12 @@
           "significant": true
         },
         "partial_correlations": {
-          "rho_gamma_dust_given_mass": 0.2221881049636357,
-          "p_gamma_dust_given_mass": 0.0001642637546392112,
-          "rho_gamma_dust_given_z": 0.5681328965782266,
-          "p_gamma_dust_given_z": 1.3726914646099044e-25,
-          "rho_gamma_dust_given_mass_z": 0.21215902985942497,
-          "p_gamma_dust_given_mass_z": 0.0003252987028116838
+          "rho_gamma_dust_given_mass": 0.25048644690334865,
+          "p_gamma_dust_given_mass": 2.0138909451941862e-05,
+          "rho_gamma_dust_given_z": 0.6013058813156074,
+          "p_gamma_dust_given_z": 3.2656605670560153e-29,
+          "rho_gamma_dust_given_mass_z": 0.2404189625887068,
+          "p_gamma_dust_given_mass_z": 4.3760625858695857e-05
         },
         "dust_by_mass": [
           {
@@ -244,7 +244,7 @@
             ],
             "n": 24,
             "mean_dust": 1.246086495436233,
-            "std_dust": 0.5198717125924124
+            "std_dust": 0.5198717125924123
           },
           {
             "mass_range": [
@@ -257,7 +257,7 @@
           }
         ],
         "significant": true,
-        "conclusion": "z>8 mass-dust correlation rho = 0.559 (p = 1.05e-24, N = 283); significant at the bootstrap 95% CI level. Partial rho(Gamma_t, dust | M*, z) = 0.212 (p = 3.25e-04)."
+        "conclusion": "z>8 mass-dust correlation rho = 0.559 (p = 1.05e-24, N = 283); significant at the bootstrap 95% CI level. Partial rho(Gamma_t, dust | M*, z) = 0.240 (p = 4.38e-05)."
       }
     },
     "thread_6": {
@@ -282,27 +282,27 @@
       "details": {
         "test": "Thread 7: Multi-Property Split Test",
         "n": 1108,
-        "gamma_median": 0.6340092838054383,
+        "gamma_median": 0.6343648355151936,
         "properties": {
           "age_ratio": {
-            "mean_low_gamma": 0.13342928382137856,
-            "mean_high_gamma": 0.1669863677337453,
-            "diff": 0.03355708391236675,
-            "p": 6.325271609580193e-16,
+            "mean_low_gamma": 0.131931755179465,
+            "mean_high_gamma": 0.1684838963756589,
+            "diff": 0.03655214119619388,
+            "p": 3.57377069552259e-17,
             "significant": true
           },
           "metallicity": {
-            "mean_low_gamma": -1.2720433126430737,
-            "mean_high_gamma": -1.048921363590981,
-            "diff": 0.2231219490520926,
-            "p": 4.1409472142046597e-16,
+            "mean_low_gamma": -1.2697062177663392,
+            "mean_high_gamma": -1.0512584584677158,
+            "diff": 0.21844775929862337,
+            "p": 5.51335015744385e-15,
             "significant": true
           },
           "dust": {
-            "mean_low_gamma": 0.2543495416691087,
-            "mean_high_gamma": 0.30181798406255833,
-            "diff": 0.047468442393449606,
-            "p": 1.6801535439863336e-06,
+            "mean_low_gamma": 0.241346480170721,
+            "mean_high_gamma": 0.31482104556094603,
+            "diff": 0.07347456539022504,
+            "p": 2.859555541576782e-07,
             "significant": true
           }
         },

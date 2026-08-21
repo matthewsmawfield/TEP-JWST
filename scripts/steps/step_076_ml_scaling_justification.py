@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Step 96: M/L Scaling Justification
+Step 076: M/L Scaling Justification
 
 The manuscript assumes M/L ~ t^n with n=0.5-0.7. This step provides
 theoretical and empirical justification for this scaling.

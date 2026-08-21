@@ -1,0 +1,11 @@
+[22:40:10] INFO        STEP 177: L1–L3 Partial Independence Test
+[22:40:10] INFO        Valid rows with all columns: 2315
+[22:40:10] INFO          Raw rho (full): -0.4905, p=2.1049e-140, N=2315
+[22:40:10] INFO          Partial |dust (full): -0.4146, p=7.7991e-97, N=2315
+[22:40:10] INFO          Partial |dust,mass,z (full): -0.1531, p=1.2962e-13, N=2315
+[22:40:10] INFO          Partial |mass,z (full): -0.1895, p=3.6702e-20, N=2315
+[22:40:10] INFO          Partial |dust z>7: -0.1600, p=3.1134e-04, N=504
+[22:40:11] INFO          Partial |dust z>8: -0.4897, p=1.7889e-18, N=283
+[22:40:11] INFO          Partial |mass,z z>8: -0.4655, p=1.2575e-16, N=283
+[22:40:11] INFO          Partial |dust z>6: -0.1215, p=3.1436e-04, N=876
+[22:40:11] INFO    ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_177_l1_l3_partial_independence.json

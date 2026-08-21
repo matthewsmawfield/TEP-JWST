@@ -15,27 +15,27 @@
     {
       "parameter": "gini",
       "n": 588,
-      "rho": 0.13331218986107649,
-      "p": 0.0011942751326250102
+      "rho": 0.12000983507915884,
+      "p": 0.00356337598107389
     },
     {
       "parameter": "fwhm",
       "n": 588,
-      "rho": 0.17637634294548715,
-      "p": 1.6959562071978216e-05
+      "rho": 0.1613322784027638,
+      "p": 8.51066283751326e-05
     },
     {
       "parameter": "r_kron",
       "n": 588,
-      "rho": 0.1594501138896676,
-      "p": 0.0001031320097673416
+      "rho": 0.1451026860296646,
+      "p": 0.000415931185921477
     },
     {
       "parameter": "q",
       "n": 588,
-      "rho": -0.10219415763716992,
-      "p": 0.013164148394715629
+      "rho": -0.08947286466720775,
+      "p": 0.030057085511750885
     }
   ],
-  "conclusion": "GOODS-S morphology crossmatch (N=588 at z>4): rho(Gamma_t, gini)=0.133. TEP predicts compact (high-Gini) galaxies in deeper potentials due to faster inside-out growth."
+  "conclusion": "GOODS-S morphology crossmatch (N=588 at z>4): rho(Gamma_t, gini)=0.120. TEP predicts compact (high-Gini) galaxies in deeper potentials due to faster inside-out growth."
 }

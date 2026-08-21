@@ -6,56 +6,56 @@
   ],
   "survey_correlations": {
     "UNCOVER": {
-      "rho": 0.4712708247076625,
-      "p": 4.7184506345891225e-17,
-      "log10_p": -16.326200584270772,
-      "t_stat": 8.956962689427758,
+      "rho": 0.5976491230670996,
+      "p": 8.593457349586464e-29,
+      "log10_p": -28.065832074147686,
+      "t_stat": 12.495575639273191,
       "n": 283,
       "se": 0.05976143046671968,
-      "ci_lower": 0.37529356790081314,
-      "ci_upper": 0.5572495959277012,
-      "z_fisher": 0.5117027339609579
+      "ci_lower": 0.517082740286781,
+      "ci_upper": 0.6677183609823814,
+      "z_fisher": 0.6894819966510286
     },
     "CEERS": {
-      "rho": 0.6452585409388231,
-      "p": 5.998049948343616e-11,
-      "log10_p": -10.22198992200435,
-      "t_stat": 7.554499630449593,
+      "rho": 0.6546620084674742,
+      "p": 2.5372614452887543e-11,
+      "log10_p": -10.595634779764435,
+      "t_stat": 7.7461393388649435,
       "n": 82,
       "se": 0.1125087900926024,
-      "ci_lower": 0.49797859674395367,
-      "ci_upper": 0.7563580737259555,
-      "z_fisher": 0.767131789249575
+      "ci_lower": 0.5101237093314471,
+      "ci_upper": 0.763240321735407,
+      "z_fisher": 0.7834142095599176
     },
     "COSMOS-Web": {
-      "rho": 0.6260262182095218,
-      "p": 4.799709188360687e-101,
-      "log10_p": -100.31878507548197,
-      "t_stat": 24.297182111160705,
+      "rho": 0.6301146696858697,
+      "p": 9.803683145767837e-103,
+      "log10_p": -102.00861073355503,
+      "t_stat": 24.559792642635703,
       "n": 918,
       "se": 0.033058980245364314,
-      "ci_lower": 0.5850185333718116,
-      "ci_upper": 0.6638410341816484,
-      "z_fisher": 0.7348543606388486
+      "ci_lower": 0.589442103840965,
+      "ci_upper": 0.6676005877234331,
+      "z_fisher": 0.7416063005113777
     }
   },
   "meta_analysis": {
-    "rho_combined": 0.5965742629509032,
-    "ci_lower": 0.5600451958369057,
-    "ci_upper": 0.6307881599454819,
+    "rho_combined": 0.6247405562030243,
+    "ci_lower": 0.5901071020748934,
+    "ci_upper": 0.6570787812873067,
     "se": 0.02801659073402629,
-    "z_stat": 24.550151665948345,
-    "p_combined": 4.3088981705550084e-133,
+    "z_stat": 26.1538921942851,
+    "p_combined": 8.900118455050488e-151,
     "n_total": 1283,
     "n_surveys": 3
   },
   "heterogeneity": {
-    "Q": 11.205971372297007,
+    "Q": 0.7987428395800817,
     "df": 2,
-    "p_Q": 0.0036868395215880066,
-    "I2": 0.82152372752403,
-    "interpretation": "High heterogeneity",
-    "consistent": false
+    "p_Q": 0.6707415284047764,
+    "I2": 0.0,
+    "interpretation": "Low heterogeneity",
+    "consistent": true
   },
   "systematics": {
     "mass_distributions": {
@@ -77,8 +77,8 @@
     },
     "redshift_distributions": {
       "UNCOVER": {
-        "mean": 5.825741384544904,
-        "std": 1.5354106867343802,
+        "mean": 5.825741384544903,
+        "std": 1.5354106867343804,
         "median": 5.236858940389137
       },
       "CEERS": {
@@ -100,20 +100,20 @@
         "rho_t_cosmic_dust": -0.006257604267814239,
         "p_t_cosmic_dust": 0.9165310933827602,
         "log10_p_t_cosmic_dust": -0.03785279698054561,
-        "rho_t_eff_dust": 0.21624922832234364,
-        "p_t_eff_dust": 0.00024711017187324853,
-        "log10_p_t_eff_dust": -3.607109377230458,
-        "delta_rho": 0.22250683259015788,
+        "rho_t_eff_dust": 0.3745074764049298,
+        "p_t_eff_dust": 7.475988258484904e-11,
+        "log10_p_t_eff_dust": -10.126331389379777,
+        "delta_rho": 0.38076508067274406,
         "teff_threshold_gyr": 0.3,
         "threshold_test": {
-          "n_above": 178,
-          "n_below": 105,
-          "mean_dust_above": 0.8791619441273731,
-          "mean_dust_below": 0.6469306889841783,
-          "ratio": 1.3589739350715428,
-          "mannwhitney_u": 10913.0,
-          "p_value": 0.009215020635440333,
-          "cohens_d": 0.4334594132472328
+          "n_above": 26,
+          "n_below": 257,
+          "mean_dust_above": 1.7921895967480928,
+          "mean_dust_below": 0.6919129139399252,
+          "ratio": 2.5901953275346705,
+          "mannwhitney_u": 5836.0,
+          "p_value": 1.7730146291398076e-10,
+          "cohens_d": 1.4298932125326076
         },
         "detection_test": null
       },
@@ -122,20 +122,20 @@
         "rho_t_cosmic_dust": -0.006257604267814239,
         "p_t_cosmic_dust": 0.9165310933827602,
         "log10_p_t_cosmic_dust": -0.03785279698054561,
-        "rho_t_eff_dust": 0.21624922832234364,
-        "p_t_eff_dust": 0.00024711017187324853,
-        "log10_p_t_eff_dust": -3.607109377230458,
-        "delta_rho": 0.22250683259015788,
+        "rho_t_eff_dust": 0.3745074764049298,
+        "p_t_eff_dust": 7.475988258484904e-11,
+        "log10_p_t_eff_dust": -10.126331389379777,
+        "delta_rho": 0.38076508067274406,
         "teff_threshold_gyr": 0.3,
         "threshold_test": {
-          "n_above": 178,
-          "n_below": 105,
-          "mean_dust_above": 0.8791619441273731,
-          "mean_dust_below": 0.6469306889841783,
-          "ratio": 1.3589739350715428,
-          "mannwhitney_u": 10913.0,
-          "p_value": 0.009215020635440333,
-          "cohens_d": 0.4334594132472328
+          "n_above": 26,
+          "n_below": 257,
+          "mean_dust_above": 1.7921895967480928,
+          "mean_dust_below": 0.6919129139399252,
+          "ratio": 2.5901953275346705,
+          "mannwhitney_u": 5836.0,
+          "p_value": 1.7730146291398076e-10,
+          "cohens_d": 1.4298932125326076
         },
         "detection_test": null
       }
@@ -146,20 +146,20 @@
         "rho_t_cosmic_dust": -0.052252369913257365,
         "p_t_cosmic_dust": 0.6410580043627729,
         "log10_p_t_cosmic_dust": -0.19310267276671092,
-        "rho_t_eff_dust": 0.45026719343498656,
-        "p_t_eff_dust": 2.1914638172937425e-05,
-        "log10_p_t_eff_dust": -4.65926569547746,
-        "delta_rho": 0.5025195633482439,
+        "rho_t_eff_dust": 0.6114974804366518,
+        "p_t_eff_dust": 1.045001933832958e-09,
+        "log10_p_t_eff_dust": -8.980882905866606,
+        "delta_rho": 0.6637498503499091,
         "teff_threshold_gyr": 0.3,
         "threshold_test": {
-          "n_above": 53,
-          "n_below": 29,
-          "mean_dust_above": 0.7743163376812039,
-          "mean_dust_below": 0.32738126409569446,
-          "ratio": 2.365182197643629,
-          "mannwhitney_u": 1111.0,
-          "p_value": 0.0004550068173329168,
-          "cohens_d": 0.7781594587496621
+          "n_above": 25,
+          "n_below": 57,
+          "mean_dust_above": 1.2974184867725342,
+          "mean_dust_below": 0.31749755064150176,
+          "ratio": 4.0863889631624195,
+          "mannwhitney_u": 1316.0,
+          "p_value": 6.245387052385804e-10,
+          "cohens_d": 1.7056829559611455
         },
         "detection_test": null
       },
@@ -168,20 +168,20 @@
         "rho_t_cosmic_dust": -0.052252369913257365,
         "p_t_cosmic_dust": 0.6410580043627729,
         "log10_p_t_cosmic_dust": -0.19310267276671092,
-        "rho_t_eff_dust": 0.45026719343498656,
-        "p_t_eff_dust": 2.1914638172937425e-05,
-        "log10_p_t_eff_dust": -4.65926569547746,
-        "delta_rho": 0.5025195633482439,
+        "rho_t_eff_dust": 0.6114974804366518,
+        "p_t_eff_dust": 1.045001933832958e-09,
+        "log10_p_t_eff_dust": -8.980882905866606,
+        "delta_rho": 0.6637498503499091,
         "teff_threshold_gyr": 0.3,
         "threshold_test": {
-          "n_above": 53,
-          "n_below": 29,
-          "mean_dust_above": 0.7743163376812039,
-          "mean_dust_below": 0.32738126409569446,
-          "ratio": 2.365182197643629,
-          "mannwhitney_u": 1111.0,
-          "p_value": 0.0004550068173329168,
-          "cohens_d": 0.7781594587496621
+          "n_above": 25,
+          "n_below": 57,
+          "mean_dust_above": 1.2974184867725342,
+          "mean_dust_below": 0.31749755064150176,
+          "ratio": 4.0863889631624195,
+          "mannwhitney_u": 1316.0,
+          "p_value": 6.245387052385804e-10,
+          "cohens_d": 1.7056829559611455
         },
         "detection_test": null
       }
@@ -190,22 +190,22 @@
       "dust_positive_only": {
         "n": 918,
         "rho_t_cosmic_dust": -0.2299746121656186,
-        "p_t_cosmic_dust": 1.749221939007222e-12,
-        "log10_p_t_cosmic_dust": -11.757155084305671,
-        "rho_t_eff_dust": 0.46508780165729585,
-        "p_t_eff_dust": 1.8645756766004108e-50,
-        "log10_p_t_eff_dust": -49.72941998545204,
-        "delta_rho": 0.6950624138229144,
+        "p_t_cosmic_dust": 1.7492219390072158e-12,
+        "log10_p_t_cosmic_dust": -11.757155084305673,
+        "rho_t_eff_dust": 0.6250653876701717,
+        "p_t_eff_dust": 1.1876633000251778e-100,
+        "log10_p_t_eff_dust": -99.92530666345134,
+        "delta_rho": 0.8550399998357903,
         "teff_threshold_gyr": 0.3,
         "threshold_test": {
-          "n_above": 775,
-          "n_below": 143,
-          "mean_dust_above": 0.45432258064516134,
-          "mean_dust_below": 0.22027972027972031,
-          "ratio": 2.062480286738351,
-          "mannwhitney_u": 70833.0,
-          "p_value": 7.148255721248655e-09,
-          "cohens_d": 0.6595552626676833
+          "n_above": 607,
+          "n_below": 311,
+          "mean_dust_above": 0.5477759472817133,
+          "mean_dust_below": 0.16430868167202575,
+          "ratio": 3.3338223014601334,
+          "mannwhitney_u": 143569.0,
+          "p_value": 5.907549968460181e-44,
+          "cohens_d": 1.111066774101391
         },
         "detection_test": null
       },
@@ -214,30 +214,30 @@
         "rho_t_cosmic_dust": 0.25199401181288394,
         "p_t_cosmic_dust": 4.929496812591848e-39,
         "log10_p_t_cosmic_dust": -38.307197409864315,
-        "rho_t_eff_dust": 0.6168695877312654,
-        "p_t_eff_dust": 4.12821126960393e-273,
-        "log10_p_t_eff_dust": -272.3842380849091,
-        "delta_rho": 0.3648755759183815,
+        "rho_t_eff_dust": 0.6887113276554605,
+        "p_t_eff_dust": 1e-300,
+        "log10_p_t_eff_dust": -323.30621534311575,
+        "delta_rho": 0.43671731584257656,
         "teff_threshold_gyr": 0.3,
         "threshold_test": {
-          "n_above": 1313,
-          "n_below": 1293,
-          "mean_dust_above": 0.2681645087585682,
-          "mean_dust_below": 0.024361948955916476,
-          "ratio": 11.007514597613607,
-          "mannwhitney_u": 1271433.0,
-          "p_value": 4.965939443420675e-148,
-          "cohens_d": 0.8195196305446413
+          "n_above": 708,
+          "n_below": 1898,
+          "mean_dust_above": 0.4696327683615819,
+          "mean_dust_below": 0.026923076923076925,
+          "ratio": 17.443502824858754,
+          "mannwhitney_u": 1187021.5,
+          "p_value": 8.101113045226008e-276,
+          "cohens_d": 1.315628145291433
         },
         "detection_test": {
-          "detected_above": 775,
-          "not_detected_above": 538,
-          "detected_below": 143,
-          "not_detected_below": 1150,
-          "detection_fraction_above": 0.5902513328255903,
-          "detection_fraction_below": 0.1105955143078113,
-          "odds_ratio": 11.584604986091975,
-          "p_value": 3.81817129823761e-155
+          "detected_above": 607,
+          "not_detected_above": 101,
+          "detected_below": 311,
+          "not_detected_below": 1587,
+          "detection_fraction_above": 0.8573446327683616,
+          "detection_fraction_below": 0.16385669125395153,
+          "odds_ratio": 30.66788704593932,
+          "p_value": 1.3314573043003792e-242
         }
       }
     }
@@ -252,11 +252,11 @@
   },
   "summary": {
     "n_surveys": 3,
-    "combined_rho": 0.5965742629509032,
-    "combined_p": 4.3088981705550084e-133,
+    "combined_rho": 0.6247405562030243,
+    "combined_p": 8.900118455050488e-151,
     "total_n": 1283,
-    "heterogeneity": "High heterogeneity",
+    "heterogeneity": "Low heterogeneity",
     "replication_status": "FULLY REPLICATED",
-    "conclusion": "The z>8 dust-\u0393t correlation is replicated across 3 independent JWST surveys with combined \u03c1 = 0.60 (N = 1283). Heterogeneity is high, so the surveys share the same-sign replication but not a common effect size."
+    "conclusion": "The z>8 dust-\u0393t correlation is replicated across 3 independent JWST surveys with combined \u03c1 = 0.62 (N = 1283). Heterogeneity is low heterogeneity, indicating broadly consistent effect sizes."
   }
 }

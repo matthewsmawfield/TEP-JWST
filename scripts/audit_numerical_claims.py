@@ -63,14 +63,15 @@ if d:
         if isinstance(v, (int, float)):
             return f"{v:{spec}}"
         return str(v)
-    print(f"  ρ(Age, Γ_t | z) = {fmt(d.get('partial_rho_gamma_dyn_age_given_z'))} (manuscript: +0.717)")
-    print(f"  p = {fmt(d.get('p_partial_gamma_dyn_age_given_z'), '.4e')} (manuscript: 2.62×10⁻³)")
-    print(f"  ρ(Age, M* | z) = {fmt(d.get('partial_rho_mstar_age_given_z'))} (manuscript: +0.493)")
-    print(f"  p = {fmt(d.get('p_partial_mstar_age_given_z'), '.4e')} (manuscript: 0.062)")
-    print(f"  ρ(Age, Γ_t | M*, z) = {fmt(d.get('partial_rho_gamma_dyn_age_given_mstar_z'))} (manuscript: +0.599)")
-    print(f"  p = {fmt(d.get('p_partial_gamma_dyn_age_given_mstar_z'), '.4e')} (manuscript: 1.83×10⁻²)")
-    print(f"  ρ(Age, M* | Γ_t, z) = {fmt(d.get('partial_rho_mstar_age_given_gamma_dyn_z'))} (manuscript: +0.025)")
-    print(f"  p = {fmt(d.get('p_partial_mstar_age_given_gamma_dyn_z'), '.4e')}")
+    res = d.get("results", d)
+    print(f"  ρ(Age, Γ_t | z) = {fmt(res.get('partial_rho_gamma_dyn_age_given_z'))} (manuscript: +0.690)")
+    print(f"  p = {fmt(res.get('p_partial_gamma_dyn_age_given_z'), '.4e')} (manuscript: 4.42×10⁻³)")
+    print(f"  ρ(Age, M* | z) = {fmt(res.get('partial_rho_mstar_age_given_z'))} (manuscript: +0.493)")
+    print(f"  p = {fmt(res.get('p_partial_mstar_age_given_z'), '.4e')} (manuscript: 0.062)")
+    print(f"  ρ(Age, Γ_t | M*, z) = {fmt(res.get('partial_rho_gamma_dyn_age_given_mstar_z'))} (manuscript: +0.556)")
+    print(f"  p = {fmt(res.get('p_partial_gamma_dyn_age_given_mstar_z'), '.4e')} (manuscript: 3.15×10⁻²)")
+    print(f"  ρ(Age, M* | Γ_t, z) = {fmt(res.get('partial_rho_mstar_age_given_gamma_dyn_z'))} (manuscript: +0.031)")
+    print(f"  p = {fmt(res.get('p_partial_mstar_age_given_gamma_dyn_z'), '.4e')} (manuscript: 0.912)")
 
 # ============================================================
 # 3. Verify ρ(t_eff, A_V | t_cosmic) = +0.430

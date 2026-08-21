@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Estimated runtime from last full canonical run (2026-03-09 15:52 UTC; full pipeline 32m18s): 1.1s.
 """
-Step 163: Colour-Gradient Steiger Z-Test
+Step 139: Colour-Gradient Steiger Z-Test
 
 Tests whether t_eff (TEP effective time) is a significantly better predictor
 of the resolved colour gradient (bluer cores = negative gradient) than
@@ -302,7 +302,7 @@ def load_jades_with_tep():
 
 def main():
     logger.info("=" * 70)
-    logger.info("Step 163: Colour-Gradient Steiger Z-Test")
+    logger.info("Step 139: Colour-Gradient Steiger Z-Test")
     logger.info("=" * 70)
 
     print_status("Loading JADES data with TEP quantities...")
@@ -330,7 +330,7 @@ def main():
     mass_debiased = mass - beta_debias * log_gamma_t
 
     results = {
-        "step": "Step 163: Colour-Gradient Steiger Z-Test",
+        "step": "Step 139: Colour-Gradient Steiger Z-Test",
         "n_total": n_total,
         "tep_prediction": (
             "Core Screening predicts bluer cores in massive galaxies (negative gradient). "
@@ -572,7 +572,21 @@ def main():
             "Real-data ancillary indication only: the raw gradient-Gamma_t correlation is present, but t_eff does not significantly outperform M* and the residual Gamma_t signal remains non-significant under both observed-mass and debiased-mass control."
             if raw_signal_detected else
             "Signal is marginal or absent."
-        )
+        ),
+        "predictor_mismatch_caveat": (
+            "The TEP L2 (resolved screening) prediction describes an inside-out "
+            "screening gradient: the core should be screened (R_ML -> 1) while "
+            "the outskirts retain a large response. This test uses a GLOBAL "
+            "halo-scale R_ML (one number per galaxy), which cannot resolve the "
+            "radial screening profile. The null partial correlation "
+            "(rho = +0.037, p = 0.54) may therefore reflect a predictor "
+            "mismatch rather than absence of screening. The correct resolved "
+            "test requires PSF-matched color maps, resolved potential or "
+            "surface-density maps, dust-corrected gradients, and a predeclared "
+            "radial TEP screening statistic. The Gini coefficient (supportive) "
+            "is a structural concentration metric closer to the screening "
+            "prediction, but cannot replace the direct gradient test."
+        ),
     }
 
     # Save
