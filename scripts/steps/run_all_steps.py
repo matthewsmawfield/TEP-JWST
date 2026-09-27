@@ -264,6 +264,9 @@ STEPS = [
     "step_176_nested_bayesian_evidence.py",         # Nested Bayesian model comparison (dynesty)
     "step_177_l1_l3_partial_independence.py",        # L1-L3 partial independence test (headline ρ=−0.50)
     "step_178_circularity_breaker.py",              # Circular mass loop breaker (3 tests)
+    "step_179_bayes_conditioning_audit.py",         # Conditioning-symmetry audit of step_176 Bayes factors
+    "step_180_screening_channel_map.py",            # S_Sigma/S_A channel-boundary ledger on the real sample
+    "step_181_kernel_variant_test.py",              # Kernel z-structure variants: frozen vs virial-evolving depth (12-8)
 
     # =========================================================================
     # PHASE XX: FINAL SYNTHESIS & MANUSCRIPT QA (steps 140, 160)

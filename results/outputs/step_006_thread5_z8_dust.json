@@ -88,12 +88,12 @@
     "significant": true
   },
   "partial_correlations": {
-    "rho_gamma_dust_given_mass": 0.2620175576602869,
-    "p_gamma_dust_given_mass": 7.947717878110444e-06,
-    "rho_gamma_dust_given_z": 0.6059309304523081,
-    "p_gamma_dust_given_z": 9.434311769035018e-30,
-    "rho_gamma_dust_given_mass_z": 0.2568708324559473,
-    "p_gamma_dust_given_mass_z": 1.2101354974297601e-05
+    "rho_gamma_dust_given_mass": 0.259550614970539,
+    "p_gamma_dust_given_mass": 9.732876054139196e-06,
+    "rho_gamma_dust_given_z": 0.6055925195594282,
+    "p_gamma_dust_given_z": 1.0338713182299247e-29,
+    "rho_gamma_dust_given_mass_z": 0.25362228470647014,
+    "p_gamma_dust_given_mass_z": 1.5707855232168166e-05
   },
   "dust_by_mass": [
     {
@@ -134,5 +134,5 @@
     }
   ],
   "significant": true,
-  "conclusion": "z>8 mass-dust correlation rho = 0.559 (p = 1.05e-24, N = 283); significant at the bootstrap 95% CI level. Partial rho(Gamma_t, dust | M*, z) = 0.257 (p = 1.21e-05)."
+  "conclusion": "z>8 mass-dust correlation rho = 0.559 (p = 1.05e-24, N = 283); significant at the bootstrap 95% CI level. Partial rho(Gamma_t, dust | M*, z) = 0.254 (p = 1.57e-05)."
 }

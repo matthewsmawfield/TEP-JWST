@@ -42,8 +42,11 @@ KAPPA_GAL_UNCERTAINTY = tep_const.KAPPA_GAL_UNCERTAINTY
 # separate from KAPPA_GAL, which is a magnitude-sector response coefficient.
 ALPHA_PHOTON_BOUND = 0.003
 
-# STELLAR EVOLUTION INDEX
-# M/L ~ t^n from stellar isochrones.
+# RESPONSE-TRANSFER AND STELLAR-EVOLUTION EXPONENTS
+# N_REF fixes the magnitude-to-kernel transfer at every redshift.  The SPS
+# exponent acts only when the response is propagated into a mass correction.
+RESPONSE_KERNEL_N_REF = tep_const.RESPONSE_KERNEL_N_REF
+SPS_ML_EXPONENT_DEFAULT = tep_const.SPS_ML_EXPONENT_DEFAULT
 ALPHA_NUCLEAR = tep_const.ALPHA_NUCLEAR
 
 # POTENTIAL PARAMETERS
@@ -79,32 +82,34 @@ def tep_alpha(z, kappa=KAPPA_GAL):
     """Redshift-dependent observable response coefficient κ(z)."""
     return kappa * np.sqrt(1 + z)
 
-def compute_ml_response_from_depth(psi, z, kappa=None, n=ALPHA_NUCLEAR):
+def compute_ml_response_from_depth(psi, z, kappa=None):
     """
     Compute the positive mass-to-light inference response from potential depth.
 
     R_ML = exp[ K_gal * (Psi - Psi_ref,0) * sqrt(1+z) ],
-    where K_gal = kappa * ln(10) / (2.5*n). The kappa argument is a
-    magnitude-sector observable response coefficient, not the conformal factor,
-    a local proper-time ratio, or a bare scalar coupling.
+    where K_gal = kappa * ln(10) / (2.5*n_ref) and n_ref = 0.7 is fixed.
+    The kappa argument is a magnitude-sector observable response coefficient,
+    not the conformal factor, a local proper-time ratio, or a bare scalar
+    coupling. Population-dependent n_SPS values belong only to the subsequent
+    mass/SFE correction and cannot renormalise this response.
     """
     eff_kappa = KAPPA_GAL if kappa is None else kappa
-    k_exp = (eff_kappa * np.log(10)) / (2.5 * n)
+    k_exp = (eff_kappa * np.log(10)) / (2.5 * RESPONSE_KERNEL_N_REF)
     argument = k_exp * (np.asarray(psi) - PHI_REF_0) * np.sqrt(1 + np.asarray(z))
     return np.exp(argument)
 
-def compute_gamma_t_from_phi(phi, z, kappa=None, n=ALPHA_NUCLEAR):
+def compute_gamma_t_from_phi(phi, z, kappa=None):
     """Backward-compatible alias for compute_ml_response_from_depth."""
-    return compute_ml_response_from_depth(phi, z, kappa=kappa, n=n)
+    return compute_ml_response_from_depth(phi, z, kappa=kappa)
 
-def compute_ml_response(log_Mh, z, kappa=None, n=ALPHA_NUCLEAR):
+def compute_ml_response(log_Mh, z, kappa=None):
     """Compute the observable mass-to-light response from halo mass and redshift."""
     psi = get_potential_depth_from_log_mh(log_Mh)
-    return compute_ml_response_from_depth(psi, z, kappa=kappa, n=n)
+    return compute_ml_response_from_depth(psi, z, kappa=kappa)
 
-def compute_gamma_t(log_Mh, z, kappa=None, n=ALPHA_NUCLEAR):
+def compute_gamma_t(log_Mh, z, kappa=None):
     """Backward-compatible alias for compute_ml_response."""
-    return compute_ml_response(log_Mh, z, kappa=kappa, n=n)
+    return compute_ml_response(log_Mh, z, kappa=kappa)
 
 # =============================================================================
 # 3. KINEMATIC & SCREENING MODELS
@@ -137,10 +142,16 @@ def correct_stellar_mass(log_Mstar, response, n=ALPHA_NUCLEAR):
     return log_Mstar - np.log10(ml_inference_bias(response, n))
 
 
-def compute_ml_response_self_consistent(log_Mstar_obs, z, kappa=None, n=ALPHA_NUCLEAR,
-                                         tol=1e-4, max_iter=200, damping=0.3):
+def compute_ml_response_self_consistent(
+    log_Mstar_obs, z, kappa=None, n_sps=SPS_ML_EXPONENT_DEFAULT,
+    tol=1e-4, max_iter=200, damping=0.3
+):
     """
     Solve the M*–Mh–R_ML relation self-consistently.
+
+    ``n_sps`` controls only the stellar-mass correction.  The response at a
+    given halo mass and redshift is always evaluated with the fixed
+    RESPONSE_KERNEL_N_REF transfer convention.
 
     The single-pass pipeline computes R_ML from the observed (biased) mass,
     then corrects the mass once.  But R_ML itself depends on the halo mass,
@@ -148,7 +159,7 @@ def compute_ml_response_self_consistent(log_Mstar_obs, z, kappa=None, n=ALPHA_NU
 
         M_h = AM(M*_true, z)
         R_ML = f(M_h, z)
-        M*_true = M*_obs - n * log10(R_ML)
+        M*_true = M*_obs - n_SPS * log10(R_ML)
 
     to convergence.  For typical high-z galaxies (M* < 10) the single-pass
     and iterated solutions differ by < 2%, but at M* > 10.5 the difference
@@ -167,15 +178,19 @@ def compute_ml_response_self_consistent(log_Mstar_obs, z, kappa=None, n=ALPHA_NU
     """
     log_mstar = np.asarray(log_Mstar_obs, dtype=float)
     z_arr = np.asarray(z, dtype=float)
-    n_arr = np.broadcast_to(n, log_mstar.shape).astype(float) if np.ndim(n) else np.full_like(log_mstar, float(n))
+    n_sps_arr = (
+        np.broadcast_to(n_sps, log_mstar.shape).astype(float)
+        if np.ndim(n_sps)
+        else np.full_like(log_mstar, float(n_sps))
+    )
     log_m_true = log_mstar.copy()
     log_m_true_prev = log_mstar.copy() + 1.0  # ensure first iteration runs
     for _ in range(max_iter):
         log_mh = stellar_to_halo_mass_behroozi_like(log_m_true, z_arr)
-        r_ml = compute_ml_response(log_mh, z_arr, kappa=kappa, n=n_arr)
+        r_ml = compute_ml_response(log_mh, z_arr, kappa=kappa)
         # Clip R_ML to physical range to keep iteration bounded
         r_ml = np.clip(r_ml, 0.01, 100.0)
-        log_m_true_new = log_mstar - n_arr * np.log10(r_ml)
+        log_m_true_new = log_mstar - n_sps_arr * np.log10(r_ml)
         log_m_true = (1.0 - damping) * log_m_true + damping * log_m_true_new
         # Converge on log_M_true (bounded) rather than R_ML (can be extreme)
         delta = np.max(np.abs(log_m_true - log_m_true_prev))
@@ -184,7 +199,7 @@ def compute_ml_response_self_consistent(log_Mstar_obs, z, kappa=None, n=ALPHA_NU
         log_m_true_prev = log_m_true.copy()
     # Final R_ML from converged mass (clipped for safety)
     log_mh = stellar_to_halo_mass_behroozi_like(log_m_true, z_arr)
-    r_ml = compute_ml_response(log_mh, z_arr, kappa=kappa, n=n_arr)
+    r_ml = compute_ml_response(log_mh, z_arr, kappa=kappa)
     r_ml = np.clip(r_ml, 0.01, 100.0)
     return r_ml, log_m_true
 

@@ -4,15 +4,15 @@
   "description": "Direct tests targeting the circular mass loop criticism: 2D mass-z shuffle, placebo R_ML with wrong functional form, and narrow mass bin subsets.",
   "test_a_2d_shuffle": {
     "n": 283,
-    "rho_observed": 0.5808363450381259,
-    "p_observed": 6.2906045312483296e-27,
+    "rho_observed": 0.5945661186122826,
+    "p_observed": 1.924326374404679e-28,
     "rho_shuffled_mean": -0.0022279824348693466,
     "rho_shuffled_std": 0.054854263077127534,
     "rho_shuffled_ci_95": [
       -0.10503967720313308,
       0.10969694378586371
     ],
-    "z_score": 10.629334800345067,
+    "z_score": 10.879630270632436,
     "p_empirical": 0.0004997501249375312,
     "n_shuffles": 2000,
     "n_extreme": 0,
@@ -20,20 +20,20 @@
   },
   "test_b_placebo_rml": {
     "n": 283,
-    "rho_real": 0.5808363450381259,
-    "p_real": 6.2906045312483296e-27,
+    "rho_real": 0.5945661186122826,
+    "p_real": 1.924326374404679e-28,
     "rho_placebo": 0.5073916924598488,
     "p_placebo": 6.379701307030064e-20,
-    "delta_rho_mean": 0.07416167144455703,
+    "delta_rho_mean": 0.0877153624127792,
     "delta_rho_ci_95": [
-      -0.007574070155249809,
-      0.15681783344589145
+      0.015913046232474824,
+      0.16124185259024962
     ],
-    "fraction_real_better": 0.9625,
-    "real_rho_bootstrap_mean": 0.5807690930385551,
+    "fraction_real_better": 0.9925,
+    "real_rho_bootstrap_mean": 0.5943227840067772,
     "placebo_rho_bootstrap_mean": 0.5066074215939981,
     "n_bootstrap": 2000,
-    "interpretation": "Inconclusive \u2014 real and placebo perform comparably"
+    "interpretation": "Real R_ML significantly outperforms placebo \u2014 functional form matters"
   },
   "test_c_narrow_mass_bins": {
     "bins": {
@@ -43,13 +43,23 @@
           4.002425419412574,
           9.985523401104327
         ],
-        "rho_rml_dust": -0.34621094858613194,
-        "p_rml_dust": 2.890144083270526e-44,
+        "median_log_Mh": 9.87768830822332,
+        "median_psi_over_psi_ref": 0.038470298010256095,
+        "rho_rml_dust": -0.3462361524486486,
+        "p_rml_dust": 2.846541035645581e-44,
         "rho_mass_dust": -0.027707867771327548,
         "p_mass_dust": 0.279069485517061,
         "rho_z_dust": 0.34317345428693746,
         "p_z_dust": 1.787096506829499e-43,
-        "r_ml_range_log10": 0.0
+        "rho_placebo_dust": 0.26316146003348545,
+        "p_placebo_dust": 1.2715559256253181e-25,
+        "rho_mzr_dust": -0.2702402472000755,
+        "p_mzr_dust": 5.571775875538752e-27,
+        "rho_rml_z": -0.9876496263642586,
+        "kernel_dlndz_at_bin_center": -0.03677418225172919,
+        "kernel_sign_pred": -1.0,
+        "sign_match_kernel": true,
+        "r_ml_range_log10": 0.09441126379418417
       },
       "log_M* [8.5, 9.0]": {
         "n": 526,
@@ -57,13 +67,23 @@
           4.004050805475196,
           9.951958616840656
         ],
-        "rho_rml_dust": -0.4644973701488445,
-        "p_rml_dust": 1.6522899965647173e-29,
+        "median_log_Mh": 10.393869392732645,
+        "median_psi_over_psi_ref": 0.08496622959038506,
+        "rho_rml_dust": -0.45695967973844753,
+        "p_rml_dust": 1.6918931637645642e-28,
         "rho_mass_dust": -0.0335544476591078,
         "p_mass_dust": 0.4425190846129874,
         "rho_z_dust": 0.4729679748754647,
         "p_z_dust": 1.1281248215722934e-30,
-        "r_ml_range_log10": 0.0
+        "rho_placebo_dust": 0.404388465554258,
+        "p_placebo_dust": 4.103320343899058e-22,
+        "rho_mzr_dust": -0.3959717874639123,
+        "p_mzr_dust": 3.425651034088383e-21,
+        "rho_rml_z": -0.9319174567901489,
+        "kernel_dlndz_at_bin_center": -0.033708011859429995,
+        "kernel_sign_pred": -1.0,
+        "sign_match_kernel": true,
+        "r_ml_range_log10": 0.08814520532993744
       },
       "log_M* [9.0, 9.5]": {
         "n": 190,
@@ -71,13 +91,23 @@
           4.002411898151671,
           9.97240684246926
         ],
-        "rho_rml_dust": -0.04132232850888128,
-        "p_rml_dust": 0.5713447229396245,
+        "median_log_Mh": 10.935525642163512,
+        "median_psi_over_psi_ref": 0.1951425453587871,
+        "rho_rml_dust": -0.023035774427342358,
+        "p_rml_dust": 0.7524027233822373,
         "rho_mass_dust": 0.11297615767166608,
         "p_mass_dust": 0.12067049256198102,
         "rho_z_dust": 0.21116403574380982,
         "p_z_dust": 0.003449675769844164,
-        "r_ml_range_log10": 0.0
+        "rho_placebo_dust": 0.3108512992778631,
+        "p_placebo_dust": 1.2703669073528603e-05,
+        "rho_mzr_dust": -0.08688650071951258,
+        "p_mzr_dust": 0.2332611742535375,
+        "rho_rml_z": -0.5929299689013109,
+        "kernel_dlndz_at_bin_center": -0.025811922652452957,
+        "kernel_sign_pred": -1.0,
+        "sign_match_kernel": true,
+        "r_ml_range_log10": 0.08840561284242823
       },
       "log_M* [9.5, 10.0]": {
         "n": 48,
@@ -85,13 +115,23 @@
           4.007773836989081,
           9.94551404556666
         ],
-        "rho_rml_dust": 0.3366261398176292,
-        "p_rml_dust": 0.019311085634231725,
+        "median_log_Mh": 11.512027504892837,
+        "median_psi_over_psi_ref": 0.47281579238547194,
+        "rho_rml_dust": 0.34650455927051677,
+        "p_rml_dust": 0.015837441490193102,
         "rho_mass_dust": 0.3381458966565349,
         "p_mass_dust": 0.018738125605023137,
         "rho_z_dust": 0.41348241424229265,
         "p_z_dust": 0.003487539320618411,
-        "r_ml_range_log10": 0.0
+        "rho_placebo_dust": 0.42118975249674334,
+        "p_placebo_dust": 0.00287106580693265,
+        "rho_mzr_dust": -0.20831524099001306,
+        "p_mzr_dust": 0.15536085102240504,
+        "rho_rml_z": 0.32891880156317843,
+        "kernel_dlndz_at_bin_center": 0.014087037493086974,
+        "kernel_sign_pred": 1.0,
+        "sign_match_kernel": true,
+        "r_ml_range_log10": 0.13312926100025577
       },
       "log_M* [10.0, 10.5]": {
         "n": 18,
@@ -100,16 +140,29 @@
     },
     "n_bins_significant": 3,
     "n_bins_tested": 4,
-    "interpretation": "R_ML correlates with dust in 3/4 narrow mass bins \u2014 signal not driven by mass axis"
+    "sign_map": {
+      "n_bins_kernel_sign_match": 4,
+      "n_bins_kernel_sign_discordant": 0,
+      "monotone_z_baselines_falsified": true,
+      "has_significant_negative_bin": true,
+      "has_significant_positive_bin": true,
+      "crossover": {
+        "log_Mstar_cross": 9.573466107365938,
+        "log_Mh_cross": 11.308483269016046,
+        "psi_over_psi_ref_at_cross": 0.3459304931758889,
+        "note": "Interpolated zero of the kernel-side dlnR_ML/dz at bin centres. The crossover sits below Psi_ref because the positive within-bin SMHM drift (dPsi/dz > 0 at fixed stellar mass) contributes a positive term."
+      }
+    },
+    "interpretation": "Within-bin sign map matches the reference-depth kernel in 4/4 bins (0 discordant at p<0.05); the observed negative-to-positive transition falsifies every uniform-sign monotone-in-z baseline (yes). The within-bin correlation probes the z-ordering of the response, not the mass axis directly; its discriminating content is the sign structure."
   },
   "overall": {
     "n_tests": 3,
-    "n_passed": 2,
+    "n_passed": 3,
     "verdicts": [
       "PASS: 2D shuffle \u2014 Signal destroyed by 2D shuffle",
-      "FAIL: Placebo R_ML \u2014 Inconclusive \u2014 real and placebo perform comparably",
-      "PASS: Narrow mass bins \u2014 R_ML correlates with dust in 3/4 narrow mass bins \u2014 signal not driven by mass axis"
+      "PASS: Placebo R_ML \u2014 Real R_ML significantly outperforms placebo \u2014 functional form matters",
+      "PASS: Mass-bin sign structure \u2014 Within-bin sign map matches the reference-depth kernel in 4/4 bins (0 discordant at p<0.05); the observed negative-to-positive transition falsifies every uniform-sign monotone-in-z baseline (yes). The within-bin correlation probes the z-ordering of the response, not the mass axis directly; its discriminating content is the sign structure."
     ],
-    "assessment": "2/3 circularity-breaking tests passed"
+    "assessment": "3/3 circularity-breaking tests passed"
   }
 }

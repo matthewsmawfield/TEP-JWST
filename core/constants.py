@@ -123,6 +123,16 @@ KAPPA_GAL_UNCERTAINTY = 4.0e5    # mag
 # Stellar evolution index (M/L ~ t^n from stellar isochrones)
 ALPHA_NUCLEAR = 0.7
 
+# Fixed response-transfer exponent (Paper 12). The magnitude-to-kernel
+# transfer K_gal = kappa * ln(10) / (2.5 * n_ref) uses this fixed
+# convention at every redshift; it is NOT the stellar-population
+# exponent and must not be renormalised by population-dependent n_SPS.
+RESPONSE_KERNEL_N_REF = 0.7
+
+# Default stellar-population-synthesis M/L evolution index, applied only
+# when the response is propagated into a stellar-mass correction.
+SPS_ML_EXPONENT_DEFAULT = ALPHA_NUCLEAR
+
 # Reference halo mass for potential calculations
 LOG_MH_REF = 12.0
 

@@ -1,4 +1,4 @@
-v0.6 (Kos) — 21 August 2026 — Canonical TEP architecture alignment: terminology and screening hierarchy updates
+v0.7 (Kos) — 16 September 2026 — Canonical TEP architecture alignment: terminology and screening hierarchy updates
 
 - Switched the main variable name from "Temporal Enhancement Factor" ($\Gamma_t$) to "Mass-to-Light Inference Response" ($R_{\rm ML}$).
 - Upgraded the Bayesian model comparison by using a covariance-corrected joint test to account for correlated errors.

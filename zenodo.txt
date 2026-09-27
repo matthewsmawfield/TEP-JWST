@@ -5,7 +5,7 @@ To address mass-proxy circularity, the framework is tested against kinematic dat
 In large-sample photometry (N = 1,283 across three surveys), dust emergence and apparent evolutionary advance align strongly with potential depth (ρ = +0.62 at z > 8), organizing more cleanly along an effective-time coordinate than raw cosmic time. A secondary photometric test confirms that R_ML carries sSFR information beyond mass and redshift (ρ(R_ML, sSFR | M_*, z) = -0.47, p = 1.3 × 10^-16), with the negative sign predicted by the TEP measurement equations (sSFR_obs ∝ R_ML^(m-n_SPS) with m < n_SPS). Furthermore, a nested Bayesian model comparison of four SED observables—utilizing a joint covariance likelihood that accounts for correlated outputs—favors TEP over conventional mass-plus-redshift models (ln BF = +64.1, using four fewer parameters), with an orthogonalized sensitivity analysis across eleven alternatives yielding a mean ln BF = +126.2. The Bayesian evidence is treated as supportive global context alongside the kinematic comparisons and the photometric correlation structure, positioning TEP as a coherent and falsifiable organizing framework for high-redshift galaxy evolution.
 
 Website: https://mlsmawfield.com/tep/jwst/
-Code Availability: https://github.com/matthewsmawfield/TEP-JWST
+Repository: https://github.com/matthewsmawfield/TEP-JWST
 
 DOI: 10.5281/zenodo.19000827
 

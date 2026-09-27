@@ -43,8 +43,8 @@
     gravitational waves propagate on $g_{\mu\nu}$ null cones while photons
     propagate on $\tilde{g}_{\mu\nu}$ null cones. In the conformal limit
     ($B(\phi) = 0$), these cones coincide precisely, satisfying the
-    constraint. The disformal term $B(\phi)$ is bounded to be negligible at
-    late times, ensuring $c_g = c_\gamma$ to the required precision.
+    constraint. The disformal term $B(\phi)$ is constrained to be small at
+    late times by GW170817, ensuring $c_g = c_\gamma$ to the required precision.
   </p>
 
   <h4>C.1.3 Binary Pulsar Constraints</h4>
@@ -111,9 +111,22 @@
 
   <h3>C.2 M/L Scaling Justification</h3>
   <p>
-    The TEP correction assumes $M/L \propto t^n$. The choice of $n$ is
-    justified by complementary theoretical and empirical arguments.
+    The response and correction stages use distinct exponents. The response normalization uses the fixed convention $n_{\rm ref}=0.7$ at every redshift, while the TEP mass and SFE corrections assume $M/L \propto t^{n_{\rm SPS}}$. The choice of $n_{\rm SPS}$ is justified by complementary theoretical and empirical arguments.
   </p>
+
+  <div class="data-table">
+    <table>
+      <caption>Table C0: Exponent allocation in the reproducible pipeline</caption>
+      <thead>
+        <tr><th>Pipeline step(s)</th><th>Response-kernel $n_{\rm ref}$</th><th>Correction-stage $n_{\rm SPS}$</th><th>Role</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>002, 032, 034, 081</td><td>0.7 at all $z$</td><td>0.7 ($z\le4$); 0.9 ($4&lt;z\le6$); 0.5 ($z&gt;6$)</td><td>UNCOVER, CEERS, COSMOS-Web, and cross-survey catalogue construction</td></tr>
+        <tr><td>146, 174, 176</td><td>0.7 at all $z$</td><td>0.7</td><td>Stellar-mass-function and joint-evidence corrections</td></tr>
+        <tr><td>076</td><td>0.7 at all $z$</td><td>0.3–1.0 scan</td><td>Sensitivity and continuity validation; no production exponent is fitted</td></tr>
+      </tbody>
+    </table>
+  </div>
 
   <h4>C.2.1 Physical Basis from Stellar Population Synthesis</h4>
   <p>
@@ -188,10 +201,7 @@
 
   <h4>C.2.2 Live Empirical Residual-Minimization Validation</h4>
   <p>
-    In the canonical analysis (step 076), the overall residual mass-age correlation is minimized at best $n = 0.3$ ($\rho = 0.118$). Cross-validation (step 079) gives mean $n = 0.80 \pm 0.06$ with mean test $\rho = 0.55$. This pattern indicates that the
-    data-driven optimal $n$ at high $z$ is steeper than standard SSP
-    predictions, reflecting the additional TEP-induced compression of the
-    observed age range.
+    In the canonical analysis, the overall residual mass-age correlation is minimized at $n_{\rm SPS}=0.3$ ($\rho = 0.118$). The redshift-split minima are $n_{\rm SPS}=1.0$ at $z=4$–$6$ and $6$–$8$, and $n_{\rm SPS}=0.3$ at $z=8$–$10$; because each lies on an edge of the scanned interval, these values are treated as sensitivity diagnostics rather than calibrated exponents. K-fold cross-validation gives mean $n_{\rm SPS}=0.89 \pm 0.07$ with mean test $\rho = 0.55$. The pipeline separately verifies that changing $n_{\rm SPS}$ leaves $R_{\rm ML}$ invariant at fixed potential depth and redshift, and that the kernel is continuous across $z=4$ and $z=6$.
   </p>
 
   <h4>C.2.3 TEP-Induced Modification</h4>
@@ -211,8 +221,8 @@
       claimed as a TEP signature, potentially introducing circularity.
     </p>
     <p>
-      <strong>Resolution:</strong> K-fold cross-validation gives $n = 0.80
-      \pm 0.06$ with mean test $\rho = 0.55$. The redshift-blind holdout
+      <strong>Resolution:</strong> K-fold cross-validation gives $n_{\rm SPS} = 0.89
+      \pm 0.07$ with mean test $\rho = 0.55$. The redshift-blind holdout
       ($n$ calibrated at $z &lt; 8$, applied at $z \ge 8$) yields $\rho
       = -0.05$ ($p = 0.17$), indicating that the data-driven optimal $n$
       does not generalize across redshift regimes — a known limitation
@@ -392,7 +402,7 @@
         </tr>
         <tr>
           <td>IMF vs TEP Discrimination</td>
-          <td>Estimated simulation power 100% (5000/5000 trials)</td>
+          <td>Estimated simulation power 100% in 5000 trials (finite-sample estimate; true power &le; 99.94% at 95% CI)</td>
           <td>TEP distinguishable from IMF</td>
         </tr>
         <tr>
@@ -418,7 +428,7 @@
         </tr>
         <tr>
           <td>AGN Discrimination Power</td>
-          <td>Estimated simulation power 100% (2000/2000 trials)</td>
+          <td>Estimated simulation power 100% in 2000 trials (finite-sample estimate; true power &le; 99.85% at 95% CI)</td>
           <td>TEP distinguishable from AGN</td>
         </tr>
         <tr>
@@ -428,7 +438,7 @@
         </tr>
         <tr>
           <td>Hubble Connection</td>
-          <td>$\sim 93\%$ of discrepancy accounted for (step 133, leaving $\sim 7\%$); full resolution from Paper 11 (v0.9: $H_0 = 66.65 \pm 1.58$, $0.45\sigma$ from Planck)</td>
+          <td>JWST-side pipeline consistency check (step 133): $H_0^{\rm TEP} = 67.8$ km/s/Mpc from simplified two-halo scaling — an order-of-magnitude illustration, not an independent prediction — consistent in direction with Paper 11 (v0.10: $H_0 = 66.65 \pm 1.58$; TEP-CMB $0.03\sigma$); fitted $\kappa_{\rm Cep}$, not derived from first principles</td>
           <td>Simplified partial reconstruction; consistent with Paper 11</td>
         </tr>
         <tr>
@@ -445,25 +455,24 @@
     the corrected SFE requires only $\alpha_{\rm min} = 2.1$, consistent
     with standard IMFs. TEP and IMF produce observationally distinct
     signatures via environment-dependence (estimated simulation
-    discrimination power 100%).
+    discrimination power 100% across 5000 finite trials; finite-sample upper bound, not an asymptotic guarantee).
   </p>
   <p>
     <strong>Mass proxy and systematics:</strong> The canonical robustness
     results no longer rely on the retired selection-function Monte Carlo
     analysis. Instead, the evidence comes from the mass-proxy breaker and
     cross-survey systematics checks: at $z > 8$, non-parametric residual tests retain the dust–$R_{\rm ML}$ signal after mass+$z$ removal (LOWESS $\rho = 0.161$, $p = 6.7 \times 10^{-3}$; partial-rank $\rho = 0.240$, $p = 4.4 \times 10^{-5}$), and shuffled-mass null tests show the observed correlation exceeds mass-ordering expectations by $Z = 9.3$, with 101.2% of the signal attributable to the non-linear $R_{\rm ML}$ form
-    rather than to mass ordering alone. The mass-to-light validation gives the prespecified primary value $n=0.5$ (and SMF sensitivity value $n=0.7$), with a single k-fold cross-validation mean of $n=0.80 \pm 0.06$. Cross-survey dust correlations show
+    rather than to mass ordering alone. The mass-to-light correction uses the declared primary high-redshift value $n_{\rm SPS}=0.5$ (and the SMF sensitivity value $n_{\rm SPS}=0.7$), while the response normalization remains fixed at $n_{\rm ref}=0.7$; a single k-fold cross-validation gives mean $n_{\rm SPS}=0.89 \pm 0.07$. Cross-survey dust correlations show
     low scatter ($\rho_{\rm std} = 0.025$), arguing against survey-specific
     artifacts.
   </p>
   <p>
     <strong>Hubble tension:</strong> The JWST-side pipeline (step 133)
-    predicts $H_0^{\rm TEP} = 67.8$ km/s/Mpc, accounting for $\sim 93\%$ of
-    the discrepancy (leaving roughly $7\%$ of the original gap) via the simplified two-halo approximation. The full
-    resolution is established in Paper 11 (v0.9), where the generative
+    yields $H_0^{\rm TEP} = 67.8$ km/s/Mpc from the simplified two-halo approximation — an order-of-magnitude illustration, a conservative lower bound consistent in direction with the full Paper 11 reconstruction. The residual offset from the ladder value (73.04) is the Hubble-flow temporal shear, not a discrepancy to be closed. The full
+    resolution is provided in Paper 11 (v0.10), where the generative
     distance-ladder analysis of 37 SN Ia hosts yields $H_0 = 66.65 \pm 1.58$
     km/s/Mpc, in concordance with Planck at $0.45\sigma$ ($0.31\sigma$
-    bootstrap); the JWST pipeline value is a
+    bootstrap; TEP-CMB internal consistency at $0.03\sigma$); the JWST pipeline value is a
     conservative lower bound from the crude area-distance scaling.
   </p>
   <p>

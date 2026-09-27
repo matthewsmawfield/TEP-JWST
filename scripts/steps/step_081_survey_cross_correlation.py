@@ -122,8 +122,10 @@ def standardize_gamma_t(df):
     mstar = df['log_Mstar'].astype(float).to_numpy()
 
     # Self-consistent R_ML: iterate M*→Mh→R_ML→M*_true to convergence
-    n_ml = np.where(z_vals > 6, 0.5, np.where(z_vals > 4, 0.9, 0.7))
-    gamma_t, log_mstar_true = compute_ml_response_self_consistent(mstar, z_vals, n=n_ml)
+    n_sps = np.where(z_vals > 6, 0.5, np.where(z_vals > 4, 0.9, 0.7))
+    gamma_t, log_mstar_true = compute_ml_response_self_consistent(
+        mstar, z_vals, n_sps=n_sps
+    )
     df['gamma_t'] = gamma_t
     df['log_Mstar_true'] = log_mstar_true
     df['log_Mh'] = stellar_to_halo_mass_behroozi_like(log_mstar_true, z_vals)

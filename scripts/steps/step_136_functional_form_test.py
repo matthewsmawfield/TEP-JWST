@@ -45,7 +45,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
-from scripts.utils.tep_model import compute_gamma_t, stellar_to_halo_mass_behroozi_like, KAPPA_GAL  # Shared TEP model
+from scripts.utils.tep_model import compute_gamma_t, compute_ml_response_self_consistent, stellar_to_halo_mass_behroozi_like, KAPPA_GAL  # Shared TEP model
 from scripts.utils.p_value_utils import format_p_value, safe_json_default  # Safe p-value formatting & JSON serialiser
 
 STEP_NUM = "136"  # Pipeline step number
@@ -207,15 +207,17 @@ def load_survey(name, path, z_col, mass_col, dust_col, z_min=4.0, z_max=10.5, ma
     df = df[(df["z"] >= z_min) & (df["z"] <= z_max) & (df["log_Mstar"] >= mass_min)].copy()
     df = df.dropna(subset=["z", "log_Mstar", "dust"])
 
-    # Compute TEP quantities
+    # Compute TEP quantities — the canonical bounded self-consistent response
+    # (the same variable written to the UNCOVER interim products by step_002),
+    # not the unbounded single-pass kernel, whose exponential tail reaches
+    # ~1e26 for extrapolated halo masses and breaks the OLS regression block.
     from astropy.cosmology import Planck18 as cosmo
 
     df["log_Mh"] = df.apply(
         lambda r: stellar_to_halo_mass_behroozi_like(r["log_Mstar"], r["z"]), axis=1
     )
-    df["gamma_t"] = df.apply(
-        lambda r: compute_gamma_t(r["log_Mh"], r["z"]), axis=1
-    )
+    r_ml_sc, _ = compute_ml_response_self_consistent(df["log_Mstar"].values, df["z"].values)
+    df["gamma_t"] = r_ml_sc
     df["t_cosmic"] = df["z"].apply(lambda zz: cosmo.age(zz).value)
     df["t_eff"] = df["gamma_t"] * df["t_cosmic"]
     df["dust_detected"] = (df["dust"] > 0).astype(int)
@@ -321,16 +323,23 @@ def analyze_subsample(df, label):
         result["auc"] = {"note": "all dust values identical (detected or not)"}
 
     # ── Regression model comparison (AIC/BIC/R²) ────────────────────────
+    # The response coordinate is logarithmic: ln R_ML = K(Psi-Psi_ref)sqrt(1+z)
+    # is the linear TEP predictor. Fitting dust ~ t_eff or dust ~ gamma_t in
+    # raw units weights the exponential tail and is not the theory's
+    # linearized response variable, so the response predictors enter in
+    # log10 space.
+    log_t_eff = np.log10(np.maximum(t_eff, 1e-3))
+    log_gamma_t = np.log10(np.maximum(gamma_t, 1e-3))
     models = {
         "M*_only": log_mstar.reshape(-1, 1),
         "z_only": z.reshape(-1, 1),
         "M*_plus_z": np.column_stack([log_mstar, z]),
         "M*_times_z": np.column_stack([log_mstar, z, log_mstar * z]),
-        "t_eff": t_eff.reshape(-1, 1),
-        "gamma_t": gamma_t.reshape(-1, 1),
+        "log_t_eff": log_t_eff.reshape(-1, 1),
+        "log_gamma_t": log_gamma_t.reshape(-1, 1),
         "t_cosmic": t_cosmic.reshape(-1, 1),
-        "M*_plus_z_plus_gamma_t": np.column_stack([log_mstar, z, gamma_t]),
-        "M*_plus_z_plus_teff": np.column_stack([log_mstar, z, t_eff]),
+        "M*_plus_z_plus_log_gamma_t": np.column_stack([log_mstar, z, log_gamma_t]),
+        "M*_plus_z_plus_log_teff": np.column_stack([log_mstar, z, log_t_eff]),
     }
 
     regression = {}

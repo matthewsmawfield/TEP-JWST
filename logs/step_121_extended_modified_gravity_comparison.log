@@ -1,22 +1,22 @@
-[17:23:05] INFO    ═══ STEP 121: Extended Modified Gravity Comparison
-[17:23:05] INFO        Comparing TEP predictions against f(R), MOND, Galileon, and DGP for JWST anomalies.
-[17:23:05] INFO    
-[17:23:05] INFO    
-[17:23:05] INFO    >>> Theory Comparison Summary:
-[17:23:05] INFO          TEP: JWST score = 8/8, Constraints = 3/3
-[17:23:05] INFO          f(R): JWST score = 1/8, Constraints = 3/3
-[17:23:05] INFO          MOND: JWST score = 0/8, Constraints = -1/3
-[17:23:05] INFO          Galileon: JWST score = 1/8, Constraints = -1/3
-[17:23:05] INFO          Symmetron: JWST score = 0/8, Constraints = 3/3
-[17:23:05] INFO          DGP: JWST score = 0/8, Constraints = 1/3
-[17:23:05] INFO          Horndeski: JWST score = 0/8, Constraints = 0/3
-[17:23:05] INFO    
-[17:23:05] INFO    ✓   Best fit for JWST anomalies: TEP (score: 8/8)
-[17:23:05] INFO    
-[17:23:05] INFO    >>> TEP Unique Predictions:
-[17:23:05] INFO          - Environment-dependent clock rates
-[17:23:05] INFO          - Redshift-dependent coupling α(z) ∝ √(1+z)
-[17:23:05] INFO          - Differential temporal topology in compact objects
-[17:23:05] INFO    
-[17:23:05] INFO        Interpretation: TEP scores 8/8 on JWST anomaly predictions, compared to 1/8 for the next best theory. TEP is unique in predicting: (1) environment-dependent clock rates, (2) redshift-dependent coupling strength, and (3) differential temporal topology explaining overmassive black holes. Other modified gravity theories (f(R), MOND, Galileon, etc.) do not make specific predictions for the high-z dust anomaly or mass-sSFR inversion. TEP satisfies all current observational constraints (BBN, GW speed, solar system) through chameleon screening.
-[17:23:05] INFO    ✓   Results saved to step_121_extended_modified_gravity_comparison.json
+[22:38:20] INFO    ═══ STEP 121: Extended Modified Gravity Comparison
+[22:38:20] INFO        Comparing TEP predictions against f(R), MOND, Galileon, and DGP for JWST anomalies.
+[22:38:20] INFO    
+[22:38:20] INFO    
+[22:38:20] INFO    >>> Theory Comparison Summary:
+[22:38:20] INFO          TEP: JWST score = 8/8, Constraints = 3/3
+[22:38:20] INFO          f(R): JWST score = 1/8, Constraints = 3/3
+[22:38:20] INFO          MOND: JWST score = 0/8, Constraints = -1/3
+[22:38:20] INFO          Galileon: JWST score = 1/8, Constraints = -1/3
+[22:38:20] INFO          Symmetron: JWST score = 0/8, Constraints = 3/3
+[22:38:20] INFO          DGP: JWST score = 0/8, Constraints = 1/3
+[22:38:20] INFO          Horndeski: JWST score = 0/8, Constraints = 0/3
+[22:38:20] INFO    
+[22:38:20] INFO    ✓   Best fit for JWST anomalies: TEP (score: 8/8)
+[22:38:20] INFO    
+[22:38:20] INFO    >>> TEP Unique Predictions:
+[22:38:20] INFO          - Environment-dependent clock rates
+[22:38:20] INFO          - Redshift-dependent coupling α(z) ∝ √(1+z)
+[22:38:20] INFO          - Differential temporal topology in compact objects
+[22:38:20] INFO    
+[22:38:20] INFO        Interpretation: TEP scores 8/8 on JWST anomaly predictions, compared to 1/8 for the next best theory. TEP is unique in predicting: (1) environment-dependent clock rates, (2) redshift-dependent coupling strength, and (3) differential temporal topology explaining overmassive black holes. Other modified gravity theories (f(R), MOND, Galileon, etc.) do not make specific predictions for the high-z dust anomaly or mass-sSFR inversion. TEP satisfies all current observational constraints (BBN, GW speed, solar system) through chameleon screening.
+[22:38:20] INFO    ✓   Results saved to step_121_extended_modified_gravity_comparison.json

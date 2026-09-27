@@ -1,17 +1,17 @@
-[17:20:15] INFO    ═══ STEP 091: Random-effects meta-analysis + LOO
-[17:20:15] INFO        Surveys loaded: ['UNCOVER', 'CEERS', 'COSMOS-Web']
-[17:20:15] INFO        Config: z_min=8.0, dust_positive_only=True
-[17:20:15] INFO    
-[17:20:15] INFO          UNCOVER: N=283, ρ=0.581, z=0.66
-[17:20:15] INFO          CEERS: N=82, ρ=0.656, z=0.79
-[17:20:15] INFO          COSMOS-Web: N=918, ρ=0.630, z=0.74
-[17:20:15] INFO    
-[17:20:15] INFO        Fixed-effects: ρ=0.621, z=25.95, p=1.780e-148
-[17:20:15] INFO        Random-effects: ρ=0.621, z=25.95, p=1.780e-148
-[17:20:15] INFO        Heterogeneity: Q=1.6, I²=0.0%, τ²=0.0000
-[17:20:15] INFO    
-[17:20:15] INFO        Leave-one-out influence:
-[17:20:15] INFO          Drop UNCOVER: ρ_random=0.632 (Δ=+0.011)
-[17:20:15] INFO          Drop CEERS: ρ_random=0.616 (Δ=-0.005)
-[17:20:15] INFO          Drop COSMOS-Web: ρ_random=0.598 (Δ=-0.023)
-[17:20:15] INFO    ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_091_random_effects_meta_loo.json
+[22:37:16] INFO    ═══ STEP 091: Random-effects meta-analysis + LOO
+[22:37:16] INFO        Surveys loaded: ['UNCOVER', 'CEERS', 'COSMOS-Web']
+[22:37:16] INFO        Config: z_min=8.0, dust_positive_only=True
+[22:37:16] INFO    
+[22:37:16] INFO          UNCOVER: N=283, ρ=0.595, z=0.68
+[22:37:16] INFO          CEERS: N=82, ρ=0.656, z=0.79
+[22:37:16] INFO          COSMOS-Web: N=918, ρ=0.630, z=0.74
+[22:37:16] INFO    
+[22:37:16] INFO        Fixed-effects: ρ=0.624, z=26.12, p=2.440e-150
+[22:37:16] INFO        Random-effects: ρ=0.624, z=26.12, p=2.440e-150
+[22:37:16] INFO        Heterogeneity: Q=0.9, I²=0.0%, τ²=0.0000
+[22:37:16] INFO    
+[22:37:16] INFO        Leave-one-out influence:
+[22:37:16] INFO          Drop UNCOVER: ρ_random=0.632 (Δ=+0.008)
+[22:37:16] INFO          Drop CEERS: ρ_random=0.622 (Δ=-0.002)
+[22:37:16] INFO          Drop COSMOS-Web: ρ_random=0.609 (Δ=-0.015)
+[22:37:16] INFO    ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_091_random_effects_meta_loo.json

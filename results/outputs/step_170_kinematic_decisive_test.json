@@ -1431,7 +1431,7 @@
         "label": "Sigma-based kinematic expansion (N=75, z=1.2-7.6)",
         "branch_type": "auxiliary_sigma_expansion_mass_circularity_breaker",
         "source": "Combined SUSPENSE + Esdaile+21 + Tanaka+19 + de Graaff+24 + Saldana-Lopez+25 + Danhaive+25",
-        "assessment": "mixed_sigma_test_absorption_wrong_sign",
+        "assessment": "mixed_sigma_test_construction_dependent_signs",
         "supportive": false,
         "counts_toward_supportive_tally": false,
         "analysis_role": "contextual_sigma_expansion_branch",

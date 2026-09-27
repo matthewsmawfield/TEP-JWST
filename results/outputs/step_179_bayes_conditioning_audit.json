@@ -1,0 +1,68 @@
+{
+  "step": "step_179",
+  "name": "bayes_conditioning_audit",
+  "timestamp": "2026-09-24T01:04:14.149796",
+  "source": "step_176_nested_bayesian_evidence.json (stored logZ values)",
+  "four_observable_covariance_family": {
+    "logZ_Cov_TEP": -1411.2495435769174,
+    "logZ_Cov_Standard_ortho": -1475.7426406196955,
+    "logZ_Cov_Standard_Raw": -1403.4509091603416,
+    "logZ_Cov_Augmented": -1410.2402328894918,
+    "ln_BF_TEP_vs_ortho_standard": {
+      "ln_BF": 64.49309704277812,
+      "ln_BF_err": 0.938051013753157
+    },
+    "ln_BF_TEP_vs_raw_standard": {
+      "ln_BF": -7.798634416575851,
+      "ln_BF_err": 0.9549523637177206
+    },
+    "direction_isolation_lnBF": {
+      "ln_BF": 72.29173145935397,
+      "ln_BF_err": 0.975508931321648,
+      "meaning": "Evidence carried by the R_ML-aligned component of the mass predictor: the log-evidence cost of stripping that direction from the standard model."
+    },
+    "nested_aug_vs_raw_standard": {
+      "ln_BF": -6.789323729150283,
+      "ln_BF_err": 1.0818208917712202,
+      "meaning": "Marginal evidence for adding log R_ML to raw mass+z. Negative: the R_ML direction adds no likelihood beyond the mass+z family under unconditioned predictors."
+    },
+    "nested_aug_vs_tep": {
+      "ln_BF": 1.0093106874255682,
+      "ln_BF_err": 1.048169104289809,
+      "meaning": "Marginal evidence for adding raw mass+z to the single R_ML predictor. Near zero: the theory-fixed predictor recovers essentially all of the augmented model's explanatory power."
+    }
+  },
+  "physical_subset": {
+    "ln_BF_TEP_vs_Cov_Standard_ortho": 63.31165037422261,
+    "ln_BF_TEP_vs_Cov_Standard_raw": -14.240580493812558,
+    "ln_BF_err": 0.8786946598783257,
+    "observables": [
+      "dust",
+      "log_ssfr",
+      "met"
+    ]
+  },
+  "residual_space": {
+    "conventional_residual_null": -3.922199590931541,
+    "orthogonalized_residual_null": 151.39488997359558,
+    "orthogonalized_residual_constrained_agn": 106.41171182825815
+  },
+  "conditioning_note": "Neither conditioning is neutral. Orthogonalization removes the R_ML-aligned direction from the competitor (TEP-favourable). Raw mass, under the TEP measurement model M_obs = M_true + n*log10 R_ML, contains part of the response itself (standard-favourable). The conditioning-free arbiter is the nested augmented model.",
+  "verdict": {
+    "classification": "channel-consistent, not functional-form discriminating",
+    "tep_favourable_facts": [
+      "The R_ML-aligned direction carries essentially all explanatory variance (direction-isolation ln BF = 72.3); the orthogonal complement of mass space is evidentially inert.",
+      "The single theory-fixed predictor recovers the full augmented model within ln BF = 1.0 (9 vs 17 parameters)."
+    ],
+    "standard_favourable_facts": [
+      "The unconditioned mass+z baseline is the single best model (ln BF = -7.8 over TEP-only).",
+      "Adding log R_ML to raw mass+z yields ln BF = -6.8 (no marginal gain).",
+      "Conventional residual-space comparison: ln BF = -3.9."
+    ],
+    "limitations": [
+      "SED chi^2 is a fit-quality statistic, not a physical observable; the 3-observable physical subset is the primary observable set.",
+      "Astrophysical alternatives are parametric stand-ins, not forward-modelled bursty-SF/IMF/AGN predictions; discrimination against realistic physics alternatives is not tested.",
+      "Under the TEP measurement model the raw-mass comparison is contaminated (M_obs contains 0.7*log10 R_ML), so the raw result is not a neutral verdict against TEP."
+    ]
+  }
+}

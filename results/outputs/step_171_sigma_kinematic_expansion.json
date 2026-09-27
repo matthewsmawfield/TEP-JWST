@@ -2,7 +2,7 @@
   "step": 171,
   "name": "sigma_kinematic_expansion",
   "status": "SUCCESS",
-  "assessment": "mixed_sigma_test_absorption_wrong_sign",
+  "assessment": "mixed_sigma_test_construction_dependent_signs",
   "supportive": false,
   "sample": {
     "n_total": 75,
@@ -37,7 +37,7 @@
   "tests": {
     "T1_mstar_sigma_evolution": {
       "n": 75,
-      "description": "M*-sigma zero-point evolution test. Under TEP, the M*-sigma residual should increase with z (positive rho). After sigma-only TEP correction, this trend should weaken.",
+      "description": "M*-sigma zero-point evolution test. Residuals are stored as (fit - y); under the adopted virial sigma->M_halo map the predicted conventional residual-z trend is negative at fixed sigma (the map's (1+z)^-1.5 halo drift outweighs the kernel's sqrt(1+z) growth), i.e. positive in the stored convention. After sigma-only TEP correction, this trend should weaken. The predicted direction is construction-dependent; see T6.",
       "observed_mstar_sigma_fit": {
         "slope": 2.480534862747797,
         "intercept": 4.704710104593537,
@@ -75,7 +75,7 @@
     },
     "T1a_absorption_only": {
       "n": 20,
-      "description": "M*-sigma zero-point evolution test. Under TEP, the M*-sigma residual should increase with z (positive rho). After sigma-only TEP correction, this trend should weaken.",
+      "description": "M*-sigma zero-point evolution test. Residuals are stored as (fit - y); under the adopted virial sigma->M_halo map the predicted conventional residual-z trend is negative at fixed sigma (the map's (1+z)^-1.5 halo drift outweighs the kernel's sqrt(1+z) growth), i.e. positive in the stored convention. After sigma-only TEP correction, this trend should weaken. The predicted direction is construction-dependent; see T6.",
       "observed_mstar_sigma_fit": {
         "slope": 1.6522153877977406,
         "intercept": 6.985887997021146,
@@ -113,7 +113,7 @@
     },
     "T1b_emission_only": {
       "n": 55,
-      "description": "M*-sigma zero-point evolution test. Under TEP, the M*-sigma residual should increase with z (positive rho). After sigma-only TEP correction, this trend should weaken.",
+      "description": "M*-sigma zero-point evolution test. Residuals are stored as (fit - y); under the adopted virial sigma->M_halo map the predicted conventional residual-z trend is negative at fixed sigma (the map's (1+z)^-1.5 halo drift outweighs the kernel's sqrt(1+z) growth), i.e. positive in the stored convention. After sigma-only TEP correction, this trend should weaken. The predicted direction is construction-dependent; see T6.",
       "observed_mstar_sigma_fit": {
         "slope": 1.0224600119540852,
         "intercept": 7.2017120139162705,
@@ -254,11 +254,126 @@
         -0.13197612267856795,
         0.3603553938554508
       ]
+    },
+    "T6_construction_sensitivity": {
+      "description": "Construction sensitivity of the T1 sign verdict. All residual-z correlations use the conventional (y - fit) convention, opposite to the stored T1 values. The virial map embeds a (1+z)^-1.5 expanding-cosmology halo-normalization drift and predicts a negative conventional trend at fixed sigma; the cosmology-free direct depth map predicts a sign split at sigma_ref_depth = 136 km/s.",
+      "sigma_ref_depth_kms": 136.25841381159225,
+      "residual_convention": "conventional (y - fit); stored T1 values are negated",
+      "subsamples": {
+        "pooled": {
+          "n": 75,
+          "observed_resid_z_rho_conventional": -0.46239442858894786,
+          "observed_resid_z_p": 2.9604271401459476e-05,
+          "predicted_resid_z_rho_virial_map": -0.9429395814655814,
+          "predicted_resid_z_rho_direct_map": -0.7680593513222698,
+          "corrected_resid_z_rho_virial_map": -0.4363355449877874,
+          "corrected_resid_z_rho_direct_map": -0.44778808715137025,
+          "sign_agrees_virial_map": true,
+          "sign_agrees_direct_map": true
+        },
+        "absorption": {
+          "n": 20,
+          "observed_resid_z_rho_conventional": 0.25193564511641314,
+          "observed_resid_z_p": 0.2839229362327389,
+          "predicted_resid_z_rho_virial_map": -0.78386938537177,
+          "predicted_resid_z_rho_direct_map": 0.8864069969827866,
+          "corrected_resid_z_rho_virial_map": 0.32700049586628804,
+          "corrected_resid_z_rho_direct_map": 0.06155237056568858,
+          "sign_agrees_virial_map": false,
+          "sign_agrees_direct_map": true
+        },
+        "emission": {
+          "n": 55,
+          "observed_resid_z_rho_conventional": -0.27767808952004375,
+          "observed_resid_z_p": 0.04011400295708607,
+          "predicted_resid_z_rho_virial_map": -0.9514179604597065,
+          "predicted_resid_z_rho_direct_map": -0.8702681659982752,
+          "corrected_resid_z_rho_virial_map": -0.2790171725367161,
+          "corrected_resid_z_rho_direct_map": -0.27895559812269055,
+          "sign_agrees_virial_map": true,
+          "sign_agrees_direct_map": true
+        },
+        "z_ge_4": {
+          "n": 56,
+          "observed_resid_z_rho_conventional": -0.3090399758595075,
+          "observed_resid_z_p": 0.020474872132333434,
+          "predicted_resid_z_rho_virial_map": -0.9517832103388424,
+          "predicted_resid_z_rho_direct_map": -0.8643732672660831,
+          "corrected_resid_z_rho_virial_map": -0.30583565908452837,
+          "corrected_resid_z_rho_direct_map": -0.30964046301805775,
+          "sign_agrees_virial_map": true,
+          "sign_agrees_direct_map": true
+        },
+        "survey::Danhaive et al. 2025": {
+          "n": 33,
+          "observed_resid_z_rho_conventional": 0.1377147553658426,
+          "observed_resid_z_p": 0.44471263539193234,
+          "predicted_resid_z_rho_virial_map": -0.8861074900850491,
+          "predicted_resid_z_rho_direct_map": -0.5823671132389102,
+          "corrected_resid_z_rho_virial_map": 0.18000096274971375,
+          "corrected_resid_z_rho_direct_map": 0.169912895818774,
+          "sign_agrees_virial_map": false,
+          "sign_agrees_direct_map": false
+        },
+        "survey::Esdaile et al. 2021": {
+          "n": 4,
+          "note": "insufficient_n"
+        },
+        "survey::Saldana-Lopez et al. 2025": {
+          "n": 16,
+          "observed_resid_z_rho_conventional": 0.20213201006970333,
+          "observed_resid_z_p": 0.4528068839546807,
+          "predicted_resid_z_rho_virial_map": -0.9944983121922744,
+          "predicted_resid_z_rho_direct_map": -0.6688820716927106,
+          "corrected_resid_z_rho_virial_map": 0.09998694210593362,
+          "corrected_resid_z_rho_direct_map": 0.09998694210593362,
+          "sign_agrees_virial_map": false,
+          "sign_agrees_direct_map": false
+        },
+        "survey::Slob et al. 2025": {
+          "n": 15,
+          "observed_resid_z_rho_conventional": 0.1002994950444867,
+          "observed_resid_z_p": 0.7220977138763776,
+          "predicted_resid_z_rho_virial_map": -0.683691125521117,
+          "predicted_resid_z_rho_direct_map": 0.723245556774832,
+          "corrected_resid_z_rho_virial_map": 0.08630505669057295,
+          "corrected_resid_z_rho_direct_map": -0.035329475974822916,
+          "sign_agrees_virial_map": false,
+          "sign_agrees_direct_map": true
+        },
+        "survey::Tanaka et al. 2019": {
+          "n": 1,
+          "note": "insufficient_n"
+        },
+        "survey::de Graaff et al. 2024": {
+          "n": 6,
+          "observed_resid_z_rho_conventional": 0.3297851174389326,
+          "observed_resid_z_p": 0.5232557456266747,
+          "predicted_resid_z_rho_virial_map": -1.0,
+          "predicted_resid_z_rho_direct_map": -0.7624563678786217,
+          "corrected_resid_z_rho_virial_map": 0.13651315789473673,
+          "corrected_resid_z_rho_direct_map": 0.13651315789473673,
+          "sign_agrees_virial_map": false,
+          "sign_agrees_direct_map": false
+        }
+      },
+      "per_survey_sign_agreement": {
+        "virial_map": {
+          "n_tested": 4,
+          "n_agree": 0,
+          "n_significant": 0
+        },
+        "direct_map": {
+          "n_tested": 4,
+          "n_agree": 1,
+          "n_significant": 0
+        }
+      }
     }
   },
   "methodology": {
-    "description": "Sigma-based mass-circularity-breaking test suite. R_ML is computed from velocity dispersion alone (sigma -> M_halo -> R_ML), with zero dependence on SED-fitted M* or size-based Mdyn. This reduces mass-proxy circularity, while still depending on the sigma-to-halo calibration and sample mix. The primary test (T1) asks whether the M*-sigma residual increases with z as TEP predicts. The secondary test (T3) asks whether the sigma-only R_ML adds predictive power for M*_obs beyond sigma and z individually. Tracer stratification: absorption-line sigma (stellar dynamics, quiescent galaxies) is the primary clean tracer; emission-line sigma (gas kinematics, star-forming galaxies) is contaminated by outflows, turbulence, and beam smearing and is treated as a secondary gas-kinematics test. If the absorption-line subsample shows the opposite sign, the pooled result is downgraded.",
-    "gamma_t_derivation": "log(M_h) = 5.0 * log10(sigma / 200.0 km/s) + 12.5; R_ML = compute_gamma_t(log_Mh, z)",
+    "description": "Sigma-based mass-circularity-breaking test suite. R_ML is computed from velocity dispersion alone, with zero dependence on SED-fitted M* or size-based Mdyn. Two sigma->depth constructions are carried in parallel: (a) a literature-calibrated virial sigma->M_halo map whose -1.5*log10(1+z) drift encodes expanding-cosmology halo evolution, and (b) a cosmology-free direct sigma->Psi map (Psi ~ sigma^2, anchored to map (a) at z=0, sigma=200 km/s). The primary test (T1) compares the observed M*-sigma residual-z trend with the TEP-predicted direction, which is itself construction-dependent (T6). The secondary test (T3) asks whether the sigma-only R_ML adds predictive power for M*_obs beyond sigma and z individually; since R_ML is a deterministic function of (sigma, z) this partial is intrinsically low-power. Tracer stratification: absorption-line sigma (stellar dynamics, quiescent galaxies) is the primary clean tracer; emission-line sigma (gas kinematics, star-forming galaxies) is contaminated by outflows, turbulence, and beam smearing and is treated as a secondary gas-kinematics test. Residuals in T1/T2/T4/T5 are stored as (fit - y), the negative of the conventional residual; T6 reports conventional signs explicitly.",
+    "gamma_t_derivation": "virial map: log(M_h) = 5.0 * log10(sigma / 200.0 km/s) + 12.5 - 1.5*log10(1+z); direct map: Psi = Psi_ref * (sigma/136.3 km/s)^2; R_ML = compute_ml_response(log_Mh, z) / compute_ml_response_from_depth(Psi, z), clipped to the canonical [0.01, 100] domain",
     "mass_correction_model": "n_ML = 0.5",
     "kappa_gal": 960000.0,
     "combined_sample_sources": [

@@ -24,12 +24,17 @@ TEST B — Placebo R_ML (Wrong Functional Form):
     form matters.  If they perform equally, the signal is just generic
     mass-z nonlinearity.
 
-TEST C — Mass-Independent Subsets:
+TEST C — Mass-Independent Subsets (sign-structure discriminator):
     Restrict to narrow mass bins where M_* varies by < 0.5 dex.  Within
     these bins, R_ML varies only through the z-dependence (sqrt(1+z) factor
-    and the redshift-dependent SMHM offset).  If the dust-R_ML correlation
-    survives within narrow mass bins, it cannot be driven by the mass axis
-    of the circularity.
+    and the redshift-dependent SMHM drift), so the within-bin dust-R_ML
+    correlation probes the within-bin z-ordering of the response rather
+    than the mass axis.  The reference-depth kernel makes a signed
+    prediction: for Psi < Psi_ref the response decreases with z (within-bin
+    correlation takes the sign of -rho(z, dust)); for Psi > Psi_ref it
+    increases (sign of +rho(z, dust)).  The correlation must therefore
+    reverse sign across the reference-depth mass — a transition no
+    monotone-in-z predictor can produce.
 
 Outputs:
 - results/outputs/step_178_circularity_breaker.json
@@ -50,8 +55,10 @@ from scripts.utils.logger import TEPLogger, set_step_logger, print_status
 from scripts.utils.tep_model import (
     compute_ml_response,
     stellar_to_halo_mass_behroozi_like,
+    get_potential_depth_from_log_mh,
     KAPPA_GAL,
     ALPHA_NUCLEAR,
+    PHI_REF_0,
 )
 
 STEP_NUM = "178"
@@ -113,9 +120,13 @@ def test_a_2d_shuffle(df, n_shuffles=N_SHUFFLES, seed=RNG_SEED):
     z = sub["z"].values
     dust = sub["Av"].values
 
-    # Observed R_ML and correlation
-    log_mh_obs = stellar_to_halo_mass_behroozi_like(mass, z)
-    r_ml_obs = compute_ml_response(log_mh_obs, z)
+    # Observed R_ML and correlation — canonical bounded response column where
+    # available, else recompute clipped to the canonical [0.01, 100] range
+    if "ml_response" in sub.columns:
+        r_ml_obs = sub["ml_response"].values
+    else:
+        log_mh_obs = stellar_to_halo_mass_behroozi_like(mass, z)
+        r_ml_obs = np.clip(compute_ml_response(log_mh_obs, z), 0.01, 100.0)
     rho_obs, p_obs = spearmanr(r_ml_obs, dust)
     print_status(f"  Observed rho(R_ML, dust) = {rho_obs:.4f}, p = {p_obs:.4e}", "INFO")
 
@@ -127,7 +138,7 @@ def test_a_2d_shuffle(df, n_shuffles=N_SHUFFLES, seed=RNG_SEED):
         # different galaxy's redshift, then recompute R_ML
         shuffled_mass = rng.permutation(mass)
         log_mh_shuf = stellar_to_halo_mass_behroozi_like(shuffled_mass, z)
-        r_ml_shuf = compute_ml_response(log_mh_shuf, z)
+        r_ml_shuf = np.clip(compute_ml_response(log_mh_shuf, z), 0.01, 100.0)
         rho_shuf, _ = spearmanr(r_ml_shuf, dust)
         shuffled_rhos.append(rho_shuf)
 
@@ -194,8 +205,11 @@ def test_b_placebo_rml(df, n_shuffles=N_SHUFFLES, seed=RNG_SEED):
 
     log_mh = stellar_to_halo_mass_behroozi_like(mass, z)
 
-    # Real R_ML
-    r_ml_real = compute_ml_response(log_mh, z)
+    # Real R_ML — canonical bounded response column where available
+    if "ml_response" in sub.columns:
+        r_ml_real = sub["ml_response"].values
+    else:
+        r_ml_real = np.clip(compute_ml_response(log_mh, z), 0.01, 100.0)
     rho_real, p_real = spearmanr(r_ml_real, dust)
 
     # Placebo R_ML: power-law in M_h and (1+z), no potential-depth structure
@@ -263,14 +277,28 @@ def test_c_narrow_mass_bins(df):
     """Restrict to narrow mass bins where M_* varies by < 0.5 dex.
 
     Within these bins, R_ML varies only through the z-dependence
-    (sqrt(1+z) factor and the redshift-dependent SMHM offset).  If the
-    dust-R_ML correlation survives within narrow mass bins, it cannot be
-    driven by the mass axis of the circularity.
+    (sqrt(1+z) factor and the redshift-dependent SMHM drift), so the
+    within-bin dust-R_ML correlation probes the z-ordering of the
+    response rather than the mass axis.  The reference-depth kernel
+    ln R_ML = K (Psi - Psi_ref) sqrt(1+z) predicts a signed transition:
+
+        d ln R_ML / dz = K sqrt(1+z) dPsi/dz + K (Psi - Psi_ref) / (2 sqrt(1+z))
+
+    For Psi < Psi_ref the response decreases with z and the within-bin
+    correlation takes the sign of -rho(z, dust); for Psi > Psi_ref it
+    increases and takes the sign of +rho(z, dust).  The sign map must
+    therefore reverse across the reference-depth mass.  Monotone-in-z
+    baselines (the power-law placebo, the dust-z trend itself, and a
+    mass-metallicity-type declining-z proxy) each predict a single sign
+    in every bin and cannot produce any transition.
     """
-    print_status("TEST C: Narrow Mass Bin Subsets", "INFO")
+    print_status("TEST C: Narrow Mass-Bin Sign Structure", "INFO")
 
     mask = df["Av"].notna() & df["log_Mstar"].notna() & df["z"].notna()
     sub = df[mask].copy()
+
+    # Kernel coefficient K = kappa ln(10) / (2.5 n) for the canonical benchmark
+    k_exp = (KAPPA_GAL * np.log(10)) / (2.5 * ALPHA_NUCLEAR)
 
     # Define narrow mass bins (0.5 dex wide)
     mass_bins = [
@@ -282,6 +310,9 @@ def test_c_narrow_mass_bins(df):
     ]
 
     results = {}
+    bin_centers = []
+    bin_dlndz = []
+    bin_med_mh = []
     for m_lo, m_hi, label in mass_bins:
         bin_mask = (sub["log_Mstar"] >= m_lo) & (sub["log_Mstar"] < m_hi) & (sub["z"] > 4)
         bin_sub = sub[bin_mask].copy()
@@ -297,46 +328,139 @@ def test_c_narrow_mass_bins(df):
         dust_arr = bin_sub["Av"].values
 
         log_mh = stellar_to_halo_mass_behroozi_like(mass_arr, z_arr)
-        r_ml = compute_ml_response(log_mh, z_arr)
+        # Canonical bounded response column where available (step_002
+        # self-consistent pipeline); otherwise recompute and clip to the
+        # canonical [0.01, 100] range.
+        if "ml_response" in bin_sub.columns:
+            r_ml = bin_sub["ml_response"].values
+        else:
+            r_ml = np.clip(compute_ml_response(log_mh, z_arr), 0.01, 100.0)
+
+        # Monotone-in-z baselines: the power-law placebo (increasing in z),
+        # an MZR-type proxy declining in z, the raw dust-z trend, and mass.
+        placebo = np.power(10.0 ** (log_mh - 12.0), 0.3) * np.power(1.0 + z_arr, 0.5)
+        mzr_base = np.power(10.0 ** (mass_arr - 10.0), 0.3) * np.power(1.0 + z_arr, -0.5)
 
         rho_rml, p_rml = spearmanr(r_ml, dust_arr)
         rho_mass, p_mass = spearmanr(mass_arr, dust_arr)
         rho_z, p_z = spearmanr(z_arr, dust_arr)
+        rho_plac, p_plac = spearmanr(placebo, dust_arr)
+        rho_mzr, p_mzr = spearmanr(mzr_base, dust_arr)
+        rho_rml_z, _ = spearmanr(r_ml, z_arr)
+
+        # Kernel-predicted sign at bin centre:
+        #   d ln R_ML / dz = K sqrt(1+z) dPsi/dz + K (Psi - Psi_ref) / (2 sqrt(1+z))
+        # evaluated at the bin-median potential depth with the within-bin
+        # SMHM drift dPsi/dz measured on the (mass, z) mapping — a
+        # model-side quantity, not fit to the dust data.
+        psi_arr = get_potential_depth_from_log_mh(log_mh)
+        z_med = float(np.median(z_arr))
+        psi_med = float(np.median(psi_arr))
+        dpsi_dz = float(np.polyfit(z_arr, psi_arr, 1)[0])
+        dlndz = (k_exp * np.sqrt(1.0 + z_med) * dpsi_dz
+                 + k_exp * (psi_med - PHI_REF_0) / (2.0 * np.sqrt(1.0 + z_med)))
+        sign_pred = float(np.sign(dlndz))
 
         # R_ML dynamic range within the bin
-        r_ml_range = float(np.log10(r_ml.max() / r_ml.max(0)))
+        r_ml_range = float(np.log10(r_ml.max() / r_ml.min())) if r_ml.min() > 0 else np.nan
 
         results[label] = {
             "n": n,
             "z_range": [float(z_arr.min()), float(z_arr.max())],
+            "median_log_Mh": float(np.median(log_mh)),
+            "median_psi_over_psi_ref": float(psi_med / PHI_REF_0),
             "rho_rml_dust": float(rho_rml),
             "p_rml_dust": float(p_rml),
             "rho_mass_dust": float(rho_mass),
             "p_mass_dust": float(p_mass),
             "rho_z_dust": float(rho_z),
             "p_z_dust": float(p_z),
+            "rho_placebo_dust": float(rho_plac),
+            "p_placebo_dust": float(p_plac),
+            "rho_mzr_dust": float(rho_mzr),
+            "p_mzr_dust": float(p_mzr),
+            "rho_rml_z": float(rho_rml_z),
+            "kernel_dlndz_at_bin_center": float(dlndz),
+            "kernel_sign_pred": sign_pred,
+            "sign_match_kernel": bool(np.sign(rho_rml) == sign_pred),
             "r_ml_range_log10": r_ml_range,
         }
+        bin_centers.append(0.5 * (m_lo + m_hi))
+        bin_dlndz.append(float(dlndz))
+        bin_med_mh.append(float(np.median(log_mh)))
         sig = "*" if p_rml < 0.05 else ""
-        print_status(f"  {label}: N = {n}, rho(R_ML, dust) = {rho_rml:.3f}{sig} (p = {p_rml:.3e}), "
-                     f"rho(M*, dust) = {rho_mass:.3f} (p = {p_mass:.3e})", "INFO")
+        print_status(
+            f"  {label}: N = {n}, rho(R_ML, dust) = {rho_rml:.3f}{sig} "
+            f"(kernel sign pred = {sign_pred:+.0f}), placebo = {rho_plac:+.3f}, "
+            f"MZR = {rho_mzr:+.3f}, z = {rho_z:+.3f}", "INFO")
+
+    # ── Sign-map summary ─────────────────────────────────────────────────
+    tested = [v for v in results.values()
+              if isinstance(v, dict) and "kernel_sign_pred" in v]
+    n_tested = len(tested)
+    n_sign_match = sum(1 for v in tested if v["sign_match_kernel"])
+    n_sign_discordant = sum(
+        1 for v in tested
+        if v["p_rml_dust"] < 0.05 and np.sign(v["rho_rml_dust"]) != v["kernel_sign_pred"])
+    # A uniform-sign (monotone-in-z) hypothesis is falsified if the map
+    # contains at least one significantly negative AND one significantly
+    # positive bin.
+    has_neg = any(v["rho_rml_dust"] < 0 and v["p_rml_dust"] < 0.05 for v in tested)
+    has_pos = any(v["rho_rml_dust"] > 0 and v["p_rml_dust"] < 0.05 for v in tested)
+    monotone_falsified = bool(has_neg and has_pos)
+
+    # Interpolated sign-transition mass from the kernel-side dlnR/dz at bin
+    # centres (model-side quantity), with the corresponding median halo mass
+    # and its implied potential-depth ratio.
+    crossover = {}
+    if len(bin_centers) >= 2:
+        for i in range(len(bin_centers) - 1):
+            if bin_dlndz[i] == 0 or np.sign(bin_dlndz[i]) != np.sign(bin_dlndz[i + 1]):
+                frac = abs(bin_dlndz[i]) / (abs(bin_dlndz[i]) + abs(bin_dlndz[i + 1])) \
+                    if (abs(bin_dlndz[i]) + abs(bin_dlndz[i + 1])) > 0 else 0.5
+                mstar_cross = bin_centers[i] + frac * (bin_centers[i + 1] - bin_centers[i])
+                mh_cross = bin_med_mh[i] + frac * (bin_med_mh[i + 1] - bin_med_mh[i])
+                psi_cross = get_potential_depth_from_log_mh(mh_cross)
+                crossover = {
+                    "log_Mstar_cross": float(mstar_cross),
+                    "log_Mh_cross": float(mh_cross),
+                    "psi_over_psi_ref_at_cross": float(psi_cross / PHI_REF_0),
+                    "note": (
+                        "Interpolated zero of the kernel-side dlnR_ML/dz at bin "
+                        "centres. The crossover sits below Psi_ref because the "
+                        "positive within-bin SMHM drift (dPsi/dz > 0 at fixed "
+                        "stellar mass) contributes a positive term."
+                    ),
+                }
+                break
 
     # Summary: how many bins show significant R_ML correlation?
     n_sig = sum(1 for v in results.values()
                 if isinstance(v, dict) and v.get("p_rml_dust", 1) < 0.05)
-    n_tested = sum(1 for v in results.values()
-                   if isinstance(v, dict) and v.get("n", 0) >= 20)
 
     return {
         "bins": results,
         "n_bins_significant": n_sig,
         "n_bins_tested": n_tested,
+        "sign_map": {
+            "n_bins_kernel_sign_match": n_sign_match,
+            "n_bins_kernel_sign_discordant": n_sign_discordant,
+            "monotone_z_baselines_falsified": monotone_falsified,
+            "has_significant_negative_bin": has_neg,
+            "has_significant_positive_bin": has_pos,
+            "crossover": crossover,
+        },
         "interpretation": (
-            f"R_ML correlates with dust in {n_sig}/{n_tested} narrow mass bins — "
-            "signal not driven by mass axis"
-            if n_sig >= n_tested // 2
-            else f"R_ML significant in only {n_sig}/{n_tested} bins — "
-            "signal may be driven by mass axis"
+            f"Within-bin sign map matches the reference-depth kernel in "
+            f"{n_sign_match}/{n_tested} bins ({n_sign_discordant} discordant at "
+            f"p<0.05); the observed negative-to-positive transition falsifies "
+            f"every uniform-sign monotone-in-z baseline "
+            f"({'yes' if monotone_falsified else 'no'}). The within-bin "
+            f"correlation probes the z-ordering of the response, not the mass "
+            f"axis directly; its discriminating content is the sign structure."
+            if monotone_falsified else
+            f"R_ML significant in {n_sig}/{n_tested} bins — sign transition "
+            "not established in this sample"
         ),
     }
 
@@ -398,7 +522,13 @@ def main():
     if "delta_rho_ci_95" in tb:
         tests.append(("Placebo R_ML", tb["delta_rho_ci_95"][0] > 0, tb.get("interpretation", "")))
     tc = results.get("test_c_narrow_mass_bins", {})
-    if "n_bins_significant" in tc:
+    if "sign_map" in tc:
+        sm = tc["sign_map"]
+        passed = (sm.get("monotone_z_baselines_falsified", False)
+                  and sm.get("n_bins_kernel_sign_discordant", 1) == 0)
+        tests.append(("Mass-bin sign structure", passed,
+                      tc.get("interpretation", "")))
+    elif "n_bins_significant" in tc:
         tests.append(("Narrow mass bins", tc["n_bins_significant"] >= tc["n_bins_tested"] // 2,
                       tc.get("interpretation", "")))
 

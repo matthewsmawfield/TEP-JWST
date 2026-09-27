@@ -2,7 +2,7 @@
 <h2>4. Discussion</h2>
 
 <p>
-The SUSPENSE kinematic comparison (L5) breaks mass circularity. The dynamical $R_{\rm ML}$ predictor retains spectral-age information after stellar-mass and redshift control ($\rho=+0.556$, $p=0.032$), whereas stellar mass contributes no residual signal once $R_{\rm ML}$ is controlled ($\rho=+0.031$, $p=0.91$). The bootstrap $\beta$ CI is $[0.149, 0.746]$. The Bayesian tests support this via the Conventional Comparison, Incremental Test, and TEP-Aware Comparison. The broader $\sigma$-based expansion (N=75) shows a pooled partial rank correlation $\rho=+0.46$ ($p=3\times10^{-5}$), but tracer stratification reveals a critical caveat: the clean absorption-line subsample (N=20, stellar dynamics) gives $\rho=-0.26$ ($p=0.27$, wrong sign), while the emission-line subsample (N=55, gas kinematics) gives $\rho=+0.29$ ($p=0.03$). The pooled signal is driven by the emission-line tracer, which is contaminated by gas outflows, turbulence, and beam smearing. The pooled $\sigma$-based result is therefore classified as mixed rather than supportive, and absorption-line dispersion is designated as the primary kinematic test. The emission-line result is retained as a secondary gas-kinematics indicator, not as a mass-circularity breaker.
+The SUSPENSE kinematic comparison (L5) breaks mass circularity. The dynamical $R_{\rm ML}$ predictor retains spectral-age information after stellar-mass and redshift control ($\rho=+0.556$, $p=0.032$), whereas stellar mass contributes no residual signal once $R_{\rm ML}$ is controlled ($\rho=+0.031$, $p=0.91$). The bootstrap $\beta$ CI is $[0.149, 0.746]$. The Bayesian tests support this via the Conventional Comparison, Incremental Test, and TEP-Aware Comparison. The broader $\sigma$-based expansion (N=75) shows a pooled partial rank correlation $\rho=+0.46$ ($p=3\times10^{-5}$, stored fit-minus-observation convention), but a per-survey decomposition reveals that this trend is a between-survey composition effect: within each of the four individually testable surveys the conventional residual-$z$ partial is weakly positive ($\rho=+0.10$ to $+0.33$, all $p>0.4$), so no single dataset reproduces the pooled sign. The sign verdict is also construction-dependent. Under the adopted $\sigma$-to-$M_{\rm halo}$ map — whose $-1.5\log_{10}(1+z)$ drift embeds expanding-cosmology virial evolution — the clean absorption-line subsample (N=20, stellar dynamics) is opposite-signed (conventional $\rho=+0.25$, $p=0.28$). Under a cosmology-free $\sigma$-to-depth map ($\Psi\propto\sigma^2$), the predicted sign splits at $\sigma\simeq136$ km/s and the absorption and SUSPENSE subsamples carry the predicted sign, with the TEP mass correction attenuating their trends toward zero. The pooled $\sigma$-based result is therefore classified as mixed rather than supportive, and absorption-line dispersion is designated as the primary kinematic test. The emission-line result is retained as a secondary gas-kinematics indicator, not as a mass-circularity breaker.
 </p>
 
 <h3>4.1 The Isochrony Bias Mechanism</h3>
@@ -16,17 +16,17 @@ The primary empirical line (L1: dust–$R_{\rm ML}$ emergence), together with th
 </div>
 
 <p>
-The prespecified canonical TEP magnitude-sector benchmark $\kappa_{\rm gal} = 0.960 \times 10^6$ mag from Paper 11 was fixed before the JWST analysis (with Paper 11's independent empirical Cepheid fits recovering $\kappa_{\rm equiv}^{42} = (0.369 \pm 0.310) \times 10^6$ mag and $\kappa_{\rm Cep}^{44} = (0.400 \pm 0.270) \times 10^6$ mag) and then applied to $z > 5$ galaxies with only the physically motivated redshift scaling $\sqrt{1+z}$ and no tuning to JWST data. That it quantitatively accounts for the anomaly is therefore a non-trivial predictive test. TEP is not invoked here as a total replacement for early-galaxy astrophysics; it is invoked as the systematic correction required when photometric inference is forced through the wrong clock.
+The prespecified canonical TEP magnitude-sector benchmark $\kappa_{\rm gal} = 0.960 \times 10^6$ mag from Paper 11 was fixed before the JWST analysis (with Paper 11's independent empirical Cepheid fits recovering $\kappa_{\rm equiv}^{42} = (0.369 \pm 0.310) \times 10^6$ mag and $\kappa_{\rm Cep}^{44} = (0.400 \pm 0.270) \times 10^6$ mag — a factor $\sim 2.4$ below the benchmark, attributed to the response product $S_{\rm Cep}\Gamma_{\rm Cep}$ and carried here as an open normalization residual) and then applied to $z > 5$ galaxies with only the physically motivated redshift scaling $\sqrt{1+z}$ and no tuning to JWST data. That it quantitatively accounts for the anomaly is therefore a non-trivial predictive test, stated with the benchmark-vs-empirical residual propagated through the prior range. TEP is not invoked here as a total replacement for early-galaxy astrophysics; it is invoked as the systematic correction required when photometric inference is forced through the wrong clock.
 </p>
 
 <h3>4.2 Model Discrimination and Bayesian Evidence</h3>
 
 <p>
-The primary statistical test for multi-observable preference is the covariance-corrected joint comparison (§3.8). When the four SED observables (dust, sSFR, $\chi^2$, metallicity) are modeled using a joint multivariate Gaussian with the empirical $K \times K$ residual covariance matrix, the covariance-corrected TEP model ($\ln Z = -1411.4$, 9 parameters) decisively outperforms the covariance-corrected standard model ($\ln Z = -1475.5$, 13 parameters) by $\ln{\rm BF} = +64.1$ — and does so with four fewer parameters. This represents the cleanest like-for-like comparison: the same dataset, the same empirical covariance structure, and TEP's single theory-fixed predictor ($R_{\rm ML}$) evaluated against the standard mass-plus-redshift baseline without artificial orthogonalization.
+The multi-observable Bayesian comparison (§3.8) is evaluated under both conditionings of the predictor space, with the nested augmented model as the conditioning-free arbiter. Under TEP conditioning — the standard baseline restricted to the components of mass and redshift orthogonal to $\log R_{\rm ML}$ — the covariance-corrected TEP model ($\ln Z = -1411.4$, 9 parameters) outperforms the orthogonalized standard model ($\ln Z = -1475.5$, 13 parameters) by $\ln{\rm BF} = +64.5$ with four fewer parameters. Under the unconditioned comparison, the raw mass+z baseline is the best model in the ensemble ($\ln Z = -1403.5$) and exceeds TEP by $\ln{\rm BF} = -7.8$. Neither conditioning is neutral: orthogonalization removes the competitor's signal channel, while raw mass under the TEP measurement model ($M_{\rm obs} = M_{\rm true} + n\log_{10}R_{\rm ML}$) already contains part of the response. The nested augmented model quantifies the marginal contributions — adding $\log R_{\rm ML}$ to mass+z yields $\Delta\ln Z = -6.8$, while adding mass+z to the $R_{\rm ML}$ predictor yields $\Delta\ln Z = +1.0$ — and the direction-isolation diagnostic shows that stripping the $R_{\rm ML}$-aligned direction from the standard predictor costs $72.3$ ln units of evidence. The defensible reading is channel consistency without functional-form discrimination: the explanatory variance is concentrated in the direction the theory specifies, and a single theory-fixed predictor recovers the full augmented model within one log-evidence unit, but the linear mass+z family spans the same direction and cannot be excluded by this comparison alone.
 </p>
 
 <p>
-Second, the orthogonalized sensitivity analysis evaluates TEP against a broader family of explicit astrophysical alternatives where all candidate mass predictors are orthogonalized against $\log R_{\rm ML}$ to prevent circular absorption of the TEP signal. Within this TEP-conditioned sensitivity family, TEP outperforms every tested alternative: standard physics ($\ln{\rm BF}=+141.2$, 16 parameters), the bursty star-formation model ($\ln{\rm BF}=+138.5$, 21 parameters), the $M_* \times \sqrt{1+z}$ interaction null ($\ln{\rm BF}=+130.5$, 20 parameters), the AGN-threshold model ($\ln{\rm BF}=+118.1$, 18 parameters), the varying-IMF model ($\ln{\rm BF}=+113.9$, 20 parameters), and the quadratic baseline ($\ln{\rm BF}=+93.1$, 28 parameters), with a mean $\ln{\rm BF} = +126.2$ across all eleven alternatives.
+Second, the orthogonalized sensitivity analysis evaluates TEP against a broader family of explicit astrophysical alternatives where all candidate mass predictors are orthogonalized against $\log R_{\rm ML}$ to prevent circular absorption of the TEP signal. Within this TEP-conditioned sensitivity family, TEP outperforms every tested alternative: standard physics ($\ln{\rm BF}=+138.4$, 16 parameters), the bursty star-formation model ($\ln{\rm BF}=+136.6$, 21 parameters), the $M_* \times \sqrt{1+z}$ interaction null ($\ln{\rm BF}=+128.3$, 20 parameters), the AGN-threshold model ($\ln{\rm BF}=+117.4$, 18 parameters), the varying-IMF model ($\ln{\rm BF}=+111.2$, 20 parameters), and the quadratic baseline ($\ln{\rm BF}=+91.2$, 28 parameters), with a mean $\ln{\rm BF} = +123.9$ across all eleven alternatives. These alternatives are parametric stand-ins — linear, quadratic, interaction, sigmoid, and timescale modulations of the mass+z baseline — rather than forward-modelled predictions of bursty star formation, IMF variation, or AGN-plus-dust physics; the conditioned family therefore tests whether any of these directions explains variance outside the $R_{\rm ML}$-aligned channel, not whether realistic astrophysical models are excluded.
 </p>
 
 <p>
@@ -34,7 +34,7 @@ Specifically, once a halo potential reaches the critical binding energy, both AG
 </p>
 
 <p>
-<strong>Sensitivity and disclosures.</strong> Transparent diagnostics are reported: the per-observable breakdown shows the signal is concentrated in dust ($\ln{\rm BF} = +59.9$) and $\chi^2$ ($\ln{\rm BF} = +45.8$), with a positive contribution from sSFR ($\ln{\rm BF} = +30.2$) and a null result for metallicity ($\ln{\rm BF} = +4.7$), summing to $\ln{\rm BF} = +94.8$ across the three physical observables alone. In the primary 4-observable joint covariance model, TEP outperforms the standard baseline by $\ln{\rm BF} = +64.1$ with four fewer parameters. In the 3-observable physical subset (dust, sSFR, metallicity; excluding SED $\chi^2$), the joint covariance model favors TEP by $\ln{\rm BF} = +62.6$ under orthogonalized predictors (7 parameters versus 10 parameters), while an unorthogonalized standard model with 10 unconstrained parameters achieves $\ln{\rm BF} = -14.0$. In orthogonalized residual space, a constrained-AGN model captures residual variance that the raw $R_{\rm ML}$ predictor does not ($\ln{\rm BF} = -34.9$). These tests confirm that the primary empirical strength of TEP rests on the multi-survey photometric correlation structure (L1, L3), the cross-survey Steiger and meta-analyses, and the direct SUSPENSE kinematic test (L5), with the Bayesian evidence providing supportive global context.
+<strong>Sensitivity and disclosures.</strong> Transparent diagnostics are reported: the per-observable breakdown shows the conditioned signal is concentrated in dust ($\ln{\rm BF} = +59.9$) and the SED $\chi^2$ statistic ($\ln{\rm BF} = +45.8$), with a positive contribution from sSFR ($\ln{\rm BF} = +30.2$) and a null result for metallicity ($\ln{\rm BF} = +4.7$). The SED $\chi^2$ is a fit-quality diagnostic rather than a physical observable, so the 3-observable physical subset (dust, sSFR, metallicity) is the primary observable set: it yields $\ln{\rm BF} = +63.3$ under orthogonalized predictors (7 versus 10 parameters) and $\ln{\rm BF} = -14.2$ under raw predictors. In the 4-observable covariance family the conditioned comparison gives $\ln{\rm BF} = +64.5$ and the unconditioned comparison $-7.8$; the nested augmented model shows the predictor families mutually subsumed ($\Delta\ln Z = +1.0$ for adding mass+z to $R_{\rm ML}$; $-6.8$ for adding $R_{\rm ML}$ to mass+z), while the direction-isolation diagnostic assigns $72.3$ ln units to the $R_{\rm ML}$-aligned direction. In the orthogonalized residual space — which retains the $R_{\rm ML}$-aligned direction by construction — TEP outperforms the constrained-AGN model ($\ln{\rm BF} = +106.4$); under the symmetric conventional residualization the comparison yields $-3.9$ for the null. A log-gamma standardization sensitivity check confirms the evidence is robust to the scaling choice ($\Delta\ln{\rm BF} = 1.8$ between raw and standardized predictors). The Bayesian evidence therefore provides channel-consistency context — the variance is organized along the theory-predicted direction — while the discriminating empirical strength of TEP rests on the multi-survey photometric correlation structure (L1, L3), the cross-survey Steiger and meta-analyses, and the direct SUSPENSE kinematic test (L5).
 </p>
 
 <h3>4.3 Synthesis</h3>
@@ -139,13 +139,14 @@ mass-dependent direction of the TEP correction at lower masses.
 </p>
 
 <div class="note">
-<strong>Caveat:</strong> The mass correction depends on the M/L
-power-law index $n$ (adopted: 0.7 for this mass function analysis, vs.
-$n = 0.5$ used in the primary high-$z$ dust and sSFR tests in §3). The
-choice of $n = 0.7$ here follows standard SSP predictions (Bruzual &
+<strong>Correction-stage exponent:</strong> The mass correction depends on the SPS
+power-law index $n_{\rm SPS}$ (adopted: 0.7 for this mass-function analysis, versus
+the regime assignments $n_{\rm SPS} = 0.7$ for $z\le4$, $0.9$ for $4&lt;z\le6$, and
+$0.5$ for $z&gt;6$ in the primary catalogue construction, §2.4.4). The response kernel remains fixed at $n_{\rm ref}=0.7$ in both analyses, so this sensitivity cannot introduce a discontinuity in $R_{\rm ML}$. The
+choice of $n_{\rm SPS} = 0.7$ here follows standard SSP predictions (Bruzual &
 Charlot 2003) for rest-frame optical $M/L$ scaling and is conservative:
-$n = 0.5$ would produce a <em>smaller</em> mass correction, resolving
-fewer anomalous galaxies, while $n = 0.9$ resolves more. Values $n =
+$n_{\rm SPS} = 0.5$ would produce a <em>smaller</em> mass correction, resolving
+fewer anomalous galaxies, while $n_{\rm SPS} = 0.9$ resolves more. Values $n_{\rm SPS} =
 0.5$–$0.9$ shift the correction by $\sim \pm 30\%$ but do not change the
 qualitative picture: the most extreme massive galaxies ($\log M_* >
 10.5$ at $z > 8$) are eliminated for any $n > 0.4$. The correction also
@@ -199,15 +200,40 @@ stellar population synthesis would provide a more rigorous correction.
 
 <p>
 The dynamical-mass validation is expressed primarily as a matched
-regime-level kinematic consistency test: in the RUBIES-like $z \sim
+regime-level kinematic consistency test. In the RUBIES-like $z \sim
 4.5$, $\log M_* > 10.5$ regime, the published mean excess is 0.15 dex
-while the TEP correction predicts a 0.270 dex reduction, sufficient to
-resolve the published anomaly. A supplementary
-five-object direct literature ingestion at $z = 3.2$–$4.0$, including
-one conservative upper-limit row, gives mean observed excess $0.168$ dex
-and mean corrected excess $-0.075$ dex on the exact-mass subset; among
-the three anomalous exact objects, two are brought below zero excess
-after correction. This SED-independent comparison is detailed in §3.10.
+and the canonical-kernel TEP reduction is 0.139 dex, landing the
+regime at $M_*/M_{\rm dyn} \simeq 1.03$ — at the admissibility
+boundary rather than inside it; this regime bin contains only a
+single UNCOVER object, so the regime-level figure is illustrative
+rather than statistical. The supplementary five-object direct
+literature ingestion at $z = 3.2$–$4.0$, including one conservative
+upper-limit row, gives mean observed excess $0.168$ dex and mean
+corrected excess $-0.124$ dex on the exact-mass subset ($M_*/M_{\rm
+dyn} \simeq 0.75$); on the three anomalous objects the mean corrected
+excess is $+0.015$ dex, with two of the three brought below zero.
+</p>
+<p>
+The amplitude calibration is reported explicitly rather than absorbed
+into the resolution claim. Because the mass correction is linear in
+$\kappa_{\rm gal}$, the $\kappa$-sensitivity ledger (Step 117) spans
+the canonical benchmark and the empirical Paper 11 anchor directly:
+on the anomalous subset the mean corrected excess runs $+0.157$ dex at
+$\kappa = 0.40\times10^{6}$ mag (under-resolved), $+0.015$ dex at the
+canonical $\kappa = 0.96\times10^{6}$ mag, and $-0.087$ dex at the
+$+1\sigma$ bound $\kappa = 1.36\times10^{6}$ mag. Two features are
+worth noting. First, the admissible target is not zero excess —
+$M_*/M_{\rm dyn}=1$ would still imply a fully baryonic interior with
+no dark-matter or gas headroom — so the physical resolution band is a
+stellar fraction below unity, and even the $+1\sigma$ corrected ratios
+($\simeq 0.87$–$0.90$) remain inside it; no anchor produces an
+unphysical overshoot. Second, the dynamical channel prefers the same
+amplitude direction as the SFE channel (§3.1): both resolve at the
+canonical benchmark and under-resolve at the empirical anchor, so the
+two channels bracket a common $\kappa$ rather than pulling in opposite
+directions — the residual amplitude uncertainty is the open $\kappa$
+normalization discrepancy already recorded, not a channel-specific
+defect.
 </p>
 
 <p>
@@ -261,15 +287,29 @@ The limitations below are organised by tier, following the claim hierarchy of Pa
         $\rho = 0.240$ ($p = 4.4 \times 10^{-5}$), and a shuffled-mass null within
         $z$-bins yields $Z = 9.3$ ($p = 5 \times 10^{-4}$, unique fraction 101.2%).
         The additional circularity-breaker tests (step 178, §3.4.1) further confirm
-        that a 2D mass-$z$ pairing shuffle destroys the signal ($Z = 10.6$) and that
+        that a 2D mass-$z$ pairing shuffle destroys the signal ($Z = 10.9$) and that
         $R_{\rm ML}$ retains explanatory power within narrow mass bins where $M_*$
-        has none. However, a placebo $R_{\rm ML}$ with a generic power-law form
-        captures most of the signal ($\rho = 0.507$ vs $0.581$, $\Delta\rho$ CI
-        includes zero), indicating that the photometric sample alone cannot
-        distinguish the TEP exponential form from a generic nonlinear mass-$z$
-        interaction. The specificity of the TEP functional form therefore rests
-        on the kinematic and cross-survey evidence, not on the photometric
-        correlations alone.
+        has none. Evaluated under the canonical bounded, self-consistent response —
+        the same variable used throughout the pipeline — the placebo comparison is
+        now decisive: the exponential potential-depth form outperforms a generic
+        power-law mass-$z$ interaction ($\Delta\rho = +0.088$, 95% CI
+        $[+0.016, +0.161]$, superior in 99.3% of bootstrap draws). Most
+        importantly, the narrow-mass-bin analysis now carries a sharp
+        functional-form discriminator: the within-bin sign of
+        $\rho(R_{\rm ML}, \mathrm{dust})$ follows the kernel derivative
+        $\mathrm{d}\ln R_{\rm ML}/\mathrm{d}z$, which crosses zero at
+        $\log M_* \simeq 9.6$ through competition between the
+        $(\Psi - \Psi_{\rm ref})$ term and the positive stellar-to-halo-mass
+        drift. The observed sign map — negative in the two largest bins, null
+        at the crossover, positive above — matches the kernel prediction in
+        4/4 bins and falsifies every uniform-sign monotone-in-$z$ baseline
+        (raw $z$, the power-law placebo, and an inverted monotone all fail at
+        least one end). The photometric sample therefore does distinguish the
+        TEP functional form from generic mass-$z$ alternatives; the residual
+        caveat is quantitative, namely the small $N = 48$ size of the
+        positive-sign bin and the fact that ordinary AIC regression (step 136)
+        ranks the $M_* \times z$ interaction comparably to the TEP predictor
+        ($\Delta$AIC $\simeq 1$–$2$).
     </li>
     <li>
         <strong>SED fitting systematics:</strong> All properties derive from
@@ -306,7 +346,12 @@ The limitations below are organised by tier, following the claim hierarchy of Pa
         Mpc). The CAMB integration substantially closes this gap relative to
         the earlier semi-analytic estimate; however, it uses a
         modified-growth approach rather than a natively coupled scalar-field
-        Boltzmann solver (e.g., hi_class with the full Temporal Shear sector).
+        Boltzmann solver (e.g., hi_class with the full Temporal Shear sector),
+        and the embedding employs the inverse-power $n=1$ mass evolution — the
+        potential branch excluded by Paper 0's constraint F1 under $\beta_A =
+        -1$. The $\sigma_8$/CMB consistency is accordingly a proxy
+        demonstration for a screened scalar sector, transferring to canonical
+        $V(\phi)$ only conditionally (Appendix A.1.9.8).
         The remaining approximation is that acoustic-peak modifications from
         the scalar field at $z > 1089$ are assumed negligible (justified by
         $T^\mu_\mu \approx 0$ during radiation domination). A fully
@@ -361,26 +406,33 @@ The limitations below are organised by tier, following the claim hierarchy of Pa
         incorporated into the canonical analysis.
     </li>
     <li>
-        <strong>Alternative explanations:</strong> A fully nested Bayesian evidence computation yields three distinct comparison families. The primary result is the covariance-corrected joint comparison: modelling correlated SED outputs with a joint covariance likelihood, the TEP model ($\ln Z = -1411.4$, 9 parameters) outperforms the standard mass-plus-redshift model ($\ln Z = -1475.5$, 13 parameters) by $\ln{\rm BF} = +64.1$ with four fewer parameters — decisive on the Kass–Raftery scale. This comparison does not depend on TEP-conditioned orthogonalization. The orthogonalized sensitivity analysis — where mass and redshift controls are orthogonalized to prevent them from assigning the shared variance to raw observed mass — yields $\ln {\rm BF} = +150.8$ in favour of TEP over the null, and a mean $\ln{\rm BF} = +126.2$ across eleven alternatives. This family is TEP-conditioned (alternatives have mass stripped of $R_{\rm ML}$-correlated variance) and is reported as a secondary sensitivity analysis. The conventional residual-space comparison yields $\ln {\rm BF} = -6.0$ in favour of the null over TEP. One negative result remains: in the residual space, a constrained AGN model (10 parameters) outperforms TEP ($\ln {\rm BF} = -34.9$), indicating that the AGN-threshold predictor captures residual variance that the TEP predictor does not. This is not a contradiction of the joint-space result ($\ln {\rm BF} = +118.1$ versus AGN), but it shows that the orthogonalized residual space removes the mass-related variance that TEP relies on, leaving the AGN model's additional flexibility to fit the remaining structure. The covariance-corrected comparison, which does not depend on orthogonalization, remains the primary test.
+        <strong>Alternative explanations:</strong> A fully nested Bayesian evidence computation yields comparison families under both conditionings of the predictor space, arbitrated by the nested augmented model. In the covariance-corrected joint family, the TEP model ($\ln Z = -1411.4$, 9 parameters) outperforms the orthogonalized standard model ($\ln Z = -1475.5$, 13 parameters) by $\ln{\rm BF} = +64.5$, while the unconditioned raw mass+z baseline is the best model in the ensemble ($\ln Z = -1403.5$, $\ln{\rm BF} = -7.8$ over TEP). Neither conditioning is neutral: orthogonalization strips the competitor's $R_{\rm ML}$-aligned channel, whereas raw mass under the TEP measurement model already contains a $0.7\log_{10}R_{\rm ML}$ component of the response. The nested augmented model gives the marginal contributions — adding $\log R_{\rm ML}$ to mass+z yields $\Delta\ln Z = -6.8$; adding mass+z to $R_{\rm ML}$ yields $\Delta\ln Z = +1.0$ — and the direction-isolation diagnostic assigns $72.3$ ln units to the $R_{\rm ML}$-aligned direction of mass space. The orthogonalized sensitivity family yields $\ln {\rm BF} = +151.4$ in favour of TEP over the residual null, and a mean $\ln{\rm BF} = +123.9$ across eleven parametric stand-ins; the symmetric conventional residualization yields $\ln {\rm BF} = -3.9$ for the null. A log-gamma standardization check confirms robustness to the scaling choice ($\Delta\ln{\rm BF} = 1.8$). The Bayesian evidence is thus read as channel consistency — the variance is concentrated in the theory-predicted direction, which a single theory-fixed predictor captures competitively — rather than as functional-form discrimination against the mass+z family.
     </li>
     <li>
-        <strong>TEP mass correction does not improve astrophysical model fits:</strong> A direct test of the TEP measurement-correction framework applies the correction $M_{\rm true} = M_{\rm obs} - 0.7\log_{10} R_{\rm ML}$ to four standard astrophysical models (Standard Physics, Bursty Star Formation, Varying IMF, AGN Feedback) and compares nested-sampling evidence against the same models with uncorrected mass. The correction is neutral across all four models ($\ln {\rm BF} = +0.3$, $+0.6$, $+1.0$, $-3.4$), with a mean $\ln {\rm BF} = -0.4$ — statistically indistinguishable from zero. This null result means the TEP mass correction, while directionally consistent with the dynamical-mass reconciliation (L4), does not yet recover the true physical driver in a way that improves standard astrophysical model fits. The evidence for TEP therefore rests on the correlation structure (L1, L3, L5) and the regime-level dynamical-mass comparison (L4), not on the mass correction improving forward-model fits. Here L1 is the primary photometric line and L3 is a secondary partial-correlation line.
+        <strong>TEP mass correction and astrophysical model fits:</strong> A direct test of the TEP measurement-correction framework applies the correction $M_{\rm true} = M_{\rm obs} - 0.7\log_{10} R_{\rm ML}$ to four standard astrophysical models (Standard Physics, Bursty Star Formation, Varying IMF, AGN Feedback) and compares nested-sampling evidence against the same models with uncorrected mass, using non-orthogonalized mass to preserve the correction signal. The correction yields mixed results: the Varying IMF model improves significantly ($\ln {\rm BF} = +7.0$), while the linear models (Standard Physics $\ln {\rm BF} = -7.9$, Bursty SF $\ln {\rm BF} = -8.6$) and AGN Feedback ($\ln {\rm BF} = -2.8$) do not benefit, with a mean $\ln {\rm BF} = -3.1$. The improvement in the quadratic IMF model is physically meaningful: the TEP correction changes the mass scale in a way that the quadratic mass term is sensitive to, while linear coefficients can absorb a pure scale shift without improvement. The evidence for TEP therefore rests on the correlation structure (L1, L3, L5), the regime-level dynamical-mass comparison (L4), and the channel consistency established by the Bayesian comparison, with the mass correction providing partial support through the IMF channel. Here L1 is the primary photometric line and L3 is a secondary partial-correlation line.
     </li>
     <li>
         <strong>Response coefficient uncertainty:</strong> The prespecified canonical
-        benchmark is $\kappa_{\rm gal} = (9.6 \pm 4.0) \times 10^5$ mag from Paper 11
-        (with independent empirical checks yielding $(0.369 \pm 0.310)\times 10^6$ and $(0.400 \pm 0.270)\times 10^6$ mag).
-        Full propagation through the $R_{\rm ML}$ formula confirms that the
-        Red Monster SFE anomaly is substantially resolved at the central value
-        (mean corrected SFE $\sim 0.18$, below the $\Lambda$CDM limit of
-        0.20; Table 3b). The two most massive objects are fully resolved;
-        the least massive is 85% resolved. The correction is not fully
-        robust to the lower benchmark bound: at the lower $1\sigma$ of the Paper 11 range,
-        the mean corrected SFE rises to $\sim 0.26$, above the $\Lambda$CDM limit.
+        benchmark is $\kappa_{\rm gal} = (9.6 \pm 4.0) \times 10^5$ mag from Paper 11,
+        while the independent empirical Cepheid-channel fits recover
+        $(0.369 \pm 0.310)\times 10^6$ and $(0.400 \pm 0.270)\times 10^6$ mag —
+        a factor $\sim 2.4$ below the canonical value, carried as an open
+        normalization discrepancy of the corpus (Paper 11; the unresolved
+        response-normalization class of Paper 0), not a resolved agreement.
+        Full propagation through the $R_{\rm ML}$ formula gives a corrected
+        Red Monster SFE spanning $\sim 0.12$–$0.26$ across the benchmark's
+        $1\sigma$ range (Table 3b): the anomaly is resolved at the central
+        value ($\sim 0.18$, below the $\Lambda$CDM limit of 0.20) and fully
+        resolved at the upper bound, but only partially resolved at the lower
+        bound ($\sim 0.26$, above the limit) — the resolution is
+        prior-range dependent. The two most massive objects are fully resolved;
+        the least massive is 85% resolved at the central value.
         The JWST dust-only and joint concordance
-        recoveries are consistent with
-        the canonical benchmark, but because they arise within the same
-        high-redshift, mass-proxy-linked evidence they are classified
+        recoveries ($(8.38 \pm 4.11) \times 10^5$ mag) are consistent with
+        the canonical benchmark at $0.21\sigma$ but equally within
+        $\sim 1.1\sigma$ of the empirical Cepheid values, so they do not
+        discriminate between the two anchors; because they also arise within
+        the same high-redshift, mass-proxy-linked evidence they are classified
         as internal consistency checks rather than as tighter replacement
         constraints. An earlier result of $0.60 \pm 0.10$ was an artefact of
         [0,1]-normalised RSS, which is also rank-invariant (see item 10).
@@ -409,7 +461,12 @@ The limitations below are organised by tier, following the claim hierarchy of Pa
         rank order. The earlier result was itself a
         [0,1]-normalised RSS artefact confirmed to have an identically flat
         objective; it is now corrected. Per-bin Spearman or normalised-RSS
-        optimisation is not a valid $\kappa_{\rm gal}$ estimator.
+        optimisation is not a valid $\kappa_{\rm gal}$ estimator. Rank-invariant
+        information is, however, not the only information the photometric sample
+        carries: functional-form discrimination is achieved instead through the
+        placebo comparison and the kernel-sign structure of the narrow-mass-bin
+        correlations (§3.4.1), both of which now resolve the TEP form against
+        generic mass-$z$ alternatives.
     </li>
 </ul>
 
@@ -422,6 +479,10 @@ Falsification: If sufficiently large JWST/MIRI samples establish a
 persistent lack of correlation ($\rho(M_*, A_V) \approx 0$) at $z > 8$
 under rigorous selection control, the TEP prediction of emergence is
 ruled out.
+</p>
+
+<p>
+    The joint-covariance result is conditioning-dependent: $\ln {\rm BF} = +64.5$ under orthogonalized predictors versus $-7.8$ under raw mass+z (physical subset $+63.3$ versus $-14.2$), with the nested augmented model showing the two predictor families mutually subsumed ($\Delta\ln Z = -6.8$ and $+1.0$ for the two nestings). The residual-space pair shows the same split ($+151.4$ orthogonalized versus $-3.9$ conventional). Neither conditioning is neutral — orthogonalization removes the competitor's access to the $R_{\rm ML}$-aligned direction, while raw mass under the TEP measurement model already contains part of the response — so the comparison is reported as channel consistency: the explanatory variance is concentrated in the $R_{\rm ML}$ direction (direction-isolation diagnostic $+72.3$ ln units), and the theory-fixed predictor recovers the full augmented model within one log-evidence unit, but the linear mass+z family is not excluded. The $\kappa_{\rm gal} = 0.96 \times 10^6$ benchmark is prespecified from Paper 11, not independently calibrated here; the concordance confirms the benchmark propagates correctly to the high-redshift regime.
 </p>
 
 <p>

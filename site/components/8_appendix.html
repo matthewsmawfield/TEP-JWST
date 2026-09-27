@@ -122,15 +122,17 @@
   </p>
 
   <h4>A.1.3 PPN Parameters</h4>
-  <p>In the unscreened limit, the Eddington PPN parameter is:</p>
+  <p>For an unscreened photon probe and a screened scalar source charge, the
+    Eddington PPN parameter follows the linear source-charge mapping:</p>
   <div class="equation">
     \begin{equation} \label{eq:jwst_ppn_gamma}
-    \gamma - 1 = -\frac{2\alpha_{\rm photon}^2}{1 + \alpha_{\rm photon}^2}
+    \gamma - 1 = -\frac{2\,\alpha_0\,\alpha_{\rm eff}}{1 + \alpha_0\,\alpha_{\rm eff}}
+    = -\frac{4\beta_A^2\,S_\Sigma(\mathcal{E})}{1 + 2\beta_A^2\,S_\Sigma(\mathcal{E})}
     \end{equation}
   </div>
   <p>
-    For an unscreened bare coupling $\beta_A \sim 0.8$, this would give $|\gamma -
-    1| \approx 0.5$, which would violate Cassini bounds by four orders of
+    For a partially screened source charge $S_\Sigma \sim 0.8$ (bare $\beta_A = -1.0$, Paper 0 §2.2), this would give $|\gamma -
+    1| \approx 1.2$, violating the Cassini bound by more than four orders of
     magnitude. Near massive bodies, the locally active PPN scalar charge is
     suppressed by source/environment screening (Temporal Shear flattening), bringing
     $|\gamma - 1|_{\rm eff} \lesssim 10^{-6}$ into compliance with observations
@@ -185,12 +187,11 @@
   </p>
   <p>
     The relationship between the magnitude correction $\Delta M$ and the 
-    exponential kernel follows from the stellar population scaling $M/L \propto t^n$ 
-    with $n \approx 0.7$:
+    exponential kernel is defined at the reference stellar-population transfer $M/L \propto t^{n_{\rm ref}}$ with $n_{\rm ref}=0.7$:
   </p>
   <div class="equation">
     \begin{equation} \label{eq:jwst_delta_mag}
-    \Delta M = -2.5 \log_{10}(R_{\rm ML}^n) = \frac{2.5 n K}{\ln 10} \frac{\Delta\Phi}{c^2}
+    \Delta M = -2.5 \log_{10}(R_{\rm ML}^{n_{\rm ref}}) = \frac{2.5 n_{\rm ref} K}{\ln 10} \frac{\Delta\Phi}{c^2}
     \end{equation}
   </div>
   <p>
@@ -199,11 +200,11 @@
   </p>
   <div class="equation">
     \begin{equation} \label{eq:jwst_kgal_normalization}
-    K = \frac{\kappa_{\rm gal} \ln 10}{2.5 n} \approx 1.26 \times 10^6
+    K_{\rm gal} = \frac{\kappa_{\rm gal} \ln 10}{2.5 n_{\rm ref}} = 1.263 \times 10^6
     \end{equation}
   </div>
   <p>
-    Here $\kappa_{\rm gal}$ denotes the derived galaxy-sector effective response
+    This equation defines a fixed transfer convention: $n_{\rm ref}$ is not replaced by the population-dependent $n_{\rm SPS}$ used subsequently in mass and SFE corrections. Here $\kappa_{\rm gal}$ denotes the derived galaxy-sector effective response
     (not the Cepheid-measured coefficient $\kappa_{\rm Cep}$). Neither $K$
     nor $\kappa_{\rm gal}$ is identified with $\beta$, $\kappa_{\rm Cep}$, or
     $\alpha_{\rm clock}$. A microscopic mapping requires a solved transfer
@@ -259,11 +260,14 @@
       <tbody>
         <tr>
           <td><strong>Functional form</strong></td>
-          <td>Exponential (Potential-Linear): $R_{\rm ML} = \\exp\\left[ K_{\\rm gal} \\left(\\frac{\\Phi - \\Phi_{\\rm ref}}{c^2}\\right) \\sqrt{1+z} \\right]$</td>
+          <td>Exponential (Depth-Linear): $R_{\rm ML} = \\exp\\left[ K_{\\rm gal} \\left(\\Psi - \\Psi_{\\rm ref}\\right) \\sqrt{1+z} \\right]$, with positive potential depth $\Psi = |\\Phi|/c^2 = -(\\Phi - \\Phi_{\\rm ref})/c^2 - \\Psi_{\\rm ref}$</td>
           <td>
             Conformal coupling $\tilde{g}_{\mu\nu} = A^2(\phi)
             g_{\mu\nu}$ with $A(\phi) = \exp(\beta_A\phi/M_{\rm Pl})$
-            implies proper time $d\tau \propto A(\phi) dt$
+            implies proper time $d\tau \propto A(\phi) dt$: deeper
+            wells accumulate less matter-frame time, so the
+            stellar-population age deficit — and hence the
+            mass-to-light over-inference — grows with depth
           </td>
           <td>
             Log-Mass approximation: $R_{\rm ML} = \\exp\\left[ \\alpha(z) \\cdot \\frac{2}{3} \\cdot (\\log_{10} M_h - \\log_{10} M_{h,\\rm ref}) \\cdot \\frac{1+z}{1+z_{\\rm ref}} \\right]$; power-law or other monotonic functions of potential depth
@@ -370,7 +374,7 @@
     $\kappa_{\rm gal}$ is drawn from the canonical benchmark
     ($\kappa_{\rm gal} = 9.6 \times 10^5$ mag from Paper 11), not tuned to JWST data. The galaxy-sector
     response $K_{\rm gal}$ is derived from $\kappa_{\rm gal}$ via the stellar-population
-    transfer $K_{\rm gal} = \kappa_{\rm gal}\ln 10/(2.5\,n)$—there is a phenomenological transfer to the stellar-population
+    transfer $K_{\rm gal} = \kappa_{\rm gal}\ln 10/(2.5\,n_{\rm ref})$ with fixed $n_{\rm ref}=0.7$—there is a phenomenological transfer to the stellar-population
     sector. However, the $R_{\rm ML}$ formula itself embeds structural assumptions
     about how the inference-channel response scales with mass, redshift, and potential
     depth. These assumptions are theoretically motivated (not arbitrary), but they
@@ -440,7 +444,7 @@
   </div>
   <p>
     where $G_{\rm eff} = G_N (1 + 2\beta_A^2)$ in the unscreened regime. For
-    For representative halo-scale coupling ($\beta_A \approx 0.58$), the
+    For an illustrative halo-scale screened effective coupling ($\beta_{A,\rm eff} \approx 0.58$ — a representative value at halo environmental depth, distinct from the $\sigma_8$-scale coupling below; bare $\beta_A = -1.0$, Paper 0 §2.2), the
     effective gravity would be enhanced by a factor of $\sim 1.67$ in the unscreened regime.
     Scale-independent integration yields $\sigma_8^{\rm TEP} \approx
     3.40$—observationally ruled out by Planck ($\sigma_8 = 0.811 \pm
@@ -448,18 +452,21 @@
   </p>
   <p>
     The scale-dependent calculation solves the growth ODE independently for
-    each Fourier mode $k$ with the full Yukawa coupling $G_{\rm
+    each Fourier mode $k$ with the full TEP-screened effective coupling $G_{\rm
     eff}(k,z)/G_N = 1 + 2\beta_A^2 k^2/(k^2 + m_\phi(z)^2)$ (see §A.1.8.6).
     The key constraint is:
   </p>
   <ul>
     <li>
-      The Compton wavelength must be $\lambda_C \lesssim 30\,h^{-1}$ Mpc
-      today to suppress growth on $8\,h^{-1}$ Mpc scales
+      Suppression of the $k_8 = 0.785\,h$/Mpc mode requires $m_{\phi,0} \gg
+      k_8$: the scale-dependent scan (Step 135) requires $m_{\phi,0} \gtrsim
+      0.43\,h$/Mpc ($\lambda_C \lesssim 14.6\,h^{-1}$ Mpc) for $2\sigma$
+      consistency, with best fit $m_{\phi,0} = 100\,h$/Mpc ($\lambda_C =
+      0.063\,h^{-1}$ Mpc)
     </li>
     <li>
-      For typical Temporal Topology parameters ($\lambda_C \lesssim 1$ Mpc),
-      $\beta_{A,\rm eff}$ on $R_8$ scales is $\approx 0.005$, and
+      At that best fit, $\beta_{A,\rm eff}(k_8) = \beta_A\,k_8/\sqrt{k_8^2
+      + m_{\phi,0}^2} = 0.0079$, and
       $\sigma_8^{\rm TEP} = 0.811$—identical to Planck
     </li>
     <li>
@@ -487,7 +494,7 @@
     inference-channel response must be screened and/or short-ranged on $\sigma_8$
     scales. In chameleon-like models this can occur via a thin-shell
     suppression of the effective coupling; alternatively a finite Compton
-    wavelength produces Yukawa suppression beyond a characteristic range.
+    wavelength produces TEP screening (topology pinning) beyond the topological correlation length.
   </p>
 
   <h4>A.1.9 Scale-Dependent Screening: A Quantitative Model</h4>
@@ -517,7 +524,7 @@
     object is deeply screened, and GR is recovered; when $S \ll 1$, the
     scalar field is active. The physical screening length is set by the
     coherence scale $\lambda_T$ (the Compton wavelength at the ambient
-    density), which is constrained observationally via $\sigma_8$ and RSD
+    density under the chameleon completion; equivalently the saturation scale $R_T$ under the TEP saturation-radius completion), which is constrained observationally via $\sigma_8$ and RSD
     consistency. The specific dynamical origin of the saturation—whether
     from a density-dependent effective mass (chameleon-type) or non-linear
     derivative interactions (kinetic/DBI-type)—does not affect the
@@ -739,7 +746,7 @@
   </div>
   <p>with the scale-dependent coupling incorporating the screening length:</p>
   <div class="equation">
-    \begin{equation} \label{eq:jwst_geff_yukawa}
+    \begin{equation} \label{eq:jwst_geff_tep_screened}
     \frac{G_{\rm eff}(k,z)}{G_N} = 1 + 2\beta^2 \frac{k^2}{k^2 +
     m_\phi(z)^2}
     \end{equation}
@@ -752,7 +759,8 @@
     $k \gg m_\phi$ (inside the Compton wavelength), $G_{\rm eff} \to
     G_N(1+2\beta^2)$; on scales $k \ll m_\phi$ (outside), $G_{\rm eff} \to
     G_N$. The effective coupling at $k_8 = 0.79\,h$/Mpc is $\beta_{\rm eff}
-    = \beta \cdot k_8/\sqrt{k_8^2 + m_\phi^2} \approx 0.008$, yielding
+    = \beta \cdot k_8/\sqrt{k_8^2 + m_\phi^2} \approx 0.0079$ at the
+    best-fit $m_{\phi,0} = 100\,h$/Mpc (Step 135), yielding
     $G_{\rm eff}/G_N = 1 + 2\beta_{\rm eff}^2 \approx 1.00012$ — well below
     the Planck bound of $\lesssim 1.006$. This is solved over a grid of 500
     $k$-modes from $10^{-4}$ to $50\,h$/Mpc, with initial conditions
@@ -943,7 +951,7 @@
   </div>
   <p>
     The pipeline-verified effective coupling at $k_8$ is $\beta_{\rm eff}
-    \approx 0.008$ (step 135), giving $G_{\rm eff}/G_N = 1 + 2\beta_{\rm
+    \approx 0.0079$ (step 135, at the best-fit $m_{\phi,0} = 100\,h$/Mpc), giving $G_{\rm eff}/G_N = 1 + 2\beta_{\rm
     eff}^2 \approx 1.00012$ — well
     below the Planck bound of $\lesssim 1.006$ (Table A3). The
     $\sigma_8^{\rm TEP}$ and CMB deviation values in Table A4 are computed
@@ -1069,7 +1077,7 @@
     <p>
       The CAMB integration uses the standard $\Lambda$CDM Boltzmann
       hierarchy for the photon-baryon fluid and modifies only the
-      late-time growth via $G_{\rm eff}(k,z)$. These CAMB calculations are conventional-background compatibility embeddings used to demonstrate that the local screened sector need not spoil observed CMB/growth phenomenology; they are not the canonical static-space TEP cosmological solution. This is justified because
+      late-time growth via $G_{\rm eff}(k,z)$. These CAMB calculations are conventional-background compatibility embeddings on the inverse-power $n=1$ branch — the potential family excluded by Paper 0's constraint F1 under $\beta_A = -1$ — used to demonstrate that a screened scalar sector need not spoil observed CMB/growth phenomenology; they are a proxy for the screened-scalar sector, not the canonical static-space TEP cosmological solution, and the viability result transfers to canonical $V(\phi)$ only conditionally. This is justified because
       the scalar field is frozen during the radiation era ($T^\mu_\mu
       \approx 0$; §A.1.7), so the primary acoustic peaks at $z \sim 1089$
       are unmodified. A natively coupled scalar-field Boltzmann solver
@@ -1120,7 +1128,7 @@
     sub-solar-system length and cannot play the role of a galactic
     screening radius. The screening length is instead set by the separate
     coherence scale $\lambda_T$, the Compton wavelength of the scalar field
-    at the ambient density, which is constrained observationally via
+    at the ambient density under the chameleon completion (equivalently the saturation scale $R_T$ under the TEP saturation-radius completion), which is constrained observationally via
     $\sigma_8$ and RSD consistency (§A.1.9).
   </p>
   <p>
@@ -1183,7 +1191,7 @@
     realization of the effective Temporal Topology framework (§A.1). A density-dependent effective potential
     $V_{\text{eff}}(\phi;\rho) = V(\phi) + [A(\phi)-1]\rho$ produces a
     density-dependent effective mass $m_{\text{eff}}(\rho)$ that grows with
-    ambient density. The scalar force is Yukawa-suppressed beyond the
+    ambient density. The temporal shear is killed by topology pinning beyond the
     Compton wavelength $\lambda_C = 1/m_{\text{eff}}$. For the potential
     $V(\phi) = \Lambda^4[1 + (\Lambda/\phi)^n]$, the field minimum shifts
     to large $m_{\text{eff}}$ in dense environments, recovering GR via the
@@ -1266,7 +1274,7 @@
     mechanisms produce the same hierarchy under appropriate parameter
     choices. The distinguishing observable would be the suppression profile
     in the transition regime ($S \sim 1$): Temporal Topology screening predicts
-    exponential (Yukawa) falloff while kinetic screening predicts power-law
+    exponential (TEP screening) falloff while kinetic screening predicts power-law
     (gradient) saturation. This has not yet been tested.
   </p>
 
@@ -1304,12 +1312,9 @@
       hierarchy. Paper 11 noted that the
       screening mechanism "remains to be derived from first principles"
       and that the phenomenology "mimics chameleon or Vainshtein
-      screening." This agnostic position is adopted here: the robust
-      empirical finding is the saturation scale $\rho_T \approx 20$
-      g/cm³ and the resulting screening hierarchy, not the specific
-      Lagrangian realization. Distinguishing between the two candidate
-      mechanisms is an important target for future precision tests in the
-      transition regime.
+      screening." This agnostic position has now been superseded: Paper 0 v0.15 assigns local screening to the nested two-body operator $\mathcal{R}(s)=\mathcal{S}_\Sigma(X_{\rm env})^2\,y(s)$ — the effective pairwise projection of the master environmental operator $\mathcal{S}_\Sigma(\mathcal{E})$ under the derived kinetic completion $P=X-V+X|X|/\Lambda^4$, with machine-checked benchmarks. The robust
+      empirical finding — the saturation scale $\rho_T \approx 20$
+      g/cm³ and the resulting screening hierarchy — is anchored to this operator structure. The chameleon and DBI mechanisms remain candidate alternative completions.
     </p>
   </div>
 
@@ -1327,24 +1332,24 @@
   """Compute the positive dimensionless virial depth Psi = |Phi|/c^2 at z=0."""
   return 1.6e-7 * (10**log_Mh / 1e12)**(2/3)
 
-def compute_ml_response_from_depth(psi, z, kappa=None, n=ALPHA_NUCLEAR):
+def compute_ml_response_from_depth(psi, z, kappa=None):
   """
   Compute the positive mass-to-light inference response from potential depth.
 
   R_ML = exp[ K_gal * (Psi - Psi_ref,0) * sqrt(1+z) ],
-  where K_gal = kappa * ln(10) / (2.5*n). The kappa argument is a
+  where K_gal = kappa * ln(10) / (2.5*n_ref), n_ref = 0.7. The kappa argument is a
   magnitude-sector observable response coefficient, not the conformal factor,
   a local proper-time ratio, or a bare scalar coupling.
   """
   eff_kappa = KAPPA_GAL if kappa is None else kappa
-  k_exp = (eff_kappa * np.log(10)) / (2.5 * n)
+  k_exp = (eff_kappa * np.log(10)) / (2.5 * RESPONSE_KERNEL_N_REF)
   argument = k_exp * (np.asarray(psi) - PHI_REF_0) * np.sqrt(1 + np.asarray(z))
   return np.exp(argument)
 
-def compute_ml_response(log_Mh, z, kappa=None, n=ALPHA_NUCLEAR):
+def compute_ml_response(log_Mh, z, kappa=None):
   """Compute the observable mass-to-light response from halo mass and redshift."""
   psi = get_potential_depth_from_log_mh(log_Mh)
-  return compute_ml_response_from_depth(psi, z, kappa=kappa, n=n)</code></pre>
+  return compute_ml_response_from_depth(psi, z, kappa=kappa)</code></pre>
   </div>
 
   <h3>B.2 Differential Central-versus-Halo Temporal Structure</h3>

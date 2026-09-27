@@ -5,44 +5,79 @@
   "direct_kinematic_measurements_used": false,
   "n_kinematic_regime": 71,
   "global_stats": {
-    "mean_gamma_t": 2.0362791164330556,
-    "mean_mass_correction_factor": 1.1211281424112391,
-    "mean_delta_logMstar_dex": 0.00598138944929003
+    "mean_gamma_t": 1.0688618420421905,
+    "mean_mass_correction_factor": 1.0018279059389235,
+    "mean_delta_logMstar_dex": -0.008678665636873561
   },
   "sub_regimes": [
     {
       "regime": "z=4\u20135,  logM*=9.5\u201310.5",
       "n": 30,
-      "mean_gamma_t": 0.8339003869175126,
-      "median_gamma_t": 0.7898027099448954,
-      "mean_correction": 0.9105447808698116,
-      "median_correction": 0.8887082792281433,
-      "mean_delta_logMstar": -0.04187221902579973
+      "mean_gamma_t": 0.8489850099621087,
+      "median_gamma_t": 0.8154413821835802,
+      "mean_correction": 0.9195316719231618,
+      "median_correction": 0.9030175258846316,
+      "mean_delta_logMstar": -0.03727624173248489
     },
     {
       "regime": "z=5\u20137,  logM*>9.5",
       "n": 20,
-      "mean_gamma_t": 1.0080312948886407,
-      "median_gamma_t": 0.7584354257772725,
-      "mean_correction": 0.9741550662289352,
-      "median_correction": 0.8708819224580344,
-      "mean_delta_logMstar": -0.021368606773748765
+      "mean_gamma_t": 0.9250302935255611,
+      "median_gamma_t": 0.7877780877411636,
+      "mean_correction": 0.9513180592185227,
+      "median_correction": 0.8875684697937423,
+      "mean_delta_logMstar": -0.025821071904468872
     },
     {
       "regime": "z>7,    logM*>9.5",
       "n": 21,
-      "mean_gamma_t": 4.733246655307083,
-      "median_gamma_t": 0.9683768359976316,
-      "mean_correction": 1.5619358743107103,
-      "median_correction": 0.9840613984897647,
-      "mean_delta_logMstar": 0.10039130272135997
+      "mean_gamma_t": 1.5199540293152873,
+      "median_gamma_t": 0.9738601099394754,
+      "mean_correction": 1.1674985704570597,
+      "median_correction": 0.9868435083332491,
+      "mean_delta_logMstar": 0.04850111570694767
     }
   ],
   "published_tension_resolution": {
     "regime": "z~4.5, log M*>10.5 (RUBIES-like)",
+    "n_regime_objects": 1,
     "published_excess_dex": 0.15,
-    "tep_reduction_dex": 0.27048117537478333,
-    "resolved": true
+    "tep_reduction_dex": 0.13925481178778654,
+    "resolved": false,
+    "kappa_sensitivity": {
+      "kappa_empirical_cepheid": {
+        "kappa_mag": 400000.0,
+        "kappa_over_canonical": 0.4166666666666667,
+        "mean_reduction_dex": 0.05802283824491106,
+        "mean_corrected_excess_dex": 0.09197716175508894,
+        "mean_corrected_ratio": 1.2358824403829172,
+        "n_resolved": 0
+      },
+      "kappa_canonical_minus_1sigma": {
+        "kappa_mag": 560000.0,
+        "kappa_over_canonical": 0.5833333333333334,
+        "mean_reduction_dex": 0.08123197354287548,
+        "mean_corrected_excess_dex": 0.06876802645712451,
+        "mean_corrected_ratio": 1.1715694176830738,
+        "n_resolved": 0
+      },
+      "kappa_canonical": {
+        "kappa_mag": 960000.0,
+        "kappa_over_canonical": 1.0,
+        "mean_reduction_dex": 0.13925481178778654,
+        "mean_corrected_excess_dex": 0.010745188212213458,
+        "mean_corrected_ratio": 1.0250503262841386,
+        "n_resolved": 0
+      },
+      "kappa_canonical_plus_1sigma": {
+        "kappa_mag": 1360000.0,
+        "kappa_over_canonical": 1.4166666666666667,
+        "mean_reduction_dex": 0.1972776500326976,
+        "mean_corrected_excess_dex": -0.0472776500326976,
+        "mean_corrected_ratio": 0.8968552401215514,
+        "n_resolved": 1
+      }
+    }
   },
   "object_level_beta_bootstrap": {
     "n_galaxies": 3,
@@ -2156,7 +2191,75 @@
       "regime": "Direct object-level kinematic sample",
       "published_excess_dex": 0.259419,
       "tep_reduction_dex": 0.24460820269180514,
-      "resolved": false
+      "resolved": false,
+      "kappa_sensitivity": {
+        "kappa_empirical_cepheid": {
+          "kappa_mag": 400000.0,
+          "kappa_over_canonical": 0.4166666666666667,
+          "mean_reduction_dex": 0.12185108113108717,
+          "mean_corrected_excess_dex": 0.046262168868913045,
+          "mean_corrected_ratio": 1.2610406289713993,
+          "n_resolved": 1
+        },
+        "kappa_canonical_minus_1sigma": {
+          "kappa_mag": 560000.0,
+          "kappa_over_canonical": 0.5833333333333334,
+          "mean_reduction_dex": 0.170591513583522,
+          "mean_corrected_excess_dex": -0.0024782635835218086,
+          "mean_corrected_ratio": 1.1418502347157746,
+          "n_resolved": 1
+        },
+        "kappa_canonical": {
+          "kappa_mag": 960000.0,
+          "kappa_over_canonical": 1.0,
+          "mean_reduction_dex": 0.2924425947146092,
+          "mean_corrected_excess_dex": -0.124329344714609,
+          "mean_corrected_ratio": 0.893137778514494,
+          "n_resolved": 3
+        },
+        "kappa_canonical_plus_1sigma": {
+          "kappa_mag": 1360000.0,
+          "kappa_over_canonical": 1.4166666666666667,
+          "mean_reduction_dex": 0.4142936758456964,
+          "mean_corrected_excess_dex": -0.24618042584569616,
+          "mean_corrected_ratio": 0.7009132036815602,
+          "n_resolved": 3
+        }
+      },
+      "kappa_sensitivity_anomalous_subset": {
+        "kappa_empirical_cepheid": {
+          "kappa_mag": 400000.0,
+          "kappa_over_canonical": 0.4166666666666667,
+          "mean_reduction_dex": 0.1019200844549188,
+          "mean_corrected_excess_dex": 0.1574989155450812,
+          "mean_corrected_ratio": 1.509426223324497,
+          "n_resolved": 0
+        },
+        "kappa_canonical_minus_1sigma": {
+          "kappa_mag": 560000.0,
+          "kappa_over_canonical": 0.5833333333333334,
+          "mean_reduction_dex": 0.14268811823688632,
+          "mean_corrected_excess_dex": 0.11673088176311368,
+          "mean_corrected_ratio": 1.3769971113188106,
+          "n_resolved": 0
+        },
+        "kappa_canonical": {
+          "kappa_mag": 960000.0,
+          "kappa_over_canonical": 1.0,
+          "mean_reduction_dex": 0.24460820269180514,
+          "mean_corrected_excess_dex": 0.014810797308194873,
+          "mean_corrected_ratio": 1.095102533754346,
+          "n_resolved": 2
+        },
+        "kappa_canonical_plus_1sigma": {
+          "kappa_mag": 1360000.0,
+          "kappa_over_canonical": 1.4166666666666667,
+          "mean_reduction_dex": 0.3465282871467239,
+          "mean_corrected_excess_dex": -0.08710928714672395,
+          "mean_corrected_ratio": 0.8715299943741276,
+          "n_resolved": 2
+        }
+      }
     },
     "object_level_summary": {
       "n_objects_total": 5,

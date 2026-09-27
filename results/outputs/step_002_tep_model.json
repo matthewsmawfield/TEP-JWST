@@ -1,6 +1,13 @@
 {
   "kappa_gal": 960000.0,
   "kappa_gal_uncertainty": 400000.0,
+  "response_kernel_n_ref": 0.7,
+  "response_kernel_scope": "fixed at every redshift",
+  "correction_stage_n_sps": {
+    "z_le_4": 0.7,
+    "4_lt_z_le_6": 0.9,
+    "z_gt_6": 0.5
+  },
   "log_Mh_ref": 12.0,
   "z_ref": 5.5,
   "quantity_dictionary": {
@@ -10,29 +17,29 @@
     "legacy_gamma_t_column": "Alias of ml_response for compatibility"
   },
   "ml_response_stats_full": {
-    "min": 0.4113969414323777,
-    "max": 8.374159258810193,
-    "median": 0.6921538653116474,
+    "min": 0.5285940863602164,
+    "max": 6.0300843506077735,
+    "median": 0.6264009591489367,
     "n_gt_1": 17,
-    "n_gt_1p5": 9
+    "n_gt_1p5": 6
   },
   "ml_response_stats_multi": {
-    "min": 0.4113969414323777,
-    "max": 8.374159258810193,
-    "median": 0.7044381930861683
+    "min": 0.5285940863602164,
+    "max": 6.0300843506077735,
+    "median": 0.6397351889028139
   },
   "gamma_t_stats_full": {
     "legacy_alias_for": "ml_response_stats_full",
-    "min": 0.4113969414323777,
-    "max": 8.374159258810193,
-    "median": 0.6921538653116474,
+    "min": 0.5285940863602164,
+    "max": 6.0300843506077735,
+    "median": 0.6264009591489367,
     "n_gt_1": 17,
-    "n_gt_1p5": 9
+    "n_gt_1p5": 6
   },
   "gamma_t_stats_multi": {
     "legacy_alias_for": "ml_response_stats_multi",
-    "min": 0.4113969414323777,
-    "max": 8.374159258810193,
-    "median": 0.7044381930861683
+    "min": 0.5285940863602164,
+    "max": 6.0300843506077735,
+    "median": 0.6397351889028139
   }
 }

@@ -1,12 +1,12 @@
-[17:17:19] INFO        ======================================================================
-[17:17:19] INFO        STEP 34: CEERS Data Download and Processing
-[17:17:19] INFO        ======================================================================
-[17:17:19] INFO    
-[17:17:19] INFO    Already present: ceers_cat_v1.0.fits.gz (204.0 MB) — skipping download.
-[17:17:20] INFO        
+[22:36:12] INFO        ======================================================================
+[22:36:12] INFO        STEP 34: CEERS Data Download and Processing
+[22:36:12] INFO        ======================================================================
+[22:36:12] INFO    
+[22:36:12] INFO    Already present: ceers_cat_v1.0.fits.gz (204.0 MB) — skipping download.
+[22:36:12] INFO        
 CEERS processed data already exists:
-[17:17:20] INFO          High-z sample (z > 4): N = 10483
-[17:17:20] INFO          z > 8 sample: N = 82
-[17:17:20] INFO    
-[17:17:20] INFO        Step 031 complete.
-[17:17:20] INFO        CEERS z > 8 sample ready for analysis: N = 82
+[22:36:12] INFO          High-z sample (z > 4): N = 10483
+[22:36:12] INFO          z > 8 sample: N = 82
+[22:36:12] INFO    
+[22:36:12] INFO        Step 031 complete.
+[22:36:12] INFO        CEERS z > 8 sample ready for analysis: N = 82

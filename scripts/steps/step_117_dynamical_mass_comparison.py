@@ -31,6 +31,8 @@ from scripts.utils.p_value_utils import safe_json_default  # JSON serialiser for
 from scripts.utils.tep_model import (
     compute_gamma_t as tep_compute_gamma_t,  # TEP model: Gamma_t formula
     stellar_to_halo_mass_behroozi_like,  # Stellar-to-halo mass from abundance matching
+    KAPPA_GAL,  # Canonical magnitude-sector response coefficient (mag)
+    KAPPA_GAL_UNCERTAINTY,  # 1-sigma canonical uncertainty (mag)
 )
 
 STEP_NUM  = "117"  # Pipeline step number (sequential 001-176)
@@ -46,6 +48,36 @@ INTERIM_DIR = PROJECT_ROOT / "results" / "interim"  # Pre-processed intermediate
 
 N_ML_HIGHZ = 0.5  # Mass-to-light power-law index for high-z isochrony correction
 N_BOOT = 2000  # Bootstrap iterations for beta confidence interval
+
+# Amplitude-calibration anchors for the kappa-sensitivity ledger. The mass
+# correction scales exactly linearly in kappa: log10(Gamma_t) ∝ kappa, so
+# delta_logM*(kappa) = delta_logM*(KAPPA_GAL) * (kappa / KAPPA_GAL).
+KAPPA_ANCHORS = {
+    "kappa_empirical_cepheid": 0.40e6,  # Paper 11 multi-block empirical recovery
+    "kappa_canonical_minus_1sigma": KAPPA_GAL - KAPPA_GAL_UNCERTAINTY,
+    "kappa_canonical": KAPPA_GAL,
+    "kappa_canonical_plus_1sigma": KAPPA_GAL + KAPPA_GAL_UNCERTAINTY,
+}
+
+
+def _kappa_sensitivity(delta_log_mstar, excess_arr, canonical_reduction):
+    """Ledger of corrected M*/M_dyn vs the admissible stellar-fraction band
+    across the kappa anchors. Resolution requires corrected excess < 0;
+    physically admissible stellar fractions within Re are ~0.3-0.9, i.e.
+    corrected excess in roughly [-0.5, -0.05] dex for these systems."""
+    rows = {}
+    for label, kappa in KAPPA_ANCHORS.items():
+        scaled = delta_log_mstar * (kappa / KAPPA_GAL)
+        corrected = excess_arr - scaled
+        rows[label] = {
+            "kappa_mag": float(kappa),
+            "kappa_over_canonical": float(kappa / KAPPA_GAL),
+            "mean_reduction_dex": float(np.mean(scaled)),
+            "mean_corrected_excess_dex": float(np.mean(corrected)),
+            "mean_corrected_ratio": float(np.mean(10.0 ** corrected)),
+            "n_resolved": int(np.sum(corrected <= 0)),
+        }
+    return rows
 
 KINEMATIC_TABLE_CANDIDATES = [
     PROJECT_ROOT / "data" / "interim" / "literature_kinematic_sample.csv",
@@ -380,6 +412,13 @@ def _run_direct_object_level(direct_sample):
             "published_excess_dex": published_excess_dex,
             "tep_reduction_dex": tep_reduction_dex,
             "resolved": bool(np.mean(corrected_excess[reference_mask]) <= 0),
+            "kappa_sensitivity": _kappa_sensitivity(
+                delta_log_mstar, observed_excess, tep_reduction_dex
+            ),
+            "kappa_sensitivity_anomalous_subset": _kappa_sensitivity(
+                delta_log_mstar[anomalous], observed_excess[anomalous],
+                tep_reduction_dex
+            ) if anomalous.any() else None,
         },
         "object_level_summary": {
             "n_objects_total": int(len(combined_direct_rows)),
@@ -486,6 +525,14 @@ def _run_regime_level_fallback():
     published_tension_dex = 0.15
     resolved = (n_rubies > 0) and (mean_delta_rubies >= published_tension_dex)
 
+    # kappa-sensitivity ledger: the corrected excess must land inside the
+    # admissible stellar-fraction band, not merely cross zero. Scaling is
+    # exact since delta_logM* is linear in kappa.
+    excess_ref = np.full(int(n_rubies), published_tension_dex)
+    kappa_ledger = _kappa_sensitivity(
+        delta_log_mstar[rubies_regime], excess_ref, mean_delta_rubies
+    ) if n_rubies > 0 else None
+
     print_status("\n--- Model Prediction vs Published Tension ---", "INFO")
     print_status(f"Published M*/M_dyn excess (de Graaff+24): ~{published_tension_dex:.2f} dex", "INFO")
     print_status(f"TEP mean reduction in this regime: {mean_delta_rubies:.2f} dex", "INFO")
@@ -505,9 +552,11 @@ def _run_regime_level_fallback():
         "sub_regimes": bin_results,
         "published_tension_resolution": {
             "regime": "z~4.5, log M*>10.5 (RUBIES-like)",
+            "n_regime_objects": int(n_rubies),
             "published_excess_dex": published_tension_dex,
             "tep_reduction_dex": mean_delta_rubies,
-            "resolved": bool(resolved)
+            "resolved": bool(resolved),
+            "kappa_sensitivity": kappa_ledger
         },
         "object_level_beta_bootstrap": None,
         "methodology": {

@@ -176,7 +176,7 @@
   "empirical_ceers_mass_calibrated_full_sample": {
     "sample_size": 202,
     "median_z": 5.65568733215332,
-    "median_log_mstar_empirical": 9.6639138510128,
+    "median_log_mstar_empirical": 9.663913851012808,
     "median_log_mstar_muv_proxy": 8.278529478553832,
     "median_mass_offset_empirical_minus_muv": 1.3320195477460466,
     "median_delta_gamma": 0.6046577888668273,
@@ -189,8 +189,8 @@
         "z"
       ],
       "training_sample_size": 40,
-      "loo_mae_dex": 0.29380998215895937,
-      "loo_pred_true_corr": 0.7733089366191294,
+      "loo_mae_dex": 0.2938099821589587,
+      "loo_pred_true_corr": 0.7733089366191296,
       "coefficients": {
         "Muv": 0.36866967791452354,
         "Av": -0.9218134213282206,
@@ -222,35 +222,35 @@
     },
     "scenarios": {
       "S0_standard": {
-        "median_log_mbh_mstar": -7.663913851012801,
-        "offset_from_observed_median_dex": -6.163913851012801,
+        "median_log_mbh_mstar": -7.663913851012808,
+        "offset_from_observed_median_dex": -6.163913851012808,
         "fraction_objects_in_observed_regime": 0.0,
         "median_extra_efolds": 0.0,
-        "p16_log_mbh_mstar": -8.078223606156099,
-        "p84_log_mbh_mstar": -7.130578864324139
+        "p16_log_mbh_mstar": -8.078223606156085,
+        "p84_log_mbh_mstar": -7.130578864324128
       },
       "S1_tep_only": {
         "median_log_mbh_mstar": -1.763748737074863,
         "offset_from_observed_median_dex": -0.263748737074863,
         "fraction_objects_in_observed_regime": 0.04455445544554455,
         "median_extra_efolds": 13.460376515510875,
-        "p16_log_mbh_mstar": -5.608747260028641,
-        "p84_log_mbh_mstar": 11.816967402133802
+        "p16_log_mbh_mstar": -5.608747260028646,
+        "p84_log_mbh_mstar": 11.816967402133072
       },
       "S2_tep_intermediate_seed": {
         "median_log_mbh_mstar": -0.7637487370748631,
         "offset_from_observed_median_dex": 0.7362512629251369,
         "fraction_objects_in_observed_regime": 0.039603960396039604,
         "median_extra_efolds": 13.460376515510875,
-        "p16_log_mbh_mstar": -4.608747260028641,
-        "p84_log_mbh_mstar": 12.816967402133802
+        "p16_log_mbh_mstar": -4.608747260028646,
+        "p84_log_mbh_mstar": 12.816967402133072
       },
       "S3_tep_mild_super_eddington": {
         "median_log_mbh_mstar": -0.01001856356691478,
         "offset_from_observed_median_dex": 1.4899814364330852,
         "fraction_objects_in_observed_regime": 0.054455445544554455,
         "median_extra_efolds": 17.498489470164138,
-        "p16_log_mbh_mstar": -5.156917362275595,
+        "p16_log_mbh_mstar": -5.156917362275564,
         "p84_log_mbh_mstar": 13.286722989448483
       },
       "S4_tep_combined": {
@@ -258,8 +258,8 @@
         "offset_from_observed_median_dex": 1.0197979917638054,
         "fraction_objects_in_observed_regime": 0.06930693069306931,
         "median_extra_efolds": 14.806414167061963,
-        "p16_log_mbh_mstar": -4.756129194896964,
-        "p84_log_mbh_mstar": 13.578298958642367
+        "p16_log_mbh_mstar": -4.75612919489697,
+        "p84_log_mbh_mstar": 13.578298958642366
       }
     },
     "monte_carlo_population": {
@@ -268,7 +268,7 @@
         "sample_size": 202,
         "statistic": "population_median_log_mbh_mstar",
         "median_log_mbh_mstar_population": -0.774509567881575,
-        "ci_95_lo": -5.545507391350823,
+        "ci_95_lo": -5.545507391350808,
         "ci_95_hi": 4.452741822449301,
         "fraction_in_observed_range": 0.1048,
         "median_in_observed_range": false
@@ -288,7 +288,7 @@
         "sample_size": 202,
         "statistic": "population_median_log_mbh_mstar",
         "median_log_mbh_mstar_population": -0.4920389221235783,
-        "ci_95_lo": -5.774696234192806,
+        "ci_95_lo": -5.7746962341928,
         "ci_95_hi": 5.265491355405258,
         "fraction_in_observed_range": 0.0924,
         "median_in_observed_range": false

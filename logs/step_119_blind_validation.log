@@ -1,25 +1,25 @@
-[17:23:02] INFO    ═══ STEP 119: Blind Validation Protocol (Real Data)
-[17:23:02] INFO        Cross-validating TEP dust-Gamma_t correlations across time, field, and survey splits.
-[17:23:02] INFO    
-[17:23:02] INFO          UNCOVER: 2315 galaxies loaded (real data)
-[17:23:02] INFO          CEERS: 82 galaxies loaded (real data)
-[17:23:02] INFO          COSMOS-Web: 2606 galaxies loaded (real data)
-[17:23:02] INFO    
-[17:23:02] INFO    >>> 1. TIME-SPLIT VALIDATION
-[17:23:02] INFO          UNCOVER: test N_z8=283, rho=0.581, p=6.29e-27 -> success
-[17:23:02] INFO          CEERS: test N_z8=33, rho=0.536, p=1.30e-03 -> success
-[17:23:02] INFO          COSMOS-Web: test N_z8=1043, rho=0.577, p=1.27e-93 -> success
-[17:23:02] INFO    
-[17:23:02] INFO    >>> 2. FIELD-SPLIT VALIDATION
-[17:23:02] INFO          UNCOVER: East rho=0.501, West rho=0.712 -> consistent
-[17:23:02] INFO          CEERS: East rho=0.633, West rho=0.733 -> consistent
-[17:23:02] INFO          COSMOS-Web: East rho=0.670, West rho=0.720 -> consistent
-[17:23:02] INFO    
-[17:23:02] INFO    >>> 3. CROSS-SURVEY VALIDATION
-[17:23:02] INFO          Train=UNCOVER, Test=['CEERS', 'COSMOS-Web']: test rho=0.687, p=0.00e+00 -> success
-[17:23:02] INFO          Train=CEERS, Test=['UNCOVER', 'COSMOS-Web']: test rho=0.600, p=1.30e-281 -> success
-[17:23:02] INFO          Train=COSMOS-Web, Test=['UNCOVER', 'CEERS']: test rho=0.480, p=1.94e-22 -> success
-[17:23:02] INFO    
-[17:23:02] INFO    ✓   Overall: STRONG
-[17:23:02] INFO        Interpretation: TEP signatures generalize: 9/9 validation tests passed. Time-split (3/3), field-split (3/3), cross-survey (3/3).
-[17:23:02] INFO    ✓   Results saved to step_119_blind_validation.json
+[22:38:19] INFO    ═══ STEP 119: Blind Validation Protocol (Real Data)
+[22:38:19] INFO        Cross-validating TEP dust-Gamma_t correlations across time, field, and survey splits.
+[22:38:19] INFO    
+[22:38:19] INFO          UNCOVER: 2315 galaxies loaded (real data)
+[22:38:19] INFO          CEERS: 82 galaxies loaded (real data)
+[22:38:19] INFO          COSMOS-Web: 2606 galaxies loaded (real data)
+[22:38:19] INFO    
+[22:38:19] INFO    >>> 1. TIME-SPLIT VALIDATION
+[22:38:19] INFO          UNCOVER: test N_z8=283, rho=0.595, p=1.92e-28 -> success
+[22:38:19] INFO          CEERS: test N_z8=33, rho=0.536, p=1.30e-03 -> success
+[22:38:19] INFO          COSMOS-Web: test N_z8=1043, rho=0.577, p=1.27e-93 -> success
+[22:38:19] INFO    
+[22:38:19] INFO    >>> 2. FIELD-SPLIT VALIDATION
+[22:38:19] INFO          UNCOVER: East rho=0.534, West rho=0.716 -> consistent
+[22:38:19] INFO          CEERS: East rho=0.633, West rho=0.733 -> consistent
+[22:38:19] INFO          COSMOS-Web: East rho=0.670, West rho=0.720 -> consistent
+[22:38:19] INFO    
+[22:38:19] INFO    >>> 3. CROSS-SURVEY VALIDATION
+[22:38:19] INFO          Train=UNCOVER, Test=['CEERS', 'COSMOS-Web']: test rho=0.687, p=0.00e+00 -> success
+[22:38:19] INFO          Train=CEERS, Test=['UNCOVER', 'COSMOS-Web']: test rho=0.627, p=1.17e-315 -> success
+[22:38:19] INFO          Train=COSMOS-Web, Test=['UNCOVER', 'CEERS']: test rho=0.523, p=5.13e-27 -> success
+[22:38:19] INFO    
+[22:38:19] INFO    ✓   Overall: STRONG
+[22:38:19] INFO        Interpretation: TEP signatures generalize: 9/9 validation tests passed. Time-split (3/3), field-split (3/3), cross-survey (3/3).
+[22:38:19] INFO    ✓   Results saved to step_119_blind_validation.json

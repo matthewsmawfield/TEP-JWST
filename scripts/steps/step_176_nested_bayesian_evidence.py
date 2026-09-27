@@ -159,6 +159,23 @@ def _joint_tep_prior(u, K):
     return out
 
 
+def _joint_tep_raw_prior(u, K, log_gamma_std_raw):
+    """Prior transform for joint TEP with RAW (unstandardized) log_gamma.
+
+    The slope prior is rescaled by 1/log_gamma_std_raw so the effective
+    parameter space matches the standardized version.  This tests whether
+    the evidence is robust to the standardization choice or is an artifact
+    of scale inflation (log_gamma raw std ≈ 0.14 vs standardized std = 1).
+    """
+    b_scale = 2.0 / max(log_gamma_std_raw, 1e-6)  # equivalent to [-2, 2] standardized
+    out = np.empty(3*K)
+    for k in range(K):
+        out[3*k]     = u[3*k]     * 20 - 10           # a: [-10, 10]
+        out[3*k + 1] = u[3*k + 1] * 2 * b_scale - b_scale  # b: [-b_scale, b_scale]
+        out[3*k + 2] = u[3*k + 2] * 6 - 5             # log_sigma: [-5, 1]
+    return out
+
+
 def _joint_tep_augmented_loglike(params, obs_arrays, mass, z, log_gamma):
     """
     Augmented joint TEP likelihood: tests whether Gamma_t adds explanatory
@@ -798,6 +815,11 @@ def _residual_constrained_agn_loglike(
       3. Allow AGN contamination only for contamination-sensitive observables
          (dust, log_ssfr, chi2), while metallicity gets only a baseline term
 
+    The mass argument should be orthogonalized against log_gamma (mass_ortho)
+    to prevent the nonlinear sigmoid from absorbing the TEP signal through
+    raw mass.  Using raw mass gives the AGN model access to >90% of the
+    TEP signal for free (Spearman(mass, Gamma_t) ≈ 0.90 at z>=8).
+
     Parameter layout:
       [M_crit, slope,
        a_dust, log_s_dust,
@@ -843,9 +865,15 @@ def _residual_constrained_agn_loglike(
 
 
 def _residual_constrained_agn_prior(u):
-    """Prior transform for residual-space constrained AGN: 10 params."""
+    """Prior transform for residual-space constrained AGN: 10 params.
+
+    M_crit prior is calibrated for orthogonalized mass (mean≈0, std≈0.28,
+    range ≈[-1.34, 0.61]) rather than raw log-stellar-mass [8.5, 11.5].
+    Using raw-mass priors with orthogonalized mass would place M_crit
+    outside the data range, making the AGN sigmoid uninformative.
+    """
     return np.array([
-        u[0] * 3 + 8.5,     # M_crit
+        u[0] * 4 - 2,       # M_crit: [-2, 2] (orthogonalized mass scale)
         u[1] * 5 + 0.5,     # slope
         u[2] * 6 - 3,       # dust amplitude
         u[3] * 6 - 5,       # log sigma dust
@@ -1063,7 +1091,7 @@ def main():
     # but at M* > 10.5 it can reach 10–60%.
     gamma_t_single = df_v[response_column].values
     gamma_t, mass_corrected = compute_ml_response_self_consistent(
-        mass, z, n=ALPHA_NUCLEAR)
+        mass, z, n_sps=ALPHA_NUCLEAR)
     log_gamma = np.log10(np.maximum(gamma_t, 0.01))
     # Standardize log_gamma so the TEP model has comparable leverage to
     # alternatives. Without this, log_gamma's tiny dynamic range (std~0.07)
@@ -1215,6 +1243,25 @@ def main():
         mass_corr_ortho_std = (mass_corr_ortho - np.mean(mass_corr_ortho)) / _mass_corr_ortho_std
     else:
         mass_corr_ortho_std = mass_corr_ortho - np.mean(mass_corr_ortho)
+
+    # Standardized (NOT orthogonalized) mass variants for the correction test.
+    # The correction test asks whether replacing M_obs with M_true improves
+    # astrophysical model fits.  Orthogonalizing both against log_gamma removes
+    # exactly the correction signal (n*log_gamma), making the two predictors
+    # numerically identical and the test structurally incapable of detecting
+    # the correction.  The correction test therefore uses standardized raw
+    # and corrected mass WITHOUT orthogonalization, preserving the correction
+    # signal while keeping priors valid across scales.
+    _mass_raw_std = float(np.std(mass, ddof=0))
+    if _mass_raw_std > 0:
+        mass_std_corr_test = (mass - np.mean(mass)) / _mass_raw_std
+    else:
+        mass_std_corr_test = mass - np.mean(mass)
+    _mass_corr_raw_std = float(np.std(mass_corrected, ddof=0))
+    if _mass_corr_raw_std > 0:
+        mass_corr_std_corr_test = (mass_corrected - np.mean(mass_corrected)) / _mass_corr_raw_std
+    else:
+        mass_corr_std_corr_test = mass_corrected - np.mean(mass_corrected)
 
     # Response-corrected sSFR: log_sSFR_true = log_sSFR_obs + n * log10(R_ML).
     # This removes the fitted observer-side inference response without assigning
@@ -1415,6 +1462,22 @@ def main():
         print_status(f"Cov-Augmented joint failed: {e}", "ERROR")
         print_status(traceback.format_exc(), "ERROR")
 
+    # Covariance Standard (RAW mass, NOT orthogonalized): 3K+1 params
+    # This is the truly unconditioned comparison — the standard model gets
+    # raw standardized mass (with the TEP signal still in it) and is compared
+    # against Cov_TEP.  If TEP still wins here, the evidence does not depend
+    # on TEP-conditioned orthogonalization.  This addresses the manuscript
+    # claim that the covariance test "does not depend on orthogonalization."
+    try:
+        r = run_nested(
+            lambda p: _joint_cov_standard_loglike(p, obs_matrix, mass_std, z_std, cov_inv, cov_logdet),
+            lambda u: _joint_cov_standard_prior(u, K),
+            3*K + 1, f"Cov-Standard Raw Joint ({3*K+1} params)")
+        joint_models['Cov_Standard_Raw'] = r
+    except Exception as e:
+        print_status(f"Cov-Standard Raw joint failed: {e}", "ERROR")
+        print_status(traceback.format_exc(), "ERROR")
+
     # ------------------------------------------------------------------
     # A.2 TEP-Corrected Alternatives (uses M_true = M_obs - n*log10(Gamma_t))
     # ------------------------------------------------------------------
@@ -1478,6 +1541,106 @@ def main():
         print_status(f"Corrected-sSFR Standard Physics joint failed: {e}", "ERROR")
         print_status(traceback.format_exc(), "ERROR")
 
+    # ------------------------------------------------------------------
+    # A.3 Correction-Test Models (NON-orthogonalized mass)
+    # ------------------------------------------------------------------
+    # The correction test asks: does replacing M_obs with M_true improve
+    # astrophysical model fits?  This requires BOTH the uncorrected and
+    # corrected models to use NON-orthogonalized mass, so the correction
+    # signal (n*log_gamma) is preserved in the difference between them.
+    # The orthogonalized versions above serve the joint test (preventing
+    # signal absorption) but are structurally incapable of testing the
+    # correction because orthogonalization removes exactly the correction
+    # signal.  These dedicated runs use standardized raw/corrected mass
+    # without orthogonalization.
+    print_status("\n" + "-" * 50)
+    print_status("CORRECTION-TEST MODELS (non-orthogonalized mass)")
+    print_status("-" * 50)
+
+    correction_test_models = {}
+
+    # Uncorrected Standard Physics (raw standardized mass)
+    try:
+        r = run_nested(
+            lambda p: _joint_standard_loglike(p, obs_arrays, mass_std_corr_test, z_std),
+            lambda u: _joint_standard_prior(u, K),
+            4*K, f"Corr-Test Standard Physics ({4*K} params)")
+        correction_test_models['Standard_Physics'] = r
+    except Exception as e:
+        print_status(f"Corr-Test Standard Physics failed: {e}", "ERROR")
+
+    # Corrected Standard Physics (corrected standardized mass)
+    try:
+        r = run_nested(
+            lambda p: _joint_corrected_standard_loglike(p, obs_arrays, mass_corr_std_corr_test, z_std),
+            lambda u: _joint_corrected_standard_prior(u, K),
+            4*K, f"Corr-Test Corrected Standard Physics ({4*K} params)")
+        correction_test_models['Corrected_Standard_Physics'] = r
+    except Exception as e:
+        print_status(f"Corr-Test Corrected Standard Physics failed: {e}", "ERROR")
+
+    # Uncorrected Bursty SF (raw standardized mass)
+    try:
+        r = run_nested(
+            lambda p: _joint_bursty_loglike(p, obs_arrays, mass_std_corr_test, z_std, mass_std_corr_test),
+            lambda u: _joint_bursty_prior(u, K),
+            5*K + 1, f"Corr-Test Bursty SF ({5*K+1} params)")
+        correction_test_models['Bursty_SF'] = r
+    except Exception as e:
+        print_status(f"Corr-Test Bursty SF failed: {e}", "ERROR")
+
+    # Corrected Bursty SF (corrected standardized mass)
+    try:
+        r = run_nested(
+            lambda p: _joint_corrected_bursty_loglike(p, obs_arrays, mass_corr_std_corr_test, z_std, mass_corr_std_corr_test),
+            lambda u: _joint_corrected_bursty_prior(u, K),
+            5*K + 1, f"Corr-Test Corrected Bursty SF ({5*K+1} params)")
+        correction_test_models['Corrected_Bursty_SF'] = r
+    except Exception as e:
+        print_status(f"Corr-Test Corrected Bursty SF failed: {e}", "ERROR")
+
+    # Uncorrected Varying IMF (raw standardized mass)
+    try:
+        r = run_nested(
+            lambda p: _joint_imf_loglike(p, obs_arrays, mass_std_corr_test, z_std),
+            lambda u: _joint_imf_prior(u, K),
+            5*K, f"Corr-Test Varying IMF ({5*K} params)")
+        correction_test_models['Varying_IMF'] = r
+    except Exception as e:
+        print_status(f"Corr-Test Varying IMF failed: {e}", "ERROR")
+
+    # Corrected Varying IMF (corrected standardized mass)
+    try:
+        r = run_nested(
+            lambda p: _joint_corrected_imf_loglike(p, obs_arrays, mass_corr_std_corr_test, z_std),
+            lambda u: _joint_corrected_imf_prior(u, K),
+            5*K, f"Corr-Test Corrected Varying IMF ({5*K} params)")
+        correction_test_models['Corrected_Varying_IMF'] = r
+    except Exception as e:
+        print_status(f"Corr-Test Corrected Varying IMF failed: {e}", "ERROR")
+
+    # Uncorrected AGN Feedback (raw standardized mass)
+    try:
+        r = run_nested(
+            lambda p: _joint_agn_loglike(p, obs_arrays, mass_std_corr_test, z_std),
+            lambda u: _joint_agn_prior(u, K),
+            4*K + 2, f"Corr-Test AGN Feedback ({4*K+2} params)")
+        correction_test_models['AGN_Feedback'] = r
+    except Exception as e:
+        print_status(f"Corr-Test AGN Feedback failed: {e}", "ERROR")
+
+    # Corrected AGN Feedback (corrected standardized mass)
+    try:
+        r = run_nested(
+            lambda p: _joint_corrected_agn_loglike(p, obs_arrays, mass_corr_std_corr_test, z_std),
+            lambda u: _joint_corrected_agn_prior(u, K),
+            4*K + 2, f"Corr-Test Corrected AGN Feedback ({4*K+2} params)")
+        correction_test_models['Corrected_AGN_Feedback'] = r
+    except Exception as e:
+        print_status(f"Corr-Test Corrected AGN Feedback failed: {e}", "ERROR")
+
+    results['correction_test_model_evidence'] = correction_test_models
+
     results['joint_model_evidence'] = joint_models
 
     # Joint Bayes Factors — SEPARATED by likelihood type
@@ -1485,7 +1648,7 @@ def main():
     # models use a multivariate Gaussian.  Bayes factors are only valid within
     # the same likelihood family.  Mixing them produces meaningless numbers
     # because the logZ normalising constants differ.
-    cov_model_names = {'Cov_TEP', 'Cov_Standard', 'Cov_Augmented'}
+    cov_model_names = {'Cov_TEP', 'Cov_Standard', 'Cov_Standard_Raw', 'Cov_Augmented'}
 
     if 'TEP' in joint_models:
         # Independent-likelihood comparisons only
@@ -1536,6 +1699,13 @@ def main():
     # Direct test: does applying the TEP mass correction improve the
     # evidence of standard astrophysical models?  If TEP is correct,
     # corrected > uncorrected (positive ln_BF).
+    #
+    # IMPORTANT: This test uses the dedicated correction_test_models (non-
+    # orthogonalized mass), NOT the joint_models (orthogonalized mass).
+    # The orthogonalized versions remove exactly the correction signal
+    # (n*log_gamma), making the test structurally incapable of detecting
+    # the correction.  The non-orthogonalized versions preserve the
+    # correction signal in the difference between M_obs and M_true.
     corrected_pairs = [
         ('Standard_Physics', 'Corrected_Standard_Physics'),
         ('Bursty_SF', 'Corrected_Bursty_SF'),
@@ -1544,9 +1714,9 @@ def main():
     ]
     correction_bf = {}
     for orig_name, corr_name in corrected_pairs:
-        if orig_name in joint_models and corr_name in joint_models:
-            orig = joint_models[orig_name]
-            corr = joint_models[corr_name]
+        if orig_name in correction_test_models and corr_name in correction_test_models:
+            orig = correction_test_models[orig_name]
+            corr = correction_test_models[corr_name]
             ln_bf = corr['logZ'] - orig['logZ']  # positive = correction helps
             ln_bf_err = np.sqrt(corr['logZ_err']**2 + orig['logZ_err']**2)
             correction_bf[orig_name] = {
@@ -1554,6 +1724,7 @@ def main():
                 'ln_BF_err': float(ln_bf_err),
                 'corrected_logZ': corr['logZ'],
                 'uncorrected_logZ': orig['logZ'],
+                'mass_treatment': 'non-orthogonalized (correction signal preserved)',
                 'interpretation': (
                     'TEP correction improves fit' if ln_bf > 1
                     else 'TEP correction hurts fit' if ln_bf < -1
@@ -1563,7 +1734,7 @@ def main():
     results['correction_bayes_factors'] = correction_bf
     if correction_bf:
         print_status("\n" + "-" * 50)
-        print_status("TEP CORRECTION BAYES FACTORS (corrected vs uncorrected)")
+        print_status("TEP CORRECTION BAYES FACTORS (corrected vs uncorrected, non-orthogonalized)")
         print_status("-" * 50)
         for name, bf in correction_bf.items():
             print_status(f"  {name}: ln(BF)={bf['ln_BF_corrected_vs_uncorrected']:.2f} ± "
@@ -1683,6 +1854,60 @@ def main():
 
     results['prior_sensitivity_models'] = prior_sensitivity
     results['prior_sensitivity_bayes_factors'] = prior_sensitivity_bf
+
+    # ------------------------------------------------------------------
+    # E.2 Log-Gamma Standardization Sensitivity Check
+    # ------------------------------------------------------------------
+    # The TEP model standardizes log_gamma (raw std ≈ 0.14) to std=1 before
+    # nested sampling.  A skeptic could argue this scale inflation creates
+    # an artificial Occam advantage.  This check runs TEP with RAW
+    # (unstandardized) log_gamma and a rescaled slope prior that preserves
+    # the same effective parameter space.  If the Bayes factor against
+    # Standard_Physics is similar, the evidence is not a standardization
+    # artifact.
+    print_status("\n" + "=" * 70)
+    print_status("E.2 LOG-GAMMA STANDARDIZATION SENSITIVITY CHECK")
+    print_status("=" * 70)
+
+    log_gamma_raw_for_check = np.log10(np.maximum(gamma_t, 0.01))
+    _lg_raw_std_check = float(np.std(log_gamma_raw_for_check, ddof=0))
+    # Center (but do NOT standardize) log_gamma for numerical stability
+    log_gamma_raw_centered = log_gamma_raw_for_check - np.mean(log_gamma_raw_for_check)
+
+    standardization_sensitivity = {}
+    try:
+        r_tep_raw = run_nested(
+            lambda p: _joint_tep_loglike(p, obs_arrays, log_gamma_raw_centered),
+            lambda u: _joint_tep_raw_prior(u, K, _lg_raw_std_check),
+            3*K, f"TEP Raw-logGamma ({3*K} params)")
+        standardization_sensitivity['TEP_raw_loggamma'] = r_tep_raw
+    except Exception as e:
+        print_status(f"TEP raw-logGamma failed: {e}", "ERROR")
+
+    # Compare against the same Standard_Physics from joint_models
+    standardization_bf = {}
+    if 'TEP_raw_loggamma' in standardization_sensitivity and 'Standard_Physics' in joint_models:
+        tep_raw = standardization_sensitivity['TEP_raw_loggamma']
+        std_phys = joint_models['Standard_Physics']
+        ln_bf_raw = tep_raw['logZ'] - std_phys['logZ']
+        ln_bf_raw_err = np.sqrt(tep_raw['logZ_err']**2 + std_phys['logZ_err']**2)
+        ln_bf_std = joint_models['TEP']['logZ'] - std_phys['logZ']
+        standardization_bf = {
+            'ln_BF_TEP_raw_vs_std_phys': float(ln_bf_raw),
+            'ln_BF_err': float(ln_bf_raw_err),
+            'ln_BF_TEP_standardized_vs_std_phys': float(ln_bf_std),
+            'delta_ln_BF': float(ln_bf_raw - ln_bf_std),
+            'log_gamma_raw_std': _lg_raw_std_check,
+            'slope_prior_scale': float(2.0 / max(_lg_raw_std_check, 1e-6)),
+            'robust': bool(abs(ln_bf_raw - ln_bf_std) < 5.0),
+        }
+        print_status(f"  TEP (raw log_gamma) vs Standard: ln(BF)={ln_bf_raw:.2f} ± {ln_bf_raw_err:.2f}")
+        print_status(f"  TEP (standardized) vs Standard: ln(BF)={ln_bf_std:.2f}")
+        print_status(f"  Delta: {ln_bf_raw - ln_bf_std:.2f} "
+                     f"{'ROBUST' if abs(ln_bf_raw - ln_bf_std) < 5.0 else 'SENSITIVE'}")
+
+    results['standardization_sensitivity_models'] = standardization_sensitivity
+    results['standardization_sensitivity_bayes_factors'] = standardization_bf
 
     # ------------------------------------------------------------------
     # B. Single-Observable Dust Test (SUPPLEMENTARY)
@@ -1812,6 +2037,157 @@ def main():
     results['per_observable_evidence'] = per_obs_models
 
     # ------------------------------------------------------------------
+    # B.3 Three-Observable Physical Subset (PRIMARY HEADLINE)
+    # ------------------------------------------------------------------
+    # chi2 is an SED fitting goodness-of-statistic, not a physical galaxy
+    # property.  Its inclusion in the 4-observable joint test inflates the
+    # evidence by ~48% (chi2 alone contributes ln BF = +45.8 of the +126.2
+    # total).  The 3-observable physical subset (dust, log_ssfr, met)
+    # provides the scientifically conservative headline that excludes the
+    # SED diagnostic.  This test uses the same orthogonalized predictors
+    # as the 4-observable joint test for consistency.
+    print_status("\n" + "=" * 70)
+    print_status("B.3 THREE-OBSERVABLE PHYSICAL SUBSET (dust, sSFR, met — PRIMARY HEADLINE)")
+    print_status("=" * 70)
+
+    physical_obs_idx = [i for i, name in enumerate(OBSERVABLES) if name != 'chi2']
+    physical_obs_names = [OBSERVABLES[i] for i in physical_obs_idx]
+    obs_arrays_physical = [obs_arrays[i] for i in physical_obs_idx]
+    K_phys = len(physical_obs_idx)
+    obs_matrix_physical = np.column_stack(obs_arrays_physical)
+    cov_empirical_phys = np.cov(obs_matrix_physical, rowvar=False)
+    cov_empirical_phys += 1e-4 * np.eye(K_phys)
+    cov_inv_phys = np.linalg.inv(cov_empirical_phys)
+    cov_logdet_phys = float(np.linalg.slogdet(cov_empirical_phys)[1])
+
+    physical_models = {}
+
+    # Physical TEP: 3*K_phys params
+    try:
+        r = run_nested(
+            lambda p: _joint_tep_loglike(p, obs_arrays_physical, log_gamma),
+            lambda u: _joint_tep_prior(u, K_phys),
+            3*K_phys, f"Physical TEP ({3*K_phys} params)")
+        physical_models['TEP'] = r
+    except Exception as e:
+        print_status(f"Physical TEP failed: {e}", "ERROR")
+
+    # Physical Standard: 4*K_phys params (orthogonalized mass+z)
+    try:
+        r = run_nested(
+            lambda p: _joint_standard_loglike(p, obs_arrays_physical, mass_ortho_std, z_ortho_std),
+            lambda u: _joint_standard_prior(u, K_phys),
+            4*K_phys, f"Physical Standard ({4*K_phys} params)")
+        physical_models['Standard_Physics'] = r
+    except Exception as e:
+        print_status(f"Physical Standard failed: {e}", "ERROR")
+
+    # Physical Cov-TEP: 2*K_phys+1 params
+    try:
+        r = run_nested(
+            lambda p: _joint_cov_tep_loglike(p, obs_matrix_physical, log_gamma, cov_inv_phys, cov_logdet_phys),
+            lambda u: _joint_cov_tep_prior(u, K_phys),
+            2*K_phys + 1, f"Physical Cov-TEP ({2*K_phys+1} params)")
+        physical_models['Cov_TEP'] = r
+    except Exception as e:
+        print_status(f"Physical Cov-TEP failed: {e}", "ERROR")
+
+    # Physical Cov-Standard (orthogonalized): 3*K_phys+1 params
+    try:
+        r = run_nested(
+            lambda p: _joint_cov_standard_loglike(p, obs_matrix_physical, mass_ortho_std, z_ortho_std, cov_inv_phys, cov_logdet_phys),
+            lambda u: _joint_cov_standard_prior(u, K_phys),
+            3*K_phys + 1, f"Physical Cov-Standard ({3*K_phys+1} params)")
+        physical_models['Cov_Standard'] = r
+    except Exception as e:
+        print_status(f"Physical Cov-Standard failed: {e}", "ERROR")
+
+    # Physical Cov-Standard (RAW mass, unconditioned): 3*K_phys+1 params
+    try:
+        r = run_nested(
+            lambda p: _joint_cov_standard_loglike(p, obs_matrix_physical, mass_std, z_std, cov_inv_phys, cov_logdet_phys),
+            lambda u: _joint_cov_standard_prior(u, K_phys),
+            3*K_phys + 1, f"Physical Cov-Standard Raw ({3*K_phys+1} params)")
+        physical_models['Cov_Standard_Raw'] = r
+    except Exception as e:
+        print_status(f"Physical Cov-Standard Raw failed: {e}", "ERROR")
+
+    results['physical_subset_model_evidence'] = physical_models
+
+    # Compute Bayes factors for the physical subset
+    physical_bf = {}
+    if 'TEP' in physical_models:
+        for alt_name, alt_res in physical_models.items():
+            if alt_name == 'TEP':
+                continue
+            ln_bf = physical_models['TEP']['logZ'] - alt_res['logZ']
+            ln_bf_err = np.sqrt(physical_models['TEP']['logZ_err']**2 + alt_res['logZ_err']**2)
+            physical_bf[alt_name] = {
+                'ln_BF_TEP_vs_alt': float(ln_bf),
+                'ln_BF_err': float(ln_bf_err),
+                'BF': float(np.exp(ln_bf)),
+                'log10_BF': float(ln_bf / np.log(10)),
+                'interpretation': interpret_ln_bf(ln_bf),
+                'TEP_n_params': physical_models['TEP']['n_params'],
+                'alt_n_params': alt_res['n_params'],
+                'delta_params': alt_res['n_params'] - physical_models['TEP']['n_params']
+            }
+    # Covariance Bayes factors for physical subset (separate likelihood family)
+    physical_cov_bf = {}
+    if 'Cov_TEP' in physical_models:
+        for alt_name in ['Cov_Standard', 'Cov_Standard_Raw']:
+            if alt_name in physical_models:
+                ln_bf = physical_models['Cov_TEP']['logZ'] - physical_models[alt_name]['logZ']
+                ln_bf_err = np.sqrt(physical_models['Cov_TEP']['logZ_err']**2 + physical_models[alt_name]['logZ_err']**2)
+                physical_cov_bf[alt_name] = {
+                    'ln_BF_TEP_vs_alt': float(ln_bf),
+                    'ln_BF_err': float(ln_bf_err),
+                    'BF': float(np.exp(ln_bf)),
+                    'log10_BF': float(ln_bf / np.log(10)),
+                    'interpretation': interpret_ln_bf(ln_bf),
+                    'TEP_n_params': physical_models['Cov_TEP']['n_params'],
+                    'alt_n_params': physical_models[alt_name]['n_params'],
+                    'delta_params': physical_models[alt_name]['n_params'] - physical_models['Cov_TEP']['n_params']
+                }
+
+    results['physical_subset_bayes_factors'] = physical_bf
+    results['physical_subset_covariance_bayes_factors'] = physical_cov_bf
+
+    if physical_bf:
+        print_status("\n" + "-" * 50)
+        print_status("PHYSICAL SUBSET BAYES FACTORS (3-observable, excluding chi2)")
+        print_status("-" * 50)
+        for name, bf in physical_bf.items():
+            print_status(f"  {name}: ln(BF)={bf['ln_BF_TEP_vs_alt']:.2f} ± "
+                         f"{bf['ln_BF_err']:.2f}  |  Δparams={bf['delta_params']}  |  "
+                         f"{bf['interpretation']}")
+    if physical_cov_bf:
+        print_status("\n" + "-" * 50)
+        print_status("PHYSICAL SUBSET COVARIANCE BAYES FACTORS (3-observable)")
+        print_status("-" * 50)
+        for name, bf in physical_cov_bf.items():
+            print_status(f"  {name}: ln(BF)={bf['ln_BF_TEP_vs_alt']:.2f} ± "
+                         f"{bf['ln_BF_err']:.2f}  |  Δparams={bf['delta_params']}  |  "
+                         f"{bf['interpretation']}")
+
+    # Physical subset summary
+    if physical_bf:
+        n_decisive = sum(1 for bf in physical_bf.values() if bf['ln_BF_TEP_vs_alt'] > 5)
+        hardest_phys = min(physical_bf.items(), key=lambda x: x[1]['ln_BF_TEP_vs_alt'])
+        results['physical_subset_summary'] = {
+            'observables': physical_obs_names,
+            'n_observables': K_phys,
+            'n_alternatives': len(physical_bf),
+            'n_decisive_for_TEP': n_decisive,
+            'hardest_alternative': hardest_phys[0],
+            'hardest_ln_BF': hardest_phys[1]['ln_BF_TEP_vs_alt'],
+            'note': 'Excludes SED chi2 (fitting diagnostic, not physical observable). '
+                    'This is the conservative headline result.',
+        }
+        print_status(f"\n  Physical subset summary: {n_decisive}/{len(physical_bf)} decisive, "
+                     f"hardest={hardest_phys[0]} (ln BF={hardest_phys[1]['ln_BF_TEP_vs_alt']:.2f})")
+
+    # ------------------------------------------------------------------
     # C. Residual-Space Comparisons (3-Part Test)
     # ------------------------------------------------------------------
     
@@ -1878,12 +2254,16 @@ def main():
         print_status(traceback.format_exc(), "ERROR")
 
     # Residual constrained AGN
+    # Uses orthogonalized mass (mass_ortho) for the AGN sigmoid to prevent
+    # the nonlinear sigmoid from absorbing the TEP signal through raw mass.
+    # The prior for M_crit is rescaled to the orthogonalized mass range
+    # (mean≈0, std≈0.28) instead of raw log-stellar-mass [8.5, 11.5].
     try:
         r = run_nested(
             lambda p: _residual_constrained_agn_loglike(
                 p,
                 obs_arrays_residual,
-                mass,
+                mass_ortho,
                 design_matrix,
                 design_pinv,
             ),
@@ -2068,8 +2448,14 @@ def main():
             'methodology': (
                 f"Residual-space dynesty comparison with nlive={NLIVE}, "
                 f"dlogz={DLOGZ}. Observables and competing predictors were "
-                f"residualized against a linear [1, log_Mstar, z] design "
-                f"matrix before evidence computation. Residual TEP uses {3*K} "
+                f"residualized against the orthogonalized design "
+                f"[1, mass_ortho, z_ortho] — the components of mass and z "
+                f"orthogonal to log R_ML — so this family is TEP-conditioned: "
+                f"the R_ML-aligned direction is retained in both the data "
+                f"and the TEP predictor by construction. The symmetric "
+                f"counterpart residualized against raw [1, log_Mstar, z] is "
+                f"reported separately as the conventional residual-space "
+                f"comparison. Residual TEP uses {3*K} "
                 f"params, residual null uses {2*K}, and constrained AGN uses "
                 f"10 params with metallicity excluded from explicit AGN "
                 f"contamination response."

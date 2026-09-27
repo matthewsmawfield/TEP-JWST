@@ -13,13 +13,17 @@ shared-variable artifacts when correlating with M*/Mdyn excess.
 
 Key tests:
   T1  M*-sigma zero-point evolution: does the M*-sigma residual
-      increase with z as TEP predicts?
+      trend with z match the TEP-predicted direction?
   T2  TEP-corrected fundamental plane scatter: does the TEP-corrected M*
       follow a tighter M*-sigma-Re relation?
   T3  Sigma-only R_ML as M* predictor: does log(R_ML_sigma_only)
       add predictive power for M*_obs beyond sigma alone?
   T4  Cross-survey consistency.
   T5  High-z (z>=4) focused subset.
+  T6  Sigma-to-depth construction sensitivity: the T1 sign verdict
+      depends on the sigma->depth translation, so the predicted
+      direction is evaluated under both the adopted virial map and a
+      cosmology-free direct depth map.
 """
 import json
 import sys
@@ -34,7 +38,13 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import print_status
 from scripts.utils.rank_stats import bootstrap_partial_rank_ci, partial_rank_correlation
-from scripts.utils.tep_model import KAPPA_GAL, compute_ml_response
+from scripts.utils.tep_model import (
+    KAPPA_GAL,
+    PHI_REF_0,
+    compute_ml_response,
+    compute_ml_response_from_depth,
+    get_potential_depth_from_log_mh,
+)
 
 STEP_NUM = 171
 STEP_NAME = "sigma_kinematic_expansion"
@@ -70,6 +80,28 @@ def _sigma_to_log_mhalo(sigma_kms, z):
     z = np.asarray(z, dtype=float)
     log_mh_ref_z = LOG_MH_AT_SIGMA_REF - 1.5 * np.log10(1 + z)
     return SIGMA_SLOPE * np.log10(np.maximum(sigma, 1.0) / SIGMA_REF) + log_mh_ref_z
+
+
+# Alternative construction: direct sigma-to-depth map (cosmology-free).
+#
+# The virial map above carries a -1.5*log10(1+z) drift term — the standard
+# matter-era virial scaling M_h ~ sigma^3/H(z) folded into the sigma-M_halo
+# normalization. That term presumes expanding-cosmology halo evolution, so
+# embedding it in the TEP predictor mixes a standard-cosmology assumption
+# into a test that was designed to be cosmology-agnostic. The direct map
+# instead treats sigma itself as the potential-depth observable
+# (Psi ~ sigma^2/c^2 up to structural factors) — the same role sigma plays
+# in the Paper 10 screening threshold (sigma > 165 km/s) — and contains no
+# cosmological redshift dependence. Its normalization is anchored so both
+# maps agree at z = 0, sigma = SIGMA_REF.
+_PSI_AT_SIGMA_REF_Z0 = get_potential_depth_from_log_mh(LOG_MH_AT_SIGMA_REF)
+SIGMA_REF_DEPTH = SIGMA_REF * np.sqrt(PHI_REF_0 / _PSI_AT_SIGMA_REF_Z0)
+
+
+def _sigma_to_psi_direct(sigma_kms):
+    """Direct sigma-to-depth map: Psi = Psi_ref * (sigma/sigma_ref)^2."""
+    sigma = np.asarray(sigma_kms, dtype=float)
+    return PHI_REF_0 * (np.maximum(sigma, 1.0) / SIGMA_REF_DEPTH) ** 2
 
 
 # ---------------------------------------------------------------------------
@@ -284,11 +316,25 @@ def _build_combined_sample():
 # ---------------------------------------------------------------------------
 
 def _compute_ml_response_sigma_only(df):
-    """Observable M/L response from sigma alone (no Mdyn, no M*, no R_e)."""
+    """Observable M/L response from sigma alone (no Mdyn, no M*, no R_e).
+
+    Uses the virial sigma->M_halo map and clips to the canonical response
+    domain [0.01, 100] used by the self-consistent solver (no clipping is
+    triggered at the current sigma range; the bound is applied for
+    consistency with the bounded canonical usage).
+    """
     sigma = df["sigma_kms"].to_numpy(dtype=float)
     z = df["z"].to_numpy(dtype=float)
     log_mh = _sigma_to_log_mhalo(sigma, z)
-    return compute_ml_response(log_mh, z)
+    return np.clip(compute_ml_response(log_mh, z), 0.01, 100.0)
+
+
+def _compute_ml_response_direct_depth(df):
+    """Observable M/L response from the cosmology-free sigma->depth map."""
+    sigma = df["sigma_kms"].to_numpy(dtype=float)
+    z = df["z"].to_numpy(dtype=float)
+    psi = _sigma_to_psi_direct(sigma)
+    return np.clip(compute_ml_response_from_depth(psi, z), 0.01, 100.0)
 
 
 # ---------------------------------------------------------------------------
@@ -306,7 +352,13 @@ def _safe_spearman(x, y):
 
 
 def _ols_fit(x, y):
-    """Return (slope, intercept, r2, residuals) for a simple OLS fit."""
+    """Return (slope, intercept, r2, residuals) for a simple OLS fit.
+
+    Residuals are stored as (fitted - y), the negative of the conventional
+    (y - fitted) definition. All residual-z correlations reported by this
+    step therefore carry the opposite sign to the conventional residual;
+    T6 reports the conventional sign explicitly.
+    """
     x = np.asarray(x, dtype=float)
     y = np.asarray(y, dtype=float)
     mask = np.isfinite(x) & np.isfinite(y)
@@ -349,11 +401,15 @@ def _ols_fit_2d(x1, x2, y):
 
 def _test_mstar_sigma_evolution(df):
     """
-    T1 — Does the M*-sigma residual increase with z as TEP predicts?
+    T1 — Does the M*-sigma residual trend with z match the TEP prediction?
 
     We fit log(M*_obs) = a * log(sigma) + b on the full sample, then ask
-    whether the residual correlates with z.  Under TEP the residual should
-    be positive at high z because M*_obs is inflated by R_ML^{n_ML}.
+    whether the residual correlates with z. Under TEP the conventional
+    residual (y - fit) carries the mass offset n_ML * log10(R_ML); the
+    predicted sign of its z-trend therefore follows the z-dependence of
+    R_ML at fixed sigma, which is set by the adopted sigma->depth map (T6).
+    Stored residuals use the (fit - y) convention, so stored signs are
+    reversed relative to the conventional residual.
 
     After applying the sigma-only TEP correction, the residual-z correlation
     should be reduced.
@@ -387,9 +443,13 @@ def _test_mstar_sigma_evolution(df):
     return {
         "n": int(len(df)),
         "description": (
-            "M*-sigma zero-point evolution test. Under TEP, the M*-sigma "
-            "residual should increase with z (positive rho). After sigma-only "
-            "TEP correction, this trend should weaken."
+            "M*-sigma zero-point evolution test. Residuals are stored as "
+            "(fit - y); under the adopted virial sigma->M_halo map the "
+            "predicted conventional residual-z trend is negative at fixed "
+            "sigma (the map's (1+z)^-1.5 halo drift outweighs the kernel's "
+            "sqrt(1+z) growth), i.e. positive in the stored convention. "
+            "After sigma-only TEP correction, this trend should weaken. "
+            "The predicted direction is construction-dependent; see T6."
         ),
         "observed_mstar_sigma_fit": {
             "slope": slope_obs,
@@ -492,6 +552,12 @@ def _test_gamma_sigma_only_prediction(df):
     only through its z-dependent functional form.  A positive partial means
     the specific TEP z-scaling improves the prediction of M* beyond what
     sigma and z individually provide.
+
+    Power caveat: R_ML_sigma_only is a deterministic function of (sigma, z),
+    both of which are conditioned on, so the partial tests only the kernel's
+    nonlinear (sigma, z) remainder rather than independent information. The
+    test is intrinsically low-power and its null is uninformative about the
+    response amplitude.
     """
     log_mstar = df["log_Mstar_obs"].to_numpy(dtype=float)
     log_sigma = np.log10(df["sigma_kms"].to_numpy(dtype=float))
@@ -620,10 +686,124 @@ def _test_highz_subset(df, z_min=4.0):
 
 
 # ---------------------------------------------------------------------------
+# Test T6: Sigma-to-depth construction sensitivity
+# ---------------------------------------------------------------------------
+
+def _test_construction_sensitivity(df):
+    """
+    T6 — Compare the TEP-predicted residual-z direction under the two
+    sigma->depth constructions.
+
+    The conventional residual (y - fit) carries the mass offset
+    n_ML * log10(R_ML), so the predicted direction of its z-trend at fixed
+    sigma is sign of partial rho(n_ML*log10 R_ML, z | sigma).  That
+    prediction depends on the sigma->depth translation:
+
+      virial map:  sigma -> M_halo with a -1.5*log10(1+z) drift
+                   (expanding-cosmology virial scaling).  At fixed sigma the
+                   predicted conventional residual-z trend is negative.
+      direct map:  sigma -> Psi ~ sigma^2, cosmology-free.  The predicted
+                   sign flips at sigma_ref_depth (Psi = Psi_ref): positive
+                   for deep potentials, negative for shallow ones.
+
+    For each subsample the observed conventional residual-z partial is
+    compared with both predicted directions, and the TEP-corrected residual
+    trend is recomputed under each map.  Residuals here are reported in the
+    conventional (y - fit) convention — opposite in sign to the stored T1
+    values.
+    """
+    log_sigma = np.log10(df["sigma_kms"].to_numpy(dtype=float))
+    log_mstar = df["log_Mstar_obs"].to_numpy(dtype=float)
+    z = df["z"].to_numpy(dtype=float)
+    r_vir = df["ml_response_sigma_only"].to_numpy(dtype=float)
+    r_dir = df["ml_response_direct_depth"].to_numpy(dtype=float)
+    lg_vir = np.log10(np.maximum(r_vir, 0.01))
+    lg_dir = np.log10(np.maximum(r_dir, 0.01))
+
+    # Global conventional residual (y - fit)
+    slope, intercept, _, resid_stored = _ols_fit(log_sigma, log_mstar)
+    resid_conv = -resid_stored
+
+    masks = {
+        "pooled": np.ones(len(df), dtype=bool),
+        "absorption": (df["sigma_type"] == "absorption").to_numpy(),
+        "emission": (df["sigma_type"] == "emission").to_numpy(),
+        "z_ge_4": (df["z"] >= 4.0).to_numpy(),
+    }
+    for paper in sorted(df["source_paper"].unique()):
+        masks[f"survey::{paper}"] = (df["source_paper"] == paper).to_numpy()
+
+    subsamples = {}
+    for name, mask in masks.items():
+        n = int(mask.sum())
+        if n < 6:
+            subsamples[name] = {"n": n, "note": "insufficient_n"}
+            continue
+        obs_rho, obs_p, _ = partial_rank_correlation(
+            z[mask], resid_conv[mask], log_sigma[mask])
+        pred_vir, _, _ = partial_rank_correlation(
+            z[mask], N_ML * lg_vir[mask], log_sigma[mask])
+        pred_dir, _, _ = partial_rank_correlation(
+            z[mask], N_ML * lg_dir[mask], log_sigma[mask])
+        # Corrected conventional residual under each map
+        corr_vir = -_ols_fit(
+            log_sigma[mask], (log_mstar - N_ML * lg_vir)[mask])[3]
+        corr_dir = -_ols_fit(
+            log_sigma[mask], (log_mstar - N_ML * lg_dir)[mask])[3]
+        rho_corr_vir, _, _ = partial_rank_correlation(
+            z[mask], corr_vir, log_sigma[mask])
+        rho_corr_dir, _, _ = partial_rank_correlation(
+            z[mask], corr_dir, log_sigma[mask])
+        subsamples[name] = {
+            "n": n,
+            "observed_resid_z_rho_conventional": float(obs_rho),
+            "observed_resid_z_p": float(obs_p),
+            "predicted_resid_z_rho_virial_map": float(pred_vir),
+            "predicted_resid_z_rho_direct_map": float(pred_dir),
+            "corrected_resid_z_rho_virial_map": float(rho_corr_vir),
+            "corrected_resid_z_rho_direct_map": float(rho_corr_dir),
+            "sign_agrees_virial_map": bool(np.sign(pred_vir) == np.sign(obs_rho)),
+            "sign_agrees_direct_map": bool(np.sign(pred_dir) == np.sign(obs_rho)),
+        }
+
+    def _agreement(key):
+        rows = [
+            v for k, v in subsamples.items()
+            if k.startswith("survey::") and key in v
+        ]
+        return {
+            "n_tested": len(rows),
+            "n_agree": sum(1 for v in rows if v[key]),
+            "n_significant": sum(
+                1 for v in rows if v["observed_resid_z_p"] < 0.05),
+        }
+
+    survey_summary = {
+        "virial_map": _agreement("sign_agrees_virial_map"),
+        "direct_map": _agreement("sign_agrees_direct_map"),
+    }
+    return {
+        "description": (
+            "Construction sensitivity of the T1 sign verdict. All residual-z "
+            "correlations use the conventional (y - fit) convention, opposite "
+            "to the stored T1 values. The virial map embeds a (1+z)^-1.5 "
+            "expanding-cosmology halo-normalization drift and predicts a "
+            "negative conventional trend at fixed sigma; the cosmology-free "
+            "direct depth map predicts a sign split at sigma_ref_depth "
+            "= {:.0f} km/s.".format(SIGMA_REF_DEPTH)
+        ),
+        "sigma_ref_depth_kms": float(SIGMA_REF_DEPTH),
+        "residual_convention": "conventional (y - fit); stored T1 values are negated",
+        "subsamples": subsamples,
+        "per_survey_sign_agreement": survey_summary,
+    }
+
+
+# ---------------------------------------------------------------------------
 # Assessment classification
 # ---------------------------------------------------------------------------
 
-def _classify_sigma_test(t1, t2, t3, t5, t1_abs=None):
+def _classify_sigma_test(t1, t2, t3, t5, t1_abs=None, t6=None):
     """
     Classify the overall result.  Focus on two key indicators:
       (a) T1: M*-sigma residual increases with z (positive rho_resid_z).
@@ -661,6 +841,18 @@ def _classify_sigma_test(t1, t2, t3, t5, t1_abs=None):
         abs_n = t1_abs.get("n", 0)
     abs_wrong_sign = abs_rho is not None and abs_rho < 0 and abs_n >= 10
 
+    # Construction sensitivity (T6): the absorption sign verdict is only
+    # robust if it disagrees under BOTH sigma->depth constructions.  If the
+    # cosmology-free direct map predicts the observed absorption sign, the
+    # "wrong sign" is a property of the virial map's expansion-era drift,
+    # not of the data.
+    abs_consistent_under_direct = False
+    if isinstance(t6, dict):
+        abs_t6 = t6.get("subsamples", {}).get("absorption", {})
+        abs_consistent_under_direct = bool(
+            abs_t6.get("sign_agrees_direct_map", False))
+    construction_dependent_sign = abs_wrong_sign and abs_consistent_under_direct
+
     t1_positive = resid_rho is not None and resid_rho > 0
     t1_significant = t1_positive and resid_p is not None and resid_p < 0.05
     gamma_significant = gamma_rho is not None and gamma_rho > 0 and gamma_p is not None and gamma_p < 0.05
@@ -688,6 +880,8 @@ def _classify_sigma_test(t1, t2, t3, t5, t1_abs=None):
         return "sigma_based_tep_support", True
     elif moderate:
         return "directionally_supportive_sigma_test", True
+    elif construction_dependent_sign and (t1_significant or secondary_only):
+        return "mixed_sigma_test_construction_dependent_signs", False
     elif abs_wrong_sign and (t1_significant or secondary_only):
         return "mixed_sigma_test_absorption_wrong_sign", False
     elif not t1_positive and secondary_only:
@@ -718,9 +912,11 @@ def run():
     print_status(f"  Combined kinematic sample: N={len(combined)}, z={metadata['z_min']:.2f}-{metadata['z_max']:.2f}", "INFO")
     print_status(f"  Sources: {metadata['source_paper_breakdown']}", "INFO")
 
-    # Compute sigma-only R_ML (SED-independent, R_e-independent)
+    # Compute sigma-only R_ML (SED-independent, R_e-independent) under both
+    # sigma->depth constructions
     combined["ml_response_sigma_only"] = _compute_ml_response_sigma_only(combined)
     combined["gamma_t_sigma_only"] = combined["ml_response_sigma_only"]
+    combined["ml_response_direct_depth"] = _compute_ml_response_direct_depth(combined)
 
     # Run all tests
     t1 = _test_mstar_sigma_evolution(combined)
@@ -728,6 +924,7 @@ def run():
     t3 = _test_gamma_sigma_only_prediction(combined)
     t4 = _test_cross_survey(combined)
     t5 = _test_highz_subset(combined, z_min=4.0)
+    t6 = _test_construction_sensitivity(combined)
 
     # Stratify by sigma_type (absorption vs emission) to diagnose
     # whether the primary test result is driven by mixing stellar
@@ -738,7 +935,7 @@ def run():
     t1_abs = _test_mstar_sigma_evolution(absorption) if len(absorption) >= 10 else {"n": len(absorption), "status": "insufficient_n"}
     t1_emi = _test_mstar_sigma_evolution(emission) if len(emission) >= 10 else {"n": len(emission), "status": "insufficient_n"}
 
-    assessment, supportive = _classify_sigma_test(t1, t2, t3, t5, t1_abs)
+    assessment, supportive = _classify_sigma_test(t1, t2, t3, t5, t1_abs, t6)
 
     # Print key results
     print_status("  T1 — M*-sigma zero-point evolution:", "INFO")
@@ -784,6 +981,23 @@ def run():
         print_status(f"    rho(R_ML, M* | sigma, z) = {t5['partial_rho_gamma_mstar_given_sigma_z']:.4f} "
                      f"(p={t5['p_gamma_mstar']:.4e})", "INFO")
 
+    print_status("  T6 — Construction sensitivity (conventional resid sign):", "INFO")
+    for name, sub in t6["subsamples"].items():
+        if "observed_resid_z_rho_conventional" not in sub:
+            continue
+        print_status(
+            f"    {name:<30} N={sub['n']:>2} obs={sub['observed_resid_z_rho_conventional']:+.3f} "
+            f"(p={sub['observed_resid_z_p']:.3f}) "
+            f"pred_vir={sub['predicted_resid_z_rho_virial_map']:+.3f} "
+            f"pred_dir={sub['predicted_resid_z_rho_direct_map']:+.3f} "
+            f"agree_vir={sub['sign_agrees_virial_map']} agree_dir={sub['sign_agrees_direct_map']}",
+            "INFO")
+    sv = t6["per_survey_sign_agreement"]
+    print_status(
+        f"    Per-survey sign agreement: virial {sv['virial_map']['n_agree']}/{sv['virial_map']['n_tested']}, "
+        f"direct {sv['direct_map']['n_agree']}/{sv['direct_map']['n_tested']}",
+        "INFO")
+
     print_status(f"  Assessment: {assessment} (supportive={supportive})", "INFO")
 
     # Save combined sample CSV
@@ -805,26 +1019,37 @@ def run():
             "T3_gamma_sigma_only_prediction": t3,
             "T4_cross_survey": t4,
             "T5_highz_z_ge_4": t5,
+            "T6_construction_sensitivity": t6,
         },
         "methodology": {
             "description": (
                 "Sigma-based mass-circularity-breaking test suite. R_ML is computed "
-                "from velocity dispersion alone (sigma -> M_halo -> R_ML), with zero "
-                "dependence on SED-fitted M* or size-based Mdyn. This reduces mass-proxy "
-                "circularity, while still depending on the sigma-to-halo calibration and "
-                "sample mix. The primary test (T1) asks whether the M*-sigma "
-                "residual increases with z as TEP predicts. The secondary test (T3) asks "
-                "whether the sigma-only R_ML adds predictive power for M*_obs beyond "
-                "sigma and z individually. Tracer stratification: absorption-line sigma "
-                "(stellar dynamics, quiescent galaxies) is the primary clean tracer; "
-                "emission-line sigma (gas kinematics, star-forming galaxies) is "
-                "contaminated by outflows, turbulence, and beam smearing and is treated "
-                "as a secondary gas-kinematics test. If the absorption-line subsample "
-                "shows the opposite sign, the pooled result is downgraded."
+                "from velocity dispersion alone, with zero dependence on SED-fitted "
+                "M* or size-based Mdyn. Two sigma->depth constructions are carried "
+                "in parallel: (a) a literature-calibrated virial sigma->M_halo map "
+                "whose -1.5*log10(1+z) drift encodes expanding-cosmology halo "
+                "evolution, and (b) a cosmology-free direct sigma->Psi map "
+                "(Psi ~ sigma^2, anchored to map (a) at z=0, sigma=200 km/s). "
+                "The primary test (T1) compares the observed M*-sigma residual-z "
+                "trend with the TEP-predicted direction, which is itself "
+                "construction-dependent (T6). The secondary test (T3) asks whether "
+                "the sigma-only R_ML adds predictive power for M*_obs beyond sigma "
+                "and z individually; since R_ML is a deterministic function of "
+                "(sigma, z) this partial is intrinsically low-power. Tracer "
+                "stratification: absorption-line sigma (stellar dynamics, quiescent "
+                "galaxies) is the primary clean tracer; emission-line sigma (gas "
+                "kinematics, star-forming galaxies) is contaminated by outflows, "
+                "turbulence, and beam smearing and is treated as a secondary "
+                "gas-kinematics test. Residuals in T1/T2/T4/T5 are stored as "
+                "(fit - y), the negative of the conventional residual; T6 reports "
+                "conventional signs explicitly."
             ),
             "gamma_t_derivation": (
-                f"log(M_h) = {SIGMA_SLOPE} * log10(sigma / {SIGMA_REF} km/s) + {LOG_MH_AT_SIGMA_REF}; "
-                "R_ML = compute_gamma_t(log_Mh, z)"
+                f"virial map: log(M_h) = {SIGMA_SLOPE} * log10(sigma / {SIGMA_REF} km/s) "
+                f"+ {LOG_MH_AT_SIGMA_REF} - 1.5*log10(1+z); "
+                f"direct map: Psi = Psi_ref * (sigma/{SIGMA_REF_DEPTH:.1f} km/s)^2; "
+                "R_ML = compute_ml_response(log_Mh, z) / compute_ml_response_from_depth(Psi, z), "
+                "clipped to the canonical [0.01, 100] domain"
             ),
             "mass_correction_model": f"n_ML = {N_ML}",
             "kappa_gal": KAPPA_GAL,

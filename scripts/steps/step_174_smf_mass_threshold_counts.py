@@ -77,7 +77,7 @@ def _add_tep_columns(df):
     iterates M*→Mh→R_ML→M*_true to a stable fixed point.
     """
     gamma_sc, log_m_true_sc = compute_ml_response_self_consistent(
-        df["log_Mstar"].values, df["z"].values, n=N_ML
+        df["log_Mstar"].values, df["z"].values, n_sps=N_ML
     )
     df["gamma_t"] = gamma_sc
     df["log_Mstar_true"] = log_m_true_sc

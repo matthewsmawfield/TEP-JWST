@@ -32,7 +32,14 @@ LOGS_PATH.mkdir(parents=True, exist_ok=True)  # Create directory tree if missing
 logger = TEPLogger(f"step_{STEP_NUM}", log_file_path=LOGS_PATH / f"step_{STEP_NUM}_{STEP_NAME}.log")  # Step-specific logger (isolated per-step logging for traceability)
 set_step_logger(logger)  # Register as global step logger so print_status() routes to this step's log
 
-from scripts.utils.tep_model import compute_gamma_t as tep_gamma, stellar_to_halo_mass_behroozi_like  # TEP model: Gamma_t formula, stellar-to-halo mass from abundance matching
+from scripts.utils.tep_model import (
+    KAPPA_GAL,
+    PHI_REF_0,
+    RESPONSE_KERNEL_N_REF,
+    compute_gamma_t as tep_gamma,
+    compute_ml_response_from_depth,
+    stellar_to_halo_mass_behroozi_like,
+)  # Fixed response kernel plus correction-stage SPS validation
 from scripts.utils.p_value_utils import format_p_value  # Safe p-value formatting (prevents floating-point underflow at p < 1e-300)
 
 def theoretical_ml_scaling():
@@ -102,6 +109,64 @@ def tep_ml_modification():
             'Within the canonical pipeline this step is treated as scaling support '
             'and robustness context rather than as a primary independent line of evidence.'
         )
+    }
+
+
+def kernel_sps_separation_validation():
+    """Verify that SPS choices cannot renormalise or discontinuously jump R_ML."""
+    probe_depth = PHI_REF_0 + 5.0e-7
+    probe_z = 6.0
+    n_sps_values = [0.5, 0.7, 0.9]
+    response = float(compute_ml_response_from_depth(probe_depth, probe_z))
+    response_by_n_sps = {str(n): response for n in n_sps_values}
+    mass_bias_by_n_sps = {str(n): float(response ** n) for n in n_sps_values}
+
+    boundary_checks = []
+    epsilon = 1.0e-7
+    for boundary in [4.0, 6.0]:
+        left = float(compute_ml_response_from_depth(probe_depth, boundary - epsilon))
+        right = float(compute_ml_response_from_depth(probe_depth, boundary + epsilon))
+        relative_jump = abs(right - left) / max(abs(left), abs(right), 1.0e-30)
+        boundary_checks.append({
+            'z_boundary': boundary,
+            'response_left': left,
+            'response_right': right,
+            'relative_jump': relative_jump,
+        })
+
+    kernel_value = float(KAPPA_GAL * np.log(10) / (2.5 * RESPONSE_KERNEL_N_REF))
+    max_boundary_jump = max(item['relative_jump'] for item in boundary_checks)
+    max_sps_spread = max(response_by_n_sps.values()) - min(response_by_n_sps.values())
+    passed = max_boundary_jump < 1.0e-6 and max_sps_spread == 0.0
+
+    return {
+        'status': 'PASS' if passed else 'FAIL',
+        'kernel_stage': {
+            'n_ref': RESPONSE_KERNEL_N_REF,
+            'K_gal': kernel_value,
+            'formula': 'K_gal = kappa_gal ln(10) / (2.5 n_ref)',
+            'scope': 'fixed for every redshift and every catalogue',
+        },
+        'correction_stage': {
+            'quantity': 'n_SPS',
+            'primary_catalogue_assignment': {
+                'z <= 4': 0.7,
+                '4 < z <= 6': 0.9,
+                'z > 6': 0.5,
+            },
+            'stellar_mass_function_assignment': 0.7,
+            'scope': 'mass and SFE corrections only',
+        },
+        'fixed_depth_response_by_n_sps': response_by_n_sps,
+        'max_fixed_depth_response_spread': max_sps_spread,
+        'fixed_depth_mass_bias_by_n_sps': mass_bias_by_n_sps,
+        'boundary_continuity': boundary_checks,
+        'max_boundary_relative_jump': max_boundary_jump,
+        'interpretation': (
+            'The fixed n_ref transfer defines one continuous R_ML kernel. '
+            'Population-dependent n_SPS values enter only after R_ML is evaluated '
+            'and therefore cannot create a response jump at z=4 or z=6.'
+        ),
     }
 
 def empirical_validation(df):
@@ -187,6 +252,17 @@ def main():
     # TEP modification
     results['tep_modification'] = tep_ml_modification()
     print_status(f"TEP modification applied", "INFO")
+
+    results['kernel_sps_separation'] = kernel_sps_separation_validation()
+    separation = results['kernel_sps_separation']
+    print_status(
+        f"Kernel/SPS separation: {separation['status']} "
+        f"(K_gal={separation['kernel_stage']['K_gal']:.6e}, "
+        f"max boundary jump={separation['max_boundary_relative_jump']:.3e})",
+        "INFO",
+    )
+    if separation['status'] != 'PASS':
+        raise RuntimeError('Kernel/SPS separation validation failed')
     
     # Load data for empirical validation
     empirical = None

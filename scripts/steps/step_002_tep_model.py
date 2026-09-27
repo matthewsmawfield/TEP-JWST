@@ -86,11 +86,12 @@ set_step_logger(logger)  # Register as global step logger so print_status() rout
 #   - Uses positive Psi = |Phi|/c^2 as the environmental predictor
 #   - Returns R_ML > 0 without identifying it with a local clock rate
 #
-# ml_inference_bias(response, n_ML=0.7)
-#   - Bias in inferred mass: M*_obs / M*_true = R_ML^(n_ML)
+# ml_inference_bias(response, n_SPS=0.7)
+#   - Bias in inferred mass: M*_obs / M*_true = R_ML^(n_SPS)
 
 from scripts.utils.tep_model import (
     KAPPA_GAL, KAPPA_GAL_UNCERTAINTY, LOG_MH_REF, Z_REF,
+    RESPONSE_KERNEL_N_REF,
     tep_alpha, compute_ml_response, compute_ml_response_self_consistent,
     ml_inference_bias, stellar_to_halo_mass_behroozi_like
 )
@@ -115,14 +116,16 @@ def apply_tep_model(df):
     """
     df = df.copy()
     z = df['z_phot'].values
-    n_ml = np.where(z > 6, 0.5, np.where(z > 4, 0.9, 0.7))
-    df['n_ml'] = n_ml
+    n_sps = np.where(z > 6, 0.5, np.where(z > 4, 0.9, 0.7))
+    df['n_sps'] = n_sps
+    df['n_ml'] = n_sps  # legacy output alias
 
     # Self-consistent R_ML: iterate M*→Mh→R_ML→M*_true to convergence
-    # The redshift-dependent n_ml array is passed through to the iteration
+    # n_sps enters only the correction stage; the R_ML kernel retains the
+    # fixed n_ref = 0.7 transfer normalization at every redshift.
     df['response_z'] = tep_alpha(z)
     ml_response, log_mstar_true = compute_ml_response_self_consistent(
-        df['log_Mstar'].values, z, n=n_ml
+        df['log_Mstar'].values, z, n_sps=n_sps
     )
     df['ml_response'] = ml_response
     df['gamma_t'] = df['ml_response']
@@ -132,7 +135,7 @@ def apply_tep_model(df):
     # Update log_Mh from the corrected (true) stellar mass
     df['log_Mh'] = stellar_to_halo_mass_behroozi_like(log_mstar_true, z)
 
-    df['ml_bias'] = ml_inference_bias(df['ml_response'].values, n_ml)
+    df['ml_bias'] = ml_inference_bias(df['ml_response'].values, n_sps)
     df['log_Mstar_true'] = log_mstar_true
 
     return df
@@ -197,7 +200,7 @@ def main():
     print_status("  (a) response_z = kappa_gal * sqrt(1+z) — response evolution", "INFO")
     print_status("  (b) R_ML = exp[...]                      — observable inference response", "INFO")
     print_status("  (c) t_inferred_proxy = t_cosmic * R_ML  — observer-side proxy [Gyr]", "INFO")
-    print_status("  (d) ml_bias = R_ML^n_ml                  — mass-to-light inference bias", "INFO")
+    print_status("  (d) ml_bias = R_ML^n_SPS                 — mass-to-light inference bias", "INFO")
     print_status("  (e) log_Mstar_true = log_Mstar - log10(ml_bias) — corrected mass", "INFO")
     print_status("")
 
@@ -254,6 +257,13 @@ def main():
         summary = {
             "kappa_gal": KAPPA_GAL,
             "kappa_gal_uncertainty": KAPPA_GAL_UNCERTAINTY,
+            "response_kernel_n_ref": RESPONSE_KERNEL_N_REF,
+            "response_kernel_scope": "fixed at every redshift",
+            "correction_stage_n_sps": {
+                "z_le_4": 0.7,
+                "4_lt_z_le_6": 0.9,
+                "z_gt_6": 0.5,
+            },
             "log_Mh_ref": LOG_MH_REF,
             "z_ref": Z_REF,
             "quantity_dictionary": {

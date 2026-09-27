@@ -16,7 +16,7 @@ abstract: |
 
   *Keywords:* Cosmology: early universe – Galaxies: high-redshift – Galaxies: evolution – Gravitation – Scalar-tensor theories – Infrared: galaxies
 license: CC-BY-4.0
-version: v0.6 (Kos)
+version: v0.7 (Kos)
 date-released: 2026-03-13
 keywords:
 - Temporal Equivalence Principle
@@ -53,4 +53,4 @@ preferred-citation:
     value: 10.5281/zenodo.19000827
     description: Pre-print DOI
   url: https://doi.org/10.5281/zenodo.19000827
-  notes: Preprint v0.6 (Kos)
+  notes: Preprint v0.7 (Kos)

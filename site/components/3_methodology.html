@@ -328,16 +328,18 @@
     \end{equation}
   </div>
   <p>
-    Here $\kappa_{\rm gal}=(9.6\pm4.0)\times10^5$ mag is the canonical reference benchmark for the galaxy-sector observable response, and $K_{\rm gal} = \kappa_{\rm gal}\ln 10/(2.5\,n_{\rm ref}) \approx 1.26\times10^6$ (with $n_{\rm ref}=0.7$) is the derived galaxy-sector normalization entering the exponential kernel. $\Psi_{\rm ref}$ corresponds to $\log M_{h,\rm ref}=12.0$, and $\sqrt{1+z}$ is the adopted response-evolution factor. $R_{\rm ML}$ is a channel-level inference response: it parameterizes how conventional stellar-population inference changes with environment. It is not $A$, $A/A_{\rm ref}$, $A_{\rm ref}/A$, or the bare scalar coupling.
+    Here $\kappa_{\rm gal}=(9.6\pm4.0)\times10^5$ mag is the canonical reference benchmark for the galaxy-sector observable response, and $K_{\rm gal} = \kappa_{\rm gal}\ln 10/(2.5\,n_{\rm ref}) = 1.263\times10^6$ (with the fixed transfer convention $n_{\rm ref}=0.7$) is the single normalization entering the exponential kernel. Neither $n_{\rm ref}$ nor $K_{\rm gal}$ changes at a redshift boundary. $\Psi_{\rm ref}$ corresponds to $\log M_{h,\rm ref}=12.0$, and $\sqrt{1+z}$ supplies the only explicit redshift dependence of this kernel. A dedicated variant comparison (Step 181) tests whether that factor is absorbing missing virial-depth evolution: the frozen $z=0$ depth is replaced by the redshift-consistent $\Psi\propto E(z)^{2/3}$, the $\sqrt{1+z}$ factor is removed, and both exponent locations are scanned freely. Evolving-depth variants outscore the canonical structure on the multi-observable response score, and the free-exponent optimum runs to the scan boundary — the kernel's redshift dependence is therefore underdetermined by this sample, and the canonical form is retained on theory grounds (the conformal endpoint ratio, §2.3.2) rather than because it is data-selected. $R_{\rm ML}$ is a channel-level inference response: it parameterizes how conventional stellar-population inference changes with environment. It is not $A$, $A/A_{\rm ref}$, $A_{\rm ref}/A$, or the bare scalar coupling.
   </p>
   <p>
-    <strong>Provenance of $\kappa_{\rm gal}$.</strong> The value $\kappa_{\rm gal} = 0.960 \times 10^6$ mag is the canonical theory benchmark adopted across the TEP corpus (Paper 11, Appendix C). It corresponds to an effective host-to-anchor potential depth $\Delta(u_\phi^2)/c^2 \sim 3 \times 10^{-7}$ mapped through the Leavitt law slope $b \approx -3.30$ to produce a $\sim 0.3$ mag characteristic modulus shift. It is a prespecified theory reference value, not a fitted posterior from any single step. The empirical Cepheid-channel analyses in Paper 11 fit $\kappa$ directly from observational data without imposing this benchmark: Step 42 recovers $\kappa_{\rm Cep}^{\rm equiv} = (0.369 \pm 0.310) \times 10^6$ mag under the restricted Cepheid-channel closure, and the multi-block joint analysis (Step 44) recovers $\kappa_{\rm Cep} = (0.400 \pm 0.270) \times 10^6$ mag. The JWST-side recovery from the high-redshift galaxy sample is $\kappa = (6.0 \pm 3.8) \times 10^5$ mag, consistent with the canonical benchmark at $0.66\sigma$. The $\pm 4.0 \times 10^5$ mag uncertainty adopted here is the canonical theory uncertainty, not the posterior width of any single Cepheid fit. A sensitivity analysis using the empirical Paper 11 multi-block value ($\kappa = 0.40 \times 10^6$ mag) and the JWST-side recovery ($\kappa = 0.60 \times 10^6$ mag) is reported in §3.9; the dust–$R_{\rm ML}$ correlation remains significant ($\rho > 0.4$) across this range, though the magnitude of the mass correction scales proportionally.
+    <strong>Provenance of $\kappa_{\rm gal}$.</strong> The value $\kappa_{\rm gal} = 0.960 \times 10^6$ mag is the canonical theory benchmark adopted across the TEP corpus (Paper 11, Appendix C). It corresponds to an effective host-to-anchor potential depth $\Delta(u_\phi^2)/c^2 \sim 3 \times 10^{-7}$ mapped through the Leavitt law slope $b \approx -3.30$ to produce a $\sim 0.3$ mag characteristic modulus shift. It is a prespecified theory reference value, not a fitted posterior from any single step. The empirical Cepheid-channel analyses in Paper 11 fit $\kappa$ directly from observational data without imposing this benchmark: Step 42 recovers $\kappa_{\rm Cep}^{\rm equiv} = (0.369 \pm 0.310) \times 10^6$ mag under the restricted Cepheid-channel closure, and the multi-block joint analysis (Step 44) recovers $\kappa_{\rm Cep} = (0.400 \pm 0.270) \times 10^6$ mag. The regenerated JWST-side joint recovery from the high-redshift galaxy sample is $\kappa = (8.38 \pm 4.11) \times 10^5$ mag, consistent with the canonical benchmark at $0.21\sigma$ and equally within $\sim 1.1\sigma$ of the empirical Cepheid values; it therefore does not discriminate between the two anchors. The empirical recoveries lie a factor $\sim 2.4$ below the canonical benchmark and are individually $\lesssim 1.5\sigma$ from zero — an open normalization discrepancy of the corpus (Paper 11; the unresolved response-normalization class of Paper 0), not a resolved agreement. The $\pm 4.0 \times 10^5$ mag uncertainty adopted here is the canonical theory uncertainty, not the posterior width of any single Cepheid fit. Sensitivity analyses spanning the empirical Paper 11 multi-block value ($\kappa = 0.40 \times 10^6$ mag), the JWST-side recovery, and the canonical benchmark are reported in §3.9; the dust–$R_{\rm ML}$ correlation remains significant ($\rho > 0.4$) across this range, though the magnitude of the mass correction scales proportionally.
   </p>
   <p>
     Values above and below unity therefore denote positive and negative inference responses relative to the reference environment, not faster and slower local clocks. Screening acts on the environmental transfer entering the response, while the physical conformal clock offset retains the same slowing sign throughout. The low-mass dust and high-mass stellar-population tests below are consequently tests of an environment-ordered inference channel; they do not constitute direct measurements of local proper-time acceleration.
   </p>
   <p>
-    The physical origin of $R_{\rm ML}>1$ at high redshift lies in the background temporal structure, not in faster local clocks. In the canonical TEP cosmology (TEP-HUB, Paper 30), the spatial manifold is static and the gravitational coordinate time extends without finite origin. The FLRW observer-age $t_{\rm cosmic}(z)$ used by standard stellar-population inference is a reconstruction under the isochrony axiom: it interprets the clock-calibration ratio $1+z=A_0/A_{\rm em}$ as spatial expansion and assigns a finite, shrinking age to high redshift ($\sim 540$ Myr at $z=9$). Under TEP, the actual coordinate time elapsed is far larger than this reconstruction. Local matter clocks run slower than coordinate time ($\Delta\ln A<0$ in a deeper well), but the coordinate background is eternal, so the accumulated proper time can still exceed the FLRW assigned age by a large factor. $R_{\rm ML}>1$ parameterizes this discrepancy as an inference-channel response: it quantifies how much the standard pipeline inflates apparent age and $M/L$ when it uses the too-short FLRW baseline. It is not itself a direct measurement of the proper-time ratio; the catalogue proxy $t_{\rm inf}^{\rm proxy} = R_{\rm ML} \, t_{\rm FLRW}^{\rm obs}$ propagates the fitted response through the conventional $M/L \propto t^n$ scaling but is not a physical proper-time integral (§2.3.3). The $\sqrt{1+z}$ response-evolution factor encodes the growing discrepancy between the eternal coordinate background and the shrinking FLRW reconstruction at higher redshift.
+    The physical origin of $R_{\rm ML}>1$ at high redshift lies in the background temporal structure, not in faster local clocks. In the canonical TEP cosmology (TEP-HUB, Paper 30), the spatial manifold is static and the gravitational coordinate time extends without finite origin. The FLRW observer-age $t_{\rm cosmic}(z)$ used by standard stellar-population inference is a reconstruction under the isochrony axiom: it interprets the clock-calibration ratio $1+z=A_0/A_{\rm em}$ as spatial expansion and assigns a finite, shrinking age to high redshift ($\sim 540$ Myr at $z=9$). Under TEP, the actual coordinate time elapsed is far larger than this reconstruction. Local matter clocks run slower than coordinate time ($\Delta\ln A<0$ in a deeper well), but the coordinate background is eternal, so the accumulated proper time can still exceed the FLRW assigned age by a large factor — the quantitative elapsed-time ratio available to date is the closed-static benchmark-branch value of Paper 0 §8, conditional on the inhomogeneous eternal construction whose constraint-slice existence is demonstrated (Appendix E, R8) but whose matter-frame clock history is not yet computed (§1, observer-age convention). $R_{\rm ML}>1$ parameterizes this discrepancy as an inference-channel response: it quantifies how much the standard pipeline inflates apparent age and $M/L$ when it uses the too-short FLRW baseline. It is not itself a direct measurement of the proper-time ratio; the catalogue proxy $t_{\rm inf}^{\rm proxy} = R_{\rm ML} \, t_{\rm FLRW}^{\rm obs}$ propagates the fitted response through the conventional $M/L \propto t^n$ scaling but is not a physical proper-time integral (§2.3.3). The $\sqrt{1+z}$ response-evolution factor encodes the growing discrepancy between the eternal coordinate background and the shrinking FLRW reconstruction at higher redshift.</p>
+  <p>
+    <strong>Origin of the depth ordering.</strong> The eternal-background term is uniform at fixed $z$ and is blind to $\Psi$; the kernel's depth ordering enters through a separate term of the same clock-calibration ratio. The measured redshift decomposes as $1+z = (A_0/A_{\rm em})\times(\text{propagation and kinematic factors})$, and the emitter's conformal factor $A_{\rm em}=\exp(\beta_A u_{\rm em})$ contains the local halo contribution, $u_{\rm em}\sim u_{\rm cosmo}(z)+\Psi$: a deeper well lowers $A_{\rm em}$, raises the assigned redshift, and shrinks the assigned FLRW age, enlarging the inferred evolutionary excess in proportion to $\Psi$. This endpoint clock-calibration term carries the sign the kernel implements — $R_{\rm ML}$ grows with depth — while the matter-frame proper-time integral $\tau=\int A\,dt$ acts in the opposite sense (deeper wells accumulate less proper time) and must be shown to be subdominant or counted as a countervailing contribution within the same channel rather than invoked as the mechanism. Two disclosures follow. First, the bare endpoint amplitude is $\Delta\ln A\sim\Delta\Psi\sim10^{-7}$ per halo decade, whereas the fitted response is order unity: the factor $K_{\rm gal}\simeq1.26\times10^6$ is an empirical transfer amplification between the microscopic field offset and the channel-level inference response — the same unexplained response-amplification scale as $\kappa_{\rm Cep}$ in Paper 11 (corpus class 0-17) — and its derivation from the action is an open problem, not a completed result. Second, the redshift structure of the kernel is underdetermined by the current sample (Step 181, above): the canonical $\sqrt{1+z}$ form is a theory prior, not a data-selected exponent.
   </p>
 
   <h5>2.3.2.1 Auxiliary Log-Mass Approximation</h5>
@@ -354,16 +356,14 @@
   </p>
 
   <h5>2.3.2.2 Screening and Scale Separation</h5>
-  For a representative bare coupling $\beta_A \approx 0.8$, the bare
+  For an illustrative screened effective coupling $\beta_{A,\rm eff} \approx 0.8$ — a representative intermediate-environment value used only to display the pre-screening Brans–Dicke bookkeeping (the bare coupling is frozen at $\beta_A = -1.0$, Paper 0 §2.2; $|\beta_{A,\rm eff}| = |\beta_A| S_A(\mathcal{E})$) — the bare
   Brans-Dicke parameter would be $\omega_{\rm BD} = 1/(2\beta^2) - 1/2 \approx
   0.28$ — roughly five orders of magnitude below the Cassini bound
   ($\omega_{\rm BD} > 40{,}000$; Bertotti et al. 2003). This large
   pre-screening discrepancy illustrates the central logic of the TEP
   framework: any underlying bare coupling is strong, but in dense environments the scalar
   field gradient (Temporal Shear) flattens continuously, suppressing the
-  effective fifth-force coupling to $\beta_{\rm eff} \ll \beta_A$ (yielding an effective Brans–Dicke parameter $\omega_{\rm BD}^{\rm eff} = 1/(2\beta_{\rm eff}^2) - 1/2 > 10^6$, well within Cassini bounds). On cosmological scales, the Compton
-  wavelength $\lambda_C \sim 1$ Mpc yields Yukawa suppression $\beta_{\rm
-  eff}(R_8) \approx 0.002$ on $\sigma_8$ scales—well below the Planck bound.
+  effective fifth-force coupling to $\beta_{\rm eff} \ll \beta_A$ (yielding an effective Brans–Dicke parameter $\omega_{\rm BD}^{\rm eff} = 1/(2\beta_{\rm eff}^2) - 1/2 > 10^6$, well within Cassini bounds). On cosmological scales, suppression of the $k_8 = 2\pi/8 = 0.785\,h$/Mpc mode requires a Compton wavelength short enough that $m_{\phi,0} \gg k_8$: the effective coupling $\beta_{\rm eff}(k_8) = \beta_A\,k_8/\sqrt{k_8^2 + m_{\phi,0}^2}$ evaluates to $0.0079$ at the scale-dependent-growth best fit $m_{\phi,0} = 100\,h$/Mpc ($\lambda_C = 0.063\,h^{-1}$ Mpc; Step 135) — well below the Planck bound.
   Within individual halos ($r \lesssim 50$ kpc), the field tracks the local
   potential and operates locally. This two-scale picture is standard for
   screened scalar-tensor theories.
@@ -385,14 +385,25 @@
     in mass provides an independent consistency check on this screening scale.
   </p>
   At galactic scales, an effective kinematic screening threshold emerges from
-  analysis of 197 millisecond pulsars in globular clusters, which reveals that
+  analysis of 199 millisecond pulsars in globular clusters, which reveals that
   the TEP spin-down excess saturates for systems with velocity dispersion
   $\sigma \gtrsim 165$ km/s, consistent with the scalar field gradient
-  flattening as potential depth increases. This threshold is used to
-  define the environmental screening boundary for JWST galaxies: halos with
-  $\sigma \gtrsim 165$ km/s (corresponding to $\log M_h \gtrsim 13.5$ at $z
-  \sim 0$) are expected to be partially screened, suppressing $R_{\rm ML}$ below
-  the unscreened prediction.
+  flattening as potential depth increases. This is a shear-channel
+  ($\mathcal{S}_\Sigma$) boundary: it governs kinematic observables —
+  spin-down, accelerations, and dynamical-mass inference — and is not
+  interchangeable with the clock-amplitude channel $\mathcal{S}_A$ that
+  modulates $R_{\rm ML}$ (cf. the channel-projection notice of §4.1).
+  For the amplitude channel, the operative suppression is Eq.
+  (\ref{eq:jwst_kappa_eff}) evaluated at the halo's own environment:
+  galaxy-halo and disk densities ($\rho \sim 10^{-25}$–$10^{-24}$ g/cm³)
+  lie $\sim 25$ orders of magnitude below $\rho_T \approx 20$ g/cm³, at
+  which $\mathcal{S}(\rho/\rho_T) = 1$ to machine precision (Steps 120, 180), so
+  every halo in the present samples — including the massive $z > 5$ Red
+  Monster systems at $\log M_h \approx 12.7$–$13.1$ — is unscreened in the
+  amplitude channel. The unscreened primary kernel of §2.3.2 is therefore
+  the correct $\mathcal{S}_A \to 1$ limit for this sample, not an omitted
+  correction; amplitude-channel screening first becomes relevant at
+  stellar-interior and compact-object densities.
 
   <h5>2.3.2.3 Local Dilation and Channel Response</h5>
   <p>
@@ -472,9 +483,10 @@
       TEP-TH and TEP-BBN (Appendix A.1.7).
     </li>
     <li>
-      <strong>Linear growth ($\sigma_8$):</strong> Yukawa suppression on
+      <strong>Linear growth ($\sigma_8$):</strong> TEP screening (topology pinning) on
       $\gtrsim 10$ Mpc scales reduces the effective coupling to
-      $\beta_{\rm eff} \lesssim 0.002$, preserving $\Lambda$CDM-consistent
+      $\beta_{\rm eff}(k_8) = 0.0079$ at the best-fit $m_{\phi,0} = 100\,h$/Mpc
+      (Step 135), preserving $\Lambda$CDM-consistent
       $\sigma_8$ (§2.3.2.2; Appendix A.1.7–A.1.8).
     </li>
     <li>
@@ -486,11 +498,11 @@
   </ol>
   <p>
     <strong>Scale-dependent growth computation:</strong> To go beyond the
-    analytic Yukawa argument, the linear growth ODE is solved independently
+    analytic TEP screening argument, the linear growth ODE is solved independently
     for each Fourier mode $k$, incorporating the full scale-dependent
     gravitational coupling $G_{\rm eff}(k,z)/G_N = 1 + 2\beta^2 k^2/(k^2 +
     m_\phi(z)^2)$, where $m_\phi(z) = m_{\phi,0}(1+z)^{9/4}$ for $n=1$
-    potential (standard chameleon form). The resulting matter power spectrum ratio $P_{\rm
+    potential (standard chameleon form, used here as a conventional-background compatibility embedding). This inverse-power $n=1$ branch is the potential family excluded by Paper 0's constraint F1 under $\beta_A = -1$; the $\sigma_8$/CMB viability demonstrated below is therefore a proxy result for a screened scalar sector, not a verification of the canonical $V(\phi)$, and transfers to canonical TEP only conditionally. The canonical TEP screening structure is the nested two-body operator $\mathcal{R}(s)=\mathcal{S}_\Sigma(X_{\rm env})^2\,y(s)$ (Paper 0 \S2.2, v0.15), whose environmental separation dependence differs from the inverse-power $n=1$ form; the chameleon embedding is retained for computational tractability and cross-check against the native TEP-HC hi_class closure. The resulting matter power spectrum ratio $P_{\rm
     TEP}(k)/P_{\Lambda{\rm CDM}}(k)$ and integrated $\sigma_8$ are computed
     self-consistently (Appendix A.1.8). Key results:
   </p>
@@ -500,7 +512,8 @@
       ($\lambda_C \lesssim 14.6\,h^{-1}$ Mpc at $z=0$; Appendix A.1.8).
     </li>
     <li>
-      For typical Temporal Shear parameters, $\beta_{\rm eff}$ on $R_8$ scales
+      At the scale-dependent-growth best fit $m_{\phi,0} = 100\,h$/Mpc
+      ($\lambda_C = 0.063\,h^{-1}$ Mpc), $\beta_{\rm eff}$ on $R_8$ scales
       is $\approx 0.0079$—well below the bare coupling
       ($G_{\rm eff}/G_N - 1 = 1.2 \times 10^{-4}$ at $k_8$; Appendix
       A.1.8).
@@ -521,9 +534,9 @@
     0.02\% at all $\ell &lt; 2500$ and $\chi^2/{\rm dof} \ll 1$ against
     Planck error bars. Planck consistency holds for $m_{\phi,0} \gtrsim
     0.43\,h$/Mpc. The CAMB integration uses the scale-dependent growth
-    equation with Yukawa-suppressed $G_{\rm eff}(k,z)$ and CAMB's exact
+    equation with TEP-screened $G_{\rm eff}(k,z)$ and CAMB's exact
     lensed CMB spectra, substantially narrowing the remaining theoretical
-    gap. These CAMB calculations are conventional-background compatibility embeddings used to demonstrate that the local screened sector need not spoil observed CMB/growth phenomenology; they are not the canonical static-space TEP cosmological solution. The remaining approximation — that the scalar field does not modify
+    gap. These CAMB calculations are conventional-background compatibility embeddings on the F1-excluded inverse-power $n=1$ branch — a proxy demonstration that a screened scalar sector need not spoil observed CMB/growth phenomenology; they are not the canonical static-space TEP cosmological solution and do not verify the canonical $V(\phi)$. The remaining approximation — that the scalar field does not modify
     acoustic peaks at $z > 1089$ — is justified by $T^\mu_\mu \approx 0$
     during radiation domination. A natively coupled hi_class integration
     remains desirable for completeness but is no longer expected to change
@@ -582,7 +595,7 @@
 
   <h4>2.3.3 Inference-response correction</h4>
   <p>
-    The catalogue proxy $t_{\rm inf}^{\rm proxy}=R_{\rm ML}(M_h,z)t_{\rm FLRW}^{\rm obs}(z)$ is used only to propagate the fitted response through the conventional stellar population synthesis (SPS) mass-to-light scaling $M/L\propto t^{n_{\rm SPS}}$; it is not a physical proper-time integral. Here $n_{\rm ref} = 0.7$ serves as the fixed reference transfer exponent defining the canonical benchmark normalization $K_{\rm gal}$ from the Cepheid magnitude-sector conversion. In SPS models, the physical response exponent $n_{\rm SPS}$ governs the observational mass correction: for evolved, massive galaxies with significant accumulated older stellar mass (such as the Red Monster regime at $z \sim 5$–$6$), $n_{\rm SPS} \approx 0.7$ applies, whereas for young, bursty high-$z$ systems ($z > 8$), $n_{\rm SPS} \approx 0.5$–$0.7$. In contrast, star-formation rates traced by UV and emission-line luminosity reach steady state much earlier ($\sim 10$–$100$ Myr), scaling as $L_{\rm UV} \propto t^m$ with $m \approx 0.3$–$0.5$. Because ionizing and UV luminosity saturates much faster than integrated stellar mass accumulation across standard SPS libraries, for the representative SPS/SFR response ranges used here, $m < n_{\rm SPS}$ and the expected bias is negative ($m - n_{\rm SPS} \approx -0.2$ to $-0.4$); it approaches zero only at the limiting $m = n_{\rm SPS} = 0.5$ case, yielding ${\rm sSFR}_{\rm obs} \propto R_{\rm ML}^{m - n_{\rm SPS}}$. The observational mass correction is:
+    The catalogue proxy $t_{\rm inf}^{\rm proxy}=R_{\rm ML}(M_h,z)t_{\rm FLRW}^{\rm obs}(z)$ is used only to propagate the fitted response through the conventional stellar population synthesis (SPS) mass-to-light scaling $M/L\propto t^{n_{\rm SPS}}$; it is not a physical proper-time integral. The fixed $n_{\rm ref}=0.7$ belongs to the preceding response stage, whereas the physical SPS exponent $n_{\rm SPS}$ belongs exclusively to this correction stage. The catalogue construction used in the UNCOVER, CEERS, COSMOS-Web, and cross-survey steps assigns $n_{\rm SPS}=0.7$ for $z\le4$, $0.9$ for $4&lt;z\le6$, and $0.5$ for $z&gt;6$; the stellar-mass-function analysis uses the declared sensitivity convention $n_{\rm SPS}=0.7$ throughout. These choices change $R_{\rm ML}^{n_{\rm SPS}}$, never $R_{\rm ML}$ at fixed $(\Psi,z)$. In contrast, star-formation rates traced by UV and emission-line luminosity reach steady state much earlier ($\sim 10$–$100$ Myr), scaling as $L_{\rm UV} \propto t^m$ with $m \approx 0.3$–$0.5$. Because ionizing and UV luminosity saturates much faster than integrated stellar mass accumulation across standard SPS libraries, for the representative SPS/SFR response ranges used here, $m < n_{\rm SPS}$ and the expected bias is negative ($m - n_{\rm SPS} \approx -0.2$ to $-0.4$); it approaches zero only at the limiting $m = n_{\rm SPS} = 0.5$ case, yielding ${\rm sSFR}_{\rm obs} \propto R_{\rm ML}^{m - n_{\rm SPS}}$. The observational mass correction is:
   </p>
   <div class="equation">
     \begin{equation} \label{eq:jwst_mass_correction}
@@ -629,7 +642,11 @@
       <code>dynesty</code> nested-sampling analysis compares TEP against
       explicit bursty-SF, varying-IMF, standard-physics, and AGN
       alternatives in both raw standardized space and a
-      mass+$z$-residualized control space. Three likelihood structures are
+      mass+$z$-residualized control space. Each comparison is evaluated
+      under two predictor conditionings — raw mass and redshift, and mass
+      and redshift orthogonalized against $\log R_{\rm ML}$ — with a nested
+      augmented model (mass $+$ $z$ $+$ $\log R_{\rm ML}$) providing the
+      conditioning-free arbitration. Three likelihood structures are
       used: (i) the standard independent-Gaussian joint likelihood (product
       of $K$ univariate Gaussians), (ii) a joint covariance likelihood
       (single multivariate Gaussian with the empirical $K \times K$ residual
@@ -697,10 +714,7 @@
 
   <h4>2.4.4 Forward-modeling validation</h4>
   <p>
-    The $M/L \propto t^{n}$ scaling is validated by varying $n = 0.5$–$0.9$
-    and identifying the value minimizing the residual mass-age correlation.
-    At $z > 6$, $n \approx 0.5$ is preferred (consistent with
-    low-metallicity SSP models); at $z = 4$–$6$, $n \approx 0.9$.
+    The correction-stage $M/L \propto t^{n_{\rm SPS}}$ scaling is tested over $n_{\rm SPS}=0.3$–$1.0$ by residual mass–age minimization, independently of the fixed response normalization. The live validation gives boundary minima at the edge of the scanned range for $z=4$–$6$ and $6$–$8$ ($n_{\rm SPS}=1.0$) and at $n_{\rm SPS}=0.3$ for $z=8$–$10$; these unstable minima are treated as sensitivity diagnostics, not as fitted replacements for the declared catalogue values. The same validation verifies numerically that the fixed-$n_{\rm ref}$ kernel is continuous at $z=4$ and $z=6$.
   </p>
 
   <h3>2.5 Black Hole Growth Stress Test</h3>

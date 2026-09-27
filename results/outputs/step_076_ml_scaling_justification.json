@@ -1,7 +1,7 @@
 {
   "step": 96,
   "name": "M/L Scaling Justification",
-  "timestamp": "2026-08-20T16:18:25",
+  "timestamp": "2026-09-23T21:36:39",
   "theoretical_basis": {
     "standard_ssp": {
       "solar_metallicity": {
@@ -28,6 +28,52 @@
     "prediction": "At high-z where Gamma_t varies strongly with mass, the preferred effective n should be lower than in the low-z regime where Gamma_t is typically weaker. The live empirical validation below tests this prediction across redshift bins.",
     "interpretation": "The redshift-dependent best-fit n is compatible with the TEP picture in which the Gamma_t correction becomes more important at high z. Within the canonical pipeline this step is treated as scaling support and robustness context rather than as a primary independent line of evidence."
   },
+  "kernel_sps_separation": {
+    "status": "PASS",
+    "kernel_stage": {
+      "n_ref": 0.7,
+      "K_gal": 1263132.3938710194,
+      "formula": "K_gal = kappa_gal ln(10) / (2.5 n_ref)",
+      "scope": "fixed for every redshift and every catalogue"
+    },
+    "correction_stage": {
+      "quantity": "n_SPS",
+      "primary_catalogue_assignment": {
+        "z <= 4": 0.7,
+        "4 < z <= 6": 0.9,
+        "z > 6": 0.5
+      },
+      "stellar_mass_function_assignment": 0.7,
+      "scope": "mass and SFE corrections only"
+    },
+    "fixed_depth_response_by_n_sps": {
+      "0.5": 5.317307645436903,
+      "0.7": 5.317307645436903,
+      "0.9": 5.317307645436903
+    },
+    "max_fixed_depth_response_spread": 0.0,
+    "fixed_depth_mass_bias_by_n_sps": {
+      "0.5": 2.3059288032020637,
+      "0.7": 3.2209519918271665,
+      "0.9": 4.499068539865189
+    },
+    "boundary_continuity": [
+      {
+        "z_boundary": 4.0,
+        "response_left": 4.105078782323968,
+        "response_right": 4.105078898269864,
+        "relative_jump": 2.8244498686778663e-08
+      },
+      {
+        "z_boundary": 6.0,
+        "response_left": 5.317307581972287,
+        "response_right": 5.3173077089015175,
+        "relative_jump": 2.387095831770184e-08
+      }
+    ],
+    "max_boundary_relative_jump": 2.8244498686778663e-08,
+    "interpretation": "The fixed n_ref transfer defines one continuous R_ML kernel. Population-dependent n_SPS values enter only after R_ML is evaluated and therefore cannot create a response jump at z=4 or z=6."
+  },
   "empirical_validation": {
     "n_values_tested": [
       0.3,
@@ -42,55 +88,55 @@
     "results": [
       {
         "n": 0.3,
-        "rho_mass_age": 0.11781215551309195,
-        "p_value": 1.30649218447837e-08,
-        "abs_rho": 0.11781215551309195
+        "rho_mass_age": 0.11778688961348581,
+        "p_value": 1.315911681244102e-08,
+        "abs_rho": 0.11778688961348581
       },
       {
         "n": 0.4,
-        "rho_mass_age": 0.1190480953838103,
-        "p_value": 9.176826395364732e-09,
-        "abs_rho": 0.1190480953838103
+        "rho_mass_age": 0.11899091390004891,
+        "p_value": 9.328777820639019e-09,
+        "abs_rho": 0.11899091390004891
       },
       {
         "n": 0.5,
-        "rho_mass_age": 0.12015690102376417,
-        "p_value": 6.6639302110478245e-09,
-        "abs_rho": 0.12015690102376417
+        "rho_mass_age": 0.12008018155776391,
+        "p_value": 6.8137449940240945e-09,
+        "abs_rho": 0.12008018155776391
       },
       {
         "n": 0.6,
-        "rho_mass_age": 0.12121086296723745,
-        "p_value": 4.903151692245612e-09,
-        "abs_rho": 0.12121086296723745
+        "rho_mass_age": 0.12120188323322231,
+        "p_value": 4.916040652827722e-09,
+        "abs_rho": 0.12120188323322231
       },
       {
         "n": 0.7,
-        "rho_mass_age": 0.12231779121988809,
-        "p_value": 3.5424045603710225e-09,
-        "abs_rho": 0.12231779121988809
+        "rho_mass_age": 0.12220860678488546,
+        "p_value": 3.6583002512244558e-09,
+        "abs_rho": 0.12220860678488546
       },
       {
         "n": 0.8,
-        "rho_mass_age": 0.12342853614966319,
-        "p_value": 2.5490054469718236e-09,
-        "abs_rho": 0.12342853614966319
+        "rho_mass_age": 0.12340245004169378,
+        "p_value": 2.568869080987474e-09,
+        "abs_rho": 0.12340245004169378
       },
       {
         "n": 0.9,
-        "rho_mass_age": 0.12444263190432758,
-        "p_value": 1.882666383010182e-09,
-        "abs_rho": 0.12444263190432758
+        "rho_mass_age": 0.12437673667393304,
+        "p_value": 1.9202447406540405e-09,
+        "abs_rho": 0.12437673667393304
       },
       {
         "n": 1.0,
-        "rho_mass_age": 0.1255483346805675,
-        "p_value": 1.3492214658330793e-09,
-        "abs_rho": 0.1255483346805675
+        "rho_mass_age": 0.12551376696040734,
+        "p_value": 1.3634077493033998e-09,
+        "abs_rho": 0.12551376696040734
       }
     ],
     "best_n": 0.3,
-    "best_rho": 0.11781215551309195,
+    "best_rho": 0.11778688961348581,
     "interpretation": "The best-fit M/L power-law index is n = 0.3, which minimizes the residual mass-age correlation (rho = 0.1178). This is consistent with low-metallicity stellar populations at high-z."
   },
   "z_dependent_validation": [
@@ -98,24 +144,24 @@
       "z_range": "4-6",
       "sample_size": 1439,
       "best_ml_power": 1.0,
-      "best_rho": 0.16358313334448052
+      "best_rho": 0.16364170035790193
     },
     {
       "z_range": "6-8",
       "sample_size": 593,
       "best_ml_power": 1.0,
-      "best_rho": -0.0016070416576318771
+      "best_rho": -0.0016332252841527717
     },
     {
       "z_range": "8-10",
       "sample_size": 283,
       "best_ml_power": 0.3,
-      "best_rho": 0.01989207631322859
+      "best_rho": 0.019839660472420265
     }
   ],
   "live_empirical_summary": {
     "best_n_overall": 0.3,
-    "best_rho_overall": 0.11781215551309195,
+    "best_rho_overall": 0.11778688961348581,
     "z_split_best_n": {
       "4-6": 1.0,
       "6-8": 1.0,

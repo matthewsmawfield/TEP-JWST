@@ -225,7 +225,7 @@ def compute_posterior_model_probabilities(bf_joint, prior_tep=0.1):
 
 def main():
     results = {
-        'step': 95,
+        'step': 75,
         'name': 'Bayesian Model Comparison',
         'timestamp': str(np.datetime64('now'))
     }

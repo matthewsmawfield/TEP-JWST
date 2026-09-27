@@ -61,8 +61,10 @@ def load_cosmosweb_data():
     
     # Compute TEP quantities (self-consistent R_ML)
     z = df['z_phot'].values
-    n_ml = np.where(z > 6, 0.5, np.where(z > 4, 0.9, 0.7))
-    gamma_t, log_mstar_true = compute_ml_response_self_consistent(df['log_Mstar'].values, z, n=n_ml)
+    n_sps = np.where(z > 6, 0.5, np.where(z > 4, 0.9, 0.7))
+    gamma_t, log_mstar_true = compute_ml_response_self_consistent(
+        df['log_Mstar'].values, z, n_sps=n_sps
+    )
     df['gamma_t'] = gamma_t
     df['log_Mstar_true'] = log_mstar_true
     df['log_Mh'] = stellar_to_halo_mass_behroozi_like(log_mstar_true, z)

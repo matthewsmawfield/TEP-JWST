@@ -1,10 +1,11 @@
-[17:18:25] INFO    ═══ STEP 076: M/L Scaling Justification
-[17:18:25] INFO    >>> Computing theoretical SSP M/L ~ t^n scaling and empirical validation...
-[17:18:25] INFO        Theoretical SSP: best n=N/A
-[17:18:25] INFO        TEP modification applied
-[17:18:25] INFO        Loaded UNCOVER data: N=2315 from step_002_uncover_full_sample_tep.csv
-[17:18:25] INFO        Empirical validation: best_n=0.30, best_ρ=0.1178
-[17:18:25] INFO          z=4-6: N=1439, best_n=1.00, ρ=0.1636
-[17:18:25] INFO          z=6-8: N=593, best_n=1.00, ρ=-0.0016
-[17:18:25] INFO          z=8-10: N=283, best_n=0.30, ρ=0.0199
-[17:18:25] INFO    ✓   Step 076 complete. Results saved to step_076_ml_scaling_justification.json
+[22:36:39] INFO    ═══ STEP 076: M/L Scaling Justification
+[22:36:39] INFO    >>> Computing theoretical SSP M/L ~ t^n scaling and empirical validation...
+[22:36:39] INFO        Theoretical SSP: best n=N/A
+[22:36:39] INFO        TEP modification applied
+[22:36:39] INFO        Kernel/SPS separation: PASS (K_gal=1.263132e+06, max boundary jump=2.824e-08)
+[22:36:39] INFO        Loaded UNCOVER data: N=2315 from step_002_uncover_full_sample_tep.csv
+[22:36:39] INFO        Empirical validation: best_n=0.30, best_ρ=0.1178
+[22:36:39] INFO          z=4-6: N=1439, best_n=1.00, ρ=0.1636
+[22:36:39] INFO          z=6-8: N=593, best_n=1.00, ρ=-0.0016
+[22:36:39] INFO          z=8-10: N=283, best_n=0.30, ρ=0.0198
+[22:36:39] INFO    ✓   Step 076 complete. Results saved to step_076_ml_scaling_justification.json
