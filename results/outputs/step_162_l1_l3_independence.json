@@ -8,35 +8,35 @@
       "kappa_gal_best": 100000.0,
       "kappa_gal_ci": [
         100000.0,
-        2000000.0
+        100000.0
       ],
-      "metric_best": 0.35425023932388805,
+      "metric_best": 0.37850349755949336,
       "metric_name": "rho(dust, t_eff)",
-      "n": 258
+      "n": 227
     },
     {
       "name": "AGB Threshold F1 (UNCOVER z>8)",
       "short": "AGB F1",
       "kappa_gal_best": 1309090.909090909,
       "kappa_gal_ci": [
-        1309090.909090909,
-        1328282.8282828282
+        1099515.1515151514,
+        1309090.909090909
       ],
-      "metric_best": 0.9371428571428572,
+      "metric_best": 0.9411764705882353,
       "metric_name": "F1",
-      "n": 283
+      "n": 254
     },
     {
       "name": "sSFR Inversion Correction (UNCOVER M*>8.5)",
       "short": "sSFR Inversion",
-      "kappa_gal_best": 598989.898989899,
+      "kappa_gal_best": 1174747.4747474748,
       "kappa_gal_ci": [
-        311111.1111111111,
-        1068808.0808080805
+        598989.898989899,
+        1669131.3131313124
       ],
-      "metric_best": 0.000642261194140431,
+      "metric_best": 0.00016735156933250783,
       "metric_name": "|delta_rho_corrected - rho_low|",
-      "n": 159
+      "n": 139
     },
     {
       "name": "Cross-Survey Dust-t_eff R2 (CEERS + COSMOS-Web z>7.0)",
@@ -60,12 +60,12 @@
       ],
       "metric_best": 5.596259871207962,
       "metric_name": "mass boundary excess loss",
-      "n": 124
+      "n": 123
     }
   ],
   "concordance": {
-    "kappa_gal_weighted_mean": 598989.898989899,
-    "kappa_gal_weighted_sigma": 378848.4848484847,
+    "kappa_gal_weighted_mean": 1174747.4747474748,
+    "kappa_gal_weighted_sigma": 535070.7070707066,
     "chi2_concordance": 0.0,
     "ndof": 0,
     "p_concordance": 1.0,
@@ -74,14 +74,14 @@
     "individual_alphas": [
       100000.0,
       1309090.909090909,
-      598989.898989899,
+      1174747.4747474748,
       2000000.0,
       2000000.0
     ],
     "individual_sigmas": [
-      950000.0,
-      9595.959595959634,
-      378848.4848484847,
+      0.0,
+      104787.87878787878,
+      535070.7070707066,
       414161.61616161605,
       0.0
     ],
@@ -98,19 +98,19 @@
     ],
     "n_informative": 1,
     "sigma_floor": 95000.0,
-    "jwst_recovered_kappa_gal": 598989.898989899,
-    "jwst_recovered_sigma": 378848.4848484847,
-    "cepheid_tension_sigma": 0.655271500045341,
+    "jwst_recovered_kappa_gal": 1174747.4747474748,
+    "jwst_recovered_sigma": 535070.7070707066,
+    "cepheid_tension_sigma": 0.3214506440839798,
     "cepheid_reference": {
       "kappa_gal": 960000.0,
       "sigma": 400000.0
     },
-    "external_cepheid_tension_sigma": 0.655271500045341,
+    "external_cepheid_tension_sigma": 0.3214506440839798,
     "external_cepheid_reference": {
       "kappa_gal": 960000.0,
       "sigma": 400000.0
     },
-    "verdict": "PASS: 1 informative observables are mutually concordant and consistent with the external Cepheid calibration (0.7\u03c3 tension)"
+    "verdict": "PASS: 1 informative observables are mutually concordant and consistent with the external Cepheid calibration (0.3\u03c3 tension)"
   },
   "kappa_gal_grid": {
     "min": 100000.0,

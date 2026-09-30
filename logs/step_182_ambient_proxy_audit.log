@@ -1,0 +1,97 @@
+[14:12:02] INFO    ═══ STEP 182: Ambient-field proxy audit
+[14:12:02] INFO        Loaded 2157 galaxies from step_002_uncover_full_sample_tep.csv
+[14:12:02] INFO        uamb_3d: corr(m)=-0.18 corr(z)=-0.42 corr(lg R_ML)=-0.16
+[14:12:02] INFO        uamb_sky: corr(m)=-0.17 corr(z)=-0.15 corr(lg R_ML)=-0.19
+[14:12:02] INFO        uamb_zonly: corr(m)=-0.15 corr(z)=-0.54 corr(lg R_ML)=-0.07
+[14:12:02] INFO        uamb_perpz: corr(m)=-0.06 corr(z)=+0.00 corr(lg R_ML)=-0.08
+[14:12:02] INFO        uamb_mw_1arcmin: corr(m)=+0.13 corr(z)=+0.04 corr(lg R_ML)=+0.12
+[14:12:02] INFO        uamb_mw_03arcmin: corr(m)=+0.02 corr(z)=-0.01 corr(lg R_ML)=-0.00
+[14:12:02] INFO        
+  Running nested sampling: {m,z}
+[14:12:02] INFO            ndim=13, nlive=200
+[14:12:14] INFO            ln(Z) = -1249.15 ± 0.78
+[14:12:14] INFO        
+  Running nested sampling: {m,z,mz}
+[14:12:14] INFO            ndim=17, nlive=200
+[14:12:54] INFO            ln(Z) = -1191.90 ± 0.85
+[14:12:54] INFO        
+  Running nested sampling: {m,z,uamb_3d}
+[14:12:54] INFO            ndim=17, nlive=200
+[14:13:24] INFO            ln(Z) = -1232.93 ± 0.86
+[14:13:24] INFO        
+  Running nested sampling: {m,z,uamb_sky}
+[14:13:24] INFO            ndim=17, nlive=200
+[14:13:57] INFO            ln(Z) = -1239.94 ± 0.83
+[14:13:57] INFO        
+  Running nested sampling: {m,z,uamb_zonly}
+[14:13:57] INFO            ndim=17, nlive=200
+[14:14:29] INFO            ln(Z) = -1259.04 ± 0.81
+[14:14:29] INFO        
+  Running nested sampling: {m,z,uamb_perpz}
+[14:14:29] INFO            ndim=17, nlive=200
+[14:15:03] INFO            ln(Z) = -1233.24 ± 0.85
+[14:15:03] INFO        
+  Running nested sampling: {m,z,uamb_mw_1arcmin}
+[14:15:03] INFO            ndim=17, nlive=200
+[14:15:39] INFO            ln(Z) = -1253.76 ± 0.78
+[14:15:39] INFO        
+  Running nested sampling: {m,z,uamb_mw_03arcmin}
+[14:15:39] INFO            ndim=17, nlive=200
+[14:16:17] INFO            ln(Z) = -1255.50 ± 0.84
+[14:16:17] INFO        
+  Running nested sampling: {m,z,mz,uamb_sky}
+[14:16:17] INFO            ndim=21, nlive=200
+[14:17:18] INFO            ln(Z) = -1178.96 ± 0.85
+[14:17:18] INFO        
+  Running nested sampling: {m,z,d_A2744}
+[14:17:18] INFO            ndim=17, nlive=200
+[14:17:36] INFO            ln(Z) = -1221.07 ± 0.82
+[14:17:36] INFO        
+  Running nested sampling: {m,z,uamb_sky_perp_dcl}
+[14:17:36] INFO            ndim=17, nlive=200
+[14:17:50] INFO            ln(Z) = -1260.87 ± 0.74
+[14:17:50] INFO        
+  Running nested sampling: {m,z,mz,d_A2744}
+[14:17:50] INFO            ndim=21, nlive=200
+[14:18:17] INFO            ln(Z) = -1158.77 ± 0.83
+[14:18:17] INFO        
+  Running nested sampling: {m,z,mu}
+[14:18:17] INFO            ndim=17, nlive=200
+[14:18:30] INFO            ln(Z) = -1234.46 ± 0.84
+[14:18:30] INFO        
+  Running nested sampling: {m,z,d_A2744,mu}
+[14:18:30] INFO            ndim=21, nlive=200
+[14:18:48] INFO            ln(Z) = -1214.95 ± 0.85
+[14:18:48] INFO        
+  Running nested sampling: {m,z,d_A2744,mu,uamb_mw}
+[14:18:48] INFO            ndim=25, nlive=200
+[14:19:16] INFO            ln(Z) = -1222.02 ± 0.90
+[14:19:16] INFO        
+  Running nested sampling: {m,z,mz,d_A2744,mu,uamb_mw}
+[14:19:16] INFO            ndim=29, nlive=200
+[14:19:51] INFO            ln(Z) = -1166.64 ± 0.91
+[14:19:51] INFO        
+  Running nested sampling: {m,z,d_A2744,mu,uamb_sky}
+[14:19:51] INFO            ndim=25, nlive=200
+[14:20:18] INFO            ln(Z) = -1223.82 ± 0.94
+[14:20:18] INFO        
+  Running nested sampling: {m,z} phys-subset
+[14:20:18] INFO            ndim=10, nlive=200
+[14:20:23] INFO            ln(Z) = -980.67 ± 0.65
+[14:20:23] INFO        
+  Running nested sampling: {m,z,uamb_sky} phys-subset
+[14:20:23] INFO            ndim=13, nlive=200
+[14:20:31] INFO            ln(Z) = -975.88 ± 0.73
+[14:20:31] INFO        
+  Running nested sampling: {m,z,uamb_mw} phys-subset
+[14:20:31] INFO            ndim=13, nlive=200
+[14:20:39] INFO            ln(Z) = -985.00 ± 0.70
+[14:20:39] INFO        
+  Running nested sampling: {m,z,d_A2744,mu} phys-subset
+[14:20:39] INFO            ndim=16, nlive=200
+[14:20:49] INFO            ln(Z) = -954.46 ± 0.74
+[14:20:49] INFO        
+  Running nested sampling: {m,z,d_A2744,mu,uamb_mw} phys-subset
+[14:20:49] INFO            ndim=19, nlive=200
+[14:21:05] INFO            ln(Z) = -960.45 ± 0.79
+[14:21:05] INFO    ✓   Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_182_ambient_proxy_audit.json

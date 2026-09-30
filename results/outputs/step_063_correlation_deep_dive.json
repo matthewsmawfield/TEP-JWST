@@ -1,24 +1,24 @@
 {
-  "n_total": 2315,
+  "n_total": 2157,
   "correlation_dive": {
     "gamma_dust": {
-      "spearman": 0.5945661186122826,
-      "pearson": 0.4732051749826409,
-      "kendall": 0.4385384557552064
+      "spearman": 0.6457648560030902,
+      "pearson": 0.3562580739391617,
+      "kendall": 0.47682923033830255
     },
     "killer_comparison": {
-      "rho_cosmic": -0.006257604267814239,
-      "rho_eff": 0.32407602520619544,
-      "improvement": 0.3303336294740097
+      "rho_cosmic": -0.028814760163814672,
+      "rho_eff": 0.328536304503439,
+      "improvement": 0.3573510646672537
     },
     "monotonicity": {
-      "increases": 6,
+      "increases": 7,
       "total": 9,
-      "rate": 0.6666666666666666
+      "rate": 0.7777777777777778
     },
     "extreme_tails": {
-      "t_eff_ratio": 5.528275134621474,
-      "t_cosmic_ratio": 0.8542987583625463
+      "t_eff_ratio": 5.194144949656156,
+      "t_cosmic_ratio": 0.7729920848958048
     }
   }
 }

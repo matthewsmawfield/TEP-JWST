@@ -1,34 +1,34 @@
 {
   "prediction_summary": {
-    "n_galaxies": 2315,
-    "mean_age_sed": 1.6752786195573305e-10,
-    "mean_age_tep": 2.635179520367925e-10,
-    "mean_gamma_t": 0.6336232571453018,
+    "n_galaxies": 2157,
+    "mean_age_sed": 1.6761121621174912e-10,
+    "mean_age_tep": 2.6349995282678635e-10,
+    "mean_gamma_t": 0.6316647113779393,
     "mean_delta_ew": 0.0
   },
   "spectroscopic_predictions": {
     "high_mass_correlation": {
       "rho": null,
       "p": null,
-      "n": 23,
+      "n": 19,
       "interpretation": "TEP predicts negative correlation (higher \u0393t -> older -> weaker Balmer)"
     },
     "mass_balmer_by_z": [
       {
         "z_range": "4-6",
-        "n": 1439,
+        "n": 1354,
         "rho_mass_balmer": null,
         "p": null
       },
       {
         "z_range": "6-8",
-        "n": 593,
+        "n": 549,
         "rho_mass_balmer": null,
         "p": null
       },
       {
         "z_range": "8-10",
-        "n": 283,
+        "n": 254,
         "rho_mass_balmer": null,
         "p": null
       }

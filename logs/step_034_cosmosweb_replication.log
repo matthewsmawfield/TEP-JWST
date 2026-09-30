@@ -1,48 +1,48 @@
-[22:36:16] INFO        ======================================================================
-[22:36:16] INFO        STEP 36: COSMOS-Web Independent Replication
-[22:36:16] INFO        ======================================================================
-[22:36:16] INFO    
-[22:36:16] INFO        Third independent validation of the z>8 dust anomaly
-[22:36:16] INFO        using COSMOS-Web DR1 (Shuntov et al. 2025)
-[22:36:16] INFO    
-[22:36:16] INFO        Loaded COSMOS-Web z>8 sample: N = 2606
-[22:36:16] INFO        
+[13:25:20] INFO        ======================================================================
+[13:25:20] INFO        STEP 36: COSMOS-Web Independent Replication
+[13:25:20] INFO        ======================================================================
+[13:25:20] INFO    
+[13:25:20] INFO        Third independent validation of the z>8 dust anomaly
+[13:25:20] INFO        using COSMOS-Web DR1 (Shuntov et al. 2025)
+[13:25:20] INFO    
+[13:25:20] INFO        Loaded COSMOS-Web z>8 sample: N = 2606
+[13:25:21] INFO        
 ============================================================
-[22:36:16] INFO        MASS-DUST CORRELATION: COSMOS-Web z>8
-[22:36:16] INFO        ============================================================
-[22:36:16] INFO        Sample size (dust > 0): N = 918
-[22:36:16] INFO        Redshift range: z = 8.0 - 12.0
-[22:36:17] INFO        
+[13:25:21] INFO        MASS-DUST CORRELATION: COSMOS-Web z>8
+[13:25:21] INFO        ============================================================
+[13:25:21] INFO        Sample size (dust > 0): N = 918
+[13:25:21] INFO        Redshift range: z = 8.0 - 12.0
+[13:25:21] INFO        
 Mass-Dust Correlation:
-[22:36:17] INFO          ρ = 0.631 [0.586, 0.668]
-[22:36:17] INFO          p = 3.19e-103
-[22:36:17] INFO          Significance: 21.6σ
-[22:36:17] INFO        
+[13:25:21] INFO          ρ = 0.631 [0.586, 0.668]
+[13:25:21] INFO          p = 3.19e-103
+[13:25:21] INFO          Significance: 21.6σ
+[13:25:21] INFO        
 Γ_t-DUST CORRELATION: COSMOS-Web z>8
-[22:36:17] INFO          Raw: ρ(Γ_t, dust) = 0.630, p = 1.01e-102
-[22:36:17] INFO          Partial (|M*): ρ = 0.015, p = 6.56e-01
-[22:36:17] INFO        
+[13:25:21] INFO          Raw: ρ(Γ_t, dust) = 0.630, p = 1.01e-102
+[13:25:21] INFO          Partial (|M*): ρ = 0.015, p = 6.56e-01
+[13:25:21] INFO        
 t_eff-DUST CORRELATION: COSMOS-Web z>8
-[22:36:17] INFO          ρ(t_eff, dust) = 0.617, p = 1.90e-97
-[22:36:17] INFO        
+[13:25:21] INFO          ρ(t_eff, dust) = 0.617, p = 1.90e-97
+[13:25:21] INFO        
 ============================================================
-[22:36:17] INFO        CROSS-SURVEY COMPARISON (3 INDEPENDENT SURVEYS)
-[22:36:17] INFO        ============================================================
-[22:36:17] INFO        
-UNCOVER z>8 (N=283): ρ = 0.559, p = 1.05e-24
-[22:36:17] INFO        CEERS z>8 (N=82): ρ = 0.680, p = 2.03e-12
-[22:36:17] INFO        
+[13:25:21] INFO        CROSS-SURVEY COMPARISON (3 INDEPENDENT SURVEYS)
+[13:25:21] INFO        ============================================================
+[13:25:21] INFO        
+UNCOVER z>8 (N=254): ρ = 0.601, p = 2.75e-26
+[13:25:21] INFO        CEERS z>8 (N=82): ρ = 0.680, p = 2.03e-12
+[13:25:21] INFO        
 ======================================================================
-[22:36:17] INFO        THREE-SURVEY REPLICATION SUMMARY
-[22:36:17] INFO        ======================================================================
-[22:36:17] INFO        
+[13:25:21] INFO        THREE-SURVEY REPLICATION SUMMARY
+[13:25:21] INFO        ======================================================================
+[13:25:21] INFO        
 Mass-Dust Correlation at z>8:
-[22:36:17] INFO          UNCOVER:    ρ = 0.559 (N = 283)
-[22:36:17] INFO          CEERS:      ρ = 0.680 (N = 82)
-[22:36:17] INFO          COSMOS-Web: ρ = 0.631 (N = 918)
-[22:36:17] INFO        
+[13:25:21] INFO          UNCOVER:    ρ = 0.601 (N = 254)
+[13:25:21] INFO          CEERS:      ρ = 0.680 (N = 82)
+[13:25:21] INFO          COSMOS-Web: ρ = 0.631 (N = 918)
+[13:25:21] INFO        
 ✓ THIRD INDEPENDENT REPLICATION SUCCESSFUL
-[22:36:17] INFO          The z>8 dust anomaly is confirmed in COSMOS-Web.
-[22:36:17] INFO        
+[13:25:21] INFO          The z>8 dust anomaly is confirmed in COSMOS-Web.
+[13:25:21] INFO        
 Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_034_cosmosweb_replication.json
-[22:36:17] INFO        Step 034 complete.
+[13:25:21] INFO        Step 034 complete.

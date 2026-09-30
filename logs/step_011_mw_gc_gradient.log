@@ -1,90 +1,90 @@
-[22:35:59] INFO    ======================================================================
-[22:35:59] INFO    TEP-JWST Step 11: MW Globular Cluster Age-Galactocentric Distance Test
-[22:35:59] INFO    ======================================================================
-[22:35:59] INFO    
-[22:35:59] INFO    The critical gradient test for TEP:
-[22:35:59] INFO    If TEP affects stellar ages, inner GCs (deep potential) should
-[22:35:59] INFO    appear OLDER than outer GCs (shallow potential).
-[22:35:59] INFO    
-[22:35:59] INFO    Loading GC ages from literature...
-[22:35:59] INFO    Loaded ages for 57 GCs
-[22:35:59] INFO    Merged dataset: 57 GCs with both positions and ages
-[22:35:59] INFO    ======================================================================
-[22:35:59] INFO    ANALYSIS 1: Age vs Galactocentric Distance Correlation
-[22:35:59] INFO    ======================================================================
-[22:35:59] INFO    Sample size: N = 57
-[22:35:59] INFO    R_gc range: 1.2 - 38.5 kpc
-[22:35:59] INFO    Age range: 11.00 - 13.25 Gyr
-[22:35:59] INFO    
+[13:25:07] INFO    ======================================================================
+[13:25:07] INFO    TEP-JWST Step 11: MW Globular Cluster Age-Galactocentric Distance Test
+[13:25:07] INFO    ======================================================================
+[13:25:07] INFO    
+[13:25:07] INFO    The critical gradient test for TEP:
+[13:25:07] INFO    If TEP affects stellar ages, inner GCs (deep potential) should
+[13:25:07] INFO    appear OLDER than outer GCs (shallow potential).
+[13:25:07] INFO    
+[13:25:07] INFO    Loading GC ages from literature...
+[13:25:07] INFO    Loaded ages for 57 GCs
+[13:25:07] INFO    Merged dataset: 57 GCs with both positions and ages
+[13:25:07] INFO    ======================================================================
+[13:25:07] INFO    ANALYSIS 1: Age vs Galactocentric Distance Correlation
+[13:25:07] INFO    ======================================================================
+[13:25:07] INFO    Sample size: N = 57
+[13:25:07] INFO    R_gc range: 1.2 - 38.5 kpc
+[13:25:07] INFO    Age range: 11.00 - 13.25 Gyr
+[13:25:07] INFO    
 Correlation (Age vs R_gc):
-[22:35:59] INFO      Spearman ρ = 0.053, p = 0.6930
-[22:35:59] INFO      Pearson r = 0.016, p = 0.9070
-[22:35:59] INFO    
+[13:25:07] INFO      Spearman ρ = 0.053, p = 0.6930
+[13:25:07] INFO      Pearson r = 0.016, p = 0.9070
+[13:25:07] INFO    
 Linear fit: Age = 0.0013 × R_gc + 12.56
-[22:35:59] INFO      Slope: 0.0013 ± 0.0108 Gyr/kpc
-[22:35:59] INFO    
+[13:25:07] INFO      Slope: 0.0013 ± 0.0108 Gyr/kpc
+[13:25:07] INFO    
 ✗ Positive slope (opposite to TEP prediction)
-[22:35:59] INFO    
+[13:25:07] INFO    
 Binned analysis:
-[22:35:59] INFO      R_gc = 0-5 kpc: N = 22, Age = 12.55 ± 0.12 Gyr
-[22:35:59] INFO      R_gc = 5-10 kpc: N = 15, Age = 12.60 ± 0.13 Gyr
-[22:35:59] INFO      R_gc = 10-20 kpc: N = 17, Age = 12.56 ± 0.16 Gyr
-[22:35:59] INFO      R_gc = 20-50 kpc: N = 3, Age = 12.67 ± 0.17 Gyr
-[22:35:59] INFO    ======================================================================
-[22:35:59] INFO    ANALYSIS 2: TEP-Corrected Ages
-[22:35:59] INFO    ======================================================================
-[22:35:59] INFO    Gamma_t range: 0.002 - 0.021
-[22:35:59] INFO    Correction factor range: 1.002 - 1.021
-[22:35:59] INFO    
+[13:25:07] INFO      R_gc = 0-5 kpc: N = 22, Age = 12.55 ± 0.12 Gyr
+[13:25:07] INFO      R_gc = 5-10 kpc: N = 15, Age = 12.60 ± 0.13 Gyr
+[13:25:07] INFO      R_gc = 10-20 kpc: N = 17, Age = 12.56 ± 0.16 Gyr
+[13:25:07] INFO      R_gc = 20-50 kpc: N = 3, Age = 12.67 ± 0.17 Gyr
+[13:25:07] INFO    ======================================================================
+[13:25:07] INFO    ANALYSIS 2: TEP-Corrected Ages
+[13:25:07] INFO    ======================================================================
+[13:25:07] INFO    Gamma_t range: 0.002 - 0.021
+[13:25:07] INFO    Correction factor range: 1.002 - 1.021
+[13:25:07] INFO    
 Correlation with R_gc:
-[22:35:59] INFO      Raw ages: ρ = 0.053, p = 0.6930
-[22:35:59] INFO      TEP-corrected: ρ = 0.258, p = 0.0522
-[22:35:59] INFO    
+[13:25:07] INFO      Raw ages: ρ = 0.053, p = 0.6930
+[13:25:07] INFO      TEP-corrected: ρ = 0.258, p = 0.0522
+[13:25:07] INFO    
 Age scatter:
-[22:35:59] INFO      Raw ages: σ = 0.55 Gyr
-[22:35:59] INFO      TEP-corrected: σ = 0.55 Gyr
-[22:35:59] INFO      Reduction: 0.7%
-[22:35:59] INFO    
+[13:25:07] INFO      Raw ages: σ = 0.55 Gyr
+[13:25:07] INFO      TEP-corrected: σ = 0.55 Gyr
+[13:25:07] INFO      Reduction: 0.7%
+[13:25:07] INFO    
 ✗ TEP correction does not reduce R_gc dependence
-[22:35:59] INFO    ======================================================================
-[22:35:59] INFO    ANALYSIS 3: Inner vs Outer GC Age Comparison
-[22:35:59] INFO    ======================================================================
-[22:35:59] INFO    Inner GCs (R_gc < 5.0 kpc): N = 22
-[22:35:59] INFO    Outer GCs (R_gc > 10.0 kpc): N = 20
-[22:35:59] INFO    
+[13:25:07] INFO    ======================================================================
+[13:25:07] INFO    ANALYSIS 3: Inner vs Outer GC Age Comparison
+[13:25:07] INFO    ======================================================================
+[13:25:07] INFO    Inner GCs (R_gc < 5.0 kpc): N = 22
+[13:25:07] INFO    Outer GCs (R_gc > 10.0 kpc): N = 20
+[13:25:07] INFO    
 Mean ages:
-[22:35:59] INFO      Inner: 12.55 ± 0.12 Gyr
-[22:35:59] INFO      Outer: 12.57 ± 0.14 Gyr
-[22:35:59] INFO      Δ(Inner - Outer): -0.03 ± 0.18 Gyr
-[22:35:59] INFO    
+[13:25:07] INFO      Inner: 12.55 ± 0.12 Gyr
+[13:25:07] INFO      Outer: 12.57 ± 0.14 Gyr
+[13:25:07] INFO      Δ(Inner - Outer): -0.03 ± 0.18 Gyr
+[13:25:07] INFO    
 Statistical test:
-[22:35:59] INFO      t-statistic: -0.16
-[22:35:59] INFO      p-value: 0.8717
-[22:35:59] INFO      Significance: 0.2σ
-[22:35:59] INFO    
+[13:25:07] INFO      t-statistic: -0.16
+[13:25:07] INFO      p-value: 0.8717
+[13:25:07] INFO      Significance: 0.2σ
+[13:25:07] INFO    
 TEP Prediction:
-[22:35:59] INFO      Mean R_gc (inner): 3.3 kpc → Γ_t = 0.017
-[22:35:59] INFO      Mean R_gc (outer): 16.0 kpc → Γ_t = 0.008
-[22:35:59] INFO      Predicted Δ(Inner - Outer): 0.12 Gyr
-[22:35:59] INFO      Observed Δ(Inner - Outer): -0.03 Gyr
-[22:35:59] INFO    
+[13:25:07] INFO      Mean R_gc (inner): 3.3 kpc → Γ_t = 0.017
+[13:25:07] INFO      Mean R_gc (outer): 16.0 kpc → Γ_t = 0.008
+[13:25:07] INFO      Predicted Δ(Inner - Outer): 0.12 Gyr
+[13:25:07] INFO      Observed Δ(Inner - Outer): -0.03 Gyr
+[13:25:07] INFO    
 ✗ Inner GCs appear YOUNGER (opposite to TEP)
-[22:35:59] INFO    
-[22:35:59] INFO    ======================================================================
-[22:35:59] INFO    SUMMARY
-[22:35:59] INFO    ======================================================================
-[22:35:59] INFO    Age-R_gc correlation: ρ = 0.053 (p = 0.6930)
-[22:35:59] INFO    Linear slope: 0.0013 ± 0.0108 Gyr/kpc
-[22:35:59] INFO    Inner-Outer age difference: -0.03 ± 0.18 Gyr
-[22:35:59] INFO    TEP predicted: 0.12 Gyr
-[22:35:59] INFO    TEP correction reduces R_gc dependence: False
-[22:35:59] INFO    
+[13:25:07] INFO    
+[13:25:07] INFO    ======================================================================
+[13:25:07] INFO    SUMMARY
+[13:25:07] INFO    ======================================================================
+[13:25:07] INFO    Age-R_gc correlation: ρ = 0.053 (p = 0.6930)
+[13:25:07] INFO    Linear slope: 0.0013 ± 0.0108 Gyr/kpc
+[13:25:07] INFO    Inner-Outer age difference: -0.03 ± 0.18 Gyr
+[13:25:07] INFO    TEP predicted: 0.12 Gyr
+[13:25:07] INFO    TEP correction reduces R_gc dependence: False
+[13:25:07] INFO    
 ✓ MW GC ages show NO significant R_gc dependence
-[22:35:59] INFO      This is CONSISTENT with TEP + Group Halo Screening:
-[22:35:59] INFO      - All MW GCs are embedded in the MW halo potential
-[22:35:59] INFO      - The deep ambient potential screens the TEP effect
-[22:35:59] INFO      - Same mechanism explains SH0ES anchor stability (TEP-H0 v0.3)
-[22:35:59] INFO    
-[22:35:59] INFO      The null result CONFIRMS the screening mechanism.
-[22:35:59] INFO    
+[13:25:07] INFO      This is CONSISTENT with TEP + Group Halo Screening:
+[13:25:07] INFO      - All MW GCs are embedded in the MW halo potential
+[13:25:07] INFO      - The deep ambient potential screens the TEP effect
+[13:25:07] INFO      - Same mechanism explains SH0ES anchor stability (TEP-H0 v0.3)
+[13:25:07] INFO    
+[13:25:07] INFO      The null result CONFIRMS the screening mechanism.
+[13:25:07] INFO    
 Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_011_mw_gc_gradient.json

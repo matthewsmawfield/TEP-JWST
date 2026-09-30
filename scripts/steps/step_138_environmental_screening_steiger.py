@@ -167,6 +167,14 @@ def build_density_estimator(df):
     Compute 5-nearest-neighbour projected density for each galaxy
     using RA/Dec (or x/y pixel coords as fallback).
     Returns density array (higher = denser environment).
+
+    NOTE: this is an on-sky, all-epoch density — neighbours are drawn
+    from the full z in [4, 10.5] catalog regardless of a source's own
+    epoch, and in the UNCOVER mosaic the estimator is degenerate with
+    distance from the foreground A2744 core (z = 0.308).  It is NOT a
+    same-epoch ambient-field estimator; the pipeline's controlled
+    verdicts are the d_A2744-tercile-stratified contrasts computed in
+    run_analysis(), not the pooled split.
     """
     ra_col = next((c for c in ["ra", "RA", "ALPHA_J2000"] if c in df.columns), None)
     dec_col = next((c for c in ["dec", "DEC", "DELTA_J2000"] if c in df.columns), None)
@@ -300,6 +308,34 @@ def run_screening_steiger(df, label, z_min=None, z_max=None):
 
     tep_confirmed = (delta_rho > 0) and (p_indep < 0.05)
 
+    # Clustercentric control. UNCOVER is the Abell-2744 mosaic: the kNN
+    # density estimator is correlated with distance from the (foreground,
+    # z=0.308) cluster core, so a density split also splits on the
+    # lensing-magnification and mosaic-depth gradient. Recompute the
+    # field-vs-dense contrast within fixed d_A2744 terciles: a genuine
+    # environmental contrast must survive holding the radial coordinate
+    # fixed.
+    ra_c, dec_c = 3.5963, -30.3883
+    ra_col2 = next((c for c in ["ra", "RA", "ALPHA_J2000"] if c in sub.columns), None)
+    dec_col2 = next((c for c in ["dec", "DEC", "DELTA_J2000"] if c in sub.columns), None)
+    dcl = np.hypot(
+        (sub[ra_col2].values - ra_c) * np.cos(np.radians(dec_c)),
+        sub[dec_col2].values - dec_c)
+    corr_dens_dcl = float(np.corrcoef(density, dcl)[0, 1])
+    dcl_tercile = pd.qcut(dcl, 3, labels=False)
+    dcl_tercile_deltas = []
+    for t_ in range(3):
+        m_t = dcl_tercile == t_
+        if m_t.sum() < 30:
+            continue
+        den_t = density[m_t]
+        f_t = den_t <= np.median(den_t)
+        r_f_t, _ = spearmanr(gamma_t[m_t][f_t], dust[m_t][f_t])
+        r_d_t, _ = spearmanr(gamma_t[m_t][~f_t], dust[m_t][~f_t])
+        dcl_tercile_deltas.append(float(r_f_t - r_d_t))
+    mean_dcl_controlled_delta = (float(np.mean(dcl_tercile_deltas))
+                                 if dcl_tercile_deltas else np.nan)
+
     return {
         "label": label,
         "n_total": n_total,
@@ -322,6 +358,18 @@ def run_screening_steiger(df, label, z_min=None, z_max=None):
         "mean_mass_matched_delta_rho": mean_mass_matched_delta,
         "n_quintiles_positive": int(n_quintiles_positive),
         "n_quintiles_tested": len(mass_matched_deltas),
+        "clustercentric_control": {
+            "corr_density_d_A2744": corr_dens_dcl,
+            "dcl_tercile_deltas": dcl_tercile_deltas,
+            "mean_dcl_controlled_delta_rho": mean_dcl_controlled_delta,
+            "note": ("A2744 is a foreground cluster (z=0.308): d_A2744 is a "
+                     "systematics coordinate (lensing magnification + mosaic "
+                     "depth), not an ambient-field coordinate for the high-z "
+                     "sample. If the field-vs-dense contrast flips or "
+                     "vanishes within fixed d_A2744 terciles, the pooled "
+                     "contrast is a Simpson composition effect of the "
+                     "radial coordinate, not an environmental detection."),
+        },
         "tep_prediction": "rho_field > rho_dense (screening suppresses in dense regions)",
         "tep_confirmed": tep_confirmed,
         "interpretation": (

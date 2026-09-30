@@ -267,6 +267,7 @@ STEPS = [
     "step_179_bayes_conditioning_audit.py",         # Conditioning-symmetry audit of step_176 Bayes factors
     "step_180_screening_channel_map.py",            # S_Sigma/S_A channel-boundary ledger on the real sample
     "step_181_kernel_variant_test.py",              # Kernel z-structure variants: frozen vs virial-evolving depth (12-8)
+    "step_182_ambient_proxy_audit.py",              # Ambient-proxy audit: axis decomposition, A2744/μ_lensing controls, headline robustness
 
     # =========================================================================
     # PHASE XX: FINAL SYNTHESIS & MANUSCRIPT QA (steps 140, 160)

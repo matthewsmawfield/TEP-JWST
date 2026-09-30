@@ -68,15 +68,15 @@
     "analysis_class": "real_data_derived_regime_comparison_with_supplementary_object_level_kinematics",
     "direct_kinematic_measurements_used": false,
     "regime": "z~4.5, log M*>10.5 (RUBIES-like)",
-    "n_kinematic_regime": 71,
+    "n_kinematic_regime": 66,
     "n_ml": 0.5,
-    "typical_gamma_t": 1.8989329202827723,
+    "typical_gamma_t": 1.8942634321553498,
     "typical_gamma_t_source": "published_regime_geometric_mean_from_tep_reduction",
-    "mean_gamma_t_all_kinematic_regime": 1.0688618420421905,
+    "mean_gamma_t_all_kinematic_regime": 1.0004726002896362,
     "published_excess_dex": 0.15,
-    "tep_reduction_dex": 0.13925481178778654,
+    "tep_reduction_dex": 0.13872018774963787,
     "ratio_before": 1.4125375446227544,
-    "ratio_after": 1.0250503262841386,
+    "ratio_after": 1.0263129580121058,
     "resolved": false,
     "beta_boot": {
       "n_galaxies": 3,
@@ -2157,5 +2157,5 @@
       "correction_factor": 1.394455531925463
     }
   },
-  "gt_typical_l4_kinematic_regime": 1.8989329202827723
+  "gt_typical_l4_kinematic_regime": 1.8942634321553498
 }

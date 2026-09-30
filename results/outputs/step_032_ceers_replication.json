@@ -15,9 +15,9 @@
     "p_partial": 0.8781932541853796
   },
   "uncover": {
-    "uncover_n": 283,
-    "uncover_rho": 0.5594522703471411,
-    "uncover_p": 1.046457458256734e-24
+    "uncover_n": 254,
+    "uncover_rho": 0.6005719233944862,
+    "uncover_p": 2.749164192772937e-26
   },
   "replication_status": "confirmed"
 }

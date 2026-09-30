@@ -1,48 +1,48 @@
-[22:36:11] INFO        ======================================================================
-[22:36:11] INFO        STEP 31: Independent Validation (Out-of-Sample Prediction)
-[22:36:11] INFO        ======================================================================
-[22:36:11] INFO    
-[22:36:11] INFO        Sample size: N = 1108
-[22:36:11] INFO    
-[22:36:11] INFO        ==================================================
-[22:36:11] INFO        TEST 1: 50/50 Train-Test Split
-[22:36:11] INFO        ==================================================
-[22:36:11] INFO        Training set: N = 554
-[22:36:11] INFO        Test set: N = 554
-[22:36:11] INFO        
+[13:25:17] INFO        ======================================================================
+[13:25:17] INFO        STEP 31: Independent Validation (Out-of-Sample Prediction)
+[13:25:17] INFO        ======================================================================
+[13:25:17] INFO    
+[13:25:17] INFO        Sample size: N = 1041
+[13:25:17] INFO    
+[13:25:17] INFO        ==================================================
+[13:25:17] INFO        TEST 1: 50/50 Train-Test Split
+[13:25:17] INFO        ==================================================
+[13:25:17] INFO        Training set: N = 520
+[13:25:17] INFO        Test set: N = 521
+[13:25:17] INFO        
 Calibrated α (training only): 960000.000
-[22:36:11] INFO        Reference α (from Cepheids): 960000.0
-[22:36:11] INFO        Difference: 0.000
-[22:36:11] INFO        
+[13:25:17] INFO        Reference α (from Cepheids): 960000.0
+[13:25:17] INFO        Difference: 0.000
+[13:25:17] INFO        
 Out-of-sample predictions (test set):
-[22:36:11] INFO          TEP (Γ_t vs dust): ρ = 0.217, p = 2.53e-07
-[22:36:11] INFO          Mass-only baseline: ρ = 0.282, p = 1.41e-11
-[22:36:11] INFO          Partial (Γ_t | M*): ρ = 0.421, p = 3.20e-25
-[22:36:11] INFO        
+[13:25:17] INFO          TEP (Γ_t vs dust): ρ = 0.275, p = 1.79e-10
+[13:25:17] INFO          Mass-only baseline: ρ = 0.334, p = 5.29e-15
+[13:25:17] INFO          Partial (Γ_t | M*): ρ = 0.546, p = 8.09e-42
+[13:25:17] INFO        
 ✓ TEP predicts dust BEYOND mass on held-out data
-[22:36:11] INFO    
-[22:36:11] INFO        ==================================================
-[22:36:11] INFO        TEST 2: 5-Fold Cross-Validation
-[22:36:11] INFO        ==================================================
-[22:36:11] INFO        
+[13:25:17] INFO    
+[13:25:17] INFO        ==================================================
+[13:25:17] INFO        TEST 2: 5-Fold Cross-Validation
+[13:25:17] INFO        ==================================================
+[13:25:17] INFO        
 Calibrated α across folds:
-[22:36:11] INFO          Mean: 960000.000 ± 0.000
-[22:36:11] INFO          Range: [960000.000, 960000.000]
-[22:36:11] INFO        
+[13:25:17] INFO          Mean: 960000.000 ± 0.000
+[13:25:17] INFO          Range: [960000.000, 960000.000]
+[13:25:17] INFO        
 Partial correlation (Γ_t | M*) across folds:
-[22:36:11] INFO          Mean ρ: 0.380 ± 0.170
-[22:36:11] INFO          Significant folds: 5/5
-[22:36:11] INFO        
+[13:25:17] INFO          Mean ρ: 0.346 ± 0.158
+[13:25:17] INFO          Significant folds: 4/5
+[13:25:17] INFO        
 Combined significance (Fisher's method):
-[22:36:11] INFO          χ² = 244.9, p = 6.35e-47
-[22:36:11] INFO    
-[22:36:11] INFO        ======================================================================
-[22:36:11] INFO        INDEPENDENT VALIDATION SUMMARY
-[22:36:11] INFO        ======================================================================
-[22:36:11] INFO        
+[13:25:17] INFO          χ² = 186.6, p = 9.78e-35
+[13:25:17] INFO    
+[13:25:17] INFO        ======================================================================
+[13:25:17] INFO        INDEPENDENT VALIDATION SUMMARY
+[13:25:17] INFO        ======================================================================
+[13:25:17] INFO        
 ✓ STRONG: TEP shows genuine out-of-sample predictive power
-[22:36:11] INFO          Mean partial correlation: ρ = 0.380
-[22:36:11] INFO          Significant in 5/5 folds
-[22:36:11] INFO        
+[13:25:17] INFO          Mean partial correlation: ρ = 0.346
+[13:25:17] INFO          Significant in 4/5 folds
+[13:25:17] INFO        
 Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_029_independent_validation.json
-[22:36:11] INFO        Step 029 complete.
+[13:25:17] INFO        Step 029 complete.

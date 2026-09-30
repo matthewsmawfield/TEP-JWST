@@ -1,7 +1,7 @@
-[22:38:24] INFO        STEP 127: IMF vs TEP discrimination power
-[22:38:24] INFO      IMF=Chabrier: partial_rho=0.195, p=1.00e-300
-[22:38:24] INFO      IMF=Kroupa: partial_rho=0.198, p=1.00e-300
-[22:38:24] INFO      IMF=Salpeter: partial_rho=0.203, p=1.00e-300
-[22:38:24] INFO      IMF=top-heavy: partial_rho=0.166, p=1.00e-300
-[22:38:24] INFO    Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_127_imf_discrimination.json
-[22:38:24] INFO        Step 127 complete.
+[13:27:03] INFO        STEP 127: IMF vs TEP discrimination power
+[13:27:03] INFO      IMF=Chabrier: partial_rho=0.195, p=1.00e-300
+[13:27:03] INFO      IMF=Kroupa: partial_rho=0.198, p=1.00e-300
+[13:27:03] INFO      IMF=Salpeter: partial_rho=0.203, p=1.00e-300
+[13:27:03] INFO      IMF=top-heavy: partial_rho=0.166, p=1.00e-300
+[13:27:03] INFO    Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_127_imf_discrimination.json
+[13:27:03] INFO        Step 127 complete.

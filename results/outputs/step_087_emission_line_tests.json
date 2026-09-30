@@ -1,30 +1,30 @@
 {
-  "n_total": 2315,
+  "n_total": 2157,
   "emission_sed": {
     "sfr_discrepancy": {
-      "rho": -0.2552879112128602,
-      "p": 1.3747468458187564e-05
+      "rho": -0.2988526748036988,
+      "p": 1.2299852088169677e-06
     },
     "sed_quality": {
-      "rho": 0.07939146797180345,
-      "p": 0.18293806642954893
+      "rho": 0.06407555833014479,
+      "p": 0.3090558985505835
     },
     "age_paradox": {
-      "n_impossible": 6,
-      "mean_gamma_impossible": 1.4365671842132761,
-      "mean_gamma_possible": 0.6132888927533634,
-      "ratio": 2.3423988289822124,
+      "n_impossible": 5,
+      "mean_gamma_impossible": 1.580718974636342,
+      "mean_gamma_possible": 0.5987800907415777,
+      "ratio": 2.639899019819867,
       "n_resolved": 2
     },
     "complex_pop": {
-      "n_complex": 24,
-      "mean_gamma_complex": 0.804187447721704,
-      "mean_gamma_simple": 0.6146715353383803,
-      "ratio": 1.3083206257127136
+      "n_complex": 17,
+      "mean_gamma_complex": 0.9032540372962883,
+      "mean_gamma_simple": 0.5976561976109604,
+      "ratio": 1.5113271491317393
     },
     "age_indicators": {
-      "rho_mwa": 0.070442654422891,
-      "p_mwa": 0.23750265983347288
+      "rho_mwa": 0.06234440992481147,
+      "p_mwa": 0.32233614624110196
     }
   }
 }

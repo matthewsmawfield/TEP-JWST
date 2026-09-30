@@ -190,16 +190,17 @@ def apply_full_sample_cuts(df):
     """
     
     mask = (
-        (df['z_phot'] > 4) & 
-        (df['z_phot'] < 10) & 
+        (df['use_phot'] == 1) &
+        (df['z_phot'] > 4) &
+        (df['z_phot'] < 10) &
         (df['log_Mstar'] > 8) &
-        (~df['ssfr100'].isna()) & 
+        (~df['ssfr100'].isna()) &
         (df['ssfr100'] > 0) &
         (~df['mwa'].isna())
     )
-    
+
     df_cut = df[mask].copy()
-    print_status(f"Full sample after cuts: N = {len(df_cut)}", "INFO")
+    print_status(f"Full sample after cuts (incl. use_phot==1): N = {len(df_cut)}", "INFO")
     
     return df_cut
 
@@ -224,10 +225,11 @@ def apply_multi_property_cuts(df):
     df['met_err'] = (df['met_84'] - df['met_16']) / 2
     
     mask = (
-        (df['z_phot'] > 4) & 
-        (df['z_phot'] < 10) & 
+        (df['use_phot'] == 1) &
+        (df['z_phot'] > 4) &
+        (df['z_phot'] < 10) &
         (df['log_Mstar'] > 8) &
-        (~df['ssfr100'].isna()) & 
+        (~df['ssfr100'].isna()) &
         (df['ssfr100'] > 0) &
         (~df['mwa'].isna()) &
         (~df['met'].isna()) &
@@ -235,9 +237,9 @@ def apply_multi_property_cuts(df):
         (df['met_err'] < 0.5) &
         (~df['dust'].isna())
     )
-    
+
     df_cut = df[mask].copy()
-    print_status(f"Multi-property sample after cuts: N = {len(df_cut)}", "INFO")
+    print_status(f"Multi-property sample after cuts (incl. use_phot==1): N = {len(df_cut)}", "INFO")
     
     return df_cut
 
@@ -261,14 +263,15 @@ def apply_z8_cuts(df):
     """
     
     mask = (
-        (df['z_phot'] >= 8) & 
-        (df['z_phot'] < 10) & 
+        (df['use_phot'] == 1) &
+        (df['z_phot'] >= 8) &
+        (df['z_phot'] < 10) &
         (df['log_Mstar'] > 8) &
         (~df['dust'].isna())
     )
-    
+
     df_cut = df[mask].copy()
-    print_status(f"z > 8 sample after cuts: N = {len(df_cut)}", "INFO")
+    print_status(f"z > 8 sample after cuts (incl. use_phot==1): N = {len(df_cut)}", "INFO")
     
     return df_cut
 

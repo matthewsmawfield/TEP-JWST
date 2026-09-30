@@ -100,13 +100,13 @@
     "density_threshold_dense_q75": null,
     "density_split_method": "within_footprint_q25_q75",
     "field_median": -0.11007874088866165,
-    "dense_median": -0.0061987889357419945,
-    "field_mean": -0.026349314423043127,
-    "dense_mean": 0.0708899677276697,
+    "dense_median": -0.006198788935741106,
+    "field_mean": -0.026349314423042447,
+    "dense_mean": 0.07088996772767038,
     "delta_dense_minus_field": 0.09723928215071283,
     "bootstrap_ci_95": [
-      -0.009059026775720208,
-      0.2058827103717861
+      -0.009059026775720168,
+      0.20588271037178604
     ],
     "bootstrap_one_sided_p_dense_less_than_field": 0.9650087478130467,
     "mannwhitney_p_two_sided": 0.04316779765256804,

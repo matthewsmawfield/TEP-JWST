@@ -5,45 +5,45 @@
   "n_observables": 4,
   "individual_fits": {
     "dust": {
-      "kappa_gal": 668733.7746620268,
-      "kappa_gal_err": 403671.5659839795,
-      "rho_best": 0.3901426887347675,
+      "kappa_gal": 1426103.1320627993,
+      "kappa_gal_err": 381651.15320901637,
+      "rho_best": 0.3338002430740065,
       "expected_sign": 1,
       "weight": 1.0
     },
     "age_ratio": {
-      "kappa_gal": 825404.910998215,
-      "kappa_gal_err": 440840.46198547323,
-      "rho_best": 0.18057881962588673,
+      "kappa_gal": 1844412.884184715,
+      "kappa_gal_err": 476046.80167015246,
+      "rho_best": 0.2919569146875377,
       "expected_sign": 1,
       "weight": 1.0
     },
     "metallicity": {
-      "kappa_gal": 1269335.0920325653,
-      "kappa_gal_err": 443392.0375375098,
-      "rho_best": 0.016846797711161897,
+      "kappa_gal": 1274264.5786248,
+      "kappa_gal_err": 325471.4694487079,
+      "rho_best": 0.06790023920586792,
       "expected_sign": 1,
       "weight": 0.5
     },
     "ssfr": {
-      "kappa_gal": 377206.287145438,
-      "kappa_gal_err": 449923.16526655265,
-      "rho_best": -0.32067512097847356,
+      "kappa_gal": 311725.637813665,
+      "kappa_gal_err": 494645.5539611685,
+      "rho_best": -0.4156925927116541,
       "expected_sign": -1,
       "weight": 0.5
     }
   },
   "joint_fit": {
-    "kappa_gal": 837729.2799261456,
-    "kappa_gal_err": 411143.8963565054,
-    "tension_sigma": 0.2131565003289295,
+    "kappa_gal": 1050000.0,
+    "kappa_gal_err": 425735.1695024349,
+    "tension_sigma": 0.15406567920954803,
     "consistent_2sigma": true
   },
   "weighted_mean": {
-    "kappa_gal": 782394.7356919599,
-    "kappa_gal_err": 217965.8529700823,
-    "tension_sigma": 0.38988564666461545
+    "kappa_gal": 1258679.405222381,
+    "kappa_gal_err": 202382.71686893122,
+    "tension_sigma": 0.6662723678629253
   },
-  "improvement_over_dust_only": 168995.50526411878,
+  "improvement_over_dust_only": 376103.1320627993,
   "conclusion": "Joint \u03ba_gal is CONSISTENT with Cepheid calibration within 2\u03c3"
 }

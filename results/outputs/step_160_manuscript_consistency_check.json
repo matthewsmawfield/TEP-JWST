@@ -46,7 +46,7 @@
         "step_164_present": true,
         "step_140_present": true,
         "step_164_before_step_140": true,
-        "registered_steps": 131
+        "registered_steps": 135
       },
       "pass": true
     },
@@ -239,8 +239,7 @@
           "generated_root_markdown_exists": true,
           "generated_root_markdown": {
             "narrows_phrase": true,
-            "five_object_phrase": true,
-            "upper_limit_phrase": true
+            "derived_comparison_phrase": true
           }
         }
       },

@@ -1,45 +1,45 @@
-[22:36:18] INFO        ======================================================================
-[22:36:18] INFO        STEP 37: Spectroscopic Validation
-[22:36:18] INFO        ======================================================================
-[22:36:18] INFO    
-[22:36:18] INFO        Validating TEP predictions using spectroscopically confirmed galaxies
-[22:36:18] INFO    
-[22:36:18] INFO        Loading spectroscopic catalog: combined_spectroscopic_catalog.csv
-[22:36:18] INFO        Total spectroscopic sources: 34
-[22:36:18] INFO        Valid sources for analysis: N = 34
-[22:36:18] INFO        
+[13:25:22] INFO        ======================================================================
+[13:25:22] INFO        STEP 37: Spectroscopic Validation
+[13:25:22] INFO        ======================================================================
+[13:25:22] INFO    
+[13:25:22] INFO        Validating TEP predictions using spectroscopically confirmed galaxies
+[13:25:22] INFO    
+[13:25:22] INFO        Loading spectroscopic catalog: combined_spectroscopic_catalog.csv
+[13:25:22] INFO        Total spectroscopic sources: 34
+[13:25:22] INFO        Valid sources for analysis: N = 34
+[13:25:22] INFO        
 ============================================================
-[22:36:18] INFO        SPECTROSCOPIC CORRELATIONS: Full Sample (z > 4)
-[22:36:18] INFO        ============================================================
-[22:36:18] INFO        Sample size: N = 34
-[22:36:18] INFO        Redshift range: z = 7.65 - 9.69
-[22:36:19] INFO        
+[13:25:22] INFO        SPECTROSCOPIC CORRELATIONS: Full Sample (z > 4)
+[13:25:22] INFO        ============================================================
+[13:25:22] INFO        Sample size: N = 34
+[13:25:22] INFO        Redshift range: z = 7.65 - 9.69
+[13:25:22] INFO        
 rho(Gamma_t, age_ratio) = 0.724 [0.471, 0.867], p = 1.30e-06
-[22:36:19] INFO        
+[13:25:22] INFO        
 ============================================================
-[22:36:19] INFO        SPECTROSCOPIC CORRELATIONS: z > 8 Sample
-[22:36:19] INFO        ============================================================
-[22:36:19] INFO        Sample size: N = 21
-[22:36:19] INFO        Redshift range: z = 8.06 - 9.69
-[22:36:20] INFO        
+[13:25:22] INFO        SPECTROSCOPIC CORRELATIONS: z > 8 Sample
+[13:25:22] INFO        ============================================================
+[13:25:22] INFO        Sample size: N = 21
+[13:25:22] INFO        Redshift range: z = 8.06 - 9.69
+[13:25:23] INFO        
 rho(Gamma_t, age_ratio) = 0.795 [0.552, 0.914], p = 1.67e-05
-[22:36:20] INFO        
+[13:25:23] INFO        
 ============================================================
-[22:36:20] INFO        CORRELATIONS BY REDSHIFT BIN
-[22:36:20] INFO        ============================================================
-[22:36:20] INFO        z = 4-6: N =   0 (insufficient)
-[22:36:20] INFO        z = 6-8: N =  13, rho(Gamma_t, age_ratio) = +0.885, p = 0.0001
-[22:36:20] INFO        z = 8-12: N =  21, rho(Gamma_t, age_ratio) = +0.795, p = 0.0000
-[22:36:20] INFO        
+[13:25:23] INFO        CORRELATIONS BY REDSHIFT BIN
+[13:25:23] INFO        ============================================================
+[13:25:23] INFO        z = 4-6: N =   0 (insufficient)
+[13:25:23] INFO        z = 6-8: N =  13, rho(Gamma_t, age_ratio) = +0.885, p = 0.0001
+[13:25:23] INFO        z = 8-12: N =  21, rho(Gamma_t, age_ratio) = +0.795, p = 0.0000
+[13:25:23] INFO        
 ======================================================================
-[22:36:20] INFO        SPECTROSCOPIC VALIDATION SUMMARY
-[22:36:20] INFO        ======================================================================
-[22:36:20] INFO        
+[13:25:23] INFO        SPECTROSCOPIC VALIDATION SUMMARY
+[13:25:23] INFO        ======================================================================
+[13:25:23] INFO        
 Full sample (N = 34):
-[22:36:20] INFO          rho(Gamma_t, age_ratio) = +0.724, p = 0.0000
-[22:36:20] INFO        
+[13:25:23] INFO          rho(Gamma_t, age_ratio) = +0.724, p = 0.0000
+[13:25:23] INFO        
 ✓ SPECTROSCOPIC VALIDATION: correlation significant
-[22:36:20] INFO          rho(Gamma_t, age_ratio) = +0.724, p = 0.0000 in spectroscopically validated sample (N = 34)
-[22:36:20] INFO        
+[13:25:23] INFO          rho(Gamma_t, age_ratio) = +0.724, p = 0.0000 in spectroscopically validated sample (N = 34)
+[13:25:23] INFO        
 Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_035_spectroscopic_validation.json
-[22:36:20] INFO        Step 035 complete.
+[13:25:23] INFO        Step 035 complete.

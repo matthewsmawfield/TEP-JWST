@@ -1,81 +1,81 @@
-[22:36:01] INFO    ======================================================================
-[22:36:01] INFO    TEP-JWST Step 13: TRGB vs Cepheid Distance Comparison
-[22:36:01] INFO    ======================================================================
-[22:36:01] INFO    
-[22:36:01] INFO    Testing TEP prediction: Cepheids in dense disk regions should
-[22:36:01] INFO    show systematic offset from TRGB stars in diffuse halo regions.
-[22:36:01] INFO    
-[22:36:01] INFO    Loading TRGB-Cepheid comparison data...
-[22:36:01] INFO    Loaded 16 galaxies with both TRGB and Cepheid distances
-[22:36:01] INFO    ======================================================================
-[22:36:01] INFO    ANALYSIS 1: TRGB-Cepheid Systematic Offset
-[22:36:01] INFO    ======================================================================
-[22:36:01] INFO    Sample size: N = 16
-[22:36:01] INFO    Mean offset (TRGB - Cepheid): 0.054 ± 0.004 mag
-[22:36:01] INFO    Weighted mean offset: 0.053 ± 0.018 mag
-[22:36:01] INFO    t-statistic: 15.40, p = 0.0000
-[22:36:01] INFO    Significance: 15.4σ
-[22:36:01] INFO    
+[13:25:09] INFO    ======================================================================
+[13:25:09] INFO    TEP-JWST Step 13: TRGB vs Cepheid Distance Comparison
+[13:25:09] INFO    ======================================================================
+[13:25:09] INFO    
+[13:25:09] INFO    Testing TEP prediction: Cepheids in dense disk regions should
+[13:25:09] INFO    show systematic offset from TRGB stars in diffuse halo regions.
+[13:25:09] INFO    
+[13:25:09] INFO    Loading TRGB-Cepheid comparison data...
+[13:25:09] INFO    Loaded 16 galaxies with both TRGB and Cepheid distances
+[13:25:09] INFO    ======================================================================
+[13:25:09] INFO    ANALYSIS 1: TRGB-Cepheid Systematic Offset
+[13:25:09] INFO    ======================================================================
+[13:25:09] INFO    Sample size: N = 16
+[13:25:09] INFO    Mean offset (TRGB - Cepheid): 0.054 ± 0.004 mag
+[13:25:09] INFO    Weighted mean offset: 0.053 ± 0.018 mag
+[13:25:09] INFO    t-statistic: 15.40, p = 0.0000
+[13:25:09] INFO    Significance: 15.4σ
+[13:25:09] INFO    
 TEP Interpretation:
-[22:36:01] INFO      TRGB distances are LARGER than Cepheid distances
-[22:36:01] INFO      → Cepheids appear too bright (closer) due to TEP
-[22:36:01] INFO      → Consistent with TEP: Cepheids in denser disk regions
-[22:36:01] INFO    ======================================================================
-[22:36:01] INFO    ANALYSIS 2: Offset vs Host Galaxy Mass
-[22:36:01] INFO    ======================================================================
-[22:36:01] INFO    Spearman ρ = -0.145, p = 0.5920
-[22:36:01] INFO    Pearson r = -0.338, p = 0.2010
-[22:36:01] INFO    
+[13:25:09] INFO      TRGB distances are LARGER than Cepheid distances
+[13:25:09] INFO      → Cepheids appear too bright (closer) due to TEP
+[13:25:09] INFO      → Consistent with TEP: Cepheids in denser disk regions
+[13:25:09] INFO    ======================================================================
+[13:25:09] INFO    ANALYSIS 2: Offset vs Host Galaxy Mass
+[13:25:09] INFO    ======================================================================
+[13:25:09] INFO    Spearman ρ = -0.145, p = 0.5920
+[13:25:09] INFO    Pearson r = -0.338, p = 0.2010
+[13:25:09] INFO    
 Linear fit: Δμ = -0.012 × log(M*) + 0.182
-[22:36:01] INFO      Slope: -0.012 ± 0.009 mag/dex
-[22:36:01] INFO    
+[13:25:09] INFO      Slope: -0.012 ± 0.009 mag/dex
+[13:25:09] INFO    
 Mass split at log(M*) = 10.5:
-[22:36:01] INFO      Low-mass (N=8): Δμ = 0.057 ± 0.003 mag
-[22:36:01] INFO      High-mass (N=8): Δμ = 0.051 ± 0.006 mag
-[22:36:01] INFO    
+[13:25:09] INFO      Low-mass (N=8): Δμ = 0.057 ± 0.003 mag
+[13:25:09] INFO      High-mass (N=8): Δμ = 0.051 ± 0.006 mag
+[13:25:09] INFO    
 ⚠ Negative or no correlation
-[22:36:01] INFO    ======================================================================
-[22:36:01] INFO    ANALYSIS 3: Offset vs Morphological Type
-[22:36:01] INFO    ======================================================================
-[22:36:01] INFO    Spearman ρ (T-type vs offset) = 0.168, p = 0.5350
-[22:36:01] INFO    
+[13:25:09] INFO    ======================================================================
+[13:25:09] INFO    ANALYSIS 3: Offset vs Morphological Type
+[13:25:09] INFO    ======================================================================
+[13:25:09] INFO    Spearman ρ (T-type vs offset) = 0.168, p = 0.5350
+[13:25:09] INFO    
 Morphology split:
-[22:36:01] INFO      Early-type (T≤3, N=5): Δμ = 0.054 mag
-[22:36:01] INFO      Late-type (T>3, N=11): Δμ = 0.055 mag
-[22:36:01] INFO    ======================================================================
-[22:36:01] INFO    ANALYSIS 4: TEP Prediction for TRGB-Cepheid Offset
-[22:36:01] INFO    ======================================================================
-[22:36:01] INFO    TEP Parameters:
-[22:36:01] INFO      κ_gal = 9.600e+05 ± 4.000e+05 mag
-[22:36:01] INFO      S_screen = 1.0
-[22:36:01] INFO      σ_ref = 75.25 km/s
-[22:36:01] INFO      σ_disk (Cepheids) = 40.0 km/s
-[22:36:01] INFO      σ_halo (TRGB) = 120.0 km/s
-[22:36:01] INFO    
+[13:25:09] INFO      Early-type (T≤3, N=5): Δμ = 0.054 mag
+[13:25:09] INFO      Late-type (T>3, N=11): Δμ = 0.055 mag
+[13:25:09] INFO    ======================================================================
+[13:25:09] INFO    ANALYSIS 4: TEP Prediction for TRGB-Cepheid Offset
+[13:25:09] INFO    ======================================================================
+[13:25:09] INFO    TEP Parameters:
+[13:25:09] INFO      κ_gal = 9.600e+05 ± 4.000e+05 mag
+[13:25:09] INFO      S_screen = 1.0
+[13:25:09] INFO      σ_ref = 75.25 km/s
+[13:25:09] INFO      σ_disk (Cepheids) = 40.0 km/s
+[13:25:09] INFO      σ_halo (TRGB) = 120.0 km/s
+[13:25:09] INFO    
 TEP Corrections:
-[22:36:01] INFO      Δμ_Cepheid = -0.043 mag
-[22:36:01] INFO      Δμ_TRGB = 0.093 mag
-[22:36:01] INFO    
+[13:25:09] INFO      Δμ_Cepheid = -0.043 mag
+[13:25:09] INFO      Δμ_TRGB = 0.093 mag
+[13:25:09] INFO    
 Predicted Offset (TRGB - Cepheid):
-[22:36:01] INFO      0.137 mag
-[22:36:01] INFO    
+[13:25:09] INFO      0.137 mag
+[13:25:09] INFO    
 Observed Offset:
-[22:36:01] INFO      0.054 ± 0.004 mag
-[22:36:01] INFO    
+[13:25:09] INFO      0.054 ± 0.004 mag
+[13:25:09] INFO    
 Ratio (Observed / Predicted): 0.40
-[22:36:01] INFO    
+[13:25:09] INFO    
 Clock Acceleration (Period Contraction):
-[22:36:01] INFO      Implied Γ_t: 1.0988
-[22:36:01] INFO      Period Contraction: 9.00%
-[22:36:01] INFO      Matches 'Paper 11' phenomenology.
-[22:36:01] INFO    
-[22:36:01] INFO    ======================================================================
-[22:36:01] INFO    SUMMARY
-[22:36:01] INFO    ======================================================================
-[22:36:01] INFO    Observed TRGB-Cepheid offset: 0.054 ± 0.004 mag
-[22:36:01] INFO    TEP predicted offset: 0.137 mag
-[22:36:01] INFO    
+[13:25:09] INFO      Implied Γ_t: 1.0988
+[13:25:09] INFO      Period Contraction: 9.00%
+[13:25:09] INFO      Matches 'Paper 11' phenomenology.
+[13:25:09] INFO    
+[13:25:09] INFO    ======================================================================
+[13:25:09] INFO    SUMMARY
+[13:25:09] INFO    ======================================================================
+[13:25:09] INFO    Observed TRGB-Cepheid offset: 0.054 ± 0.004 mag
+[13:25:09] INFO    TEP predicted offset: 0.137 mag
+[13:25:09] INFO    
 ✓ TRGB-Cepheid offset is TEP-consistent
-[22:36:01] INFO      The offset direction and magnitude match TEP predictions.
-[22:36:01] INFO    
+[13:25:09] INFO      The offset direction and magnitude match TEP predictions.
+[13:25:09] INFO    
 Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_013_trgb_cepheid.json

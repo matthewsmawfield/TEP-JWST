@@ -43,6 +43,7 @@ import numpy as np
 import pandas as pd
 from datetime import datetime
 import traceback
+from scipy.spatial import cKDTree
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging
 from scripts.utils.tep_model import compute_ml_response, compute_ml_response_self_consistent, stellar_to_halo_mass_behroozi_like  # Shared TEP model
@@ -688,9 +689,11 @@ def _residual_null_prior(u, K):
 #
 # The joint covariance likelihood uses a single multivariate Gaussian:
 #   L = N(obs | pred, Sigma)
-# where Sigma is the empirical K×K residual covariance matrix, estimated
-# once from the data and held fixed.  A single scaling parameter alpha
-# allows the sampler to adjust the overall noise level.
+# where Sigma is the empirical K×K covariance matrix of the standardized
+# observables (total covariance, not predictor-residualized), estimated
+# once from the data and held fixed and identical for every model in this
+# family.  A single scaling parameter alpha allows the sampler to adjust
+# the overall noise level.
 
 
 def _joint_cov_tep_loglike(params, obs_matrix, log_gamma, cov_inv, cov_logdet):
@@ -795,6 +798,113 @@ def _joint_cov_standard_prior(u, K):
         out[idx + 2] = u[idx + 2] * 4 - 2
     out[3*K] = u[3*K] * 4 - 2    # log_alpha
     return out
+
+
+def _joint_cov_mz_interaction_loglike(params, obs_matrix, mass, z, cov_inv, cov_logdet):
+    """
+    Joint covariance likelihood for a generic mass x redshift interaction:
+    obs_k = a_k + b_m_k * mass + b_z_k * z + b_mz_k * (mass*z).
+
+    This is the unconstrained-direction comparator for the augmented TEP
+    model: it has the same parameter count (4K + 1) and identical priors,
+    but the fourth predictor is the free interaction term rather than the
+    prescribed R_ML direction.  If the observables' nonlinear structure is
+    generic mass-dependent redshift evolution (e.g. mass-metallicity or
+    downsizing evolution), this model attains it directly; if the R_ML
+    functional form carries unique information, Cov_Augmented must beat it.
+    Total: 4K + 1 params.
+    """
+    K = obs_matrix.shape[1]
+    alpha = np.exp(params[4*K])
+    mz = mass * z
+    mz = (mz - np.mean(mz)) / np.std(mz, ddof=0)  # standardized interaction
+    pred = np.empty_like(obs_matrix)
+    for k in range(K):
+        idx = 4*k
+        pred[:, k] = (params[idx] + params[idx + 1] * mass
+                      + params[idx + 2] * z + params[idx + 3] * mz)
+    resid = obs_matrix - pred
+    scaled_cov_inv = cov_inv / alpha
+    logdet_term = cov_logdet + K * np.log(alpha)
+    quad_form = np.einsum('ni,ij,nj->n', resid, scaled_cov_inv, resid)
+    ll = -0.5 * (np.sum(quad_form) + resid.shape[0] * (K * np.log(2 * np.pi) + logdet_term))
+    return ll
+
+
+def _joint_cov_mz_interaction_prior(u, K):
+    """Prior transform for the m x z interaction model: 4K+1 params."""
+    return _joint_cov_augmented_prior(u, K)
+
+
+def _joint_cov_mz_plus_rml_loglike(params, obs_matrix, mass, z, log_gamma,
+                                   cov_inv, cov_logdet):
+    """
+    Joint covariance likelihood for {1, mass, z, mass*z, log R_ML}:
+    obs_k = a_k + b_m_k m + b_z_k z + b_mz_k (m*z) + b_g_k log R_ML.
+
+    Nested arbiter: whether the prescribed R_ML direction retains evidence
+    once the free interaction direction is available.  Total: 5K + 1 params.
+    """
+    K = obs_matrix.shape[1]
+    alpha = np.exp(params[5*K])
+    mz = mass * z
+    mz = (mz - np.mean(mz)) / np.std(mz, ddof=0)
+    pred = np.empty_like(obs_matrix)
+    for k in range(K):
+        idx = 5*k
+        pred[:, k] = (params[idx] + params[idx + 1] * mass
+                      + params[idx + 2] * z + params[idx + 3] * mz
+                      + params[idx + 4] * log_gamma)
+    resid = obs_matrix - pred
+    scaled_cov_inv = cov_inv / alpha
+    logdet_term = cov_logdet + K * np.log(alpha)
+    quad_form = np.einsum('ni,ij,nj->n', resid, scaled_cov_inv, resid)
+    ll = -0.5 * (np.sum(quad_form) + resid.shape[0] * (K * np.log(2 * np.pi) + logdet_term))
+    return ll
+
+
+def _joint_cov_mz_plus_rml_prior(u, K):
+    """Prior transform for {m, z, m*z, log R_ML}: 5K+1 params."""
+    out = np.empty(5*K + 1)
+    for k in range(K):
+        idx = 5*k
+        out[idx]     = u[idx]     * 20 - 10
+        out[idx + 1] = u[idx + 1] * 4 - 2
+        out[idx + 2] = u[idx + 2] * 4 - 2
+        out[idx + 3] = u[idx + 3] * 4 - 2
+        out[idx + 4] = u[idx + 4] * 4 - 2
+    out[5*K] = u[5*K] * 4 - 2    # log_alpha
+    return out
+
+
+def _joint_cov_three_pred_loglike(params, obs_matrix, p1, p2, p3,
+                                  cov_inv, cov_logdet):
+    """
+    Joint covariance likelihood for a generic three-predictor design:
+    obs_k = a_k + b1_k * p1 + b2_k * p2 + b3_k * p3.
+
+    Used for the ambient-field augmented models, e.g. {m, z, u_amb}, where
+    the third predictor is the theory-0 ambient-field proxy rather than a
+    prescribed interaction term.  Total: 4K + 1 params.
+    """
+    K = obs_matrix.shape[1]
+    alpha = np.exp(params[4*K])
+    pred = np.empty_like(obs_matrix)
+    for k in range(K):
+        idx = 4*k
+        pred[:, k] = (params[idx] + params[idx + 1] * p1
+                      + params[idx + 2] * p2 + params[idx + 3] * p3)
+    resid = obs_matrix - pred
+    scaled_cov_inv = cov_inv / alpha
+    logdet_term = cov_logdet + K * np.log(alpha)
+    quad_form = np.einsum('ni,ij,nj->n', resid, scaled_cov_inv, resid)
+    ll = -0.5 * (np.sum(quad_form) + resid.shape[0] * (K * np.log(2 * np.pi) + logdet_term))
+    return ll
+
+
+def _joint_cov_three_pred_prior(u, K):
+    """Prior transform for the generic three-predictor model: 4K+1 params."""
+    return _joint_cov_augmented_prior(u, K)
 
 
 def _residual_constrained_agn_loglike(
@@ -1116,11 +1226,13 @@ def main():
         (arr - mu) / sig for arr, mu, sig in zip(obs_arrays_raw, obs_means, obs_stds)
     ]
 
-    # Empirical residual covariance matrix for the joint covariance likelihood.
+    # Empirical covariance matrix for the joint covariance likelihood.
     # The observables (dust, sSFR, chi2, met) are correlated SED outputs from
     # the same photometric fit.  Treating them as independent inflates evidence.
-    # We estimate the covariance from the standardized observables and use it
-    # in a multivariate Gaussian likelihood.
+    # We estimate the covariance from the standardized observables (this is
+    # the TOTAL observable covariance, shared identically by every model in
+    # the family; relative Bayes factors are unaffected by the choice of a
+    # common matrix) and use it in a multivariate Gaussian likelihood.
     obs_matrix = np.column_stack(obs_arrays)  # N × K
     cov_empirical = np.cov(obs_matrix, rowvar=False)  # K × K
     # Regularize for numerical stability
@@ -1173,6 +1285,40 @@ def main():
         z_std = (z - np.mean(z)) / _z_std
     else:
         z_std = z - np.mean(z)
+
+    # Ambient-field predictor (theory-0 ambient closure): the operative
+    # embedded response scales as u_amb^{-2} with u_amb ∝ sqrt(rho_env * L).
+    # rho_env is proxied by the local galaxy number density from
+    # k-nearest-neighbor distances in standardized (RA, Dec, ln(1+z)) space:
+    # rho ∝ 1/d_k^3, so log u_amb ∝ -1.5 * log d_k up to a constant.
+    # This predictor is the ambient-law alternative to the magnitude-sector
+    # kernel R_ML = exp[K_gal * Psi(M_h) * sqrt(1+z)].
+    uamb_proxy_std = None
+    if {'ra', 'dec'}.issubset(df_v.columns):
+        ra_v = pd.to_numeric(df_v['ra'], errors='coerce').values
+        dec_v = pd.to_numeric(df_v['dec'], errors='coerce').values
+        lz_v = np.log1p(z)
+        ok_pos = np.isfinite(ra_v) & np.isfinite(dec_v) & np.isfinite(lz_v)
+        if ok_pos.sum() >= 20:
+            ra_s = np.where(ok_pos, ra_v, np.nanmedian(ra_v))
+            dec_s = np.where(ok_pos, dec_v, np.nanmedian(dec_v))
+            lz_s = np.where(ok_pos, lz_v, np.nanmedian(lz_v))
+            cs = np.column_stack([
+                (ra_s - ra_s.mean()) / ra_s.std(ddof=0),
+                (dec_s - dec_s.mean()) / dec_s.std(ddof=0),
+                (lz_s - lz_s.mean()) / lz_s.std(ddof=0),
+            ])
+            d_k = cKDTree(cs).query(cs, k=6)[0][:, 5]
+            d_k = np.maximum(d_k, 1e-6)
+            log_uamb = -1.5 * np.log(d_k)  # ∝ 0.5 log rho_env up to constant
+            uamb_proxy_std = (log_uamb - np.mean(log_uamb)) / np.std(log_uamb, ddof=0)
+            uamb_proxy_std = np.where(ok_pos, uamb_proxy_std, 0.0)
+            print_status(
+                f"Ambient-field proxy built (kNN, k=5): "
+                f"corr(u_amb_proxy, log R_ML) = "
+                f"{np.corrcoef(uamb_proxy_std, log_gamma)[0, 1]:.3f}",
+                "INFO",
+            )
 
     design_matrix_raw = np.column_stack([np.ones_like(mass), mass, z])
     design_pinv_raw = np.linalg.pinv(design_matrix_raw)
@@ -1478,6 +1624,79 @@ def main():
         print_status(f"Cov-Standard Raw joint failed: {e}", "ERROR")
         print_status(traceback.format_exc(), "ERROR")
 
+    # Covariance Interaction: 4K+1 params (mass + z + mass*z).
+    # The unconstrained-direction comparator for Cov_Augmented: identical
+    # parameter count and priors, with a free interaction term replacing the
+    # prescribed R_ML direction.  If a generic interaction (mass-dependent
+    # redshift evolution of sSFR/metallicity) explains the observables'
+    # nonlinear structure better than R_ML, this wins.
+    try:
+        r = run_nested(
+            lambda p: _joint_cov_mz_interaction_loglike(p, obs_matrix, mass_std, z_std, cov_inv, cov_logdet),
+            lambda u: _joint_cov_mz_interaction_prior(u, K),
+            4*K + 1, f"Cov-Interaction Joint ({4*K+1} params)")
+        joint_models['Cov_Interaction'] = r
+    except Exception as e:
+        print_status(f"Cov-Interaction joint failed: {e}", "ERROR")
+        print_status(traceback.format_exc(), "ERROR")
+
+    # Covariance Interaction + R_ML: 5K+1 params (mass + z + mass*z + log R_ML).
+    # Nested arbiter: the unique evidence of the R_ML direction once the free
+    # interaction direction is already present.
+    try:
+        r = run_nested(
+            lambda p: _joint_cov_mz_plus_rml_loglike(p, obs_matrix, mass_std, z_std, log_gamma, cov_inv, cov_logdet),
+            lambda u: _joint_cov_mz_plus_rml_prior(u, K),
+            5*K + 1, f"Cov-Interaction+R_ML Joint ({5*K+1} params)")
+        joint_models['Cov_Interaction_RML'] = r
+    except Exception as e:
+        print_status(f"Cov-Interaction+R_ML joint failed: {e}", "ERROR")
+        print_status(traceback.format_exc(), "ERROR")
+
+    # Covariance ambient-field TEP variant: 2K+1 params.
+    # Same single-predictor structure as Cov_TEP but the predictor is the
+    # ambient-field proxy u_amb (theory-0 ambient closure, D^{-1} ~ u_amb^-2)
+    # rather than the magnitude-sector R_ML kernel.
+    if uamb_proxy_std is not None:
+        try:
+            r = run_nested(
+                lambda p: _joint_cov_tep_loglike(p, obs_matrix, uamb_proxy_std, cov_inv, cov_logdet),
+                lambda u: _joint_cov_tep_prior(u, K),
+                2*K + 1, f"Cov-u_amb Joint ({2*K+1} params)")
+            joint_models['Cov_uamb'] = r
+        except Exception as e:
+            print_status(f"Cov-u_amb joint failed: {e}", "ERROR")
+            print_status(traceback.format_exc(), "ERROR")
+
+        # Ambient-field augmented models: does the u_amb proxy retain
+        # independent evidence beyond the mass+z baseline (and beyond the
+        # free interaction)?  The single-predictor Cov_uamb is a weak
+        # comparator because u_amb carries no main-sequence structure;
+        # the augmented variants isolate its unique contribution.
+        try:
+            r = run_nested(
+                lambda p: _joint_cov_three_pred_loglike(
+                    p, obs_matrix, mass_std, z_std, uamb_proxy_std,
+                    cov_inv, cov_logdet),
+                lambda u: _joint_cov_three_pred_prior(u, K),
+                4*K + 1, f"Cov-Std+u_amb Joint ({4*K+1} params)")
+            joint_models['Cov_Std_uamb'] = r
+        except Exception as e:
+            print_status(f"Cov-Std+u_amb joint failed: {e}", "ERROR")
+            print_status(traceback.format_exc(), "ERROR")
+
+        try:
+            r = run_nested(
+                lambda p: _joint_cov_mz_plus_rml_loglike(
+                    p, obs_matrix, mass_std, z_std, uamb_proxy_std,
+                    cov_inv, cov_logdet),
+                lambda u: _joint_cov_mz_plus_rml_prior(u, K),
+                5*K + 1, f"Cov-Int+u_amb Joint ({5*K+1} params)")
+            joint_models['Cov_Int_uamb'] = r
+        except Exception as e:
+            print_status(f"Cov-Int+u_amb joint failed: {e}", "ERROR")
+            print_status(traceback.format_exc(), "ERROR")
+
     # ------------------------------------------------------------------
     # A.2 TEP-Corrected Alternatives (uses M_true = M_obs - n*log10(Gamma_t))
     # ------------------------------------------------------------------
@@ -1648,7 +1867,9 @@ def main():
     # models use a multivariate Gaussian.  Bayes factors are only valid within
     # the same likelihood family.  Mixing them produces meaningless numbers
     # because the logZ normalising constants differ.
-    cov_model_names = {'Cov_TEP', 'Cov_Standard', 'Cov_Standard_Raw', 'Cov_Augmented'}
+    cov_model_names = {'Cov_TEP', 'Cov_Standard', 'Cov_Standard_Raw', 'Cov_Augmented',
+                       'Cov_Interaction', 'Cov_Interaction_RML', 'Cov_uamb',
+                       'Cov_Std_uamb', 'Cov_Int_uamb'}
 
     if 'TEP' in joint_models:
         # Independent-likelihood comparisons only

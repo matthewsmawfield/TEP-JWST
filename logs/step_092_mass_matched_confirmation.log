@@ -1,15 +1,15 @@
-[22:37:17] INFO    ═══ STEP 092: Mass-matched confirmation
-[22:37:17] INFO        Surveys loaded: ['UNCOVER', 'CEERS', 'COSMOS-Web']
-[22:37:17] INFO        Config: z_min=8.0, mass_bin=0.25 dex, min_bin_n=20
-[22:37:17] INFO    
-[22:37:17] INFO          UNCOVER (dust_positive_only): N=283, partial_residual_ρ=0.122
-[22:37:17] INFO          CEERS (dust_positive_only): N=82, partial_residual_ρ=-0.124
-[22:37:17] INFO          COSMOS-Web (dust_positive_only): N=918, partial_residual_ρ=0.066
-[22:37:18] INFO          Combined (dust_positive_only): N=1283, partial_residual_ρ=0.176
-[22:37:18] INFO    
-[22:37:18] INFO          UNCOVER (all_dust): N=283, partial_residual_ρ=0.122
-[22:37:18] INFO          CEERS (all_dust): N=82, partial_residual_ρ=-0.124
-[22:37:18] INFO          COSMOS-Web (all_dust): N=2606, partial_residual_ρ=0.555
-[22:37:18] INFO          Combined (all_dust): N=2971, partial_residual_ρ=0.473
-[22:37:18] INFO    
-[22:37:19] INFO    ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_092_mass_matched_confirmation.json
+[13:26:10] INFO    ═══ STEP 092: Mass-matched confirmation
+[13:26:10] INFO        Surveys loaded: ['UNCOVER', 'CEERS', 'COSMOS-Web']
+[13:26:10] INFO        Config: z_min=8.0, mass_bin=0.25 dex, min_bin_n=20
+[13:26:10] INFO    
+[13:26:10] INFO          UNCOVER (dust_positive_only): N=254, partial_residual_ρ=0.062
+[13:26:10] INFO          CEERS (dust_positive_only): N=82, partial_residual_ρ=-0.124
+[13:26:10] INFO          COSMOS-Web (dust_positive_only): N=918, partial_residual_ρ=0.066
+[13:26:11] INFO          Combined (dust_positive_only): N=1254, partial_residual_ρ=0.163
+[13:26:11] INFO    
+[13:26:11] INFO          UNCOVER (all_dust): N=254, partial_residual_ρ=0.062
+[13:26:11] INFO          CEERS (all_dust): N=82, partial_residual_ρ=-0.124
+[13:26:11] INFO          COSMOS-Web (all_dust): N=2606, partial_residual_ρ=0.555
+[13:26:11] INFO          Combined (all_dust): N=2942, partial_residual_ρ=0.473
+[13:26:11] INFO    
+[13:26:11] INFO    ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_092_mass_matched_confirmation.json

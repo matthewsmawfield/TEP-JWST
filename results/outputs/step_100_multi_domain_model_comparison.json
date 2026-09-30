@@ -3,9 +3,9 @@
     {
       "name": "z8_dust_uncover",
       "description": "z>8 Dust-\u0393t correlation (UNCOVER)",
-      "rho": 0.5945661186122826,
-      "p": 1.9243263744046854e-28,
-      "n": 283,
+      "rho": 0.6457648560030902,
+      "p": 2.2986036547901275e-31,
+      "n": 254,
       "available": true,
       "independent": true,
       "include_in_combination": true,
@@ -47,9 +47,9 @@
     {
       "name": "z7_inversion",
       "description": "z>7 mass-sSFR inversion",
-      "rho": 0.0865815948252025,
-      "p": 0.05206755140695994,
-      "n": 504,
+      "rho": 0.09816062531956682,
+      "p": 0.03572334490961475,
+      "n": 458,
       "available": true,
       "independent": false,
       "include_in_combination": true,
@@ -87,8 +87,8 @@
       "core_screening",
       "z7_inversion"
     ],
-    "combined_p": 7.008074674020543e-136,
-    "chi2_stat": 662.5001238271029,
+    "combined_p": 6.2507790667925695e-139,
+    "chi2_stat": 676.713657757266,
     "df": 10,
     "note": "Assumes independence - likely overestimates significance"
   },
@@ -100,8 +100,8 @@
       "core_screening",
       "z7_inversion"
     ],
-    "combined_p": 4.463701868475428e-94,
-    "chi2_stat": 662.5001238271029,
+    "combined_p": 3.6048495873547047e-96,
+    "chi2_stat": 676.713657757266,
     "df_adjusted": 6.85283536063046,
     "correlation_matrix": [
       [
@@ -150,59 +150,59 @@
       "z8_dust_cosmosweb",
       "core_screening"
     ],
-    "combined_p": 1.5775183716096894e-136,
-    "chi2_stat": 656.5896971512273,
+    "combined_p": 2.0022522688015814e-139,
+    "chi2_stat": 670.0497559875228,
     "df": 8
   },
   "bayesian": {
     "prior_tep": 0.01,
-    "log_bayes_factor": 310.7129650387499,
-    "bayes_factor": 8.728229802685924e+134,
+    "log_bayes_factor": 317.5994861108696,
+    "bayes_factor": 8.544846653812266e+137,
     "posterior_prob": 1.0
   },
   "prior_sensitivity": [
     {
       "prior": 0.001,
       "posterior": 1.0,
-      "log_bf": 310.7129650387499
+      "log_bf": 317.5994861108696
     },
     {
       "prior": 0.01,
       "posterior": 1.0,
-      "log_bf": 310.7129650387499
+      "log_bf": 317.5994861108696
     },
     {
       "prior": 0.05,
       "posterior": 1.0,
-      "log_bf": 310.7129650387499
+      "log_bf": 317.5994861108696
     },
     {
       "prior": 0.1,
       "posterior": 1.0,
-      "log_bf": 310.7129650387499
+      "log_bf": 317.5994861108696
     },
     {
       "prior": 0.5,
       "posterior": 1.0,
-      "log_bf": 310.7129650387499
+      "log_bf": 317.5994861108696
     }
   ],
   "primary_evidence": {
     "test": "z>8 Dust correlation (3-survey meta-analysis)",
-    "rho_weighted": 0.6238636341109517,
-    "n_combined": 1283,
-    "p_meta": 2.4310042932813148e-136,
+    "rho_weighted": 0.6349115665246092,
+    "n_combined": 1254,
+    "p_meta": 3.0256656648036136e-139,
     "replication": "Confirmed across UNCOVER, CEERS, COSMOS-Web",
     "independence": "Three independent surveys with different SED pipelines",
-    "statement": "The primary evidence for TEP rests on the z>8 dust-\u0393t correlation, replicated across 3 independent JWST surveys (N=1,283) with a sample-size-weighted \u03c1 = 0.624 and Fisher-combined p = 2.43e-136."
+    "statement": "The primary evidence for TEP rests on the z>8 dust-\u0393t correlation, replicated across 3 independent JWST surveys (N=1,254) with a sample-size-weighted \u03c1 = 0.635 and Fisher-combined p = 3.03e-139."
   },
   "summary": {
-    "fisher_p": 7.008074674020543e-136,
-    "brown_p": 4.463701868475428e-94,
-    "conservative_p": 1.5775183716096894e-136,
+    "fisher_p": 6.2507790667925695e-139,
+    "brown_p": 3.6048495873547047e-96,
+    "conservative_p": 2.0022522688015814e-139,
     "posterior_prob": 1.0,
-    "primary_evidence_p": 2.4310042932813148e-136,
-    "conclusion": "Even under the most conservative assumptions (independent tests only, correlation-adjusted combination), the combined evidence strongly supports TEP (conservative p = 1.58e-136). The primary evidence\u2014the replicated z>8 dust correlation\u2014is robust under correlation adjustment.",
+    "primary_evidence_p": 3.0256656648036136e-139,
+    "conclusion": "Even under the most conservative assumptions (independent tests only, correlation-adjusted combination), the combined evidence strongly supports TEP (conservative p = 2.00e-139). The primary evidence\u2014the replicated z>8 dust correlation\u2014is robust under correlation adjustment.",
     "recommendation": "Report the conservative Brown-adjusted p-value in the manuscript, with the primary evidence (3-survey dust correlation) as the headline result. Avoid reporting extreme p-values (p << 10\u207b\u2075\u2070) that assume strong independence."
   }
 }

@@ -1,40 +1,40 @@
-[22:38:10] INFO        ======================================================================
-[22:38:10] INFO        STEP 104: Cosmic Variance Quantification
-[22:38:10] INFO        ======================================================================
-[22:38:10] INFO        
+[13:26:52] INFO        ======================================================================
+[13:26:52] INFO        STEP 104: Cosmic Variance Quantification
+[13:26:52] INFO        ======================================================================
+[13:26:53] INFO        
 Loaded 3 surveys
-[22:38:10] INFO          UNCOVER: N(z>8) = 283, Area = 45 arcmin²
-[22:38:10] INFO          CEERS: N(z>8) = 82, Area = 100 arcmin²
-[22:38:10] INFO          COSMOS-Web: N(z>8) = 2606, Area = 1800 arcmin²
-[22:38:10] INFO        
+[13:26:53] INFO          UNCOVER: N(z>8) = 254, Area = 45 arcmin²
+[13:26:53] INFO          CEERS: N(z>8) = 82, Area = 100 arcmin²
+[13:26:53] INFO          COSMOS-Web: N(z>8) = 2606, Area = 1800 arcmin²
+[13:26:53] INFO        
 --- Cosmic Variance Estimates ---
-[22:38:11] INFO          UNCOVER:
-[22:38:11] INFO            σ_cv = 3.65
-[22:38:11] INFO            σ_Poisson = 0.06
-[22:38:11] INFO            σ_total = 3.65
-[22:38:11] INFO          CEERS:
-[22:38:11] INFO            σ_cv = 2.45
-[22:38:11] INFO            σ_Poisson = 0.11
-[22:38:11] INFO            σ_total = 2.45
-[22:38:11] INFO          COSMOS-Web:
-[22:38:11] INFO            σ_cv = 0.58
-[22:38:11] INFO            σ_Poisson = 0.02
-[22:38:11] INFO            σ_total = 0.58
-[22:38:11] INFO        
+[13:26:53] INFO          UNCOVER:
+[13:26:53] INFO            σ_cv = 3.65
+[13:26:53] INFO            σ_Poisson = 0.06
+[13:26:53] INFO            σ_total = 3.65
+[13:26:53] INFO          CEERS:
+[13:26:53] INFO            σ_cv = 2.45
+[13:26:53] INFO            σ_Poisson = 0.11
+[13:26:53] INFO            σ_total = 2.45
+[13:26:53] INFO          COSMOS-Web:
+[13:26:53] INFO            σ_cv = 0.58
+[13:26:53] INFO            σ_Poisson = 0.02
+[13:26:53] INFO            σ_total = 0.58
+[13:26:53] INFO        
 --- Field-by-Field Correlations ---
-[22:38:11] INFO          UNCOVER: ρ = 0.595 (N = 283)
-[22:38:11] INFO        
+[13:26:53] INFO          UNCOVER: ρ = 0.646 (N = 254)
+[13:26:53] INFO        
 ======================================================================
-[22:38:11] INFO        SUMMARY
-[22:38:11] INFO        ======================================================================
-[22:38:11] INFO        
-Total N (z > 8): 2971
-[22:38:11] INFO        Number of independent fields: 3
-[22:38:11] INFO        Effective N (accounting for CV): ~300
-[22:38:11] INFO        
+[13:26:53] INFO        SUMMARY
+[13:26:53] INFO        ======================================================================
+[13:26:53] INFO        
+Total N (z > 8): 2942
+[13:26:53] INFO        Number of independent fields: 3
+[13:26:53] INFO        Effective N (accounting for CV): ~300
+[13:26:53] INFO        
 ⚠ Signal consistency across fields is uncertain
-[22:38:11] INFO        
+[13:26:53] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_104_cosmic_variance.json
-[22:38:12] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_104_cosmic_variance.png
-[22:38:12] INFO        
+[13:26:53] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_104_cosmic_variance.png
+[13:26:53] INFO        
 Step 104 complete.

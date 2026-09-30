@@ -18,14 +18,14 @@
       "z_min": 8,
       "z_max": 9,
       "z_mid": 8.5,
-      "median_gamma_t": 1.2233120908749167,
+      "median_gamma_t": 1.2027271023013906,
       "lcdm_prediction": 0.7999999999999998,
-      "observed": 6.473431870162698,
-      "tep_corrected": 6.102319629934968,
-      "tension_observed_sigma": 18.911439567208994,
-      "tension_tep_sigma": 17.674398766449894,
-      "tension_reduction_pct": 6.54123022397531,
-      "mass_reduction_dex": 0.37111224022773026
+      "observed": 5.854876188989779,
+      "tep_corrected": 5.814416762469107,
+      "tension_observed_sigma": 16.8495872966326,
+      "tension_tep_sigma": 16.71472254156369,
+      "tension_reduction_pct": 0.8004039071975376,
+      "mass_reduction_dex": 0.04045942652067236
     },
     {
       "z_min": 9,
@@ -42,16 +42,16 @@
     }
   ],
   "summary": {
-    "mean_tension_observed_sigma": 17.808019283379046,
-    "mean_tension_tep_sigma": 16.853323235659087,
-    "mean_tension_reduction_pct": 3.5328430002509683,
-    "mean_mass_reduction_dex": 0.28640881431598775,
+    "mean_tension_observed_sigma": 17.120735193186913,
+    "mean_tension_tep_sigma": 16.53343116069702,
+    "mean_tension_reduction_pct": 1.6192342279917105,
+    "mean_mass_reduction_dex": 0.17619120974696845,
     "status": "tension_reduced"
   },
-  "conclusion": "TEP reduces \u039bCDM tension from 17.8\u03c3 to 16.9\u03c3",
+  "conclusion": "TEP reduces \u039bCDM tension from 17.1\u03c3 to 16.5\u03c3",
   "implications": [
-    "Observed stellar mass density at z > 7 is 1.9\u00d7 higher than \u039bCDM",
-    "TEP correction reduces this excess by 4%",
-    "Remaining tension (16.9\u03c3) may be genuine early structure formation"
+    "Observed stellar mass density at z > 7 is 1.5\u00d7 higher than \u039bCDM",
+    "TEP correction reduces this excess by 2%",
+    "Remaining tension (16.5\u03c3) may be genuine early structure formation"
   ]
 }

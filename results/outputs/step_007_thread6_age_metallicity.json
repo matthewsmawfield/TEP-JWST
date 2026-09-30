@@ -1,11 +1,11 @@
 {
   "test": "Thread 6: Age-Metallicity Coherence",
-  "n": 1108,
-  "rho": 0.3308190995664502,
-  "p": 1.0486667323447951e-29,
+  "n": 1041,
+  "rho": 0.349222576419084,
+  "p": 3.192084736234745e-31,
   "ci_95": [
-    0.2667979298867693,
-    0.38753421311259173
+    0.28770972899559955,
+    0.4094542868021933
   ],
   "significant": true,
   "interpretation": "Older \u2192 more enriched (TEP consistent)"

@@ -1,40 +1,40 @@
-[22:37:51] INFO        ======================================================================
-[22:37:51] INFO        STEP 101: Multi-Observable κ_gal Recovery Test
-[22:37:51] INFO        ======================================================================
-[22:37:51] INFO        Loaded 2315 galaxies
-[22:37:51] INFO        High-z sample (z > 6): 876 galaxies
-[22:37:51] INFO          Added: dust (N=876)
-[22:37:51] INFO          Added: age_ratio (N=876)
-[22:37:51] INFO          Added: metallicity (N=876)
-[22:37:51] INFO          Added: log_ssfr (N=876)
-[22:37:51] INFO        
+[13:26:37] INFO        ======================================================================
+[13:26:37] INFO        STEP 101: Multi-Observable κ_gal Recovery Test
+[13:26:37] INFO        ======================================================================
+[13:26:37] INFO        Loaded 2157 galaxies
+[13:26:37] INFO        High-z sample (z > 6): 803 galaxies
+[13:26:37] INFO          Added: dust (N=803)
+[13:26:37] INFO          Added: age_ratio (N=803)
+[13:26:37] INFO          Added: metallicity (N=803)
+[13:26:37] INFO          Added: log_ssfr (N=803)
+[13:26:37] INFO        
 Fitting κ_gal to 4 observables:
-[22:37:53] INFO          dust: κ_gal = 6.687e+05 ± 4.037e+05 mag, ρ = 0.39 ✓
-[22:37:55] INFO          age_ratio: κ_gal = 8.254e+05 ± 4.408e+05 mag, ρ = 0.18 ✓
-[22:37:57] INFO          metallicity: κ_gal = 1.269e+06 ± 4.434e+05 mag, ρ = 0.02 ✓
-[22:37:59] INFO          ssfr: κ_gal = 3.772e+05 ± 4.499e+05 mag, ρ = -0.32 ✓
-[22:37:59] INFO        
+[13:26:39] INFO          dust: κ_gal = 1.426e+06 ± 3.817e+05 mag, ρ = 0.33 ✓
+[13:26:40] INFO          age_ratio: κ_gal = 1.844e+06 ± 4.760e+05 mag, ρ = 0.29 ✓
+[13:26:42] INFO          metallicity: κ_gal = 1.274e+06 ± 3.255e+05 mag, ρ = 0.07 ✓
+[13:26:43] INFO          ssfr: κ_gal = 3.117e+05 ± 4.946e+05 mag, ρ = -0.42 ✓
+[13:26:43] INFO        
 Joint fit across all observables:
-[22:38:06] INFO          Joint κ_gal = 8.377e+05 ± 4.111e+05 mag
-[22:38:06] INFO          Nominal κ_gal = 9.600e+05 ± 4.000e+05 mag
-[22:38:06] INFO          Tension: 0.2σ ✓
-[22:38:06] INFO        
+[13:26:49] INFO          Joint κ_gal = 1.050e+06 ± 4.257e+05 mag
+[13:26:49] INFO          Nominal κ_gal = 9.600e+05 ± 4.000e+05 mag
+[13:26:49] INFO          Tension: 0.2σ ✓
+[13:26:49] INFO        
 Weighted mean of individual fits:
-[22:38:06] INFO          κ_gal = 7.824e+05 ± 2.180e+05 mag
-[22:38:06] INFO          Tension with nominal: 0.4σ
-[22:38:06] INFO        
+[13:26:49] INFO          κ_gal = 1.259e+06 ± 2.024e+05 mag
+[13:26:49] INFO          Tension with nominal: 0.7σ
+[13:26:49] INFO        
 ======================================================================
-[22:38:06] INFO        SUMMARY
-[22:38:06] INFO        ======================================================================
-[22:38:06] INFO        
+[13:26:49] INFO        SUMMARY
+[13:26:49] INFO        ======================================================================
+[13:26:49] INFO        
 ✓ Joint fit IMPROVES agreement with nominal κ_gal
-[22:38:06] INFO          Dust-only: κ_gal = 6.687e+05 (Δ = 2.913e+05)
-[22:38:06] INFO          Joint: κ_gal = 8.377e+05 (Δ = 1.223e+05)
-[22:38:06] INFO          Improvement: 168995.51
-[22:38:06] INFO        
+[13:26:49] INFO          Dust-only: κ_gal = 1.426e+06 (Δ = 4.661e+05)
+[13:26:49] INFO          Joint: κ_gal = 1.050e+06 (Δ = 9.000e+04)
+[13:26:49] INFO          Improvement: 376103.13
+[13:26:49] INFO        
 Joint κ_gal is CONSISTENT with Cepheid calibration within 2σ
-[22:38:06] INFO        
+[13:26:49] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_101_alpha_recovery_multi_observable.json
-[22:38:07] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_101_alpha_recovery.png
-[22:38:07] INFO        
+[13:26:50] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_101_alpha_recovery.png
+[13:26:50] INFO        
 Step 101 complete.

@@ -1,102 +1,102 @@
-[22:36:03] INFO    ======================================================================
-[22:36:03] INFO    TEP-JWST Step 16: Robustness Tests
-[22:36:03] INFO    ======================================================================
-[22:36:03] INFO    
-[22:36:03] INFO    Addressing potential weaknesses in TEP evidence systematically.
-[22:36:03] INFO    
-[22:36:03] INFO    ======================================================================
-[22:36:03] INFO    TEST 1: The Negative Correlation Analysis
-[22:36:03] INFO    ======================================================================
-[22:36:03] INFO    Raw correlation (age_ratio vs Γ_t): ρ = 0.009, p = 0.6632
-[22:36:03] INFO    Corrected correlation (age_ratio_corrected vs Γ_t): ρ = -0.199, p = 0.0000
-[22:36:03] INFO    
-Δρ (corrected - raw) = -0.208
-[22:36:03] INFO    ✓ TEP correction reveals underlying anti-correlation
-[22:36:03] INFO      This is EXPECTED: massive galaxies form later (downsizing)
-[22:36:03] INFO      The raw correlation is LESS negative because TEP partially compensates
-[22:36:03] INFO    
+[13:25:11] INFO    ======================================================================
+[13:25:11] INFO    TEP-JWST Step 16: Robustness Tests
+[13:25:11] INFO    ======================================================================
+[13:25:11] INFO    
+[13:25:11] INFO    Addressing potential weaknesses in TEP evidence systematically.
+[13:25:11] INFO    
+[13:25:11] INFO    ======================================================================
+[13:25:11] INFO    TEST 1: The Negative Correlation Analysis
+[13:25:11] INFO    ======================================================================
+[13:25:11] INFO    Raw correlation (age_ratio vs Γ_t): ρ = 0.010, p = 0.6463
+[13:25:11] INFO    Corrected correlation (age_ratio_corrected vs Γ_t): ρ = -0.200, p = 0.0000
+[13:25:11] INFO    
+Δρ (corrected - raw) = -0.210
+[13:25:11] INFO    ✓ TEP correction reveals underlying anti-correlation
+[13:25:11] INFO      This is EXPECTED: massive galaxies form later (downsizing)
+[13:25:11] INFO      The raw correlation is LESS negative because TEP partially compensates
+[13:25:11] INFO    
 Within-mass-bin analysis:
-[22:36:03] INFO      log(M*) = [8, 9): N = 2054, ρ = -0.067, p = 0.0024
-[22:36:03] INFO      log(M*) = [9, 10): N = 238, ρ = 0.193, p = 0.0028
-[22:36:03] INFO    
-Mean within-bin correlation: ρ = 0.063
-[22:36:03] INFO    ✓ Within-bin correlations are LESS negative than raw
-[22:36:03] INFO      TEP effect is visible when controlling for mass
-[22:36:03] INFO    ======================================================================
-[22:36:03] INFO    TEST 2: TRGB-Cepheid Environmental Contrast
-[22:36:03] INFO    ======================================================================
-[22:36:03] INFO    Observed TRGB-Cepheid offset: 0.054 mag
-[22:36:03] INFO    Predicted (maximum contrast): 0.137 mag
-[22:36:03] INFO    Ratio: 0.40
-[22:36:03] INFO    
+[13:25:11] INFO      log(M*) = [8, 9): N = 1920, ρ = -0.073, p = 0.0014
+[13:25:11] INFO      log(M*) = [9, 10): N = 218, ρ = 0.195, p = 0.0039
+[13:25:11] INFO    
+Mean within-bin correlation: ρ = 0.061
+[13:25:11] INFO    ✓ Within-bin correlations are LESS negative than raw
+[13:25:11] INFO      TEP effect is visible when controlling for mass
+[13:25:11] INFO    ======================================================================
+[13:25:11] INFO    TEST 2: TRGB-Cepheid Environmental Contrast
+[13:25:11] INFO    ======================================================================
+[13:25:11] INFO    Observed TRGB-Cepheid offset: 0.054 mag
+[13:25:11] INFO    Predicted (maximum contrast): 0.137 mag
+[13:25:11] INFO    Ratio: 0.40
+[13:25:11] INFO    
 Inferred effective σ ratio: 1.55
-[22:36:03] INFO    (Maximum assumed: 3.0)
-[22:36:03] INFO    
+[13:25:11] INFO    (Maximum assumed: 3.0)
+[13:25:11] INFO    
 Plausible effective environments:
-[22:36:03] INFO      σ_disk_eff ≈ 50 km/s (spiral arms)
-[22:36:03] INFO      σ_halo_eff ≈ 77 km/s (inner halo)
-[22:36:03] INFO    
+[13:25:11] INFO      σ_disk_eff ≈ 50 km/s (spiral arms)
+[13:25:11] INFO      σ_halo_eff ≈ 77 km/s (inner halo)
+[13:25:11] INFO    
 ✓ The 20% ratio is CONSISTENT with overlapping populations
-[22:36:03] INFO      It constrains the effective environmental contrast, not TEP itself
-[22:36:03] INFO    ======================================================================
-[22:36:03] INFO    TEST 3: Screening Saturation Test
-[22:36:03] INFO    ======================================================================
-[22:36:03] INFO    log(M_h) = [10.0, 10.5): N = 1089, Γ_t = 0.610 ± 0.001
-[22:36:03] INFO    log(M_h) = [10.5, 11.0): N = 391, Γ_t = 0.635 ± 0.002
-[22:36:03] INFO    log(M_h) = [11.0, 11.5): N = 146, Γ_t = 0.697 ± 0.003
-[22:36:03] INFO    log(M_h) = [11.5, 12.0): N = 40, Γ_t = 0.843 ± 0.012
-[22:36:03] INFO    
-Linear fit: Γ_t = 0.152 × log(M_h) + -0.975
-[22:36:03] INFO    R² = 0.884
-[22:36:03] INFO    
-Expected slope (no screening): 0.536
-[22:36:03] INFO    Observed slope: 0.152
-[22:36:03] INFO    Ratio: 0.28
-[22:36:03] INFO    
+[13:25:11] INFO      It constrains the effective environmental contrast, not TEP itself
+[13:25:11] INFO    ======================================================================
+[13:25:11] INFO    TEST 3: Screening Saturation Test
+[13:25:11] INFO    ======================================================================
+[13:25:11] INFO    log(M_h) = [10.0, 10.5): N = 1016, Γ_t = 0.611 ± 0.001
+[13:25:11] INFO    log(M_h) = [10.5, 11.0): N = 358, Γ_t = 0.636 ± 0.002
+[13:25:11] INFO    log(M_h) = [11.0, 11.5): N = 136, Γ_t = 0.699 ± 0.003
+[13:25:11] INFO    log(M_h) = [11.5, 12.0): N = 37, Γ_t = 0.849 ± 0.012
+[13:25:11] INFO    
+Linear fit: Γ_t = 0.155 × log(M_h) + -1.010
+[13:25:11] INFO    R² = 0.883
+[13:25:11] INFO    
+Expected slope (no screening): 0.538
+[13:25:11] INFO    Observed slope: 0.155
+[13:25:11] INFO    Ratio: 0.29
+[13:25:11] INFO    
 ✓ Slope is SUPPRESSED at high mass
-[22:36:03] INFO      Consistent with screening saturation
-[22:36:03] INFO    ======================================================================
-[22:36:03] INFO    TEST 4: Selection Effect Control
-[22:36:03] INFO    ======================================================================
-[22:36:03] INFO    Mass-redshift correlation: ρ = -0.070, p = 0.0008
-[22:36:03] INFO    
+[13:25:11] INFO      Consistent with screening saturation
+[13:25:11] INFO    ======================================================================
+[13:25:11] INFO    TEST 4: Selection Effect Control
+[13:25:11] INFO    ======================================================================
+[13:25:11] INFO    Mass-redshift correlation: ρ = -0.082, p = 0.0001
+[13:25:11] INFO    
 Selection-controlled correlation:
-[22:36:03] INFO      (age_ratio vs mass_residual): ρ = 0.120, p = 0.0000
-[22:36:03] INFO      (age_ratio vs Γ_t_residual): ρ = 0.028, p = 0.1839
-[22:36:03] INFO    
+[13:25:11] INFO      (age_ratio vs mass_residual): ρ = 0.130, p = 0.0000
+[13:25:11] INFO      (age_ratio vs Γ_t_residual): ρ = 0.035, p = 0.1017
+[13:25:11] INFO    
 ✓ TEP signature persists after selection control
-[22:36:03] INFO    ======================================================================
-[22:36:03] INFO    TEST 5: Prediction Precision
-[22:36:03] INFO    ======================================================================
-[22:36:03] INFO    TEP model: age_ratio = 0.0613×Γ_t + 0.0058×z + 0.0884
-[22:36:03] INFO    RMSE: 0.0629
-[22:36:03] INFO    R²: 0.039
-[22:36:03] INFO    Explained variance: 3.9%
-[22:36:03] INFO    
-Null model (z only): R² = 0.016
-[22:36:03] INFO    TEP improvement: ΔR² = 0.023
-[22:36:03] INFO    
+[13:25:11] INFO    ======================================================================
+[13:25:11] INFO    TEST 5: Prediction Precision
+[13:25:11] INFO    ======================================================================
+[13:25:11] INFO    TEP model: age_ratio = 0.0966×Γ_t + 0.0069×z + 0.0597
+[13:25:11] INFO    RMSE: 0.0598
+[13:25:11] INFO    R²: 0.070
+[13:25:11] INFO    Explained variance: 7.0%
+[13:25:11] INFO    
+Null model (z only): R² = 0.020
+[13:25:11] INFO    TEP improvement: ΔR² = 0.050
+[13:25:11] INFO    
 ✓ TEP model improves predictions over null model
-[22:36:03] INFO    
-[22:36:03] INFO    ======================================================================
-[22:36:03] INFO    SUMMARY: Robustness Tests
-[22:36:03] INFO    ======================================================================
-[22:36:03] INFO    
+[13:25:11] INFO    
+[13:25:11] INFO    ======================================================================
+[13:25:11] INFO    SUMMARY: Robustness Tests
+[13:25:11] INFO    ======================================================================
+[13:25:11] INFO    
 1. NEGATIVE CORRELATION PARADOX
-[22:36:03] INFO       ✓ Resolved: TEP correction reveals underlying downsizing
-[22:36:03] INFO    
+[13:25:11] INFO       ✓ Resolved: TEP correction reveals underlying downsizing
+[13:25:11] INFO    
 2. TRGB-CEPHEID 20% RATIO
-[22:36:03] INFO       ✓ Constrains effective σ ratio to 1.55
-[22:36:03] INFO       → Consistent with overlapping stellar populations
-[22:36:03] INFO    
+[13:25:11] INFO       ✓ Constrains effective σ ratio to 1.55
+[13:25:11] INFO       → Consistent with overlapping stellar populations
+[13:25:11] INFO    
 3. SCREENING SATURATION
-[22:36:03] INFO       ✓ Slope suppression detected at high mass
-[22:36:03] INFO    
+[13:25:11] INFO       ✓ Slope suppression detected at high mass
+[13:25:11] INFO    
 4. SELECTION EFFECTS
-[22:36:03] INFO       ✓ TEP signature persists after selection control
-[22:36:03] INFO    
+[13:25:11] INFO       ✓ TEP signature persists after selection control
+[13:25:11] INFO    
 5. PREDICTION PRECISION
-[22:36:03] INFO       ✓ TEP model explains 3.9% of variance
-[22:36:03] INFO       → Improvement over null: ΔR² = 0.023
-[22:36:03] INFO    
+[13:25:11] INFO       ✓ TEP model explains 7.0% of variance
+[13:25:11] INFO       → Improvement over null: ΔR² = 0.050
+[13:25:11] INFO    
 Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_016_robustness_tests.json

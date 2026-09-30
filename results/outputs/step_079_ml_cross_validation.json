@@ -2,109 +2,109 @@
   "kfold_cv": [
     {
       "fold": 0,
-      "n_train": 227,
-      "n_test": 56,
-      "n_optimal": 0.9590654363075743,
-      "rho_test": 0.7762816131237184,
-      "p_test": 2.0773077079981536e-12
+      "n_train": 204,
+      "n_test": 50,
+      "n_optimal": 0.8833085360614127,
+      "rho_test": 0.7325330132052821,
+      "p_test": 1.4786233828267834e-09
     },
     {
       "fold": 1,
-      "n_train": 227,
-      "n_test": 56,
-      "n_optimal": 0.9923429972817952,
-      "rho_test": 0.4600136705399863,
-      "p_test": 0.00036111417085470365
+      "n_train": 204,
+      "n_test": 50,
+      "n_optimal": 0.9107669955882219,
+      "rho_test": 0.5624489795918367,
+      "p_test": 2.1274869669583353e-05
     },
     {
       "fold": 2,
-      "n_train": 227,
-      "n_test": 56,
-      "n_optimal": 0.865722214995955,
-      "rho_test": 0.5341763499658236,
-      "p_test": 2.233500530126698e-05
+      "n_train": 204,
+      "n_test": 50,
+      "n_optimal": 0.7990768038946467,
+      "rho_test": 0.5848259303721489,
+      "p_test": 8.198237379381033e-06
     },
     {
       "fold": 3,
-      "n_train": 227,
-      "n_test": 56,
-      "n_optimal": 0.7840023515999591,
-      "rho_test": 0.43123718386876286,
-      "p_test": 0.0009062143912662202
+      "n_train": 204,
+      "n_test": 50,
+      "n_optimal": 0.7607038142286244,
+      "rho_test": 0.565330132052821,
+      "p_test": 1.8889685952417787e-05
     },
     {
       "fold": 4,
-      "n_train": 227,
-      "n_test": 56,
-      "n_optimal": 0.8656694924090934,
-      "rho_test": 0.5678742310321258,
-      "p_test": 5.004091279254845e-06
+      "n_train": 204,
+      "n_test": 50,
+      "n_optimal": 0.7322939980725546,
+      "rho_test": 0.6013445378151261,
+      "p_test": 3.869915535567355e-06
     }
   ],
   "kfold_summary": {
-    "n_mean": 0.8933604985188754,
-    "n_std": 0.07430281925226366,
-    "rho_mean": 0.5539166097060834,
-    "rho_std": 0.12157194684665149,
+    "n_mean": 0.8172300295690921,
+    "n_std": 0.06907157896241345,
+    "rho_mean": 0.609296518607443,
+    "rho_std": 0.06320919608151192,
     "stable": true
   },
   "redshift_blind": {
-    "n_calibrated_low_z": 0.9992323366419746,
-    "n_optimal_high_z": 0.9985407477097844,
-    "n_difference": 0.0006915889321902347,
-    "rho_high_z_with_low_z_n": -0.04825604098655128,
-    "p_high_z": 0.1535682406028143,
-    "n_low_z": 1439,
-    "n_high_z": 876,
+    "n_calibrated_low_z": 0.9992283948176676,
+    "n_optimal_high_z": 0.9990733069493998,
+    "n_difference": 0.0001550878682677892,
+    "rho_high_z_with_low_z_n": -0.04777446914488282,
+    "p_high_z": 0.17622798615856214,
+    "n_low_z": 1354,
+    "n_high_z": 803,
     "generalization_success": false
   },
   "sensitivity": [
     {
       "n": 0.3,
-      "rho": 0.5909256002143225,
-      "p": 4.930410086167308e-28,
+      "rho": 0.6414897103218992,
+      "p": 7.558241505696416e-31,
       "significant": true
     },
     {
       "n": 0.4,
-      "rho": 0.5939646600753306,
-      "p": 2.249795391755353e-28,
+      "rho": 0.6446795929164979,
+      "p": 3.1151306395166557e-31,
       "significant": true
     },
     {
       "n": 0.5,
-      "rho": 0.5945883556356558,
-      "p": 1.9132289114201813e-28,
+      "rho": 0.6457934155580005,
+      "p": 2.2802520790270976e-31,
       "significant": true
     },
     {
       "n": 0.6,
-      "rho": 0.5958971632970516,
-      "p": 1.360146794879415e-28,
+      "rho": 0.6473019458942894,
+      "p": 1.4913274969526657e-31,
       "significant": true
     },
     {
       "n": 0.7,
-      "rho": 0.5983548838327309,
-      "p": 7.136548339522448e-29,
+      "rho": 0.6491971286662871,
+      "p": 8.717967678596261e-32,
       "significant": true
     },
     {
       "n": 0.8,
-      "rho": 0.6010693890430773,
-      "p": 3.4778409347659656e-29,
+      "rho": 0.651699385054199,
+      "p": 4.265959548681307e-32,
       "significant": true
     },
     {
       "n": 0.9,
-      "rho": 0.6011022151251997,
-      "p": 3.4475958936146203e-29,
+      "rho": 0.651566839427564,
+      "p": 4.4313103294043766e-32,
       "significant": true
     },
     {
       "n": 1.0,
-      "rho": 0.6016480811037187,
-      "p": 2.981070505381478e-29,
+      "rho": 0.6517718823858945,
+      "p": 4.178110639032209e-32,
       "significant": true
     }
   ],
@@ -112,24 +112,24 @@
     "significant_fraction": 1.0,
     "all_significant": true,
     "rho_range": [
-      0.5909256002143225,
-      0.6016480811037187
+      0.6414897103218992,
+      0.6517718823858945
     ],
-    "rho_mean": 0.5971937935408859,
+    "rho_mean": 0.647937487528079,
     "robust": true
   },
   "theoretical_consistency": {
-    "n_optimal_data": 0.9249335168559132,
+    "n_optimal_data": 0.8964985183197419,
     "n_ssp_solar": 0.7,
     "n_ssp_low_z": 0.5,
     "consistent_with_low_z_ssp": false,
-    "interpretation": "The optimal n at z>8 is 0.925, which is NOT consistent with low-metallicity SSP predictions (n~0.5) or solar-metallicity SSP (n~0.7). The data-driven optimal n exceeds both theoretical benchmarks, suggesting that the M/L scaling at z>8 is steeper than predicted by standard SSP models."
+    "interpretation": "The optimal n at z>8 is 0.896, which is NOT consistent with low-metallicity SSP predictions (n~0.5) or solar-metallicity SSP (n~0.7). The data-driven optimal n exceeds both theoretical benchmarks, suggesting that the M/L scaling at z>8 is steeper than predicted by standard SSP models."
   },
   "summary": {
     "kfold_stable": true,
     "generalizes_to_high_z": false,
     "robust_to_n_choice": true,
     "theoretically_consistent": false,
-    "conclusion": "The TEP signal is robust to the choice of M/L power-law index n (significant across 100% of tested n values). K-fold cross-validation confirms that n calibrated on one subset generalizes to holdout data (mean test rho = 0.554). Redshift-blind generalization from z<6 to z>=6 does NOT succeed (rho = -0.048 with low-z n on high-z data). The optimal n (0.925) is NOT consistent with standard SSP theoretical predictions (n_solar=0.7, n_low_z=0.5)."
+    "conclusion": "The TEP signal is robust to the choice of M/L power-law index n (significant across 100% of tested n values). K-fold cross-validation confirms that n calibrated on one subset generalizes to holdout data (mean test rho = 0.609). Redshift-blind generalization from z<6 to z>=6 does NOT succeed (rho = -0.048 with low-z n on high-z data). The optimal n (0.896) is NOT consistent with standard SSP theoretical predictions (n_solar=0.7, n_low_z=0.5)."
   }
 }

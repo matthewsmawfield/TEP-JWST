@@ -1,18 +1,18 @@
-[22:36:23] INFO        ======================================================================
-[22:36:23] INFO        STEP 038: Sensitivity Analysis
-[22:36:23] INFO        ======================================================================
-[22:36:23] INFO        Loaded N = 2315 galaxies
-[22:36:23] INFO        z > 8 Subset: N = 283
-[22:36:23] INFO        
+[13:25:25] INFO        ======================================================================
+[13:25:25] INFO        STEP 038: Sensitivity Analysis
+[13:25:25] INFO        ======================================================================
+[13:25:25] INFO        Loaded N = 2157 galaxies
+[13:25:25] INFO        z > 8 Subset: N = 254
+[13:25:25] INFO        
 Running sensitivity sweep...
-[22:36:23] INFO        --------------------------------------------------
-[22:36:23] INFO        Nominal κ_gal: 9.600e+05 ± 4.000e+05 mag
-[22:36:23] INFO        Range tested: 0.0 - 1.2
-[22:36:23] INFO        --------------------------------------------------
-[22:36:23] INFO        Peak Dust Correlation (z>8): rho=0.595 at κ_gal=1.00e+05 mag
-[22:36:23] INFO        Peak Age Correlation (z>4):  rho=0.009  at κ_gal=1.00e+05 mag
-[22:36:23] INFO        Nominal Performance:
-[22:36:23] INFO          Dust Rho: 0.595 (p=1.9e-28)
-[22:36:23] INFO          Age Rho:  0.009 (p=6.6e-01)
-[22:36:23] INFO        Robustness (Dust): Signal significant (p<0.05) over 100% of 1-sigma parameter range
-[22:36:23] INFO        Saved sensitivity data to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_038_sensitivity.csv
+[13:25:25] INFO        --------------------------------------------------
+[13:25:25] INFO        Nominal κ_gal: 9.600e+05 ± 4.000e+05 mag
+[13:25:25] INFO        Range tested: 0.0 - 1.2
+[13:25:25] INFO        --------------------------------------------------
+[13:25:25] INFO        Peak Dust Correlation (z>8): rho=0.646 at κ_gal=1.00e+05 mag
+[13:25:25] INFO        Peak Age Correlation (z>4):  rho=0.010  at κ_gal=1.00e+05 mag
+[13:25:25] INFO        Nominal Performance:
+[13:25:25] INFO          Dust Rho: 0.646 (p=2.3e-31)
+[13:25:25] INFO          Age Rho:  0.010 (p=6.5e-01)
+[13:25:25] INFO        Robustness (Dust): Signal significant (p<0.05) over 100% of 1-sigma parameter range
+[13:25:25] INFO        Saved sensitivity data to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_038_sensitivity.csv

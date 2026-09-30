@@ -2,189 +2,181 @@
   "step": "Step 143: Mass-Proxy Degeneracy Breaker",
   "description": "Three independent tests to break the mass-proxy degeneracy. Test 1: environment-density at fixed mass/z. Test 2: non-parametric double-residual (cubic+quadratic removal). Test 3: shuffled-mass null within z-bins.",
   "test_1_environment_density": {
-    "n_total": 2315,
+    "n_total": 2157,
     "partial_density_dust_given_mass_z": {
-      "rho": 0.06928485024621288,
-      "p": 0.0008505100626160521
+      "rho": 0.07476175518016945,
+      "p": 0.0005107584396686804
     },
     "partial_density_dust_given_mass_z_gammat": {
-      "rho": 0.0713498506774238,
-      "p": 0.0005914974814228315
+      "rho": 0.07667968542076603,
+      "p": 0.0003646081592052263
     },
     "cell_analysis": {
-      "n_cells": 10,
+      "n_cells": 9,
       "n_sign_correct": 5,
-      "fisher_chi2": 120.34235433926708,
-      "fisher_df": 20,
-      "fisher_p": 2.220446049250313e-16,
+      "fisher_chi2": 120.18623967095826,
+      "fisher_df": 18,
+      "fisher_p": 3.8706680173467873e-17,
       "cells": [
         {
           "mass_bin": "8.0-8.5",
           "z_bin": "4-6",
-          "n": 910,
-          "rho_density_dust": -0.08606311069138206,
-          "p": 0.00939188753761954,
+          "n": 853,
+          "rho_density_dust": -0.08886636001661924,
+          "p": 0.009410253339326883,
           "tep_sign_correct": true
         },
         {
           "mass_bin": "8.0-8.5",
           "z_bin": "6-8",
-          "n": 438,
-          "rho_density_dust": 0.2891061884338296,
-          "p": 7.030591886031941e-10,
+          "n": 411,
+          "rho_density_dust": 0.3009420437901916,
+          "p": 4.742357213058655e-10,
           "tep_sign_correct": false
         },
         {
           "mass_bin": "8.0-8.5",
           "z_bin": "8-10",
-          "n": 180,
-          "rho_density_dust": 0.46569077820407795,
-          "p": 4.477354896587198e-11,
+          "n": 165,
+          "rho_density_dust": 0.5175797542141474,
+          "p": 1.0897120872803686e-12,
           "tep_sign_correct": false
         },
         {
           "mass_bin": "8.5-9.0",
           "z_bin": "4-6",
-          "n": 343,
-          "rho_density_dust": -0.11409655476762112,
-          "p": 0.03466188773491849,
+          "n": 327,
+          "rho_density_dust": -0.12527479278253517,
+          "p": 0.023474707215918753,
           "tep_sign_correct": true
         },
         {
           "mass_bin": "8.5-9.0",
           "z_bin": "6-8",
-          "n": 113,
-          "rho_density_dust": -0.1539856277862799,
-          "p": 0.10343638293934625,
+          "n": 101,
+          "rho_density_dust": -0.07147350029120558,
+          "p": 0.47753794523701554,
           "tep_sign_correct": true
         },
         {
           "mass_bin": "8.5-9.0",
           "z_bin": "8-10",
-          "n": 70,
-          "rho_density_dust": 0.10958209037341536,
-          "p": 0.36650201381774705,
-          "tep_sign_correct": false
+          "n": 63,
+          "rho_density_dust": -0.030482682484838455,
+          "p": 0.8125335533604627,
+          "tep_sign_correct": true
         },
         {
           "mass_bin": "9.0-9.5",
           "z_bin": "4-6",
-          "n": 144,
-          "rho_density_dust": 0.07980475826380351,
-          "p": 0.3416915476141953,
+          "n": 133,
+          "rho_density_dust": 0.054707734449466604,
+          "p": 0.5316865735981258,
           "tep_sign_correct": false
         },
         {
           "mass_bin": "9.0-9.5",
           "z_bin": "6-8",
-          "n": 29,
-          "rho_density_dust": -0.06206896551724137,
-          "p": 0.7490764687819293,
-          "tep_sign_correct": true
-        },
-        {
-          "mass_bin": "9.0-9.5",
-          "z_bin": "8-10",
-          "n": 17,
-          "rho_density_dust": 0.33333333333333337,
-          "p": 0.191057627345904,
+          "n": 25,
+          "rho_density_dust": 0.01923076923076923,
+          "p": 0.9273024767969302,
           "tep_sign_correct": false
         },
         {
           "mass_bin": "9.5-10.5",
           "z_bin": "4-6",
           "n": 41,
-          "rho_density_dust": -0.1383275261324042,
-          "p": 0.38841574025826875,
+          "rho_density_dust": -0.14512195121951224,
+          "p": 0.3653051709321198,
           "tep_sign_correct": true
         }
       ]
     },
     "z8_field_vs_dense": {
-      "n_field": 142,
-      "n_dense": 141,
-      "rho_field": 0.685241339421741,
-      "p_field": 5.1719291659061414e-21,
-      "rho_dense": 0.48597970803544666,
-      "p_dense": 1.003699098926187e-09,
-      "delta_rho": 0.19926163138629438,
-      "Z_fisher": 2.5642650964670746,
-      "p_fisher": 0.010339454047629815
+      "n_field": 127,
+      "n_dense": 127,
+      "rho_field": 0.6834106674165729,
+      "p_field": 8.550906041830513e-19,
+      "rho_dense": 0.5168143044619422,
+      "p_dense": 4.963138947368058e-10,
+      "delta_rho": 0.16659636295463065,
+      "Z_fisher": 2.074821550431976,
+      "p_fisher": 0.038003076518669854
     },
-    "interpretation": "Partial rho(density, dust | mass, z) = 0.069 (p = 8.51e-04). After additionally controlling for gamma_t: rho = 0.071 (p = 5.91e-04). Cell analysis: 5/10 cells show the TEP-predicted sign (field dustier). Fisher combined p = 2.22e-16."
+    "interpretation": "Partial rho(density, dust | mass, z) = 0.075 (p = 5.11e-04). After additionally controlling for gamma_t: rho = 0.077 (p = 3.65e-04). Cell analysis: 5/9 cells show the TEP-predicted sign (field dustier). Fisher combined p = 3.87e-17."
   },
   "test_2_double_residual": {
     "z_gt_8": {
-      "n": 283,
+      "n": 254,
       "polynomial_double_residual": {
         "degree": "cubic mass + quadratic z + interactions",
-        "rho": 0.00647044434867229,
-        "p": 0.9137029184109855,
-        "r2_gamma_from_mass_z": 0.9999284634641497,
-        "r2_dust_from_mass_z": 0.5784401593920632
+        "rho": -0.008829662393107627,
+        "p": 0.8886360577451328,
+        "r2_gamma_from_mass_z": 0.9999071301816718,
+        "r2_dust_from_mass_z": 0.6176982795987918
       },
       "lowess_double_residual": {
         "method": "Sequential LOWESS (frac=0.3) on mass then z",
-        "rho": 0.23529735665326443,
-        "p": 6.413499892637546e-05
+        "rho": 0.14877587523135982,
+        "p": 0.017662368449413723
       },
       "partial_spearman_mass_z": {
-        "rho": 0.25362228470647025,
-        "p": 1.5707855232168166e-05
+        "rho": 0.3101778478519736,
+        "p": 4.559176546386168e-07
       },
       "partial_spearman_mass_z_interaction": {
-        "rho": 0.24364194222714397,
-        "p": 3.4255966321250485e-05
+        "rho": 0.30194443754032047,
+        "p": 9.41957943760843e-07
       }
     },
     "full_z4_10": {
-      "n": 2315,
+      "n": 2157,
       "polynomial_double_residual": {
         "degree": "cubic mass + quadratic z + interactions",
-        "rho": -0.05119440763367151,
-        "p": 0.013759723564546097,
-        "r2_gamma_from_mass_z": 0.9982695098719003,
-        "r2_dust_from_mass_z": 0.26729135422981576
+        "rho": -0.08181909152491262,
+        "p": 0.00014229612031684558,
+        "r2_gamma_from_mass_z": 0.9983464242957475,
+        "r2_dust_from_mass_z": 0.283290860104756
       },
       "lowess_double_residual": {
         "method": "Sequential LOWESS (frac=0.3) on mass then z",
-        "rho": 0.05518430541355995,
-        "p": 0.00791317687268463
+        "rho": 0.04770813941133208,
+        "p": 0.026711305966457856
       },
       "partial_spearman_mass_z": {
-        "rho": 0.022601566665630263,
-        "p": 0.2770308893000299
+        "rho": 0.02392274457215203,
+        "p": 0.2667529595224702
       },
       "partial_spearman_mass_z_interaction": {
-        "rho": 0.014031409179828428,
-        "p": 0.4998142239569366
+        "rho": 0.014485611876319478,
+        "p": 0.5013239783519947
       }
     }
   },
   "test_3_shuffled_mass": {
     "z_gt_8": {
-      "n": 283,
-      "rho_observed": 0.5945661186122826,
-      "rho_shuffled_mean": -0.0071329437795103826,
-      "rho_shuffled_std": 0.06340520807304957,
-      "z_score": 9.48974194199586,
+      "n": 254,
+      "rho_observed": 0.6457648560030902,
+      "rho_shuffled_mean": -0.007069213715177023,
+      "rho_shuffled_std": 0.06656274755905793,
+      "z_score": 9.807799312055725,
       "p_empirical": 0.0004997501249375312,
-      "signal_fraction_from_mass_ordering": -0.011996889086378946,
-      "unique_fraction_from_gamma_t_form": 1.0119968890863789,
+      "signal_fraction_from_mass_ordering": -0.010947040009162707,
+      "unique_fraction_from_gamma_t_form": 1.0109470400091627,
       "n_shuffles": 2000,
-      "interpretation": "Observed rho = 0.595. After shuffling masses within z-bins: mean rho = -0.007 \u00b1 0.063. z-score = 9.5, p = 0.0005. The non-linear Gamma_t form captures 101.2% of the signal beyond what mass ordering within z-bins provides."
+      "interpretation": "Observed rho = 0.646. After shuffling masses within z-bins: mean rho = -0.007 \u00b1 0.067. z-score = 9.8, p = 0.0005. The non-linear Gamma_t form captures 101.1% of the signal beyond what mass ordering within z-bins provides."
     },
     "full_z4_10": {
-      "n": 2315,
-      "rho_observed": -0.2539383547450113,
-      "rho_shuffled_mean": -0.3118595563216337,
-      "rho_shuffled_std": 0.011211647453883195,
-      "z_score": 5.166163297130893,
+      "n": 2157,
+      "rho_observed": -0.26799269041554297,
+      "rho_shuffled_mean": -0.3295313432345521,
+      "rho_shuffled_std": 0.010838738499821686,
+      "z_score": 5.677658227479288,
       "p_empirical": 0.0004997501249375312,
-      "signal_fraction_from_mass_ordering": 1.2280915840176376,
-      "unique_fraction_from_gamma_t_form": -0.22809158401763763,
+      "signal_fraction_from_mass_ordering": 1.2296281018843789,
+      "unique_fraction_from_gamma_t_form": -0.22962810188437888,
       "n_shuffles": 2000,
-      "interpretation": "Observed rho = -0.254. After shuffling masses within z-bins: mean rho = -0.312 \u00b1 0.011. z-score = 5.2, p = 0.0005. The non-linear Gamma_t form captures -22.8% of the signal beyond what mass ordering within z-bins provides."
+      "interpretation": "Observed rho = -0.268. After shuffling masses within z-bins: mean rho = -0.330 \u00b1 0.011. z-score = 5.7, p = 0.0005. The non-linear Gamma_t form captures -23.0% of the signal beyond what mass ordering within z-bins provides."
     }
   },
   "overall_verdict": {
@@ -192,9 +184,9 @@
     "tests_total": 3,
     "degeneracy_state": "narrowed_not_closed",
     "verdicts": [
-      "Test 1 INCONCLUSIVE: environment density predicts dust at fixed mass/z but with the opposite sign to the field-dustier formulation (\u03c1=0.069, p=8.51e-04)",
-      "Test 2 PASS: nonparametric residual tests retain the z>8 signal after mass+z removal (LOWESS \u03c1=0.235; partial-rank \u03c1=0.254; partial-rank+interaction \u03c1=0.244)",
-      "Test 3 PASS: \u0393_t outperforms shuffled-mass \u0393_t (p=0.0005, unique fraction=101.2%)"
+      "Test 1 INCONCLUSIVE: environment density predicts dust at fixed mass/z but with the opposite sign to the field-dustier formulation (\u03c1=0.075, p=5.11e-04)",
+      "Test 2 PASS: nonparametric residual tests retain the z>8 signal after mass+z removal (LOWESS \u03c1=0.149; partial-rank \u03c1=0.310; partial-rank+interaction \u03c1=0.302)",
+      "Test 3 PASS: \u0393_t outperforms shuffled-mass \u0393_t (p=0.0005, unique fraction=101.1%)"
     ],
     "limitations": [
       "The environment-density branch remains inconclusive and sign-mixed.",

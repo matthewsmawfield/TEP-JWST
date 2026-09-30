@@ -1,119 +1,119 @@
 {
   "step": "Step 098: Alternative Model Comparison",
-  "n_data": 283,
+  "n_data": 254,
   "z_range": [
     8.00166986835325,
-    9.985523401104327
+    9.980602884595935
   ],
   "models": {
     "null": {
       "name": "Standard Physics (Null)",
       "description": "Dust depends on mass and redshift only",
-      "log_likelihood": -139.91925205819624,
+      "log_likelihood": -92.53023652147485,
       "n_params": 4,
-      "aic": 287.83850411639247,
-      "bic": 302.42029170696543,
-      "akaike_weight": 0.03817062618798405
+      "aic": 193.0604730429497,
+      "bic": 207.20981011102384,
+      "akaike_weight": 0.4203544986974026
     },
     "tep": {
       "name": "TEP (Temporal Equivalence)",
       "description": "Dust depends on mass, redshift, AND Gamma_t (tests whether TEP adds explanatory power beyond standard predictors)",
-      "log_likelihood": -147.6283578440063,
+      "log_likelihood": -91.79330788326565,
       "n_params": 5,
-      "aic": 305.2567156880126,
-      "bic": 323.4839501762288,
-      "akaike_weight": 6.30104671625361e-06
+      "aic": 193.5866157665313,
+      "bic": 211.273287101624,
+      "akaike_weight": 0.3231210555519839
     },
     "topheavy_imf": {
       "name": "Top-Heavy IMF",
       "description": "IMF varies with mass, producing more dust in massive galaxies",
-      "log_likelihood": -137.99740706353532,
+      "log_likelihood": -93.09507738729337,
       "n_params": 5,
-      "aic": 285.99481412707064,
-      "bic": 304.22204861528684,
-      "akaike_weight": 0.09595806436730459
+      "aic": 196.19015477458674,
+      "bic": 213.87682610967943,
+      "akaike_weight": 0.08790507455019604
     },
     "stochastic_sf": {
       "name": "Stochastic Star Formation",
       "description": "Dust correlates with recent star formation bursts",
-      "log_likelihood": -139.9192519873596,
+      "log_likelihood": -110.89088167500864,
       "n_params": 5,
-      "aic": 289.8385039747192,
-      "bic": 308.06573846293537,
-      "akaike_weight": 0.014042189625901213
+      "aic": 231.7817633500173,
+      "bic": 249.46843468510997,
+      "akaike_weight": 1.6420801203726555e-09
     },
     "agn": {
       "name": "AGN Contamination",
       "description": "Apparent dust is AGN reddening, fraction increases with mass",
-      "log_likelihood": -136.813939784043,
+      "log_likelihood": -93.44369099760796,
       "n_params": 4,
-      "aic": 281.627879568086,
-      "bic": 296.20966715865893,
-      "akaike_weight": 0.8518228187720939
+      "aic": 194.88738199521592,
+      "bic": 209.03671906329006,
+      "akaike_weight": 0.16861936955833748
     }
   },
   "ranking_by_aic": [
     {
       "rank": 1,
-      "model": "agn",
-      "aic": 281.627879568086,
+      "model": "null",
+      "aic": 193.0604730429497,
       "delta_aic": 0.0
     },
     {
       "rank": 2,
-      "model": "topheavy_imf",
-      "aic": 285.99481412707064,
-      "delta_aic": 4.366934558984667
+      "model": "tep",
+      "aic": 193.5866157665313,
+      "delta_aic": 0.5261427235816143
     },
     {
       "rank": 3,
-      "model": "null",
-      "aic": 287.83850411639247,
-      "delta_aic": 6.210624548306498
+      "model": "agn",
+      "aic": 194.88738199521592,
+      "delta_aic": 1.8269089522662227
     },
     {
       "rank": 4,
-      "model": "stochastic_sf",
-      "aic": 289.8385039747192,
-      "delta_aic": 8.210624406633201
+      "model": "topheavy_imf",
+      "aic": 196.19015477458674,
+      "delta_aic": 3.1296817316370493
     },
     {
       "rank": 5,
-      "model": "tep",
-      "aic": 305.2567156880126,
-      "delta_aic": 23.628836119926632
+      "model": "stochastic_sf",
+      "aic": 231.7817633500173,
+      "delta_aic": 38.72129030706759
     }
   ],
   "comparisons_vs_tep": {
     "null": {
-      "bayes_factor": 6057.823073985876,
-      "interpretation": "Very strong evidence for Model 2",
-      "delta_aic": -17.418211571620134,
-      "delta_bic": -21.063658469263373
+      "bayes_factor": 1.3009195515882306,
+      "interpretation": "Weak evidence for Model 2",
+      "delta_aic": -0.5261427235816143,
+      "delta_bic": -4.063476990600151
     },
     "topheavy_imf": {
-      "bayes_factor": 15228.90857478962,
-      "interpretation": "Very strong evidence for Model 2",
-      "delta_aic": -19.261901560941965,
-      "delta_bic": -19.261901560941965
+      "bayes_factor": 0.2720499733452184,
+      "interpretation": "Positive evidence for Model 1",
+      "delta_aic": 2.603539008055435,
+      "delta_bic": 2.603539008055435
     },
     "stochastic_sf": {
-      "bayes_factor": 2228.5487250363103,
-      "interpretation": "Very strong evidence for Model 2",
-      "delta_aic": -15.41821171329343,
-      "delta_bic": -15.41821171329343
+      "bayes_factor": 5.081934749091202e-09,
+      "interpretation": "Very strong evidence for Model 1",
+      "delta_aic": 38.195147583485976,
+      "delta_bic": 38.195147583485976
     },
     "agn": {
-      "bayes_factor": 135187.51044565483,
-      "interpretation": "Very strong evidence for Model 2",
-      "delta_aic": -23.628836119926632,
-      "delta_bic": -27.27428301756987
+      "bayes_factor": 0.5218458118437593,
+      "interpretation": "Weak evidence for Model 1",
+      "delta_aic": 1.3007662286846084,
+      "delta_bic": -2.236568038333928
     }
   },
   "conclusion": {
-    "best_model": "agn",
-    "tep_rank": 5,
-    "tep_akaike_weight": 6.30104671625361e-06,
-    "interpretation": "TEP ranks #5 (Akaike weight = 0.0%)"
+    "best_model": "null",
+    "tep_rank": 2,
+    "tep_akaike_weight": 0.3231210555519839,
+    "interpretation": "TEP ranks #2 (Akaike weight = 32.3%)"
   }
 }

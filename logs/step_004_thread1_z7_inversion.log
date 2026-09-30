@@ -1,27 +1,27 @@
-[22:35:44] INFO        ============================================================
-[22:35:44] INFO        STEP 03: Thread 1 - z > 7 Mass-sSFR Inversion
-[22:35:44] INFO        ============================================================
-[22:35:44] INFO    
-[22:35:44] INFO        Loaded sample: N = 2315
-[22:35:44] INFO    
-[22:35:44] INFO        Low-z sample (4 < z < 6): N = 1439
-[22:35:44] INFO        High-z sample (7 < z < 10): N = 504
-[22:35:44] INFO    
-[22:35:46] INFO        Results:
-[22:35:46] INFO        ----------------------------------------
-[22:35:46] INFO        Low-z (4-6):  rho = -0.163 [-0.212, -0.108]
-[22:35:46] INFO        High-z (7-10): rho = 0.087 [0.001, 0.186]
-[22:35:46] INFO    
-[22:35:46] INFO        Delta rho = 0.250 [0.143, 0.349]
-[22:35:46] INFO    
-[22:35:46] INFO        95% CI excludes zero: True
-[22:35:46] INFO    ✓   STATISTICALLY SIGNIFICANT: True
-[22:35:46] INFO    
-[22:35:46] INFO        INTERPRETATION:
-[22:35:46] INFO          The mass-sSFR correlation INVERTS at z > 7.
-[22:35:46] INFO          This is inconsistent with standard downsizing predictions.
-[22:35:46] INFO          TEP PREDICTS this inversion when chronological enhancement dominates.
-[22:35:46] INFO    
-[22:35:46] INFO        Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_004_thread1_z7_inversion.json
-[22:35:46] INFO    
-[22:35:46] INFO    ✓   Step 004 complete.
+[13:24:57] INFO        ============================================================
+[13:24:57] INFO        STEP 03: Thread 1 - z > 7 Mass-sSFR Inversion
+[13:24:57] INFO        ============================================================
+[13:24:57] INFO    
+[13:24:57] INFO        Loaded sample: N = 2157
+[13:24:57] INFO    
+[13:24:57] INFO        Low-z sample (4 < z < 6): N = 1354
+[13:24:57] INFO        High-z sample (7 < z < 10): N = 458
+[13:24:57] INFO    
+[13:24:58] INFO        Results:
+[13:24:58] INFO        ----------------------------------------
+[13:24:58] INFO        Low-z (4-6):  rho = -0.161 [-0.213, -0.109]
+[13:24:58] INFO        High-z (7-10): rho = 0.098 [-0.008, 0.197]
+[13:24:58] INFO    
+[13:24:58] INFO        Delta rho = 0.259 [0.141, 0.378]
+[13:24:58] INFO    
+[13:24:58] INFO        95% CI excludes zero: True
+[13:24:58] INFO    ✓   STATISTICALLY SIGNIFICANT: True
+[13:24:58] INFO    
+[13:24:58] INFO        INTERPRETATION:
+[13:24:58] INFO          The mass-sSFR correlation INVERTS at z > 7.
+[13:24:58] INFO          This is inconsistent with standard downsizing predictions.
+[13:24:58] INFO          TEP PREDICTS this inversion when chronological enhancement dominates.
+[13:24:58] INFO    
+[13:24:58] INFO        Results saved to: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_004_thread1_z7_inversion.json
+[13:24:58] INFO    
+[13:24:58] INFO    ✓   Step 004 complete.

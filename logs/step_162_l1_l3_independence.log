@@ -1,51 +1,51 @@
-[22:41:53] INFO        =================================================================
-[22:41:53] INFO        Step 162: TEP Concordance / L1–L3 Independence — Independent κ_gal Recovery
-[22:41:53] INFO        =================================================================
-[22:41:53] INFO        Loading data...
-[22:41:53] INFO          UNCOVER: 2315, CEERS: 10156, COSMOS-Web: 50146
-[22:41:53] INFO        
+[13:30:13] INFO        =================================================================
+[13:30:13] INFO        Step 162: TEP Concordance / L1–L3 Independence — Independent κ_gal Recovery
+[13:30:13] INFO        =================================================================
+[13:30:13] INFO        Loading data...
+[13:30:13] INFO          UNCOVER: 2157, CEERS: 10156, COSMOS-Web: 50146
+[13:30:13] INFO        
 Scanning κ_gal grid (N=100, bootstrap N=200)...
-[22:41:53] INFO          Observable 1: Dust-t_eff Correlation (UNCOVER z>6, M*>8.5)
-[22:41:53] INFO            N = 258
-[22:41:55] INFO            Bootstrapping CI...
-[22:43:47] INFO    ✓       Best kappa_gal = 1.000e+05 [1.000e+05, 2.000e+06], rho = 0.354
-[22:43:47] INFO          Observable 2: AGB Threshold F1 (UNCOVER z>8)
-[22:43:47] INFO            N = 283, dust threshold = 0.150
-[22:43:49] INFO            Bootstrapping CI...
-[22:45:50] INFO    ✓       Best kappa_gal = 1.309e+06 [1.309e+06, 1.328e+06], F1 = 0.937
-[22:45:50] INFO          Observable 3: Mass-sSFR Inversion (UNCOVER M*>8.5)
-[22:45:50] INFO            N_low = 529, N_high = 159
-[22:45:50] INFO            Observed: rho_low = -0.183, rho_high = 0.006, delta_rho = 0.189
-[22:45:50] INFO            Bootstrapping CI...
-[22:45:51] INFO    ✓       Best kappa_gal = 5.990e+05 [3.111e+05, 1.069e+06], residual = 0.0006
-[22:45:51] INFO          Observable 4: Cross-Survey Dust-t_eff R2 (CEERS + COSMOS-Web z>7)
-[22:45:51] INFO            CEERS: N = 205
-[22:45:51] INFO            COSMOS-Web: N = 3824
-[22:46:23] INFO            Bootstrapping CI...
-[23:17:31] INFO    ✓       Best kappa_gal = 2.000e+06 [1.057e+06, 1.885e+06], mean R2 = 0.075
-[23:17:31] INFO          Observable 5: Anomalous Galaxy Resolution (all surveys z>7)
-[23:17:31] INFO            N = 9256 galaxies at z>7
-[23:17:31] INFO            N_impossible = 124
-[23:17:31] INFO            Bootstrapping CI...
-[23:17:31] INFO    ✓       Best kappa_gal = 2.000e+06 [2.000e+06, 2.000e+06], excess mass loss = 5.596
-[23:17:31] INFO        
+[13:30:13] INFO          Observable 1: Dust-t_eff Correlation (UNCOVER z>6, M*>8.5)
+[13:30:13] INFO            N = 227
+[13:30:14] INFO            Bootstrapping CI...
+[13:31:46] INFO    ✓       Best kappa_gal = 1.000e+05 [1.000e+05, 1.000e+05], rho = 0.379
+[13:31:46] INFO          Observable 2: AGB Threshold F1 (UNCOVER z>8)
+[13:31:46] INFO            N = 254, dust threshold = 0.150
+[13:31:48] INFO            Bootstrapping CI...
+[13:33:35] INFO    ✓       Best kappa_gal = 1.309e+06 [1.100e+06, 1.309e+06], F1 = 0.941
+[13:33:35] INFO          Observable 3: Mass-sSFR Inversion (UNCOVER M*>8.5)
+[13:33:35] INFO            N_low = 501, N_high = 139
+[13:33:35] INFO            Observed: rho_low = -0.191, rho_high = 0.024, delta_rho = 0.215
+[13:33:35] INFO            Bootstrapping CI...
+[13:33:37] INFO    ✓       Best kappa_gal = 1.175e+06 [5.990e+05, 1.669e+06], residual = 0.0002
+[13:33:37] INFO          Observable 4: Cross-Survey Dust-t_eff R2 (CEERS + COSMOS-Web z>7)
+[13:33:37] INFO            CEERS: N = 205
+[13:33:37] INFO            COSMOS-Web: N = 3824
+[13:34:08] INFO            Bootstrapping CI...
+[14:01:21] INFO    ✓       Best kappa_gal = 2.000e+06 [1.057e+06, 1.885e+06], mean R2 = 0.075
+[14:01:21] INFO          Observable 5: Anomalous Galaxy Resolution (all surveys z>7)
+[14:01:21] INFO            N = 9210 galaxies at z>7
+[14:01:21] INFO            N_impossible = 123
+[14:01:21] INFO            Bootstrapping CI...
+[14:01:21] INFO    ✓       Best kappa_gal = 2.000e+06 [2.000e+06, 2.000e+06], excess mass loss = 5.596
+[14:01:21] INFO        
 =================================================================
-[23:17:31] INFO        CONCORDANCE STATISTICS
-[23:17:31] INFO        =================================================================
-[23:17:31] INFO          Weighted mean κ_gal = 5.990e+05 ± 3.788e+05 mag
-[23:17:31] INFO          Concordance χ² = 0.00 (ndof = 0)
-[23:17:31] INFO          p(concordance) = 1.0000
-[23:17:31] INFO          Max pairwise tension = 0.00σ
-[23:17:31] INFO          Concordant (p > 0.05): True
-[23:17:31] INFO          Tension with external Cepheid κ_gal = 9.600e+05 ± 4.000e+05 mag: 0.66σ
-[23:17:31] INFO        
-  VERDICT: PASS: 1 informative observables are mutually concordant and consistent with the external Cepheid calibration (0.7σ tension)
-[23:17:31] INFO        
+[14:01:21] INFO        CONCORDANCE STATISTICS
+[14:01:21] INFO        =================================================================
+[14:01:21] INFO          Weighted mean κ_gal = 1.175e+06 ± 5.351e+05 mag
+[14:01:21] INFO          Concordance χ² = 0.00 (ndof = 0)
+[14:01:21] INFO          p(concordance) = 1.0000
+[14:01:21] INFO          Max pairwise tension = 0.00σ
+[14:01:21] INFO          Concordant (p > 0.05): True
+[14:01:21] INFO          Tension with external Cepheid κ_gal = 9.600e+05 ± 4.000e+05 mag: 0.32σ
+[14:01:21] INFO        
+  VERDICT: PASS: 1 informative observables are mutually concordant and consistent with the external Cepheid calibration (0.3σ tension)
+[14:01:21] INFO        
 Generating concordance figure...
-[23:17:32] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_162_l1_l3_independence.png
-[23:17:32] INFO        
+[14:01:22] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_162_l1_l3_independence.png
+[14:01:22] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_162_l1_l3_independence.json
-[23:17:32] INFO        
+[14:01:22] INFO        
 =================================================================
-[23:17:32] INFO        HEADLINE: 1/5 informative observables recover κ_gal = 5.99e+05 ± 3.79e+05 (χ² = 0.0, p = 1.000, Cepheid tension = 0.7σ)
-[23:17:32] INFO        =================================================================
+[14:01:22] INFO        HEADLINE: 1/5 informative observables recover κ_gal = 1.17e+06 ± 5.35e+05 (χ² = 0.0, p = 1.000, Cepheid tension = 0.3σ)
+[14:01:22] INFO        =================================================================

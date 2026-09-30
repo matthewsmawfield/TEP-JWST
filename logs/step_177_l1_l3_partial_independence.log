@@ -1,11 +1,11 @@
-[22:40:10] INFO        STEP 177: L1–L3 Partial Independence Test
-[22:40:10] INFO        Valid rows with all columns: 2315
-[22:40:10] INFO          Raw rho (full): -0.4905, p=2.1049e-140, N=2315
-[22:40:10] INFO          Partial |dust (full): -0.4146, p=7.7991e-97, N=2315
-[22:40:10] INFO          Partial |dust,mass,z (full): -0.1531, p=1.2962e-13, N=2315
-[22:40:10] INFO          Partial |mass,z (full): -0.1895, p=3.6702e-20, N=2315
-[22:40:10] INFO          Partial |dust z>7: -0.1600, p=3.1134e-04, N=504
-[22:40:11] INFO          Partial |dust z>8: -0.4897, p=1.7889e-18, N=283
-[22:40:11] INFO          Partial |mass,z z>8: -0.4655, p=1.2575e-16, N=283
-[22:40:11] INFO          Partial |dust z>6: -0.1215, p=3.1436e-04, N=876
-[22:40:11] INFO    ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_177_l1_l3_partial_independence.json
+[14:11:09] INFO        STEP 177: L1–L3 Partial Independence Test
+[14:11:10] INFO        Valid rows with all columns: 2157
+[14:11:10] INFO          Raw rho (full): -0.4870, p=7.6607e-129, N=2157
+[14:11:10] INFO          Partial |dust (full): -0.4140, p=4.2328e-90, N=2157
+[14:11:10] INFO          Partial |dust,mass,z (full): -0.2179, p=1.3576e-24, N=2157
+[14:11:10] INFO          Partial |mass,z (full): -0.2511, p=2.2313e-32, N=2157
+[14:11:10] INFO          Partial |dust z>7: -0.2855, p=4.8512e-10, N=458
+[14:11:10] INFO          Partial |dust z>8: -0.6416, p=7.4159e-31, N=254
+[14:11:10] INFO          Partial |mass,z z>8: -0.6240, p=8.1942e-29, N=254
+[14:11:10] INFO          Partial |dust z>6: -0.2153, p=7.1591e-10, N=803
+[14:11:10] INFO    ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_177_l1_l3_partial_independence.json

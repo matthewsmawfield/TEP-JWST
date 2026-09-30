@@ -1,8 +1,8 @@
-[22:38:24] INFO        STEP 130: Cross-survey systematic error budget
-[22:38:24] WARNING   Missing: step_020_uncover_partial_correlation.json
-[22:38:24] INFO      CEERS: rho=0.680, p=2.03e-12, N=82
-[22:38:24] INFO      COSMOS-Web: rho=0.631, p=3.19e-103, N=2606
-[22:38:24] INFO      Cochran's Q = 0.193, p = 0.661 (df=1)
-[22:38:24] INFO      Cross-survey rho: mean=0.656 +/-0.025 (range 0.049), systematic floor=3.8%
-[22:38:24] INFO    Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_130_cross_survey_systematics.json
-[22:38:24] INFO        Step 130 complete. rho scatter=0.0246
+[13:27:04] INFO        STEP 130: Cross-survey systematic error budget
+[13:27:04] WARNING   Missing: step_020_uncover_partial_correlation.json
+[13:27:04] INFO      CEERS: rho=0.680, p=2.03e-12, N=82
+[13:27:04] INFO      COSMOS-Web: rho=0.631, p=3.19e-103, N=2606
+[13:27:04] INFO      Cochran's Q = 0.193, p = 0.661 (df=1)
+[13:27:04] INFO      Cross-survey rho: mean=0.656 +/-0.025 (range 0.049), systematic floor=3.8%
+[13:27:04] INFO    Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_130_cross_survey_systematics.json
+[13:27:04] INFO        Step 130 complete. rho scatter=0.0246

@@ -1,9 +1,9 @@
-[22:40:01] INFO        STEP 150: DJA NIRSpec Merged v4.4 — rho(Gamma_t, log M*)
-[22:40:01] INFO    Loading DJA merged table: dja_msaexp_emission_lines_v4.4.csv.gz
-[22:40:05] INFO    DJA merged table loaded: N=14,236
-[22:40:05] INFO    Full z>5: N=2,653, rho=0.787, p=0.00e+00
-[22:40:05] INFO      z=5-7: N=2,088, rho=0.863
-[22:40:05] INFO      z=7-9: N=498, rho=0.854
-[22:40:05] INFO      z=9-99: N=67, rho=0.869
-[22:40:05] INFO    Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_150_dja_nirspec_merged.json
-[22:40:05] INFO        Step 150 complete (SUCCESS)
+[13:28:35] INFO        STEP 150: DJA NIRSpec Merged v4.4 — rho(Gamma_t, log M*)
+[13:28:35] INFO    Loading DJA merged table: dja_msaexp_emission_lines_v4.4.csv.gz
+[13:28:38] INFO    DJA merged table loaded: N=14,236
+[13:28:39] INFO    Full z>5: N=2,653, rho=0.787, p=0.00e+00
+[13:28:39] INFO      z=5-7: N=2,088, rho=0.863
+[13:28:39] INFO      z=7-9: N=498, rho=0.854
+[13:28:39] INFO      z=9-99: N=67, rho=0.869
+[13:28:39] INFO    Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_150_dja_nirspec_merged.json
+[13:28:39] INFO        Step 150 complete (SUCCESS)

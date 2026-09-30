@@ -6,15 +6,15 @@
   ],
   "survey_correlations": {
     "UNCOVER": {
-      "rho": 0.5945661186122826,
-      "p": 1.9243263744046854e-28,
-      "log10_p": -27.715721267754432,
-      "t_stat": 12.395727822388865,
-      "n": 283,
-      "se": 0.05976143046671968,
-      "ci_lower": 0.5135703561349859,
-      "ci_upper": 0.6650597008585932,
-      "z_fisher": 0.684699573144194
+      "rho": 0.6457648560030902,
+      "p": 2.2986036547901275e-31,
+      "log10_p": -30.63853590710255,
+      "t_stat": 13.42594802222225,
+      "n": 254,
+      "se": 0.06311944030978031,
+      "ci_lower": 0.5678105596812909,
+      "ci_upper": 0.712239222330221,
+      "z_fisher": 0.7679997858585431
     },
     "CEERS": {
       "rho": 0.6553585616177448,
@@ -40,19 +40,19 @@
     }
   },
   "meta_analysis": {
-    "rho_combined": 0.6241218394743777,
-    "ci_lower": 0.5894457119379438,
-    "ci_upper": 0.6565021104708385,
-    "se": 0.02801659073402629,
-    "z_stat": 26.11769409036254,
-    "p_combined": 2.2954447717357875e-150,
-    "n_total": 1283,
+    "rho_combined": 0.6349210389409864,
+    "ci_lower": 0.600590074990536,
+    "ci_upper": 0.6669151961461837,
+    "se": 0.028341010063256785,
+    "z_stat": 26.449941670012404,
+    "p_combined": 3.654383934092864e-154,
+    "n_total": 1254,
     "n_surveys": 3
   },
   "heterogeneity": {
-    "Q": 0.9287090893681924,
+    "Q": 0.24119925096314174,
     "df": 2,
-    "p_Q": 0.6285406692050357,
+    "p_Q": 0.8863887760377513,
     "I2": 0.0,
     "interpretation": "Low heterogeneity",
     "consistent": true
@@ -60,9 +60,9 @@
   "systematics": {
     "mass_distributions": {
       "UNCOVER": {
-        "mean": 8.463302797243529,
-        "std": 0.4326089785274364,
-        "median": 8.347686695589028
+        "mean": 8.458889655454225,
+        "std": 0.42502968985609985,
+        "median": 8.345274683372597
       },
       "CEERS": {
         "mean": 9.029659993482214,
@@ -77,9 +77,9 @@
     },
     "redshift_distributions": {
       "UNCOVER": {
-        "mean": 5.825741384544903,
-        "std": 1.5354106867343804,
-        "median": 5.236858940389137
+        "mean": 5.800201296307427,
+        "std": 1.5172712925496254,
+        "median": 5.2218792085822665
       },
       "CEERS": {
         "mean": 9.27551792829989,
@@ -96,46 +96,46 @@
   "time_tests": {
     "UNCOVER": {
       "dust_positive_only": {
-        "n": 283,
-        "rho_t_cosmic_dust": -0.006257604267814239,
-        "p_t_cosmic_dust": 0.9165310933827602,
-        "log10_p_t_cosmic_dust": -0.03785279698054561,
-        "rho_t_eff_dust": 0.32407602520619544,
-        "p_t_eff_dust": 2.4196205974100125e-08,
-        "log10_p_t_eff_dust": -7.616252727147231,
-        "delta_rho": 0.3303336294740097,
+        "n": 254,
+        "rho_t_cosmic_dust": -0.028814760163814672,
+        "p_t_cosmic_dust": 0.6476268410293808,
+        "log10_p_t_cosmic_dust": -0.18867516012035657,
+        "rho_t_eff_dust": 0.328536304503439,
+        "p_t_eff_dust": 8.336364473355347e-08,
+        "log10_p_t_eff_dust": -7.079023305883956,
+        "delta_rho": 0.3573510646672537,
         "teff_threshold_gyr": 0.3,
         "threshold_test": {
-          "n_above": 206,
-          "n_below": 77,
-          "mean_dust_above": 0.8934537596647659,
-          "mean_dust_below": 0.524247713078823,
-          "ratio": 1.7042587642731999,
-          "mannwhitney_u": 10879.0,
-          "p_value": 7.520956632889801e-07,
-          "cohens_d": 0.7336892358234786
+          "n_above": 188,
+          "n_below": 66,
+          "mean_dust_above": 0.8704794064772385,
+          "mean_dust_below": 0.5331575219766862,
+          "ratio": 1.6326870963949425,
+          "mannwhitney_u": 8441.0,
+          "p_value": 6.638016324834541e-06,
+          "cohens_d": 0.749171712610582
         },
         "detection_test": null
       },
       "all_dust": {
-        "n": 283,
-        "rho_t_cosmic_dust": -0.006257604267814239,
-        "p_t_cosmic_dust": 0.9165310933827602,
-        "log10_p_t_cosmic_dust": -0.03785279698054561,
-        "rho_t_eff_dust": 0.32407602520619544,
-        "p_t_eff_dust": 2.4196205974100125e-08,
-        "log10_p_t_eff_dust": -7.616252727147231,
-        "delta_rho": 0.3303336294740097,
+        "n": 254,
+        "rho_t_cosmic_dust": -0.028814760163814672,
+        "p_t_cosmic_dust": 0.6476268410293808,
+        "log10_p_t_cosmic_dust": -0.18867516012035657,
+        "rho_t_eff_dust": 0.328536304503439,
+        "p_t_eff_dust": 8.336364473355347e-08,
+        "log10_p_t_eff_dust": -7.079023305883956,
+        "delta_rho": 0.3573510646672537,
         "teff_threshold_gyr": 0.3,
         "threshold_test": {
-          "n_above": 206,
-          "n_below": 77,
-          "mean_dust_above": 0.8934537596647659,
-          "mean_dust_below": 0.524247713078823,
-          "ratio": 1.7042587642731999,
-          "mannwhitney_u": 10879.0,
-          "p_value": 7.520956632889801e-07,
-          "cohens_d": 0.7336892358234786
+          "n_above": 188,
+          "n_below": 66,
+          "mean_dust_above": 0.8704794064772385,
+          "mean_dust_below": 0.5331575219766862,
+          "ratio": 1.6326870963949425,
+          "mannwhitney_u": 8441.0,
+          "p_value": 6.638016324834541e-06,
+          "cohens_d": 0.749171712610582
         },
         "detection_test": null
       }
@@ -252,11 +252,11 @@
   },
   "summary": {
     "n_surveys": 3,
-    "combined_rho": 0.6241218394743777,
-    "combined_p": 2.2954447717357875e-150,
-    "total_n": 1283,
+    "combined_rho": 0.6349210389409864,
+    "combined_p": 3.654383934092864e-154,
+    "total_n": 1254,
     "heterogeneity": "Low heterogeneity",
     "replication_status": "FULLY REPLICATED",
-    "conclusion": "The z>8 dust-\u0393t correlation is replicated across 3 independent JWST surveys with combined \u03c1 = 0.62 (N = 1283). Heterogeneity is low heterogeneity, indicating broadly consistent effect sizes."
+    "conclusion": "The z>8 dust-\u0393t correlation is replicated across 3 independent JWST surveys with combined \u03c1 = 0.63 (N = 1254). Heterogeneity is low heterogeneity, indicating broadly consistent effect sizes."
   }
 }

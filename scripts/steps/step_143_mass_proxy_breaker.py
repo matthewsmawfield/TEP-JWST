@@ -283,7 +283,7 @@ def test1_environment_density(df):
     if cell_p_values:
         chi2_fisher = -2 * sum(np.log(p) for p in cell_p_values)
         df_fisher = 2 * len(cell_p_values)
-        p_fisher = float(1 - stats.chi2.cdf(chi2_fisher, df_fisher))
+        p_fisher = float(max(stats.chi2.sf(chi2_fisher, df_fisher), 1e-300))
     else:
         chi2_fisher, df_fisher, p_fisher = np.nan, 0, np.nan
 

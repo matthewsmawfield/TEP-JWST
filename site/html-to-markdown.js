@@ -76,6 +76,10 @@ class HTMLToMarkdownConverter {
             const decodedCode = this.decodeEntities(code).replace(/\n+$/g, '');
             return `\n\n@@@CODEBLOCK_START:${language}@@@\n${decodedCode}\n@@@CODEBLOCK_END@@@\n\n`;
         });
+        html = html.replace(/<pre[^>]*>([\s\S]*?)<\/pre>/gi, (match, content) => {
+            const decoded = this.decodeEntities(content.replace(/<[^>]+>/g, '')).replace(/\n+$/g, '');
+            return `\n\n@@@CODEBLOCK_START:@@@\n${decoded}\n@@@CODEBLOCK_END@@@\n\n`;
+        });
 
         html = html.replace(/<table[^>]*>[\s\S]*?<\/table>/gi, (match) => this.tableToMarkdown(match));
 
@@ -98,7 +102,7 @@ class HTMLToMarkdownConverter {
         });
 
         html = html.replace(/<blockquote[^>]*>([\s\S]*?)<\/blockquote>/gi, '\n> $1\n\n');
-        html = html.replace(/<p[^>]*>([\s\S]*?)<\/p>/gi, '$1\n\n');
+        html = html.replace(/<p\b[^>]*>([\s\S]*?)<\/p>/gi, '$1\n\n');
 
         html = html.replace(/<(strong|b)[^>]*>([\s\S]*?)<\/(strong|b)>/gi, '**$2**');
         html = html.replace(/<(em|i)[^>]*>([\s\S]*?)<\/(em|i)>/gi, '*$2*');
@@ -122,7 +126,11 @@ class HTMLToMarkdownConverter {
 
     stripLeadingWhitespace(text) {
         // Split into lines, strip leading whitespace from each line, rejoin
-        return text.split('\n').map(line => line.replace(/^\s+/, '')).join('\n');
+        let inFence = false;
+        return text.split('\n').map((line) => {
+            if (line.trimStart().startsWith('```')) inFence = !inFence;
+            return inFence ? line : line.replace(/^\s+/, '');
+        }).join('\n');
     }
 
     async convertSiteToMarkdown() {
@@ -150,8 +158,8 @@ class HTMLToMarkdownConverter {
 
             // Derive version/codename and last-updated from manifest.json so the
             // markdown header and filename never go stale on a version bump.
-            const manifestVersion = manifest.version || 'v0.6 (Kos)';
-            const manifestUpdated = manifest.last_updated || '8 August 2026';
+            const manifestVersion = manifest.version || 'v0.7 (Kos)';
+            const manifestUpdated = manifest.last_updated || '30 September 2026';
             const manifestFirstPublished = manifest.first_published || '13 March 2026';
             const versionMatch = String(manifestVersion).match(/^v?([\d.]+)\s*\(([^)]+)\)$/i);
             const versionNum = versionMatch ? versionMatch[1] : '0.6';

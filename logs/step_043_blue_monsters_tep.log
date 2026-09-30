@@ -1,36 +1,36 @@
-[22:36:28] INFO        ======================================================================
-[22:36:28] INFO        STEP 043: Blue Monsters TEP Analysis
-[22:36:28] INFO        ======================================================================
-[22:36:28] INFO        Loaded 283 galaxies from UNCOVER
-[22:36:28] INFO        Loading canonical Monster galaxies from literature...
-[22:36:28] INFO        Created sample of 3 Monster galaxies from literature
-[22:36:28] INFO        
+[13:25:29] INFO        ======================================================================
+[13:25:29] INFO        STEP 043: Blue Monsters TEP Analysis
+[13:25:29] INFO        ======================================================================
+[13:25:29] INFO        Loaded 254 galaxies from UNCOVER
+[13:25:29] INFO        Loading canonical Monster galaxies from literature...
+[13:25:29] INFO        Created sample of 3 Monster galaxies from literature
+[13:25:29] INFO        
 Analyzing 3 Blue Monsters...
-[22:36:28] INFO        
+[13:25:29] INFO        
 ==================================================
-[22:36:28] INFO        BLUE MONSTERS SUMMARY
-[22:36:28] INFO        ==================================================
-[22:36:28] INFO        Total analyzed: 3
-[22:36:28] INFO        Redshift range: 5.30 - 5.85
-[22:36:28] INFO        Mass range: 10.80 - 11.15
-[22:36:28] INFO        
+[13:25:29] INFO        BLUE MONSTERS SUMMARY
+[13:25:29] INFO        ==================================================
+[13:25:29] INFO        Total analyzed: 3
+[13:25:29] INFO        Redshift range: 5.30 - 5.85
+[13:25:29] INFO        Mass range: 10.80 - 11.15
+[13:25:29] INFO        
 TEP Enhancement:
-[22:36:28] INFO          Mean Gamma_t: 5.81
-[22:36:28] INFO          Median Gamma_t: 4.02
-[22:36:28] INFO        
+[13:25:29] INFO          Mean Gamma_t: 5.81
+[13:25:29] INFO          Median Gamma_t: 4.02
+[13:25:29] INFO        
 SFE Correction:
-[22:36:28] INFO          Mean SFE_obs: 0.50
-[22:36:28] INFO          Mean SFE_true: 0.18
-[22:36:28] INFO          Mean SFE excess (obs): 2.5x standard
-[22:36:28] INFO          Mean SFE excess (corr): 0.9x standard
-[22:36:28] INFO        
+[13:25:29] INFO          Mean SFE_obs: 0.50
+[13:25:29] INFO          Mean SFE_true: 0.18
+[13:25:29] INFO          Mean SFE excess (obs): 2.5x standard
+[13:25:29] INFO          Mean SFE excess (corr): 0.9x standard
+[13:25:29] INFO        
 Anomaly Resolution:
-[22:36:28] INFO          Mean % resolved: 94.9%
-[22:36:28] INFO          Median % resolved: 100.0%
-[22:36:28] INFO          Still above standard after TEP: 1/3 (33%)
-[22:36:28] INFO        
+[13:25:29] INFO          Mean % resolved: 94.9%
+[13:25:29] INFO          Median % resolved: 100.0%
+[13:25:29] INFO          Still above standard after TEP: 1/3 (33%)
+[13:25:29] INFO        
 Saved CSV to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_043_blue_monsters_tep.csv
-[22:36:28] INFO        Saved figure to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/blue_monsters_sfe_correction.png
-[22:36:28] INFO        Saved JSON to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_043_blue_monsters.json
-[22:36:28] INFO        
+[13:25:29] INFO        Saved figure to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/blue_monsters_sfe_correction.png
+[13:25:29] INFO        Saved JSON to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_043_blue_monsters.json
+[13:25:29] INFO        
 Step 043 complete.

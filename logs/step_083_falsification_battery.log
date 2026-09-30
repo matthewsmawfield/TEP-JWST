@@ -1,37 +1,37 @@
-[22:37:00] INFO        ======================================================================
-[22:37:00] INFO        STEP 083: Comprehensive Falsification Battery
-[22:37:00] INFO        ======================================================================
-[22:37:00] INFO        Loaded N = 2315 galaxies
-[22:37:00] INFO        
+[13:25:57] INFO        ======================================================================
+[13:25:57] INFO        STEP 083: Comprehensive Falsification Battery
+[13:25:57] INFO        ======================================================================
+[13:25:57] INFO        Loaded N = 2157 galaxies
+[13:25:57] INFO        
 --- Running Falsification Battery ---
-[22:37:00] INFO        
+[13:25:57] INFO        
   Sign Consistency: ✓ PASS
-[22:37:00] INFO            gamma_t-dust: expected positive, observed positive (ρ=0.595)
-[22:37:00] INFO            log_Mstar-mwa: expected positive, observed positive (ρ=0.135)
-[22:37:00] INFO        
+[13:25:57] INFO            gamma_t-dust: expected positive, observed positive (ρ=0.646)
+[13:25:57] INFO            log_Mstar-mwa: expected positive, observed positive (ρ=0.150)
+[13:25:57] INFO        
   Magnitude Scaling: ✓ PASS
-[22:37:00] INFO        
+[13:25:57] INFO        
   Redshift Evolution: ✓ PASS
-[22:37:00] INFO            4-5: ρ = 0.020, N = 942
-[22:37:00] INFO            5-6: ρ = -0.124, N = 497
-[22:37:00] INFO            6-7: ρ = -0.049, N = 372
-[22:37:00] INFO            7-8: ρ = 0.027, N = 221
-[22:37:00] INFO            8-10: ρ = 0.595, N = 283
-[22:37:00] INFO        
+[13:25:57] INFO            4-5: ρ = 0.024, N = 883
+[13:25:57] INFO            5-6: ρ = -0.136, N = 471
+[13:25:57] INFO            6-7: ρ = -0.008, N = 345
+[13:25:57] INFO            7-8: ρ = 0.043, N = 204
+[13:25:57] INFO            8-10: ρ = 0.646, N = 254
+[13:25:57] INFO        
   Mass Independence: ✓ PASS
-[22:37:00] INFO            7.5-8.5: ρ = 0.407 ✓
-[22:37:00] INFO            8.5-9.5: ρ = 0.302 ✓
-[22:37:00] INFO        
+[13:25:57] INFO            7.5-8.5: ρ = 0.428 ✓
+[13:25:57] INFO            8.5-9.5: ρ = 0.384 ✓
+[13:25:57] INFO        
   Null Regions: ✓ PASS
-[22:37:00] INFO            z > 8 (signal expected): ρ = 0.595 ✓
-[22:37:00] INFO        
+[13:25:57] INFO            z > 8 (signal expected): ρ = 0.646 ✓
+[13:25:57] INFO        
   Internal Consistency: ✓ PASS
-[22:37:00] INFO        
+[13:25:57] INFO        
 ======================================================================
-[22:37:00] INFO        FALSIFICATION BATTERY SUMMARY
-[22:37:00] INFO        ======================================================================
-[22:37:00] INFO          Tests passed: 6/6 (100%)
-[22:37:00] INFO          Verdict: 6/6 falsification tests passed
-[22:37:00] INFO          ✓ TEP passes all falsification tests
-[22:37:00] INFO        
+[13:25:57] INFO        FALSIFICATION BATTERY SUMMARY
+[13:25:57] INFO        ======================================================================
+[13:25:57] INFO          Tests passed: 6/6 (100%)
+[13:25:57] INFO          Verdict: 6/6 falsification tests passed
+[13:25:57] INFO          ✓ TEP passes all falsification tests
+[13:25:57] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_083_falsification_battery.json

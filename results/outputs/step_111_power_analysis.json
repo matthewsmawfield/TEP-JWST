@@ -3,12 +3,12 @@
   "tests": [
     {
       "test_name": "UNCOVER z>8 Dust-\u0393\u209c",
-      "n": 283,
-      "observed_rho": 0.5945661186122826,
+      "n": 254,
+      "observed_rho": 0.6457648560030902,
       "effect_size": "large",
       "power_observed": 1.0,
-      "min_detectable_rho_80pct": 0.16587966529819761,
-      "n_required_80pct": 20,
+      "min_detectable_rho_80pct": 0.175014027621095,
+      "n_required_80pct": 17,
       "adequately_powered": true
     },
     {
@@ -33,11 +33,11 @@
     },
     {
       "test_name": "Combined z>8 Dust-\u0393\u209c",
-      "n": 1283,
+      "n": 1254,
       "observed_rho": 0.623,
       "effect_size": "large",
       "power_observed": 1.0,
-      "min_detectable_rho_80pct": 0.0781470217858842,
+      "min_detectable_rho_80pct": 0.07904387869639773,
       "n_required_80pct": 18,
       "adequately_powered": true
     },
@@ -123,11 +123,11 @@
     },
     {
       "test_name": "Dust-\u0393\u209c | M* (z>8)",
-      "n": 283,
+      "n": 254,
       "observed_rho": 0.28,
       "effect_size": "small",
-      "power_observed": 0.9978405431253156,
-      "min_detectable_rho_80pct": 0.16587966529819761,
+      "power_observed": 0.9953085323581415,
+      "min_detectable_rho_80pct": 0.175014027621095,
       "n_required_80pct": 98,
       "adequately_powered": true
     }

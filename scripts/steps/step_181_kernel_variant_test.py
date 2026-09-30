@@ -178,7 +178,7 @@ def main():
     res = {}
     for name, (s, p) in variants.items():
         sc, k = score_variant(lnR, obs_arrays, s, p)
-        res[name] = {"s": s, "p": p, "score": sc, "kappa": k}
+        res[name] = {"s": s, "z_exp": p, "score": sc, "kappa": k}
         print_status(f"  {name:16s} score={sc:.4f}  kappa*={k:.3e}")
 
     # --- free-s scan at p = 0.5 ---------------------------------------
@@ -199,13 +199,13 @@ def main():
     for p in p_grid:
         for s in s_grid:
             sc, k = score_variant(lnR, obs_arrays, float(s), float(p))
-            sp_grid.append({"s": float(s), "p": float(p),
+            sp_grid.append({"s": float(s), "z_exp": float(p),
                             "score": sc, "kappa": k})
     best_sp = sp_grid[int(np.argmax([g["score"] for g in sp_grid]))]
     out["sp_grid"] = sp_grid
     out["sp_best"] = best_sp
     print_status(f"  free-(s,p): best s={best_sp['s']:.2f} "
-                 f"p={best_sp['p']:.2f} score={best_sp['score']:.4f}")
+                 f"p={best_sp['z_exp']:.2f} score={best_sp['score']:.4f}")
 
     # --- verdict -------------------------------------------------------
     canon = res["canonical"]["score"]
@@ -213,7 +213,7 @@ def main():
     degenerate = {n: r for n, r in res.items()
                   if n != "canonical" and r["score"] >= canon - tol}
     edge_hit = (best_sp["s"] >= s_grid[-1] - 1e-9
-                or best_sp["p"] >= p_grid[-1] - 1e-9)
+                or best_sp["z_exp"] >= p_grid[-1] - 1e-9)
     verdict = {
         "canonical_score": canon,
         "canonical_kappa": res["canonical"]["kappa"],

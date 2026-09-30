@@ -5,14 +5,14 @@
     "time_split": [
       {
         "survey": "UNCOVER",
-        "train_n": 1389,
+        "train_n": 1294,
         "train_n_z8": 0,
         "train_rho": null,
         "train_p": null,
-        "test_n": 926,
-        "test_n_z8": 283,
-        "test_rho": 0.5945661186122826,
-        "test_p": 1.924326374404679e-28,
+        "test_n": 863,
+        "test_n_z8": 254,
+        "test_rho": 0.6457648560030902,
+        "test_p": 2.2986036547901105e-31,
         "generalization": "success"
       },
       {
@@ -43,14 +43,14 @@
     "field_split": [
       {
         "survey": "UNCOVER",
-        "east_n": 1157,
-        "east_n_z8": 192,
-        "east_rho": 0.5343637251444538,
-        "east_p": 1.4331910481538674e-15,
-        "west_n": 1158,
-        "west_n_z8": 91,
-        "west_rho": 0.7156075808249722,
-        "west_p": 1.5771192974087734e-15,
+        "east_n": 1078,
+        "east_n_z8": 177,
+        "east_rho": 0.5810949429545887,
+        "east_p": 2.2636104849713528e-17,
+        "west_n": 1079,
+        "west_n_z8": 77,
+        "west_rho": 0.7608444187391555,
+        "west_p": 9.833530657977771e-16,
         "consistency": "consistent"
       },
       {
@@ -85,9 +85,9 @@
           "CEERS",
           "COSMOS-Web"
         ],
-        "train_n_z8": 283,
-        "train_rho": 0.5945661186122826,
-        "train_p": 1.924326374404679e-28,
+        "train_n_z8": 254,
+        "train_rho": 0.6457648560030902,
+        "train_p": 2.2986036547901105e-31,
         "test_n_z8": 2688,
         "test_rho": 0.6871046549151834,
         "test_p": 1e-300,
@@ -102,8 +102,8 @@
         "train_n_z8": 82,
         "train_rho": 0.6557068381928799,
         "train_p": 2.3016358510492747e-11,
-        "test_n_z8": 2889,
-        "test_rho": 0.6271591001492776,
+        "test_n_z8": 2860,
+        "test_rho": 0.6319035840173958,
         "test_p": 1e-300,
         "generalization": "success"
       },
@@ -116,9 +116,9 @@
         "train_n_z8": 2606,
         "train_rho": 0.6966708680190827,
         "train_p": 1e-300,
-        "test_n_z8": 365,
-        "test_rho": 0.5230073317654724,
-        "test_p": 5.132880559571512e-27,
+        "test_n_z8": 336,
+        "test_rho": 0.5434458694235479,
+        "test_p": 3.272114123758704e-27,
         "generalization": "success"
       }
     ]

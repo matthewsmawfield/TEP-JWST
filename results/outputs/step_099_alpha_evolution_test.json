@@ -6,41 +6,41 @@
     {
       "z_min": 4.0,
       "z_max": 5.5,
-      "z_mean": 4.639038106140288,
-      "n_galaxies": 1233,
+      "z_mean": 4.634394373079824,
+      "n_galaxies": 1156,
       "kappa_gal_best": 100000.0,
       "kappa_gal_err": 0.0,
-      "rho_best": 0.019880578140169518,
+      "rho_best": 0.03424147098187765,
       "consistent_with_nominal": false
     },
     {
       "z_min": 5.5,
       "z_max": 7.0,
-      "z_mean": 6.232958763181157,
-      "n_galaxies": 578,
+      "z_mean": 6.225770165611403,
+      "n_galaxies": 543,
       "kappa_gal_best": 100000.0,
       "kappa_gal_err": 0.0,
-      "rho_best": -0.059445404171830696,
+      "rho_best": -0.03748694336147131,
       "consistent_with_nominal": false
     },
     {
       "z_min": 7.0,
       "z_max": 8.5,
-      "z_mean": 7.7612472595176865,
-      "n_galaxies": 328,
+      "z_mean": 7.768223788383726,
+      "n_galaxies": 306,
       "kappa_gal_best": 100000.0,
       "kappa_gal_err": 0.0,
-      "rho_best": 0.030332224490087413,
+      "rho_best": 0.056041764171894,
       "consistent_with_nominal": false
     },
     {
       "z_min": 8.5,
       "z_max": 10.0,
-      "z_mean": 9.194988943806624,
-      "n_galaxies": 176,
+      "z_mean": 9.184240932121265,
+      "n_galaxies": 152,
       "kappa_gal_best": 100000.0,
       "kappa_gal_err": 0.0,
-      "rho_best": 0.6954039181157825,
+      "rho_best": 0.7322596518565598,
       "consistent_with_nominal": false
     }
   ],
@@ -48,21 +48,21 @@
     {
       "z_min": 7.0,
       "z_max": 8.5,
-      "z_mean": 7.7612472595176865,
-      "n_galaxies": 328,
+      "z_mean": 7.768223788383726,
+      "n_galaxies": 306,
       "kappa_gal_best": 100000.0,
       "kappa_gal_err": 0.0,
-      "rho_best": 0.030332224490087413,
+      "rho_best": 0.056041764171894,
       "consistent_with_nominal": false
     },
     {
       "z_min": 8.5,
       "z_max": 10.0,
-      "z_mean": 9.194988943806624,
-      "n_galaxies": 176,
+      "z_mean": 9.184240932121265,
+      "n_galaxies": 152,
       "kappa_gal_best": 100000.0,
       "kappa_gal_err": 0.0,
-      "rho_best": 0.6954039181157825,
+      "rho_best": 0.7322596518565598,
       "consistent_with_nominal": false
     }
   ],

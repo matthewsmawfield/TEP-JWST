@@ -33,9 +33,9 @@
     For population-level tests, the UNCOVER DR4 stellar population synthesis
     catalog is used (Wang et al. 2024; Furtak et al. 2023). The analysis
     applies quality cuts and constructs a high-redshift sample with $4 &lt;
-    z &lt; 10$ and $\log M_* &gt; 8$, yielding $N = 2{,}315$ galaxies. For
+    z &lt; 10$ and $\log M_* &gt; 8$, yielding $N = 2{,}157$ galaxies. For
     multi-property analyses (age ratio, metallicity, dust), a subset with
-    complete measurements is used (e.g., $N = 1{,}108$ for the
+    complete measurements is used (e.g., $N = 1{,}041$ for the
     partial-correlation and split tests).
   </p>
 
@@ -119,7 +119,7 @@
         <tr>
           <td>UNCOVER DR4</td>
           <td>Primary Statistical Sample</td>
-          <td>2,315</td>
+          <td>2,157</td>
           <td>$4 &lt; z &lt; 10$</td>
           <td>$&gt; 8.0$</td>
           <td>Wang et al. (2024)</td>
@@ -328,10 +328,10 @@
     \end{equation}
   </div>
   <p>
-    Here $\kappa_{\rm gal}=(9.6\pm4.0)\times10^5$ mag is the canonical reference benchmark for the galaxy-sector observable response, and $K_{\rm gal} = \kappa_{\rm gal}\ln 10/(2.5\,n_{\rm ref}) = 1.263\times10^6$ (with the fixed transfer convention $n_{\rm ref}=0.7$) is the single normalization entering the exponential kernel. Neither $n_{\rm ref}$ nor $K_{\rm gal}$ changes at a redshift boundary. $\Psi_{\rm ref}$ corresponds to $\log M_{h,\rm ref}=12.0$, and $\sqrt{1+z}$ supplies the only explicit redshift dependence of this kernel. A dedicated variant comparison (Step 181) tests whether that factor is absorbing missing virial-depth evolution: the frozen $z=0$ depth is replaced by the redshift-consistent $\Psi\propto E(z)^{2/3}$, the $\sqrt{1+z}$ factor is removed, and both exponent locations are scanned freely. Evolving-depth variants outscore the canonical structure on the multi-observable response score, and the free-exponent optimum runs to the scan boundary — the kernel's redshift dependence is therefore underdetermined by this sample, and the canonical form is retained on theory grounds (the conformal endpoint ratio, §2.3.2) rather than because it is data-selected. $R_{\rm ML}$ is a channel-level inference response: it parameterizes how conventional stellar-population inference changes with environment. It is not $A$, $A/A_{\rm ref}$, $A_{\rm ref}/A$, or the bare scalar coupling.
+    Here $\kappa_{\rm gal}=(9.6\pm4.0)\times10^5$ mag is the canonical reference benchmark for the galaxy-sector observable response, and $K_{\rm gal} = \kappa_{\rm gal}\ln 10/(2.5\,n_{\rm ref}) = 1.263\times10^6$ (with the fixed transfer convention $n_{\rm ref}=0.7$ — sharing its value with the isochrone index used for the correction-stage population scaling, a physically anchored coincidence rather than a fitted degree of freedom, while remaining a separate convention from the population-dependent $n_{\rm SPS}$) is the single normalization entering the exponential kernel. Neither $n_{\rm ref}$ nor $K_{\rm gal}$ changes at a redshift boundary. $\Psi_{\rm ref}$ corresponds to $\log M_{h,\rm ref}=12.0$, and $\sqrt{1+z}$ supplies the only explicit redshift dependence of this kernel. A dedicated variant comparison (Step 181) tests whether that factor is absorbing missing virial-depth evolution: the frozen $z=0$ depth is replaced by the redshift-consistent $\Psi\propto E(z)^{2/3}$, the $\sqrt{1+z}$ factor is removed, and both exponent locations are scanned freely. Evolving-depth variants outscore the canonical structure on the multi-observable response score, and the free-exponent optimum runs to the scan boundary — the kernel's redshift dependence is therefore underdetermined by this sample, and the canonical form is retained on theory grounds (the conformal endpoint ratio, §2.3.2) rather than because it is data-selected. $R_{\rm ML}$ is a channel-level inference response: it parameterizes how conventional stellar-population inference changes with environment. It is not $A$, $A/A_{\rm ref}$, $A_{\rm ref}/A$, or the bare scalar coupling.
   </p>
   <p>
-    <strong>Provenance of $\kappa_{\rm gal}$.</strong> The value $\kappa_{\rm gal} = 0.960 \times 10^6$ mag is the canonical theory benchmark adopted across the TEP corpus (Paper 11, Appendix C). It corresponds to an effective host-to-anchor potential depth $\Delta(u_\phi^2)/c^2 \sim 3 \times 10^{-7}$ mapped through the Leavitt law slope $b \approx -3.30$ to produce a $\sim 0.3$ mag characteristic modulus shift. It is a prespecified theory reference value, not a fitted posterior from any single step. The empirical Cepheid-channel analyses in Paper 11 fit $\kappa$ directly from observational data without imposing this benchmark: Step 42 recovers $\kappa_{\rm Cep}^{\rm equiv} = (0.369 \pm 0.310) \times 10^6$ mag under the restricted Cepheid-channel closure, and the multi-block joint analysis (Step 44) recovers $\kappa_{\rm Cep} = (0.400 \pm 0.270) \times 10^6$ mag. The regenerated JWST-side joint recovery from the high-redshift galaxy sample is $\kappa = (8.38 \pm 4.11) \times 10^5$ mag, consistent with the canonical benchmark at $0.21\sigma$ and equally within $\sim 1.1\sigma$ of the empirical Cepheid values; it therefore does not discriminate between the two anchors. The empirical recoveries lie a factor $\sim 2.4$ below the canonical benchmark and are individually $\lesssim 1.5\sigma$ from zero — an open normalization discrepancy of the corpus (Paper 11; the unresolved response-normalization class of Paper 0), not a resolved agreement. The $\pm 4.0 \times 10^5$ mag uncertainty adopted here is the canonical theory uncertainty, not the posterior width of any single Cepheid fit. Sensitivity analyses spanning the empirical Paper 11 multi-block value ($\kappa = 0.40 \times 10^6$ mag), the JWST-side recovery, and the canonical benchmark are reported in §3.9; the dust–$R_{\rm ML}$ correlation remains significant ($\rho > 0.4$) across this range, though the magnitude of the mass correction scales proportionally.
+    <strong>Provenance of $\kappa_{\rm gal}$.</strong> The value $\kappa_{\rm gal} = 0.960 \times 10^6$ mag is the canonical theory benchmark adopted across the TEP corpus (Paper 11, Appendix C). It corresponds to an effective host-to-anchor potential depth $\Delta(u_\phi^2)/c^2 \sim 3 \times 10^{-7}$ mapped through the Leavitt law slope $b \approx -3.30$ to produce a $\sim 0.3$ mag characteristic modulus shift. Its numerical provenance is empirical: the value is the Paper 11 joint-fit/bootstrap coefficient on the SH0ES sample, adopted corpus-wide as the fixed reference benchmark. It is therefore a same-programme calibration carried as a prior for this analysis — prespecified with respect to the JWST data and not refit here — rather than an ab-initio action-derived constant. The empirical Cepheid-channel analyses in Paper 11 fit $\kappa$ directly from observational data without imposing this benchmark: Step 42 recovers $\kappa_{\rm Cep}^{\rm equiv} = (0.369 \pm 0.310) \times 10^6$ mag under the restricted Cepheid-channel closure, and the multi-block joint analysis (Step 44) recovers $\kappa_{\rm Cep} = (0.400 \pm 0.270) \times 10^6$ mag. The regenerated JWST-side joint recovery from the high-redshift galaxy sample is $\kappa = (8.38 \pm 4.11) \times 10^5$ mag, consistent with the canonical benchmark at $0.21\sigma$ and equally within $\sim 1.1\sigma$ of the empirical Cepheid values; it therefore does not discriminate between the two anchors. The empirical recoveries lie a factor $\sim 2.4$ below the canonical benchmark and are individually $\lesssim 1.5\sigma$ from zero — because the benchmark is itself a same-sample estimator, this is within-estimator spread on the SH0ES data rather than an independent theory-vs-data tension (Paper 11; the unresolved response-normalization class of Paper 0). The $\pm 4.0 \times 10^5$ mag uncertainty adopted here is the canonical theory uncertainty, not the posterior width of any single Cepheid fit. Sensitivity analyses spanning the empirical Paper 11 multi-block value ($\kappa = 0.40 \times 10^6$ mag), the JWST-side recovery, and the canonical benchmark are reported in §3.9; the dust–$R_{\rm ML}$ correlation remains significant ($\rho > 0.4$) across this range, though the magnitude of the mass correction scales proportionally.
   </p>
   <p>
     Values above and below unity therefore denote positive and negative inference responses relative to the reference environment, not faster and slower local clocks. Screening acts on the environmental transfer entering the response, while the physical conformal clock offset retains the same slowing sign throughout. The low-mass dust and high-mass stellar-population tests below are consequently tests of an environment-ordered inference channel; they do not constitute direct measurements of local proper-time acceleration.
@@ -361,9 +361,10 @@
   0.28$ — roughly five orders of magnitude below the Cassini bound
   ($\omega_{\rm BD} > 40{,}000$; Bertotti et al. 2003). This large
   pre-screening discrepancy illustrates the central logic of the TEP
-  framework: any underlying bare coupling is strong, but in dense environments the scalar
+  framework: any underlying bare coupling is strong, but where the ambient
+  landscape is steep the scalar
   field gradient (Temporal Shear) flattens continuously, suppressing the
-  effective fifth-force coupling to $\beta_{\rm eff} \ll \beta_A$ (yielding an effective Brans–Dicke parameter $\omega_{\rm BD}^{\rm eff} = 1/(2\beta_{\rm eff}^2) - 1/2 > 10^6$, well within Cassini bounds). On cosmological scales, suppression of the $k_8 = 2\pi/8 = 0.785\,h$/Mpc mode requires a Compton wavelength short enough that $m_{\phi,0} \gg k_8$: the effective coupling $\beta_{\rm eff}(k_8) = \beta_A\,k_8/\sqrt{k_8^2 + m_{\phi,0}^2}$ evaluates to $0.0079$ at the scale-dependent-growth best fit $m_{\phi,0} = 100\,h$/Mpc ($\lambda_C = 0.063\,h^{-1}$ Mpc; Step 135) — well below the Planck bound.
+  effective scalar coupling to $\beta_{\rm eff} \ll \beta_A$ (yielding an effective Brans–Dicke parameter $\omega_{\rm BD}^{\rm eff} = 1/(2\beta_{\rm eff}^2) - 1/2 > 10^6$, well within Cassini bounds). On cosmological scales, suppression of the $k_8 = 2\pi/8 = 0.785\,h$/Mpc mode requires a Compton wavelength short enough that $m_{\phi,0} \gg k_8$: the effective coupling $\beta_{\rm eff}(k_8) = \beta_A\,k_8/\sqrt{k_8^2 + m_{\phi,0}^2}$ evaluates to $0.0079$ at the scale-dependent-growth best fit $m_{\phi,0} = 100\,h$/Mpc ($\lambda_C = 0.063\,h^{-1}$ Mpc; Step 135) — well below the Planck bound.
   Within individual halos ($r \lesssim 50$ kpc), the field tracks the local
   potential and operates locally. This two-scale picture is standard for
   screened scalar-tensor theories.
@@ -376,13 +377,22 @@
   </div>
   <p>
     where $\mathcal{S}$ is a smooth suppression function and $\rho_T \approx 20$ g/cm³
-    is the Temporal Topology reference density. This reference scale is
-    derived independently from three sources that converge on the same value:
-    GNSS atomic clock networks ($L_c \approx 4200$ km for Earth's mass),
-    atomic physics (Temporal Topology radius $R_T(m_p) \sim a_0$ at the proton
-    mass scale), and magnetar anti-glitches ($P_{\rm crit} \approx 6.8$ s
-    for 1E 2259+586, 4% match). The convergence across 40 orders of magnitude
-    in mass provides an independent consistency check on this screening scale.
+    is the Temporal Topology reference density. The normalization is set by
+    terrestrial GNSS clock-covariance correlations: $L_c \approx 4200$ km for
+    Earth's mass on the IGS precise-product convention — the measured realization
+    of the canonical correlation scale $\lambda_T$ (Paper 0 §7). That correlation
+    length is an estimator-dependent family — the precise-product bracket
+    spans $\sim 1.9$–$4.5\times10^{3}$ km (MGEX $1{,}862\pm155$ km; IGS
+    inter-center $3{,}330$–$4{,}549$ km), dominated by the $\sim30$–$40\%$
+    epoch/window scatter and propagating to an effective $\rho_T$ band of
+    roughly $8$–$70$ g/cm³, while raw single-epoch channels bound the scale
+    from below at $\sim 0.7$–$1.1\times10^{3}$ km (Papers 1, 3, 6, 14).
+    The adopted normalization is supported by two estimator-independent
+    cross-checks — atomic physics (Temporal Topology radius
+    $R_T(m_p) \sim a_0$ at the proton mass scale) and magnetar anti-glitches
+    ($P_{\rm crit} \approx 6.8$ s for 1E 2259+586, 4% match) — whose
+    convergence on the adopted scale across 40 orders of magnitude in mass
+    provides a consistency check on this screening scale.
   </p>
   At galactic scales, an effective kinematic screening threshold emerges from
   analysis of 199 millisecond pulsars in globular clusters, which reveals that
@@ -491,7 +501,7 @@
     </li>
     <li>
       <strong>Solar System (PPN):</strong> Temporal Shear suppression in
-      dense environments reduces the effective microscopic fifth-force coupling to
+      dense environments reduces the effective microscopic scalar coupling to
       $\beta_{\rm eff} \ll \beta_A$ (suppressed to $\lesssim 10^{-6}$ for solar-system bodies),
       satisfying Cassini and lunar laser ranging bounds (Appendix A.1.3).
     </li>

@@ -467,13 +467,13 @@ def main() -> None:
         f"{j176_residual_bf.get('Residual_Null', {}).get('ln_BF_TEP_vs_alt', 0.0):.1f}",
         f"{j176_conv_bf.get('Residual_Null', {}).get('ln_BF_TEP_vs_alt', 0.0):.1f}",
         f"{aug_bf:.1f}",
-        "Conventional Comparison (Raw Mass)",
-        "Primary: Covariance-Corrected Joint Test",
-        "Secondary: Orthogonalized Sensitivity Analysis",
+        "TEP-conditioned comparisons (orthogonalized predictors)",
+        "Unconditioned comparisons (raw mass + z)",
+        "Nested augmented comparison",
     ]
     discussion_nested_tokens = [
         f"{j176_residual_bf.get('Residual_Null', {}).get('ln_BF_TEP_vs_alt', 0.0):.1f}",
-        "covariance-corrected joint comparison",
+        "covariance-corrected TEP model",
         "orthogonalized sensitivity analysis",
     ]
     nested_bayes_expected = {
@@ -610,8 +610,7 @@ def main() -> None:
         "generated_root_markdown_exists": GENERATED_ROOT_MARKDOWN.exists(),
         "generated_root_markdown": {
             "narrows_phrase": "narrows the mass-circularity objection" in generated_root_markdown_text,
-            "five_object_phrase": "five-object direct literature ingestion" in generated_root_markdown_text,
-            "upper_limit_phrase": "conservative upper-limit row" in generated_root_markdown_text,
+            "derived_comparison_phrase": "derived dynamical-mass comparison" in generated_root_markdown_text,
         },
     }
     checks.append({

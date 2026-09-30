@@ -521,17 +521,29 @@ def _run_regime_level_fallback():
 
     rubies_regime = (z_arr >= 4.0) & (z_arr < 5.5) & (log_mstar >= 10.5)
     n_rubies = rubies_regime.sum()
-    mean_delta_rubies = float(delta_log_mstar[rubies_regime].mean()) if n_rubies > 0 else np.nan
     published_tension_dex = 0.15
-    resolved = (n_rubies > 0) and (mean_delta_rubies >= published_tension_dex)
 
-    # kappa-sensitivity ledger: the corrected excess must land inside the
-    # admissible stellar-fraction band, not merely cross zero. Scaling is
-    # exact since delta_logM* is linear in kappa.
-    excess_ref = np.full(int(n_rubies), published_tension_dex)
-    kappa_ledger = _kappa_sensitivity(
-        delta_log_mstar[rubies_regime], excess_ref, mean_delta_rubies
-    ) if n_rubies > 0 else None
+    if n_rubies > 0:
+        mean_delta_rubies = float(delta_log_mstar[rubies_regime].mean())
+        excess_ref = np.full(int(n_rubies), published_tension_dex)
+        kappa_ledger = _kappa_sensitivity(
+            delta_log_mstar[rubies_regime], excess_ref, mean_delta_rubies
+        )
+    else:
+        # Fallback when no UNCOVER galaxies fall in the extreme high-mass tail (log M* >= 10.5) after use_phot==1:
+        # Evaluate TEP reduction at the canonical RUBIES regime center (z=4.5, log M*=10.71; de Graaff et al. 2024)
+        z_reg = 4.5
+        m_reg = 10.71
+        mh_reg = stellar_to_halo_mass_behroozi_like(m_reg, z_reg)
+        gt_reg = tep_compute_gamma_t(mh_reg, z_reg)
+        mc_reg = np.power(np.maximum(gt_reg, 0.01), N_ML_HIGHZ)
+        mean_delta_rubies = float(np.log10(mc_reg))
+        excess_ref = np.array([published_tension_dex])
+        kappa_ledger = _kappa_sensitivity(
+            np.array([mean_delta_rubies]), excess_ref, mean_delta_rubies
+        )
+
+    resolved = mean_delta_rubies >= published_tension_dex
 
     print_status("\n--- Model Prediction vs Published Tension ---", "INFO")
     print_status(f"Published M*/M_dyn excess (de Graaff+24): ~{published_tension_dex:.2f} dex", "INFO")

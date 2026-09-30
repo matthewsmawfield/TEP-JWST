@@ -1,78 +1,78 @@
-[22:41:51] INFO    =================================================================
-[22:41:51] INFO    step_159: TEP mass measurement bias — proxy argument analysis
-[22:41:51] INFO    =================================================================
-[22:41:51] INFO    
+[17:22:24] INFO    =================================================================
+[17:22:24] INFO    step_159: TEP mass measurement bias — proxy argument analysis
+[17:22:24] INFO    =================================================================
+[17:22:24] INFO    
 --- Part 1: Simulation of partial rho suppression ---
-[22:41:51] INFO      True partial rho (M*_true control): 0.716
-[22:41:51] INFO      beta=0.0: partial rho=0.716 (100% of true signal)
-[22:41:51] INFO      beta=0.3: partial rho=0.635 (89% of true signal)
-[22:41:51] INFO      beta=0.5: partial rho=0.572 (80% of true signal)
-[22:41:51] INFO      beta=0.7: partial rho=0.513 (72% of true signal)
-[22:41:51] INFO      beta=1.0: partial rho=0.439 (61% of true signal)
-[22:41:51] INFO      beta=1.2: partial rho=0.398 (56% of true signal)
-[22:41:51] INFO    
+[17:22:24] INFO      True partial rho (M*_true control): 0.716
+[17:22:24] INFO      beta=0.0: partial rho=0.716 (100% of true signal)
+[17:22:24] INFO      beta=0.3: partial rho=0.635 (89% of true signal)
+[17:22:24] INFO      beta=0.5: partial rho=0.572 (80% of true signal)
+[17:22:24] INFO      beta=0.7: partial rho=0.513 (72% of true signal)
+[17:22:24] INFO      beta=1.0: partial rho=0.439 (61% of true signal)
+[17:22:24] INFO      beta=1.2: partial rho=0.398 (56% of true signal)
+[17:22:24] INFO    
 --- Part 2: Empirical beta from L4 dynamical mass data ---
-[22:41:51] INFO      Live L4 source: step_117_dynamical_mass_comparison
-[22:41:51] INFO      Analysis class: real_data_derived_regime_comparison_with_supplementary_object_level_kinematics
-[22:41:51] INFO      Regime: z~4.5, log M*>10.5 (RUBIES-like)
-[22:41:51] INFO      Typical Γt for beta calibration: 1.899 (published_regime_geometric_mean_from_tep_reduction)
-[22:41:51] INFO      Published excess target: 0.150 dex
-[22:41:51] INFO      Live TEP reduction in that regime: 0.139 dex
-[22:41:51] INFO      Ratio-equivalent consistency check: 1.413 → 1.025
-[22:41:51] INFO      Object-level bootstrap beta: median=0.509, 95% CI=[0.306, 0.992]
-[22:41:51] INFO      Predicted beta from M/L ~ t^0.7: 0.7
-[22:41:51] INFO      Agreement: 0.191 (within 27%)
-[22:41:51] INFO    
+[17:22:24] INFO      Live L4 source: step_117_dynamical_mass_comparison
+[17:22:24] INFO      Analysis class: real_data_derived_regime_comparison_with_supplementary_object_level_kinematics
+[17:22:24] INFO      Regime: z~4.5, log M*>10.5 (RUBIES-like)
+[17:22:24] INFO      Typical Γt for beta calibration: 1.894 (published_regime_geometric_mean_from_tep_reduction)
+[17:22:24] INFO      Published excess target: 0.150 dex
+[17:22:24] INFO      Live TEP reduction in that regime: 0.139 dex
+[17:22:24] INFO      Ratio-equivalent consistency check: 1.413 → 1.026
+[17:22:24] INFO      Object-level bootstrap beta: median=0.509, 95% CI=[0.306, 0.992]
+[17:22:24] INFO      Predicted beta from M/L ~ t^0.7: 0.7
+[17:22:24] INFO      Agreement: 0.191 (within 27%)
+[17:22:24] INFO    
 --- Part 3: Corrected partial rho estimates ---
-[22:41:51] INFO      Correction factor at beta=0.7: 1.39x
-[22:41:51] INFO      (Observed partial rhos are lower bounds; true signal ~1.4x stronger)
-[22:41:51] INFO      Correction factor at beta=0.509: 1.26x
-[22:41:51] INFO      Correction factor posterior (L4 bootstrap): median=1.26x, 95% CI=[1.13x, 1.62x]
-[22:41:51] INFO      GOODS-S dust replication unavailable in current workspace; omitting from correction table.
-[22:41:51] INFO      Key result corrections (lower bound → corrected estimate):
-[22:41:51] INFO        UNCOVER_dust_z4_10: 0.260 → 0.363 (bounded 95% CI [0.294, 0.422], P[sat]=0.00%)
-[22:41:51] INFO        COSMOS2025_dust_z9_13: 0.234 → 0.326 (bounded 95% CI [0.265, 0.380], P[sat]=0.00%)
-[22:41:51] INFO        DJA_balmer_z_gt_2: 0.136 → 0.190 (bounded 95% CI [0.154, 0.221], P[sat]=0.00%)
-[22:41:51] INFO    
+[17:22:24] INFO      Correction factor at beta=0.7: 1.39x
+[17:22:24] INFO      (Observed partial rhos are lower bounds; true signal ~1.4x stronger)
+[17:22:24] INFO      Correction factor at beta=0.509: 1.26x
+[17:22:24] INFO      Correction factor posterior (L4 bootstrap): median=1.26x, 95% CI=[1.13x, 1.62x]
+[17:22:24] INFO      GOODS-S dust replication unavailable in current workspace; omitting from correction table.
+[17:22:24] INFO      Key result corrections (lower bound → corrected estimate):
+[17:22:24] INFO        UNCOVER_dust_z4_10: 0.260 → 0.363 (bounded 95% CI [0.294, 0.422], P[sat]=0.00%)
+[17:22:24] INFO        COSMOS2025_dust_z9_13: 0.234 → 0.326 (bounded 95% CI [0.265, 0.380], P[sat]=0.00%)
+[17:22:24] INFO        DJA_balmer_z_gt_2: 0.136 → 0.190 (bounded 95% CI [0.154, 0.221], P[sat]=0.00%)
+[17:22:24] INFO    
 --- Part 4: Self-defeating proxy argument ---
-[22:41:51] INFO      Critic's dilemma:
-[22:41:51] INFO      (A) 'Gamma_t is just a mass proxy' => M*_obs contains Gamma_t info
-[22:41:51] INFO          => Partial correlation on M*_obs is OVER-CONTROLLING
-[22:41:51] INFO          => True signal is STRONGER than reported
-[22:41:51] INFO      (B) 'TEP does not bias M*_obs' => beta=0
-[22:41:51] INFO          => Gamma_t is NOT a mass proxy (carries independent info)
-[22:41:51] INFO      These are mutually exclusive. Cannot claim both simultaneously.
-[22:41:51] INFO    
-[22:41:51] INFO      Empirical test: M*_obs/M*_dyn should correlate with Gamma_t
-[22:41:51] INFO      Live L4 regime-equivalent ratio: 1.41→1.03 at Γt~1.9
-[22:41:51] INFO      Empirical regime-level scaling: Gamma_t^0.51 = 1.39
-[22:41:51] INFO      Theoretical mass-bias scaling at beta=0.7: Gamma_t^0.7 = 1.57
-[22:41:51] INFO    
+[17:22:24] INFO      Critic's dilemma:
+[17:22:24] INFO      (A) 'Gamma_t is just a mass proxy' => M*_obs contains Gamma_t info
+[17:22:24] INFO          => Partial correlation on M*_obs is OVER-CONTROLLING
+[17:22:24] INFO          => True signal is STRONGER than reported
+[17:22:24] INFO      (B) 'TEP does not bias M*_obs' => beta=0
+[17:22:24] INFO          => Gamma_t is NOT a mass proxy (carries independent info)
+[17:22:24] INFO      These are mutually exclusive. Cannot claim both simultaneously.
+[17:22:24] INFO    
+[17:22:24] INFO      Empirical test: M*_obs/M*_dyn should correlate with Gamma_t
+[17:22:24] INFO      Live L4 regime-equivalent ratio: 1.41→1.03 at Γt~1.9
+[17:22:24] INFO      Empirical regime-level scaling: Gamma_t^0.51 = 1.38
+[17:22:24] INFO      Theoretical mass-bias scaling at beta=0.7: Gamma_t^0.7 = 1.56
+[17:22:24] INFO    
 --- Part 5: Null results re-examined with debiased mass control ---
-[22:41:51] INFO      beta_debiasing = 0.51 (live L4 regime-consistency check)
-[22:41:51] INFO      Debiased mass: log_M*_true = log_M*_obs - 0.51 * log(Gamma_t)
-[22:41:51] INFO    
-[22:41:51] INFO      O32 ionization z>7:
-[22:41:51] INFO        M*_obs control: rho=-4.0e55 p=0.0022 (marginal)
-[22:41:51] INFO        M*_true control: rho=-0.204 p=0.00013 (significant)
-[22:41:51] INFO        Interpretation: deeper potentials -> more dust -> absorbs ionizing photons
-[22:41:51] INFO        -> lower observed O32 (consistent with TEP dust prediction)
-[22:41:51] INFO    
-[22:41:51] INFO      Hbeta EW z>7:
-[22:41:51] INFO        M*_obs control: rho=-0.133 p=0.00011
-[22:41:51] INFO        M*_true control: rho=-0.196 p=1.1e-08 (much stronger)
-[22:41:51] INFO        Interpretation: deeper potentials -> older apparent populations
-[22:41:51] INFO        -> lower Hbeta EW (consistent with TEP stellar age prediction)
-[22:41:51] INFO    
-[22:41:51] INFO      COSMOS2025 sSFR blank-field follow-up is not used as a live replication claim in the current workspace.
-[22:41:51] INFO      O32 null at all z with M*_obs control was ARTIFACT of over-controlling
-[22:41:51] INFO    
+[17:22:24] INFO      beta_debiasing = 0.51 (live L4 regime-consistency check)
+[17:22:24] INFO      Debiased mass: log_M*_true = log_M*_obs - 0.51 * log(Gamma_t)
+[17:22:24] INFO    
+[17:22:24] INFO      O32 ionization z>7:
+[17:22:24] INFO        M*_obs control: rho=-4.0e55 p=0.0022 (marginal)
+[17:22:24] INFO        M*_true control: rho=-0.204 p=0.00013 (significant)
+[17:22:24] INFO        Interpretation: deeper potentials -> more dust -> absorbs ionizing photons
+[17:22:24] INFO        -> lower observed O32 (consistent with TEP dust prediction)
+[17:22:24] INFO    
+[17:22:24] INFO      Hbeta EW z>7:
+[17:22:24] INFO        M*_obs control: rho=-0.133 p=0.00011
+[17:22:24] INFO        M*_true control: rho=-0.196 p=1.1e-08 (much stronger)
+[17:22:24] INFO        Interpretation: deeper potentials -> older apparent populations
+[17:22:24] INFO        -> lower Hbeta EW (consistent with TEP stellar age prediction)
+[17:22:24] INFO    
+[17:22:24] INFO      COSMOS2025 sSFR blank-field follow-up is not used as a live replication claim in the current workspace.
+[17:22:24] INFO      O32 null at all z with M*_obs control was ARTIFACT of over-controlling
+[17:22:24] INFO    
 =================================================================
-[22:41:51] INFO    SUMMARY
-[22:41:51] INFO      Suppression at beta=0.7: 72% of true signal
-[22:41:51] INFO      Empirical beta from L4: 0.509 (predicted: 0.7)
-[22:41:51] INFO      Correction factor (beta=0.7 prior): 1.39x
-[22:41:51] INFO      Correction factor (live L4-consistent beta): 1.26x
-[22:41:51] INFO      Self-defeating proxy argument: confirmed by simulation
-[22:41:51] INFO    =================================================================
-[22:41:51] INFO    Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_159_mass_measurement_bias.json
+[17:22:24] INFO    SUMMARY
+[17:22:24] INFO      Suppression at beta=0.7: 72% of true signal
+[17:22:24] INFO      Empirical beta from L4: 0.509 (predicted: 0.7)
+[17:22:24] INFO      Correction factor (beta=0.7 prior): 1.39x
+[17:22:24] INFO      Correction factor (live L4-consistent beta): 1.26x
+[17:22:24] INFO      Self-defeating proxy argument: confirmed by simulation
+[17:22:24] INFO    =================================================================
+[17:22:24] INFO    Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_159_mass_measurement_bias.json

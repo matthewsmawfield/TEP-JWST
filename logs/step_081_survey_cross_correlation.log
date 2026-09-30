@@ -1,51 +1,51 @@
-[22:36:59] INFO        ======================================================================
-[22:36:59] INFO        STEP 081: Survey Cross-Correlation Analysis
-[22:36:59] INFO        ======================================================================
-[22:36:59] INFO        
+[13:25:56] INFO        ======================================================================
+[13:25:56] INFO        STEP 081: Survey Cross-Correlation Analysis
+[13:25:56] INFO        ======================================================================
+[13:25:56] INFO        
 --- 1. Loading Survey Data ---
-[22:36:59] INFO          UNCOVER: N = 2315
-[22:36:59] INFO          CEERS: N = 82
-[22:36:59] INFO          COSMOS-Web: N = 2606
-[22:36:59] INFO        
+[13:25:56] INFO          UNCOVER: N = 2157
+[13:25:56] INFO          CEERS: N = 82
+[13:25:56] INFO          COSMOS-Web: N = 2606
+[13:25:56] INFO        
 --- 2. Standardizing Γt Calculation ---
-[22:36:59] INFO          UNCOVER: Γt computed, mean = 0.634
-[22:36:59] INFO          CEERS: Γt computed, mean = 2.037
-[22:36:59] INFO          COSMOS-Web: Γt computed, mean = 0.785
-[22:36:59] INFO        
+[13:25:56] INFO          UNCOVER: Γt computed, mean = 0.632
+[13:25:56] INFO          CEERS: Γt computed, mean = 2.037
+[13:25:56] INFO          COSMOS-Web: Γt computed, mean = 0.785
+[13:25:56] INFO        
 --- 3. Survey-Specific Correlations (z > 8) ---
-[22:36:59] INFO          UNCOVER: ρ = 0.595 [0.514, 0.665], N = 283
-[22:36:59] INFO          CEERS: ρ = 0.655 [0.511, 0.764], N = 82
-[22:36:59] INFO          COSMOS-Web: ρ = 0.630 [0.589, 0.668], N = 918
-[22:36:59] INFO        
+[13:25:56] INFO          UNCOVER: ρ = 0.646 [0.568, 0.712], N = 254
+[13:25:56] INFO          CEERS: ρ = 0.655 [0.511, 0.764], N = 82
+[13:25:56] INFO          COSMOS-Web: ρ = 0.630 [0.589, 0.668], N = 918
+[13:25:56] INFO        
 --- 4. Meta-Analysis ---
-[22:36:59] INFO          Combined ρ = 0.624 [0.589, 0.657]
-[22:36:59] INFO          Combined p = 2.30e-150
-[22:36:59] INFO          Total N = 1283
-[22:36:59] INFO        
+[13:25:56] INFO          Combined ρ = 0.635 [0.601, 0.667]
+[13:25:56] INFO          Combined p = 3.65e-154
+[13:25:56] INFO          Total N = 1254
+[13:25:56] INFO        
 --- 5. Heterogeneity Test ---
-[22:36:59] INFO          Cochran's Q = 0.93, p = 0.629
-[22:36:59] INFO          I² = 0.0% (Low heterogeneity)
-[22:36:59] INFO          Surveys consistent: True
-[22:36:59] INFO        
+[13:25:56] INFO          Cochran's Q = 0.24, p = 0.886
+[13:25:56] INFO          I² = 0.0% (Low heterogeneity)
+[13:25:56] INFO          Surveys consistent: True
+[13:25:56] INFO        
 --- 6. Systematic Error Analysis ---
-[22:36:59] INFO          UNCOVER mass: 8.46 ± 0.43
-[22:36:59] INFO          CEERS mass: 9.03 ± 0.90
-[22:36:59] INFO          COSMOS-Web mass: 8.75 ± 0.73
-[22:36:59] INFO        
+[13:25:56] INFO          UNCOVER mass: 8.46 ± 0.43
+[13:25:56] INFO          CEERS mass: 9.03 ± 0.90
+[13:25:56] INFO          COSMOS-Web mass: 8.75 ± 0.73
+[13:25:56] INFO        
 --- 7. Temporal Inversion and Dust Timescale Tests ---
-[22:36:59] INFO          UNCOVER (dust>0): Δρ = +0.330, ratio = 1.70× (p=7.52e-07)
-[22:36:59] INFO          CEERS (dust>0): Δρ = +0.626, ratio = 2.29× (p=6.81e-03)
-[22:36:59] INFO          COSMOS-Web (dust>0): Δρ = +0.847, ratio = 1.58× (p=1.63e-02)
-[22:36:59] INFO          COSMOS-Web (all dust): det frac 0.57 vs 0.06 (p=4.60e-176)
-[22:36:59] INFO        
+[13:25:56] INFO          UNCOVER (dust>0): Δρ = +0.357, ratio = 1.63× (p=6.64e-06)
+[13:25:56] INFO          CEERS (dust>0): Δρ = +0.626, ratio = 2.29× (p=6.81e-03)
+[13:25:56] INFO          COSMOS-Web (dust>0): Δρ = +0.847, ratio = 1.58× (p=1.63e-02)
+[13:25:56] INFO          COSMOS-Web (all dust): det frac 0.57 vs 0.06 (p=4.60e-176)
+[13:25:56] INFO        
 --- 8. Replication Assessment ---
-[22:36:59] INFO          Significant in 3/3 surveys
-[22:36:59] INFO          All same sign: True
-[22:36:59] INFO          Status: FULLY REPLICATED
-[22:36:59] INFO        
+[13:25:56] INFO          Significant in 3/3 surveys
+[13:25:56] INFO          All same sign: True
+[13:25:56] INFO          Status: FULLY REPLICATED
+[13:25:56] INFO        
 ======================================================================
-[22:36:59] INFO        CROSS-CORRELATION SUMMARY
-[22:36:59] INFO        ======================================================================
-[22:36:59] INFO          The z>8 dust-Γt correlation is replicated across 3 independent JWST surveys with combined ρ = 0.62 (N = 1283). Heterogeneity is low heterogeneity, indicating broadly consistent effect sizes.
-[22:36:59] INFO        
+[13:25:56] INFO        CROSS-CORRELATION SUMMARY
+[13:25:56] INFO        ======================================================================
+[13:25:56] INFO          The z>8 dust-Γt correlation is replicated across 3 independent JWST surveys with combined ρ = 0.63 (N = 1254). Heterogeneity is low heterogeneity, indicating broadly consistent effect sizes.
+[13:25:56] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_081_survey_cross_correlation.json

@@ -2,8 +2,8 @@
   "step": "Step 104: Cosmic Variance Quantification",
   "surveys": {
     "UNCOVER": {
-      "n_total": 2315,
-      "n_z8": 283,
+      "n_total": 2157,
+      "n_z8": 254,
       "area_arcmin2": 45,
       "field": "Abell 2744"
     },
@@ -23,8 +23,8 @@
   "cosmic_variance_estimates": {
     "UNCOVER": {
       "sigma_cv": 3.6469726253495898,
-      "sigma_poisson": 0.0594438298277764,
-      "sigma_total": 3.647457045525536
+      "sigma_poisson": 0.06274558051381586,
+      "sigma_total": 3.647512349248909
     },
     "CEERS": {
       "sigma_cv": 2.446463610708766,
@@ -39,13 +39,13 @@
   },
   "field_correlations": {
     "UNCOVER": {
-      "rho": 0.5945661186122826,
-      "p": 1.924326374404679e-28,
-      "n": 283
+      "rho": 0.6457648560030902,
+      "p": 2.2986036547901105e-31,
+      "n": 254
     }
   },
   "cross_field_consistency": {
-    "rho_mean": 0.5945661186122826,
+    "rho_mean": 0.6457648560030902,
     "rho_std": 0.0,
     "consistent_sign": true,
     "n_fields": 3

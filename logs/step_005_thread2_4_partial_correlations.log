@@ -1,44 +1,44 @@
-[22:35:47] INFO        ============================================================
-[22:35:47] INFO        STEP 8: Threads 2-4 - Partial Correlations
-[22:35:47] INFO        ============================================================
-[22:35:47] INFO        Loaded full sample: N = 2315
-[22:35:47] INFO        Loaded multi-property sample: N = 1108
-[22:35:47] INFO        
+[13:24:58] INFO        ============================================================
+[13:24:58] INFO        STEP 8: Threads 2-4 - Partial Correlations
+[13:24:58] INFO        ============================================================
+[13:24:58] INFO        Loaded full sample: N = 2157
+[13:24:58] INFO        Loaded multi-property sample: N = 1041
+[13:24:58] INFO        
 ==================================================
-[22:35:47] INFO        THREAD 2: Γ_t vs Age Ratio
-[22:35:47] INFO        ==================================================
-[22:35:47] INFO        Raw correlation: rho = 0.009, p = 6.63e-01
-[22:35:49] INFO          N = 2315
-[22:35:49] INFO          ρ(Γ_t, age_ratio | z) = 0.092, p = 1.03e-05
-[22:35:49] INFO          ρ(Γ_t, age_ratio | z, M*) = -0.001, p = 9.43e-01
-[22:35:49] INFO          ★ SIGNIFICANT (z-control): True
-[22:35:49] INFO          ★ SIGNIFICANT (z+M* control): False
-[22:35:49] INFO        
+[13:24:58] INFO        THREAD 2: Γ_t vs Age Ratio
+[13:24:58] INFO        ==================================================
+[13:24:58] INFO        Raw correlation: rho = 0.010, p = 6.46e-01
+[13:25:00] INFO          N = 2157
+[13:25:00] INFO          ρ(Γ_t, age_ratio | z) = 0.102, p = 1.89e-06
+[13:25:00] INFO          ρ(Γ_t, age_ratio | z, M*) = 0.007, p = 7.49e-01
+[13:25:00] INFO          ★ SIGNIFICANT (z-control): True
+[13:25:00] INFO          ★ SIGNIFICANT (z+M* control): False
+[13:25:00] INFO        
 ==================================================
-[22:35:49] INFO        THREAD 3: Γ_t vs Metallicity
-[22:35:49] INFO        ==================================================
-[22:35:49] INFO        Raw correlation: rho = 0.268, p = 9.48e-20
-[22:35:50] INFO          N = 1108
-[22:35:50] INFO          ρ(Γ_t, metallicity | z) = 0.169, p = 1.62e-08
-[22:35:50] INFO          ρ(Γ_t, metallicity | z, M*) = 0.028, p = 3.59e-01
-[22:35:50] INFO          ★ SIGNIFICANT (z-control): True
-[22:35:50] INFO          ★ SIGNIFICANT (z+M* control): False
-[22:35:50] INFO        
+[13:25:00] INFO        THREAD 3: Γ_t vs Metallicity
+[13:25:00] INFO        ==================================================
+[13:25:00] INFO        Raw correlation: rho = 0.280, p = 3.15e-20
+[13:25:01] INFO          N = 1041
+[13:25:01] INFO          ρ(Γ_t, metallicity | z) = 0.194, p = 3.02e-10
+[13:25:01] INFO          ρ(Γ_t, metallicity | z, M*) = 0.040, p = 1.96e-01
+[13:25:01] INFO          ★ SIGNIFICANT (z-control): True
+[13:25:01] INFO          ★ SIGNIFICANT (z+M* control): False
+[13:25:01] INFO        
 ==================================================
-[22:35:50] INFO        THREAD 4: Γ_t vs Dust
-[22:35:50] INFO        ==================================================
-[22:35:50] INFO        Raw correlation: rho = 0.251, p = 2.31e-17
-[22:35:52] INFO          N = 1108
-[22:35:52] INFO          ρ(Γ_t, dust | z) = 0.329, p = 2.05e-29
-[22:35:52] INFO          ρ(Γ_t, dust | z, M*) = 0.100, p = 8.23e-04
-[22:35:52] INFO          ★ SIGNIFICANT (z-control): True
-[22:35:52] INFO          ★ SIGNIFICANT (z+M* control): True
-[22:35:52] INFO        
+[13:25:01] INFO        THREAD 4: Γ_t vs Dust
+[13:25:01] INFO        ==================================================
+[13:25:01] INFO        Raw correlation: rho = 0.252, p = 1.52e-16
+[13:25:02] INFO          N = 1041
+[13:25:02] INFO          ρ(Γ_t, dust | z) = 0.347, p = 8.44e-31
+[13:25:02] INFO          ρ(Γ_t, dust | z, M*) = 0.100, p = 1.25e-03
+[13:25:02] INFO          ★ SIGNIFICANT (z-control): True
+[13:25:02] INFO          ★ SIGNIFICANT (z+M* control): True
+[13:25:02] INFO        
 ==================================================
-[22:35:52] INFO        SUMMARY
-[22:35:52] INFO        ==================================================
-[22:35:52] INFO        Thread 2 (Γ_t vs Age):        ✓
-[22:35:52] INFO        Thread 3 (Γ_t vs Metallicity): ✓
-[22:35:52] INFO        Thread 4 (Γ_t vs Dust):        ✓
-[22:35:52] INFO    
-[22:35:52] INFO        Step 005 complete.
+[13:25:02] INFO        SUMMARY
+[13:25:02] INFO        ==================================================
+[13:25:02] INFO        Thread 2 (Γ_t vs Age):        ✓
+[13:25:02] INFO        Thread 3 (Γ_t vs Metallicity): ✓
+[13:25:02] INFO        Thread 4 (Γ_t vs Dust):        ✓
+[13:25:02] INFO    
+[13:25:02] INFO        Step 005 complete.

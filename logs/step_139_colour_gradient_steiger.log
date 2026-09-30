@@ -1,12 +1,1 @@
-[22:38:45] INFO    ======================================================================
-[22:38:45] INFO    Step 139: Colour-Gradient Steiger Z-Test
-[22:38:45] INFO    ======================================================================
-[22:38:45] INFO        Loading JADES data with TEP quantities...
-[22:38:46] INFO    Loaded JADES data from /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/interim/jades_resolved_gradients.csv (277 rows)
-[22:38:46] INFO    Analysis sample: N = 277 galaxies
-[22:38:46] INFO        Raw correlations: ρ(grad,Γt)=-0.192 p=1.30e-03; ρ(grad,M*)=-0.166 p=5.73e-03
-[22:38:46] INFO          ρ(grad,t_eff)=-0.195 p=1.08e-03; ρ(grad,t_cosmic)=-0.186 p=1.84e-03
-[22:38:46] INFO        Steiger Z: t_eff vs M* -> Z=-0.49, p=0.6228; t_eff vs t_cosmic -> Z=-1.06, p=0.2909
-[22:38:46] INFO          z=8-10: N=217, ρ=-0.076, p=0.266
-[22:38:47] INFO    Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_139_colour_gradient_steiger.json
-[22:38:47] INFO        Summary: Colour gradient correlates with Gamma_t at rho = -0.192 (p = 1.30e-03). Steiger Z-test (t_eff vs M*): Z = -0.49, p = 0.6228. Partial rho after observed-mass+z control: 0.037 (p = 0.5379); after debiased-mass+z control: 0.039 (p = 0.5224). Real JADES resolved photometry shows a raw core-screening correlation, but the Steiger and partial-correlation tests do not yet establish unique TEP discrimination.
+[14:01:33] INFO    Loaded JADES data from /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/data/interim/jades_resolved_gradients.csv (277 rows)

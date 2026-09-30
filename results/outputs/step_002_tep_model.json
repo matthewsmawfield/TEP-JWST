@@ -17,29 +17,29 @@
     "legacy_gamma_t_column": "Alias of ml_response for compatibility"
   },
   "ml_response_stats_full": {
-    "min": 0.5285940863602164,
+    "min": 0.5292045452868036,
     "max": 6.0300843506077735,
-    "median": 0.6264009591489367,
-    "n_gt_1": 17,
-    "n_gt_1p5": 6
+    "median": 0.6265492681882143,
+    "n_gt_1": 13,
+    "n_gt_1p5": 3
   },
   "ml_response_stats_multi": {
-    "min": 0.5285940863602164,
+    "min": 0.5512170514183572,
     "max": 6.0300843506077735,
-    "median": 0.6397351889028139
+    "median": 0.6398811290230326
   },
   "gamma_t_stats_full": {
     "legacy_alias_for": "ml_response_stats_full",
-    "min": 0.5285940863602164,
+    "min": 0.5292045452868036,
     "max": 6.0300843506077735,
-    "median": 0.6264009591489367,
-    "n_gt_1": 17,
-    "n_gt_1p5": 6
+    "median": 0.6265492681882143,
+    "n_gt_1": 13,
+    "n_gt_1p5": 3
   },
   "gamma_t_stats_multi": {
     "legacy_alias_for": "ml_response_stats_multi",
-    "min": 0.5285940863602164,
+    "min": 0.5512170514183572,
     "max": 6.0300843506077735,
-    "median": 0.6397351889028139
+    "median": 0.6398811290230326
   }
 }

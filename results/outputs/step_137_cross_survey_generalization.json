@@ -3,7 +3,7 @@
   "description": "Tests whether t_eff (0 parameters) generalizes better across surveys than a fitted polynomial (M*, z, M*\u00d7z; 4 parameters). Uses continuous dust prediction (Spearman \u03c1 and OLS R\u00b2) for leave-one-survey-out.",
   "surveys": {
     "UNCOVER": {
-      "n": 283
+      "n": 254
     },
     "CEERS": {
       "n": 71
@@ -15,13 +15,13 @@
   "within_survey": [
     {
       "survey": "UNCOVER",
-      "n": 283,
-      "rho_teff": 0.32407602520619544,
-      "p_teff": 2.419620597410013e-08,
-      "rho_mstar": 0.5594522703471411,
-      "p_mstar": 1.046457458256734e-24,
-      "poly_cv_r2": 0.4729245777109199,
-      "teff_cv_r2": 0.0653543240211788
+      "n": 254,
+      "rho_teff": 0.328536304503439,
+      "p_teff": 8.336364473355369e-08,
+      "rho_mstar": 0.6005719233944862,
+      "p_mstar": 2.749164192772937e-26,
+      "poly_cv_r2": 0.4904351138050179,
+      "teff_cv_r2": -0.06899544048223993
     },
     {
       "survey": "CEERS",
@@ -52,15 +52,15 @@
         "COSMOS-Web"
       ],
       "n_train": 2411,
-      "n_test": 283,
-      "poly_r2_cross": -1.387699856461106,
-      "poly_r2_within": 0.4729245777109199,
-      "poly_r2_drop": 1.860624434172026,
-      "rho_poly_cross": 0.5423006424381943,
-      "p_poly_cross": 4.882405868766994e-23,
-      "rho_teff_cross": 0.32407602520619544,
-      "p_teff_cross": 2.419620597410013e-08,
-      "teff_rho_advantage": -0.21822461723199887
+      "n_test": 254,
+      "poly_r2_cross": -1.830979326975751,
+      "poly_r2_within": 0.4904351138050179,
+      "poly_r2_drop": 2.321414440780769,
+      "rho_poly_cross": 0.5822733039560475,
+      "p_poly_cross": 1.880615950024691e-24,
+      "rho_teff_cross": 0.328536304503439,
+      "p_teff_cross": 8.336364473355369e-08,
+      "teff_rho_advantage": -0.25373699945260847
     },
     {
       "test_survey": "CEERS",
@@ -68,16 +68,16 @@
         "UNCOVER",
         "COSMOS-Web"
       ],
-      "n_train": 2623,
+      "n_train": 2594,
       "n_test": 71,
-      "poly_r2_cross": 0.1701749413471565,
+      "poly_r2_cross": 0.15133856678677782,
       "poly_r2_within": 0.556747418839693,
-      "poly_r2_drop": 0.38657247749253654,
-      "rho_poly_cross": 0.788262910798122,
-      "p_poly_cross": 3.3845001674988913e-16,
+      "poly_r2_drop": 0.4054088520529152,
+      "rho_poly_cross": 0.7894701542588866,
+      "p_poly_cross": 2.8398653794180267e-16,
       "rho_teff_cross": 0.651945003353454,
       "p_teff_cross": 7.353716298067796e-10,
-      "teff_rho_advantage": -0.1363179074446681
+      "teff_rho_advantage": -0.1375251509054326
     },
     {
       "test_survey": "COSMOS-Web",
@@ -85,27 +85,27 @@
         "UNCOVER",
         "CEERS"
       ],
-      "n_train": 354,
+      "n_train": 325,
       "n_test": 2340,
-      "poly_r2_cross": -6.433076773074832,
+      "poly_r2_cross": -6.145213595221661,
       "poly_r2_within": 0.5083586758881823,
-      "poly_r2_drop": 6.941435448963015,
-      "rho_poly_cross": 0.7236493183486864,
+      "poly_r2_drop": 6.6535722711098435,
+      "rho_poly_cross": 0.722587039085377,
       "p_poly_cross": 1e-300,
       "rho_teff_cross": 0.6963801132011056,
       "p_teff_cross": 1e-300,
-      "teff_rho_advantage": -0.0272692051475808
+      "teff_rho_advantage": -0.026206925884271426
     }
   ],
   "summary": {
     "n_tests": 3,
-    "mean_teff_rho_advantage": -0.12727057660808258,
+    "mean_teff_rho_advantage": -0.1391563587474375,
     "teff_rho_wins": 0,
-    "mean_poly_r2_drop": 3.062877453542525,
+    "mean_poly_r2_drop": 3.1267985213145093,
     "individual_advantages": {
-      "UNCOVER": -0.21822461723199887,
-      "CEERS": -0.1363179074446681,
-      "COSMOS-Web": -0.0272692051475808
+      "UNCOVER": -0.25373699945260847,
+      "CEERS": -0.1375251509054326,
+      "COSMOS-Web": -0.026206925884271426
     },
     "interpretation": "Polynomial generalizes comparably or better than t_eff."
   }

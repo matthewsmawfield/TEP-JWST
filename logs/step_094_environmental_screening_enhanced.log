@@ -1,53 +1,53 @@
-[22:37:24] INFO        ======================================================================
-[22:37:24] INFO        STEP 094: Enhanced Environmental Screening Analysis
-[22:37:24] INFO        ======================================================================
-[22:37:24] INFO        Loaded 2315 galaxies from UNCOVER
-[22:37:24] INFO        Using real sky coordinates for density estimation
-[22:37:24] INFO        Computing density estimators...
-[22:37:24] INFO        
+[13:26:15] INFO        ======================================================================
+[13:26:15] INFO        STEP 094: Enhanced Environmental Screening Analysis
+[13:26:15] INFO        ======================================================================
+[13:26:15] INFO        Loaded 2157 galaxies from UNCOVER
+[13:26:15] INFO        Using real sky coordinates for density estimation
+[13:26:15] INFO        Computing density estimators...
+[13:26:15] INFO        
 Testing screening hypothesis with multiple density estimators:
-[22:37:24] INFO        
+[13:26:15] INFO        
   density_5nn:
-[22:37:25] INFO            rho(high density) = -0.357
-[22:37:25] INFO            rho(low density)  = -0.119
-[22:37:25] INFO            delta_rho = 0.238 [0.162, 0.319]
-[22:37:25] INFO            Result: Consistent with TEP screening prediction (delta_rho = +0.238, 95% CI [+0.162, +0.319])
-[22:37:25] INFO        
+[13:26:16] INFO            rho(high density) = -0.364
+[13:26:16] INFO            rho(low density)  = -0.133
+[13:26:16] INFO            delta_rho = 0.231 [0.145, 0.312]
+[13:26:16] INFO            Result: Consistent with TEP screening prediction (delta_rho = +0.231, 95% CI [+0.145, +0.312])
+[13:26:16] INFO        
   density_1arcmin:
-[22:37:27] INFO            rho(high density) = -0.312
-[22:37:27] INFO            rho(low density)  = -0.097
-[22:37:27] INFO            delta_rho = 0.215 [0.129, 0.300]
-[22:37:27] INFO            Result: Consistent with TEP screening prediction (delta_rho = +0.215, 95% CI [+0.129, +0.300])
-[22:37:27] INFO        
+[13:26:17] INFO            rho(high density) = -0.324
+[13:26:17] INFO            rho(low density)  = -0.127
+[13:26:17] INFO            delta_rho = 0.197 [0.107, 0.284]
+[13:26:17] INFO            Result: Consistent with TEP screening prediction (delta_rho = +0.197, 95% CI [+0.107, +0.284])
+[13:26:17] INFO        
   density_2arcmin:
-[22:37:28] INFO            rho(high density) = -0.217
-[22:37:28] INFO            rho(low density)  = -0.128
-[22:37:28] INFO            delta_rho = 0.089 [0.008, 0.173]
-[22:37:28] INFO            Result: Consistent with TEP screening prediction (delta_rho = +0.089, 95% CI [+0.008, +0.173])
-[22:37:28] INFO        
+[13:26:18] INFO            rho(high density) = -0.235
+[13:26:18] INFO            rho(low density)  = -0.138
+[13:26:18] INFO            delta_rho = 0.097 [0.010, 0.180]
+[13:26:18] INFO            Result: Consistent with TEP screening prediction (delta_rho = +0.097, 95% CI [+0.010, +0.180])
+[13:26:18] INFO        
   overdensity:
-[22:37:29] INFO            rho(high density) = -0.217
-[22:37:29] INFO            rho(low density)  = -0.128
-[22:37:29] INFO            delta_rho = 0.089 [0.010, 0.176]
-[22:37:29] INFO            Result: Consistent with TEP screening prediction (delta_rho = +0.089, 95% CI [+0.010, +0.176])
-[22:37:29] INFO        
+[13:26:19] INFO            rho(high density) = -0.235
+[13:26:19] INFO            rho(low density)  = -0.138
+[13:26:19] INFO            delta_rho = 0.097 [0.003, 0.191]
+[13:26:19] INFO            Result: Consistent with TEP screening prediction (delta_rho = +0.097, 95% CI [+0.003, +0.191])
+[13:26:19] INFO        
 Testing by redshift bins:
-[22:37:32] INFO          z=4-6: delta_rho=-0.154, TEP: Inconclusive or inconsistent with TEP screening prediction (delta_rho = -0.154, 95% CI [-0.265, -0.054])
-[22:37:32] INFO          z=6-8: delta_rho=0.508, TEP: Consistent with TEP screening prediction (delta_rho = +0.508, 95% CI [+0.347, +0.664])
-[22:37:32] INFO          z=8-10: delta_rho=0.137, TEP: Inconclusive or inconsistent with TEP screening prediction (delta_rho = +0.137, 95% CI [-0.027, +0.309])
-[22:37:32] INFO        
+[13:26:21] INFO          z=4-6: delta_rho=-0.175, TEP: Inconclusive or inconsistent with TEP screening prediction (delta_rho = -0.175, 95% CI [-0.287, -0.063])
+[13:26:21] INFO          z=6-8: delta_rho=0.504, TEP: Consistent with TEP screening prediction (delta_rho = +0.504, 95% CI [+0.322, +0.664])
+[13:26:21] INFO          z=8-10: delta_rho=0.192, TEP: Consistent with TEP screening prediction (delta_rho = +0.192, 95% CI [+0.016, +0.357])
+[13:26:21] INFO        
 Testing with isolation index (field vs clustered):
-[22:37:32] INFO          Field galaxies: rho = -0.102 (n=1147)
-[22:37:32] INFO          Clustered galaxies: rho = -0.242 (n=1168)
-[22:37:32] INFO          Delta: 0.141
-[22:37:32] INFO        
+[13:26:21] INFO          Field galaxies: rho = -0.123 (n=1072)
+[13:26:21] INFO          Clustered galaxies: rho = -0.265 (n=1085)
+[13:26:21] INFO          Delta: 0.142
+[13:26:21] INFO        
 ======================================================================
-[22:37:32] INFO        SUMMARY
-[22:37:32] INFO        ======================================================================
-[22:37:32] INFO        Tests supporting TEP screening: 5/5
-[22:37:32] INFO        Result: 5/5 density estimators show the predicted screening pattern
-[22:37:32] INFO        
+[13:26:21] INFO        SUMMARY
+[13:26:21] INFO        ======================================================================
+[13:26:21] INFO        Tests supporting TEP screening: 5/5
+[13:26:21] INFO        Result: 5/5 density estimators show the predicted screening pattern
+[13:26:21] INFO        
 Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_094_environmental_screening_enhanced.json
-[22:37:32] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_094_environmental_screening_enhanced.png
-[22:37:32] INFO        
+[13:26:21] INFO        Figure saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/figures/figure_094_environmental_screening_enhanced.png
+[13:26:21] INFO        
 Step 094 complete.

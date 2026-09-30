@@ -3,40 +3,40 @@
   "name": "thread6_7_coherence",
   "thread6_age_metallicity": {
     "test": "Thread 6: Age-Metallicity Coherence",
-    "n": 1108,
-    "rho": 0.3308190995664502,
-    "p": 1.0486667323447951e-29,
+    "n": 1041,
+    "rho": 0.349222576419084,
+    "p": 3.192084736234745e-31,
     "ci_95": [
-      0.2667979298867693,
-      0.38753421311259173
+      0.28770972899559955,
+      0.4094542868021933
     ],
     "significant": true,
     "interpretation": "Older \u2192 more enriched (TEP consistent)"
   },
   "thread7_multi_property": {
     "test": "Thread 7: Multi-Property Split Test",
-    "n": 1108,
-    "gamma_median": 0.6397351889028139,
+    "n": 1041,
+    "gamma_median": 0.6398811290230326,
     "properties": {
       "age_ratio": {
-        "mean_low_gamma": 0.13066300882268322,
-        "mean_high_gamma": 0.1697526427324407,
-        "diff": 0.039089633909757476,
-        "p": 3.08068616423822e-19,
+        "mean_low_gamma": 0.13086739906348352,
+        "mean_high_gamma": 0.16961030676244496,
+        "diff": 0.03874290769896144,
+        "p": 5.111467308098712e-19,
         "significant": true
       },
       "metallicity": {
-        "mean_low_gamma": -1.2629664254310866,
-        "mean_high_gamma": -1.0579982508029682,
-        "diff": 0.20496817462811845,
-        "p": 1.5706194628501797e-13,
+        "mean_low_gamma": -1.251368380335773,
+        "mean_high_gamma": -1.0454771649583383,
+        "diff": 0.2058912153774346,
+        "p": 2.4031888413740897e-13,
         "significant": true
       },
       "dust": {
-        "mean_low_gamma": 0.2324636580764446,
-        "mean_high_gamma": 0.32370386765522247,
-        "diff": 0.09124020957877788,
-        "p": 9.510663768585108e-10,
+        "mean_low_gamma": 0.22515297187628683,
+        "mean_high_gamma": 0.31863515384757535,
+        "diff": 0.09348218197128852,
+        "p": 4.64862900713151e-10,
         "significant": true
       }
     },

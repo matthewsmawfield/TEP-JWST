@@ -92,7 +92,7 @@
     TEP requires a screening mechanism to reconcile the large clock-sector 
     response with Solar System precision tests. In the TEP 
     framework, this is achieved through Temporal Shear: the 
-    suppression of field gradients in dense environments. 
+    suppression of the incremental field gradient by the environmental operator. 
     Phenomenologically, the screening is characterized by a 
     density-dependent saturation profile:
   </p>
@@ -1195,9 +1195,13 @@
     Compton wavelength $\lambda_C = 1/m_{\text{eff}}$. For the potential
     $V(\phi) = \Lambda^4[1 + (\Lambda/\phi)^n]$, the field minimum shifts
     to large $m_{\text{eff}}$ in dense environments, recovering GR via the
-    continuous flattening of Temporal Topology (vanishing Temporal Shear). This mechanism follows
-    directly from the action in §A.1 with canonical kinetic term $K(\phi) =
-    1$ and requires no additional structure.
+    continuous flattening of Temporal Topology (vanishing Temporal Shear). On the corpus's frozen
+    coupling $\beta_A = -1$ the inverse-power family admits no positive-density equilibrium
+    and is excluded by Paper 0's constraint F1; it is retained here strictly as a
+    conventional-background compatibility embedding (a proxy demonstration that a screened
+    scalar sector need not disturb the observed phenomenology), not as the canonical $V(\phi)$.
+    The canonical matter-hosting branch of Paper 0's master potential is the quartic
+    self-interaction, which is the admissible weak-field realization on this coupling branch.
   </p>
 
   <p>
@@ -1205,10 +1209,16 @@
     canonical kinetic term $K(\phi)(\partial\phi)^2$ is generalized to a
     non-linear form $P(X,\phi)$ with $X =
     -\frac{1}{2}g^{\mu\nu}\partial_\mu\phi\partial_\nu\phi$. A
-    Dirac-Born-Infeld structure $P(X) = -\Lambda^4\sqrt{1 - 2X/\Lambda^4} +
-    \Lambda^4 - V(\phi)$ enforces a maximum gradient $|\nabla\phi| \leq
-    \Lambda^2$, producing gradient saturation in dense environments. This
-    identifies $\rho_T \equiv \Lambda^4 \approx 20$ g/cm³. The resulting
+    Dirac-Born-Infeld structure $P(X) = -\Lambda_X^4\sqrt{1 - 2X/\Lambda_X^4} +
+    \Lambda_X^4 - V(\phi)$ enforces a maximum gradient $|\nabla\phi| \leq
+    \Lambda_X^2$, producing gradient saturation in dense environments. The
+    ceiling $\Lambda_X$ is a gradient/shear scale, not a density scale — in
+    the corpus's working kinetic completion it takes the value
+    $\Lambda_X = \sqrt{M_{\rm Pl}H_0} \approx 1.9$ meV (Paper 0) — while
+    the saturation density $\rho_T \approx 20$ g/cm³ is supplied by the
+    amplitude/geometric sector (the quartic normalization and the
+    $R_T(M)$ law); no identification $\rho_T \equiv \Lambda_X^4$ is made.
+    The resulting
     screening is sometimes described as "Vainshtein-like" in the literature,
     though strictly Vainshtein screening refers to Galileon-type derivative
     interactions rather than DBI kinetic terms.
@@ -1252,7 +1262,7 @@
         <tr>
           <td>Free parameters</td>
           <td>$\Lambda$, $n$ (potential shape)</td>
-          <td>$\Lambda^4 = \rho_T$ (saturation scale)</td>
+          <td>Gradient ceiling $\Lambda_X$ (shear scale); $\rho_T$ from the amplitude sector</td>
         </tr>
         <tr>
           <td>Consistency with §A.1 action</td>
@@ -1312,7 +1322,7 @@
       hierarchy. Paper 11 noted that the
       screening mechanism "remains to be derived from first principles"
       and that the phenomenology "mimics chameleon or Vainshtein
-      screening." This agnostic position has now been superseded: Paper 0 v0.15 assigns local screening to the nested two-body operator $\mathcal{R}(s)=\mathcal{S}_\Sigma(X_{\rm env})^2\,y(s)$ — the effective pairwise projection of the master environmental operator $\mathcal{S}_\Sigma(\mathcal{E})$ under the derived kinetic completion $P=X-V+X|X|/\Lambda^4$, with machine-checked benchmarks. The robust
+      screening." This agnostic position has now been superseded: Paper 0 v0.15 assigns local screening to the nested two-body operator $\mathcal{R}(s)=\mathcal{S}_\Sigma(X_{\rm env})^2\,y(s)$ — the effective pairwise projection of the master environmental operator $\mathcal{S}_\Sigma(\mathcal{E})$ under the derived kinetic completion $P=X-V+X|X|/\Lambda_X^4$, with machine-checked benchmarks. The robust
       empirical finding — the saturation scale $\rho_T \approx 20$
       g/cm³ and the resulting screening hierarchy — is anchored to this operator structure. The chameleon and DBI mechanisms remain candidate alternative completions.
     </p>
@@ -1705,50 +1715,59 @@ def compute_ml_response(log_Mh, z, kappa=None):
           <td>log sSFR (COSMOS2025)</td>
           <td>$z = 4$–$7$</td>
           <td>42,361</td>
-          <td>partial $\rho = +0.024$</td>
-          <td>$1.0 \times 10^{-6}$</td>
-          <td>95% CI $[+0.015, +0.032]$</td>
+          <td>partial $\rho = +0.008$</td>
+          <td>$0.11$</td>
+          <td>
+            95% CI $[-0.001, +0.016]$; weighted debiased $\rho =
+            +0.023$ ($p = 3.6 \times 10^{-5}$)
+          </td>
         </tr>
         <tr>
           <td>log sSFR (COSMOS2025)</td>
           <td>$z = 7$–$8$</td>
           <td>4,590</td>
-          <td>partial $\rho = +0.019$</td>
-          <td>$0.19$</td>
-          <td>95% CI $[-0.009, +0.045]$</td>
+          <td>partial $\rho = -0.002$</td>
+          <td>$0.87$</td>
+          <td>
+            95% CI $[-0.031, +0.026]$; weighted debiased $\rho =
+            -0.066$ ($p = 9.6 \times 10^{-5}$)
+          </td>
         </tr>
         <tr>
           <td>log sSFR (COSMOS2025)</td>
           <td>$z = 8$–$9$</td>
           <td>1,121</td>
-          <td>partial $\rho = +0.084$</td>
-          <td>$5.0 \times 10^{-3}$</td>
+          <td>partial $\rho = +0.078$</td>
+          <td>$9.1 \times 10^{-3}$</td>
           <td>
-            95% CI $[+0.018, +0.143]$; weighted debiased $\rho =
-            +0.113$ ($p = 1.1 \times 10^{-3}$)
+            95% CI $[+0.012, +0.133]$; weighted debiased $\rho =
+            -0.034$ ($p = 0.32$)
           </td>
         </tr>
         <tr>
           <td>log sSFR (COSMOS2025)</td>
           <td>$z = 9$–$13$</td>
           <td>1,467</td>
-          <td>partial $\rho = -0.073$</td>
-          <td>$4.9 \times 10^{-3}$</td>
+          <td>partial $\rho = -0.096$</td>
+          <td>$2.3 \times 10^{-4}$</td>
           <td>
-            95% CI $[-0.135, -0.030]$; weighted debiased $\rho =
-            -0.015$ ($p = 0.63$)
+            95% CI $[-0.153, -0.053]$; weighted debiased $\rho =
+            -0.070$ ($p = 0.027$)
           </td>
         </tr>
         <tr>
           <td colspan="6">
             <em
-              >Steiger Z-test (z&gt;9–13 vs z=4–7): Z = -3.66, p =
-              2.5 × 10<sup>−4</sup>. The matched blank-field bin
-              at $z = 8$–9 is supportive after weighting, whereas
-              the broader ultrahigh-$z$ $z = 9$–13 analysis is
-              negative. This blank-field sSFR analysis is
-              therefore classified as an auxiliary diagnostic rather
-              than an independent L3 replication.</em
+              >Steiger Z-test (z&gt;9–13 vs z=4–7): Z = -3.92, p =
+              8.8 × 10<sup>−5</sup>. The matched blank-field bin
+              at $z = 8$–9 is positive in the unweighted partial
+              ($+0.078$) but is not supportive once the mass
+              measurement bias is debiased and quality-weighted
+              ($-0.034$, $p = 0.32$), and the broader ultrahigh-$z$
+              $z = 9$–13 analysis is negative. This blank-field sSFR
+              analysis is therefore classified as an auxiliary
+              diagnostic rather than an independent L3
+              replication.</em
             >
           </td>
         </tr>

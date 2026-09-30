@@ -1,6 +1,6 @@
-[19:00:02] INFO        Step 164: UNCOVER z=9-12 Null Branch Audit
-[19:00:02] INFO        Loaded UNCOVER DR4: N=2628
-[19:00:02] INFO        z=9-12 sample: N=122
-[19:00:02] INFO    ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_164_uncover_z9_null_audit.json
-[19:00:02] INFO        z=9-12: N=122, with dust=122, null_branch=False
-[19:00:02] INFO    ✓   Step 164 complete.
+[14:01:23] INFO        Step 164: UNCOVER z=9-12 Null Branch Audit
+[14:01:23] INFO        Loaded UNCOVER DR4: N=2628
+[14:01:23] INFO        z=9-12 sample: N=122
+[14:01:23] INFO    ✓   Saved: /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_164_uncover_z9_null_audit.json
+[14:01:23] INFO        z=9-12: N=122, with dust=122, null_branch=False
+[14:01:23] INFO    ✓   Step 164 complete.
