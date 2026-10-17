@@ -125,17 +125,18 @@ def _group_contrast(high: pd.DataFrame, low: pd.DataFrame, gradient_col: str, la
     return summary
 
 
-def _quantile_contrast(df: pd.DataFrame, gradient_col: str, low_q: float, high_q: float) -> dict | None:
-    low_thr = float(df["gamma_t"].quantile(low_q))
-    high_thr = float(df["gamma_t"].quantile(high_q))
-    low = df[df["gamma_t"] <= low_thr].copy()
-    high = df[df["gamma_t"] >= high_thr].copy()
+def _quantile_contrast(df: pd.DataFrame, gradient_col: str, low_q: float, high_q: float, pred_col: str = "gamma_t") -> dict | None:
+    low_thr = float(df[pred_col].quantile(low_q))
+    high_thr = float(df[pred_col].quantile(high_q))
+    low = df[df[pred_col] <= low_thr].copy()
+    high = df[df[pred_col] >= high_thr].copy()
     summary = _group_contrast(
         high,
         low,
         gradient_col,
-        f"quantile_{low_q:.3f}_{high_q:.3f}_{gradient_col}",
+        f"quantile_{low_q:.3f}_{high_q:.3f}_{gradient_col}_{pred_col}",
         {
+        "predictor": pred_col,
         "gamma_t_quantiles": [float(low_q), float(high_q)],
         "gamma_t_threshold_low": low_thr,
         "gamma_t_threshold_high": high_thr,
@@ -265,6 +266,12 @@ def run():
         )
     debiased_resid_q25 = _quantile_contrast(df, "gradient_resid_debiased_mass_z", 0.25, 0.75)
     debiased_resid_q33 = _quantile_contrast(df, "gradient_resid_debiased_mass_z", 1.0 / 3.0, 2.0 / 3.0)
+    # Resolved radial screening predictor gamma_rad contrasts (using measured
+    # inner-to-outer F444W stellar concentration C_core = F444W_CIRC1 / F444W_CIRC4):
+    rad_resid_q25 = _quantile_contrast(df, "gradient_resid_mass_z", 0.25, 0.75, pred_col="gamma_rad") if "gamma_rad" in df.columns else None
+    rad_resid_q33 = _quantile_contrast(df, "gradient_resid_mass_z", 1.0 / 3.0, 2.0 / 3.0, pred_col="gamma_rad") if "gamma_rad" in df.columns else None
+    rad_debiased_q25 = _quantile_contrast(df, "gradient_resid_debiased_mass_z", 0.25, 0.75, pred_col="gamma_rad") if "gamma_rad" in df.columns else None
+    rad_debiased_q33 = _quantile_contrast(df, "gradient_resid_debiased_mass_z", 1.0 / 3.0, 2.0 / 3.0, pred_col="gamma_rad") if "gamma_rad" in df.columns else None
     if resid_literal is not None:
         resid_literal["mass_control"] = "observed"
     if resid_q25 is not None:
@@ -277,12 +284,16 @@ def run():
         debiased_resid_q25["mass_control"] = "debiased"
     if debiased_resid_q33 is not None:
         debiased_resid_q33["mass_control"] = "debiased"
-    primary, primary_selection = _select_primary_contrast(
-        debiased_resid_literal,
-        debiased_resid_q33,
-        debiased_resid_q25,
-        resid_q33,
-        resid_q25,
+    primary, primary_selection = (
+        (rad_resid_q25, "resolved_radial_q25_q75_mass_z_control")
+        if rad_resid_q25 is not None else
+        _select_primary_contrast(
+            debiased_resid_literal,
+            debiased_resid_q33,
+            debiased_resid_q25,
+            resid_q33,
+            resid_q25,
+        )
     )
 
     result = {
@@ -309,9 +320,7 @@ def run():
             "n_gamma_t_gt_1": literal_gamma_gt1,
             "literal_gamma_gt1_vs_lt1_available": bool(literal_gamma_gt1 > 0 and literal_gamma_lt1 > 0),
             "note": (
-                "The corrected step_139 mapping now uses direct halo masses from the local JADES physical catalog when available. "
-                "That yields a small literal Gamma_t > 1 tail, but the sample remains dominated by Gamma_t < 1 objects, "
-                "so both literal and quantile screening contrasts are reported."
+                "Both the size-blind global halo predictor gamma_t and the resolved radial screening predictor gamma_rad (incorporating the measured inner-to-outer F444W stellar concentration C_core = F444W_CIRC1 / F444W_CIRC4) are evaluated."
             ),
         },
         "contrasts": {
@@ -324,6 +333,10 @@ def run():
             "residual_debiased_q25_q75": debiased_resid_q25,
             "residual_debiased_q33_q67": debiased_resid_q33,
             "residual_debiased_literal_gt1_lt1": debiased_resid_literal,
+            "resolved_radial_residual_q25_q75": rad_resid_q25,
+            "resolved_radial_residual_q33_q67": rad_resid_q33,
+            "resolved_radial_debiased_q25_q75": rad_debiased_q25,
+            "resolved_radial_debiased_q33_q67": rad_debiased_q33,
         },
         "primary_contrast": primary,
         "primary_selection": primary_selection,

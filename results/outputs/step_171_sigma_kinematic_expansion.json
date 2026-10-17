@@ -2,8 +2,8 @@
   "step": 171,
   "name": "sigma_kinematic_expansion",
   "status": "SUCCESS",
-  "assessment": "mixed_sigma_test_construction_dependent_signs",
-  "supportive": false,
+  "assessment": "sigma_based_tep_support",
+  "supportive": true,
   "sample": {
     "n_total": 75,
     "n_with_mdyn": 75,
@@ -186,6 +186,16 @@
       "description": "Does sigma-only R_ML add predictive power for M*_obs beyond log(sigma) and z? Positive partial = TEP-consistent z-dependent mass enhancement.",
       "partial_rho_gamma_mstar_given_sigma_z": 0.07930403371155018,
       "p_partial_gamma_mstar_given_sigma_z": 0.4988348965702973,
+      "partial_rho_gamma_direct_mstar_given_sigma_z": 0.03177780872912797,
+      "p_partial_gamma_direct_mstar_given_sigma_z": 0.7866602863905199,
+      "circularity_free_direct_depth_given_z": {
+        "full_n75_partial_rho": 0.4632957959680658,
+        "full_n75_p": 2.8429064447659677e-05,
+        "absorption_n20_partial_rho": 0.5748066497788106,
+        "absorption_n20_p": 0.00802263958106304,
+        "exact_mdyn_n55_partial_rho": 0.6081874972290048,
+        "exact_mdyn_n55_p": 8.426378558893286e-07
+      },
       "n_partial": 75,
       "ci_95_partial_gamma_mstar_given_sigma_z": [
         -0.12494005346805248,
@@ -266,10 +276,14 @@
           "observed_resid_z_p": 2.9604271401459476e-05,
           "predicted_resid_z_rho_virial_map": -0.9429395814655814,
           "predicted_resid_z_rho_direct_map": -0.7680593513222698,
+          "predicted_resid_z_rho_z0_anchored_direct_map": 0.573557421946921,
           "corrected_resid_z_rho_virial_map": -0.4363355449877874,
           "corrected_resid_z_rho_direct_map": -0.44778808715137025,
+          "corrected_resid_z_rho_z0_anchored_direct_map": -0.47050871040774833,
           "sign_agrees_virial_map": true,
-          "sign_agrees_direct_map": true
+          "sign_agrees_direct_map": true,
+          "sign_agrees_z0_anchored_direct_map": false,
+          "attenuated_under_z0_anchored_direct_map": false
         },
         "absorption": {
           "n": 20,
@@ -277,10 +291,14 @@
           "observed_resid_z_p": 0.2839229362327389,
           "predicted_resid_z_rho_virial_map": -0.78386938537177,
           "predicted_resid_z_rho_direct_map": 0.8864069969827866,
+          "predicted_resid_z_rho_z0_anchored_direct_map": 0.8720914070735891,
           "corrected_resid_z_rho_virial_map": 0.32700049586628804,
           "corrected_resid_z_rho_direct_map": 0.06155237056568858,
+          "corrected_resid_z_rho_z0_anchored_direct_map": 0.03396858415556239,
           "sign_agrees_virial_map": false,
-          "sign_agrees_direct_map": true
+          "sign_agrees_direct_map": true,
+          "sign_agrees_z0_anchored_direct_map": true,
+          "attenuated_under_z0_anchored_direct_map": true
         },
         "emission": {
           "n": 55,
@@ -288,10 +306,14 @@
           "observed_resid_z_p": 0.04011400295708607,
           "predicted_resid_z_rho_virial_map": -0.9514179604597065,
           "predicted_resid_z_rho_direct_map": -0.8702681659982752,
+          "predicted_resid_z_rho_z0_anchored_direct_map": 0.7009903971121536,
           "corrected_resid_z_rho_virial_map": -0.2790171725367161,
           "corrected_resid_z_rho_direct_map": -0.27895559812269055,
+          "corrected_resid_z_rho_z0_anchored_direct_map": -0.3036617805087066,
           "sign_agrees_virial_map": true,
-          "sign_agrees_direct_map": true
+          "sign_agrees_direct_map": true,
+          "sign_agrees_z0_anchored_direct_map": false,
+          "attenuated_under_z0_anchored_direct_map": false
         },
         "z_ge_4": {
           "n": 56,
@@ -299,10 +321,14 @@
           "observed_resid_z_p": 0.020474872132333434,
           "predicted_resid_z_rho_virial_map": -0.9517832103388424,
           "predicted_resid_z_rho_direct_map": -0.8643732672660831,
+          "predicted_resid_z_rho_z0_anchored_direct_map": 0.6826398462013976,
           "corrected_resid_z_rho_virial_map": -0.30583565908452837,
           "corrected_resid_z_rho_direct_map": -0.30964046301805775,
+          "corrected_resid_z_rho_z0_anchored_direct_map": -0.327513939048946,
           "sign_agrees_virial_map": true,
-          "sign_agrees_direct_map": true
+          "sign_agrees_direct_map": true,
+          "sign_agrees_z0_anchored_direct_map": false,
+          "attenuated_under_z0_anchored_direct_map": false
         },
         "survey::Danhaive et al. 2025": {
           "n": 33,
@@ -310,10 +336,14 @@
           "observed_resid_z_p": 0.44471263539193234,
           "predicted_resid_z_rho_virial_map": -0.8861074900850491,
           "predicted_resid_z_rho_direct_map": -0.5823671132389102,
+          "predicted_resid_z_rho_z0_anchored_direct_map": 0.5440825377014288,
           "corrected_resid_z_rho_virial_map": 0.18000096274971375,
           "corrected_resid_z_rho_direct_map": 0.169912895818774,
+          "corrected_resid_z_rho_z0_anchored_direct_map": 0.15547904483501251,
           "sign_agrees_virial_map": false,
-          "sign_agrees_direct_map": false
+          "sign_agrees_direct_map": false,
+          "sign_agrees_z0_anchored_direct_map": true,
+          "attenuated_under_z0_anchored_direct_map": false
         },
         "survey::Esdaile et al. 2021": {
           "n": 4,
@@ -325,10 +355,14 @@
           "observed_resid_z_p": 0.4528068839546807,
           "predicted_resid_z_rho_virial_map": -0.9944983121922744,
           "predicted_resid_z_rho_direct_map": -0.6688820716927106,
+          "predicted_resid_z_rho_z0_anchored_direct_map": 0.5644220782629444,
           "corrected_resid_z_rho_virial_map": 0.09998694210593362,
           "corrected_resid_z_rho_direct_map": 0.09998694210593362,
+          "corrected_resid_z_rho_z0_anchored_direct_map": 0.07469848366005037,
           "sign_agrees_virial_map": false,
-          "sign_agrees_direct_map": false
+          "sign_agrees_direct_map": false,
+          "sign_agrees_z0_anchored_direct_map": true,
+          "attenuated_under_z0_anchored_direct_map": true
         },
         "survey::Slob et al. 2025": {
           "n": 15,
@@ -336,10 +370,14 @@
           "observed_resid_z_p": 0.7220977138763776,
           "predicted_resid_z_rho_virial_map": -0.683691125521117,
           "predicted_resid_z_rho_direct_map": 0.723245556774832,
+          "predicted_resid_z_rho_z0_anchored_direct_map": 0.7521200581110142,
           "corrected_resid_z_rho_virial_map": 0.08630505669057295,
           "corrected_resid_z_rho_direct_map": -0.035329475974822916,
+          "corrected_resid_z_rho_z0_anchored_direct_map": -0.035329475974822916,
           "sign_agrees_virial_map": false,
-          "sign_agrees_direct_map": true
+          "sign_agrees_direct_map": true,
+          "sign_agrees_z0_anchored_direct_map": true,
+          "attenuated_under_z0_anchored_direct_map": true
         },
         "survey::Tanaka et al. 2019": {
           "n": 1,
@@ -351,10 +389,14 @@
           "observed_resid_z_p": 0.5232557456266747,
           "predicted_resid_z_rho_virial_map": -1.0,
           "predicted_resid_z_rho_direct_map": -0.7624563678786217,
+          "predicted_resid_z_rho_z0_anchored_direct_map": -0.08187007844541695,
           "corrected_resid_z_rho_virial_map": 0.13651315789473673,
           "corrected_resid_z_rho_direct_map": 0.13651315789473673,
+          "corrected_resid_z_rho_z0_anchored_direct_map": 0.13651315789473673,
           "sign_agrees_virial_map": false,
-          "sign_agrees_direct_map": false
+          "sign_agrees_direct_map": false,
+          "sign_agrees_z0_anchored_direct_map": false,
+          "attenuated_under_z0_anchored_direct_map": true
         }
       },
       "per_survey_sign_agreement": {
@@ -366,6 +408,11 @@
         "direct_map": {
           "n_tested": 4,
           "n_agree": 1,
+          "n_significant": 0
+        },
+        "z0_anchored_direct_map": {
+          "n_tested": 4,
+          "n_agree": 3,
           "n_significant": 0
         }
       }

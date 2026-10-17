@@ -158,7 +158,7 @@ class HTMLToMarkdownConverter {
 
             // Derive version/codename and last-updated from manifest.json so the
             // markdown header and filename never go stale on a version bump.
-            const manifestVersion = manifest.version || 'v0.7 (Kos)';
+            const manifestVersion = manifest.version || 'v0.8 (Kos)';
             const manifestUpdated = manifest.last_updated || '30 September 2026';
             const manifestFirstPublished = manifest.first_published || '13 March 2026';
             const versionMatch = String(manifestVersion).match(/^v?([\d.]+)\s*\(([^)]+)\)$/i);
@@ -181,7 +181,7 @@ DOI: 10.5281/zenodo.19000827
             const cleanedMarkdown = this.stripLeadingWhitespace(rawMarkdown);
             const markdown = header + cleanedMarkdown;
             
-            const outputPath = path.join(__dirname, '..', `12-TEP-JWST-${fileVersionTag}.md`);
+            const outputPath = path.join(__dirname, '..', `E12-TEP-JWST-${fileVersionTag}.md`);
             fs.writeFileSync(outputPath, markdown, 'utf8');
             console.log(`✅ Markdown saved to: ${outputPath} (${(markdown.length / 1024).toFixed(1)} KB)`);
 

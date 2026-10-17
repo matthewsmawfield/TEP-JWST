@@ -117,6 +117,30 @@ def score_variant(lnR_fn, obs_arrays, s, p):
     return -res.fun, float(res.x)
 
 
+def score_variant_exponential(lnR_fn, obs_arrays, s, p, kappa_fixed=KAPPA_GAL):
+    """Score the physical exponential response R_ML = exp(lnR) at the prespecified
+    canonical benchmark kappa_gal = 0.96e6 mag (K_gal = 1.263e6).
+
+    Note: Pearson r(lnR, obs) is scale-invariant to kappa (r(c*X, Y) == r(X, Y)),
+    whereas the physical kernel R_ML = exp(lnR) tests both functional form and
+    exponential amplitude: FLRW-contracting virial depth Psi ~ E(z)^(2/3)
+    inflates lnR by ~6.8x at z~9, driving R_ML to ~2.27e7 (unphysical blow-up)
+    and collapsing the multi-observable R^2 score from 0.193 to 0.013.
+    """
+    lg = lnR_fn(kappa_fixed, s, p)
+    rml = np.exp(np.clip(lg, -50.0, 50.0))
+    max_rml = float(np.exp(np.clip(np.max(lg), -50.0, 50.0)))
+    if np.std(rml) < 1e-12:
+        return 0.0, max_rml
+    tot = 0.0
+    for ov, es, w in obs_arrays:
+        r, _ = stats.pearsonr(rml, ov)
+        if np.isnan(r):
+            continue
+        tot += w * (r ** 2 if r * es >= 0 else 0.0)
+    return float(tot), max_rml
+
+
 def main():
     print_status("=" * 70)
     print_status(f"STEP {STEP_NUM}: kernel variant comparison (12-8)")
@@ -178,20 +202,31 @@ def main():
     res = {}
     for name, (s, p) in variants.items():
         sc, k = score_variant(lnR, obs_arrays, s, p)
-        res[name] = {"s": s, "z_exp": p, "score": sc, "kappa": k}
-        print_status(f"  {name:16s} score={sc:.4f}  kappa*={k:.3e}")
+        sc_exp, max_rml = score_variant_exponential(lnR, obs_arrays, s, p)
+        res[name] = {
+            "s": s, "z_exp": p, "score": sc, "kappa": k,
+            "score_exponential_RML_at_canonical_kappa": sc_exp,
+            "max_RML_at_canonical_kappa": max_rml,
+        }
+        print_status(f"  {name:16s} score(lnR)={sc:.4f} | score(R_ML)={sc_exp:.4f} (max R_ML={max_rml:.2e})")
 
     # --- free-s scan at p = 0.5 ---------------------------------------
     s_grid = np.linspace(-0.5, 2.0, 51)
     s_curve = []
     for s in s_grid:
         sc, k = score_variant(lnR, obs_arrays, float(s), 0.5)
-        s_curve.append({"s": float(s), "score": sc, "kappa": k})
+        sc_exp, max_rml = score_variant_exponential(lnR, obs_arrays, float(s), 0.5)
+        s_curve.append({
+            "s": float(s), "score": sc, "kappa": k,
+            "score_exponential_RML": sc_exp, "max_RML": max_rml,
+        })
     best_s = s_curve[int(np.argmax([c["score"] for c in s_curve]))]
+    best_s_exp = s_curve[int(np.argmax([c["score_exponential_RML"] for c in s_curve]))]
     out["s_scan_p05"] = s_curve
     out["s_best_p05"] = best_s
-    print_status(f"  free-s (p=0.5): best s={best_s['s']:.2f} "
-                 f"score={best_s['score']:.4f}")
+    out["s_best_p05_exponential_RML"] = best_s_exp
+    print_status(f"  free-s (p=0.5): best s(lnR)={best_s['s']:.2f} | "
+                 f"best s(R_ML)={best_s_exp['s']:.2f} (score_RML={best_s_exp['score_exponential_RML']:.4f}, max R_ML={best_s_exp['max_RML']:.2f})")
 
     # --- free (s, p) grid ---------------------------------------------
     p_grid = np.linspace(0.0, 1.5, 31)

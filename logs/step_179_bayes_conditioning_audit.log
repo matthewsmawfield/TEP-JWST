@@ -1,7 +1,7 @@
-[14:11:12] INFO        STEP 179: Bayesian Conditioning-Symmetry Audit
-[14:11:12] INFO          Direction isolation: ln BF = 55.9
-[14:11:12] INFO          TEP vs ortho standard: 41.5
-[14:11:12] INFO          TEP vs raw standard:   -14.4
-[14:11:12] INFO          Aug vs raw standard:   4.4
-[14:11:12] INFO          Aug vs TEP:            18.9
-[14:11:12] INFO          Wrote /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_179_bayes_conditioning_audit.json
+[00:24:15] INFO        STEP 179: Bayesian Conditioning-Symmetry Audit
+[00:24:15] INFO          Direction isolation: ln BF = 55.9
+[00:24:15] INFO          TEP vs ortho standard: 41.5
+[00:24:15] INFO          TEP vs raw standard:   -14.4
+[00:24:15] INFO          Aug vs raw standard:   4.4
+[00:24:15] INFO          Aug vs TEP:            18.9
+[00:24:15] INFO          Wrote /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_179_bayes_conditioning_audit.json

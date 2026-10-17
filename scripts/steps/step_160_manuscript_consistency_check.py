@@ -34,8 +34,8 @@ OUTPUT = ROOT / "results/outputs/step_160_manuscript_consistency_check.json"
 RUN_ALL = ROOT / "scripts/steps/run_all_steps.py"
 # The generated root markdown filename includes the version number, which
 # changes with each release.  Use a glob to find the most recent one.
-_generated_md_candidates = sorted(ROOT.glob("12-TEP-JWST-v*.md"))
-GENERATED_ROOT_MARKDOWN = _generated_md_candidates[-1] if _generated_md_candidates else ROOT / "12-TEP-JWST-v0.6.1-Kos.md"
+_generated_md_candidates = sorted(ROOT.glob("E12-TEP-JWST-v*.md"))
+GENERATED_ROOT_MARKDOWN = _generated_md_candidates[-1] if _generated_md_candidates else ROOT / "E12-TEP-JWST-v0.6.1-Kos.md"
 
 FILES = {
     "abstract": ROOT / "site/components/1_abstract.html",

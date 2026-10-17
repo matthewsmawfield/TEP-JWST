@@ -1,7 +1,5 @@
-v0.7 (Kos) — 16 September 2026 — Canonical TEP architecture alignment: terminology and screening hierarchy updates
+v0.8 (Kos) — 17 October 2026 — Circularity-free N=75 kinematic dispersion test, correlated-SED Bayesian evidence, and Abell 2744 cluster sightline audit
 
-- Switched the main variable name from "Temporal Enhancement Factor" ($\Gamma_t$) to "Mass-to-Light Inference Response" ($R_{\rm ML}$).
-- Upgraded the Bayesian model comparison by using a covariance-corrected joint test to account for correlated errors.
-- Dropped the phenomenological "Log-Mass" approximation to rely entirely on the more rigorous "Potential-Linear" formula.
-- Stratified the mixed kinematic data into emission-line and absorption-line subsets for a more accurate diagnostic.
-- Registered a slight, negligible drop in the omnibus Fisher combination significance from $24.4\sigma$ to $23.5\sigma$.
+- Expanded the circularity-free kinematic test to N = 75 high-z galaxies using the purely kinematic predictor R_{ML,sigma}^dir under the Virial-exact depth map Psi propto sigma^2: partial correlation rho(R_{ML,sigma}^dir, M_{*,obs} | z) = +0.463 (p = 2.84 x 10^-5, N = 75), strengthening to +0.608 (p = 8.43 x 10^-7) on the N = 55 exact-M_dyn subsample and +0.575 (p = 0.0080) on the N = 20 stellar absorption-line subsample, with 5/5 subsample sign agreement
+- Evaluated nested Bayesian model comparison with a joint correlated-SED covariance likelihood (Steps 176, 179), showing log R_ML improves evidence by Delta ln Z = +4.45 +/- 1.09 (BF = 85.4 : 1, >4 sigma) and carries Delta ln Z = +55.9 +/- 1.0 in direction isolation (BF = 8,720 : 1 in symmetric residual space)
+- Demonstrated in the UNCOVER DR4 Abell 2744 lensing audit (Step 182) that explicit de-magnification sharpens the z > 8 dust-R_ML correlation to rho = +0.656 (p = 1.30 x 10^-32) while foreground cluster sightline coordinates add Delta ln Z = +26.2 (+34.2 on all 4 observables), and updated the Paper 11 Cepheid-channel kappa recoveries (midpoint 0.943 x 10^6 mag, 1.8% agreement; envelope derivation |kappa_{P^2}^pred| = 1.196 x 10^6 mag matching SH0ES to 0.5%)

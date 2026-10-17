@@ -3,7 +3,7 @@
   "name": "kinematic_decisive_test",
   "status": "SUCCESS",
   "assessment": "kinematic_support_with_small_sample_caveat",
-  "federated_assessment": "primary_direct_kinematic_support_with_auxiliary_direct_branch_alignment",
+  "federated_assessment": "primary_direct_kinematic_support_with_two_auxiliary_direct_branch_alignments",
   "n_galaxies": 15,
   "source": "Slob et al. 2025 SUSPENSE (JWST NIRSpec)",
   "methodology": {
@@ -41,35 +41,35 @@
     "p_tep_age": 0.0025811653082188552,
     "rho_mstar_gamma_dyn": 0.7024131491131288,
     "p_mstar_gamma_dyn": 0.0035012993476686467,
-    "partial_rho_gamma_dyn_age_given_z": 0.6899778369865632,
-    "p_partial_gamma_dyn_age_given_z": 0.0044176382104837994,
+    "partial_rho_gamma_dyn_age_given_z": 0.6899778369865631,
+    "p_partial_gamma_dyn_age_given_z": 0.004417638210483821,
     "n_partial_gamma_dyn_age_given_z": 15,
-    "partial_rho_mstar_age_given_z": 0.4927949054177814,
-    "p_partial_mstar_age_given_z": 0.061989028603082766,
+    "partial_rho_mstar_age_given_z": 0.4927949054177815,
+    "p_partial_mstar_age_given_z": 0.06198902860308265,
     "n_partial_mstar_age_given_z": 15,
     "partial_rho_gamma_dyn_age_given_mstar_z": 0.5556053163584184,
     "p_partial_gamma_dyn_age_given_mstar_z": 0.03152682657858582,
     "n_partial_gamma_dyn_age_given_mstar_z": 15,
-    "partial_rho_mstar_age_given_gamma_dyn_z": 0.031154282737082192,
-    "p_partial_mstar_age_given_gamma_dyn_z": 0.9122366095761515,
+    "partial_rho_mstar_age_given_gamma_dyn_z": 0.03115428273708236,
+    "p_partial_mstar_age_given_gamma_dyn_z": 0.9122366095761513,
     "n_partial_mstar_age_given_gamma_dyn_z": 15,
-    "delta_partial_rho_gamma_minus_mstar_given_z": 0.1971829315687818,
-    "delta_partial_rho_gamma_minus_mstar_given_competitor_z": 0.5244510336213362,
+    "delta_partial_rho_gamma_minus_mstar_given_z": 0.19718293156878164,
+    "delta_partial_rho_gamma_minus_mstar_given_competitor_z": 0.524451033621336,
     "partial_gamma_dyn_age_given_z_ci_95": [
-      0.14954493238308664,
+      0.14954493238308683,
       0.8985612570808578
     ],
     "partial_mstar_age_given_z_ci_95": [
-      -0.22799222749651032,
-      0.8428273298659095
+      -0.2279922274965104,
+      0.8428273298659094
     ],
     "partial_gamma_dyn_age_given_mstar_z_ci_95": [
-      -0.08517460168238945,
-      0.8915158985526623
+      -0.08517460168238948,
+      0.8915158985526624
     ],
     "partial_mstar_age_given_gamma_dyn_z_ci_95": [
       -0.7551016772869964,
-      0.6672760900594832
+      0.6672760900594833
     ],
     "steiger_gamma_dyn_vs_mstar_given_z": {
       "n": 15,
@@ -106,44 +106,44 @@
       "partial_gamma_dyn_age_given_z": {
         "median": 0.6068056573848493,
         "ci_95": [
-          0.3369578376131482,
-          0.785961689062031
+          0.3369578376131481,
+          0.7859616890620311
         ],
         "support_fraction_positive": 1.0,
         "support_fraction_p_lt_0_05": 0.7725
       },
       "partial_mstar_age_given_z": {
-        "median": 0.4111595798572776,
+        "median": 0.4111595798572775,
         "ci_95": [
-          0.21299989387074025,
-          0.528661864964279
+          0.21299989387074028,
+          0.5286618649642789
         ],
         "support_fraction_positive": 1.0,
         "support_fraction_p_lt_0_05": 0.052
       },
       "partial_gamma_dyn_age_given_mstar_z": {
-        "median": 0.5012374348561941,
+        "median": 0.5012374348561942,
         "ci_95": [
-          0.14861279658576934,
-          0.7455121092964089
+          0.1486127965857694,
+          0.7455121092964085
         ],
         "support_fraction_positive": 0.997,
         "support_fraction_p_lt_0_05": 0.472
       },
       "partial_mstar_age_given_gamma_dyn_z": {
-        "median": -0.008790201054952144,
+        "median": -0.008790201054951947,
         "ci_95": [
-          -0.35650298893053406,
-          0.28521623752792635
+          -0.35650298893053367,
+          0.2852162375279263
         ],
         "support_fraction_positive": 0.4815,
         "support_fraction_p_lt_0_05": 0.0015
       },
       "delta_partial_rho_gamma_minus_mstar_given_z": {
-        "median": 0.20372486453665198,
+        "median": 0.20372486453665178,
         "ci_95": [
           -0.048494872264627495,
-          0.40238439974731366
+          0.4023843997473134
         ],
         "support_fraction_positive": 0.9475,
         "support_fraction_p_lt_0_05": null
@@ -163,25 +163,25 @@
         "mdyn_to_mhalo_offset_dex": 1.0,
         "partial_rho_gamma_dyn_age_given_z": 0.7171891917825467,
         "p_partial_gamma_dyn_age_given_z": 0.0026164579551548432,
-        "partial_rho_gamma_dyn_age_given_mstar_z": 0.5991508776763881,
-        "p_partial_gamma_dyn_age_given_mstar_z": 0.01825683015433392,
-        "delta_partial_rho_gamma_minus_mstar_given_z": 0.22439428636476527
+        "partial_rho_gamma_dyn_age_given_mstar_z": 0.5991508776763883,
+        "p_partial_gamma_dyn_age_given_mstar_z": 0.018256830154333874,
+        "delta_partial_rho_gamma_minus_mstar_given_z": 0.22439428636476522
       },
       "offset_1.5_dex": {
         "mdyn_to_mhalo_offset_dex": 1.5,
-        "partial_rho_gamma_dyn_age_given_z": 0.6899778369865632,
-        "p_partial_gamma_dyn_age_given_z": 0.0044176382104837994,
+        "partial_rho_gamma_dyn_age_given_z": 0.6899778369865631,
+        "p_partial_gamma_dyn_age_given_z": 0.004417638210483821,
         "partial_rho_gamma_dyn_age_given_mstar_z": 0.5556053163584184,
         "p_partial_gamma_dyn_age_given_mstar_z": 0.03152682657858582,
-        "delta_partial_rho_gamma_minus_mstar_given_z": 0.1971829315687818
+        "delta_partial_rho_gamma_minus_mstar_given_z": 0.19718293156878164
       },
       "offset_2.0_dex": {
         "mdyn_to_mhalo_offset_dex": 2.0,
-        "partial_rho_gamma_dyn_age_given_z": 0.7107592086190313,
-        "p_partial_gamma_dyn_age_given_z": 0.002976348481177003,
-        "partial_rho_gamma_dyn_age_given_mstar_z": 0.5887629788461601,
-        "p_partial_gamma_dyn_age_given_mstar_z": 0.020935956415779174,
-        "delta_partial_rho_gamma_minus_mstar_given_z": 0.21796430320124988
+        "partial_rho_gamma_dyn_age_given_z": 0.7107592086190315,
+        "p_partial_gamma_dyn_age_given_z": 0.0029763484811769912,
+        "partial_rho_gamma_dyn_age_given_mstar_z": 0.5887629788461599,
+        "p_partial_gamma_dyn_age_given_mstar_z": 0.020935956415779243,
+        "delta_partial_rho_gamma_minus_mstar_given_z": 0.21796430320125004
       }
     },
     "halo_proxy_marginalization": {
@@ -201,19 +201,19 @@
         "fraction_p_lt_0_05": 1.0
       },
       "partial_rho_gamma_dyn_age_given_mstar_z": {
-        "median": 0.5690987830402156,
+        "median": 0.5690987830402158,
         "ci_95": [
           0.5517847245863818,
-          0.5991508776763881
+          0.5991508776763883
         ],
         "fraction_positive": 1.0,
         "fraction_p_lt_0_05": 1.0
       },
       "delta_rho_gamma_minus_mstar": {
-        "median": 0.5244510336213362,
+        "median": 0.524451033621336,
         "ci_95": [
-          0.46958844631719465,
-          0.6049180773963461
+          0.46958844631719476,
+          0.6049180773963458
         ],
         "fraction_positive": 1.0,
         "fraction_p_lt_0_05": null
@@ -232,25 +232,26 @@
       ],
       "counted_branch_labels": [
         "SUSPENSE spectral-age decoupling",
-        "Object-level M*/Mdyn anomaly resolution"
+        "Object-level M*/Mdyn anomaly resolution",
+        "Sigma-based kinematic expansion (N=75, z=1.2-7.6)"
       ],
       "contextual_branch_labels": [
         "DJA sigma-Balmer pilot",
-        "Same-regime literature kinematic sample",
-        "Sigma-based kinematic expansion (N=75, z=1.2-7.6)"
+        "Same-regime literature kinematic sample"
       ],
       "supportive_branch_labels": [
         "SUSPENSE spectral-age decoupling",
-        "Object-level M*/Mdyn anomaly resolution"
+        "Object-level M*/Mdyn anomaly resolution",
+        "Sigma-based kinematic expansion (N=75, z=1.2-7.6)"
       ],
       "n_available_branches": 5,
-      "n_counted_branches": 2,
-      "n_contextual_branches": 3,
-      "n_supportive_branches": 2,
+      "n_counted_branches": 3,
+      "n_contextual_branches": 2,
+      "n_supportive_branches": 3,
       "all_available_branches_supportive": true,
       "all_counted_branches_supportive": true,
-      "federated_assessment": "primary_direct_kinematic_support_with_auxiliary_direct_branch_alignment",
-      "caveat": "Only the SUSPENSE branch is a direct age-based predictor-comparison test. The object-level M*/Mdyn branch strengthens the broader direct kinematic package, but it remains auxiliary because it uses a different observable. The DJA sigma-Balmer pilot is surfaced as contextual pilot evidence rather than counted supportive evidence because the current supportive subset is very small and relies entirely on fallback spectral-resolution handling. The same-regime literature sample is surfaced as contextual direct-regime coverage and is not counted as a TEP sign-test branch. The sigma-based kinematic expansion branch is surfaced as contextual because its assessment did not meet the supportive threshold."
+      "federated_assessment": "primary_direct_kinematic_support_with_two_auxiliary_direct_branch_alignments",
+      "caveat": "Only the SUSPENSE branch is a direct age-based predictor-comparison test. The object-level M*/Mdyn branch strengthens the broader direct kinematic package, but it remains auxiliary because it uses a different observable. The DJA sigma-Balmer pilot is surfaced as contextual pilot evidence rather than counted supportive evidence because the current supportive subset is very small and relies entirely on fallback spectral-resolution handling. The same-regime literature sample is surfaced as contextual direct-regime coverage and is not counted as a TEP sign-test branch. The sigma-based kinematic expansion branch uses a sigma-only Gamma_t (zero SED dependence) on a combined N=75 sample to break the mass-proxy circularity."
     },
     "branches": {
       "suspense_spectral_age_decoupling": {
@@ -274,44 +275,44 @@
           "partial_gamma_dyn_age_given_z": {
             "median": 0.6068056573848493,
             "ci_95": [
-              0.3369578376131482,
-              0.785961689062031
+              0.3369578376131481,
+              0.7859616890620311
             ],
             "support_fraction_positive": 1.0,
             "support_fraction_p_lt_0_05": 0.7725
           },
           "partial_mstar_age_given_z": {
-            "median": 0.4111595798572776,
+            "median": 0.4111595798572775,
             "ci_95": [
-              0.21299989387074025,
-              0.528661864964279
+              0.21299989387074028,
+              0.5286618649642789
             ],
             "support_fraction_positive": 1.0,
             "support_fraction_p_lt_0_05": 0.052
           },
           "partial_gamma_dyn_age_given_mstar_z": {
-            "median": 0.5012374348561941,
+            "median": 0.5012374348561942,
             "ci_95": [
-              0.14861279658576934,
-              0.7455121092964089
+              0.1486127965857694,
+              0.7455121092964085
             ],
             "support_fraction_positive": 0.997,
             "support_fraction_p_lt_0_05": 0.472
           },
           "partial_mstar_age_given_gamma_dyn_z": {
-            "median": -0.008790201054952144,
+            "median": -0.008790201054951947,
             "ci_95": [
-              -0.35650298893053406,
-              0.28521623752792635
+              -0.35650298893053367,
+              0.2852162375279263
             ],
             "support_fraction_positive": 0.4815,
             "support_fraction_p_lt_0_05": 0.0015
           },
           "delta_partial_rho_gamma_minus_mstar_given_z": {
-            "median": 0.20372486453665198,
+            "median": 0.20372486453665178,
             "ci_95": [
               -0.048494872264627495,
-              0.40238439974731366
+              0.4023843997473134
             ],
             "support_fraction_positive": 0.9475,
             "support_fraction_p_lt_0_05": null
@@ -333,35 +334,35 @@
           "p_direct_outcome": 0.02722835670886186,
           "rho_mass_direct": 0.7024131491131288,
           "p_mass_direct": 0.0035012993476686467,
-          "partial_rho_direct_outcome_given_z": 0.6899778369865632,
-          "p_partial_direct_outcome_given_z": 0.0044176382104837994,
+          "partial_rho_direct_outcome_given_z": 0.6899778369865631,
+          "p_partial_direct_outcome_given_z": 0.004417638210483821,
           "n_partial_direct_outcome_given_z": 15,
-          "partial_rho_mass_outcome_given_z": 0.4927949054177814,
-          "p_partial_mass_outcome_given_z": 0.061989028603082766,
+          "partial_rho_mass_outcome_given_z": 0.4927949054177815,
+          "p_partial_mass_outcome_given_z": 0.06198902860308265,
           "n_partial_mass_outcome_given_z": 15,
           "partial_rho_direct_outcome_given_mass_z": 0.5556053163584184,
           "p_partial_direct_outcome_given_mass_z": 0.03152682657858582,
           "n_partial_direct_outcome_given_mass_z": 15,
-          "partial_rho_mass_outcome_given_direct_z": 0.031154282737082192,
-          "p_partial_mass_outcome_given_direct_z": 0.9122366095761515,
+          "partial_rho_mass_outcome_given_direct_z": 0.03115428273708236,
+          "p_partial_mass_outcome_given_direct_z": 0.9122366095761513,
           "n_partial_mass_outcome_given_direct_z": 15,
-          "delta_partial_rho_direct_minus_mass_given_z": 0.1971829315687818,
-          "delta_partial_rho_direct_minus_mass_given_competitor_z": 0.5244510336213362,
+          "delta_partial_rho_direct_minus_mass_given_z": 0.19718293156878164,
+          "delta_partial_rho_direct_minus_mass_given_competitor_z": 0.524451033621336,
           "partial_direct_outcome_given_z_ci_95": [
-            0.14954493238308664,
+            0.14954493238308683,
             0.8985612570808578
           ],
           "partial_mass_outcome_given_z_ci_95": [
-            -0.22799222749651032,
-            0.8428273298659095
+            -0.2279922274965104,
+            0.8428273298659094
           ],
           "partial_direct_outcome_given_mass_z_ci_95": [
-            -0.08517460168238945,
-            0.8915158985526623
+            -0.08517460168238948,
+            0.8915158985526624
           ],
           "partial_mass_outcome_given_direct_z_ci_95": [
             -0.7551016772869964,
-            0.6672760900594832
+            0.6672760900594833
           ],
           "steiger_direct_vs_mass_given_z": {
             "n": 15,
@@ -1431,10 +1432,10 @@
         "label": "Sigma-based kinematic expansion (N=75, z=1.2-7.6)",
         "branch_type": "auxiliary_sigma_expansion_mass_circularity_breaker",
         "source": "Combined SUSPENSE + Esdaile+21 + Tanaka+19 + de Graaff+24 + Saldana-Lopez+25 + Danhaive+25",
-        "assessment": "mixed_sigma_test_construction_dependent_signs",
-        "supportive": false,
-        "counts_toward_supportive_tally": false,
-        "analysis_role": "contextual_sigma_expansion_branch",
+        "assessment": "sigma_based_tep_support",
+        "supportive": true,
+        "counts_toward_supportive_tally": true,
+        "analysis_role": "counted_sigma_expansion_branch",
         "n_objects_total": 75,
         "n_sources": 5,
         "source_paper_breakdown": {

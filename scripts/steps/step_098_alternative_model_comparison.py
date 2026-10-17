@@ -21,6 +21,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Repository root
 sys.path.insert(0, str(PROJECT_ROOT))
 import json
+import hashlib
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status  # Centralised logging (severity levels: DEBUG/INFO/WARNING/ERROR/SUCCESS)
 import numpy as np
 import pandas as pd
@@ -51,176 +52,70 @@ def compute_aic_bic(log_likelihood, n_params, n_data):
     return aic, bic
 
 
+def fit_gaussian_linear(dust, *predictors):
+    """Exact Gaussian MLE with an intercept and fitted common variance.
+
+    Center/scale columns before SVD; count identifiable mean coefficients plus
+    variance. This also handles the collinear mass proxy used when sSFR is absent.
+    """
+    y = np.asarray(dust, dtype=float)
+    x = np.column_stack(predictors).astype(float)
+    if y.ndim != 1 or x.shape[0] != y.size or not np.all(np.isfinite(y)) or not np.all(np.isfinite(x)):
+        raise ValueError("Gaussian fit requires aligned finite data")
+    center = x.mean(axis=0)
+    scale = x.std(axis=0)
+    scale = np.where(scale > 0, scale, 1.0)
+    design = np.column_stack([np.ones(y.size), (x - center) / scale])
+    beta, _, rank, _ = np.linalg.lstsq(design, y, rcond=None)
+    residual = y - np.einsum('ij,j->i', design, beta)
+    variance = float(np.sum(residual * residual) / y.size)
+    if y.size <= rank or not np.isfinite(variance) or variance <= 0:
+        raise ValueError("Gaussian variance MLE is not finite and identifiable")
+    slopes = beta[1:] / scale
+    params = np.r_[beta[0] - np.sum(center * slopes), slopes, 0.5 * np.log(variance)]
+    ll = -0.5 * y.size * (1 + np.log(2 * np.pi * variance))
+    return float(ll), int(rank + 1), params
+
+
 def fit_null_model(dust, mass, z):
-    """
-    Null model: dust depends only on mass and redshift (no TEP).
-    
-    dust = a + b*mass + c*z + noise
-    """
-    from scipy.optimize import minimize
-    
-    def neg_log_likelihood(params):
-        a, b, c, log_sigma = params
-        sigma = np.exp(log_sigma)
-        pred = a + b * mass + c * z
-        residuals = dust - pred
-        ll = -0.5 * np.sum((residuals / sigma)**2 + np.log(2 * np.pi * sigma**2))
-        return -ll
-    
-    # Initial guess
-    x0 = [0, 0.1, 0, np.log(0.5)]
-    result = minimize(neg_log_likelihood, x0, method='Nelder-Mead')
-    
-    n_params = 4  # a, b, c, sigma
-    log_likelihood = -result.fun
-    
-    return log_likelihood, n_params, result.x
+    """Dust = intercept + mass + redshift + Gaussian noise."""
+    return fit_gaussian_linear(dust, mass, z)
 
 
 def fit_tep_model(dust, mass, z, gamma_t):
-    """
-    TEP model: dust depends on mass, redshift, AND Gamma_t.
-    
-    Tests whether Gamma_t adds explanatory power beyond mass and z.
-    dust = a + b*mass + c*z + d*log(Gamma_t) + noise
-    """
-    from scipy.optimize import minimize
-    
-    log_gamma = np.log10(np.maximum(gamma_t, 0.01))
-    
-    def neg_log_likelihood(params):
-        a, b, c, d, log_sigma = params
-        sigma = np.exp(log_sigma)
-        pred = a + b * mass + c * z + d * log_gamma
-        residuals = dust - pred
-        ll = -0.5 * np.sum((residuals / sigma)**2 + np.log(2 * np.pi * sigma**2))
-        return -ll
-    
-    x0 = [0, 0.1, 0, 0.3, np.log(0.4)]
-    result = minimize(neg_log_likelihood, x0, method='Nelder-Mead')
-    
-    n_params = 5  # a, b, c, d, sigma
-    log_likelihood = -result.fun
-    
-    return log_likelihood, n_params, result.x
+    """Add the existing log-Gamma_t predictor, retaining its declared floor."""
+    return fit_gaussian_linear(dust, mass, z, np.log10(np.maximum(gamma_t, 0.01)))
 
 
 def fit_topheavy_imf_model(dust, mass, z):
-    """
-    Top-heavy IMF model: massive galaxies have more dust due to IMF variation.
-    
-    Assumes IMF slope varies with mass: alpha_IMF = kappa_gal + delta * (mass - 10)
-    This produces more massive stars -> more dust per unit stellar mass.
-    
-    dust = a + b*mass + c*mass^2 + d*z + noise
-    """
-    from scipy.optimize import minimize
-    
-    def neg_log_likelihood(params):
-        a, b, c, d, log_sigma = params
-        sigma = np.exp(log_sigma)
-        pred = a + b * mass + c * mass**2 + d * z
-        residuals = dust - pred
-        ll = -0.5 * np.sum((residuals / sigma)**2 + np.log(2 * np.pi * sigma**2))
-        return -ll
-    
-    x0 = [0, 0.1, 0.01, 0, np.log(0.5)]
-    result = minimize(neg_log_likelihood, x0, method='Nelder-Mead')
-    
-    n_params = 5  # a, b, c, d, sigma
-    log_likelihood = -result.fun
-    
-    return log_likelihood, n_params, result.x
+    """Retain the quadratic-mass IMF proxy."""
+    return fit_gaussian_linear(dust, mass, mass**2, z)
 
 
 def fit_stochastic_sf_model(dust, mass, z, ssfr=None):
-    """
-    Stochastic SF model: dust correlates with recent star formation bursts.
-    
-    If sSFR available, use it; otherwise use mass as proxy.
-    
-    dust = a + b*mass + c*z + d*ssfr + noise
-    """
-    from scipy.optimize import minimize
-    
+    """Use measured sSFR when present; the mass-only fallback adds no rank."""
     if ssfr is None:
-        # Use mass as proxy for burstiness (lower mass = more stochastic)
-        ssfr = -0.5 * (mass - 9)  # Proxy
-    
-    def neg_log_likelihood(params):
-        a, b, c, d, log_sigma = params
-        sigma = np.exp(log_sigma)
-        pred = a + b * mass + c * z + d * ssfr
-        residuals = dust - pred
-        ll = -0.5 * np.sum((residuals / sigma)**2 + np.log(2 * np.pi * sigma**2))
-        return -ll
-    
-    x0 = [0, 0.1, 0, 0.1, np.log(0.5)]
-    result = minimize(neg_log_likelihood, x0, method='Nelder-Mead')
-    
-    n_params = 5  # a, b, c, d, sigma
-    log_likelihood = -result.fun
-    
-    return log_likelihood, n_params, result.x
+        ssfr = -0.5 * (mass - 9)
+    return fit_gaussian_linear(dust, mass, z, ssfr)
 
 
 def fit_agn_contamination_model(dust, mass, z):
-    """
-    AGN contamination model: apparent dust is actually AGN reddening.
-    
-    AGN fraction increases with mass, creating apparent dust-mass correlation.
-    
-    dust = a + b*f_AGN(mass) + c*z + noise
-    where f_AGN = sigmoid(mass - 10)
-    """
-    from scipy.optimize import minimize
-    
-    # AGN fraction model: sigmoid centered at log M* = 10
-    f_agn = 1 / (1 + np.exp(-(mass - 10)))
-    
-    def neg_log_likelihood(params):
-        a, b, c, log_sigma = params
-        sigma = np.exp(log_sigma)
-        pred = a + b * f_agn + c * z
-        residuals = dust - pred
-        ll = -0.5 * np.sum((residuals / sigma)**2 + np.log(2 * np.pi * sigma**2))
-        return -ll
-    
-    x0 = [0, 0.5, 0, np.log(0.5)]
-    result = minimize(neg_log_likelihood, x0, method='Nelder-Mead')
-    
-    n_params = 4  # a, b, c, sigma
-    log_likelihood = -result.fun
-    
-    return log_likelihood, n_params, result.x
+    """Retain the existing sigmoid mass proxy for AGN fraction."""
+    return fit_gaussian_linear(dust, 1 / (1 + np.exp(-(mass - 10))), z)
 
 
-def compute_bayes_factor(aic1, aic2):
-    """Approximate Bayes factor from AIC difference."""
-    # BF ≈ exp(-0.5 * delta_AIC)
-    delta_aic = aic1 - aic2
-    bf = np.exp(-0.5 * delta_aic)
-    return bf
+def compute_aic_support_ratio(aic_numerator, aic_denominator):
+    """Relative Akaike support, numerator/denominator; not a Bayes factor."""
+    return float(np.exp(-0.5 * (aic_numerator - aic_denominator)))
 
 
-def interpret_bayes_factor(bf):
-    """Interpret Bayes factor according to Kass & Raftery (1995)."""
-    if bf > 150:
-        return "Very strong evidence for Model 2"
-    elif bf > 20:
-        return "Strong evidence for Model 2"
-    elif bf > 3:
-        return "Positive evidence for Model 2"
-    elif bf > 1:
-        return "Weak evidence for Model 2"
-    elif bf > 1/3:
-        return "Weak evidence for Model 1"
-    elif bf > 1/20:
-        return "Positive evidence for Model 1"
-    elif bf > 1/150:
-        return "Strong evidence for Model 1"
-    else:
-        return "Very strong evidence for Model 1"
+def interpret_aic_difference(delta_aic, alternative):
+    """Use explicit model names and direction without Bayes-factor labels."""
+    if delta_aic > 0:
+        return f"AIC favors TEP over {alternative}"
+    if delta_aic < 0:
+        return f"AIC favors {alternative} over TEP"
+    return f"Equal AIC support for TEP and {alternative}"
 
 
 def main():
@@ -272,7 +167,9 @@ def main():
     gamma_t = df_highz['gamma_t'].values
     
     # Handle missing values
-    valid = ~(np.isnan(dust) | np.isnan(mass) | np.isnan(z) | np.isnan(gamma_t))
+    valid = np.isfinite(dust) & np.isfinite(mass) & np.isfinite(z) & np.isfinite(gamma_t)
+    if 'log_ssfr' in df_highz.columns:
+        valid &= np.isfinite(df_highz['log_ssfr'].values)  # Same rows for every model
     dust = dust[valid]
     mass = mass[valid]
     z = z[valid]
@@ -373,24 +270,24 @@ def main():
         delta_aic = aic - best_aic
         print_status(f"  {i+1}. {models[name]['name']}: AIC={aic:.1f} (ΔAIC={delta_aic:.1f})")
     
-    # Compute Bayes factors vs TEP
-    print_status("\nBayes Factors (vs TEP):")
+    # Compute directional AIC support ratios vs TEP
+    print_status("\nAIC support ratios (TEP / alternative):")
     comparisons = {}
     for name, m in models.items():
         if name == 'tep':
             continue
-        bf = compute_bayes_factor(m['aic'], aic_tep)
-        interpretation = interpret_bayes_factor(bf)
+        ratio = compute_aic_support_ratio(aic_tep, m['aic'])
+        interpretation = interpret_aic_difference(m['aic'] - aic_tep, m['name'])
         comparisons[name] = {
-            'bayes_factor': bf,
+            'aic_support_ratio_tep_over_alternative': ratio,
             'interpretation': interpretation,
             'delta_aic': m['aic'] - aic_tep,
             'delta_bic': m['bic'] - bic_tep,
         }
-        print_status(f"  TEP vs {models[name]['name']}: BF={1/bf:.1f} ({interpretation})")
+        print_status(f"  TEP vs {models[name]['name']}: AIC support ratio={ratio:.3g} ({interpretation})")
     
     # Akaike weights
-    print_status("\nAkaike Weights (probability of being best model):")
+    print_status("\nAkaike weights (normalized support among tested specifications):")
     aics = np.array([m['aic'] for m in models.values()])
     delta_aics = aics - np.min(aics)
     weights = np.exp(-0.5 * delta_aics) / np.sum(np.exp(-0.5 * delta_aics))
@@ -408,7 +305,7 @@ def main():
     tep_rank = [i+1 for i, (name, _, _) in enumerate(model_list) if name == 'tep'][0]
     
     if tep_rank == 1:
-        conclusion = f"TEP is the BEST model (Akaike weight = {tep_weight:.1%})"
+        conclusion = f"TEP has the lowest AIC among tested specifications (Akaike weight = {tep_weight:.1%})"
     else:
         conclusion = f"TEP ranks #{tep_rank} (Akaike weight = {tep_weight:.1%})"
     
@@ -425,6 +322,12 @@ def main():
     results = {
         'step': f'Step {STEP_NUM}: Alternative Model Comparison',
         'n_data': n_data,
+        'input_file': str(data_path.relative_to(PROJECT_ROOT)),
+        'input_sha256': hashlib.sha256(data_path.read_bytes()).hexdigest(),
+        'source_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        'fit_method': 'Centered/scaled SVD Gaussian maximum likelihood; rank + 1 parameters',
+        'comparison_scope': 'Phenomenological dust regressions on common rows; AIC weights are not posterior probabilities for the physical theories',
+        'ssfr_source': 'log_ssfr' if 'log_ssfr' in df_highz.columns else 'mass proxy, algebraically equivalent to null',
         'z_range': [float(z.min()), float(z.max())],
         'models': {name: {k: float(v) if isinstance(v, (np.floating, float)) else v 
                          for k, v in m.items()} 
@@ -482,7 +385,7 @@ def main():
         ax2.set_xticks(range(len(model_list)))
         ax2.set_xticklabels([m.split('\n')[0][:10] for m in model_names], rotation=45, ha='right', fontsize=9)
         ax2.set_ylabel('Akaike Weight', fontsize=12)
-        ax2.set_title('Model Probability', fontsize=14)
+        ax2.set_title('Normalized AIC Support', fontsize=14)
         ax2.set_ylim(0, 1)
         
         # Add percentage labels

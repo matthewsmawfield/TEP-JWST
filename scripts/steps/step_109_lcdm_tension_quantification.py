@@ -111,10 +111,11 @@ def tep_corrected_mass_density(df, z_col, mass_col, z_min, z_max, volume_mpc3, m
     if len(df_bin) == 0:
         return -np.inf, 1.0
     
-    # Compute Gamma_t for structural potential depth correction
+    # Compute Gamma_t for structural potential depth correction (clamped >= 1.0 so galaxies
+    # below the centering pivot LOG_MH_REF = 12.0 are not artificially promoted upward)
     log_mh = stellar_to_halo_mass_behroozi_like(df_bin[mass_col].values, df_bin[z_col].values)
     z = df_bin[z_col].values
-    gamma_t = compute_gamma_t(log_mh, z)
+    gamma_t = np.maximum(compute_gamma_t(log_mh, z), 1.0)
     
     # Apply structural TEP isochrony correction
     log_masses_corrected = correct_stellar_mass(df_bin[mass_col].values, gamma_t)

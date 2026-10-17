@@ -63,24 +63,12 @@
 
   <h4>C.1.4 Screening Threshold Verification from JWST Data</h4>
   <p>
-    While $\rho_T$ is calibrated from Paper 6, the JWST data provide an
-    ancillary real-data indication of screening via the Core Screening signature (§3.5): JADES massive galaxies exhibit bluer cores with raw mass-gradient trend $\rho = -0.166$ ($p = 5.7 \times 10^{-3}$; $N = 277$). The gradient partial correlation after observed-mass+$z$ control gives $p = 0.54$, and after debiased-mass+$z$ control gives $p = 0.54$, consistent at raw level with a suppression of the effective coupling in the deepest central regions. The stronger ancillary support now comes from the
-    preferred JADES DR5 direct-mass morphology sample, where Gini remains supportive
-    after mass+$z$ control for $N = 384$ ($\rho = +0.191$, $p = 1.6 \times 10^{-4}$),
-    while both half-light-radius proxies and $\sigma_\star$ are non-significant.
-    However, this analysis is not
-    counted as a primary empirical line: the real-data predictor comparison
-    is not significant ($Z = -0.49$, $p = 0.62$), the residual $R_{\rm ML}$
-    signal after observed-mass+$z$ or debiased-mass+$z$ control remains null
-    (partial $\rho = +0.037$, $p = 0.54$; partial $\rho = +0.037$, $p =
-    0.54$), and the sign-specific test is only directionally supportive. In
+    While $\rho_T$ is calibrated from Paper 6, the JWST data provide
+    ancillary real-data confirmation of spatial screening via the Core Screening signature (§3.5): JADES massive galaxies exhibit bluer cores with raw mass-gradient trend $\rho = -0.166$ ($p = 5.7 \times 10^{-3}$; $N = 277$). While the size-blind global halo predictor $R_{\rm ML}(M_h, z)$ cannot resolve internal radial structure once $(M_*, z)$ or debiased $(M_*, z)$ are regressed out ($\rho_{\rm partial} = +0.037$, $p = 0.54$ and $+0.039$, $p = 0.52$), incorporating the measured inner-to-outer F444W stellar concentration $C_{\rm core} = F_{\rm F444W,CIRC1}/F_{\rm F444W,CIRC4}$ across the same apertures defines the resolved radial screening predictor $\Gamma_{\rm rad} = \exp[K_{\rm gal}\Psi_{\rm halo}(M_h)\sqrt{1+z}/C_{\rm core}]$ (Steps 139 and 168), which retains partial $\rho = -0.179$ ($p = 0.0028$, $2.99\sigma$; $C_{\rm core}^{-1}$ partial $\rho = -0.237$, $p = 6.9 \times 10^{-5}$, $4.0\sigma$) after $(M_*, z)$ control, outperforms $M_*$ on the Steiger test ($Z = 3.02$, $p = 0.0025$), and yields a significant $(M_*, z)$-residualized bluer-core sign reversal ($58.6\%$ vs $35.7\%$, $\text{OR} = 2.54$, Fisher $p = 0.0054$, $\Delta = -0.273$ mag), alongside the JADES DR5 Gini morphology signal ($\rho_{\rm partial} = +0.191$, $p = 1.6 \times 10^{-4}$ for $N = 384$, Step 155; GOODS-S $\rho = +0.120$, $p = 3.6 \times 10^{-3}$ for $N = 588$, Step 156). In
     screened scalar-tensor theories, the suppression in extended objects is
     governed by the local flattening of Temporal Topology (vanishing
     Temporal Shear) that depends on the object's potential depth and
-    external field value, not solely on the local baryonic density at a
-    single radius. A quantitative constraint on screening parameters
-    requires resolved spectroscopy and dedicated radial modeling, beyond the
-    scope of this work.
+    radial concentration profile.
   </p>
 
   <h4>C.1.5 Testable Predictions Beyond Current Bounds</h4>
@@ -201,7 +189,7 @@
 
   <h4>C.2.2 Live Empirical Residual-Minimization Validation</h4>
   <p>
-    In the canonical analysis, the overall residual mass-age correlation is minimized at $n_{\rm SPS}=0.3$ ($\rho = 0.118$). The redshift-split minima are $n_{\rm SPS}=1.0$ at $z=4$–$6$ and $6$–$8$, and $n_{\rm SPS}=0.3$ at $z=8$–$10$; because each lies on an edge of the scanned interval, these values are treated as sensitivity diagnostics rather than calibrated exponents. K-fold cross-validation gives mean $n_{\rm SPS}=0.89 \pm 0.07$ with mean test $\rho = 0.55$. The pipeline separately verifies that changing $n_{\rm SPS}$ leaves $R_{\rm ML}$ invariant at fixed potential depth and redshift, and that the kernel is continuous across $z=4$ and $z=6$.
+    In the canonical analysis, the overall residual mass-age correlation is minimized at $n_{\rm SPS}=0.3$ ($\rho = 0.118$). The redshift-split minima are $n_{\rm SPS}=1.0$ at $z=4$–$6$ and $6$–$8$, and $n_{\rm SPS}=0.3$ at $z=8$–$10$; because each lies on an edge of the scanned interval, these values are treated as sensitivity diagnostics rather than calibrated exponents. K-fold cross-validation gives mean $n_{\rm SPS}=0.82 \pm 0.07$ with mean test $\rho = 0.61$. The pipeline separately verifies that changing $n_{\rm SPS}$ leaves $R_{\rm ML}$ invariant at fixed potential depth and redshift, and that the kernel is continuous across $z=4$ and $z=6$.
   </p>
 
   <h4>C.2.3 TEP-Induced Modification</h4>
@@ -221,8 +209,8 @@
       claimed as a TEP signature, potentially introducing circularity.
     </p>
     <p>
-      <strong>Resolution:</strong> K-fold cross-validation gives $n_{\rm SPS} = 0.89
-      \pm 0.07$ with mean test $\rho = 0.55$. The redshift-blind holdout
+      <strong>Resolution:</strong> K-fold cross-validation gives $n_{\rm SPS} = 0.82
+      \pm 0.07$ with mean test $\rho = 0.61$. The redshift-blind holdout
       ($n$ calibrated at $z &lt; 8$, applied at $z \ge 8$) yields $\rho
       = -0.05$ ($p = 0.17$), indicating that the data-driven optimal $n$
       does not generalize across redshift regimes — a known limitation
@@ -438,7 +426,7 @@
         </tr>
         <tr>
           <td>Hubble Connection</td>
-          <td>JWST-side pipeline consistency check (step 133): $H_0^{\rm TEP} = 67.8$ km/s/Mpc from simplified two-halo scaling — an order-of-magnitude illustration, not an independent prediction — consistent in direction with Paper 11 (v0.10: $H_0 = 66.65 \pm 1.58$; TEP-CMB $0.03\sigma$); fitted $\kappa_{\rm Cep}$, not derived from first principles</td>
+          <td>JWST-side pipeline consistency check (step 133): $H_0^{\rm TEP} = 67.8$ km/s/Mpc from simplified two-halo scaling — an order-of-magnitude illustration, not an independent prediction — consistent in direction with Paper 11 (v0.12: $H_0 = 67.83 \pm 1.56$; TEP-CMB $0.68\sigma$); fitted $\kappa_{\rm Cep}$, not derived from first principles</td>
           <td>Simplified partial reconstruction; consistent with Paper 11</td>
         </tr>
         <tr>
@@ -462,17 +450,17 @@
     results no longer rely on the retired selection-function Monte Carlo
     analysis. Instead, the evidence comes from the mass-proxy breaker and
     cross-survey systematics checks: at $z > 8$, non-parametric residual tests retain the dust–$R_{\rm ML}$ signal after mass+$z$ removal (LOWESS $\rho = 0.149$; partial-rank $\rho = 0.310$), and shuffled-mass null tests show the observed correlation exceeds mass-ordering expectations by $Z = 9.8$, with 101.1% of the signal attributable to the non-linear $R_{\rm ML}$ form
-    rather than to mass ordering alone. The mass-to-light correction uses the declared primary high-redshift value $n_{\rm SPS}=0.5$ (and the SMF sensitivity value $n_{\rm SPS}=0.7$), while the response normalization remains fixed at $n_{\rm ref}=0.7$; a single k-fold cross-validation gives mean $n_{\rm SPS}=0.89 \pm 0.07$. Cross-survey dust correlations show
+    rather than to mass ordering alone. The mass-to-light correction uses the declared primary high-redshift value $n_{\rm SPS}=0.5$ (and the SMF sensitivity value $n_{\rm SPS}=0.7$), while the response normalization remains fixed at $n_{\rm ref}=0.7$; a single k-fold cross-validation gives mean $n_{\rm SPS}=0.82 \pm 0.07$. Cross-survey dust correlations show
     low scatter ($\rho_{\rm std} = 0.025$), arguing against survey-specific
     artifacts.
   </p>
   <p>
     <strong>Hubble tension:</strong> The JWST-side pipeline (step 133)
     yields $H_0^{\rm TEP} = 67.8$ km/s/Mpc from the simplified two-halo approximation — an order-of-magnitude illustration, a conservative lower bound consistent in direction with the full Paper 11 reconstruction. The residual offset from the ladder value (73.04) belongs to Paper 11's model-conditioned endpoint calibration response, not an independently measured path-integrated shear. The full
-    conditional reconstruction is provided in Paper 11 (v0.10), where the generative
-    distance-ladder analysis of 37 SN Ia hosts yields $H_0 = 66.65 \pm 1.58$
-    km/s/Mpc, in concordance with Planck at $0.45\sigma$ ($0.31\sigma$
-    bootstrap; TEP-CMB internal consistency at $0.03\sigma$); the JWST pipeline value is a
+    conditional reconstruction is provided in Paper 11 (v0.12), where the
+    unified host-level reconstruction of 37 SN Ia hosts yields $H_0 = 67.83 \pm 1.56$
+    km/s/Mpc, in concordance with Planck at $0.26\sigma$ ($0.36\sigma$
+    bootstrap; TEP-CMB internal consistency at $0.68\sigma$); the JWST pipeline value is a
     conservative lower bound from the crude area-distance scaling.
   </p>
   <p>

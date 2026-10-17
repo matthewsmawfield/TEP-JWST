@@ -5,14 +5,14 @@
     "time_split": [
       {
         "survey": "UNCOVER",
-        "train_n": 1294,
-        "train_n_z8": 0,
-        "train_rho": null,
-        "train_p": null,
-        "test_n": 863,
-        "test_n_z8": 254,
-        "test_rho": 0.6457648560030902,
-        "test_p": 2.2986036547901105e-31,
+        "train_n": 152,
+        "train_n_z8": 152,
+        "train_rho": 0.42323621675927253,
+        "train_p": 5.5586760647316855e-08,
+        "test_n": 102,
+        "test_n_z8": 102,
+        "test_rho": 0.7988815443508942,
+        "test_p": 8.293060269903167e-24,
         "generalization": "success"
       },
       {

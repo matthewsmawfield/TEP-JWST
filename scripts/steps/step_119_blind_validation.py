@@ -112,11 +112,11 @@ def compute_dust_gamma_correlation(df, z_min=8.0):
     return float(rho), float(p), int(mask.sum())
 
 
-def time_split_validation(df, train_frac=0.6):
-    """Split by redshift: low-z train, high-z test."""
-    df_sorted = df.sort_values('z').reset_index(drop=True)
-    n_train = int(len(df_sorted) * train_frac)
-    return df_sorted.iloc[:n_train], df_sorted.iloc[n_train:]
+def time_split_validation(df, train_frac=0.6, z_min=8.0):
+    """Split the z > z_min sample by redshift: lower-z train, higher-z test."""
+    df_z = df[df['z'] > z_min].sort_values('z').reset_index(drop=True)
+    n_train = int(len(df_z) * train_frac)
+    return df_z.iloc[:n_train], df_z.iloc[n_train:]
 
 
 def field_split_validation(df):

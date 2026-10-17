@@ -1,0 +1,13 @@
+[00:14:46] INFO        ======================================================================
+[00:14:46] INFO        STEP 181: kernel variant comparison (12-8)
+[00:14:46] INFO        ======================================================================
+[00:14:46] INFO        High-z sample (z > 6): 803 galaxies
+[00:14:46] INFO        joint-valid N=803; observables: ['dust', 'age_ratio', 'met', 'log_ssfr']
+[00:14:46] INFO          canonical        score(lnR)=0.2854 | score(R_ML)=0.0501 (max R_ML=2.27e+01)
+[00:14:46] INFO          virial_plus_sqrt score(lnR)=0.3669 | score(R_ML)=0.0125 (max R_ML=3.01e+11)
+[00:14:46] INFO          virial_only      score(lnR)=0.3750 | score(R_ML)=0.0148 (max R_ML=3.24e+03)
+[00:14:46] INFO          frozen_only      score(lnR)=0.3642 | score(R_ML)=0.2399 (max R_ML=2.60e+00)
+[00:14:48] INFO          free-s (p=0.5): best s(lnR)=2.00 | best s(R_ML)=1.75 (score_RML=0.4912, max R_ML=5184705528587072045056.00)
+[00:15:33] INFO          free-(s,p): best s=2.00 p=0.10 score=0.3789
+[00:15:33] INFO        verdict: real: evolving-depth variants exceed canonical and the free-exponent optimum sits on the scan boundary
+[00:15:33] INFO    ✓   Wrote /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-JWST/results/outputs/step_181_kernel_variant_test.json

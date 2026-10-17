@@ -19,7 +19,7 @@ def rankdata_with_nan(x):
     ranks = np.full(arr.shape, np.nan, dtype=float)
     mask = np.isfinite(arr)
     if mask.any():
-        ranks[mask] = stats.rankdata(arr[mask])
+        ranks[mask] = stats.rankdata(arr[mask]) / float(mask.sum())
     return ranks
 
 

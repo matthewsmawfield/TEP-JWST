@@ -16,7 +16,7 @@
   </div>
   <p>
     The theory assumes a disformal coupling where non-gravitational matter couples to a causal matter metric $\tilde g_{\mu\nu} = A^2(\phi)g_{\mu\nu} + B(\phi)\nabla_\mu\phi\nabla_\nu\phi$, where the conformal sector is dominant for clock observables. The JWST response normalization
-    $K_{\rm gal}$ is informed by the prespecified canonical magnitude-sector response benchmark $\kappa_{\rm gal} = (9.6 \pm 4.0) \times 10^5$ mag from Paper 11 (where empirical Cepheid analyses recover $\kappa_{\rm equiv}^{42} = (0.369 \pm 0.310)\times 10^6$ and $\kappa_{\rm Cep}^{44} = (0.400 \pm 0.270)\times 10^6$ mag). It is a transferred galaxy-sector effective normalization,
+    $K_{\rm gal}$ is informed by the prespecified canonical magnitude-sector response benchmark $\kappa_{\rm gal} = (9.6 \pm 4.0) \times 10^5$ mag from Paper 11 (where empirical Cepheid analyses recover $\kappa_{\rm equiv}^{39} = (1.220 \pm 0.531)\times 10^6$ and $\kappa_{\rm Cep}^{44} = (0.665 \pm 0.362)\times 10^6$ mag). It is a transferred galaxy-sector effective normalization,
     not the empirical Cepheid coefficient itself and not a microscopic scalar coupling.
     $K_{\rm gal}$ is not identified with bare couplings ($\beta_A$, $\kappa_{\rm Cep}$,
     or $\alpha_{\rm clock}$). A microscopic mapping requires a solved transfer function
@@ -123,19 +123,19 @@
 
   <h4>A.1.3 PPN Parameters</h4>
   <p>For an unscreened photon probe and a screened scalar source charge, the
-    Eddington PPN parameter follows the linear source-charge mapping:</p>
+    Eddington PPN parameter follows the linear source-charge mapping under the unified unstretched-space metric (Paper 0 §2.2, Step 80; with $-4\beta_A^2 S_\Sigma/(1+2\beta_A^2 S_\Sigma)$ on the isotropic-conformal benchmark):</p>
   <div class="equation">
     \begin{equation} \label{eq:jwst_ppn_gamma}
-    \gamma - 1 = -\frac{2\,\alpha_0\,\alpha_{\rm eff}}{1 + \alpha_0\,\alpha_{\rm eff}}
-    = -\frac{4\beta_A^2\,S_\Sigma(\mathcal{E})}{1 + 2\beta_A^2\,S_\Sigma(\mathcal{E})}
+    \gamma - 1 = -\frac{2\beta_A^2\,S_\Sigma(\mathcal{E})}{1 + 2\beta_A^2\,S_\Sigma(\mathcal{E})}
+    \quad \left(\text{isotropic benchmark: } -\frac{4\beta_A^2\,S_\Sigma(\mathcal{E})}{1 + 2\beta_A^2\,S_\Sigma(\mathcal{E})}\right)
     \end{equation}
   </div>
   <p>
     For a partially screened source charge $S_\Sigma \sim 0.8$ (bare $\beta_A = -1.0$, Paper 0 §2.2), this would give $|\gamma -
-    1| \approx 1.2$, violating the Cassini bound by more than four orders of
+    1| \approx 0.62$ ($1.2$ isotropic), violating the Cassini bound $|\gamma-1| &lt; 2.3\times 10^{-5}$ by more than four orders of
     magnitude. Near massive bodies, the locally active PPN scalar charge is
-    suppressed by source/environment screening (Temporal Shear flattening), bringing
-    $|\gamma - 1|_{\rm eff} \lesssim 10^{-6}$ into compliance with observations
+    suppressed by two-branch source/environment screening ($y_{\rm tb}(1.6\,R_\odot)=2.16\times 10^{-8}$), bringing
+    $|\gamma - 1|_{\rm eff} = 4.32\times 10^{-8} \ll 2.3\times 10^{-5}$ (well inside $S_\Sigma^{(\odot)} \lesssim 1.15\times 10^{-5}$ [$5.8\times 10^{-6}$ isotropic]) into compliance with observations
     without invoking rigid thin-shell approximations.
   </p>
 
@@ -179,7 +179,7 @@
   <h4>A.1.5b Observable Response Coefficient and the $R_{\rm ML}$ Kernel</h4>
   <p>
     The JWST response normalization $K_{\rm gal}$ is informed by the prespecified canonical magnitude-sector
-    response benchmark $\kappa_{\rm gal} = (9.6 \pm 4.0) \times 10^5$ mag from Paper 11 (where independent empirical Cepheid analyses recover $\kappa_{\rm equiv}^{42} = (0.369 \pm 0.310) \times 10^6$ mag and $\kappa_{\rm Cep}^{44} = (0.400 \pm 0.270) \times 10^6$ mag).
+    response benchmark $\kappa_{\rm gal} = (9.6 \pm 4.0) \times 10^5$ mag from Paper 11 (where distinct empirical Cepheid-channel analyses recover $\kappa_{\rm equiv}^{39} = (1.220 \pm 0.531) \times 10^6$ mag and $\kappa_{\rm Cep}^{44} = (0.665 \pm 0.362) \times 10^6$ mag).
     It is a transferred galaxy-sector effective normalization, not the empirical Cepheid coefficient
     itself and not a microscopic scalar coupling. Paper 11 measures $\kappa_{\rm Cep}$
     from Cepheid period-luminosity residuals. The conversion to the exponential
@@ -369,22 +369,11 @@
   </ul>
 
   <p>
-    <strong>Why this matters for intellectual honesty.</strong> The claim
+    <strong>Scope of the no-refit transfer and structural priors.</strong> The statement
     that TEP preserves a no-JWST-specific-refit test of a prespecified response benchmark refers to the fact that
-    $\kappa_{\rm gal}$ is drawn from the canonical benchmark
-    ($\kappa_{\rm gal} = 9.6 \times 10^5$ mag from Paper 11), not tuned to JWST data. The galaxy-sector
-    response $K_{\rm gal}$ is derived from $\kappa_{\rm gal}$ via the stellar-population
-    transfer $K_{\rm gal} = \kappa_{\rm gal}\ln 10/(2.5\,n_{\rm ref})$ with fixed $n_{\rm ref}=0.7$—there is a phenomenological transfer to the stellar-population
-    sector. However, the $R_{\rm ML}$ formula itself embeds structural assumptions
-    about how the inference-channel response scales with mass, redshift, and potential
-    depth. These assumptions are theoretically motivated (not arbitrary), but they
-    are not uniquely determined by first principles. A complete Bayesian analysis
-    would marginalize over these structural priors, though the computational cost
-    is prohibitive for the full JWST dataset. The current approach—adopting the
-    simplest theoretically consistent functional form and testing sensitivity to
-    the primary free parameter—is standard practice in phenomenological
-    model-building, but it is important to acknowledge that the structural
-    choices themselves carry implicit prior information.
+    $\kappa_{\rm gal}$ is fixed at the canonical benchmark
+    ($\kappa_{\rm gal} = 9.6 \times 10^5$ mag from Paper 11) rather than tuned to JWST data, with the galaxy-sector
+    response $K_{\rm gal} = \kappa_{\rm gal}\ln 10/(2.5\,n_{\rm ref})$ fixed at $n_{\rm ref}=0.7$. At the same time, the $R_{\rm ML}$ functional form carries explicit structural priors on how the inference-channel response scales with mass, redshift, and potential depth; adopting the minimal theoretically motivated form and auditing sensitivity across alternative baselines (§3.8) separates the fixed coupling normalization from functional-form specification.
   </p>
 
   <div class="callout callout-info">
@@ -1298,7 +1287,7 @@
     </li>
     <li>Inference-channel response: $R_{\rm ML}$ is driven by the local scalar field value but is not identified with the conformal factor $A(\phi)$</li>
     <li>
-      Environment-dependent proper time: $d\tau \propto A(\phi)\,dt$, with $\Delta\ln A<0$ in deeper wells
+      Environment-dependent proper time: $d\tau \propto A(\phi)\,dt$, with $\Delta\ln A&lt;0$ in deeper wells
     </li>
     <li>
       Screening hierarchy: The observable response is suppressed when the local shear/source-charge sector is screened; $\rho_T$ is a saturation scale, not a binary ambient-density switch.
@@ -1322,7 +1311,7 @@
       hierarchy. Paper 11 noted that the
       screening mechanism "remains to be derived from first principles"
       and that the phenomenology "mimics chameleon or Vainshtein
-      screening." This agnostic position has now been superseded: Paper 0 v0.15 assigns local screening to the nested two-body operator $\mathcal{R}(s)=\mathcal{S}_\Sigma(X_{\rm env})^2\,y(s)$ — the effective pairwise projection of the master environmental operator $\mathcal{S}_\Sigma(\mathcal{E})$ under the derived kinetic completion $P=X-V+X|X|/\Lambda_X^4$, with machine-checked benchmarks. The robust
+      screening." This agnostic position has now been superseded: Paper 0 v0.16 assigns local screening to the nested two-body operator $\mathcal{R}(s)=\mathcal{S}_\Sigma(X_{\rm env})^2\,y(s)$ — the effective pairwise projection of the master environmental operator $\mathcal{S}_\Sigma(\mathcal{E})$ under the derived kinetic completion $P=X-V+X|X|/\Lambda_X^4$, with machine-checked benchmarks. The robust
       empirical finding — the saturation scale $\rho_T \approx 20$
       g/cm³ and the resulting screening hierarchy — is anchored to this operator structure. The chameleon and DBI mechanisms remain candidate alternative completions.
     </p>

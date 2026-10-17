@@ -74,8 +74,8 @@ def generate_sensitivity():
         t_cosmic = cosmo.age(z).value
         t_salpeter = 0.045
         
-        extra_efolds = (gamma_cen - gamma_disk) * t_cosmic / t_salpeter
-        boost = np.exp(extra_efolds)
+        extra_efolds = np.clip((gamma_cen - gamma_disk) * t_cosmic / t_salpeter, -50.0, 50.0)
+        boost = float(np.exp(extra_efolds))
         
         # Cap boost for visualization if needed, but let's keep raw
         
@@ -89,7 +89,7 @@ def generate_sensitivity():
     df = pd.DataFrame(results)
     
     # Save results
-    df.to_csv('/Users/matthewsmawfield/www/TEP-JWST/results/outputs/lrd_radius_sensitivity.csv', index=False)
+    df.to_csv(Path(__file__).resolve().parents[2] / 'results' / 'outputs' / 'lrd_radius_sensitivity.csv', index=False)
     
     # Print critical radius where boost > 100
     crit = df[df['boost_factor'] < 100].iloc[0] if any(df['boost_factor'] < 100) else None

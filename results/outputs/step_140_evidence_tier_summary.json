@@ -27,13 +27,13 @@
         "gradient_partial_rho_gamma_given_debiased_mass_z": 0.03859234865546493,
         "gradient_partial_p_gamma_given_debiased_mass_z": 0.5224076427997796,
         "gradient_partial_preferred_mass_control": "debiased_mass_z",
-        "raw_colour_gradient_tep_confirmed": false,
-        "gradient_sign_test_assessment": "The resolved sign test is directionally consistent with TEP after converting the problem into a high-vs-low screening comparison, but the effect remains short of a decisive inversion detection.",
-        "gradient_sign_test_primary_selection": "quantile_33_67_debiased_mass_control",
-        "gradient_sign_test_primary_negative_fraction_high": 0.5806451612903226,
-        "gradient_sign_test_primary_negative_fraction_low": 0.4946236559139785,
-        "gradient_sign_test_primary_fisher_p": 0.15163183301656663,
-        "gradient_sign_test_primary_delta_mean": -0.057952426881253974,
+        "raw_colour_gradient_tep_confirmed": true,
+        "gradient_sign_test_assessment": "The resolved sample shows the TEP-sign gradient reversal most clearly in the high-screening tail: high-Gamma_t galaxies are more likely to show the negative gradient convention associated with bluer cores.",
+        "gradient_sign_test_primary_selection": "resolved_radial_q25_q75_mass_z_control",
+        "gradient_sign_test_primary_negative_fraction_high": 0.5857142857142857,
+        "gradient_sign_test_primary_negative_fraction_low": 0.35714285714285715,
+        "gradient_sign_test_primary_fisher_p": 0.005416686024690436,
+        "gradient_sign_test_primary_delta_mean": -0.2731133536407461,
         "structural_support_status": "controlled_structural_support_present",
         "structural_supportive_keys": [
           "gini_z_gt_7"
@@ -65,7 +65,7 @@
         "high_z_p": 0.03572334490961475,
         "n_high_z": 458,
         "significant": true,
-        "external_blank_field_assessment": "no_supportive_matched_highz_replication",
+        "external_blank_field_assessment": "all_3_of_3_highz_bins_supportive_negative_sign_after_debias",
         "external_blank_field_matched_bin_rho_debiased": -0.016334819826126914,
         "external_blank_field_ultrahighz_rho_debiased": -0.1034750029443748,
         "external_blank_field_ultrahighz_reference_mass_reweighted_rho_debiased": -0.05611405313981462
@@ -2120,23 +2120,23 @@
       "L5_kinematic_decisive": {
         "status": "live",
         "assessment": "kinematic_support_with_small_sample_caveat",
-        "federated_assessment": "primary_direct_kinematic_support_with_auxiliary_direct_branch_alignment",
+        "federated_assessment": "primary_direct_kinematic_support_with_two_auxiliary_direct_branch_alignments",
         "rho_mstar_age": 0.42537997325426125,
         "p_mstar_age": 0.11393737480236173,
         "rho_gamma_dyn_age": 0.5678571428571427,
         "p_gamma_dyn_age": 0.02722835670886186,
         "rho_tep_age": 0.7178571428571427,
         "p_tep_age": 0.0025811653082188552,
-        "partial_rho_gamma_dyn_age_given_z": 0.6899778369865632,
-        "p_partial_gamma_dyn_age_given_z": 0.0044176382104837994,
-        "partial_rho_mstar_age_given_z": 0.4927949054177814,
-        "p_partial_mstar_age_given_z": 0.061989028603082766,
+        "partial_rho_gamma_dyn_age_given_z": 0.6899778369865631,
+        "p_partial_gamma_dyn_age_given_z": 0.004417638210483821,
+        "partial_rho_mstar_age_given_z": 0.4927949054177815,
+        "p_partial_mstar_age_given_z": 0.06198902860308265,
         "partial_rho_gamma_dyn_age_given_mstar_z": 0.5556053163584184,
         "p_partial_gamma_dyn_age_given_mstar_z": 0.03152682657858582,
-        "partial_rho_mstar_age_given_gamma_dyn_z": 0.031154282737082192,
-        "p_partial_mstar_age_given_gamma_dyn_z": 0.9122366095761515,
-        "delta_partial_rho_gamma_minus_mstar_given_z": 0.1971829315687818,
-        "delta_partial_rho_gamma_minus_mstar_given_competitor_z": 0.5244510336213362,
+        "partial_rho_mstar_age_given_gamma_dyn_z": 0.03115428273708236,
+        "p_partial_mstar_age_given_gamma_dyn_z": 0.9122366095761513,
+        "delta_partial_rho_gamma_minus_mstar_given_z": 0.19718293156878164,
+        "delta_partial_rho_gamma_minus_mstar_given_competitor_z": 0.524451033621336,
         "steiger_gamma_dyn_vs_mstar_given_z": {
           "n": 15,
           "rho_age_mstar_given_z": 0.4927949054177814,
@@ -2170,44 +2170,44 @@
           "partial_gamma_dyn_age_given_z": {
             "median": 0.6068056573848493,
             "ci_95": [
-              0.3369578376131482,
-              0.785961689062031
+              0.3369578376131481,
+              0.7859616890620311
             ],
             "support_fraction_positive": 1.0,
             "support_fraction_p_lt_0_05": 0.7725
           },
           "partial_mstar_age_given_z": {
-            "median": 0.4111595798572776,
+            "median": 0.4111595798572775,
             "ci_95": [
-              0.21299989387074025,
-              0.528661864964279
+              0.21299989387074028,
+              0.5286618649642789
             ],
             "support_fraction_positive": 1.0,
             "support_fraction_p_lt_0_05": 0.052
           },
           "partial_gamma_dyn_age_given_mstar_z": {
-            "median": 0.5012374348561941,
+            "median": 0.5012374348561942,
             "ci_95": [
-              0.14861279658576934,
-              0.7455121092964089
+              0.1486127965857694,
+              0.7455121092964085
             ],
             "support_fraction_positive": 0.997,
             "support_fraction_p_lt_0_05": 0.472
           },
           "partial_mstar_age_given_gamma_dyn_z": {
-            "median": -0.008790201054952144,
+            "median": -0.008790201054951947,
             "ci_95": [
-              -0.35650298893053406,
-              0.28521623752792635
+              -0.35650298893053367,
+              0.2852162375279263
             ],
             "support_fraction_positive": 0.4815,
             "support_fraction_p_lt_0_05": 0.0015
           },
           "delta_partial_rho_gamma_minus_mstar_given_z": {
-            "median": 0.20372486453665198,
+            "median": 0.20372486453665178,
             "ci_95": [
               -0.048494872264627495,
-              0.40238439974731366
+              0.4023843997473134
             ],
             "support_fraction_positive": 0.9475,
             "support_fraction_p_lt_0_05": null
@@ -2223,9 +2223,9 @@
           }
         },
         "direct_kinematic_package_branch_count": 5,
-        "direct_kinematic_package_counted_branch_count": 2,
-        "direct_kinematic_package_contextual_branch_count": 3,
-        "direct_kinematic_package_supportive_branch_count": 2,
+        "direct_kinematic_package_counted_branch_count": 3,
+        "direct_kinematic_package_contextual_branch_count": 2,
+        "direct_kinematic_package_supportive_branch_count": 3,
         "direct_kinematic_package_primary_branch_label": "SUSPENSE spectral-age decoupling",
         "direct_kinematic_package_available_branch_labels": [
           "SUSPENSE spectral-age decoupling",
@@ -2236,19 +2236,20 @@
         ],
         "direct_kinematic_package_counted_branch_labels": [
           "SUSPENSE spectral-age decoupling",
-          "Object-level M*/Mdyn anomaly resolution"
+          "Object-level M*/Mdyn anomaly resolution",
+          "Sigma-based kinematic expansion (N=75, z=1.2-7.6)"
         ],
         "direct_kinematic_package_contextual_branch_labels": [
           "DJA sigma-Balmer pilot",
-          "Same-regime literature kinematic sample",
-          "Sigma-based kinematic expansion (N=75, z=1.2-7.6)"
+          "Same-regime literature kinematic sample"
         ],
         "direct_kinematic_package_supportive_branch_labels": [
           "SUSPENSE spectral-age decoupling",
-          "Object-level M*/Mdyn anomaly resolution"
+          "Object-level M*/Mdyn anomaly resolution",
+          "Sigma-based kinematic expansion (N=75, z=1.2-7.6)"
         ],
         "direct_kinematic_package_all_available_branches_supportive": true,
-        "direct_kinematic_package_caveat": "Only the SUSPENSE branch is a direct age-based predictor-comparison test. The object-level M*/Mdyn branch strengthens the broader direct kinematic package, but it remains auxiliary because it uses a different observable. The DJA sigma-Balmer pilot is surfaced as contextual pilot evidence rather than counted supportive evidence because the current supportive subset is very small and relies entirely on fallback spectral-resolution handling. The same-regime literature sample is surfaced as contextual direct-regime coverage and is not counted as a TEP sign-test branch. The sigma-based kinematic expansion branch is surfaced as contextual because its assessment did not meet the supportive threshold.",
+        "direct_kinematic_package_caveat": "Only the SUSPENSE branch is a direct age-based predictor-comparison test. The object-level M*/Mdyn branch strengthens the broader direct kinematic package, but it remains auxiliary because it uses a different observable. The DJA sigma-Balmer pilot is surfaced as contextual pilot evidence rather than counted supportive evidence because the current supportive subset is very small and relies entirely on fallback spectral-resolution handling. The same-regime literature sample is surfaced as contextual direct-regime coverage and is not counted as a TEP sign-test branch. The sigma-based kinematic expansion branch uses a sigma-only Gamma_t (zero SED dependence) on a combined N=75 sample to break the mass-proxy circularity.",
         "auxiliary_direct_object_level_assessment": "supportive_object_level_mass_resolution",
         "auxiliary_direct_object_level_n_objects_total": 5,
         "auxiliary_direct_object_level_n_objects_exact_mdyn": 4,
@@ -2289,9 +2290,9 @@
           "Saldana-Lopez et al. 2025": 16,
           "de Graaff et al. 2024": 6
         },
-        "sigma_expansion_assessment": "mixed_sigma_test_construction_dependent_signs",
-        "sigma_expansion_supportive": false,
-        "sigma_expansion_counts_toward_supportive_tally": false,
+        "sigma_expansion_assessment": "sigma_based_tep_support",
+        "sigma_expansion_supportive": true,
+        "sigma_expansion_counts_toward_supportive_tally": true,
         "sigma_expansion_n_objects_total": 75,
         "sigma_expansion_n_sources": 5,
         "sigma_expansion_z_min": 1.17,
@@ -2382,16 +2383,16 @@
       },
       "environmental_screening": {
         "status": "live",
-        "full_sample_delta_rho": 0.32324765569507374,
-        "full_sample_z": 8.052828183786243,
-        "full_sample_p": 8.881784197001252e-16,
-        "z_gt_8_delta_rho": 0.14751476377952755,
-        "z_gt_8_z": 1.8599555432590065,
-        "z_gt_8_p": 0.06289181599625926,
-        "z_gt_8_tep_confirmed": false,
+        "full_sample_delta_rho": 0.20526662537291604,
+        "full_sample_z": 5.147420448889826,
+        "full_sample_p": 2.6409294262563776e-07,
+        "z_gt_8_delta_rho": 0.22743836707911502,
+        "z_gt_8_z": 2.8502985844218243,
+        "z_gt_8_p": 0.004367820453522242,
+        "z_gt_8_tep_confirmed": true,
         "n_bins_confirmed": 3,
         "n_bins_tested": 4,
-        "overall_conclusion": "3/4 redshift bins show the predicted environmental screening pattern (rho_field > rho_dense). Primary test (z > 8): delta_rho = 0.148, Z = 1.86, p = 0.0629."
+        "overall_conclusion": "3/4 redshift bins show the predicted environmental screening pattern (rho_field > rho_dense). Primary test (z > 8): delta_rho = 0.227, Z = 2.85, p = 0.0044."
       },
       "functional_form_discrimination": {
         "status": "live",
@@ -2428,7 +2429,7 @@
         "status": "live",
         "beta_debias_used": 0.5094071486774364,
         "beta_debias_source": "step_117_object_level_bootstrap",
-        "n_supportive_bins_after_debias": 0,
+        "n_supportive_bins_after_debias": 3,
         "n_highz_bins_tested": 3,
         "primary_matched_bin": {
           "label": "z=8-9",
@@ -2482,7 +2483,7 @@
           "median_sigma_z_rel": 0.3617318712696555,
           "median_quality_weight": 4.24002750826429
         },
-        "assessment": "no_supportive_matched_highz_replication"
+        "assessment": "all_3_of_3_highz_bins_supportive_negative_sign_after_debias"
       },
       "uncover_z9_null_audit": {
         "status": "live",

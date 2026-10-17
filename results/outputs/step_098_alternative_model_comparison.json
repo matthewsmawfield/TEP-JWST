@@ -1,6 +1,12 @@
 {
   "step": "Step 098: Alternative Model Comparison",
   "n_data": 254,
+  "input_file": "results/interim/step_002_uncover_full_sample_tep.csv",
+  "input_sha256": "0124194b285fae5115143f8df103744041434e78fea480a9927d6d927478d6b6",
+  "source_sha256": "64adf9eaea33c69a855ef546a2891cf78658b5c02961334f6154490c5a67179a",
+  "fit_method": "Centered/scaled SVD Gaussian maximum likelihood; rank + 1 parameters",
+  "comparison_scope": "Phenomenological dust regressions on common rows; AIC weights are not posterior probabilities for the physical theories",
+  "ssfr_source": "log_ssfr",
   "z_range": [
     8.00166986835325,
     9.980602884595935
@@ -9,111 +15,111 @@
     "null": {
       "name": "Standard Physics (Null)",
       "description": "Dust depends on mass and redshift only",
-      "log_likelihood": -92.53023652147485,
+      "log_likelihood": -92.53023650183664,
       "n_params": 4,
-      "aic": 193.0604730429497,
-      "bic": 207.20981011102384,
-      "akaike_weight": 0.4203544986974026
+      "aic": 193.06047300367328,
+      "bic": 207.20981007174743,
+      "akaike_weight": 0.33897327132953664
     },
     "tep": {
       "name": "TEP (Temporal Equivalence)",
       "description": "Dust depends on mass, redshift, AND Gamma_t (tests whether TEP adds explanatory power beyond standard predictors)",
-      "log_likelihood": -91.79330788326565,
+      "log_likelihood": -91.79330786776505,
       "n_params": 5,
-      "aic": 193.5866157665313,
-      "bic": 211.273287101624,
-      "akaike_weight": 0.3231210555519839
+      "aic": 193.5866157355301,
+      "bic": 211.27328707062279,
+      "akaike_weight": 0.2605643596586454
     },
     "topheavy_imf": {
       "name": "Top-Heavy IMF",
       "description": "IMF varies with mass, producing more dust in massive galaxies",
-      "log_likelihood": -93.09507738729337,
+      "log_likelihood": -92.52923168092393,
       "n_params": 5,
-      "aic": 196.19015477458674,
-      "bic": 213.87682610967943,
-      "akaike_weight": 0.08790507455019604
+      "aic": 195.05846336184786,
+      "bic": 212.74513469694054,
+      "akaike_weight": 0.1248266630748282
     },
     "stochastic_sf": {
       "name": "Stochastic Star Formation",
       "description": "Dust correlates with recent star formation bursts",
-      "log_likelihood": -110.89088167500864,
+      "log_likelihood": -92.41693767047958,
       "n_params": 5,
-      "aic": 231.7817633500173,
-      "bic": 249.46843468510997,
-      "akaike_weight": 1.6420801203726555e-09
+      "aic": 194.83387534095917,
+      "bic": 212.52054667605185,
+      "akaike_weight": 0.13966128384100246
     },
     "agn": {
       "name": "AGN Contamination",
       "description": "Apparent dust is AGN reddening, fraction increases with mass",
-      "log_likelihood": -93.44369099760796,
+      "log_likelihood": -93.4436909652485,
       "n_params": 4,
-      "aic": 194.88738199521592,
-      "bic": 209.03671906329006,
-      "akaike_weight": 0.16861936955833748
+      "aic": 194.887381930497,
+      "bic": 209.03671899857116,
+      "akaike_weight": 0.13597442209598729
     }
   },
   "ranking_by_aic": [
     {
       "rank": 1,
       "model": "null",
-      "aic": 193.0604730429497,
+      "aic": 193.06047300367328,
       "delta_aic": 0.0
     },
     {
       "rank": 2,
       "model": "tep",
-      "aic": 193.5866157665313,
-      "delta_aic": 0.5261427235816143
+      "aic": 193.5866157355301,
+      "delta_aic": 0.5261427318568224
     },
     {
       "rank": 3,
-      "model": "agn",
-      "aic": 194.88738199521592,
-      "delta_aic": 1.8269089522662227
+      "model": "stochastic_sf",
+      "aic": 194.83387534095917,
+      "delta_aic": 1.7734023372858871
     },
     {
       "rank": 4,
-      "model": "topheavy_imf",
-      "aic": 196.19015477458674,
-      "delta_aic": 3.1296817316370493
+      "model": "agn",
+      "aic": 194.887381930497,
+      "delta_aic": 1.8269089268237337
     },
     {
       "rank": 5,
-      "model": "stochastic_sf",
-      "aic": 231.7817633500173,
-      "delta_aic": 38.72129030706759
+      "model": "topheavy_imf",
+      "aic": 195.05846336184786,
+      "delta_aic": 1.997990358174576
     }
   ],
   "comparisons_vs_tep": {
     "null": {
-      "bayes_factor": 1.3009195515882306,
-      "interpretation": "Weak evidence for Model 2",
-      "delta_aic": -0.5261427235816143,
-      "delta_bic": -4.063476990600151
+      "aic_support_ratio_tep_over_alternative": 0.7686870372895416,
+      "interpretation": "AIC favors Standard Physics (Null) over TEP",
+      "delta_aic": -0.5261427318568224,
+      "delta_bic": -4.063476998875359
     },
     "topheavy_imf": {
-      "bayes_factor": 0.2720499733452184,
-      "interpretation": "Positive evidence for Model 1",
-      "delta_aic": 2.603539008055435,
-      "delta_bic": 2.603539008055435
+      "aic_support_ratio_tep_over_alternative": 2.0874094783936368,
+      "interpretation": "AIC favors TEP over Top-Heavy IMF",
+      "delta_aic": 1.4718476263177536,
+      "delta_bic": 1.4718476263177536
     },
     "stochastic_sf": {
-      "bayes_factor": 5.081934749091202e-09,
-      "interpretation": "Very strong evidence for Model 1",
-      "delta_aic": 38.195147583485976,
-      "delta_bic": 38.195147583485976
+      "aic_support_ratio_tep_over_alternative": 1.8656878448524448,
+      "interpretation": "AIC favors TEP over Stochastic Star Formation",
+      "delta_aic": 1.2472596054290648,
+      "delta_bic": 1.2472596054290648
     },
     "agn": {
-      "bayes_factor": 0.5218458118437593,
-      "interpretation": "Weak evidence for Model 1",
-      "delta_aic": 1.3007662286846084,
-      "delta_bic": -2.236568038333928
+      "aic_support_ratio_tep_over_alternative": 1.9162748084688122,
+      "interpretation": "AIC favors TEP over AGN Contamination",
+      "delta_aic": 1.3007661949669114,
+      "delta_bic": -2.2365680720516252
     }
   },
   "conclusion": {
     "best_model": "null",
     "tep_rank": 2,
-    "tep_akaike_weight": 0.3231210555519839,
-    "interpretation": "TEP ranks #2 (Akaike weight = 32.3%)"
+    "tep_akaike_weight": 0.2605643596586454,
+    "interpretation": "TEP ranks #2 (Akaike weight = 26.1%)"
   }
 }

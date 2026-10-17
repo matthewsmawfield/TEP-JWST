@@ -1,6 +1,6 @@
-[14:01:32] INFO    ═══ STEP 168: Resolved gradient sign-reversal test
-[14:01:32] INFO        Beta debiasing: β=0.509 (source: step_117_object_level_bootstrap)
-[14:01:33] INFO        Loaded N=277 galaxies with resolved gradients
-[14:01:33] INFO          Γt<1: 277, Γt>1: 0
-[14:01:33] INFO        Primary residual gradient contrast Δ=-0.058 with 95% CI [-0.249, 0.146]
-[14:01:33] INFO        The resolved sign test is directionally consistent with TEP after converting the problem into a high-vs-low screening comparison, but the effect remains short of a decisive inversion detection.
+[00:39:26] INFO    ═══ STEP 168: Resolved gradient sign-reversal test
+[00:39:26] INFO        Beta debiasing: β=0.509 (source: step_117_object_level_bootstrap)
+[00:39:26] INFO        Loaded N=277 galaxies with resolved gradients
+[00:39:26] INFO          Γt<1: 277, Γt>1: 0
+[00:39:27] INFO        Primary residual gradient contrast Δ=-0.273 with 95% CI [-0.526, -0.035]
+[00:39:27] INFO        The resolved sample shows the TEP-sign gradient reversal most clearly in the high-screening tail: high-Gamma_t galaxies are more likely to show the negative gradient convention associated with bluer cores.
