@@ -127,8 +127,22 @@ def main():
             rho, p = spearmanr(df_bin['log_Mstar'], df_bin['dust'])
             ci = bootstrap_correlation(df_bin['log_Mstar'].values, df_bin['dust'].values)
             significant = bool((ci[0] > 0) or (ci[1] < 0))
+            rho_rml_raw, p_rml_raw = spearmanr(df_bin['gamma_t'], df_bin['dust'])
+            rho_rml_part_z, p_rml_part_z = partial_correlation(
+                df_bin['gamma_t'].values, df_bin['dust'].values, df_bin['z_phot'].values
+            )
+            rho_teff_part_z, p_teff_part_z = partial_correlation(
+                df_bin['t_eff'].values, df_bin['dust'].values, df_bin['z_phot'].values
+            )
+            rho_z_rml, _ = spearmanr(df_bin['z_phot'], df_bin['gamma_t'])
+            rho_z_dust, _ = spearmanr(df_bin['z_phot'], df_bin['dust'])
             
-            print_status(f"z = {z_lo}-{z_hi}: N = {n:4d}, rho = {rho:+.3f} [{ci[0]:+.3f}, {ci[1]:+.3f}] {'*' if significant else ''}", "INFO")
+            print_status(
+                f"z = {z_lo}-{z_hi}: N = {n:4d}, rho(M*,dust) = {rho:+.3f}, "
+                f"rho(R_ML,dust) = {rho_rml_raw:+.3f}, "
+                f"rho(R_ML,dust|z) = {rho_rml_part_z:+.3f} (p={p_rml_part_z:.2e})",
+                "INFO"
+            )
             
             results_by_z.append({
                 "z_range": [z_lo, z_hi],
@@ -137,6 +151,16 @@ def main():
                 "p": format_p_value(p),
                 "ci_95": [float(ci[0]), float(ci[1])],
                 "significant": bool(significant),
+                "rho_rml_raw": float(rho_rml_raw),
+                "p_rml_raw": format_p_value(p_rml_raw),
+                "rho_rml_given_z": float(rho_rml_part_z),
+                "p_rml_given_z": format_p_value(p_rml_part_z),
+                "rho_teff_given_z": float(rho_teff_part_z),
+                "p_teff_given_z": format_p_value(p_teff_part_z),
+                "within_bin_rho_z_rml": float(rho_z_rml),
+                "within_bin_rho_z_dust": float(rho_z_dust),
+                "mean_t_cosmic_gyr": float(df_bin['t_cosmic'].mean()),
+                "frac_above_agb_0p3gyr": float((df_bin['t_cosmic'] > 0.3).mean()),
             })
     
     z8_result = [r for r in results_by_z if r["z_range"] == [8, 10]][0]

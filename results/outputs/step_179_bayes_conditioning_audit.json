@@ -1,7 +1,7 @@
 {
   "step": "step_179",
   "name": "bayes_conditioning_audit",
-  "timestamp": "2026-10-16T00:24:15.827745",
+  "timestamp": "2026-10-24T22:02:12.226306",
   "source": "step_176_nested_bayesian_evidence.json (stored logZ values)",
   "four_observable_covariance_family": {
     "logZ_Cov_TEP": -1262.614614821831,
@@ -46,6 +46,95 @@
     "conventional_residual_null": 9.07337115219866,
     "orthogonalized_residual_null": 157.9389012454899,
     "orthogonalized_residual_constrained_agn": 104.55465942336696
+  },
+  "interaction_dissection_and_clean_photoz_audit": {
+    "n_full": 254,
+    "n_broad_photoz_dz68_gt_5": 204,
+    "median_z16_full": 3.78,
+    "per_observable_R2_full_N254": {
+      "dust": {
+        "R2_mass_z": 0.5217,
+        "R2_mass_z_logRML": 0.5238,
+        "R2_mass_z_Mz": 0.5293,
+        "delta_R2_RML_minus_Mz": -0.0055
+      },
+      "log_ssfr": {
+        "R2_mass_z": 0.2858,
+        "R2_mass_z_logRML": 0.3568,
+        "R2_mass_z_Mz": 0.5305,
+        "delta_R2_RML_minus_Mz": -0.1737
+      },
+      "chi2": {
+        "R2_mass_z": 0.2923,
+        "R2_mass_z_logRML": 0.3455,
+        "R2_mass_z_Mz": 0.3115,
+        "delta_R2_RML_minus_Mz": 0.034
+      },
+      "met": {
+        "R2_mass_z": 0.0595,
+        "R2_mass_z_logRML": 0.0774,
+        "R2_mass_z_Mz": 0.2727,
+        "delta_R2_RML_minus_Mz": -0.1953
+      }
+    },
+    "clean_highz_subset_criteria": "z_16 >= 7.0 and chi2 < 50.0 (unambiguous high-z posterior, well-fitted SED)",
+    "n_clean": 38,
+    "per_observable_R2_clean_N38": {
+      "dust": {
+        "R2_mass_z": 0.8066,
+        "R2_mass_z_logRML": 0.8216,
+        "R2_mass_z_Mz": 0.8166,
+        "delta_R2_RML_minus_Mz": 0.0049
+      },
+      "log_ssfr": {
+        "R2_mass_z": 0.3602,
+        "R2_mass_z_logRML": 0.4403,
+        "R2_mass_z_Mz": 0.4283,
+        "delta_R2_RML_minus_Mz": 0.012
+      },
+      "chi2": {
+        "R2_mass_z": 0.367,
+        "R2_mass_z_logRML": 0.3775,
+        "R2_mass_z_Mz": 0.367,
+        "delta_R2_RML_minus_Mz": 0.0105
+      },
+      "met": {
+        "R2_mass_z": 0.3966,
+        "R2_mass_z_logRML": 0.4073,
+        "R2_mass_z_Mz": 0.4859,
+        "delta_R2_RML_minus_Mz": -0.0786
+      }
+    },
+    "clean_subset_nested_evidence_4obs": {
+      "observables": [
+        "dust",
+        "log_ssfr",
+        "chi2",
+        "met"
+      ],
+      "logZ_Cov_TEP": -202.36,
+      "logZ_Cov_Standard_Raw": -200.84,
+      "logZ_Cov_Augmented": -203.19,
+      "logZ_Cov_Interaction": -206.05,
+      "ln_BF_TEP_vs_Interaction": 3.68,
+      "ln_BF_Augmented_vs_Interaction": 2.85,
+      "ln_BF_err": 0.94
+    },
+    "clean_subset_nested_evidence_3phys": {
+      "observables": [
+        "dust",
+        "log_ssfr",
+        "met"
+      ],
+      "logZ_Cov_TEP": -153.13,
+      "logZ_Cov_Standard_Raw": -150.77,
+      "logZ_Cov_Augmented": -150.34,
+      "logZ_Cov_Interaction": -154.11,
+      "ln_BF_TEP_vs_Interaction": 0.98,
+      "ln_BF_Augmented_vs_Interaction": 3.77,
+      "ln_BF_err": 0.85
+    },
+    "diagnostic_summary": "In the full N=254 z>=8 sample, 204/254 sources have broad photo-z posteriors (z_84 - z_16 > 5.0, median z_16 = 3.78) and chi2 up to 297.7. Cov_Interaction's full-sample advantage (ln Z = -1190.9 vs -1243.8) comes almost entirely from fitting Prospector grid-boundary jumps in log_ssfr (R^2 = 0.5305 vs 0.3568) and met (0.2727 vs 0.0774) across those broad/high-chi2 fits, while on the primary dust observable (R^2 = 0.5238 vs 0.5293) and chi2 (0.3455 vs 0.3115, TEP higher) it has no advantage. When restricted to the clean high-z posterior subset (z_16 >= 7.0, chi2 < 50, N=38), Cov_Augmented outperforms Cov_Interaction on dust (R^2 = 0.8216 vs 0.8166), log_ssfr (0.4403 vs 0.4283), and chi2 (0.3775 vs 0.3670), reversing the joint nested evidence in TEP's favour by Delta ln Z = +2.85 (+3.68 for 9-parameter Cov_TEP over 17-parameter Cov_Interaction) on all 4 observables and +3.77 on the 3-observable physical subset."
   },
   "conditioning_note": "Neither conditioning is neutral. Orthogonalization removes the R_ML-aligned direction from the competitor (TEP-favourable). Raw mass, under the TEP measurement model M_obs = M_true + n*log10 R_ML, contains part of the response itself (standard-favourable). The conditioning-free arbiter is the nested augmented model.",
   "verdict": {

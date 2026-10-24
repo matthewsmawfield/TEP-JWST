@@ -158,7 +158,7 @@ class HTMLToMarkdownConverter {
 
             // Derive version/codename and last-updated from manifest.json so the
             // markdown header and filename never go stale on a version bump.
-            const manifestVersion = manifest.version || 'v0.8 (Kos)';
+            const manifestVersion = manifest.version || 'v0.9 (Kos)';
             const manifestUpdated = manifest.last_updated || '30 September 2026';
             const manifestFirstPublished = manifest.first_published || '13 March 2026';
             const versionMatch = String(manifestVersion).match(/^v?([\d.]+)\s*\(([^)]+)\)$/i);

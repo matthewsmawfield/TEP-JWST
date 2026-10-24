@@ -260,7 +260,7 @@
       <tbody>
         <tr>
           <td><strong>Functional form</strong></td>
-          <td>Exponential (Depth-Linear): $R_{\rm ML} = \\exp\\left[ K_{\\rm gal} \\left(\\Psi - \\Psi_{\\rm ref}\\right) \\sqrt{1+z} \\right]$, with positive potential depth $\Psi = |\\Phi|/c^2 = -(\\Phi - \\Phi_{\\rm ref})/c^2 - \\Psi_{\\rm ref}$</td>
+          <td>Exponential (Depth-Linear): $R_{\rm ML} = \exp\left[ K_{\rm gal} \left(\Psi - \Psi_{\rm ref}\right) \sqrt{1+z} \right]$, with positive potential depth $\Psi = |\Phi|/c^2 = -(\Phi - \Phi_{\rm ref})/c^2 - \Psi_{\rm ref}$</td>
           <td>
             Conformal coupling $\tilde{g}_{\mu\nu} = A^2(\phi)
             g_{\mu\nu}$ with $A(\phi) = \exp(\beta_A\phi/M_{\rm Pl})$
@@ -270,7 +270,7 @@
             mass-to-light over-inference — grows with depth
           </td>
           <td>
-            Log-Mass approximation: $R_{\rm ML} = \\exp\\left[ \\alpha(z) \\cdot \\frac{2}{3} \\cdot (\\log_{10} M_h - \\log_{10} M_{h,\\rm ref}) \\cdot \\frac{1+z}{1+z_{\\rm ref}} \\right]$; power-law or other monotonic functions of potential depth
+            Log-Mass approximation: $R_{\rm ML} = \exp\left[ \alpha(z) \cdot \frac{2}{3} \cdot (\log_{10} M_h - \log_{10} M_{h,\rm ref}) \cdot \frac{1+z}{1+z_{\rm ref}} \right]$; power-law or other monotonic functions of potential depth
           </td>
         </tr>
         <tr>
@@ -433,7 +433,7 @@
   </div>
   <p>
     where $G_{\rm eff} = G_N (1 + 2\beta_A^2)$ in the unscreened regime. For
-    For an illustrative halo-scale screened effective coupling ($\beta_{A,\rm eff} \approx 0.58$ — a representative value at halo environmental depth, distinct from the $\sigma_8$-scale coupling below; bare $\beta_A = -1.0$, Paper 0 §2.2), the
+    an illustrative halo-scale screened effective coupling ($\beta_{A,\rm eff} \approx 0.58$ — a representative value at halo environmental depth, distinct from the $\sigma_8$-scale coupling below; bare $\beta_A = -1.0$, Paper 0 §2.2), the
     effective gravity would be enhanced by a factor of $\sim 1.67$ in the unscreened regime.
     Scale-independent integration yields $\sigma_8^{\rm TEP} \approx
     3.40$—observationally ruled out by Planck ($\sigma_8 = 0.811 \pm
@@ -851,9 +851,8 @@
 
   <h5>A.1.9.7 Semi-Analytic CMB Power Spectrum Computation</h5>
   <p>
-    To partially close the gap identified in §4.5 item 4 (the absence of a
-    natively coupled scalar-field Boltzmann solver), a semi-analytic computation of the CMB
-    TT angular power spectrum deviations was performed. This uses the
+    Alongside the completed native <code>hi_class</code> Boltzmann integrations in Paper 18 (which confirm Planck TTTEEE, lensing, and $\sigma_8$ consistency across both the screened active-scalar and CDM-free $\omega_{\rm cdm}=0$ preferred-foliation branches; Paper 0 §8), a standalone semi-analytic computation of the CMB
+    TT angular power spectrum deviations was performed inside this repository. This uses the
     Eisenstein &amp; Hu (1998) transfer function, the scale-dependent growth
     ODE from §A.1.9.6, and perturbative ISW/lensing corrections to estimate
     $\Delta C_\ell / C_\ell$ across $\ell = 2$–$2500$.
@@ -1069,10 +1068,7 @@
       late-time growth via $G_{\rm eff}(k,z)$. These CAMB calculations are conventional-background compatibility embeddings on the inverse-power $n=1$ branch — the potential family excluded by Paper 0's constraint F1 under $\beta_A = -1$ — used to demonstrate that a screened scalar sector need not spoil observed CMB/growth phenomenology; they are a proxy for the screened-scalar sector, not the canonical static-space TEP cosmological solution, and the viability result transfers to canonical $V(\phi)$ only conditionally. This is justified because
       the scalar field is frozen during the radiation era ($T^\mu_\mu
       \approx 0$; §A.1.7), so the primary acoustic peaks at $z \sim 1089$
-      are unmodified. A natively coupled scalar-field Boltzmann solver
-      (e.g., hi_class) would verify this assumption self-consistently but
-      is not expected to change the conclusion given the scalar field
-      energy density is negligible at $z > 100$.
+      are unmodified, as independently verified by the completed native coupled scalar-field Boltzmann integrations (<code>hi_class</code>) in Paper 18 ($\Delta\chi^2 = -0.11$ on the screened active-scalar branch and $\Delta\chi^2 = -0.06$, $\Delta\text{AIC} = -2.06$ on the CDM-free $\omega_{\rm cdm}=0$ preferred-foliation Planck TTTEEE + lensing + BAO + Pantheon+ closure; Paper 0 §8).
     </p>
   </div>
 
@@ -1311,7 +1307,7 @@
       hierarchy. Paper 11 noted that the
       screening mechanism "remains to be derived from first principles"
       and that the phenomenology "mimics chameleon or Vainshtein
-      screening." This agnostic position has now been superseded: Paper 0 v0.16 assigns local screening to the nested two-body operator $\mathcal{R}(s)=\mathcal{S}_\Sigma(X_{\rm env})^2\,y(s)$ — the effective pairwise projection of the master environmental operator $\mathcal{S}_\Sigma(\mathcal{E})$ under the derived kinetic completion $P=X-V+X|X|/\Lambda_X^4$, with machine-checked benchmarks. The robust
+      screening." This agnostic position has now been superseded: Paper 0 v0.18 assigns local screening to the nested two-body operator $\mathcal{R}(s)=\mathcal{S}_\Sigma(X_{\rm env})^2\,y(s)$ — the effective pairwise projection of the master environmental operator $\mathcal{S}_\Sigma(\mathcal{E})$ under the selected two-branch kinetic completion $P(X,\phi)=-V(\phi)+\frac{2k}{3\Lambda_X^2}X|X|^{1/2}+\frac{X|X|}{\Lambda_X^4}$ ($P_{,X}(\xi)=k\sqrt{\xi}+2\xi$, $k\simeq 16.03$, alongside the unit-term high-gradient benchmark $P=X-V+X|X|/\Lambda_X^4$), with machine-checked benchmarks. The robust
       empirical finding — the saturation scale $\rho_T \approx 20$
       g/cm³ and the resulting screening hierarchy — is anchored to this operator structure. The chameleon and DBI mechanisms remain candidate alternative completions.
     </p>

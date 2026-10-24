@@ -14,7 +14,17 @@
         -0.019730886260014034,
         0.12036837081524417
       ],
-      "significant": false
+      "significant": false,
+      "rho_rml_raw": 0.023681865811922817,
+      "p_rml_raw": 0.4821705229602027,
+      "rho_rml_given_z": 0.07435394517865718,
+      "p_rml_given_z": 0.027148218025294647,
+      "rho_teff_given_z": 0.14702105087332223,
+      "p_teff_given_z": 1.1521813087618605e-05,
+      "within_bin_rho_z_rml": -0.5468974592188995,
+      "within_bin_rho_z_dust": 0.07023891532394821,
+      "mean_t_cosmic_gyr": 1.3530002359195663,
+      "frac_above_agb_0p3gyr": 1.0
     },
     {
       "z_range": [
@@ -28,7 +38,17 @@
         -0.1265787000861452,
         0.05946189863527045
       ],
-      "significant": false
+      "significant": false,
+      "rho_rml_raw": -0.13625864512439106,
+      "p_rml_raw": 0.003045263224978762,
+      "rho_rml_given_z": -0.043343207399662145,
+      "p_rml_given_z": 0.34793661501788703,
+      "rho_teff_given_z": -0.014593624053029868,
+      "p_teff_given_z": 0.7520830612753467,
+      "within_bin_rho_z_rml": -0.44656779086780857,
+      "within_bin_rho_z_dust": 0.22041696431237526,
+      "mean_t_cosmic_gyr": 1.0620538731320797,
+      "frac_above_agb_0p3gyr": 1.0
     },
     {
       "z_range": [
@@ -42,7 +62,17 @@
         -0.18169265077386668,
         0.028644562120498547
       ],
-      "significant": false
+      "significant": false,
+      "rho_rml_raw": -0.008324517671262502,
+      "p_rml_raw": 0.8775604044547501,
+      "rho_rml_given_z": -0.038122626779055466,
+      "p_rml_given_z": 0.4803230236999622,
+      "rho_teff_given_z": 0.022021927113423517,
+      "p_teff_given_z": 0.6835643714788378,
+      "within_bin_rho_z_rml": -0.46366388656726887,
+      "within_bin_rho_z_dust": -0.05478500499716536,
+      "mean_t_cosmic_gyr": 0.8407562674309965,
+      "frac_above_agb_0p3gyr": 1.0
     },
     {
       "z_range": [
@@ -56,7 +86,17 @@
         -0.04080966156696185,
         0.256241386871834
       ],
-      "significant": false
+      "significant": false,
+      "rho_rml_raw": 0.04296527694340983,
+      "p_rml_raw": 0.5417439666876798,
+      "rho_rml_given_z": 0.11521318592042327,
+      "p_rml_given_z": 0.10081180959835344,
+      "rho_teff_given_z": 0.1950693773510151,
+      "p_teff_given_z": 0.005174933982188972,
+      "within_bin_rho_z_rml": -0.38731933479867975,
+      "within_bin_rho_z_dust": 0.15979108211829726,
+      "mean_t_cosmic_gyr": 0.691861902887927,
+      "frac_above_agb_0p3gyr": 1.0
     },
     {
       "z_range": [
@@ -70,7 +110,17 @@
         0.49620383157190634,
         0.6815680650740118
       ],
-      "significant": true
+      "significant": true,
+      "rho_rml_raw": 0.6457648560030902,
+      "p_rml_raw": 2.2986036547901105e-31,
+      "rho_rml_given_z": 0.6576831815090156,
+      "p_rml_given_z": 7.511521787835037e-33,
+      "rho_teff_given_z": 0.5221178523870056,
+      "p_teff_given_z": 3.64330943803076e-19,
+      "within_bin_rho_z_rml": -0.14910394396468865,
+      "within_bin_rho_z_dust": 0.028814760163814672,
+      "mean_t_cosmic_gyr": 0.564184281557933,
+      "frac_above_agb_0p3gyr": 1.0
     }
   ],
   "z8_result": {
@@ -85,15 +135,25 @@
       0.49620383157190634,
       0.6815680650740118
     ],
-    "significant": true
+    "significant": true,
+    "rho_rml_raw": 0.6457648560030902,
+    "p_rml_raw": 2.2986036547901105e-31,
+    "rho_rml_given_z": 0.6576831815090156,
+    "p_rml_given_z": 7.511521787835037e-33,
+    "rho_teff_given_z": 0.5221178523870056,
+    "p_teff_given_z": 3.64330943803076e-19,
+    "within_bin_rho_z_rml": -0.14910394396468865,
+    "within_bin_rho_z_dust": 0.028814760163814672,
+    "mean_t_cosmic_gyr": 0.564184281557933,
+    "frac_above_agb_0p3gyr": 1.0
   },
   "partial_correlations": {
-    "rho_gamma_dust_given_mass": 0.3112399443402219,
+    "rho_gamma_dust_given_mass": 0.31123994434022184,
     "p_gamma_dust_given_mass": 4.1450504928415977e-07,
     "rho_gamma_dust_given_z": 0.6576831815090156,
     "p_gamma_dust_given_z": 7.511521787835037e-33,
-    "rho_gamma_dust_given_mass_z": 0.31017784785197355,
-    "p_gamma_dust_given_mass_z": 4.5591765463862587e-07
+    "rho_gamma_dust_given_mass_z": 0.31017784785197366,
+    "p_gamma_dust_given_mass_z": 4.559176546386168e-07
   },
   "dust_by_mass": [
     {

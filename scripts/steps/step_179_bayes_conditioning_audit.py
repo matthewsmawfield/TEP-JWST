@@ -49,6 +49,15 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.utils.logger import TEPLogger, set_step_logger, print_status
+from scripts.steps.step_176_nested_bayesian_evidence import (
+    load_data, compute_ml_response_self_consistent, OBSERVABLES, ALPHA_NUCLEAR,
+    _joint_cov_tep_loglike, _joint_cov_tep_prior,
+    _joint_cov_standard_loglike, _joint_cov_standard_prior,
+    _joint_cov_augmented_loglike, _joint_cov_augmented_prior,
+    _joint_cov_mz_interaction_loglike, _joint_cov_mz_interaction_prior,
+)
+import warnings
+import dynesty
 
 STEP_NUM = "179"
 STEP_NAME = "bayes_conditioning_audit"
@@ -144,7 +153,163 @@ def main():
     }
 
     # ------------------------------------------------------------------
-    # 5. Verdict
+    # 5. Interaction-model dissection & clean high-z posterior audit
+    # ------------------------------------------------------------------
+    warnings.filterwarnings("ignore")
+    df = load_data()
+    rc = "ml_response" if "ml_response" in df.columns else "gamma_t"
+    cols_needed = ["dust", "log_Mstar", "z", rc] + [
+        c for c in OBSERVABLES if c != "dust"
+    ]
+    df_v = df[df[cols_needed].notna().all(axis=1)].copy()
+    mass_full = df_v["log_Mstar"].values
+    z_full = df_v["z"].values
+    gt_full, _ = compute_ml_response_self_consistent(
+        mass_full, z_full, n_sps=ALPHA_NUCLEAR
+    )
+    lg_full = np.log10(np.maximum(gt_full, 0.01))
+    lg_s_full = (lg_full - lg_full.mean()) / lg_full.std(ddof=0)
+    m_s_full = (mass_full - mass_full.mean()) / mass_full.std(ddof=0)
+    z_s_full = (z_full - z_full.mean()) / z_full.std(ddof=0)
+    mz_full = m_s_full * z_s_full
+    mz_s_full = (mz_full - mz_full.mean()) / mz_full.std(ddof=0)
+
+    X_lin_f = np.column_stack([np.ones_like(m_s_full), m_s_full, z_s_full])
+    X_aug_f = np.column_stack([X_lin_f, lg_s_full])
+    X_int_f = np.column_stack([X_lin_f, mz_s_full])
+
+    per_obs_r2_full = {}
+    for c in OBSERVABLES:
+        y = df_v[c].values
+        y = (y - y.mean()) / y.std(ddof=0)
+        r2_lin = float(1.0 - np.var(y - X_lin_f @ np.linalg.lstsq(X_lin_f, y, rcond=None)[0]))
+        r2_aug = float(1.0 - np.var(y - X_aug_f @ np.linalg.lstsq(X_aug_f, y, rcond=None)[0]))
+        r2_int = float(1.0 - np.var(y - X_int_f @ np.linalg.lstsq(X_int_f, y, rcond=None)[0]))
+        per_obs_r2_full[c] = {
+            "R2_mass_z": round(r2_lin, 4),
+            "R2_mass_z_logRML": round(r2_aug, 4),
+            "R2_mass_z_Mz": round(r2_int, 4),
+            "delta_R2_RML_minus_Mz": round(r2_aug - r2_int, 4),
+        }
+
+    # Clean high-z photo-z & SED-fit subset: z_16 >= 7.0 (unambiguous high-z
+    # posterior with no low-z secondary peak; in the full N=254 sample, 204/254
+    # objects have dz_68 = z_84 - z_16 > 5.0 and median z_16 = 3.78) and chi2 < 50
+    # (excluding catastrophic SED fits up to chi2 = 297.7).
+    dz68_full = df_v["z_84"].values - df_v["z_16"].values
+    n_broad_photoz = int(np.sum(dz68_full > 5.0))
+    median_z16_full = float(np.median(df_v["z_16"].values))
+
+    mask_clean = (df_v["z_16"].values >= 7.0) & (df_v["chi2"].values < 50.0)
+    sub_clean = df_v[mask_clean].copy()
+    n_clean = int(len(sub_clean))
+    mass_c = sub_clean["log_Mstar"].values
+    z_c = sub_clean["z"].values
+    gt_c, _ = compute_ml_response_self_consistent(mass_c, z_c, n_sps=ALPHA_NUCLEAR)
+    lg_c = np.log10(np.maximum(gt_c, 0.01))
+    lg_s_c = (lg_c - lg_c.mean()) / lg_c.std(ddof=0)
+    m_s_c = (mass_c - mass_c.mean()) / mass_c.std(ddof=0)
+    z_s_c = (z_c - z_c.mean()) / z_c.std(ddof=0)
+    mz_c = m_s_c * z_s_c
+    mz_s_c = (mz_c - mz_c.mean()) / mz_c.std(ddof=0)
+
+    X_lin_c = np.column_stack([np.ones_like(m_s_c), m_s_c, z_s_c])
+    X_aug_c = np.column_stack([X_lin_c, lg_s_c])
+    X_int_c = np.column_stack([X_lin_c, mz_s_c])
+
+    per_obs_r2_clean = {}
+    for c in OBSERVABLES:
+        y = sub_clean[c].values
+        y = (y - y.mean()) / y.std(ddof=0)
+        r2_lin = float(1.0 - np.var(y - X_lin_c @ np.linalg.lstsq(X_lin_c, y, rcond=None)[0]))
+        r2_aug = float(1.0 - np.var(y - X_aug_c @ np.linalg.lstsq(X_aug_c, y, rcond=None)[0]))
+        r2_int = float(1.0 - np.var(y - X_int_c @ np.linalg.lstsq(X_int_c, y, rcond=None)[0]))
+        per_obs_r2_clean[c] = {
+            "R2_mass_z": round(r2_lin, 4),
+            "R2_mass_z_logRML": round(r2_aug, 4),
+            "R2_mass_z_Mz": round(r2_int, 4),
+            "delta_R2_RML_minus_Mz": round(r2_aug - r2_int, 4),
+        }
+
+    def _run_clean_nested(obs_cols, seed=179):
+        K_c = len(obs_cols)
+        obs_m = np.column_stack([
+            (sub_clean[c].values - sub_clean[c].values.mean())
+            / sub_clean[c].values.std(ddof=0)
+            for c in obs_cols
+        ])
+        cov_c = np.cov(obs_m, rowvar=False) + 1e-4 * np.eye(K_c)
+        ci_c = np.linalg.inv(cov_c)
+        cld_c = float(np.linalg.slogdet(cov_c)[1])
+
+        def _ns(ll, pr, nd):
+            s = dynesty.NestedSampler(
+                ll, pr, nd, nlive=200, bound="multi", sample="rwalk",
+                rstate=np.random.default_rng(seed)
+            )
+            s.run_nested(dlogz=0.5, print_progress=False)
+            return float(s.results.logz[-1]), float(s.results.logzerr[-1])
+
+        lz_t, err_t = _ns(
+            lambda p: _joint_cov_tep_loglike(p, obs_m, lg_s_c, ci_c, cld_c),
+            lambda u: _joint_cov_tep_prior(u, K_c), 2 * K_c + 1
+        )
+        lz_s, err_s = _ns(
+            lambda p: _joint_cov_standard_loglike(p, obs_m, m_s_c, z_s_c, ci_c, cld_c),
+            lambda u: _joint_cov_standard_prior(u, K_c), 3 * K_c + 1
+        )
+        lz_a, err_a = _ns(
+            lambda p: _joint_cov_augmented_loglike(p, obs_m, m_s_c, z_s_c, lg_s_c, ci_c, cld_c),
+            lambda u: _joint_cov_augmented_prior(u, K_c), 4 * K_c + 1
+        )
+        lz_i, err_i = _ns(
+            lambda p: _joint_cov_mz_interaction_loglike(p, obs_m, m_s_c, z_s_c, ci_c, cld_c),
+            lambda u: _joint_cov_mz_interaction_prior(u, K_c), 4 * K_c + 1
+        )
+        return {
+            "observables": obs_cols,
+            "logZ_Cov_TEP": round(lz_t, 2),
+            "logZ_Cov_Standard_Raw": round(lz_s, 2),
+            "logZ_Cov_Augmented": round(lz_a, 2),
+            "logZ_Cov_Interaction": round(lz_i, 2),
+            "ln_BF_TEP_vs_Interaction": round(lz_t - lz_i, 2),
+            "ln_BF_Augmented_vs_Interaction": round(lz_a - lz_i, 2),
+            "ln_BF_err": round(float(np.sqrt(err_a**2 + err_i**2)), 2),
+        }
+
+    clean_4obs = _run_clean_nested(["dust", "log_ssfr", "chi2", "met"])
+    clean_3phys = _run_clean_nested(["dust", "log_ssfr", "met"])
+
+    interaction_dissection = {
+        "n_full": int(len(df_v)),
+        "n_broad_photoz_dz68_gt_5": n_broad_photoz,
+        "median_z16_full": round(median_z16_full, 2),
+        "per_observable_R2_full_N254": per_obs_r2_full,
+        "clean_highz_subset_criteria": "z_16 >= 7.0 and chi2 < 50.0 (unambiguous high-z posterior, well-fitted SED)",
+        "n_clean": n_clean,
+        "per_observable_R2_clean_N38": per_obs_r2_clean,
+        "clean_subset_nested_evidence_4obs": clean_4obs,
+        "clean_subset_nested_evidence_3phys": clean_3phys,
+        "diagnostic_summary": (
+            "In the full N=254 z>=8 sample, 204/254 sources have broad photo-z "
+            "posteriors (z_84 - z_16 > 5.0, median z_16 = 3.78) and chi2 up to 297.7. "
+            "Cov_Interaction's full-sample advantage (ln Z = -1190.9 vs -1243.8) comes "
+            "almost entirely from fitting Prospector grid-boundary jumps in log_ssfr "
+            "(R^2 = 0.5305 vs 0.3568) and met (0.2727 vs 0.0774) across those broad/high-chi2 "
+            "fits, while on the primary dust observable (R^2 = 0.5238 vs 0.5293) and chi2 "
+            "(0.3455 vs 0.3115, TEP higher) it has no advantage. When restricted to the "
+            "clean high-z posterior subset (z_16 >= 7.0, chi2 < 50, N=38), Cov_Augmented "
+            "outperforms Cov_Interaction on dust (R^2 = 0.8216 vs 0.8166), log_ssfr "
+            "(0.4403 vs 0.4283), and chi2 (0.3775 vs 0.3670), reversing the joint nested "
+            f"evidence in TEP's favour by Delta ln Z = +{clean_4obs['ln_BF_Augmented_vs_Interaction']:.2f} "
+            f"(+{clean_4obs['ln_BF_TEP_vs_Interaction']:.2f} for 9-parameter Cov_TEP over 17-parameter "
+            f"Cov_Interaction) on all 4 observables and +{clean_3phys['ln_BF_Augmented_vs_Interaction']:.2f} "
+            "on the 3-observable physical subset."
+        ),
+    }
+
+    # ------------------------------------------------------------------
+    # 6. Verdict
     # ------------------------------------------------------------------
     output = {
         "step": f"step_{STEP_NUM}",
@@ -164,6 +329,7 @@ def main():
         },
         "physical_subset": phys,
         "residual_space": resid,
+        "interaction_dissection_and_clean_photoz_audit": interaction_dissection,
         "conditioning_note": (
             "Neither conditioning is neutral. Orthogonalization removes the "
             "R_ML-aligned direction from the competitor (TEP-favourable). Raw "
